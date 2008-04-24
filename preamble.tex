@@ -1,0 +1,189 @@
+%auto-ignore
+%this ensures the arxiv doesn't try to start TeXing here.
+
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{ifpdf}
+
+%\ifpdf
+%\usepackage[pdftex,all,color]{xy}
+%\else
+\usepackage[all,color]{xy}
+%\fi
+
+\SelectTips{cm}{}
+% This may speed up compilation of complex documents with many xymatrices.
+%\CompileMatrices
+
+% ----------------------------------------------------------------
+\vfuzz2pt % Don't report over-full v-boxes if over-edge is small
+\hfuzz2pt % Don't report over-full h-boxes if over-edge is small
+% ----------------------------------------------------------------
+
+% diagrams -------------------------------------------------------
+% figures ---------------------------------------------------------
+%%% borrowed from Dror's cobordisms paper, use this to include eps or pdf graphics.
+\ifpdf
+\newcommand{\pathtodiagrams}{\pathtotrunk diagrams/pdf/}
+\else
+\newcommand{\pathtodiagrams}{\pathtotrunk diagrams/eps/}
+\fi
+
+\newcommand{\mathfig}[2]{{\hspace{-3pt}\begin{array}{c}%
+  \raisebox{-2.5pt}{\includegraphics[width=#1\textwidth]{\pathtodiagrams #2}}%
+\end{array}\hspace{-3pt}}}
+\newcommand{\reflectmathfig}[2]{{\hspace{-3pt}\begin{array}{c}%
+  \raisebox{-2.5pt}{\reflectbox{\includegraphics[width=#1\textwidth]{\pathtodiagrams #2}}}%
+\end{array}\hspace{-3pt}}}
+\newcommand{\rotatemathfig}[3]{{\hspace{-3pt}\begin{array}{c}%
+  \raisebox{-2.5pt}{\rotatebox{#2}{\includegraphics[height=#1\textwidth]{\pathtodiagrams #3}}}%
+\end{array}\hspace{-3pt}}}
+\newcommand{\placefig}[2]{\includegraphics[width=#1\linewidth]{\pathtodiagrams #2}}
+
+\ifpdf
+\usepackage[pdftex,plainpages=false,hypertexnames=false,pdfpagelabels]{hyperref}
+\else
+\usepackage[dvips,plainpages=false,hypertexnames=false]{hyperref}
+\fi
+\newcommand{\arxiv}[1]{\href{http://arxiv.org/abs/#1}{\tt arXiv:\nolinkurl{#1}}}
+\newcommand{\doi}[1]{\href{http://dx.doi.org/#1}{{\tt DOI:#1}}}
+\newcommand{\mathscinet}[1]{\href{http://www.ams.org/mathscinet-getitem?mr=#1}{\tt #1}}
+
+
+% THEOREMS -------------------------------------------------------
+\theoremstyle{plain}
+\newtheorem*{fact}{Fact}
+\newtheorem{prop}{Proposition}[section]
+\newtheorem{conj}[prop]{Conjecture}
+\newtheorem{thm}[prop]{Theorem}
+\newtheorem{lem}[prop]{Lemma}
+\newtheorem{lemma}[prop]{Lemma}
+\newtheorem{cor}[prop]{Corollary}
+\newtheorem*{cor*}{Corollary}
+\newtheorem*{exc}{Exercise}
+%\theoremstyle{definition}
+\newtheorem{defn}[prop]{Definition}         % numbered definition
+\newtheorem*{defn*}{Definition}             % unnumbered definition
+\newtheorem{question}{Question}
+\newenvironment{rem}{\noindent\textsl{Remark.}}{}  % perhaps looks better than rem above?
+\numberwithin{equation}{section}
+%\numberwithin{figure}{section}
+
+% Marginal notes in draft mode -----------------------------------
+\newcommand{\scott}[1]{\stepcounter{comment}{{\color{blue} $\star^{(\arabic{comment})}$}}\marginpar{\color{blue}  $\star^{(\arabic{comment})}$ \usefont{T1}{scott}{m}{n}  #1 --S}}     % draft mode
+\newcommand{\ari}[1]{\stepcounter{comment}{\color{red} $\star^{(\arabic{comment})}$}\marginpar{\color{red}  $\star^{(\arabic{comment})}$  #1 --A}}     % draft mode
+\newcommand{\comment}[1]{\stepcounter{comment}$\star^{(\arabic{comment})}$\marginpar{\tiny $\star^{(\arabic{comment})}$ #1}}     % draft mode
+\newcounter{comment}
+\newcommand{\noop}[1]{}
+\newcommand{\todo}[1]{\textbf{TODO: #1}}
+
+% \mathrlap -- a horizontal \smash--------------------------------
+% For comparison, the existing overlap macros:
+% \def\llap#1{\hbox to 0pt{\hss#1}}
+% \def\rlap#1{\hbox to 0pt{#1\hss}}
+\def\clap#1{\hbox to 0pt{\hss#1\hss}}
+\def\mathllap{\mathpalette\mathllapinternal}
+\def\mathrlap{\mathpalette\mathrlapinternal}
+\def\mathclap{\mathpalette\mathclapinternal}
+\def\mathllapinternal#1#2{%
+\llap{$\mathsurround=0pt#1{#2}$}}
+\def\mathrlapinternal#1#2{%
+\rlap{$\mathsurround=0pt#1{#2}$}}
+\def\mathclapinternal#1#2{%
+\clap{$\mathsurround=0pt#1{#2}$}}
+
+% MATH -----------------------------------------------------------
+\newcommand{\Natural}{\mathbb N}
+\newcommand{\Integer}{\mathbb Z}
+\newcommand{\Rational}{\mathbb Q}
+\newcommand{\Real}{\mathbb R}
+\newcommand{\Complex}{\mathbb C}
+\newcommand{\Field}{\mathbb F}
+
+\newcommand{\Id}{\boldsymbol{1}}
+\renewcommand{\imath}{\mathfrak{i}}
+\renewcommand{\jmath}{\mathfrak{j}}
+
+\newcommand{\qRing}{\Integer[q,q^{-1}]}
+\newcommand{\qMod}{\qRing-\operatorname{Mod}}
+\newcommand{\ZMod}{\Integer-\operatorname{Mod}}
+
+\newcommand{\To}{\rightarrow}
+\newcommand{\Into}{\hookrightarrow}
+\newcommand{\Onto}{\mapsto}
+\newcommand{\Iso}{\cong}
+\newcommand{\ActsOn}{\circlearrowright}
+
+\newcommand{\htpy}{\simeq}
+
+\newcommand{\restrict}[2]{#1{}_{\mid #2}{}}
+\newcommand{\set}[1]{\left\{#1\right\}}
+\newcommand{\setc}[2]{\left\{#1 \;\left| \; #2 \right. \right\}}
+\newcommand{\relations}[2]{\left<#1 \;\left| \; #2 \right. \right>}
+\newcommand{\cone}[3]{C\left(#1 \xrightarrow{#2} #3\right)}
+\newcommand{\pairing}[2]{\left\langle#1 ,#2 \right\rangle}
+
+\newcommand{\card}[1]{\sharp{#1}}
+
+\newcommand{\bdy}{\partial}
+\newcommand{\compose}{\circ}
+\newcommand{\eset}{\emptyset}
+
+\newcommand{\Cat}{\mathcal{C}}
+
+\newcommand{\psmallmatrix}[1]{\left(\begin{smallmatrix} #1 \end{smallmatrix}\right)}
+
+\newcommand{\qiq}[2]{[#1]_{#2}}
+\newcommand{\qi}[1]{\qiq{#1}{q}}
+\newcommand{\qdim}{\operatorname{dim_q}}
+
+\newcommand{\directSum}{\oplus}
+\newcommand{\DirectSum}{\bigoplus}
+\newcommand{\tensor}{\otimes}
+\newcommand{\Tensor}{\bigotimes}
+
+\newcommand{\db}[1]{\left(\left(#1\right)\right)}
+
+\newcommand{\su}[1]{\mathfrak{su}_{#1}}
+\newcommand{\csl}[1]{\mathfrak{sl}_{#1}}
+\newcommand{\uqsl}[1]{U_q\left(\csl{#1}\right)}
+
+\newcommand{\Cobl}{{\mathcal Cob}_{/l}}
+\newcommand{\Cob}[1]{{\mathcal Cob}\left(\su{#1}\right)}
+\newcommand{\Kom}[1]{\operatorname{Kom}\left(#1\right)}
+
+\newcommand{\Mat}[1]{\mathbf{Mat}\left(#1\right)}
+\newcommand{\Kar}[1]{\mathbf{Kar}\left(#1\right)}
+\newcommand{\Inv}[1]{\operatorname{Inv}\left(#1\right)}
+\newcommand{\Hom}[3]{\operatorname{Hom}_{#1}\left(#2,#3\right)}
+\newcommand{\End}[1]{\operatorname{End}\left(#1\right)}
+
+\newcommand{\Gr}[2]{\text{Gr}(#1 \subset #2)}
+\newcommand{\Flag}[3]{\text{Flag}(#1 \subset #2 \subset #3)}
+
+\def\llbracket{\left[\!\!\left[}
+\def\rrbracket{\right]\!\!\right]}
+\newcommand{\Kh}[1]{\llbracket#1\rrbracket}
+\newcommand{\mirror}[1]{\overline{#1}}%
+
+\newcommand{\Tangles}{{\mathbf{Oriented Tangles}}}
+\newcommand{\Spider}[1]{{\mathbf{Spider}\left(#1\right)}}
+\newcommand{\TL}{\mathcal{TL}}
+\newcommand{\Foam}[1]{\mathbf{Foam}\left(#1\right)}
+
+\newcommand{\directSumStack}[2]{{\begin{matrix}#1 \\ \DirectSum \\#2\end{matrix}}}
+\newcommand{\directSumStackThree}[3]{{\begin{matrix}#1 \\ \DirectSum \\#2 \\ \DirectSum \\#3\end{matrix}}}
+
+\newcommand{\grading}[1]{{\color{blue}\{#1\}}}
+\newcommand{\shift}[1]{\left[#1\right]}
+
+\newenvironment{narrow}[2]{%
+\vspace{-0.4cm}% horrible hack, by scott % this only seems to be appropriate in beamer mode...
+\begin{list}{}{%
+\setlength{\topsep}{0pt}%
+\setlength{\leftmargin}{#1}%
+\setlength{\rightmargin}{#2}%
+\setlength{\listparindent}{\parindent}%
+\setlength{\itemindent}{\parindent}%
+\setlength{\parsep}{\parskip}}%
+\item[]}{\end{list}}
+% ----------------------------------------------------------------

@@ -1,0 +1,29 @@
+%auto-ignore
+%this ensures the arxiv doesn't try to start TeXing here.
+
+\input{\pathtotrunk preamble.tex}
+
+\usepackage{breakurl}
+
+\ifpdf
+\usepackage[pdftex]{graphicx}
+\else
+\usepackage[dvips]{graphicx}
+\fi
+
+\usepackage{color}
+
+% This switches fonts to the Palatino family.
+\renewcommand{\familydefault}{ppl}
+
+%%% futzing with margins following Dror (from Karoubi)
+%\marginparwidth 0pt%
+%\marginparsep 0pt
+
+\textwidth   5.5in%
+\textheight  9.0in%
+\oddsidemargin 12pt%
+\evensidemargin 12pt
+
+\topmargin -.6in%
+\headsep .5in

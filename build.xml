@@ -1,0 +1,96 @@
+<!-- This is an Ant build file; you'll need to install Ant before using it. -->
+<project name="su_3-functoriality" default="usage">
+    <target name="init">
+      <property name="arxivTarFile" value="su_3-functoriality.tar"/>
+    </target>
+
+    <!-- USAGE -->
+    <!-- Instructions for using the build file -->
+    <!-- =================================================================== -->
+    <target name = "usage" depends = "init">    
+        <echo message = ""/>
+        <echo message = "su_3-functoriality build instructions"/>
+        <echo message = "-------------------------------------------------------------"/>
+        <echo message = ""/>
+        <echo message = " available targets are:"/>
+        <echo message = ""/>
+        <echo message = "   arxiv --> builds su_3-functoriality.tar.gz, for submission to the arxiv"/>
+        <echo message = "   dvi   --> builds su_3-functoriality.dvi"/>
+        <echo message = "   ps    --> builds su_3-functoriality.ps"/>
+        <echo message = "   pdf   --> builds su_3-functoriality.pdf"/>
+        <echo message = ""/>
+        <echo message = "-------------------------------------------------------------"/>
+        <echo message = ""/>  
+    </target>
+    <!-- =================================================================== -->    
+
+    <target name="clean" depends="init">
+        <delete>
+            <fileset dir=".">
+                <include name="*.toc"/>
+                <include name="*.log"/>
+                <include name="*.aux"/>
+                <include name="*.blg"/>
+                <include name="*.xyc"/>
+                <include name="*.out"/>
+            </fileset>
+        </delete>
+    </target>
+
+    <target name="arxiv" depends="clean">
+        <delete file="${arxivTarFile}"/>
+        <delete file="${arxivTarFile}.gz"/>
+        <tar destfile="${arxivTarFile}" basedir="." includes="**"
+            excludes="*.dvi,*.ps,*.pdf,*.png,${arxivTarFile},${arxivTarFile}.gz,sandbox.*,bibliography/**,papers/**,talks/**,diagrams/pdf/**,diagrams/latex2pdf/**,diagrams/*"
+        />
+        <gzip src="${arxivTarFile}" destfile="${arxivTarFile}.gz"/>
+        <delete file="${arxivTarFile}"/>
+    </target>
+
+    <target name="bbl" depends="init">
+        <exec executable="latex">
+            <arg value="su_3-functoriality"/>
+        </exec>
+        <exec executable="bibtex">
+            <arg value="su_3-functoriality"/>
+        </exec>
+    </target>
+     
+    <target name="dvi" depends="bbl">
+        <exec executable="latex">
+            <arg value="su_3-functoriality"/>
+        </exec>
+        <exec executable="latex">
+            <arg value="su_3-functoriality"/>
+        </exec>
+    </target>
+
+    <target name="ps" depends="dvi">
+        <exec executable="dvips">
+            <arg value="su_3-functoriality"/>
+        </exec>
+    </target>
+
+    <target name="pdf" depends="ps">
+        <exec executable="ps2pdf">
+            <arg value="su_3-functoriality.ps"/>
+        </exec>
+    </target>
+    
+    <target name="eps-diagrams">
+        <exec executable="bash" dir="diagrams/scripts/">
+            <arg value="find_all_diagrams.sh"/>
+        </exec>
+        <exec executable="bash" dir="diagrams/scripts/">
+            <arg value="stripall.sh"/>
+        </exec>
+    </target>
+    
+    <target name="scott-copy-pdf" depends="pdf">
+        <copy file="su_3-foams.pdf" tofile="../../../../hosts/math.berkeley.edu/public_html/papers/su_3-functoriality.pdf"/>
+        <svn>
+            <commit dir="../../../../hosts/math.berkeley.edu/public_html/papers/"/>
+        </svn>
+    </target>
+
+</project>

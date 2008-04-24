@@ -1,14 +1,14 @@
-\documentclass[11pt,leqno]{article}
+\documentclass[11pt,leqno]{amsart}
 
-\usepackage{amsmath,amssymb,amsthm}
-
-\usepackage[all]{xy}
+\newcommand{\pathtotrunk}{./}
+\input{text/article_preamble.tex}
+\input{text/top_matter.tex}
 
 % test edit #3
 
 %%%%% excerpts from my include file of standard macros
 
-\def\bc{{\cal B}}
+\def\bc{{\mathcal B}}
 
 \def\z{\mathbb{Z}}
 \def\r{\mathbb{R}}
@@ -38,23 +38,23 @@
 % tricky way to iterate macros over a list
 \def\semicolon{;}
 \def\applytolist#1{
-	\expandafter\def\csname multi#1\endcsname##1{
-		\def\multiack{##1}\ifx\multiack\semicolon
-			\def\next{\relax}
-		\else
-			\csname #1\endcsname{##1}
-			\def\next{\csname multi#1\endcsname}
-		\fi
-		\next}
-	\csname multi#1\endcsname}
+    \expandafter\def\csname multi#1\endcsname##1{
+        \def\multiack{##1}\ifx\multiack\semicolon
+            \def\next{\relax}
+        \else
+            \csname #1\endcsname{##1}
+            \def\next{\csname multi#1\endcsname}
+        \fi
+        \next}
+    \csname multi#1\endcsname}
 
 % \def\cA{{\cal A}} for A..Z
-\def\calc#1{\expandafter\def\csname c#1\endcsname{{\cal #1}}}
+\def\calc#1{\expandafter\def\csname c#1\endcsname{{\mathcal #1}}}
 \applytolist{calc}QWERTYUIOPLKJHGFDSAZXCVBNM;
 
 % \DeclareMathOperator{\pr}{pr} etc.
 \def\declaremathop#1{\expandafter\DeclareMathOperator\csname #1\endcsname{#1}}
-\applytolist{declaremathop}{pr}{im}{id}{gl}{tr}{rot}{Eq}{obj}{mor}{ob}{Rep}{End}{Hom}{Mat}{Tet}{cat}{Diff}{sign};
+\applytolist{declaremathop}{pr}{im}{id}{gl}{tr}{rot}{Eq}{obj}{mor}{ob}{Rep}{Tet}{cat}{Diff}{sign};
 
 
 
@@ -74,12 +74,6 @@
 \@addtoreset{equation}{section}
 \gdef\theequation{\thesection.\arabic{equation}}
 \makeatother
-\newtheorem{thm}[equation]{Theorem}
-\newtheorem{prop}[equation]{Proposition}
-\newtheorem{lemma}[equation]{Lemma}
-\newtheorem{cor}[equation]{Corollary}
-\newtheorem{defn}[equation]{Definition}
-
 
 
 \maketitle
@@ -88,10 +82,10 @@
 
 (motivation, summary/outline, etc.)
 
-(motivation: 
+(motivation:
 (1) restore exactness in pictures-mod-relations;
 (1') add relations-amongst-relations etc. to pictures-mod-relations;
-(2) want answer independent of handle decomp (i.e. don't 
+(2) want answer independent of handle decomp (i.e. don't
 just go from coend to derived coend (e.g. Hochschild homology));
 (3) ...
 )
@@ -102,35 +96,35 @@ just go from coend to derived coend (e.g. Hochschild homology));
 
 Fix a top dimension $n$.
 
-A {\it system of fields} 
+A {\it system of fields}
 \nn{maybe should look for better name; but this is the name I use elsewhere}
 is a collection of functors $\cC$ from manifolds of dimension $n$ or less
 to sets.
 These functors must satisfy various properties (see KW TQFT notes for details).
-For example: 
+For example:
 there is a canonical identification $\cC(X \du Y) = \cC(X) \times \cC(Y)$;
 there is a restriction map $\cC(X) \to \cC(\bd X)$;
 gluing manifolds corresponds to fibered products of fields;
-given a field $c \in \cC(Y)$ there is a ``product field" 
+given a field $c \in \cC(Y)$ there is a ``product field"
 $c\times I \in \cC(Y\times I)$; ...
 \nn{should eventually include full details of definition of fields.}
 
-\nn{note: probably will suppress from notation the distinction 
+\nn{note: probably will suppress from notation the distinction
 between fields and their (orientation-reversal) duals}
 
 \nn{remark that if top dimensional fields are not already linear
 then we will soon linearize them(?)}
 
-The definition of a system of fields is intended to generalize 
+The definition of a system of fields is intended to generalize
 the relevant properties of the following two examples of fields.
 
 The first example: Fix a target space $B$ and define $\cC(X)$ (where $X$
-is a manifold of dimension $n$ or less) to be the set of 
+is a manifold of dimension $n$ or less) to be the set of
 all maps from $X$ to $B$.
 
 The second example will take longer to explain.
-Given an $n$-category $C$ with the right sort of duality 
-(e.g. pivotal 2-category, 1-category with duals, star 1-category, disklike $n$-category), 
+Given an $n$-category $C$ with the right sort of duality
+(e.g. pivotal 2-category, 1-category with duals, star 1-category, disklike $n$-category),
 we can construct a system of fields as follows.
 Roughly speaking, $\cC(X)$ will the set of all embedded cell complexes in $X$
 with codimension $i$ cells labeled by $i$-morphisms of $C$.
@@ -149,18 +143,18 @@ For $n=1$, a field on a 0-manifold $P$ is a labeling of each point of $P$ with
 an object (0-morphism) of the 1-category $C$.
 A field on a 1-manifold $S$ consists of
 \begin{itemize}
-	\item A cell decomposition of $S$ (equivalently, a finite collection
+    \item A cell decomposition of $S$ (equivalently, a finite collection
 of points in the interior of $S$);
-	\item a labeling of each 1-cell (and each half 1-cell adjacent to $\bd S$)
+    \item a labeling of each 1-cell (and each half 1-cell adjacent to $\bd S$)
 by an object (0-morphism) of $C$;
-	\item a transverse orientation of each 0-cell, thought of as a choice of
+    \item a transverse orientation of each 0-cell, thought of as a choice of
 ``domain" and ``range" for the two adjacent 1-cells; and
-	\item a labeling of each 0-cell by a morphism (1-morphism) of $C$, with
+    \item a labeling of each 0-cell by a morphism (1-morphism) of $C$, with
 domain and range determined by the transverse orientation and the labelings of the 1-cells.
 \end{itemize}
 
 If $C$ is an algebra (i.e. if $C$ has only one 0-morphism) we can ignore the labels
-of 1-cells, so a field on a 1-manifold $S$ is a finite collection of points in the 
+of 1-cells, so a field on a 1-manifold $S$ is a finite collection of points in the
 interior of $S$, each transversely oriented and each labeled by an element (1-morphism)
 of the algebra.
 
@@ -175,19 +169,19 @@ an object of the 2-category $C$.
 A field of a 1-manifold is defined as in the $n=1$ case, using the 0- and 1-morphisms of $C$.
 A field on a 2-manifold $Y$ consists of
 \begin{itemize}
-	\item A cell decomposition of $Y$ (equivalently, a graph embedded in $Y$ such
+    \item A cell decomposition of $Y$ (equivalently, a graph embedded in $Y$ such
 that each component of the complement is homeomorphic to a disk);
-	\item a labeling of each 2-cell (and each partial 2-cell adjacent to $\bd Y$)
+    \item a labeling of each 2-cell (and each partial 2-cell adjacent to $\bd Y$)
 by a 0-morphism of $C$;
-	\item a transverse orientation of each 1-cell, thought of as a choice of
+    \item a transverse orientation of each 1-cell, thought of as a choice of
 ``domain" and ``range" for the two adjacent 2-cells;
-	\item a labeling of each 1-cell by a 1-morphism of $C$, with
-domain and range determined by the transverse orientation of the 1-cell 
+    \item a labeling of each 1-cell by a 1-morphism of $C$, with
+domain and range determined by the transverse orientation of the 1-cell
 and the labelings of the 2-cells;
-	\item for each 0-cell, a homeomorphism of the boundary $R$ of a small neighborhood 
+    \item for each 0-cell, a homeomorphism of the boundary $R$ of a small neighborhood
 of the 0-cell to $S^1$ such that the intersections of the 1-cells with $R$ are not mapped
 to $\pm 1 \in S^1$; and
-	\item a labeling of each 0-cell by a 2-morphism of $C$, with domain and range 
+    \item a labeling of each 0-cell by a 2-morphism of $C$, with domain and range
 determined by the labelings of the 1-cells and the parameterizations of the previous
 bullet.
 \end{itemize}
@@ -195,10 +189,10 @@ bullet.
 
 For general $n$, a field on a $k$-manifold $X^k$ consists of
 \begin{itemize}
-	\item A cell decomposition of $X$;
-	\item an explicit general position homeomorphism from the link of each $j$-cell
+    \item A cell decomposition of $X$;
+    \item an explicit general position homeomorphism from the link of each $j$-cell
 to the boundary of the standard $(k-j)$-dimensional bihedron; and
-	\item a labeling of each $j$-cell by a $(k-j)$-dimensional morphism of $C$, with
+    \item a labeling of each $j$-cell by a $(k-j)$-dimensional morphism of $C$, with
 domain and range determined by the labelings of the link of $j$-cell.
 \end{itemize}
 
@@ -208,10 +202,10 @@ domain and range determined by the labelings of the link of $j$-cell.
 
 \medskip
 
-For top dimensional ($n$-dimensional) manifolds, we're actually interested 
+For top dimensional ($n$-dimensional) manifolds, we're actually interested
 in the linearized space of fields.
 By default, define $\cC_l(X) = \c[\cC(X)]$; that is, $\cC_l(X)$ is
-the vector space of finite 
+the vector space of finite
 linear combinations of fields on $X$.
 If $X$ has boundary, we of course fix a boundary condition: $\cC_l(X; a) = \c[\cC(X; a)]$.
 Thus the restriction (to boundary) maps are well defined because we never
@@ -220,9 +214,9 @@ take linear combinations of fields with differing boundary conditions.
 In some cases we don't linearize the default way; instead we take the
 spaces $\cC_l(X; a)$ to be part of the data for the system of fields.
 In particular, for fields based on linear $n$-category pictures we linearize as follows.
-Define $\cC_l(X; a) = \c[\cC(X; a)]/K$, where $K$ is the space generated by 
+Define $\cC_l(X; a) = \c[\cC(X; a)]/K$, where $K$ is the space generated by
 obvious relations on 0-cell labels.
-More specifically, let $L$ be a cell decomposition of $X$ 
+More specifically, let $L$ be a cell decomposition of $X$
 and let $p$ be a 0-cell of $L$.
 Let $\alpha_c$ and $\alpha_d$ be two labelings of $L$ which are identical except that
 $\alpha_c$ labels $p$ by $c$ and $\alpha_d$ labels $p$ by $d$.
@@ -231,9 +225,9 @@ $\lambda \alpha_c + \alpha_d - \alpha_{\lambda c + d}$, where we leave it to the
 to infer the meaning of $\alpha_{\lambda c + d}$.
 Note that we are still assuming that $n$-categories have linear spaces of $n$-morphisms.
 
-\nn{Maybe comment further: if there's a natural basis of morphisms, then no need; 
+\nn{Maybe comment further: if there's a natural basis of morphisms, then no need;
 will do something similar below; in general, whenever a label lives in a linear
-space we do something like this; ? say something about tensor 
+space we do something like this; ? say something about tensor
 product of all the linear label spaces?  Yes:}
 
 For top dimensional ($n$-dimensional) manifolds, we linearize as follows.
@@ -243,7 +237,7 @@ To each unlabeled 0-cell in an almost field there corresponds a (linear) $n$-mor
 space determined by the labeling of the link of the 0-cell.
 (If the 0-cell were labeled, the label would live in this space.)
 We associate to each almost-labeling the tensor product of these spaces (one for each 0-cell).
-We now define $\cC_l(X; a)$ to be the direct sum over all almost labelings of the 
+We now define $\cC_l(X; a)$ to be the direct sum over all almost labelings of the
 above tensor products.
 
 
@@ -251,12 +245,12 @@ above tensor products.
 \subsection{Local relations}
 
 Let $B^n$ denote the standard $n$-ball.
-A {\it local relation} is a collection subspaces $U(B^n; c) \sub \cC_l(B^n; c)$ 
+A {\it local relation} is a collection subspaces $U(B^n; c) \sub \cC_l(B^n; c)$
 (for all $c \in \cC(\bd B^n)$) satisfying the following (three?) properties.
 
-\nn{Roughly, these are (1) the local relations imply (extended) isotopy; 
+\nn{Roughly, these are (1) the local relations imply (extended) isotopy;
 (2) $U(B^n; \cdot)$ is an ideal w.r.t.\ gluing; and
-(3) this ideal is generated by ``small" generators (contained in an open cover of $B^n$). 
+(3) this ideal is generated by ``small" generators (contained in an open cover of $B^n$).
 See KW TQFT notes for details.  Need to transfer details to here.}
 
 For maps into spaces, $U(B^n; c)$ is generated by things of the form $a-b \in \cC_l(B^n; c)$,
@@ -292,7 +286,7 @@ Assume a fixed system of fields.
 In this section we will usually suppress boundary conditions on $X$ from the notation
 (e.g. write $\cC_l(X)$ instead of $\cC_l(X; c)$).
 
-We only consider compact manifolds, so if $Y \sub X$ is a closed codimension 0 
+We only consider compact manifolds, so if $Y \sub X$ is a closed codimension 0
 submanifold of $X$, then $X \setmin Y$ implicitly means the closure
 $\overline{X \setmin Y}$.
 
@@ -326,7 +320,7 @@ also the label ($u$ above) of the blob.
 
 There is a map $\bd : \bc_1(X) \to \bc_0(X)$ which sends $(B, r, u)$ to $ru$, the linear
 combination of fields on $X$ obtained by gluing $r$ to $u$.
-In other words $\bd : \bc_1(X) \to \bc_0(X)$ is given by 
+In other words $\bd : \bc_1(X) \to \bc_0(X)$ is given by
 just erasing the blob from the picture
 (but keeping the blob label $u$).
 
@@ -334,7 +328,7 @@ Note that the skein space $A(X)$
 is naturally isomorphic to $\bc_0(X)/\bd(\bc_1(X))) = H_0(\bc_*(X))$.
 
 $\bc_2(X)$ is the space of all relations (redundancies) among the relations of $\bc_1(X)$.
-More specifically, $\bc_2(X)$ is the space of all finite linear combinations of 
+More specifically, $\bc_2(X)$ is the space of all finite linear combinations of
 2-blob diagrams (defined below), modulo the usual linear label relations.
 \nn{and also modulo blob reordering relations?}
 
@@ -403,14 +397,14 @@ Let $c = \lambda a + b$.
 Let $x_a$ be the blob diagram with label $a$, and define $x_b$ and $x_c$ similarly.
 Then we impose the relation
 \eq{
-	x_c = \lambda x_a + x_b .
+    x_c = \lambda x_a + x_b .
 }
 \nn{should do this in terms of direct sums of tensor products}
 Let $x$ and $x'$ be two blob diagrams which differ only by a permutation $\pi$
 of their blob labelings.
 Then we impose the relation
 \eq{
-	x = \sign(\pi) x' .
+    x = \sign(\pi) x' .
 }
 
 (Alert readers will have noticed that for $k=2$ our definition
@@ -430,7 +424,7 @@ If $B_l$ becomes a twig after removing $B_j$, then set $u_l = r_lu_j$,
 where $r_l$ is the restriction of $r$ to $B_l \setmin B_j$.
 Finally, define
 \eq{
-	\bd(b) = \sum_{j=0}^{k-1} (-1)^j E_j(b).
+    \bd(b) = \sum_{j=0}^{k-1} (-1)^j E_j(b).
 }
 The $(-1)^j$ factors imply that the terms of $\bd^2(b)$ all cancel.
 Thus we have a chain complex.
@@ -438,8 +432,8 @@ Thus we have a chain complex.
 \nn{?? say something about the ``shape" of tree? (incl = cone, disj = product)}
 
 
-\nn{TO DO: 
-expand definition to handle DGA and $A_\infty$ versions of $n$-categories; 
+\nn{TO DO:
+expand definition to handle DGA and $A_\infty$ versions of $n$-categories;
 relations to Chas-Sullivan string stuff}
 
 
@@ -451,7 +445,7 @@ There is a natural isomorphism $\bc_*(X \du Y) \cong \bc_*(X) \otimes \bc_*(Y)$.
 \end{prop}
 \begin{proof}
 Given blob diagrams $b_1$ on $X$ and $b_2$ on $Y$, we can combine them
-(putting the $b_1$ blobs before the $b_2$ blobs in the ordering) to get a 
+(putting the $b_1$ blobs before the $b_2$ blobs in the ordering) to get a
 blob diagram $(b_1, b_2)$ on $X \du Y$.
 Because of the blob reordering relations, all blob diagrams on $X \du Y$ arise this way.
 In the other direction, any blob diagram on $X\du Y$ is equal (up to sign)
@@ -467,8 +461,8 @@ in a tensor product of chain complexes; ask Scott}
 For the next proposition we will temporarily restore $n$-manifold boundary
 conditions to the notation.
 
-Suppose that for all $c \in \cC(\bd B^n)$ 
-we have a splitting $s: H_0(\bc_*(B^n, c)) \to \bc_0(B^n; c)$ 
+Suppose that for all $c \in \cC(\bd B^n)$
+we have a splitting $s: H_0(\bc_*(B^n, c)) \to \bc_0(B^n; c)$
 of the quotient map
 $p: \bc_0(B^n; c) \to H_0(\bc_*(B^n, c))$.
 \nn{always the case if we're working over $\c$}.
@@ -490,7 +484,7 @@ the 1-blob with blob $B^n$ and label $x - s(p(x)) \in U(B^n; c)$.
 \nn{$x$ is a 0-blob diagram, i.e. $x \in \cC(B^n; c)$}
 \end{proof}
 
-(Note that for the above proof to work, we need the linear label relations 
+(Note that for the above proof to work, we need the linear label relations
 for blob labels.
 Also we need to blob reordering relations (?).)
 
@@ -525,7 +519,7 @@ There is a natural isomorphism $H_0(\bc_*(X)) \cong A(X)$.
 
 \begin{prop}
 For fixed fields ($n$-cat), $\bc_*$ is a functor from the category
-of $n$-manifolds and diffeomorphisms to the category of chain complexes and 
+of $n$-manifolds and diffeomorphisms to the category of chain complexes and
 (chain map) isomorphisms.
 \qed
 \end{prop}
@@ -558,9 +552,9 @@ $X$ to get blob diagrams on $X\sgl$:
 \begin{prop}
 There is a natural chain map
 \eq{
-	\gl: \bigoplus_a \bc_*(X; a, -a, c) \to \bc_*(X\sgl; c\sgl).
+    \gl: \bigoplus_a \bc_*(X; a, -a, c) \to \bc_*(X\sgl; c\sgl).
 }
-The sum is over all fields $a$ on $Y$ compatible at their 
+The sum is over all fields $a$ on $Y$ compatible at their
 ($n{-}2$-dimensional) boundaries with $c$.
 `Natural' means natural with respect to the actions of diffeomorphisms.
 \qed
@@ -574,7 +568,7 @@ and $X\sgl = X_1 \cup_Y X_2$.
 (Typically one of $X_1$ or $X_2$ is a disjoint union of balls.)
 For $x_i \in \bc_*(X_i)$, we introduce the notation
 \eq{
-	x_1 \bullet x_2 \deq \gl(x_1 \otimes x_2) .
+    x_1 \bullet x_2 \deq \gl(x_1 \otimes x_2) .
 }
 Note that we have resumed our habit of omitting boundary labels from the notation.
 
@@ -589,17 +583,17 @@ Note that we have resumed our habit of omitting boundary labels from the notatio
 \section{$n=1$ and Hochschild homology}
 
 In this section we analyze the blob complex in dimension $n=1$
-and find that for $S^1$ the homology of the blob complex is the 
+and find that for $S^1$ the homology of the blob complex is the
 Hochschild homology of the category (algebroid) that we started with.
 \nn{or maybe say here that the complexes are quasi-isomorphic?  in general,
 should perhaps put more emphasis on the complexes and less on the homology.}
 
 Notation: $HB_i(X) = H_i(\bc_*(X))$.
 
-Let us first note that there is no loss of generality in assuming that our system of 
+Let us first note that there is no loss of generality in assuming that our system of
 fields comes from a category.
 (Or maybe (???) there {\it is} a loss of generality.
-Given any system of fields, $A(I; a, b) = \cC(I; a, b)/U(I; a, b)$ can be 
+Given any system of fields, $A(I; a, b) = \cC(I; a, b)/U(I; a, b)$ can be
 thought of as the morphisms of a 1-category $C$.
 More specifically, the objects of $C$ are $\cC(pt)$, the morphisms from $a$ to $b$
 are $A(I; a, b)$, and composition is given by gluing.
@@ -624,7 +618,7 @@ Then specializing the definitions from above to the case $n=1$ we have:
 \begin{itemize}
 \item $\cC(pt) = \ob(C)$ .
 \item Let $R$ be a 1-manifold and $c \in \cC(\bd R)$.
-Then an element of $\cC(R; c)$ is a collection of (transversely oriented) 
+Then an element of $\cC(R; c)$ is a collection of (transversely oriented)
 points in the interior
 of $R$, each labeled by a morphism of $C$.
 The intervals between the points are labeled by objects of $C$, consistent with
@@ -635,12 +629,12 @@ Note that we also need the * of *-1-category here in order to make all the morph
 the same way.
 \item For $x \in \mor(a, b)$ let $\chi(x) \in \cC(I; a, b)$ be the field with a single
 point (at some standard location) labeled by $x$.
-Then the kernel of the evaluation map $U(I; a, b)$ is generated by things of the 
+Then the kernel of the evaluation map $U(I; a, b)$ is generated by things of the
 form $y - \chi(e(y))$.
 Thus we can, if we choose, restrict the blob twig labels to things of this form.
 \end{itemize}
 
-We want to show that $HB_*(S^1)$ is naturally isomorphic to the 
+We want to show that $HB_*(S^1)$ is naturally isomorphic to the
 Hochschild homology of $C$.
 \nn{Or better that the complexes are homotopic
 or quasi-isomorphic.}
@@ -691,13 +685,13 @@ quasi-isomorphic to the 0-step complex $C$.
 First we show that $F_*(C\otimes C)$ is
 quasi-isomorphic to the 0-step complex $C$.
 
-Let $F'_* \sub F_*(C\otimes C)$ be the subcomplex where the label of  
+Let $F'_* \sub F_*(C\otimes C)$ be the subcomplex where the label of
 the point $*$ is $1 \otimes 1 \in C\otimes C$.
 We will show that the inclusion $i: F'_* \to F_*(C\otimes C)$ is a quasi-isomorphism.
 
 Fix a small $\ep > 0$.
 Let $B_\ep$ be the ball of radius $\ep$ around $* \in S^1$.
-Let $F^\ep_* \sub F_*(C\otimes C)$ be the subcomplex 
+Let $F^\ep_* \sub F_*(C\otimes C)$ be the subcomplex
 generated by blob diagrams $b$ such that $B_\ep$ is either disjoint from
 or contained in each blob of $b$, and the two boundary points of $B_\ep$ are not labeled points of $b$.
 For a field (picture) $y$ on $B_\ep$, let $s_\ep(y)$ be the equivalent picture with~$*$
@@ -712,7 +706,7 @@ If $*$ is not contained in any twig blob, $j_\ep(x)$ is obtained by adding $B_\e
 $x$ as a new twig blob, with label $y - s_\ep(y)$, where $y$ is the restriction of $x$ to $B_\ep$.
 If $*$ is contained in a twig blob $B$ with label $u = \sum z_i$, $j_\ep(x)$ is obtained as follows.
 Let $y_i$ be the restriction of $z_i$ to $B_\ep$.
-Let $x_i$ be equal to $x$ outside of $B$, equal to $z_i$ on $B \setmin B_\ep$, 
+Let $x_i$ be equal to $x$ outside of $B$, equal to $z_i$ on $B \setmin B_\ep$,
 and have an additional blob $B_\ep$ with label $y_i - s_\ep(y_i)$.
 Define $j_\ep(x) = \sum x_i$.
 \nn{need to check signs coming from blob complex differential}
@@ -721,7 +715,7 @@ Note that if $x \in F'_* \cap F^\ep_*$ then $j_\ep(x) \in F'_*$ also.
 
 The key property of $j_\ep$ is
 \eq{
-	\bd j_\ep + j_\ep \bd = \id - \sigma_\ep ,
+    \bd j_\ep + j_\ep \bd = \id - \sigma_\ep ,
 }
 where $\sigma_\ep : F^\ep_* \to F^\ep_*$ is given by replacing the restriction $y$ of each field
 mentioned in $x \in F^\ep_*$ with $s_\ep(y)$.
@@ -731,10 +725,10 @@ If $j_\ep$ were defined on all of $F_*(C\otimes C)$, it would show that $\sigma_
 is a homotopy inverse to the inclusion $F'_* \to F_*(C\otimes C)$.
 One strategy would be to try to stitch together various $j_\ep$ for progressively smaller
 $\ep$ and show that $F'_*$ is homotopy equivalent to $F_*(C\otimes C)$.
-Instead, we'll be less ambitious and just show that 
+Instead, we'll be less ambitious and just show that
 $F'_*$ is quasi-isomorphic to $F_*(C\otimes C)$.
 
-If $x$ is a cycle in $F_*(C\otimes C)$, then for sufficiently small $\ep$ we have 
+If $x$ is a cycle in $F_*(C\otimes C)$, then for sufficiently small $\ep$ we have
 $x \in F_*^\ep$.
 (This is true for any chain in $F_*(C\otimes C)$, since chains are sums of
 finitely many blob diagrams.)
@@ -743,7 +737,7 @@ $F'_* \sub F_*(C\otimes C)$ is surjective on homology.
 If $y \in F_*(C\otimes C)$ and $\bd y = x \in F'_*$, then $y \in F^\ep_*$ for some $\ep$
 and
 \eq{
-	\bd y = \bd (\sigma_\ep(y) + j_\ep(x)) .
+    \bd y = \bd (\sigma_\ep(y) + j_\ep(x)) .
 }
 Since $\sigma_\ep(y) + j_\ep(x) \in F'$, it follows that the inclusion map is injective on homology.
 This completes the proof that $F'_*$ is quasi-isomorphic to $F_*(C\otimes C)$.
@@ -769,7 +763,7 @@ $G''_* \to G'_*$ induces an isomorphism on $H_0$.
 Next we construct a degree 1 map (homotopy) $h: F'_* \to F'_*$ such that
 for all $x \in F'_*$ we have
 \eq{
-	x - \bd h(x) - h(\bd x) \in F''_* .
+    x - \bd h(x) - h(\bd x) \in F''_* .
 }
 Since $F'_0 = F''_0$, we can take $h_0 = 0$.
 Let $x \in F'_1$, with single blob $B \sub S^1$.
@@ -793,7 +787,7 @@ This completes the proof that $i: F''_* \to F'_*$ is a homotopy equivalence.
 Finally, we show that $F''_*$ is contractible.
 \nn{need to also show that $H_0$ is the right thing; easy, but I won't do it now}
 Let $x$ be a cycle in $F''_*$.
-The union of the supports of the diagrams in $x$ does not contain $*$, so there exists a 
+The union of the supports of the diagrams in $x$ does not contain $*$, so there exists a
 ball $B \subset S^1$ containing the union of the supports and not containing $*$.
 Adding $B$ as a blob to $x$ gives a contraction.
 \nn{need to say something else in degree zero}
@@ -813,11 +807,11 @@ If $y$ is a field defined on a neighborhood of *, define $s(y) = y$ if
 * is a labeled point in $y$.
 Otherwise, define $s(y)$ to be the result of adding a label 1 (identity morphism) at *.
 Let $x \in \bc_*(S^1)$.
-Let $s(x)$ be the result of replacing each field $y$ (containing *) mentioned in 
+Let $s(x)$ be the result of replacing each field $y$ (containing *) mentioned in
 $x$ with $y$.
 It is easy to check that $s$ is a chain map and $s \circ i = \id$.
 
-Let $G^\ep_* \sub \bc_*(S^1)$ be the subcomplex where there are no labeled points 
+Let $G^\ep_* \sub \bc_*(S^1)$ be the subcomplex where there are no labeled points
 in a neighborhood $B_\ep$ of *, except perhaps *.
 Note that for any chain $x \in \bc_*(S^1)$, $x \in G^\ep_*$ for sufficiently small $\ep$.
 \nn{rest of argument goes similarly to above}
@@ -833,8 +827,36 @@ down explicitly?
 Probably it's worth writing down an explicit map even if we don't need to.}
 
 
+We can also describe explicitly a map from the standard Hochschild
+complex to the blob complex on the circle. \nn{What properties does this
+map have?}
 
+\begin{figure}%
+$$\mathfig{0.6}{barycentric/barycentric}$$
+\caption{The Hochschild chain $a \tensor b \tensor c$ is sent to
+the sum of six blob $2$-chains, corresponding to a barycentric subdivision of a $2$-simplex.}
+\label{fig:Hochschild-example}%
+\end{figure}
 
+As an example, Figure \ref{fig:Hochschild-example} shows the image of the Hochschild chain $a \tensor b \tensor c$. Only the $0$-cells are shown explicitly.
+The edges marked $x, y$ and $z$ carry the $1$-chains
+\begin{align*}
+x & = \mathfig{0.1}{barycentric/ux} & u_x = \mathfig{0.1}{barycentric/ux_ca} - \mathfig{0.1}{barycentric/ux_c-a} \\
+y & = \mathfig{0.1}{barycentric/uy} & u_y = \mathfig{0.1}{barycentric/uy_cab} - \mathfig{0.1}{barycentric/uy_ca-b} \\
+z & = \mathfig{0.1}{barycentric/uz} & u_z = \mathfig{0.1}{barycentric/uz_c-a-b} - \mathfig{0.1}{barycentric/uz_cab}
+\end{align*}
+and the $2$-chain labelled $A$ is
+\begin{equation*}
+A = \mathfig{0.1}{barycentric/Ax}+\mathfig{0.1}{barycentric/Ay}.
+\end{equation*}
+Note that we then have
+\begin{equation*}
+\bdy A = x+y+z.
+\end{equation*}
+
+In general, the Hochschild chain $\Tensor_{i=1}^n a_i$ is sent to the sum of $n!$ blob $(n-1)$-chains, indexed by permutations,
+$$\phi\left(\Tensor_{i=1}^n a_i) = \sum_{\pi} \phi^\pi(a_1, \ldots, a_n)$$
+with ...
 
 
 \section{Action of $C_*(\Diff(X))$}  \label{diffsect}
@@ -849,16 +871,16 @@ than simplices --- they can be based on any linear polyhedron.
 \begin{prop}  \label{CDprop}
 For each $n$-manifold $X$ there is a chain map
 \eq{
-	e_X : CD_*(X) \otimes \bc_*(X) \to \bc_*(X) .
+    e_X : CD_*(X) \otimes \bc_*(X) \to \bc_*(X) .
 }
 On $CD_0(X) \otimes \bc_*(X)$ it agrees with the obvious action of $\Diff(X)$ on $\bc_*(X)$
 (Proposition (\ref{diff0prop})).
 For any splitting $X = X_1 \cup X_2$, the following diagram commutes
 \eq{ \xymatrix{
-	 CD_*(X) \otimes \bc_*(X) \ar[r]^{e_X}    & \bc_*(X) \\
-	 CD_*(X_1) \otimes CD_*(X_2) \otimes \bc_*(X_1) \otimes \bc_*(X_2) 
-	 	\ar@/_4ex/[r]_{e_{X_1} \otimes e_{X_2}}  \ar[u]^{\gl \otimes \gl}  & 
-			\bc_*(X_1) \otimes \bc_*(X_2) \ar[u]_{\gl}
+     CD_*(X) \otimes \bc_*(X) \ar[r]^{e_X}    & \bc_*(X) \\
+     CD_*(X_1) \otimes CD_*(X_2) \otimes \bc_*(X_1) \otimes \bc_*(X_2)
+        \ar@/_4ex/[r]_{e_{X_1} \otimes e_{X_2}}  \ar[u]^{\gl \otimes \gl}  &
+            \bc_*(X_1) \otimes \bc_*(X_2) \ar[u]_{\gl}
 } }
 Any other map satisfying the above two properties is homotopic to $e_X$.
 \end{prop}
@@ -876,18 +898,18 @@ Let $\cU = \{U_\alpha\}$ be an open cover of $X$.
 A $k$-parameter family of diffeomorphisms $f: P \times X \to X$ is
 {\it adapted to $\cU$} if there is a factorization
 \eq{
-	P = P_1 \times \cdots \times P_m
+    P = P_1 \times \cdots \times P_m
 }
 (for some $m \le k$)
 and families of diffeomorphisms
 \eq{
-	f_i :  P_i \times X \to X
+    f_i :  P_i \times X \to X
 }
-such that 
+such that
 \begin{itemize}
 \item each $f_i(p, \cdot): X \to X$ is supported on some connected $V_i \sub X$;
 \item the $V_i$'s are mutually disjoint;
-\item each $V_i$ is the union of at most $k_i$ of the $U_\alpha$'s, 
+\item each $V_i$ is the union of at most $k_i$ of the $U_\alpha$'s,
 where $k_i = \dim(P_i)$; and
 \item $f(p, \cdot) = f_1(p_1, \cdot) \circ \cdots \circ f_m(p_m, \cdot) \circ g$
 for all $p = (p_1, \ldots, p_m)$, for some fixed $g \in \Diff(X)$.
@@ -904,12 +926,12 @@ The proof will be given in Section \ref{fam_diff_sect}.
 
 \medskip
 
-Let $B_1, \ldots, B_m$ be a collection of disjoint balls in $X$ 
+Let $B_1, \ldots, B_m$ be a collection of disjoint balls in $X$
 (e.g.~the support of a blob diagram).
 We say that $f:P\times X\to X$ is {\it compatible} with $\{B_j\}$ if
 $f$ has support a disjoint collection of balls $D_i \sub X$ and for all $i$ and $j$
 either $B_j \sub D_i$ or $B_j \cap D_i = \emptyset$.
-A chain $x \in CD_k(X)$ is compatible with $\{B_j\}$ if it is a sum of singular cells, 
+A chain $x \in CD_k(X)$ is compatible with $\{B_j\}$ if it is a sum of singular cells,
 each of which is compatible.
 (Note that we could strengthen the definition of compatibility to incorporate
 a factorization condition, similar to the definition of ``adapted to" above.
@@ -920,14 +942,14 @@ Let $x \in CD_k(X)$ be a singular chain such that $\bd x$ is compatible with $\{
 Then $x$ is homotopic (rel boundary) to some $x' \in CD_k(X)$ which is compatible with $\{B_j\}$.
 \end{cor}
 \begin{proof}
-This will follow from Lemma \ref{extension_lemma} for 
+This will follow from Lemma \ref{extension_lemma} for
 appropriate choice of cover $\cU = \{U_\alpha\}$.
 Let $U_{\alpha_1}, \ldots, U_{\alpha_k}$ be any $k$ open sets of $\cU$, and let
 $V_1, \ldots, V_m$ be the connected components of $U_{\alpha_1}\cup\cdots\cup U_{\alpha_k}$.
 Choose $\cU$ fine enough so that there exist disjoint balls $B'_j \sup B_j$ such that for all $i$ and $j$
 either $V_i \sub B'_j$ or $V_i \cap B'_j = \emptyset$.
 
-Apply Lemma \ref{extension_lemma} first to each singular cell $f_i$ of $\bd x$, 
+Apply Lemma \ref{extension_lemma} first to each singular cell $f_i$ of $\bd x$,
 with the (compatible) support of $f_i$ in place of $X$.
 This insures that the resulting homotopy $h_i$ is compatible.
 Now apply Lemma \ref{extension_lemma} to $x + \sum h_i$.
@@ -957,7 +979,7 @@ later draft}
 \nn{not sure what the best way to deal with boundary is; for now just give main argument, worry
 about boundary later}
 
-Recall that we are given 
+Recall that we are given
 an open cover $\cU = \{U_\alpha\}$ and an
 $x \in CD_k(X)$ such that $\bd x$ is adapted to $\cU$.
 We must find a homotopy of $x$ (rel boundary) to some $x' \in CD_k(X)$ which is adapted to $\cU$.
@@ -965,20 +987,20 @@ We must find a homotopy of $x$ (rel boundary) to some $x' \in CD_k(X)$ which is 
 Let $\{r_\alpha : X \to [0,1]\}$ be a partition of unity for $\cU$.
 
 As a first approximation to the argument we will eventually make, let's replace $x$
-with a single singular cell 
+with a single singular cell
 \eq{
-	f: P \times X \to X .
+    f: P \times X \to X .
 }
 Also, we'll ignore for now issues around $\bd P$.
 
 Our homotopy will have the form
 \eqar{
-	F: I \times P \times X &\to& X \\
-	(t, p, x) &\mapsto& f(u(t, p, x), x)
+    F: I \times P \times X &\to& X \\
+    (t, p, x) &\mapsto& f(u(t, p, x), x)
 }
 for some function
 \eq{
-	u : I \times P \times X \to P .
+    u : I \times P \times X \to P .
 }
 First we describe $u$, then we argue that it does what we want it to do.
 
@@ -1007,16 +1029,16 @@ which contain $d$, and also the corresponding tuple $(p_{c_\alpha})$ of points i
 
 For $p \in D$ we define
 \eq{
-	u(t, p, x) = (1-t)p + t \sum_\alpha r_\alpha(x) p_{c_\alpha} .
+    u(t, p, x) = (1-t)p + t \sum_\alpha r_\alpha(x) p_{c_\alpha} .
 }
 (Recall that $P$ is a single linear cell, so the weighted average of points of $P$
 makes sense.)
 
 So far we have defined $u(t, p, x)$ when $p$ lies in a $k$-handle of $J$.
-For handles of $J$ of index less than $k$, we will define $u$ to 
+For handles of $J$ of index less than $k$, we will define $u$ to
 interpolate between the values on $k$-handles defined above.
 
-If $p$ lies in a $k{-}1$-handle $E$, let $\eta : E \to [0,1]$ be the normal coordinate 
+If $p$ lies in a $k{-}1$-handle $E$, let $\eta : E \to [0,1]$ be the normal coordinate
 of $E$.
 In particular, $\eta$ is equal to 0 or 1 only at the intersection of $E$
 with a $k$-handle.
@@ -1026,8 +1048,8 @@ Let $q_0, q_1 \in P$ be the points associated to the two $k$-cells of $K_\beta$
 adjacent to the $k{-}1$-cell corresponding to $E$.
 For $p \in E$, define
 \eq{
-	u(t, p, x) = (1-t)p + t \left( \sum_{\alpha \ne \beta} r_\alpha(x) p_{c_\alpha}
-			+ r_\beta(x) (\eta(p) q_1 + (1-\eta(p)) q_0) \right) .
+    u(t, p, x) = (1-t)p + t \left( \sum_{\alpha \ne \beta} r_\alpha(x) p_{c_\alpha}
+            + r_\beta(x) (\eta(p) q_1 + (1-\eta(p)) q_0) \right) .
 }
 
 In general, for $E$ a $k{-}j$-handle, there is a normal coordinate
@@ -1040,10 +1062,10 @@ the $k{-}j$-cell corresponding to $E$.
 For each $\beta \in \cN$, let $\{q_{\beta i}\}$ be the set of points in $P$ associated to the aforementioned $k$-cells.
 Now define, for $p \in E$,
 \eq{
-	u(t, p, x) = (1-t)p + t \left( 
-			\sum_{\alpha \notin \cN} r_\alpha(x) p_{c_\alpha}
-				+ \sum_{\beta \in \cN} r_\beta(x) \left( \sum_i \eta_{\beta i}(p) \cdot q_{\beta i} \right)
-			 \right) .
+    u(t, p, x) = (1-t)p + t \left(
+            \sum_{\alpha \notin \cN} r_\alpha(x) p_{c_\alpha}
+                + \sum_{\beta \in \cN} r_\beta(x) \left( \sum_i \eta_{\beta i}(p) \cdot q_{\beta i} \right)
+             \right) .
 }
 Here $\eta_{\beta i}(p)$ is the weight given to $q_{\beta i}$ by the linear extension
 mentioned above.
@@ -1062,8 +1084,8 @@ then $F$ is a homotopy through diffeomorphisms.
 We must show that the derivative $\pd{F}{x}(t, p, x)$ is non-singular for all $(t, p, x)$.
 We have
 \eq{
-%	\pd{F}{x}(t, p, x) = \pd{f}{x}(u(t, p, x), x) + \pd{f}{p}(u(t, p, x), x) \pd{u}{x}(t, p, x) .
-	\pd{F}{x} = \pd{f}{x} + \pd{f}{p} \pd{u}{x} .
+%   \pd{F}{x}(t, p, x) = \pd{f}{x}(u(t, p, x), x) + \pd{f}{p}(u(t, p, x), x) \pd{u}{x}(t, p, x) .
+    \pd{F}{x} = \pd{f}{x} + \pd{f}{p} \pd{u}{x} .
 }
 Since $f$ is a family of diffeomorphisms, $\pd{f}{x}$ is non-singular and
 \nn{bounded away from zero, or something like that}.
@@ -1083,7 +1105,7 @@ is a singular cell adapted to $\cU$.
 This will complete the proof of the lemma.
 \nn{except for boundary issues and the `$P$ is a cell' assumption}
 
-Let $j$ be the codimension of $D$. 
+Let $j$ be the codimension of $D$.
 (Or rather, the codimension of its corresponding cell.  From now on we will not make a distinction
 between handle and corresponding cell.)
 Then $j = j_1 + \cdots + j_m$, $0 \le m \le k$,
@@ -1110,7 +1132,7 @@ of a constant map $D' \to \Diff(X)$ and a singular 1-cell $I \to \Diff(X)$.
 The singular 1-cell is supported on $U_\beta$, since $r_\beta = 0$ outside of this set.
 
 Next case: $j=2$, $m=1$, $j_1 = 2$.
-This is similar to the previous case, except that the normal bundle is 2-dimensional instead of 
+This is similar to the previous case, except that the normal bundle is 2-dimensional instead of
 1-dimensional.
 We have that $D \to \Diff(X)$ is a product of a constant singular $k{-}2$-cell
 and a 2-cell with support $U_\beta$.
@@ -1136,15 +1158,15 @@ a 2-cell supported on $U_\beta \cup U_\gamma$.
 \section{$A_\infty$ action on the boundary}
 
 Let $Y$ be an $n{-}1$-manifold.
-The collection of complexes $\{\bc_*(Y\times I; a, b)\}$, where $a, b \in \cC(Y)$ are boundary 
+The collection of complexes $\{\bc_*(Y\times I; a, b)\}$, where $a, b \in \cC(Y)$ are boundary
 conditions on $\bd(Y\times I) = Y\times \{0\} \cup Y\times\{1\}$, has the structure
 of an $A_\infty$ category.
 
 Composition of morphisms (multiplication) depends of a choice of homeomorphism
 $I\cup I \cong I$.  Given this choice, gluing gives a map
 \eq{
-	\bc_*(Y\times I; a, b) \otimes \bc_*(Y\times I; b, c) \to \bc_*(Y\times (I\cup I); a, c)
-			\cong \bc_*(Y\times I; a, c)
+    \bc_*(Y\times I; a, b) \otimes \bc_*(Y\times I; b, c) \to \bc_*(Y\times (I\cup I); a, c)
+            \cong \bc_*(Y\times I; a, c)
 }
 Using (\ref{CDprop}) and the inclusion $\Diff(I) \sub \Diff(Y\times I)$ gives the various
 higher associators of the $A_\infty$ structure, more or less canonically.
@@ -1155,7 +1177,7 @@ Let $\cA(Y)$ denote the $A_\infty$ category $\bc_*(Y\times I; \cdot, \cdot)$.
 
 Similarly, if $Y \sub \bd X$, a choice of collaring homeomorphism
 $(Y\times I) \cup_Y X \cong X$ gives the collection of complexes $\bc_*(X; r, a)$
-(variable $a \in \cC(Y)$; fixed $r \in \cC(\bd X \setmin Y)$) the structure of a representation of the 
+(variable $a \in \cC(Y)$; fixed $r \in \cC(\bd X \setmin Y)$) the structure of a representation of the
 $A_\infty$ category $\{\bc_*(Y\times I; \cdot, \cdot)\}$.
 Again the higher associators come from the action of $\Diff(I)$ on a collar neighborhood
 of $Y$ in $X$.
@@ -1176,14 +1198,14 @@ of $Y \du -Y$ contained in its boundary.
 Gluing the two copies of $Y$ together we obtain a new $n$-manifold $X\sgl$.
 We wish to describe the blob complex of $X\sgl$ in terms of the blob complex
 of $X$.
-More precisely, we want to describe $\bc_*(X\sgl; c\sgl)$, 
+More precisely, we want to describe $\bc_*(X\sgl; c\sgl)$,
 where $c\sgl \in \cC(\bd X\sgl)$,
 in terms of the collection $\{\bc_*(X; c, \cdot, \cdot)\}$, thought of as a representation
 of the $A_\infty$ category $\cA(Y\du-Y) \cong \cA(Y)\times \cA(Y)\op$.
 
 \begin{thm}
 $\bc_*(X\sgl; c\sgl)$ is quasi-isomorphic to the the self tensor product
-of $\{\bc_*(X; c, \cdot, \cdot)\}$ over $\cA(Y)$. 
+of $\{\bc_*(X; c, \cdot, \cdot)\}$ over $\cA(Y)$.
 \end{thm}
 
 The proof will occupy the remainder of this section.
@@ -1200,7 +1222,7 @@ The proof will occupy the remainder of this section.
 
 \section{Extension to ...}
 
-\nn{Need to let the input $n$-category $C$ be a graded thing 
+\nn{Need to let the input $n$-category $C$ be a graded thing
 (e.g.~DGA or $A_\infty$ $n$-category).}
 
 \nn{maybe this should be done earlier in the exposition?
@@ -1233,6 +1255,3 @@ the same with the extended def, then maybe it's better to extend late (here)}
 %$m: \bc_0(B^n; c, c') \to \mor(c, c')$.
 %If we regard $\mor(c, c')$ as a complex concentrated in degree 0, then this becomes a chain
 %map $m: \bc_*(B^n; c, c') \to \mor(c, c')$.
-
-
-
