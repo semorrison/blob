@@ -1,0 +1,90 @@
+\nn{Here's the ``explicit'' version.}
+
+Fix a finite open cover of $X$, say $(U_l)_{l=1}^L$, along with an
+associated partition of unity $(r_l)$.
+
+We'll define the homotopy $H:I \times P \times X \To X$ via a function
+$u:I \times P \times X \To P$, with
+\begin{equation*}
+H(t,p,x) = F(u(t,p,x),x).
+\end{equation*}
+
+To begin, we'll define a function $u'' : I \times P \times X \To P$, and
+a corresponding homotopy $H''$. This homotopy will just be a homotopy of
+$F$ through families of maps, not through families of diffeomorphisms. On
+the other hand, it will be quite simple to describe, and we'll later
+explain how to build the desired function $u$ out of it.
+
+For each $l = 1, \ldots, L$, pick some $C^\infty$ function $f_l : I \To
+I$ which is identically $0$ on a neighborhood of the closed interval $[0,\frac{l-1}{L}]$
+and identically $1$ on a neighborhood of the closed interval $[\frac{l}{L},1]$. (Monotonic?
+Fix a bound for the derivative?) We'll extend it to a function on
+$k$-tuples $f_l : I^k \To I^k$ pointwise.
+
+Define $$u''(t,p,x) = \sum_{l=1}^L r_l(x) u_l(t,p),$$ with
+$$u_l(t,p) = t f_l(p) + (1-t)p.$$ Notice that the $i$-th component of $u''(t,p,x)$ depends only on the $i$-th component of $p$.
+
+Let's now establish some properties of $u''$ and $H''$. First,
+\begin{align*}
+H''(0,p,x) & = F(u''(0,p,x),x) \\
+           & = F(\sum_{l=1}^L r_l(x) p, x) \\
+           & = F(p,x).
+\end{align*}
+Next, calculate the derivatives
+\begin{align*}
+\partial_{p_i} H''(1,p,x) & = \partial_{p_i}u''(1,p,x) \partial_1 F(u(1,p,x),x) \\
+\intertext{and}
+\partial_{p_i}u''(1,p,x) & = \sum_{l=1}^L r_l(x) \partial_{p_i} f_l(p).
+\end{align*}
+Now $\partial_{p_i} f_l(p) = 0$ unless $\frac{l-1}{L} < p_i < \frac{l}{L}$, and $r_l(x) = 0$ unless $x \in U_l$,
+so we conclude that for a fixed $p$, $\partial_p H''(1,p,x) = 0$ for all $x$ outside the union of $k$ open sets from the open cover, namely
+$\bigcup_{i=1}^k U_{l_i}$ where for each $i$, we choose $l_i$ so $\frac{l_i -1}{L} \leq p_i \leq \frac{l_i}{L}$. It may be helpful to refer to Figure \ref{fig:supports}.
+
+\begin{figure}[!ht]
+\begin{equation*}
+\mathfig{0.5}{explicit/supports}
+\end{equation*}
+\caption{The supports of the derivatives {\color{green}$\partial_p f_1$}, {\color{blue}$\partial_p f_2$} and {\color{red}$\partial_p f_3$}, illustrating the case $k=2$, $L=3$. Notice that any
+point $p$ lies in the intersection of at most $k$ supports. The support of $\partial_p u''(1,p,x)$ is contained in the union of these supports.}
+\label{fig:supports}
+\end{figure}
+
+Unfortunately, $H''$ does not have the desired property that it's a homotopy through diffeomorphisms. To achieve this, we'll paste together several copies
+of the map $u''$. First, glue together $2^k$ copies, defining $u':I \times P \times X$ by
+\begin{align*}
+u'(t,p,x)_i & =
+\begin{cases}
+\frac{1}{2} u''(t, 2p_i, x)_i & \text{if $0 \leq p_i \leq \frac{1}{2}$} \\
+1-\frac{1}{2} u''(t, 2-2p_i, x)_i & \text{if $\frac{1}{2} \leq p_i \leq 1$}.
+\end{cases}
+\end{align*}
+(Note that we're abusing notation somewhat, using the fact that $u''(t,p,x)_i$ depends on $p$ only through $p_i$.)
+To see what's going on here, it may be helpful to look at Figure \ref{fig:supports_4}, which shows the support of $\partial_p u'(1,p,x)$.
+\begin{figure}[!ht]
+\begin{equation*}
+\mathfig{0.4}{explicit/supports_4} \qquad \qquad \mathfig{0.4}{explicit/supports_36}
+\end{equation*}
+\caption{The supports of $\partial_p u'(1,p,x)$ and of $\partial_p u(1,p,x)$ (with $K=3$) are subsets of the indicated region.}
+\label{fig:supports_4}
+\end{figure}
+
+Second, pick some $K$, and define
+\begin{align*}
+u(t,p,x) & = \frac{\floor{K p}}{K} + \frac{1}{K} u'\left(t, K \left(p - \frac{\floor{K p}}{K}\right), x\right).
+\end{align*}
+
+\todo{Explain that the localisation property survives for $u'$ and $u$.}
+
+We now check that by making $K$ large enough, $H$ becomes a homotopy through diffeomorphisms. We start with
+$$\partial_x H(t,p,x) = \partial_x u(t,p,x) \partial_1 F(u(t,p,x), x) + \partial_2 F(u(t,p,x), x)$$
+and observe that since $F(p, -)$ is a diffeomorphism, the second term $\partial_2 F(u(t,p,x), x)$ is bounded away from $0$. Thus if we can control the
+size of the first term $\partial_x u(t,p,x) \partial_1 F(u(t,p,x), x)$ we're done. The factor $\partial_1 F(u(t,p,x), x)$ is bounded, and we
+calculate \todo{err... this is a mess, and probably wrong.}
+\begin{align*}
+\partial_x u(t,p,x)_i & = \partial_x \frac{1}{K} u'\left(t, K\left(p - \frac{\floor{K p}}{K}\right), x\right)_i \\
+                      & = \pm \frac{1}{2 K} \partial_x u''\left(t, (1\mp1)\pm 2K\left(p_i-\frac{\floor{K p}}{K}\right), x\right)_i \\
+                      & = \pm \frac{1}{2 K} \sum_{l=1}^L (\partial_x r_l(x)) u_l\left(t, (1\mp1)\pm 2K\left(p_i-\frac{\floor{K p}}{K}\right)\right)_i. \\
+\intertext{Since the target of $u_l$ is just the unit cube $I^k$, we can make the estimate}
+\norm{\partial_x u(t,p,x)_i} & \leq \frac{1}{2 K} \sum_{l=1}^L \norm{\partial_x r_l(x)}.
+\end{align*}
+The sum here is bounded, so for large enough $K$ this is small enough that $\partial_x H(t,p,x)$ is never zero.
