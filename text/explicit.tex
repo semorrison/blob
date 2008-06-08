@@ -3,23 +3,23 @@
 Fix a finite open cover of $X$, say $(U_l)_{l=1}^L$, along with an
 associated partition of unity $(r_l)$.
 
-We'll define the homotopy $H:I \times P \times X \To X$ via a function
-$u:I \times P \times X \To P$, with
+We'll define the homotopy $H:I \times P \times X \to X$ via a function
+$u:I \times P \times X \to P$, with
 \begin{equation*}
 H(t,p,x) = F(u(t,p,x),x).
 \end{equation*}
 
-To begin, we'll define a function $u'' : I \times P \times X \To P$, and
+To begin, we'll define a function $u'' : I \times P \times X \to P$, and
 a corresponding homotopy $H''$. This homotopy will just be a homotopy of
 $F$ through families of maps, not through families of diffeomorphisms. On
 the other hand, it will be quite simple to describe, and we'll later
 explain how to build the desired function $u$ out of it.
 
-For each $l = 1, \ldots, L$, pick some $C^\infty$ function $f_l : I \To
+For each $l = 1, \ldots, L$, pick some $C^\infty$ function $f_l : I \to
 I$ which is identically $0$ on a neighborhood of the closed interval $[0,\frac{l-1}{L}]$
 and identically $1$ on a neighborhood of the closed interval $[\frac{l}{L},1]$. (Monotonic?
 Fix a bound for the derivative?) We'll extend it to a function on
-$k$-tuples $f_l : I^k \To I^k$ pointwise.
+$k$-tuples $f_l : I^k \to I^k$ pointwise.
 
 Define $$u''(t,p,x) = \sum_{l=1}^L r_l(x) u_l(t,p),$$ with
 $$u_l(t,p) = t f_l(p) + (1-t)p.$$ Notice that the $i$-th component of $u''(t,p,x)$ depends only on the $i$-th component of $p$.
