@@ -54,7 +54,7 @@
 
 % \DeclareMathOperator{\pr}{pr} etc.
 \def\declaremathop#1{\expandafter\DeclareMathOperator\csname #1\endcsname{#1}}
-\applytolist{declaremathop}{pr}{im}{id}{gl}{tr}{rot}{Eq}{obj}{mor}{ob}{Rep}{Tet}{cat}{Diff}{sign};
+\applytolist{declaremathop}{pr}{im}{id}{gl}{tr}{rot}{Eq}{obj}{mor}{ob}{Rep}{Tet}{cat}{Diff}{sign}{supp};
 
 
 
@@ -607,6 +607,20 @@ For any splitting $X = X_1 \cup X_2$, the following diagram commutes
 Any other map satisfying the above two properties is homotopic to $e_X$.
 \end{prop}
 
+\nn{Should say something stronger about uniqueness.
+Something like: there is
+a contractible subcomplex of the complex of chain maps 
+$CD_*(X) \otimes \bc_*(X) \to \bc_*(X)$ (0-cells are the maps, 1-cells are homotopies, etc.),
+and all choices in the construction lie in the 0-cells of this
+contractible subcomplex.
+Or maybe better to say any two choices are homotopic, and 
+any two homotopies and second order homotopic, and so on.}
+
+\nn{Also need to say something about associativity.
+Put it in the above prop or make it a separate prop?
+I lean toward the latter.}
+\medskip
+
 The proof will occupy the remainder of this section.
 
 \medskip
@@ -647,6 +661,52 @@ Then $x$ is homotopic (rel boundary) to some $x' \in CD_k(X)$ which is adapted t
 The proof will be given in Section \ref{fam_diff_sect}.
 
 \medskip
+
+The strategy for the proof of Proposition \ref{CDprop} is as follows.
+We will identify a subcomplex
+\[
+	G_* \sub CD_*(X) \otimes \bc_*(X)
+\]
+on which the evaluation map is uniquely determined (up to homotopy) by the conditions
+in \ref{CDprop}.
+We then show that the inclusion of $G_*$ into the full complex
+is an equivalence in the appropriate sense.
+\nn{need to be more specific here}
+
+Let $p$ be a singular cell in $CD_*(X)$ and $b$ be a blob diagram in $\bc_*(X)$.
+Roughly speaking, $p\otimes b$ is in $G_*$ if each component $V$ of the support of $p$ 
+intersects at most one blob $B$ of $b$.
+Since $V \cup B$ might not itself be a ball, we need a more careful and complicated definition.
+Choose a metric for $X$.
+We define $p\otimes b$ to be in $G_*$ if there exist $\epsilon > 0$ such that 
+$N_\epsilon(b) \cup \supp(p)$ is a union of balls, where $N_\epsilon(b)$ denotes the epsilon
+neighborhood of the support of $b$.
+\nn{maybe also require that $N_\delta(b)$ is a union of balls for all $\delta<\epsilon$.}
+
+\nn{need to worry about case where the intrinsic support of $p$ is not a union of balls}
+
+\nn{need to eventually show independence of choice of metric.  maybe there's a better way than
+choosing a metric.  perhaps just choose a nbd of each ball, but I think I see problems
+with that as well.}
+
+Next we define the evaluation map on $G_*$.
+We'll proceed inductively on $G_i$.
+The induction starts on $G_0$, where we have no choice for the evaluation map
+because $G_0 \sub CD_0\otimes \bc_0$.
+Assume we have defined the evaluation map up to $G_{k-1}$ and
+let $p\otimes b$ be a generator of $G_k$.
+Let $C \sub X$ be a union of balls (as described above) containing $\supp(p)\cup\supp(b)$.
+
+
+
+
+
+\medskip
+\hrule
+\medskip
+\hrule
+\medskip
+\nn{older stuff:}
 
 Let $B_1, \ldots, B_m$ be a collection of disjoint balls in $X$
 (e.g.~the support of a blob diagram).
