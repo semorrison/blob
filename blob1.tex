@@ -687,15 +687,40 @@ neighborhood of the support of $b$.
 
 \nn{need to eventually show independence of choice of metric.  maybe there's a better way than
 choosing a metric.  perhaps just choose a nbd of each ball, but I think I see problems
-with that as well.}
+with that as well.
+the bottom line is that we need a scheme for choosing unions of balls
+which satisfies the $C$, $C'$, $C''$ claim made a few paragraphs below.}
 
-Next we define the evaluation map on $G_*$.
+Next we define the evaluation map $e_X$ on $G_*$.
 We'll proceed inductively on $G_i$.
-The induction starts on $G_0$, where we have no choice for the evaluation map
+The induction starts on $G_0$, where the evaluation map is determined
+by the action of $\Diff(X)$ on $\bc_*(X)$
 because $G_0 \sub CD_0\otimes \bc_0$.
 Assume we have defined the evaluation map up to $G_{k-1}$ and
 let $p\otimes b$ be a generator of $G_k$.
 Let $C \sub X$ be a union of balls (as described above) containing $\supp(p)\cup\supp(b)$.
+There is a factorization $p = p' \circ g$, where $g\in \Diff(X)$ and $p'$ is a family of diffeomorphisms which is the identity outside of $C$.
+Let $b = b'\bullet b''$, where $b' \in \bc_*(C)$ and $b'' \in \bc_0(X\setmin C)$.
+We may assume inductively that $e_X(\bd(p\otimes b))$ has the form $x\bullet g(b'')$, where
+$x \in \bc_*(g(C))$.
+Since $\bc_*(g(C))$ is contractible, there exists $y \in \bc_*(g(C))$ such that $\bd y = x$.
+\nn{need to say more if degree of $x$ is 0}
+Define $e_X(p\otimes b) = y\bullet g(b'')$.
+
+We now show that $e_X$ on $G_*$ is, up to homotopy, independent of the various choices made.
+If we make a different series of choice of the chain $y$ in the previous paragraph, 
+we can inductively construct a homotopy between the two sets of choices,
+again relying on the contractibility of $\bc_*(g(G))$.
+A similar argument shows that this homotopy is unique up to second order homotopy, and so on.
+
+Given a different set of choices $\{C'\}$ of the unions of balls $\{C\}$,
+we can find a third set of choices $\{C''\}$ such that $C, C' \sub C''$.
+The argument now proceeds as in the previous paragraph.
+\nn{should maybe say more here; also need to back up claim about third set of choices}
+
+Next we show that given $x \in CD_*(X) \otimes \bc_*(X)$ with $\bd x \in G_*$, there exists
+a homotopy (rel $\bd x$) to $x' \in G_*$, and further that $x'$ and
+this homotopy are unique up to iterated homotopy.
 
 
 
