@@ -607,6 +607,8 @@ For any splitting $X = X_1 \cup X_2$, the following diagram commutes
 Any other map satisfying the above two properties is homotopic to $e_X$.
 \end{prop}
 
+\nn{need to rewrite for self-gluing instead of gluing two pieces together}
+
 \nn{Should say something stronger about uniqueness.
 Something like: there is
 a contractible subcomplex of the complex of chain maps 
@@ -622,6 +624,7 @@ I lean toward the latter.}
 \medskip
 
 The proof will occupy the remainder of this section.
+\nn{unless we put associativity prop at end}
 
 \medskip
 
@@ -656,6 +659,7 @@ of singular cells, each of which is adapted to $\cU$.
 \begin{lemma}  \label{extension_lemma}
 Let $x \in CD_k(X)$ be a singular chain such that $\bd x$ is adapted to $\cU$.
 Then $x$ is homotopic (rel boundary) to some $x' \in CD_k(X)$ which is adapted to $\cU$.
+Furthermore, one can choose the homotopy so that its support is equal to the support of $x$.
 \end{lemma}
 
 The proof will be given in Section \ref{fam_diff_sect}.
@@ -722,55 +726,59 @@ Next we show that given $x \in CD_*(X) \otimes \bc_*(X)$ with $\bd x \in G_*$, t
 a homotopy (rel $\bd x$) to $x' \in G_*$, and further that $x'$ and
 this homotopy are unique up to iterated homotopy.
 
+Given $k>0$ and a blob diagram $b$, we say that a cover of $X$ $\cU$ is $k$-compatible with
+$b$ if, for any $\{U_1, \ldots, U_k\} \sub \cU$, the union 
+$U_1\cup\cdots\cup U_k$ is a union of balls which satisfies the condition used to define $G_*$ above.
+Note that if a family of diffeomorphisms $p$ is adapted to 
+$\cU$ and $b$ is a blob diagram occurring in $x$, then $p\otimes b \in G_*$.
+\nn{maybe emphasize this more; it's one of the main ideas in the proof}
 
+Let $k$ be the degree of $x$ and choose a cover $\cU$ of $X$ such that $\cU$ is
+$k$-compatible with each of the (finitely many) blob diagrams occurring in $x$.
+We will use Lemma \ref{extension_lemma} with respect to the cover $\cU$ to 
+construct the homotopy to $G_*$.
+First we will construct a homotopy $h \in G_*$ from $\bd x$ to a cycle $z$ such that
+each family of diffeomorphisms $p$ occurring in $z$ is adapted to $\cU$.
+Then we will construct a homotopy (rel boundary) $r$ from $x + h$ to $y$ such that
+each family of diffeomorphisms $p$ occurring in $y$ is adapted to $\cU$.
+This implies that $y \in G_*$.
+$r$ can also be thought of as a homotopy from $x$ to $y-h \in G_*$, and this is the homotopy we seek.
 
+We will define $h$ inductive on bidegrees $(0, k-1), (1, k-2), \ldots, (k-1, 0)$.
+Define $h$ to be zero on bidegree $(0, k-1)$.
+Let $p\otimes b$ be a generator occurring in $\bd x$ with bidegree $(1, k-2)$.
+Using Lemma \ref{extension_lemma}, construct a homotopy $q$ from $p$ to $p'$ which is adapted to $\cU$.
+Define $h$ at $p\otimes b$ to be $q\otimes b$.
+Let $p'\otimes b'$ be a generator occurring in $\bd x$ with bidegree $(2, k-3)$.
+Let $a$ be that portion of $\bd(p'\otimes b')$ which intersects the boundary of
+bidegree $(1, k-2)$ stuff.
+Apply Lemma \ref{extension_lemma} to $p'$ plus the diffeo part of $h(a)$
+(rel the outer boundary of said part),
+yielding a family of diffeos $q'$.
+\nn{definitely need to say this better}
+Define $h$ at $p'\otimes b'$ to be $q'\otimes b'$.
+Continuing in this way, we define all of $h$.
 
+The homotopy $r$ is constructed similarly.
+
+\nn{need to say something about uniqueness of $r$, $h$ etc.  
+postpone this until second draft.}
+
+At this point, we have finished defining the evaluation map.
+The uniqueness statement in the proposition is clear from the method of proof.
+All that remains is to show that the evaluation map gets along well with cutting and gluing,
+as claimed in the proposition.
+This is in fact not difficult, since the myriad choices involved in defining the
+evaluation map can be made in parallel for the top and bottom
+arrows in the commutative diagram.
+
+This completes the proof of Proposition \ref{CDprop}.
 
 \medskip
-\hrule
-\medskip
-\hrule
-\medskip
-\nn{older stuff:}
 
-Let $B_1, \ldots, B_m$ be a collection of disjoint balls in $X$
-(e.g.~the support of a blob diagram).
-We say that $f:P\times X\to X$ is {\it compatible} with $\{B_j\}$ if
-$f$ has support a disjoint collection of balls $D_i \sub X$ and for all $i$ and $j$
-either $B_j \sub D_i$ or $B_j \cap D_i = \emptyset$.
-A chain $x \in CD_k(X)$ is compatible with $\{B_j\}$ if it is a sum of singular cells,
-each of which is compatible.
-(Note that we could strengthen the definition of compatibility to incorporate
-a factorization condition, similar to the definition of ``adapted to" above.
-The weaker definition given here will suffice for our needs below.)
+\nn{say something about associativity here}
 
-\begin{cor}  \label{extension_lemma_2}
-Let $x \in CD_k(X)$ be a singular chain such that $\bd x$ is compatible with $\{B_j\}$.
-Then $x$ is homotopic (rel boundary) to some $x' \in CD_k(X)$ which is compatible with $\{B_j\}$.
-\end{cor}
-\begin{proof}
-This will follow from Lemma \ref{extension_lemma} for
-appropriate choice of cover $\cU = \{U_\alpha\}$.
-Let $U_{\alpha_1}, \ldots, U_{\alpha_k}$ be any $k$ open sets of $\cU$, and let
-$V_1, \ldots, V_m$ be the connected components of $U_{\alpha_1}\cup\cdots\cup U_{\alpha_k}$.
-Choose $\cU$ fine enough so that there exist disjoint balls $B'_j \sup B_j$ such that for all $i$ and $j$
-either $V_i \sub B'_j$ or $V_i \cap B'_j = \emptyset$.
 
-Apply Lemma \ref{extension_lemma} first to each singular cell $f_i$ of $\bd x$,
-with the (compatible) support of $f_i$ in place of $X$.
-This insures that the resulting homotopy $h_i$ is compatible.
-Now apply Lemma \ref{extension_lemma} to $x + \sum h_i$.
-\nn{actually, need to start with the 0-skeleton of $\bd x$, then 1-skeleton, etc.; fix this}
-\end{proof}
-
-\medskip
-
-((argument continues roughly as follows: up to homotopy, there is only one way to define $e_X$
-on compatible $x\otimes y \in CD_*(X)\otimes \bc_*(X)$.
-This is because $x$ is the gluing of $x'$ and $x''$, where $x'$ has degree zero and is defined on
-the complement of the $D_i$'s, and $x''$ is defined on the $D_i$'s.
-We have no choice on $x'$, since we already know the map on 0-parameter families of diffeomorphisms.
-We have no choice, up to homotopy, on $x''$, since the target chain complex is contractible.))
 
 
 \section{Families of Diffeomorphisms}  \label{fam_diff_sect}
