@@ -54,7 +54,7 @@
 
 % \DeclareMathOperator{\pr}{pr} etc.
 \def\declaremathop#1{\expandafter\DeclareMathOperator\csname #1\endcsname{#1}}
-\applytolist{declaremathop}{pr}{im}{id}{gl}{tr}{rot}{Eq}{obj}{mor}{ob}{Rep}{Tet}{cat}{Diff}{sign}{supp};
+\applytolist{declaremathop}{pr}{im}{id}{gl}{tr}{rot}{Eq}{obj}{mor}{ob}{Rep}{Tet}{cat}{Diff}{sign}{supp}{maps};
 
 
 
@@ -1039,11 +1039,31 @@ The proof will occupy the remainder of this section.
 \section{Extension to ...}
 
 \nn{Need to let the input $n$-category $C$ be a graded thing
-(e.g.~DGA or $A_\infty$ $n$-category).}
+(e.g. DG $n$-category or $A_\infty$ $n$-category).
+DG $n$-category case is pretty easy, I think, so maybe it should be done earlier??
+Also, $A_\infty$ stuff (this section) should go before gluing section.}
 
-\nn{maybe this should be done earlier in the exposition?
-if we can plausibly claim that the various proofs work almost
-the same with the extended def, then maybe it's better to extend late (here)}
+\bigskip
+
+Outline:
+\begin{itemize}
+\item recall defs of $A_\infty$ category (1-category only), modules, (self-) tensor product.
+use graphical/tree point of view, rather than following Keller exactly
+\item define blob complex in $A_\infty$ case; fat mapping cones?  tree decoration?
+\item topological $A_\infty$ cat def (maybe this should go first); also modules gluing
+\item motivating example: $C_*(\maps(X, M))$
+\item maybe incorporate dual point of view (for $n=1$), where points get
+object labels and intervals get 1-morphism labels
+\end{itemize}
+
+
+
+
+
+
+
+
+
 
 
 \section{What else?...}
