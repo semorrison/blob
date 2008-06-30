@@ -1,3 +1,15 @@
 explicit/supports
 explicit/supports_4
 explicit/supports_36
+barycentric/barycentric
+barycentric/ux
+barycentric/ux_ca
+barycentric/ux_c-a
+barycentric/uy
+barycentric/uy_cab
+barycentric/uy_ca-b
+barycentric/uz
+barycentric/uz_c-a-b
+barycentric/uz_cab
+barycentric/Ax
+barycentric/Ay

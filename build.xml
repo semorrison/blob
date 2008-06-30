@@ -1,7 +1,7 @@
 <!-- This is an Ant build file; you'll need to install Ant before using it. -->
-<project name="su_3-functoriality" default="usage">
+<project name="blob" default="usage">
     <target name="init">
-      <property name="arxivTarFile" value="su_3-functoriality.tar"/>
+      <property name="arxivTarFile" value="blob.tar"/>
     </target>
 
     <!-- USAGE -->
@@ -9,15 +9,15 @@
     <!-- =================================================================== -->
     <target name = "usage" depends = "init">    
         <echo message = ""/>
-        <echo message = "su_3-functoriality build instructions"/>
+        <echo message = "blob build instructions"/>
         <echo message = "-------------------------------------------------------------"/>
         <echo message = ""/>
         <echo message = " available targets are:"/>
         <echo message = ""/>
-        <echo message = "   arxiv --> builds su_3-functoriality.tar.gz, for submission to the arxiv"/>
-        <echo message = "   dvi   --> builds su_3-functoriality.dvi"/>
-        <echo message = "   ps    --> builds su_3-functoriality.ps"/>
-        <echo message = "   pdf   --> builds su_3-functoriality.pdf"/>
+        <echo message = "   arxiv --> builds blob.tar.gz, for submission to the arxiv"/>
+        <echo message = "   dvi   --> builds blob.dvi"/>
+        <echo message = "   ps    --> builds blob.ps"/>
+        <echo message = "   pdf   --> builds blob.pdf"/>
         <echo message = ""/>
         <echo message = "-------------------------------------------------------------"/>
         <echo message = ""/>  
@@ -49,31 +49,31 @@
 
     <target name="bbl" depends="init">
         <exec executable="latex">
-            <arg value="su_3-functoriality"/>
+            <arg value="blob1"/>
         </exec>
         <exec executable="bibtex">
-            <arg value="su_3-functoriality"/>
+            <arg value="blob1"/>
         </exec>
     </target>
      
     <target name="dvi" depends="bbl">
         <exec executable="latex">
-            <arg value="su_3-functoriality"/>
+            <arg value="blob1"/>
         </exec>
         <exec executable="latex">
-            <arg value="su_3-functoriality"/>
+            <arg value="blob1"/>
         </exec>
     </target>
 
     <target name="ps" depends="dvi">
         <exec executable="dvips">
-            <arg value="su_3-functoriality"/>
+            <arg value="blob1"/>
         </exec>
     </target>
 
     <target name="pdf" depends="ps">
         <exec executable="ps2pdf">
-            <arg value="su_3-functoriality.ps"/>
+            <arg value="blob1.ps"/>
         </exec>
     </target>
     
@@ -87,10 +87,17 @@
     </target>
     
     <target name="scott-copy-pdf" depends="pdf">
-        <copy file="su_3-foams.pdf" tofile="../../../../hosts/math.berkeley.edu/public_html/papers/su_3-functoriality.pdf"/>
-        <svn>
-            <commit dir="../../../../hosts/math.berkeley.edu/public_html/papers/"/>
-        </svn>
+        <copy file="blob1.pdf" tofile="../../hosts/tqft.net/papers/blob.pdf"/>
+        <exec executable="svn" dir="../../hosts/tqft.net/papers/">
+            <arg value="commit"/>
+            <arg value="-m"/>
+            <arg value="blob"/>
+        </exec>
+        <exec executable="ssh">
+            <arg value="scottmorrison@heracles.dreamhost.com"/>
+            <arg value="svn"/>
+            <arg value="up"/>      
+            <arg value="tqft.net"/>                  
+        </exec>
     </target>
-
 </project>
