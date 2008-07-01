@@ -87,7 +87,7 @@
     </target>
     
     <target name="scott-copy-pdf" depends="pdf">
-        <copy file="blob1.pdf" tofile="../../hosts/tqft.net/papers/blob.pdf"/>
+        <copy file="blob1.pdf" tofile="../../hosts/tqft.net/papers/blobs.pdf"/>
         <exec executable="svn" dir="../../hosts/tqft.net/papers/">
             <arg value="commit"/>
             <arg value="-m"/>
