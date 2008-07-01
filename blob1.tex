@@ -54,7 +54,7 @@
 
 % \DeclareMathOperator{\pr}{pr} etc.
 \def\declaremathop#1{\expandafter\DeclareMathOperator\csname #1\endcsname{#1}}
-\applytolist{declaremathop}{pr}{im}{id}{gl}{ev}{tr}{rot}{Eq}{obj}{mor}{ob}{Rep}{Tet}{cat}{Diff}{sign}{supp}{maps};
+\applytolist{declaremathop}{pr}{im}{id}{gl}{ev}{tr}{rot}{Eq}{obj}{mor}{ob}{Rep}{Tet}{cat}{Maps}{Diff}{sign}{supp}{maps};
 
 
 
@@ -937,23 +937,38 @@ to the general $n$ case, defining topological $A_\infty$-$n$-categories and thei
 A ``topological $A_\infty$-algebra'' $A$ consists of the data
 \begin{enumerate}
 \item for each $1$-manifold $J$ diffeomorphic to the standard interval $I=\left[0,1\right]$, a complex of vector spaces $A(J)$,
-\item along with an `evaluation' chain map $\ev_J : \CD{J} \tensor A(J) \to A(J)$,
-\item for each diffeomorphism $\phi : J \to J'$, an isomorphism $A(\phi) : A(J) \isoto A(J')$,
-\item and whenever $\bdy J \cap \bdy J'$ is a single point, a gluing map $\gl_{J,J'} : A(J) \tensor A(J') \to A(J \cup J')$,
+% either roll functoriality into the evaluation map
+\item and for each pair of intervals $J,J'$ an `evaluation' chain map $\ev_{J \to J'} : \CD{J \to J'} \tensor A(J) \to A(J')$,
+\item and a gluing map $\gl_{J,J'} : A(J) \tensor A(J') \to A(J \cup J')$,
+% or do it as two separate pieces of data
+%\item along with an `evaluation' chain map $\ev_J : \CD{J} \tensor A(J) \to A(J)$,
+%\item for each diffeomorphism $\phi : J \to J'$, an isomorphism $A(\phi) : A(J) \isoto A(J')$,
+%\item and for each pair of intervals $J,J'$ a gluing map $\gl_{J,J'} : A(J) \tensor A(J') \to A(J \cup J')$,
 \end{enumerate}
 satisfying the following conditions.
 \begin{itemize}
-\item If $\phi$ is a diffeomorphism from $J$ to itself, the maps $\ev_J(\phi, -)$ and $A(\phi)$ are the same.
 \item The evaluation chain map is associative, in that the diagram
 \begin{equation*}
 \xymatrix{
-\CD{J} \tensor \CD{J} \tensor A(J) \ar[r]^{\Id \tensor \ev_J} \ar[d]_{\compose \tensor \Id} &
-\CD{J} \tensor A(J) \ar[d]^{\ev_J} \\
-\CD{J} \tensor A(J) \ar[r]_{\ev_J} &
-A(J)
+\CD{J' \to J''} \tensor \CD{J \to J'} \tensor A(J) \ar[r]^{\Id \tensor \ev_{J \to J'}} \ar[d]_{\compose \tensor \Id} &
+\CD{J' \to J''} \tensor A(J') \ar[d]^{\ev_{J' \to J''}} \\
+\CD{J \to J''} \tensor A(J) \ar[r]_{\ev_{J \to J''}} &
+A(J'')
 }
 \end{equation*}
-commutes. (Here the map $\compose : \CD{J} \tensor \CD{J} \to \CD{J}$ is a composition: take products of singular chains first, then use the group multiplication in $\Diff(J)$.)
+commutes. (Here the map $\compose : \CD{J' \to J''} \tensor \CD{J \to J'} \to \CD{J \to J''}$ is a composition: take products of singular chains first, then compose diffeomorphisms.)
+%% or the version for separate pieces of data:
+%\item If $\phi$ is a diffeomorphism from $J$ to itself, the maps $\ev_J(\phi, -)$ and $A(\phi)$ are the same.
+%\item The evaluation chain map is associative, in that the diagram
+%\begin{equation*}
+%\xymatrix{
+%\CD{J} \tensor \CD{J} \tensor A(J) \ar[r]^{\Id \tensor \ev_J} \ar[d]_{\compose \tensor \Id} &
+%\CD{J} \tensor A(J) \ar[d]^{\ev_J} \\
+%\CD{J} \tensor A(J) \ar[r]_{\ev_J} &
+%A(J)
+%}
+%\end{equation*}
+%commutes. (Here the map $\compose : \CD{J} \tensor \CD{J} \to \CD{J}$ is a composition: take products of singular chains first, then use the group multiplication in $\Diff(J)$.)
 \item The gluing maps are \emph{strictly} associative. That is, given $J$, $J'$ and $J''$, the diagram
 \begin{equation*}
 \xymatrix{
@@ -968,23 +983,45 @@ commutes.
 \end{defn}
 
 \begin{rem}
-Of course, the first and third pieces of data (the complexes, and the isomorphisms) together just constitute a functor from the category of
-intervals and diffeomorphisms between them to the category of complexes of vector spaces.
-Further, one can combine the second and third pieces of data, asking instead for a map
-\begin{equation*}
-\ev_{J,J'} : \CD{J \to J'} \tensor A(J) \to A(J').
-\end{equation*}
-(Any $k$-parameter family of diffeomorphisms in $C_k(\Diff(J \to J'))$ factors into a single diffeomorphism $J \to J'$ and a $k$-parameter family of
-diffeomorphisms in $\CD{J'}$.)
+We can restrict the evaluation map to $0$-chains, and see that $J \mapsto A(J)$ and $(\phi:J \to J') \mapsto \ev_{J \to J'}(\phi, -)$ together
+constitute a functor from the category of intervals and diffeomorphisms between them to the category of complexes of vector spaces.
+Further, once this functor has been specified, we only need to know how the evaluation map acts when $J = J'$.
 \end{rem}
+
+%% if we do things separately, we should say this:
+%\begin{rem}
+%Of course, the first and third pieces of data (the complexes, and the isomorphisms) together just constitute a functor from the category of
+%intervals and diffeomorphisms between them to the category of complexes of vector spaces.
+%Further, one can combine the second and third pieces of data, asking instead for a map
+%\begin{equation*}
+%\ev_{J,J'} : \CD{J \to J'} \tensor A(J) \to A(J').
+%\end{equation*}
+%(Any $k$-parameter family of diffeomorphisms in $C_k(\Diff(J \to J'))$ factors into a single diffeomorphism $J \to J'$ and a $k$-parameter family of
+%diffeomorphisms in $\CD{J'}$.)
+%\end{rem}
 
 To generalise the definition to that of a category, we simply introduce a set of objects which we call $A(pt)$. Now we associate complexes to each
 interval with boundary conditions $(J, c_-, c_+)$, with $c_-, c_+ \in A(pt)$, and only ask for gluing maps when the boundary conditions match up:
 \begin{equation*}
 \gl : A(J, c_-, c_0) \tensor A(J', c_0, c_+) \to A(J \cup J', c_-, c_+).
 \end{equation*}
-The action of diffeomorphisms, and $k$-parameter families of diffeomorphisms, ignore the boundary conditions.
+The action of diffeomorphisms (and of $k$-parameter families of diffeomorphisms) ignores the boundary conditions.
 \todo{we presumably need to say something about $\Id_c \in A(J, c, c)$.}
+
+At this point we can give two motivating examples. The first is `chains of maps to $M$' for some fixed target space $M$.
+\begin{defn}
+Define the topological $A_\infty$ category $C_*(\Maps(- \to M))$ by
+\begin{enumerate}
+\item $A(J) = C_*(\Maps(J \to M))$, singular chains on the space of smooth maps from $J$ to $M$,
+\item $\ev_{J,J'} : \CD{J \to J'} \tensor A(J) \to A(J')$ is the composition $\CD{J \to J'} \tensor C_*(\Maps(J \to M)) \to C_*(\Diff(J \to J') \times \Maps(J \to M)) \to C_*(\Maps(J' \to M))$, where the first map is the product of singular chains, and the second is precomposition by the inverse of a diffeomorphism\todo{inverse, really?!},
+\item $\gl_{J,J'} : A(J) \tensor A(J')$ takes the product of singular chains, then glues maps to $M$ together.
+\end{enumerate}
+The associativity conditions are trivially satisfied.
+\end{defn}
+
+The second example is simply the blob complex of $Y \times J$, for any $n-1$ manifold $Y$. We define $A(J) = \bc_*(Y \times J)$.
+Observe $\Diff(J \to J')$ embeds into $\Diff(Y \times J \to Y \times J')$. The evaluation and gluing maps then come directly from Properties
+\ref{property:evaluation} and \ref{property:gluing-map} respectively.
 
 The definition of a module follows closely the definition of an algebra or category.
 \begin{defn}
@@ -993,10 +1030,10 @@ A topological $A_\infty$-(left-)module $M$ over a topological $A_\infty$ categor
 \begin{enumerate}
 \item a functor $K \mapsto M(K)$ from $1$-manifolds diffeomorphic to the standard interval, with a marked point on a boundary, to complexes of vector spaces,
 \item along with an `evaluation' map $\ev_K : \CD{K} \tensor M(K) \to M(K)$
-\item whenever $\bdy J \cap K$ is a single point, and isn't the marked point of $K$ \todo{ugh, that's so gross}, a gluing map
+\item and for each interval $J$ and interval $K$ a marked point on the right boundary, a gluing map
 $\gl_{J,K} : A(J) \tensor M(K) \to M(J \cup K)$
 \end{enumerate}
-satisfying the obvious analogous conditions as in Definition \ref{defn:topological-algebra}.
+satisfying the obvious conditions analogous to those in Definition \ref{defn:topological-algebra}.
 \end{defn}
 
 \todo{Bimodules, and gluing}
