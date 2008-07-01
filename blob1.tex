@@ -54,7 +54,7 @@
 
 % \DeclareMathOperator{\pr}{pr} etc.
 \def\declaremathop#1{\expandafter\DeclareMathOperator\csname #1\endcsname{#1}}
-\applytolist{declaremathop}{pr}{im}{id}{gl}{tr}{rot}{Eq}{obj}{mor}{ob}{Rep}{Tet}{cat}{Diff}{sign}{supp}{maps};
+\applytolist{declaremathop}{pr}{im}{id}{gl}{ev}{tr}{rot}{Eq}{obj}{mor}{ob}{Rep}{Tet}{cat}{Diff}{sign}{supp}{maps};
 
 
 
@@ -78,7 +78,25 @@
 
 \maketitle
 
-\textbf{Draft version, do not distribute. \versioninfo}
+\textbf{Draft version, do not distribute.}
+
+\versioninfo
+
+\section*{Todo}
+
+\subsection*{What else?...}
+
+\begin{itemize}
+\item Derive Hochschild standard results from blob point of view?
+\item $n=2$ examples
+\item Kh
+\item dimension $n+1$ (generalized Deligne conjecture?)
+\item should be clear about PL vs Diff; probably PL is better
+(or maybe not)
+\item say what we mean by $n$-category, $A_\infty$ or $E_\infty$ $n$-category
+\item something about higher derived coend things (derived 2-coend, e.g.)
+\end{itemize}
+
 
 \section{Introduction}
 
@@ -92,9 +110,118 @@ just go from coend to derived coend (e.g. Hochschild homology));
 (3) ...
 )
 
-\section{Definitions}
 
-\subsection{Fields}
+
+We then show that blob homology enjoys the following
+\ref{property:gluing} properties.
+
+\begin{property}[Functoriality]
+\label{property:functoriality}%
+Blob homology is functorial with respect to diffeomorphisms. That is, fixing an $n$-dimensional system of fields $\cF$ and local relations $\cU$, the association
+\begin{equation*}
+X \mapsto \bc_*^{\cF,\cU}(X)
+\end{equation*}
+is a functor from $n$-manifolds and diffeomorphisms between them to chain complexes and isomorphisms between them.
+\scott{Do we want to or need to weaken `isomorphisms' to `homotopy equivalences' or `quasi-isomorphisms'?}
+\end{property}
+
+\begin{property}[Disjoint union]
+\label{property:disjoint-union}
+The blob complex of a disjoint union is naturally the tensor product of the blob complexes.
+\begin{equation*}
+\bc_*(X_1 \sqcup X_2) \iso \bc_*(X_1) \tensor \bc_*(X_2)
+\end{equation*}
+\end{property}
+
+\begin{property}[A map for gluing]
+\label{property:gluing-map}%
+If $X_1$ and $X_2$ are $n$-manifolds, with $Y$ a codimension $0$-submanifold of $\bdy X_1$, and $Y^{\text{op}}$ a codimension $0$-submanifold of $\bdy X_2$,
+there is a chain map
+\begin{equation*}
+\gl_Y: \bc_*(X_1) \tensor \bc_*(X_2) \to \bc_*(X_1 \cup_Y X_2).
+\end{equation*}
+\end{property}
+
+\begin{property}[Contractibility]
+\label{property:contractibility}%
+\todo{Err, requires a splitting?}
+The blob complex for an $n$-category on an $n$-ball is quasi-isomorphic to its $0$-th homology.
+\begin{equation}
+\xymatrix{\bc_*^{\cC}(B^n) \ar[r]^{\iso}_{\text{qi}} & H_0(\bc_*^{\cC}(B^n))}
+\end{equation}
+\todo{Say that this is just the original $n$-category?}
+\end{property}
+
+\begin{property}[Skein modules]
+\label{property:skein-modules}%
+The $0$-th blob homology of $X$ is the usual skein module associated to $X$. (See \S \ref{sec:local-relations}.)
+\begin{equation*}
+H_0(\bc_*^{\cF,\cU}(X)) \iso A^{\cF,\cU}(X)
+\end{equation*}
+\end{property}
+
+\begin{property}[Hochschild homology when $X=S^1$]
+\label{property:hochschild}%
+The blob complex for a $1$-category $\cC$ on the circle is
+quasi-isomorphic to the Hochschild complex.
+\begin{equation*}
+\xymatrix{\bc_*^{\cC}(S^1) \ar[r]^{\iso}_{\text{qi}} & HC_*(\cC)}
+\end{equation*}
+\end{property}
+
+\begin{property}[Evaluation map]
+\label{property:evaluation}%
+There is an `evaluation' chain map
+\begin{equation*}
+\ev_X: \CD{X} \tensor \bc_*(X) \to \bc_*(X).
+\end{equation*}
+(Here $\CD{X}$ is the singular chain complex of the space of diffeomorphisms of $X$, fixed on $\bdy X$.)
+
+Restricted to $C_0(\Diff(X))$ this is just the action of diffeomorphisms described in Property \ref{property:functoriality}. Further, for
+any codimension $1$-submanifold $Y \subset X$ dividing $X$ into $X_1 \cup_Y X_2$, the following diagram
+(using the gluing maps described in Property \ref{property:gluing-map}) commutes.
+\begin{equation*}
+\xymatrix{
+     \CD{X} \otimes \bc_*(X) \ar[r]^{\ev_X}    & \bc_*(X) \\
+     \CD{X_1} \otimes \CD{X_2} \otimes \bc_*(X_1) \otimes \bc_*(X_2)
+        \ar@/_4ex/[r]_{\ev_{X_1} \otimes \ev_{X_2}}  \ar[u]^{\gl^{\Diff}_Y \otimes \gl_Y}  &
+            \bc_*(X_1) \otimes \bc_*(X_2) \ar[u]_{\gl_Y}
+}
+\end{equation*}
+\end{property}
+
+\begin{property}[Gluing formula]
+\label{property:gluing}%
+\mbox{}% <-- gets the indenting right
+\begin{itemize}
+\item For any $(n-1)$-manifold $Y$, the blob homology of $Y \times I$ is
+naturally an $A_\infty$ category. % We'll write $\bc_*(Y)$ for $\bc_*(Y \times I)$ below.
+
+\item For any $n$-manifold $X$, with $Y$ a codimension $0$-submanifold of its boundary, the blob homology of $X$ is naturally an
+$A_\infty$ module for $\bc_*(Y \times I)$.
+
+\item For any $n$-manifold $X$, with $Y \cup Y^{\text{op}}$ a codimension
+$0$-submanifold of its boundary, the blob homology of $X'$, obtained from
+$X$ by gluing along $Y$, is the $A_\infty$ self-tensor product of
+$\bc_*(X)$ as an $\bc_*(Y \times I)$-bimodule.
+\begin{equation*}
+\bc_*(X') \iso \bc_*(X) \Tensor^{A_\infty}_{\mathclap{\bc_*(Y \times I)}}
+\end{equation*}
+\todo{How do you write self tensor product?}
+\end{itemize}
+\end{property}
+
+Properties \ref{property:functoriality}, \ref{property:gluing-map} and \ref{property:skein-modules} will be immediate from the definition given in
+\S \ref{sec:blob-definition}, and we'll recall them at the appropriate points there. \todo{Make sure this gets done.}
+Properties \ref{property:disjoint-union} and \ref{property:contractibility} are established in \S \ref{sec:basic-properties}.
+Property \ref{property:hochschild} is established in \S \ref{sec:hochschild}, Property \ref{property:evaluation} in \S \ref{sec:evaluation},
+and Property \ref{property:gluing} in \S \ref{sec:gluing}.
+
+\section{Definitions}
+\label{sec:definitions}
+
+\subsection{Systems of fields}
+\label{sec:fields}
 
 Fix a top dimension $n$.
 
@@ -245,6 +372,7 @@ above tensor products.
 
 
 \subsection{Local relations}
+\label{sec:local-relations}
 
 Let $B^n$ denote the standard $n$-ball.
 A {\it local relation} is a collection subspaces $U(B^n; c) \sub \cC_l(B^n; c)$
@@ -282,6 +410,7 @@ The blob complex is in some sense the derived version of $A(Y; c)$.
 
 
 \subsection{The blob complex}
+\label{sec:blob-definition}
 
 Let $X$ be an $n$-manifold.
 Assume a fixed system of fields.
@@ -441,6 +570,7 @@ relations to Chas-Sullivan string stuff}
 
 
 \section{Basic properties of the blob complex}
+\label{sec:basic-properties}
 
 \begin{prop} \label{disjunion}
 There is a natural isomorphism $\bc_*(X \du Y) \cong \bc_*(X) \otimes \bc_*(Y)$.
@@ -536,7 +666,7 @@ There is an action of $\Diff(X)$ on $\bc_*(X)$.
 \qed
 \end{prop}
 
-The above will be greatly strengthened in Section \ref{diffsect}.
+The above will be greatly strengthened in Section \ref{sec:evaluation}.
 
 \medskip
 
@@ -563,7 +693,7 @@ The sum is over all fields $a$ on $Y$ compatible at their
 \end{prop}
 
 The above map is very far from being an isomorphism, even on homology.
-This will be fixed in Section \ref{gluesect} below.
+This will be fixed in Section \ref{sec:gluing} below.
 
 An instance of gluing we will encounter frequently below is where $X = X_1 \du X_2$
 and $X\sgl = X_1 \cup_Y X_2$.
@@ -583,7 +713,8 @@ Note that we have resumed our habit of omitting boundary labels from the notatio
 \label{sec:hochschild}
 \input{text/hochschild}
 
-\section{Action of $C_*(\Diff(X))$}  \label{diffsect}
+\section{Action of $\CD{X}$}
+\label{sec:evaluation}
 
 Let $CD_*(X)$ denote $C_*(\Diff(X))$, the singular chain complex of
 the space of diffeomorphisms
@@ -664,7 +795,7 @@ Then $x$ is homotopic (rel boundary) to some $x' \in CD_k(X)$ which is adapted t
 Furthermore, one can choose the homotopy so that its support is equal to the support of $x$.
 \end{lemma}
 
-The proof will be given in Section \ref{fam_diff_sect}.
+The proof will be given in Section \ref{sec:localising}.
 
 \medskip
 
@@ -781,10 +912,102 @@ This completes the proof of Proposition \ref{CDprop}.
 
 \nn{say something about associativity here}
 
+\section{Gluing}
+\label{sec:gluing}%
+
+\subsection{`Topological' $A_\infty$ $n$-categories}
+\label{sec:topological-A-infty}%
+
+This section prepares the ground for establishing Property \ref{property:gluing} by defining the notion of a \emph{topological $A_\infty$
+$n$-category}. The main result of this section is
+
+\begin{thm}
+Topological $A_\infty$ $1$-categories are equivalent to `standard'
+$A_\infty$ $1$-categories.
+\end{thm}
 
 
 
-\section{Families of Diffeomorphisms}  \label{fam_diff_sect}
+\nn{Need to let the input $n$-category $C$ be a graded thing (e.g. DG
+$n$-category or $A_\infty$ $n$-category). DG $n$-category case is pretty
+easy, I think, so maybe it should be done earlier??}
+
+\bigskip
+
+Outline:
+\begin{itemize}
+\item recall defs of $A_\infty$ category (1-category only), modules, (self-) tensor product.
+use graphical/tree point of view, rather than following Keller exactly
+\item define blob complex in $A_\infty$ case; fat mapping cones?  tree decoration?
+\item topological $A_\infty$ cat def (maybe this should go first); also modules gluing
+\item motivating example: $C_*(\maps(X, M))$
+\item maybe incorporate dual point of view (for $n=1$), where points get
+object labels and intervals get 1-morphism labels
+\end{itemize}
+
+
+\subsection{$A_\infty$ action on the boundary}
+
+Let $Y$ be an $n{-}1$-manifold.
+The collection of complexes $\{\bc_*(Y\times I; a, b)\}$, where $a, b \in \cC(Y)$ are boundary
+conditions on $\bd(Y\times I) = Y\times \{0\} \cup Y\times\{1\}$, has the structure
+of an $A_\infty$ category.
+
+Composition of morphisms (multiplication) depends of a choice of homeomorphism
+$I\cup I \cong I$.  Given this choice, gluing gives a map
+\eq{
+    \bc_*(Y\times I; a, b) \otimes \bc_*(Y\times I; b, c) \to \bc_*(Y\times (I\cup I); a, c)
+            \cong \bc_*(Y\times I; a, c)
+}
+Using (\ref{CDprop}) and the inclusion $\Diff(I) \sub \Diff(Y\times I)$ gives the various
+higher associators of the $A_\infty$ structure, more or less canonically.
+
+\nn{is this obvious?  does more need to be said?}
+
+Let $\cA(Y)$ denote the $A_\infty$ category $\bc_*(Y\times I; \cdot, \cdot)$.
+
+Similarly, if $Y \sub \bd X$, a choice of collaring homeomorphism
+$(Y\times I) \cup_Y X \cong X$ gives the collection of complexes $\bc_*(X; r, a)$
+(variable $a \in \cC(Y)$; fixed $r \in \cC(\bd X \setmin Y)$) the structure of a representation of the
+$A_\infty$ category $\{\bc_*(Y\times I; \cdot, \cdot)\}$.
+Again the higher associators come from the action of $\Diff(I)$ on a collar neighborhood
+of $Y$ in $X$.
+
+In the next section we use the above $A_\infty$ actions to state and prove
+a gluing theorem for the blob complexes of $n$-manifolds.
+
+
+\subsection{The gluing formula}
+
+Let $Y$ be an $n{-}1$-manifold and let $X$ be an $n$-manifold with a copy
+of $Y \du -Y$ contained in its boundary.
+Gluing the two copies of $Y$ together we obtain a new $n$-manifold $X\sgl$.
+We wish to describe the blob complex of $X\sgl$ in terms of the blob complex
+of $X$.
+More precisely, we want to describe $\bc_*(X\sgl; c\sgl)$,
+where $c\sgl \in \cC(\bd X\sgl)$,
+in terms of the collection $\{\bc_*(X; c, \cdot, \cdot)\}$, thought of as a representation
+of the $A_\infty$ category $\cA(Y\du-Y) \cong \cA(Y)\times \cA(Y)\op$.
+
+\begin{thm}
+$\bc_*(X\sgl; c\sgl)$ is quasi-isomorphic to the the self tensor product
+of $\{\bc_*(X; c, \cdot, \cdot)\}$ over $\cA(Y)$.
+\end{thm}
+
+The proof will occupy the remainder of this section.
+
+\nn{...}
+
+\bigskip
+
+\nn{need to define/recall def of (self) tensor product over an $A_\infty$ category}
+
+
+
+
+\appendix
+
+\section{Families of Diffeomorphisms}  \label{sec:localising}
 
 
 Lo, the proof of Lemma (\ref{extension_lemma}):
@@ -972,120 +1195,23 @@ a 2-cell supported on $U_\beta \cup U_\gamma$.
 
 \input{text/explicit.tex}
 
+% ----------------------------------------------------------------
+\newcommand{\urlprefix}{}
+\bibliographystyle{gtart}
+%Included for winedt:
+%input "bibliography/bibliography.bib"
+\bibliography{bibliography/bibliography}
+% ----------------------------------------------------------------
 
-\section{$A_\infty$ action on the boundary}
+This paper is available online at \arxiv{?????}, and at
+\url{http://tqft.net/blobs}.
 
-Let $Y$ be an $n{-}1$-manifold.
-The collection of complexes $\{\bc_*(Y\times I; a, b)\}$, where $a, b \in \cC(Y)$ are boundary
-conditions on $\bd(Y\times I) = Y\times \{0\} \cup Y\times\{1\}$, has the structure
-of an $A_\infty$ category.
-
-Composition of morphisms (multiplication) depends of a choice of homeomorphism
-$I\cup I \cong I$.  Given this choice, gluing gives a map
-\eq{
-    \bc_*(Y\times I; a, b) \otimes \bc_*(Y\times I; b, c) \to \bc_*(Y\times (I\cup I); a, c)
-            \cong \bc_*(Y\times I; a, c)
-}
-Using (\ref{CDprop}) and the inclusion $\Diff(I) \sub \Diff(Y\times I)$ gives the various
-higher associators of the $A_\infty$ structure, more or less canonically.
-
-\nn{is this obvious?  does more need to be said?}
-
-Let $\cA(Y)$ denote the $A_\infty$ category $\bc_*(Y\times I; \cdot, \cdot)$.
-
-Similarly, if $Y \sub \bd X$, a choice of collaring homeomorphism
-$(Y\times I) \cup_Y X \cong X$ gives the collection of complexes $\bc_*(X; r, a)$
-(variable $a \in \cC(Y)$; fixed $r \in \cC(\bd X \setmin Y)$) the structure of a representation of the
-$A_\infty$ category $\{\bc_*(Y\times I; \cdot, \cdot)\}$.
-Again the higher associators come from the action of $\Diff(I)$ on a collar neighborhood
-of $Y$ in $X$.
-
-In the next section we use the above $A_\infty$ actions to state and prove
-a gluing theorem for the blob complexes of $n$-manifolds.
-
-
-
-
-
-
-
-\section{Gluing}  \label{gluesect}
-
-Let $Y$ be an $n{-}1$-manifold and let $X$ be an $n$-manifold with a copy
-of $Y \du -Y$ contained in its boundary.
-Gluing the two copies of $Y$ together we obtain a new $n$-manifold $X\sgl$.
-We wish to describe the blob complex of $X\sgl$ in terms of the blob complex
-of $X$.
-More precisely, we want to describe $\bc_*(X\sgl; c\sgl)$,
-where $c\sgl \in \cC(\bd X\sgl)$,
-in terms of the collection $\{\bc_*(X; c, \cdot, \cdot)\}$, thought of as a representation
-of the $A_\infty$ category $\cA(Y\du-Y) \cong \cA(Y)\times \cA(Y)\op$.
-
-\begin{thm}
-$\bc_*(X\sgl; c\sgl)$ is quasi-isomorphic to the the self tensor product
-of $\{\bc_*(X; c, \cdot, \cdot)\}$ over $\cA(Y)$.
-\end{thm}
-
-The proof will occupy the remainder of this section.
-
-\nn{...}
-
-\bigskip
-
-\nn{need to define/recall def of (self) tensor product over an $A_\infty$ category}
-
-
-
-
-
-\section{Extension to ...}
-
-\nn{Need to let the input $n$-category $C$ be a graded thing
-(e.g. DG $n$-category or $A_\infty$ $n$-category).
-DG $n$-category case is pretty easy, I think, so maybe it should be done earlier??
-Also, $A_\infty$ stuff (this section) should go before gluing section.}
-
-\bigskip
-
-Outline:
-\begin{itemize}
-\item recall defs of $A_\infty$ category (1-category only), modules, (self-) tensor product.
-use graphical/tree point of view, rather than following Keller exactly
-\item define blob complex in $A_\infty$ case; fat mapping cones?  tree decoration?
-\item topological $A_\infty$ cat def (maybe this should go first); also modules gluing
-\item motivating example: $C_*(\maps(X, M))$
-\item maybe incorporate dual point of view (for $n=1$), where points get
-object labels and intervals get 1-morphism labels
-\end{itemize}
-
-
-
-
-
-
-
-
-
-
-
-\section{What else?...}
-
-\begin{itemize}
-\item Derive Hochschild standard results from blob point of view?
-\item $n=2$ examples
-\item Kh
-\item dimension $n+1$ (generalized Deligne conjecture?)
-\item should be clear about PL vs Diff; probably PL is better
-(or maybe not)
-\item say what we mean by $n$-category, $A_\infty$ or $E_\infty$ $n$-category
-\item something about higher derived coend things (derived 2-coend, e.g.)
-\end{itemize}
-
-
-
-
-
+% A GTART necessity:
+% \Addresses
+% ----------------------------------------------------------------
 \end{document}
+% ----------------------------------------------------------------
+
 
 
 

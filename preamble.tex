@@ -20,8 +20,8 @@
 % ----------------------------------------------------------------
 
 \def\RCS$#1: #2 ${\expandafter\def\csname RCS#1\endcsname{#2}}
-\RCS$Revision$ \RCS$Date: 2008-06-26 14:07:57 -0700 (Thu, 26 Jun
-2008) $
+\RCS$Revision$
+\RCS$Date$
 \newcommand{\versioninfo}{Version \RCSRevision; Last commit \RCSDate}
 
 % diagrams -------------------------------------------------------
@@ -69,6 +69,7 @@
 \newtheorem{defn}[prop]{Definition}         % numbered definition
 \newtheorem*{defn*}{Definition}             % unnumbered definition
 \newtheorem{question}{Question}
+\newtheorem{property}{Property}
 \newenvironment{rem}{\noindent\textsl{Remark.}}{}  % perhaps looks better than rem above?
 \numberwithin{equation}{section}
 %\numberwithin{figure}{section}
@@ -150,32 +151,12 @@
 
 \newcommand{\db}[1]{\left(\left(#1\right)\right)}
 
-\newcommand{\su}[1]{\mathfrak{su}_{#1}}
-\newcommand{\csl}[1]{\mathfrak{sl}_{#1}}
-\newcommand{\uqsl}[1]{U_q\left(\csl{#1}\right)}
-
-\newcommand{\Cobl}{{\mathcal Cob}_{/l}}
-\newcommand{\Cob}[1]{{\mathcal Cob}\left(\su{#1}\right)}
-\newcommand{\Kom}[1]{\operatorname{Kom}\left(#1\right)}
-
 \newcommand{\Mat}[1]{\mathbf{Mat}\left(#1\right)}
-\newcommand{\Kar}[1]{\mathbf{Kar}\left(#1\right)}
 \newcommand{\Inv}[1]{\operatorname{Inv}\left(#1\right)}
 \newcommand{\Hom}[3]{\operatorname{Hom}_{#1}\left(#2,#3\right)}
 \newcommand{\End}[1]{\operatorname{End}\left(#1\right)}
 
-\newcommand{\Gr}[2]{\text{Gr}(#1 \subset #2)}
-\newcommand{\Flag}[3]{\text{Flag}(#1 \subset #2 \subset #3)}
-
-\def\llbracket{\left[\!\!\left[}
-\def\rrbracket{\right]\!\!\right]}
-\newcommand{\Kh}[1]{\llbracket#1\rrbracket}
-\newcommand{\mirror}[1]{\overline{#1}}%
-
-\newcommand{\Tangles}{{\mathbf{Oriented Tangles}}}
-\newcommand{\Spider}[1]{{\mathbf{Spider}\left(#1\right)}}
-\newcommand{\TL}{\mathcal{TL}}
-\newcommand{\Foam}[1]{\mathbf{Foam}\left(#1\right)}
+\newcommand{\CD}[1]{C_*(\Diff(#1))}
 
 \newcommand{\directSumStack}[2]{{\begin{matrix}#1 \\ \DirectSum \\#2\end{matrix}}}
 \newcommand{\directSumStackThree}[3]{{\begin{matrix}#1 \\ \DirectSum \\#2 \\ \DirectSum \\#3\end{matrix}}}
