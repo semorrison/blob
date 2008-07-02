@@ -983,7 +983,7 @@ commutes.
 \end{defn}
 
 \begin{rem}
-We can restrict the evaluation map to $0$-chains, and see that $J \mapsto A(J)$ and $(\phi:J \to J') \mapsto \ev_{J \to J'}(\phi, -)$ together
+We can restrict the evaluation map to $0$-chains, and see that $J \mapsto A(J)$ and $(\phi:J \to J') \mapsto \ev_{J \to J'}(\phi, \bullet)$ together
 constitute a functor from the category of intervals and diffeomorphisms between them to the category of complexes of vector spaces.
 Further, once this functor has been specified, we only need to know how the evaluation map acts when $J = J'$.
 \end{rem}
@@ -1010,10 +1010,14 @@ The action of diffeomorphisms (and of $k$-parameter families of diffeomorphisms)
 
 At this point we can give two motivating examples. The first is `chains of maps to $M$' for some fixed target space $M$.
 \begin{defn}
-Define the topological $A_\infty$ category $C_*(\Maps(- \to M))$ by
+Define the topological $A_\infty$ category $C_*(\Maps(\bullet \to M))$ by
 \begin{enumerate}
 \item $A(J) = C_*(\Maps(J \to M))$, singular chains on the space of smooth maps from $J$ to $M$,
-\item $\ev_{J,J'} : \CD{J \to J'} \tensor A(J) \to A(J')$ is the composition $\CD{J \to J'} \tensor C_*(\Maps(J \to M)) \to C_*(\Diff(J \to J') \times \Maps(J \to M)) \to C_*(\Maps(J' \to M))$, where the first map is the product of singular chains, and the second is precomposition by the inverse of a diffeomorphism\todo{inverse, really?!},
+\item $\ev_{J,J'} : \CD{J \to J'} \tensor A(J) \to A(J')$ is the composition
+\begin{align*}
+\CD{J \to J'} \tensor C_*(\Maps(J \to M)) & \to C_*(\Diff(J \to J') \times \Maps(J \to M)) \\ & \to C_*(\Maps(J' \to M)),
+\end{align*}
+where the first map is the product of singular chains, and the second is precomposition by the inverse of a diffeomorphism\todo{inverse, really?!},
 \item $\gl_{J,J'} : A(J) \tensor A(J')$ takes the product of singular chains, then glues maps to $M$ together.
 \end{enumerate}
 The associativity conditions are trivially satisfied.
@@ -1028,13 +1032,18 @@ The definition of a module follows closely the definition of an algebra or categ
 \label{defn:topological-module}%
 A topological $A_\infty$-(left-)module $M$ over a topological $A_\infty$ category $A$ consists of the data
 \begin{enumerate}
-\item a functor $K \mapsto M(K)$ from $1$-manifolds diffeomorphic to the standard interval, with a marked point on a boundary, to complexes of vector spaces,
+\item a functor $K \mapsto M(K)$ from $1$-manifolds diffeomorphic to the standard interval, with a marked point on a upper boundary, to complexes of vector spaces,
 \item along with an `evaluation' map $\ev_K : \CD{K} \tensor M(K) \to M(K)$
-\item and for each interval $J$ and interval $K$ a marked point on the right boundary, a gluing map
+\item and for each interval $J$ and interval $K$ a marked point on the upper boundary, a gluing map
 $\gl_{J,K} : A(J) \tensor M(K) \to M(J \cup K)$
 \end{enumerate}
 satisfying the obvious conditions analogous to those in Definition \ref{defn:topological-algebra}.
 \end{defn}
+
+Any manifold $X$ with $\bdy X = Y$ (or indeed just with $Y$ a codimension $0$-submanifold of $\bdy X$) becomes a topological $A_\infty$ module over
+$\bc_*(Y)$, the topological $A_\infty$ category described above. For each interval $K$, we have $M(K) = \bc_*((Y \times K) \cup_Y X)$.
+(Here we glue $Y \times pt$ to $X$, where $pt$ is the marked point of $K$.) Again, the evaluation and gluing maps come directly from Properties
+\ref{property:evaluation} and \ref{property:gluing-map} respectively.
 
 \todo{Bimodules, and gluing}
 
@@ -1059,8 +1068,71 @@ Next, we define all the `higher associators' $m_k$ by
 Give an `algebraic' $A_\infty$ category $(A, m_k)$, we can construct a topological $A_\infty$-category, which we call $\bc_*^A$. You should
 think of this as a generalisation of the blob complex, although the construction we give will \emph{not} specialise to exactly the usual definition
 in the case the $A$ is actually an associative category.
+
+We'll first define $\cT_{k,n}$ to be the set of planar forests consisting of $n-k$ trees, with a total of $n$ leaves. Thus
+\todo{$\cT_{0,n}$ has 1 element, with $n$ vertical lines, $\cT_{1,n}$ has $n-1$ elements, each with a single trivalent vertex, $\cT_{2,n}$ etc...}
+\begin{align*}
+\end{align*}
+
 \begin{defn}
+The topological $A_\infty$ category $\bc_*^A$ is doubly graded, by `blob degree' and `internal degree'. We'll write $\bc_k^A$ for the blob degree $k$ piece.
+The homological degree of an element $a \in \bc_*^A(J)$
+is the sum of the blob degree and the internal degree.
+
+We first define $\bc_0^A(J)$ as a vector space by
+\begin{equation*}
+\bc_0^A(J) = \DirectSum_{\substack{\{J_i\}_{i=1}^n \\ \mathclap{\bigcup_i J_i = J}}} \left(\{J_i\}, \Tensor_{i=1}^n (\CD{J_i \to I} \tensor A) \right).
+\end{equation*}
+(That is, for each division of $J$ into finitely many subintervals,
+we have the tensor product of chains of diffeomorphisms from each subinterval to the standard interval,
+and a copy of $A$ for each subinterval.)
+The internal degree of an element $(f_1 \tensor a_1, \ldots, f_n \tensor a_n)$ is the sum of the dimensions of the singular chains
+plus the sum of the homological degrees of the elements of $A$.
+The differential is defined just by the graded Leibniz rule and the differentials on $\CD{J_i \to I}$ and on $A$.
+
+Next,
+\begin{equation*}
+\bc_1^A(J) = \DirectSum_{\substack{\{J_i\}_{i=1}^n \\ \mathclap{\bigcup_i J_i = J}}} \DirectSum_{T \in \cT_{1,n}} \left(\{J_i\}, T, \Tensor_{i=1}^n (\CD{J_i \to I} \tensor A) \right).
+\end{equation*}
 \end{defn}
+
+\newcommand{\tm}{\widetilde{m}}
+\newcommand{\ttm}{\widetilde{\widetilde{m}}}
+
+Define $\ttm_k$ by
+\begin{align*}
+\ttm_k(a_1 \tensor \cdots \tensor a_k) & = m_k(a_1 \tensor \cdots \tensor a_k) \\
+\ttm_k(a_1 \tensor \cdots \tensor a_{k-1} \tensor z) & = z \tensor \tm_{k-1}(a_1 \tensor \cdots \tensor a_{k-1}) \\
+\intertext{and}
+\ttm_k(a_1 \tensor \cdots \tensor a_{k-2} \tensor z \tensor a_k) & = z \tensor \tm_{k-2}(a_1 \tensor \cdots \tensor a_{k-2}) \tensor a_k.
+\end{align*}
+
+Let $\tm_1(a) = a$.
+
+Then define
+\begin{align*}
+\bdy(\tm_k(a_1 \tensor \cdots \tensor a_k)) & = \sum_{j=1}^{k} \tm_k(a_1 \tensor \cdots \tensor \bdy a_j \tensor \cdots \tensor a_k) + \\
+   & z \perp \sum_{q=2}^{k-1} \sum_{p=1}^{k-q+2} \ttm_{k-q+1}(a_1 \tensor \cdots a_{p-1} \tensor \ttm_q(a_p \tensor \cdots \tensor a_{p+q-1}) \tensor a_{p+q} \tensor \cdots \tensor a_{k+1}).
+\end{align*}
+where here $a_{k+1}$ is just notation for $z$.
+\todo{err... here I mean $z \perp z \tensor x = x$...}
+\todo{actually, if you let $q$ start from 1 you don't need the first term}
+
+\begin{align*}
+\bdy(\tm_2(a \tensor b)) & = (\tm_2(\bdy a \tensor b) + \tm_2(a \tensor \bdy b)) + \\
+                         & \qquad + a \tensor b + \\
+                         & \qquad + m_2(a \tensor b) \\
+\bdy(\tm_3(a \tensor b \tensor c)) & = (\tm_3(\bdy a \tensor b \tensor c) + \tm_3(a \tensor \bdy b \tensor c) + \tm_3(a \tensor b \tensor \bdy c)) + \\
+                                   & + (\tm_2(a \tensor b) \tensor c + a \tensor \tm_2(b \tensor c)) + \\
+                                   & + (\tm_2(m_2(a \tensor b) \tensor c) + \tm_2(a, m_2(b \tensor c)) + m_3(a \tensor b \tensor c)) \\
+\bdy(\tm_4(a \tensor b \tensor c \tensor d)) & = (\tm_4(\bdy a \tensor b \tensor c \tensor d) + \cdots + \tm_4(a \tensor b \tensor c \tensor \bdy d)) + \\
+                                             & + (\tm_3(a \tensor b \tensor c) \tensor d + \tm_2(a \tensor b) \tensor \tm_2(c \tensor d) + a \tensor \tm_3(b \tensor c \tensor d)) + \\
+                                             & + (\tm_3(m_2(a \tensor b) \tensor c \tensor d) + \tm_3(a \tensor m_2(b \tensor c) \tensor d) + \tm_3(a \tensor b \tensor m_2(c \tensor d)) + \\
+                                             & + \tm_2(m_3(a \tensor b \tensor c) \tensor d) + \tm_2(a \tensor m_3(b \tensor c \tensor d)) + m_4(a \tensor b \tensor c \tensor d)) \\
+%d(\tm_k(x_1 \tensor \cdots \tensor x_k)) & = \sum_{i=1}^k (-1)^{\sum_{j=1}^{i-1} \deg(x_j)} \tm_k(x_1 \tensor \cdots \tensor d x_i \tensor \cdots \tensor x_k) + \\
+%                                         & \qquad + + \\
+%                                         & \qquad +
+\end{align*}
 
 \nn{Need to let the input $n$-category $C$ be a graded thing (e.g. DG
 $n$-category or $A_\infty$ $n$-category). DG $n$-category case is pretty
