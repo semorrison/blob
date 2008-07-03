@@ -112,21 +112,20 @@ The complex $K_*(M)$ is quasi-isomorphic to $HC_*(M)$, the usual
 Hochschild complex of $M$.
 \end{prop}
 \begin{proof}
-%First, since we're working over $\Complex$, note that saying two complexes are quasi-isomorphic simply means they have isomorphic homologies.
-%\todo{We really don't want to work over $\Complex$, though; it would be nice to talk about torsion!}
-
-Recall that the usual Hochschild complex of $M$ is uniquely determined, up to quasi-isomorphism, by the following properties:
+Recall that the usual Hochschild complex of $M$ is uniquely determined,
+up to quasi-isomorphism, by the following properties:
 \begin{enumerate}
 \item \label{item:hochschild-additive}%
 $HC_*(M_1 \oplus M_2) \cong HC_*(M_1) \oplus HC_*(M_2)$.
 \item \label{item:hochschild-exact}%
 An exact sequence $0 \to M_1 \into M_2 \onto M_3 \to 0$ gives rise to an
 exact sequence $0 \to HC_*(M_1) \into HC_*(M_2) \onto HC_*(M_3) \to 0$.
-\item \label{item:hochschild-free}%
-$HC_*(C\otimes C)$ (the free $C$-$C$-bimodule with one generator) is
-quasi-isomorphic to the 0-step complex $C$.
 \item \label{item:hochschild-coinvariants}%
-$HH_0(M)$ is isomorphic to the coinvariants of $M$, $M/\langle cm-mc \rangle$.
+$HH_0(M)$ is isomorphic to the coinvariants of $M$, $\coinv(M) =
+M/\langle cm-mc \rangle$.
+\item \label{item:hochschild-free}%
+$HC_*(C\otimes C)$ (the free $C$-$C$-bimodule with one generator) is contractible; that is,
+quasi-isomorphic to its $0$-th homology (which in turn, by \ref{item:hochschild-coinvariants}, is just $C$) via the quotient map $HC_0 \onto HH_0$.
 \end{enumerate}
 (Together, these just say that Hochschild homology is `the derived functor of coinvariants'.)
 We'll first recall why these properties are characteristic.
@@ -135,20 +134,25 @@ Take some $C$-$C$ bimodule $M$, and choose a free resolution
 \begin{equation*}
 \cdots \to F_2 \xrightarrow{f_2} F_1 \xrightarrow{f_1} F_0.
 \end{equation*}
-There's a quotient map $\pi: F_0 \onto M$, and by construction the cone of the chain map $\pi: F_j \to M$ is acyclic. Now construct the total complex
-$HC_i(F_j)$, with $i,j \geq 0$, graded by $i+j$.
-
-Observe that we have two chain maps
+We will show that for any functor $\cP$ satisfying properties
+\ref{item:hochschild-additive}, \ref{item:hochschild-exact},
+\ref{item:hochschild-coinvariants} and \ref{item:hochschild-free}, there
+is a quasi-isomorphism
+$$\cP_*(M) \iso \coinv(F_*).$$
+%
+Observe that there's a quotient map $\pi: F_0 \onto M$, and by
+construction the cone of the chain map $\pi: F_* \to M$ is acyclic. Now
+construct the total complex $\cP_i(F_j)$, with $i,j \geq 0$, graded by
+$i+j$. We have two chain maps
 \begin{align*}
-HC_i(F_j) & \xrightarrow{HC_i(\pi)} HC_i(M) \\
+\cP_i(F_*) & \xrightarrow{\cP_i(\pi)} \cP_i(M) \\
 \intertext{and}
-HC_i(F_j) & \xrightarrow{HC_0(F_j) \onto HH_0(F_j)} \operatorname{coinv}(F_j).
+\cP_*(F_j) & \xrightarrow{\cP_0(F_j) \onto H_0(\cP_*(F_j))} \coinv(F_j).
 \end{align*}
 The cone of each chain map is acyclic. In the first case, this is because the `rows' indexed by $i$ are acyclic since $HC_i$ is exact.
 In the second case, this is because the `columns' indexed by $j$ are acyclic, since $F_j$ is free.
-
 Because the cones are acyclic, the chain maps are quasi-isomorphisms. Composing one with the inverse of the other, we obtain the desired quasi-isomorphism
-$$HC_*(M) \iso \operatorname{coinv}(F_*).$$
+$$\cP_*(M) \quismto \coinv(F_*).$$
 
 %If $M$ is free, that is, a direct sum of copies of
 %$C \tensor C$, then properties \ref{item:hochschild-additive} and
@@ -184,18 +188,18 @@ An exact sequence $0 \to M_1 \into M_2 \onto M_3 \to 0$ gives rise to an
 exact sequence $0 \to K_*(M_1) \into K_*(M_2) \onto K_*(M_3) \to 0$.
 \end{lem}
 \begin{lem}
-\label{lem:hochschild-free}%
-$K_*(C\otimes C)$ is quasi-isomorphic to the 0-step complex $C$.
+\label{lem:hochschild-coinvariants}%
+$H_0(K_*(M))$ is isomorphic to the coinvariants of $M$.
 \end{lem}
 \begin{lem}
-\label{lem:hochschild-coinvariants}%
-$H_0(K_*(M))$ is isomorphic to the coinvariants of $M$, $M/\langle cm-mc \rangle$.
+\label{lem:hochschild-free}%
+$K_*(C\otimes C)$ is quasi-isomorphic to $H_0(K_*(C \otimes C)) \iso C$.
 \end{lem}
 
 The remainder of this section is devoted to proving Lemmas
 \ref{lem:module-blob},
-\ref{lem:hochschild-exact}, \ref{lem:hochschild-free} and
-\ref{lem:hochschild-coinvariants}.
+\ref{lem:hochschild-exact}, \ref{lem:hochschild-coinvariants} and
+\ref{lem:hochschild-free}.
 \end{proof}
 
 \begin{proof}[Proof of Lemma \ref{lem:module-blob}]
@@ -204,7 +208,7 @@ $K_*(C)$ differs from $\bc_*(S^1)$ only in that the base point *
 is always a labeled point in $K_*(C)$, while in $\bc_*(S^1)$ it may or may not be.
 In other words, there is an inclusion map $i: K_*(C) \to \bc_*(S^1)$.
 
-We define a quasi-inverse \nn{right term?} $s: \bc_*(S^1) \to K_*(C)$ to the inclusion as follows.
+We define a left inverse $s: \bc_*(S^1) \to K_*(C)$ to the inclusion as follows.
 If $y$ is a field defined on a neighborhood of *, define $s(y) = y$ if
 * is a labeled point in $y$.
 Otherwise, define $s(y)$ to be the result of adding a label 1 (identity morphism) at *.
@@ -219,6 +223,39 @@ Note that for any chain $x \in \bc_*(S^1)$, $x \in L_*^\ep$ for sufficiently sma
 \nn{rest of argument goes similarly to above}
 \end{proof}
 \begin{proof}[Proof of Lemma \ref{lem:hochschild-exact}]
+\todo{p. 1478 of scott's notes}
+Essentially, this comes down to the unsurprising fact that the functor on $C$-$C$ bimodules
+\begin{equation*}
+M \mapsto \ker(C \tensor M \tensor C \xrightarrow{c_1 \tensor m \tensor c_2 \mapsto c_1 m c_2} M)
+\end{equation*}
+is exact. For completeness we'll explain this below.
+
+Suppose we have a short exact sequence of $C$-$C$ bimodules $$\xymatrix{0 \ar[r] & K \ar@{^{(}->}[r]^f & E \ar@{->>}[r]^g & Q \ar[r] & 0}.$$
+We'll write $\hat{f}$ and $\hat{g}$ for the image of $f$ and $g$ under the functor.
+Most of what we need to check is easy.
+If $(a \tensor k \tensor b) \in \ker(C \tensor K \tensor C \to K)$, to have $\hat{f}(a \tensor k \tensor b) = 0 \in \ker(C \tensor E \tensor C \to E)$, we must have $f(k) = 0 \in E$, so
+be $k=0$ itself. If $(a \tensor e \tensor b) \in \ker(C \tensor E \tensor C \to E)$ is in the image of $\ker(C \tensor K \tensor C \to K)$ under $\hat{f}$, clearly
+$e$ is in the image of the original $f$, so is in the kernel of the original $g$, and so $\hat{g}(a \tensor e \tensor b) = 0$.
+If $\hat{g}(a \tensor e \tensor b) = 0$, then $g(e) = 0$, so $e = f(\widetilde{e})$ for some $\widetilde{e} \in K$, and $a \tensor e \tensor b = \hat{f}(a \tensor \widetilde{e} \tensor b)$.
+Finally, the interesting step is in checking that any $q = \sum_i a_i \tensor q_i \tensor b_i$ such that $\sum_i a_i q_i b_i = 0$ is in the image of $\ker(C \tensor E \tensor C \to C)$ under $\hat{g}$.
+For each $i$, we can find $\widetilde{q_i}$ so $g(\widetilde{q_i}) = q_i$. However $\sum_i a_i \widetilde{q_i} b_i$ need not be zero.
+Consider then $$\widetilde{q} = \sum_i (a_i \tensor \widetilde{q_i} \tensor b_i) - 1 \tensor (\sum_i a_i \widetilde{q_i} b_i) \tensor 1.$$ Certainly
+$\widetilde{q} \in \ker(C \tensor E \tensor C \to E)$. Further,
+\begin{align*}
+\hat{g}(\widetilde{q}) & = \sum_i (a_i \tensor g(\widetilde{q_i}) \tensor b_i) - 1 \tensor (\sum_i a_i g(\widetilde{q_i}) b_i) \tensor 1 \\
+                       & = q - 0
+\end{align*}
+(here we used that $g$ is a map of $C$-$C$ bimodules, and that $\sum_i a_i q_i b_i = 0$).
+
+Identical arguments show that the functors
+\begin{equation*}
+M \mapsto \ker(C^{\tensor k} \tensor M \tensor C^{\tensor l} \to M)
+\end{equation*}
+are all exact too.
+
+Finally, then \todo{explain why this is all we need.}
+\end{proof}
+\begin{proof}[Proof of Lemma \ref{lem:hochschild-coinvariants}]
 \todo{}
 \end{proof}
 \begin{proof}[Proof of Lemma \ref{lem:hochschild-free}]
@@ -233,12 +270,22 @@ Fix a small $\ep > 0$.
 Let $B_\ep$ be the ball of radius $\ep$ around $* \in S^1$.
 Let $K_*^\ep \sub K_*(C\otimes C)$ be the subcomplex
 generated by blob diagrams $b$ such that $B_\ep$ is either disjoint from
-or contained in each blob of $b$, and the two boundary points of $B_\ep$ are not labeled points of $b$.
-For a field (picture) $y$ on $B_\ep$, let $s_\ep(y)$ be the equivalent picture with~$*$
+or contained in each blob of $b$, and the only labeled point inside $B_\ep$ is $*$.
+%and the two boundary points of $B_\ep$ are not labeled points of $b$.
+For a field $y$ on $B_\ep$, let $s_\ep(y)$ be the equivalent picture with~$*$
 labeled by $1\otimes 1$ and the only other labeled points at distance $\pm\ep/2$ from $*$.
-(See Figure xxxx.)
-Note that $y - s_\ep(y) \in U(B_\ep)$.
-\nn{maybe it's simpler to assume that there are no labeled points, other than $*$, in $B_\ep$.}
+(See Figure \ref{fig:sy}.) Note that $y - s_\ep(y) \in U(B_\ep)$. We can think of
+$\sigma_\ep$ as a chain map $K_*^\ep \to K_*^\ep$ given by replacing the restriction $y$ to $B_\ep$ of each field
+appearing in an element of  $K_*^\ep$ with $s_\ep(y)$.
+Note that $\sigma_\ep(x) \in K'_*$.
+\begin{figure}[!ht]
+\begin{align*}
+y & = \mathfig{0.2}{hochschild/y} &
+s_\ep(y) & = \mathfig{0.2}{hochschild/sy}
+\end{align*}
+\caption{Defining $s_\ep$.}
+\label{fig:sy}
+\end{figure}
 
 Define a degree 1 chain map $j_\ep : K_*^\ep \to K_*^\ep$ as follows.
 Let $x \in K_*^\ep$ be a blob diagram.
@@ -250,18 +297,13 @@ Let $x_i$ be equal to $x$ outside of $B$, equal to $z_i$ on $B \setmin B_\ep$,
 and have an additional blob $B_\ep$ with label $y_i - s_\ep(y_i)$.
 Define $j_\ep(x) = \sum x_i$.
 \nn{need to check signs coming from blob complex differential}
-
 Note that if $x \in K'_* \cap K_*^\ep$ then $j_\ep(x) \in K'_*$ also.
 
 The key property of $j_\ep$ is
 \eq{
-    \bd j_\ep + j_\ep \bd = \id - \sigma_\ep ,
+    \bd j_\ep + j_\ep \bd = \id - \sigma_\ep.
 }
-where $\sigma_\ep : K_*^\ep \to K_*^\ep$ is given by replacing the restriction $y$ of each field
-mentioned in $x \in K_*^\ep$ with $s_\ep(y)$.
-Note that $\sigma_\ep(x) \in K'_*$.
-
-If $j_\ep$ were defined on all of $K_*(C\otimes C)$, it would show that $\sigma_\ep$
+If $j_\ep$ were defined on all of $K_*(C\otimes C)$, this would show that $\sigma_\ep$
 is a homotopy inverse to the inclusion $K'_* \to K_*(C\otimes C)$.
 One strategy would be to try to stitch together various $j_\ep$ for progressively smaller
 $\ep$ and show that $K'_*$ is homotopy equivalent to $K_*(C\otimes C)$.
@@ -329,9 +371,6 @@ The union of the supports of the diagrams in $x$ does not contain $*$, so there 
 ball $B \subset S^1$ containing the union of the supports and not containing $*$.
 Adding $B$ as a blob to $x$ gives a contraction.
 \nn{need to say something else in degree zero}
-\end{proof}
-\begin{proof}[Proof of Lemma \ref{lem:hochschild-coinvariants}]
-\todo{}
 \end{proof}
 
 We can also describe explicitly a map from the standard Hochschild
