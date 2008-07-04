@@ -1081,7 +1081,7 @@ is the sum of the blob degree and the internal degree.
 
 We first define $\bc_0^A(J)$ as a vector space by
 \begin{equation*}
-\bc_0^A(J) = \DirectSum_{\substack{\{J_i\}_{i=1}^n \\ \mathclap{\bigcup_i J_i = J}}} \left(\{J_i\}, \Tensor_{i=1}^n (\CD{J_i \to I} \tensor A) \right).
+\bc_0^A(J) = \DirectSum_{\substack{\{J_i\}_{i=1}^n \\ \mathclap{\bigcup_i J_i = J}}} \Tensor_{i=1}^n (\CD{J_i \to I} \tensor A).
 \end{equation*}
 (That is, for each division of $J$ into finitely many subintervals,
 we have the tensor product of chains of diffeomorphisms from each subinterval to the standard interval,
@@ -1092,47 +1092,74 @@ The differential is defined just by the graded Leibniz rule and the differential
 
 Next,
 \begin{equation*}
-\bc_1^A(J) = \DirectSum_{\substack{\{J_i\}_{i=1}^n \\ \mathclap{\bigcup_i J_i = J}}} \DirectSum_{T \in \cT_{1,n}} \left(\{J_i\}, T, \Tensor_{i=1}^n (\CD{J_i \to I} \tensor A) \right).
+\bc_1^A(J) = \DirectSum_{\substack{\{J_i\}_{i=1}^n \\ \mathclap{\bigcup_i J_i = J}}} \DirectSum_{T \in \cT_{1,n}} \Tensor_{i=1}^n (\CD{J_i \to I} \tensor A).
 \end{equation*}
 \end{defn}
 
-\newcommand{\tm}{\widetilde{m}}
-\newcommand{\ttm}{\widetilde{\widetilde{m}}}
+\begin{figure}[!ht]
+\begin{equation*}
+\mathfig{0.7}{associahedron/A4-vertices}
+\end{equation*}
+\caption{The vertices of the $k$-dimensional associahedron are indexed by binary trees on $k+2$ leaves.}
+\label{fig:A4-vertices}
+\end{figure}
 
-Define $\ttm_k$ by
-\begin{align*}
-\ttm_k(a_1 \tensor \cdots \tensor a_k) & = m_k(a_1 \tensor \cdots \tensor a_k) \\
-\ttm_k(a_1 \tensor \cdots \tensor a_{k-1} \tensor z) & = z \tensor \tm_{k-1}(a_1 \tensor \cdots \tensor a_{k-1}) \\
-\intertext{and}
-\ttm_k(a_1 \tensor \cdots \tensor a_{k-2} \tensor z \tensor a_k) & = z \tensor \tm_{k-2}(a_1 \tensor \cdots \tensor a_{k-2}) \tensor a_k.
-\end{align*}
+\begin{figure}[!ht]
+\begin{equation*}
+\mathfig{0.7}{associahedron/A4-faces}
+\end{equation*}
+\caption{The faces of the $k$-dimensional associahedron are indexed by trees with $2$ vertices on $k+2$ leaves.}
+\label{fig:A4-vertices}
+\end{figure}
+
+\newcommand{\tm}{\widetilde{m}}
 
 Let $\tm_1(a) = a$.
 
-Then define
+We now define $\bdy(\tm_k(a_1 \tensor \cdots \tensor a_k))$, first giving an opaque formula, then explaining the combinatorics behind it.
+\begin{align}
+\notag \bdy(\tm_k(a_1 & \tensor \cdots \tensor a_k)) = \\
+\label{eq:bdy-tm-k-1}   & \phantom{+} \sum_{i=1}^k (-1)^{\sum_{j=1}^{i-1} \deg(a_j)} \tm_k(a_1 \tensor \cdots \tensor \bdy a_i \tensor \cdots \tensor a_k) + \\
+\label{eq:bdy-tm-k-2}   &          +  \sum_{\ell=1}^{k-1} \tm_{\ell}(a_1 \tensor \cdots \tensor a_{\ell}) \tensor \tm_{k-\ell}(a_{\ell+1} \tensor \cdots \tensor a_k) + \\
+\label{eq:bdy-tm-k-3}   &          +  \sum_{\ell=1}^{k-1} \sum_{\ell'=0}^{l-1} \tm_{\ell}(a_1 \tensor \cdots \tensor m_{k-\ell + 1}(a_{\ell' + 1} \tensor \cdots \tensor a_{\ell' + k - \ell + 1}) \tensor \cdots \tensor a_k)
+\end{align}
+The first set of terms in $\bdy(\tm_k(a_1 \tensor \cdots \tensor a_k))$ just have $\bdy$ acting on each argument $a_i$.
+The terms appearing in \eqref{eq:bdy-tm-k-2} and \eqref{eq:bdy-tm-k-3} are indexed by trees with $2$ vertices on $k+1$ leaves.
+Note here that we have one more leaf than there arguments of $\tm_k$.
+(See Figure \ref{fig:A4-vertices}, in which the rightmost branches are helpfully drawn in red.)
+We will treat the vertices which involve a rightmost (red) branch differently from the vertices which only involve the first $k$ leaves.
+The terms in \eqref{eq:bdy-tm-k-2} arise in the cases in which both
+vertices are rightmost, and the corresponding term in $\bdy(\tm_k(a_1 \tensor \cdots \tensor a_k))$ is a tensor product of the form
+$$\tm_{\ell}(a_1 \tensor \cdots \tensor a_{\ell}) \tensor \tm_{k-\ell}(a_{\ell+1} \tensor \cdots \tensor a_k)$$
+where $\ell + 1$ and $k - \ell + 1$ are the number of branches entering the vertices.
+If only one vertex is rightmost, we get the term $$\tm_{\ell}(a_1 \tensor \cdots \tensor m_{k-\ell+1}(a_{\ell' + 1} \tensor \cdots \tensor a_{\ell' + k - \ell}) \tensor \cdots \tensor a_k)$$
+in \eqref{eq:bdy-tm-k-3},
+where again $\ell + 1$ is the number of branches entering the rightmost vertex, $k-\ell+1$ is the number of branches entering the other vertex, and $\ell'$ is the number of edges meeting the rightmost vertex which start to the left of the other vertex.
+For example, we have
 \begin{align*}
-\bdy(\tm_k(a_1 \tensor \cdots \tensor a_k)) & = \sum_{j=1}^{k} \tm_k(a_1 \tensor \cdots \tensor \bdy a_j \tensor \cdots \tensor a_k) + \\
-   & z \perp \sum_{q=2}^{k-1} \sum_{p=1}^{k-q+2} \ttm_{k-q+1}(a_1 \tensor \cdots a_{p-1} \tensor \ttm_q(a_p \tensor \cdots \tensor a_{p+q-1}) \tensor a_{p+q} \tensor \cdots \tensor a_{k+1}).
-\end{align*}
-where here $a_{k+1}$ is just notation for $z$.
-\todo{err... here I mean $z \perp z \tensor x = x$...}
-\todo{actually, if you let $q$ start from 1 you don't need the first term}
-
-\begin{align*}
-\bdy(\tm_2(a \tensor b)) & = (\tm_2(\bdy a \tensor b) + \tm_2(a \tensor \bdy b)) + \\
+\bdy(\tm_2(a \tensor b)) & = \left(\tm_2(\bdy a \tensor b) + \tm_2(a \tensor \bdy b)\right) + \\
                          & \qquad + a \tensor b + \\
                          & \qquad + m_2(a \tensor b) \\
-\bdy(\tm_3(a \tensor b \tensor c)) & = (\tm_3(\bdy a \tensor b \tensor c) + \tm_3(a \tensor \bdy b \tensor c) + \tm_3(a \tensor b \tensor \bdy c)) + \\
-                                   & + (\tm_2(a \tensor b) \tensor c + a \tensor \tm_2(b \tensor c)) + \\
-                                   & + (\tm_2(m_2(a \tensor b) \tensor c) + \tm_2(a, m_2(b \tensor c)) + m_3(a \tensor b \tensor c)) \\
-\bdy(\tm_4(a \tensor b \tensor c \tensor d)) & = (\tm_4(\bdy a \tensor b \tensor c \tensor d) + \cdots + \tm_4(a \tensor b \tensor c \tensor \bdy d)) + \\
-                                             & + (\tm_3(a \tensor b \tensor c) \tensor d + \tm_2(a \tensor b) \tensor \tm_2(c \tensor d) + a \tensor \tm_3(b \tensor c \tensor d)) + \\
-                                             & + (\tm_3(m_2(a \tensor b) \tensor c \tensor d) + \tm_3(a \tensor m_2(b \tensor c) \tensor d) + \tm_3(a \tensor b \tensor m_2(c \tensor d)) + \\
-                                             & + \tm_2(m_3(a \tensor b \tensor c) \tensor d) + \tm_2(a \tensor m_3(b \tensor c \tensor d)) + m_4(a \tensor b \tensor c \tensor d)) \\
-%d(\tm_k(x_1 \tensor \cdots \tensor x_k)) & = \sum_{i=1}^k (-1)^{\sum_{j=1}^{i-1} \deg(x_j)} \tm_k(x_1 \tensor \cdots \tensor d x_i \tensor \cdots \tensor x_k) + \\
-%                                         & \qquad + + \\
-%                                         & \qquad +
+\bdy(\tm_3(a \tensor b \tensor c)) & = \left(\tm_3(\bdy a \tensor b \tensor c) + \tm_3(a \tensor \bdy b \tensor c) + \tm_3(a \tensor b \tensor \bdy c)\right) + \\
+                                   & \qquad + \left(\tm_2(a \tensor b) \tensor c + a \tensor \tm_2(b \tensor c)\right) + \\
+                                   & \qquad + \left(\tm_2(m_2(a \tensor b) \tensor c) + \tm_2(a, m_2(b \tensor c)) + m_3(a \tensor b \tensor c)\right)
 \end{align*}
+\begin{align*}
+\bdy(& \tm_4(a \tensor b \tensor c \tensor d)) = \left(\tm_4(\bdy a \tensor b \tensor c \tensor d) + \cdots + \tm_4(a \tensor b \tensor c \tensor \bdy d)\right) + \\
+                                             & + \left(\tm_3(a \tensor b \tensor c) \tensor d + \tm_2(a \tensor b) \tensor \tm_2(c \tensor d) + a \tensor \tm_3(b \tensor c \tensor d)\right) + \\
+                                             & + \left(\tm_3(m_2(a \tensor b) \tensor c \tensor d) + \tm_3(a \tensor m_2(b \tensor c) \tensor d) + \tm_3(a \tensor b \tensor m_2(c \tensor d))\right. + \\
+                                             & + \left.\tm_2(m_3(a \tensor b \tensor c) \tensor d) + \tm_2(a \tensor m_3(b \tensor c \tensor d)) + m_4(a \tensor b \tensor c \tensor d)\right) \\
+\end{align*}
+See Figure \ref{fig:A4-terms}, comparing it against Figure \ref{fig:A4-faces}, to see this illustrated in the case $k=4$. There the $3$ faces closest
+to the top of the diagram have two rightmost vertices, while the other $6$ faces have only one.
+
+\begin{figure}[!ht]
+\begin{equation*}
+\mathfig{1.0}{associahedron/A4-terms}
+\end{equation*}
+\caption{The terms of $\bdy(\tm_k(a_1 \tensor \cdots \tensor a_k))$ correspond to the faces of the $k-1$ dimensional associahedron.}
+\label{fig:A4-terms}
+\end{figure}
 
 \nn{Need to let the input $n$-category $C$ be a graded thing (e.g. DG
 $n$-category or $A_\infty$ $n$-category). DG $n$-category case is pretty
