@@ -8,7 +8,13 @@
 \begin{document}
 \thispagestyle{empty}
 
+\newcommand{\tm}{\widetilde{m}}
+\newcommand{\ttm}{\widetilde{\widetilde{m}}}
+
 \begin{align*}
-c_1 \tensor c_2 1 \tensor 1 *
+\bdy(\tm_4(a \tensor b \tensor c \tensor d)) & = (\tm_4(\bdy a \tensor b \tensor c \tensor d) + \cdots + \tm_4(a \tensor b \tensor c \tensor \bdy d)) + \\
+                                             & + (\tm_3(a \tensor b \tensor c) \tensor d + \tm_2(a \tensor b) \tensor \tm_2(c \tensor d) + a \tensor \tm_3(b \tensor c \tensor d)) + \\
+                                             & + (\tm_3(m_2(a \tensor b) \tensor c \tensor d) + \tm_3(a \tensor m_2(b \tensor c) \tensor d) + \tm_3(a \tensor b \tensor m_2(c \tensor d)) + \\
+                                             & + \tm_2(m_3(a \tensor b \tensor c) \tensor d) + \tm_2(a \tensor m_3(b \tensor c \tensor d)) + m_4(a \tensor b \tensor c \tensor d)) \\
 \end{align*}
 \end{document}

@@ -15,3 +15,6 @@ barycentric/uz_c-a-b
 barycentric/uz_cab
 barycentric/Ax
 barycentric/Ay
+associahedron/A4-vertices
+associahedron/A4-faces
+associahedron/A4-terms
