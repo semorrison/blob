@@ -1039,14 +1039,18 @@ Observe $\Diff(J \to J')$ embeds into $\Diff(Y \times J \to Y \times J')$. The e
 The definition of a module follows closely the definition of an algebra or category.
 \begin{defn}
 \label{defn:topological-module}%
-A topological $A_\infty$-(left-)module $M$ over a topological $A_\infty$ category $A$ consists of the data
+A topological $A_\infty$-(left-)module $M$ over a topological $A_\infty$ category $A$ 
+consists of the following data.
 \begin{enumerate}
-\item a functor $K \mapsto M(K)$ from $1$-manifolds diffeomorphic to the standard interval, with a marked point on a upper boundary, to complexes of vector spaces,
-\item along with an `evaluation' map $\ev_K : \CD{K} \tensor M(K) \to M(K)$
-\item and for each interval $J$ and interval $K$ a marked point on the upper boundary, a gluing map
-$\gl_{J,K} : A(J) \tensor M(K) \to M(J \cup K)$
+\item A functor $K \mapsto M(K)$ from $1$-manifolds diffeomorphic to the standard interval, with a marked point on a upper boundary, to complexes of vector spaces.
+\item For each pair of such marked intervals, 
+an `evaluation' chain map $\ev_{K\to K'} : \CD{K \to K'} \tensor M(K) \to M(K')$.
+\item For each decomposition $K = J\cup K'$ of the marked interval
+$K$ into an unmarked interval $J$ and a marked interval $K'$, a gluing map
+$\gl_{J,K'} : A(J) \tensor M(K') \to M(K)$.
 \end{enumerate}
-satisfying the obvious conditions analogous to those in Definition \ref{defn:topological-algebra}.
+The above data is required to satisfy 
+conditions analogous to those in Definition \ref{defn:topological-algebra}.
 \end{defn}
 
 Any manifold $X$ with $\bdy X = Y$ (or indeed just with $Y$ a codimension $0$-submanifold of $\bdy X$) becomes a topological $A_\infty$ module over
