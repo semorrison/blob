@@ -926,26 +926,33 @@ Topological $A_\infty$-$1$-categories are equivalent to `standard'
 $A_\infty$-$1$-categories.
 \end{thm}
 
-Before proving this theorem, we embark upon a long string of definitions. For expository purposes, we begin with the $n=1$ special cases, and define
+Before proving this theorem, we embark upon a long string of definitions. 
+\kevin{the \\kevin macro seems to be truncating text of the left side of the page}
+For expository purposes, we begin with the $n=1$ special cases, and define
 first topological $A_\infty$-algebras, then topological $A_\infty$-categories, and then topological $A_\infty$-modules over these. We then turn
 to the general $n$ case, defining topological $A_\infty$-$n$-categories and their modules.
 \nn{Something about duals?}
 \todo{Explain that we're not making contact with any previous notions for the general $n$ case?}
+\kevin{probably we should say something about the relation
+to [framed] $E_\infty$ algebras}
 
 \begin{defn}
 \label{defn:topological-algebra}%
-A ``topological $A_\infty$-algebra'' $A$ consists of the data
+A ``topological $A_\infty$-algebra'' $A$ consists of the following data.
 \begin{enumerate}
-\item for each $1$-manifold $J$ diffeomorphic to the standard interval $I=\left[0,1\right]$, a complex of vector spaces $A(J)$,
+\item For each $1$-manifold $J$ diffeomorphic to the standard interval 
+$I=\left[0,1\right]$, a complex of vector spaces $A(J)$.
 % either roll functoriality into the evaluation map
-\item and for each pair of intervals $J,J'$ an `evaluation' chain map $\ev_{J \to J'} : \CD{J \to J'} \tensor A(J) \to A(J')$,
-\item and a gluing map $\gl_{J,J'} : A(J) \tensor A(J') \to A(J \cup J')$,
+\item For each pair of intervals $J,J'$ an `evaluation' chain map 
+$\ev_{J \to J'} : \CD{J \to J'} \tensor A(J) \to A(J')$.
+\item For each decomposition of intervals $J = J'\cup J''$,
+a gluing map $\gl_{J,J'} : A(J') \tensor A(J'') \to A(J)$.
 % or do it as two separate pieces of data
 %\item along with an `evaluation' chain map $\ev_J : \CD{J} \tensor A(J) \to A(J)$,
 %\item for each diffeomorphism $\phi : J \to J'$, an isomorphism $A(\phi) : A(J) \isoto A(J')$,
 %\item and for each pair of intervals $J,J'$ a gluing map $\gl_{J,J'} : A(J) \tensor A(J') \to A(J \cup J')$,
 \end{enumerate}
-satisfying the following conditions.
+This data is required to satisfy the following conditions.
 \begin{itemize}
 \item The evaluation chain map is associative, in that the diagram
 \begin{equation*}
@@ -1018,6 +1025,8 @@ Define the topological $A_\infty$ category $C_*(\Maps(\bullet \to M))$ by
 \CD{J \to J'} \tensor C_*(\Maps(J \to M)) & \to C_*(\Diff(J \to J') \times \Maps(J \to M)) \\ & \to C_*(\Maps(J' \to M)),
 \end{align*}
 where the first map is the product of singular chains, and the second is precomposition by the inverse of a diffeomorphism\todo{inverse, really?!},
+\kevin{I think that's fine.  If we recoil at taking inverses,
+we should use smooth maps instead of diffeos}
 \item $\gl_{J,J'} : A(J) \tensor A(J')$ takes the product of singular chains, then glues maps to $M$ together.
 \end{enumerate}
 The associativity conditions are trivially satisfied.
