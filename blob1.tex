@@ -986,6 +986,8 @@ A(J \cup J' \cup J'')
 }
 \end{equation*}
 commutes.
+\item The gluing and evaluation maps are compatible.
+\nn{give diagram, or just say ``in the obvious way", or refer to diagram in blob eval map section?}
 \end{itemize}
 \end{defn}
 
@@ -1058,7 +1060,26 @@ $\bc_*(Y)$, the topological $A_\infty$ category described above. For each interv
 (Here we glue $Y \times pt$ to $X$, where $pt$ is the marked point of $K$.) Again, the evaluation and gluing maps come directly from Properties
 \ref{property:evaluation} and \ref{property:gluing-map} respectively.
 
-\todo{Bimodules, and gluing}
+The definition of a bimodule is like the definition of a module,
+except that we have two disjoint marked intervals $K$ and $L$, one with a marked point
+on the upper boundary and the other with a marked point on the lower boundary.
+There are evaluation maps corresponding to gluing unmarked intervals
+to the unmarked ends of $K$ and $L$.
+
+Let $X$ be an $n$-manifold with a copy of $Y \du -Y$ embedded as a 
+codimension-0 submanifold of $\bdy X$.
+Then the the assignment $K,L \mapsto \bc*(X \cup_Y (Y\times K) \cup_{-Y} (-Y\times L))$ has the 
+structure of a topological $A_\infty$ bimodule over $\bc_*(Y)$.
+
+Next we define the coend
+(or gluing or tensor product or self tensor product, depending on the context)
+$\gl(M)$ of a topological $A_\infty$ bimodule $M$.
+$\gl(M)$ is defined to be the universal thing with the following structure.
+
+\nn{...}
+
+
+
 
 \todo{the motivating example $C_*(\maps(X, M))$}
 
