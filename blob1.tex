@@ -963,7 +963,9 @@ This data is required to satisfy the following conditions.
 A(J'')
 }
 \end{equation*}
-commutes. (Here the map $\compose : \CD{J' \to J''} \tensor \CD{J \to J'} \to \CD{J \to J''}$ is a composition: take products of singular chains first, then compose diffeomorphisms.)
+commutes. 
+\kevin{commutes up to homotopy? in the blob case the evaluation map is ambiguous up to homotopy}
+(Here the map $\compose : \CD{J' \to J''} \tensor \CD{J \to J'} \to \CD{J \to J''}$ is a composition: take products of singular chains first, then compose diffeomorphisms.)
 %% or the version for separate pieces of data:
 %\item If $\phi$ is a diffeomorphism from $J$ to itself, the maps $\ev_J(\phi, -)$ and $A(\phi)$ are the same.
 %\item The evaluation chain map is associative, in that the diagram
@@ -1076,14 +1078,39 @@ Next we define the coend
 $\gl(M)$ of a topological $A_\infty$ bimodule $M$.
 $\gl(M)$ is defined to be the universal thing with the following structure.
 
-\nn{...}
+\begin{itemize}
+\item For each interval $N$ with both endpoints marked, a complex of vector spaces C(N).
+\item For each pair of intervals $N,N'$ an evaluation chain map 
+$\ev_{N \to N'} : \CD{N \to N'} \tensor C(N) \to C(N')$.
+\item For each decomposition of intervals $N = K\cup L$,
+a gluing map $\gl_{K,L} : M(K,L) \to C(N)$.
+\item The evaluation maps are associative.
+\nn{up to homotopy?}
+\item Gluing is strictly associative.  
+That is, given a decomposition $N = K\cup J\cup L$, the chain maps associated to
+$K\du J\du L \to (K\cup J)\du L \to N$ and $K\du J\du L \to K\du (J\cup L) \to N$
+agree.
+\item the gluing and evaluation maps are compatible.
+\end{itemize}
 
+Bu universal we mean that given any other collection of chain complexes, evaluation maps
+and gluing maps, they factor through the universal thing.
+\nn{need to say this in more detail, in particular give the properties of the factoring map}
 
+Given $X$ and $Y\du -Y \sub \bdy X$ as above, the assignment 
+$N \mapsto \bc_*(X \cup_{Y\du -Y} (N\times Y)$ clearly has the structure described 
+in the above bullet points.
+Showing that it is the universal such thing is the content of the gluing theorem proved below.
 
+The definitions for a topological $A_\infty$-$n$-category are very similar to the above
+$n=1$ case.
+One replaces intervals with manifolds diffeomorphic to the ball $B^n$.
+Marked points are replaced by copies of $B^{n-1}$ in $\bdy B^n$.
+
+\nn{give examples: $A(J^n) = \bc_*(Z\times J)$ and $A(J^n) = C_*(\Maps(J \to M))$.}
 
 \todo{the motivating example $C_*(\maps(X, M))$}
 
-\todo{higher $n$}
 
 
 \newcommand{\skel}[1]{\operatorname{skeleton}(#1)}
