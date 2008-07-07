@@ -1180,9 +1180,9 @@ Let $\tm_1(a) = a$.
 We now define $\bdy(\tm_k(a_1 \tensor \cdots \tensor a_k))$, first giving an opaque formula, then explaining the combinatorics behind it.
 \begin{align}
 \notag \bdy(\tm_k(a_1 & \tensor \cdots \tensor a_k)) = \\
-\label{eq:bdy-tm-k-1}   & \phantom{+} \sum_{\ell'=0}^{k-1} (-1)^{\sum_{j=1}^{\ell'} \deg(a_j)} \tm_k(a_1 \tensor \cdots \tensor \bdy a_{\ell'+1} \tensor \cdots \tensor a_k) + \\
+\label{eq:bdy-tm-k-1}   & \phantom{+} \sum_{\ell'=0}^{k-1} (-1)^{\abs{\tm_k}+\sum_{j=1}^{\ell'} \abs{a_j}} \tm_k(a_1 \tensor \cdots \tensor \bdy a_{\ell'+1} \tensor \cdots \tensor a_k) + \\
 \label{eq:bdy-tm-k-2}   &          +  \sum_{\ell=1}^{k-1} \tm_{\ell}(a_1 \tensor \cdots \tensor a_{\ell}) \tensor \tm_{k-\ell}(a_{\ell+1} \tensor \cdots \tensor a_k) + \\
-\label{eq:bdy-tm-k-3}   &          +  \sum_{\ell=1}^{k-1} \sum_{\ell'=0}^{l-1} \tm_{\ell}(a_1 \tensor \cdots \tensor m_{k-\ell + 1}(a_{\ell' + 1} \tensor \cdots \tensor a_{\ell' + k - \ell + 1}) \tensor \cdots \tensor a_k)
+\label{eq:bdy-tm-k-3}   &          +  \sum_{\ell=1}^{k-1} \sum_{\ell'=0}^{l-1} (-1)^{\abs{\tm_k}+\sum_{j=1}^{\ell'} \abs{a_j}} \tm_{\ell}(a_1 \tensor \cdots \tensor m_{k-\ell + 1}(a_{\ell' + 1} \tensor \cdots \tensor a_{\ell' + k - \ell + 1}) \tensor \cdots \tensor a_k)
 \end{align}
 The first set of terms in $\bdy(\tm_k(a_1 \tensor \cdots \tensor a_k))$ just have $\bdy$ acting on each argument $a_i$.
 The terms appearing in \eqref{eq:bdy-tm-k-2} and \eqref{eq:bdy-tm-k-3} are indexed by trees with $2$ vertices on $k+1$ leaves.
@@ -1198,12 +1198,11 @@ in \eqref{eq:bdy-tm-k-3},
 where again $\ell + 1$ is the number of branches entering the rightmost vertex, $k-\ell+1$ is the number of branches entering the other vertex, and $\ell'$ is the number of edges meeting the rightmost vertex which start to the left of the other vertex.
 For example, we have
 \begin{align*}
-\bdy(\tm_2(a \tensor b)) & = \left(\tm_2(\bdy a \tensor b) + \tm_2(a \tensor \bdy b)\right) + \\
-                         & \qquad + a \tensor b + \\
-                         & \qquad + m_2(a \tensor b) \\
-\bdy(\tm_3(a \tensor b \tensor c)) & = \left(\tm_3(\bdy a \tensor b \tensor c) + \tm_3(a \tensor \bdy b \tensor c) + \tm_3(a \tensor b \tensor \bdy c)\right) + \\
-                                   & \qquad + \left(\tm_2(a \tensor b) \tensor c + a \tensor \tm_2(b \tensor c)\right) + \\
-                                   & \qquad + \left(\tm_2(m_2(a \tensor b) \tensor c) + \tm_2(a, m_2(b \tensor c)) + m_3(a \tensor b \tensor c)\right)
+\bdy(\tm_2(a \tensor b)) & = \left(\tm_2(\bdy a \tensor b) + (-1)^{\abs{a}} \tm_2(a \tensor \bdy b)\right) + \\
+                         & \qquad - a \tensor b + m_2(a \tensor b) \\
+\bdy(\tm_3(a \tensor b \tensor c)) & = \left(- \tm_3(\bdy a \tensor b \tensor c) + (-1)^{\abs{a} + 1} \tm_3(a \tensor \bdy b \tensor c) + (-1)^{\abs{a} + \abs{b} + 1} \tm_3(a \tensor b \tensor \bdy c)\right) + \\
+                                   & \qquad + \left(- \tm_2(a \tensor b) \tensor c + a \tensor \tm_2(b \tensor c)\right) + \\
+                                   & \qquad + \left(- \tm_2(m_2(a \tensor b) \tensor c) + \tm_2(a, m_2(b \tensor c)) + m_3(a \tensor b \tensor c)\right)
 \end{align*}
 \begin{align*}
 \bdy(& \tm_4(a \tensor b \tensor c \tensor d)) = \left(\tm_4(\bdy a \tensor b \tensor c \tensor d) + \cdots + \tm_4(a \tensor b \tensor c \tensor \bdy d)\right) + \\
@@ -1237,8 +1236,8 @@ In this notation, the formula for the differential becomes
 \bdy \tm(\T) & = \ssum{2} \tm(\T) \tensor \tm(\T) \times \sigma_{0;l_1,l_2} + \ssum{3} \tm(\T \tensor m(\T) \tensor \T) \times \tau_{0;l_1,l_2,l_3} \\
 \intertext{and we calculate}
 \notag
-\bdy^2 \tm(\T) & = \ssum{2} (\bdy \tm(\T)) \tensor \tm(\T) \times \sigma_{0;l_1,l_2} \\
-\notag         & \qquad + \ssum{2} \tm(\T) \tensor (\bdy \tm(\T)) \times \sigma_{0;l_1,l_2} \\
+\bdy^2 \tm(\T) & = \ssum{2} \bdy \tm(\T) \tensor \tm(\T) \times \sigma_{0;l_1,l_2} \\
+\notag         & \qquad + \ssum{2} \tm(\T) \tensor \bdy \tm(\T) \times \sigma_{0;l_1,l_2} \\
 \notag         & \qquad + \ssum{3} \bdy \tm(\T \tensor m(\T) \tensor \T) \times \tau_{0;l_1,l_2,l_3} \\
 \label{eq:d21} & = \ssum{3} \tm(\T) \tensor \tm(\T) \tensor \tm(\T) \times \sigma_{0;l_1+l_2,l_3} \sigma_{0;l_1,l_2} \\
 \label{eq:d22} & \qquad + \ssum{4} \tm(\T \tensor m(\T) \tensor \T) \tensor \tm(\T) \times \sigma_{0;l_1+l_2+l_3,l_4} \tau_{0;l_1,l_2,l_3} \\
