@@ -214,16 +214,28 @@ If $y$ is a field defined on a neighborhood of *, define $s(y) = y$ if
 Otherwise, define $s(y)$ to be the result of adding a label 1 (identity morphism) at *.
 Let $x \in \bc_*(S^1)$.
 Let $s(x)$ be the result of replacing each field $y$ (containing *) mentioned in
-$x$ with $y$.
+$x$ with $s(y)$.
 It is easy to check that $s$ is a chain map and $s \circ i = \id$.
 
 Let $L_*^\ep \sub \bc_*(S^1)$ be the subcomplex where there are no labeled points
-in a neighborhood $B_\ep$ of *, except perhaps *.
+in a neighborhood $B_\ep$ of $*$, except perhaps $*$, and $B_\ep$ is either disjoint from or contained in every blob.
 Note that for any chain $x \in \bc_*(S^1)$, $x \in L_*^\ep$ for sufficiently small $\ep$.
 \nn{rest of argument goes similarly to above}
+
+We define a degree $1$ chain map $j_\ep: L_*^\ep \to L_*^\ep$ as follows. Let $x \in L_*^\ep$ be a blob diagram.
+If $*$ is not contained in any twig blob, we define $j_\ep(x)$ by adding $B_\ep$ as a new twig blob, with label $y - s(y)$ where $y$ is the restriction
+of $x$ to $B_\ep$. If $*$ is contained in a twig blob $B$ with label $u=\sum z_i$,
+write $y_i$ for the restriction of $z_i$ to $B_\ep$, and let
+$x_i$ be equal to $x$ on $S^1 \setmin B$, equal to $z_i$ on $B \setmin B_\ep$,
+and have an additional blob $B_\ep$ with label $y_i - s(y_i)$.
+Define $j_\ep(x) = \sum x_i$.
+\todo{need to check signs coming from blob complex differential}
+\todo{finish this}
 \end{proof}
 \begin{proof}[Proof of Lemma \ref{lem:hochschild-exact}]
-\todo{p. 1478 of scott's notes}
+We now prove that $K_*$ is an exact functor.
+
+%\todo{p. 1478 of scott's notes}
 Essentially, this comes down to the unsurprising fact that the functor on $C$-$C$ bimodules
 \begin{equation*}
 M \mapsto \ker(C \tensor M \tensor C \xrightarrow{c_1 \tensor m \tensor c_2 \mapsto c_1 m c_2} M)
@@ -248,19 +260,27 @@ $\widetilde{q} \in \ker(C \tensor E \tensor C \to E)$. Further,
 (here we used that $g$ is a map of $C$-$C$ bimodules, and that $\sum_i a_i q_i b_i = 0$).
 
 Identical arguments show that the functors
-\begin{equation*}
+\begin{equation}
+\label{eq:ker-functor}%
 M \mapsto \ker(C^{\tensor k} \tensor M \tensor C^{\tensor l} \to M)
-\end{equation*}
-are all exact too.
+\end{equation}
+are all exact too. Moreover, tensor products of such functors with each
+other and with $C$ (e.g., producing the functor $M \mapsto \ker(M \tensor C \to M)
+\tensor C \tensor \ker(C \tensor M \to M)$) are all still exact.
 
-Finally, then \todo{explain why this is all we need.}
+Finally, then we see that the functor $K_*$ is simply an (infinite)
+direct sum of this sort of functor. The direct sum is indexed by
+configurations of nested blobs and positions of labels; for each such configuration, we have one of the above tensor product functors,
+with the labels of twig blobs corresponding to tensor factors as in \eqref{eq:ker-functor}, and all other labelled points corresponding
+to tensor factors of $C$.
 \end{proof}
 \begin{proof}[Proof of Lemma \ref{lem:hochschild-coinvariants}]
 \todo{}
 \end{proof}
 \begin{proof}[Proof of Lemma \ref{lem:hochschild-free}]
 We show that $K_*(C\otimes C)$ is
-quasi-isomorphic to the 0-step complex $C$.
+quasi-isomorphic to the 0-step complex $C$. We'll do this in steps, establishing quasi-isomorphisms and homotopy equivalences
+$$K_*(C \tensor C) \quismto K'_* \htpyto K''_* \quismto C.$$
 
 Let $K'_* \sub K_*(C\otimes C)$ be the subcomplex where the label of
 the point $*$ is $1 \otimes 1 \in C\otimes C$.
