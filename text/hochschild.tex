@@ -265,17 +265,36 @@ Identical arguments show that the functors
 M \mapsto \ker(C^{\tensor k} \tensor M \tensor C^{\tensor l} \to M)
 \end{equation}
 are all exact too. Moreover, tensor products of such functors with each
-other and with $C$ (e.g., producing the functor $M \mapsto \ker(M \tensor C \to M)
-\tensor C \tensor \ker(C \tensor M \to M)$) are all still exact.
+other and with $C$ or $\ker(C^{\tensor k} \to C)$ (e.g., producing the functor $M \mapsto \ker(M \tensor C \to M)
+\tensor C \tensor \ker(C \tensor C \to M)$) are all still exact.
 
 Finally, then we see that the functor $K_*$ is simply an (infinite)
-direct sum of this sort of functor. The direct sum is indexed by
-configurations of nested blobs and positions of labels; for each such configuration, we have one of the above tensor product functors,
-with the labels of twig blobs corresponding to tensor factors as in \eqref{eq:ker-functor}, and all other labelled points corresponding
+direct sum of copies of this sort of functor. The direct sum is indexed by
+configurations of nested blobs and of labels; for each such configuration, we have one of the above tensor product functors,
+with the labels of twig blobs corresponding to tensor factors as in \eqref{eq:ker-functor} or $\ker(C^{\tensor k} \to C)$, and all other labelled points corresponding
 to tensor factors of $C$.
 \end{proof}
 \begin{proof}[Proof of Lemma \ref{lem:hochschild-coinvariants}]
-\todo{}
+We show that $H_0(K_*(M))$ is isomorphic to the coinvariants of $M$.
+
+We define a map $\ev: K_0(M) \to M$. If $x \in K_0(M)$ has the label $m \in M$ at $*$, and labels $c_i \in C$ at the other labeled points of $S^1$, reading clockwise from $*$,
+we set $\ev(x) = m c_1 \cdots c_k$. We can think of this as $\ev : M \tensor C^{\tensor k} \to M$, for each direct summand of $K_0(M)$ indexed by a configuration of labeled points.
+There is a quotient map $\pi: M \to \coinv{M}$, and the composition $\pi \compose \ev$ is well-defined on the quotient $H_0(K_*(M))$; if $y \in K_1(M)$, the blob in $y$ either contains $*$ or does not. If it doesn't, then
+suppose $y$ has label $m$ at $*$, labels $c_i$ at other labeled points outside the blob, and the field inside the blob is a sum, with the $j$-th term having
+labeled points $d_{j,i}$. Then $\sum_j d_{j,1} \tensor \cdots \tensor d_{j,k_j} \in \ker(\DirectSum_k C^{\tensor k} \to C)$, and so
+$\ev(\bdy y) = 0$, because $$C^{\tensor \ell_1} \tensor \ker(\DirectSum_k C^{\tensor k} \to C) \tensor C^{\tensor \ell_2} \subset \ker(\DirectSum_k C^{\tensor k} \to C).$$
+Similarly, if $*$ is contained in the blob, then the blob label is a sum, with the $j$-th term have labelled points $d_{j,i}$ to the left of $*$, $m_j$ at $*$, and $d_{j,i}'$ to the right of $*$,
+and there are labels $c_i$ at the labeled points outside the blob. We know that
+$$\sum_j d_{j,1} \tensor \cdots \tensor d_{j,k_j} \tensor m_j \tensor d_{j,1}' \tensor \cdots \tensor d_{j,k'_j}' \in \ker(\DirectSum_{k,k'} C^{\tensor k} \tensor M \tensor C^{\tensor k'} \tensor \to M),$$
+and so
+\begin{align*}
+\ev(\bdy y) & = \sum_j m_j d_{j,1}' \cdots d_{j,k'_j}' c_1 \cdots c_k d_{j,1} \cdots d_{j,k_j} \\
+            & = \sum_j d_{j,1} \cdots d_{j,k_j} m_j d_{j,1}' \cdots d_{j,k'_j}' c_1 \cdots c_k \\
+            & = 0
+\end{align*}
+where this time we use the fact that we're mapping to $\coinv{M}$, not just $M$.
+
+The map $\pi \compose \ev: H_0(K_*(M)) \to \coinv{M}$ is clearly surjective ($\ev$ surjects onto $M$); we now show that it's injective. \todo{}
 \end{proof}
 \begin{proof}[Proof of Lemma \ref{lem:hochschild-free}]
 We show that $K_*(C\otimes C)$ is
