@@ -54,7 +54,7 @@
 
 % \DeclareMathOperator{\pr}{pr} etc.
 \def\declaremathop#1{\expandafter\DeclareMathOperator\csname #1\endcsname{#1}}
-\applytolist{declaremathop}{pr}{im}{id}{gl}{ev}{coinv}{tr}{rot}{Eq}{obj}{mor}{ob}{Rep}{Tet}{cat}{Maps}{Diff}{sign}{supp}{maps};
+\applytolist{declaremathop}{pr}{im}{gl}{ev}{coinv}{tr}{rot}{Eq}{obj}{mor}{ob}{Rep}{Tet}{cat}{Maps}{Diff}{sign}{supp}{maps};
 
 
 
@@ -763,7 +763,13 @@ The proof will occupy the remainder of this section.
 
 Let $f: P \times X \to X$ be a family of diffeomorphisms and $S \sub X$.
 We say that {\it $f$ is supported on $S$} if $f(p, x) = f(q, x)$ for all
-$x \notin S$ and $p, q \in P$.
+$x \notin S$ and $p, q \in P$. Equivalently \todo{really?}, $f$ is supported on $S$ if there is a family of diffeomorphisms $f' : P \times S \to S$ and a `background'
+diffeomorphism $f_0 : X \to X$ so that
+\begin{align}
+\restrict{f}{P \times S}(p,s) & = f_0(f'(p,s)) \\
+\intertext{and}
+\restrict{f}{P \times (X \setmin S)}(p,x) & = f_0(x).
+\end{align}
 Note that if $f$ is supported on $S$ then it is also supported on any $R \sup S$.
 
 Let $\cU = \{U_\alpha\}$ be an open cover of $X$.
@@ -779,12 +785,12 @@ and families of diffeomorphisms
 }
 such that
 \begin{itemize}
-\item each $f_i(p, \cdot): X \to X$ is supported on some connected $V_i \sub X$;
-\item the $V_i$'s are mutually disjoint;
+\item each $f_i(p, \cdot): X \to X$\scott{This should just read ``each $f_i$ is supported''} is supported on some connected $V_i \sub X$;
+\item the sets $V_i$ are mutually disjoint;
 \item each $V_i$ is the union of at most $k_i$ of the $U_\alpha$'s,
 where $k_i = \dim(P_i)$; and
 \item $f(p, \cdot) = f_1(p_1, \cdot) \circ \cdots \circ f_m(p_m, \cdot) \circ g$
-for all $p = (p_1, \ldots, p_m)$, for some fixed $g \in \Diff(X)$.
+for all $p = (p_1, \ldots, p_m)$, for some fixed $g \in \Diff(X)$.\scott{hmm, can we do $g$ last, instead?}
 \end{itemize}
 A chain $x \in C_k(\Diff(X))$ is (by definition) adapted to $\cU$ if it is the sum
 of singular cells, each of which is adapted to $\cU$.
@@ -915,6 +921,34 @@ This completes the proof of Proposition \ref{CDprop}.
 \section{Gluing}
 \label{sec:gluing}%
 
+We now turn to establishing the gluing formula for blob homology, restated from Property \ref{property:gluing} in the Introduction
+\begin{itemize}
+%\mbox{}% <-- gets the indenting right
+\item For any $(n-1)$-manifold $Y$, the blob homology of $Y \times I$ is
+naturally an $A_\infty$ category. % We'll write $\bc_*(Y)$ for $\bc_*(Y \times I)$ below.
+
+\item For any $n$-manifold $X$, with $Y$ a codimension $0$-submanifold of its boundary, the blob homology of $X$ is naturally an
+$A_\infty$ module for $\bc_*(Y \times I)$.
+
+\item For any $n$-manifold $X$, with $Y \cup Y^{\text{op}}$ a codimension
+$0$-submanifold of its boundary, the blob homology of $X'$, obtained from
+$X$ by gluing along $Y$, is the $A_\infty$ self-tensor product of
+$\bc_*(X)$ as an $\bc_*(Y \times I)$-bimodule.
+\begin{equation*}
+\bc_*(X') \iso \bc_*(X) \Tensor^{A_\infty}_{\mathclap{\bc_*(Y \times I)}}
+\end{equation*}
+\todo{How do you write self tensor product?}
+\end{itemize}
+
+Although this gluing formula is stated in terms of $A_\infty$ categories and their (bi-)modules, it will be more natural for us to give alternative
+definitions of `topological' $A_\infty$-categories and their bimodules, explain how to translate between the `algebraic' and `topological' definitions,
+and then prove the gluing formula in the topological langauge. Section \ref{sec:topological-A-infty} below explains these definitions, and establishes
+the desired equivalence. This is quite involved, and in particular requires us to generalise the definition of blob homology to allow $A_\infty$ algebras
+as inputs, and to re-establish many of the properties of blob homology in this generality. Many readers may prefer to read the
+Definitions \ref{defn:topological-algebra} and \ref{defn:topological-module} of `topological' $A_\infty$-categories, and Definition \ref{???} of the
+self-tensor product of a `topological' $A_\infty$-bimodule, then skip to \S \ref{sec:boundary-action} and \S \ref{sec:gluing-formula} for the proofs
+of the gluing formula in the topological context.
+
 \subsection{`Topological' $A_\infty$ $n$-categories}
 \label{sec:topological-A-infty}%
 
@@ -922,12 +956,12 @@ This section prepares the ground for establishing Property \ref{property:gluing}
 The main result of this section is
 
 \begin{thm}
-Topological $A_\infty$-$1$-categories are equivalent to `standard'
+Topological $A_\infty$-$1$-categories are equivalent to the usual notion of
 $A_\infty$-$1$-categories.
 \end{thm}
 
 Before proving this theorem, we embark upon a long string of definitions.
-For expository purposes, we begin with the $n=1$ special cases, and define
+For expository purposes, we begin with the $n=1$ special cases,\scott{Why are we treating the $n>1$ cases at all?} and define
 first topological $A_\infty$-algebras, then topological $A_\infty$-categories, and then topological $A_\infty$-modules over these. We then turn
 to the general $n$ case, defining topological $A_\infty$-$n$-categories and their modules.
 \nn{Something about duals?}
@@ -955,7 +989,7 @@ $I=\left[0,1\right]$, a complex of vector spaces $A(J)$.
 \item For each pair of intervals $J,J'$ an `evaluation' chain map
 $\ev_{J \to J'} : \CD{J \to J'} \tensor A(J) \to A(J')$.
 \item For each decomposition of intervals $J = J'\cup J''$,
-a gluing map $\gl_{J,J'} : A(J') \tensor A(J'') \to A(J)$.
+a gluing map $\gl_{J',J''} : A(J') \tensor A(J'') \to A(J)$.
 % or do it as two separate pieces of data
 %\item along with an `evaluation' chain map $\ev_J : \CD{J} \tensor A(J) \to A(J)$,
 %\item for each diffeomorphism $\phi : J \to J'$, an isomorphism $A(\phi) : A(J) \isoto A(J')$,
@@ -966,21 +1000,19 @@ This data is required to satisfy the following conditions.
 \item The evaluation chain map is associative, in that the diagram
 \begin{equation*}
 \xymatrix{
-\CD{J' \to J''} \tensor \CD{J \to J'} \tensor A(J) \ar[r]^{\Id \tensor \ev_{J \to J'}} \ar[d]_{\compose \tensor \Id} &
-\CD{J' \to J''} \tensor A(J') \ar[d]^{\ev_{J' \to J''}} \\
-\CD{J \to J''} \tensor A(J) \ar[r]_{\ev_{J \to J''}} &
-A(J'')
+ & \quad \mathclap{\CD{J' \to J''} \tensor \CD{J \to J'} \tensor A(J)} \quad \ar[dr]^{\id \tensor \ev_{J \to J'}} \ar[dl]_{\compose \tensor \id} & \\
+\CD{J' \to J''} \tensor A(J') \ar[dr]^{\ev_{J' \to J''}} & & \CD{J \to J''} \tensor A(J) \ar[dl]_{\ev_{J \to J''}} \\
+ & A(J'') &
 }
 \end{equation*}
-commutes.
-\kevin{commutes up to homotopy? in the blob case the evaluation map is ambiguous up to homotopy}
-(Here the map $\compose : \CD{J' \to J''} \tensor \CD{J \to J'} \to \CD{J \to J''}$ is a composition: take products of singular chains first, then compose diffeomorphisms.)
+commutes up to homotopy.
+Here the map $$\compose : \CD{J' \to J''} \tensor \CD{J \to J'} \to \CD{J \to J''}$$ is a composition: take products of singular chains first, then compose diffeomorphisms.
 %% or the version for separate pieces of data:
 %\item If $\phi$ is a diffeomorphism from $J$ to itself, the maps $\ev_J(\phi, -)$ and $A(\phi)$ are the same.
 %\item The evaluation chain map is associative, in that the diagram
 %\begin{equation*}
 %\xymatrix{
-%\CD{J} \tensor \CD{J} \tensor A(J) \ar[r]^{\Id \tensor \ev_J} \ar[d]_{\compose \tensor \Id} &
+%\CD{J} \tensor \CD{J} \tensor A(J) \ar[r]^{\id \tensor \ev_J} \ar[d]_{\compose \tensor \id} &
 %\CD{J} \tensor A(J) \ar[d]^{\ev_J} \\
 %\CD{J} \tensor A(J) \ar[r]_{\ev_J} &
 %A(J)
@@ -990,7 +1022,7 @@ commutes.
 \item The gluing maps are \emph{strictly} associative. That is, given $J$, $J'$ and $J''$, the diagram
 \begin{equation*}
 \xymatrix{
-A(J) \tensor A(J') \tensor A(J'') \ar[rr]^{\gl_{J,J'} \tensor \Id} \ar[d]_{\Id \tensor \gl_{J',J''}} &&
+A(J) \tensor A(J') \tensor A(J'') \ar[rr]^{\gl_{J,J'} \tensor \id} \ar[d]_{\id \tensor \gl_{J',J''}} &&
 A(J \cup J') \tensor A(J'') \ar[d]^{\gl_{J \cup J', J''}} \\
 A(J) \tensor A(J' \cup J'') \ar[rr]_{\gl_{J, J' \cup J''}} &&
 A(J \cup J' \cup J'')
@@ -1026,7 +1058,7 @@ interval with boundary conditions $(J, c_-, c_+)$, with $c_-, c_+ \in A(pt)$, an
 \gl : A(J, c_-, c_0) \tensor A(J', c_0, c_+) \to A(J \cup J', c_-, c_+).
 \end{equation*}
 The action of diffeomorphisms (and of $k$-parameter families of diffeomorphisms) ignores the boundary conditions.
-\todo{we presumably need to say something about $\Id_c \in A(J, c, c)$.}
+\todo{we presumably need to say something about $\id_c \in A(J, c, c)$.}
 
 At this point we can give two motivating examples. The first is `chains of maps to $M$' for some fixed target space $M$.
 \begin{defn}
@@ -1037,9 +1069,7 @@ Define the topological $A_\infty$ category $C_*(\Maps(\bullet \to M))$ by
 \begin{align*}
 \CD{J \to J'} \tensor C_*(\Maps(J \to M)) & \to C_*(\Diff(J \to J') \times \Maps(J \to M)) \\ & \to C_*(\Maps(J' \to M)),
 \end{align*}
-where the first map is the product of singular chains, and the second is precomposition by the inverse of a diffeomorphism\todo{inverse, really?!},
-\kevin{I think that's fine.  If we recoil at taking inverses,
-we should use smooth maps instead of diffeos}
+where the first map is the product of singular chains, and the second is precomposition by the inverse of a diffeomorphism,
 \item $\gl_{J,J'} : A(J) \tensor A(J')$ takes the product of singular chains, then glues maps to $M$ together.
 \end{enumerate}
 The associativity conditions are trivially satisfied.
@@ -1047,7 +1077,7 @@ The associativity conditions are trivially satisfied.
 
 The second example is simply the blob complex of $Y \times J$, for any $n-1$ manifold $Y$. We define $A(J) = \bc_*(Y \times J)$.
 Observe $\Diff(J \to J')$ embeds into $\Diff(Y \times J \to Y \times J')$. The evaluation and gluing maps then come directly from Properties
-\ref{property:evaluation} and \ref{property:gluing-map} respectively.
+\ref{property:evaluation} and \ref{property:gluing-map} respectively. We'll often write $bc_*(Y)$ for this algebra.
 
 The definition of a module follows closely the definition of an algebra or category.
 \begin{defn}
@@ -1055,7 +1085,7 @@ The definition of a module follows closely the definition of an algebra or categ
 A topological $A_\infty$-(left-)module $M$ over a topological $A_\infty$ category $A$
 consists of the following data.
 \begin{enumerate}
-\item A functor $K \mapsto M(K)$ from $1$-manifolds diffeomorphic to the standard interval, with a marked point on a upper boundary, to complexes of vector spaces.
+\item A functor $K \mapsto M(K)$ from $1$-manifolds diffeomorphic to the standard interval, with the upper boundary point `marked', to complexes of vector spaces.
 \item For each pair of such marked intervals,
 an `evaluation' chain map $\ev_{K\to K'} : \CD{K \to K'} \tensor M(K) \to M(K')$.
 \item For each decomposition $K = J\cup K'$ of the marked interval
@@ -1066,9 +1096,10 @@ The above data is required to satisfy
 conditions analogous to those in Definition \ref{defn:topological-algebra}.
 \end{defn}
 
-Any manifold $X$ with $\bdy X = Y$ (or indeed just with $Y$ a codimension $0$-submanifold of $\bdy X$) becomes a topological $A_\infty$ module over
-$\bc_*(Y)$, the topological $A_\infty$ category described above. For each interval $K$, we have $M(K) = \bc_*((Y \times K) \cup_Y X)$.
-(Here we glue $Y \times pt$ to $X$, where $pt$ is the marked point of $K$.) Again, the evaluation and gluing maps come directly from Properties
+For any manifold $X$ with $\bdy X = Y$ (or indeed just with $Y$ a codimension $0$-submanifold of $\bdy X$) we can think of $\bc_*(X)$ as
+a topological $A_\infty$ module over $\bc_*(Y)$, the topological $A_\infty$ category described above.
+For each interval $K$, we have $M(K) = \bc_*((Y \times K) \cup_Y X)$.
+(Here we glue $Y \times pt$ to $Y \subset \bdy X$, where $pt$ is the marked point of $K$.) Again, the evaluation and gluing maps come directly from Properties
 \ref{property:evaluation} and \ref{property:gluing-map} respectively.
 
 The definition of a bimodule is like the definition of a module,
@@ -1079,20 +1110,23 @@ to the unmarked ends of $K$ and $L$.
 
 Let $X$ be an $n$-manifold with a copy of $Y \du -Y$ embedded as a
 codimension-0 submanifold of $\bdy X$.
-Then the the assignment $K,L \mapsto \bc*(X \cup_Y (Y\times K) \cup_{-Y} (-Y\times L))$ has the
+Then the the assignment $K,L \mapsto \bc_*(X \cup_Y (Y\times K) \cup_{-Y} (-Y\times L))$ has the
 structure of a topological $A_\infty$ bimodule over $\bc_*(Y)$.
 
 Next we define the coend
 (or gluing or tensor product or self tensor product, depending on the context)
-$\gl(M)$ of a topological $A_\infty$ bimodule $M$.
-$\gl(M)$ is defined to be the universal thing with the following structure.
-
+$\gl(M)$ of a topological $A_\infty$ bimodule $M$. This will be an `initial' or `universal' object satisfying various properties.
+\begin{defn}
+We define a category $\cG(M)$. Objects consist of the following data.
 \begin{itemize}
 \item For each interval $N$ with both endpoints marked, a complex of vector spaces C(N).
 \item For each pair of intervals $N,N'$ an evaluation chain map
 $\ev_{N \to N'} : \CD{N \to N'} \tensor C(N) \to C(N')$.
 \item For each decomposition of intervals $N = K\cup L$,
 a gluing map $\gl_{K,L} : M(K,L) \to C(N)$.
+\end{itemize}
+This data must satisfy the following conditions.
+\begin{itemize}
 \item The evaluation maps are associative.
 \nn{up to homotopy?}
 \item Gluing is strictly associative.
@@ -1102,14 +1136,32 @@ agree.
 \item the gluing and evaluation maps are compatible.
 \end{itemize}
 
-Bu universal we mean that given any other collection of chain complexes, evaluation maps
-and gluing maps, they factor through the universal thing.
-\nn{need to say this in more detail, in particular give the properties of the factoring map}
+A morphism $f$ between such objects $C$ and $C'$ is a chain map $f_N : C(N) \to C'(N)$ for each interval $N$ with both endpoints marked,
+satisfying the following conditions.
+\begin{itemize}
+\item For each pair of intervals $N,N'$, the diagram
+\begin{equation*}
+\xymatrix{
+\CD{N \to N'} \tensor C(N) \ar[d]_{\ev} \ar[r]^{\id \tensor f_N} & \CD{N \to N'} \tensor C'(N) \ar[d]^{\ev} \\
+C(N) \ar[r]_{f_N} & C'(N)
+}
+\end{equation*}
+commutes.
+\item For each decomposition of intervals $N = K \cup L$, the gluing map for $C'$, $\gl'_{K,L} : M(K,L) \to C'(N)$ is the composition
+$$M(K,L) \xto{\gl_{K,L}} C(N) \xto{f_N} C'(N).$$
+\end{itemize}
+\end{defn}
 
-Given $X$ and $Y\du -Y \sub \bdy X$ as above, the assignment
-$N \mapsto \bc_*(X \cup_{Y\du -Y} (N\times Y)$ clearly has the structure described
-in the above bullet points.
-Showing that it is the universal such thing is the content of the gluing theorem proved below.
+We now define $\gl(M)$ to be an initial object in the category $\cG{M}$. This just says that for any other object $C'$ in $\cG{M}$,
+there are chain maps $f_N: \gl(M)(N) \to C'(N)$, compatible with the action of families of diffeomorphisms, so that the gluing maps $M(K,L) \to C'(N)$
+factor through the gluing maps for $\gl(M)$.
+
+We return to our two favourite examples. First, the coend of the topological $A_\infty$ category $C_*(\Maps(\bullet \to M))$ as a bimodule over itself
+is essentially $C_*(\Maps(S^1 \to M))$. \todo{}
+
+For the second example, given $X$ and $Y\du -Y \sub \bdy X$, the assignment
+$$N \mapsto \bc_*(X \cup_{Y\du -Y} (N\times Y))$$ clearly gives an object in $\cG{M}$.
+Showing that it is an initial object is the content of the gluing theorem proved below.
 
 The definitions for a topological $A_\infty$-$n$-category are very similar to the above
 $n=1$ case.
@@ -1282,7 +1334,7 @@ object labels and intervals get 1-morphism labels
 
 
 \subsection{$A_\infty$ action on the boundary}
-
+\label{sec:boundary-action}%
 Let $Y$ be an $n{-}1$-manifold.
 The collection of complexes $\{\bc_*(Y\times I; a, b)\}$, where $a, b \in \cC(Y)$ are boundary
 conditions on $\bd(Y\times I) = Y\times \{0\} \cup Y\times\{1\}$, has the structure
@@ -1313,7 +1365,7 @@ a gluing theorem for the blob complexes of $n$-manifolds.
 
 
 \subsection{The gluing formula}
-
+\label{sec:gluing-formula}%
 Let $Y$ be an $n{-}1$-manifold and let $X$ be an $n$-manifold with a copy
 of $Y \du -Y$ contained in its boundary.
 Gluing the two copies of $Y$ together we obtain a new $n$-manifold $X\sgl$.
