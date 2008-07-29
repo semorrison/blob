@@ -775,12 +775,12 @@ The proof will occupy the remainder of this section.
 
 Let $f: P \times X \to X$ be a family of diffeomorphisms and $S \sub X$.
 We say that {\it $f$ is supported on $S$} if $f(p, x) = f(q, x)$ for all
-$x \notin S$ and $p, q \in P$. Equivalently \todo{really?}, $f$ is supported on $S$ if there is a family of diffeomorphisms $f' : P \times S \to S$ and a `background'
+$x \notin S$ and $p, q \in P$. Equivalently, $f$ is supported on $S$ if there is a family of diffeomorphisms $f' : P \times S \to S$ and a `background'
 diffeomorphism $f_0 : X \to X$ so that
 \begin{align}
-\restrict{f}{P \times S}(p,s) & = f_0(f'(p,s)) \\
+	f(p,s) & = f_0(f'(p,s)) \;\;\;\; \mbox{for}\; (p, s) \in P\times S \\
 \intertext{and}
-\restrict{f}{P \times (X \setmin S)}(p,x) & = f_0(x).
+	f(p,x) & = f_0(x) \;\;\;\; \mbox{for}\; (p, x) \in {P \times (X \setmin S)}.
 \end{align}
 Note that if $f$ is supported on $S$ then it is also supported on any $R \sup S$.
 
@@ -797,12 +797,12 @@ and families of diffeomorphisms
 }
 such that
 \begin{itemize}
-\item each $f_i(p, \cdot): X \to X$\scott{This should just read ``each $f_i$ is supported''} is supported on some connected $V_i \sub X$;
+\item each $f_i$ is supported on some connected $V_i \sub X$;
 \item the sets $V_i$ are mutually disjoint;
 \item each $V_i$ is the union of at most $k_i$ of the $U_\alpha$'s,
 where $k_i = \dim(P_i)$; and
-\item $f(p, \cdot) = f_1(p_1, \cdot) \circ \cdots \circ f_m(p_m, \cdot) \circ g$
-for all $p = (p_1, \ldots, p_m)$, for some fixed $g \in \Diff(X)$.\scott{hmm, can we do $g$ last, instead?}
+\item $f(p, \cdot) = g \circ f_1(p_1, \cdot) \circ \cdots \circ f_m(p_m, \cdot)$
+for all $p = (p_1, \ldots, p_m)$, for some fixed $g \in \Diff(X)$.
 \end{itemize}
 A chain $x \in C_k(\Diff(X))$ is (by definition) adapted to $\cU$ if it is the sum
 of singular cells, each of which is adapted to $\cU$.
@@ -838,7 +838,9 @@ $\supp(p) \cup N_\epsilon(b)$ is a union of balls, where $N_\epsilon(b)$ denotes
 neighborhood of the support of $b$.
 \nn{maybe also require that $N_\delta(b)$ is a union of balls for all $\delta<\epsilon$.}
 
-\nn{need to worry about case where the intrinsic support of $p$ is not a union of balls}
+\nn{need to worry about case where the intrinsic support of $p$ is not a union of balls.
+probably we can just stipulate that it is (i.e. only consider families of diffeos with this property).
+maybe we should build into the definition of ``adapted" that support takes up all of $U_i$.}
 
 \nn{need to eventually show independence of choice of metric.  maybe there's a better way than
 choosing a metric.  perhaps just choose a nbd of each ball, but I think I see problems
@@ -854,13 +856,13 @@ because $G_0 \sub CD_0\otimes \bc_0$.
 Assume we have defined the evaluation map up to $G_{k-1}$ and
 let $p\otimes b$ be a generator of $G_k$.
 Let $C \sub X$ be a union of balls (as described above) containing $\supp(p)\cup\supp(b)$.
-There is a factorization $p = p' \circ g$, where $g\in \Diff(X)$ and $p'$ is a family of diffeomorphisms which is the identity outside of $C$.
-\scott{Shouldn't this be $p = g\circ p'$?}
+There is a factorization $p = g \circ p'$, where $g\in \Diff(X)$ and $p'$ is a family of diffeomorphisms which is the identity outside of $C$.
 Let $b = b'\bullet b''$, where $b' \in \bc_*(C)$ and $b'' \in \bc_0(X\setmin C)$.
-We may assume inductively \scott{why? I don't get this.} that $e_X(\bd(p\otimes b))$ has the form $x\bullet g(b'')$, where
-$x \in \bc_*(g(C))$.
+We may assume inductively 
+(cf the end of this paragraph)
+that $e_X(\bd(p\otimes b))$ has a similar factorization $x\bullet g(b'')$, where
+$x \in \bc_*(g(C))$ and $\bd x = 0$.
 Since $\bc_*(g(C))$ is contractible, there exists $y \in \bc_*(g(C))$ such that $\bd y = x$.
-\nn{need to say more if degree of $x$ is 0}
 Define $e_X(p\otimes b) = y\bullet g(b'')$.
 
 We now show that $e_X$ on $G_*$ is, up to homotopy, independent of the various choices made.
@@ -873,6 +875,7 @@ Given a different set of choices $\{C'\}$ of the unions of balls $\{C\}$,
 we can find a third set of choices $\{C''\}$ such that $C, C' \sub C''$.
 The argument now proceeds as in the previous paragraph.
 \nn{should maybe say more here; also need to back up claim about third set of choices}
+\nn{this definitely needs reworking}
 
 Next we show that given $x \in CD_*(X) \otimes \bc_*(X)$ with $\bd x \in G_*$, there exists
 a homotopy (rel $\bd x$) to $x' \in G_*$, and further that $x'$ and
@@ -881,8 +884,10 @@ this homotopy are unique up to iterated homotopy.
 Given $k>0$ and a blob diagram $b$, we say that a cover $\cU$ of $X$ is $k$-compatible with
 $b$ if, for any $\{U_1, \ldots, U_k\} \sub \cU$, the union
 $U_1\cup\cdots\cup U_k$ is a union of balls which satisfies the condition used to define $G_*$ above.
-Note that if a family of diffeomorphisms $p$ is adapted to
-$\cU$ and $b$ is a blob diagram occurring in $x$ \scott{huh, what's $x$ here?}, then $p\otimes b \in G_*$.
+It follows from Lemma \ref{extension_lemma}
+that if $\cU$ is $k$-compatible with $b$ and
+$p$ is a $k$-parameter family of diffeomorphisms which is adapted to $\cU$, then
+$p\otimes b \in G_*$.
 \nn{maybe emphasize this more; it's one of the main ideas in the proof}
 
 Let $k$ be the degree of $x$ and choose a cover $\cU$ of $X$ such that $\cU$ is
