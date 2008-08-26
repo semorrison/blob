@@ -904,15 +904,14 @@ The homotopy $r$ can also be thought of as a homotopy from $x$ to $y-h \in G_*$,
 We will define $h$ inductively on bidegrees $(0, k-1), (1, k-2), \ldots, (k-1, 0)$.
 Define $h$ to be zero on bidegree $(0, k-1)$.
 Let $p\otimes b$ be a generator occurring in $\bd x$ with bidegree $(1, k-2)$.
-Using Lemma \ref{extension_lemma}, construct a homotopy $q$ from $p$ to $p'$ which is adapted to $\cU$.
+Using Lemma \ref{extension_lemma}, construct a homotopy (rel $\bd$) $q$ from $p$ to $p'$ which is adapted to $\cU$.
 Define $h$ at $p\otimes b$ to be $q\otimes b$.
 Let $p'\otimes b'$ be a generator occurring in $\bd x$ with bidegree $(2, k-3)$.
-Let $a$ be that portion of $\bd(p'\otimes b')$ which intersects the boundary of
-bidegree $(1, k-2)$ stuff.
-Apply Lemma \ref{extension_lemma} to $p'$ plus the diffeo part of $h(a)$
-(rel the outer boundary of said part),
+Let $s$ denote the sum of the $q$'s from the previous step for generators
+adjacent to $(\bd p')\otimes b'$.
+\nn{need to say more here}
+Apply Lemma \ref{extension_lemma} to $p'+s$
 yielding a family of diffeos $q'$.
-\nn{definitely need to say this better}
 Define $h$ at $p'\otimes b'$ to be $q'\otimes b'$.
 Continuing in this way, we define all of $h$.
 
