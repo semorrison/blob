@@ -1432,10 +1432,10 @@ unlabeled points in $M$.
 Note that $\Sigma^0(M)$ is a point.
 Let $\Sigma^\infty(M) = \coprod_{i=0}^\infty \Sigma^i(M)$.
 
-Let $C_*(X)$ denote the singular chain complex of the space $X$.
+Let $C_*(X, k)$ denote the singular chain complex of the space $X$ with coefficients in $k$.
 
 \begin{prop}
-$\bc_*(M^n, k[t])$ is homotopy equivalent to $C_*(\Sigma^\infty(M))$.
+$\bc_*(M^n, k[t])$ is homotopy equivalent to $C_*(\Sigma^\infty(M), k)$.
 \end{prop}
 
 \begin{proof}
@@ -1496,6 +1496,36 @@ low-dimensional simplices and work our way up.
 (for this, might need a lemma that says we can assume that blob diameters are small)}
 \end{proof}
 
+
+\begin{prop}
+The above maps are compatible with the evaluation map actions of $C_*(\Diff(M))$.
+\end{prop}
+
+\begin{proof}
+The actions agree in degree 0, and both are compatible with gluing.
+(cf. uniqueness statement in \ref{CDprop}.)
+\end{proof}
+
+\medskip
+
+In view of \ref{hochthm}, we have proved that $HH_*(k[t]) \cong C_*(\Sigma^\infty(S^1), k)$,
+and that the cyclic homology of $k[t]$ is related to the action of rotations
+on $C_*(\Sigma^\infty(S^1), k)$.
+\nn{probably should put a more precise statement about cyclic homology and $S^1$ actions in the Hochschild section}
+Let us check this directly.
+
+We can define a flow on $\Sigma^j(S^1)$ by having the points repel each other.
+The fixed points of this flow are the equally spaced configurations.
+This defines a map from $\Sigma^j(S^1)$ to $S^1/j$ ($S^1$ modulo a $2\pi/j$ rotation.).
+The fiber of this map is $\Delta^{j-1}$, the $(j-1)$-simplex, 
+and the holonomy of the $\Delta^{j-1}$ bundle
+over $S^1$ is the cyclic permutation of its $j$ vertices.
+
+
+
+
+
+\nn{...}
 
 
 
