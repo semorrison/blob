@@ -1420,8 +1420,8 @@ The proof will occupy the remainder of this section.
 while it's still fresh in my mind.}
 
 If $C$ is a commutative algebra it
-can (and will) also be thought of as an $n$-category with trivial $j$-morphisms for
-$j<n$ and $n$-morphisms are $C$. 
+can (and will) also be thought of as an $n$-category whose $j$-morphisms are trivial for
+$j<n$ and whose $n$-morphisms are $C$. 
 The goal of this \nn{subsection?} is to compute
 $\bc_*(M^n, C)$ for various commutative algebras $C$.
 
@@ -1429,7 +1429,7 @@ Let $k[t]$ denote the ring of polynomials in $t$ with coefficients in $k$.
 
 Let $\Sigma^i(M)$ denote the $i$-th symmetric power of $M$, the configuration space of $i$
 unlabeled points in $M$.
-Note that $\Sigma^i(M)$ is a point.
+Note that $\Sigma^0(M)$ is a point.
 Let $\Sigma^\infty(M) = \coprod_{i=0}^\infty \Sigma^i(M)$.
 
 Let $C_*(X)$ denote the singular chain complex of the space $X$.
@@ -1445,7 +1445,7 @@ To define the chain maps between the two complexes we will use the following lem
 Let $A_*$ and $B_*$ be chain complexes, and assume $A_*$ is equipped with
 a basis (e.g.\ blob diagrams or singular simplices).
 For each basis element $c \in A_*$ assume given a contractible subcomplex $R(c)_* \sub B_*$
-such that $R(c') \sub R(c)$ whenever $c'$ is a basis element which is part of $\bd c$.
+such that $R(c')_* \sub R(c)_*$ whenever $c'$ is a basis element which is part of $\bd c$.
 Then the complex of chain maps (and (iterated) homotopies) $f:A_*\to B_*$ such that
 $f(c) \in R(c)_*$ for all $c$ is contractible (and in particular non-empty).
 \end{lemma}
@@ -1454,10 +1454,47 @@ $f(c) \in R(c)_*$ for all $c$ is contractible (and in particular non-empty).
 \nn{easy, but should probably write the details eventually}
 \end{proof}
 
-\nn{...}
+Our first task: For each blob diagram $b$ define a subcomplex $R(b)_* \sub C_*(\Sigma^\infty(M))$
+satisfying the conditions of the above lemma.
+If $b$ is a 0-blob diagram, then it is just a $k[t]$ field on $M$, which is a 
+finite unordered collection of points of $M$ with multiplicities, which is
+a point in $\Sigma^\infty(M)$.
+Define $R(b)_*$ to be the singular chain complex of this point.
+If $(B, u, r)$ is an $i$-blob diagram, let $D\sub M$ be its support (the union of the blobs).
+The path components of $\Sigma^\infty(D)$ are contractible, and these components are indexed 
+by the numbers of points in each component of $D$.
+We may assume that the blob labels $u$ have homogeneous $t$ degree in $k[t]$, and so
+$u$ picks out a component $X \sub \Sigma^\infty(D)$.
+The field $r$ on $M\setminus D$ can be thought of as a point in $\Sigma^\infty(M\setminus D)$,
+and using this point we can embed $X$ in $\Sigma^\infty(M)$.
+Define $R(B, u, r)_*$ to be the singular chain complex of $X$, thought of as a 
+subspace of $\Sigma^\infty(M)$.
+It is easy to see that $R(\cdot)_*$ satisfies the condition on boundaries from the above lemma.
+Thus we have defined (up to homotopy) a map from 
+$\bc_*(M^n, k[t])$ to $C_*(\Sigma^\infty(M))$.
 
+Next we define, for each simplex $c$ of $C_*(\Sigma^\infty(M))$, a contractible subspace
+$R(c)_* \sub \bc_*(M^n, k[t])$.
+If $c$ is a 0-simplex we use the identification of the fields $\cC(M)$ and 
+$\Sigma^\infty(M)$ described above.
+Now let $c$ be an $i$-simplex of $\Sigma^j(M)$.
+Choose a metric on $M$, which induces a metric on $\Sigma^j(M)$.
+We may assume that the diameter of $c$ is small --- that is, $C_*(\Sigma^j(M))$
+is homotopy equivalent to the subcomplex of small simplices.
+How small?  $(2r)/3j$, where $r$ is the radius of injectivity of the metric.
+Let $T\sub M$ be the ``track" of $c$ in $M$.
+\nn{do we need to define this precisely?}
+Choose a neighborhood $D$ of $T$ which is a disjoint union of balls of small diameter.
+\nn{need to say more precisely how small}
+Define $R(c)_*$ to be $\bc_*(D, k[t]) \sub \bc_*(M^n, k[t])$.
+This is contractible by \ref{bcontract}.
+We can arrange that the boundary/inclusion condition is satisfied if we start with
+low-dimensional simplices and work our way up.
+\nn{need to be more precise}
+
+\nn{still to do: show indep of choice of metric; show compositions are homotopic to the identity
+(for this, might need a lemma that says we can assume that blob diameters are small)}
 \end{proof}
-
 
 
 
