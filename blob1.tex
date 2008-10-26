@@ -1414,6 +1414,53 @@ The proof will occupy the remainder of this section.
 \nn{need to define/recall def of (self) tensor product over an $A_\infty$ category}
 
 
+\section{Commutative algebras as $n$-categories}
+
+\nn{this should probably not be a section by itself.  i'm just trying to write down the outline 
+while it's still fresh in my mind.}
+
+If $C$ is a commutative algebra it
+can (and will) also be thought of as an $n$-category with trivial $j$-morphisms for
+$j<n$ and $n$-morphisms are $C$. 
+The goal of this \nn{subsection?} is to compute
+$\bc_*(M^n, C)$ for various commutative algebras $C$.
+
+Let $k[t]$ denote the ring of polynomials in $t$ with coefficients in $k$.
+
+Let $\Sigma^i(M)$ denote the $i$-th symmetric power of $M$, the configuration space of $i$
+unlabeled points in $M$.
+Note that $\Sigma^i(M)$ is a point.
+Let $\Sigma^\infty(M) = \coprod_{i=0}^\infty \Sigma^i(M)$.
+
+Let $C_*(X)$ denote the singular chain complex of the space $X$.
+
+\begin{prop}
+$\bc_*(M^n, k[t])$ is homotopy equivalent to $C_*(\Sigma^\infty(M))$.
+\end{prop}
+
+\begin{proof}
+To define the chain maps between the two complexes we will use the following lemma:
+
+\begin{lemma}
+Let $A_*$ and $B_*$ be chain complexes, and assume $A_*$ is equipped with
+a basis (e.g.\ blob diagrams or singular simplices).
+For each basis element $c \in A_*$ assume given a contractible subcomplex $R(c)_* \sub B_*$
+such that $R(c') \sub R(c)$ whenever $c'$ is a basis element which is part of $\bd c$.
+Then the complex of chain maps (and (iterated) homotopies) $f:A_*\to B_*$ such that
+$f(c) \in R(c)_*$ for all $c$ is contractible (and in particular non-empty).
+\end{lemma}
+
+\begin{proof}
+\nn{easy, but should probably write the details eventually}
+\end{proof}
+
+\nn{...}
+
+\end{proof}
+
+
+
+
 
 
 \appendix
@@ -1606,6 +1653,7 @@ a 2-cell supported on $U_\beta \cup U_\gamma$.
 
 \input{text/explicit.tex}
 
+
 % ----------------------------------------------------------------
 %\newcommand{\urlprefix}{}
 \bibliographystyle{plain}
@@ -1615,7 +1663,8 @@ a 2-cell supported on $U_\beta \cup U_\gamma$.
 % ----------------------------------------------------------------
 
 This paper is available online at \arxiv{?????}, and at
-\url{http://tqft.net/blobs}.
+\url{http://tqft.net/blobs},
+and at \url{http://canyon23.net/math/}.
 
 % A GTART necessity:
 % \Addresses
