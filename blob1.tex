@@ -1497,7 +1497,7 @@ low-dimensional simplices and work our way up.
 \end{proof}
 
 
-\begin{prop}
+\begin{prop} \label{ktcdprop}
 The above maps are compatible with the evaluation map actions of $C_*(\Diff(M))$.
 \end{prop}
 
@@ -1514,12 +1514,26 @@ on $C_*(\Sigma^\infty(S^1), k)$.
 \nn{probably should put a more precise statement about cyclic homology and $S^1$ actions in the Hochschild section}
 Let us check this directly.
 
+According to \nn{Loday, 3.2.2}, $HH_i(k[t]) \cong k[t]$ for $i=0,1$ and is zero for $i\ge 2$.
+\nn{say something about $t$-degree?  is this in [Loday]?}
+
 We can define a flow on $\Sigma^j(S^1)$ by having the points repel each other.
 The fixed points of this flow are the equally spaced configurations.
-This defines a map from $\Sigma^j(S^1)$ to $S^1/j$ ($S^1$ modulo a $2\pi/j$ rotation.).
+This defines a map from $\Sigma^j(S^1)$ to $S^1/j$ ($S^1$ modulo a $2\pi/j$ rotation).
 The fiber of this map is $\Delta^{j-1}$, the $(j-1)$-simplex, 
 and the holonomy of the $\Delta^{j-1}$ bundle
-over $S^1$ is the cyclic permutation of its $j$ vertices.
+over $S^1/j$ is induced by the cyclic permutation of its $j$ vertices.
+
+In particular, $\Sigma^j(S^1)$ is homotopy equivalent to a circle for $j>0$, and
+of course $\Sigma^0(S^1)$ is a point.
+Thus the singular homology $H_i(\Sigma^\infty(S^1))$ has infinitely many generators for $i=0,1$
+and is zero for $i\ge 2$.
+\nn{say something about $t$-degrees also matching up?}
+
+By xxxx and \ref{ktcdprop}, 
+the cyclic homology of $k[t]$ is the $S^1$-equivariant homology of $\Sigma^\infty(S^1)$.
+Up to homotopy, $S^1$ acts by $j$-fold rotation on $\Sigma^j(S^1) \simeq S^1/j$.
+If $k = \z$, we then have 
 
 
 
