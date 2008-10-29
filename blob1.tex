@@ -1438,7 +1438,7 @@ Let $\Sigma^\infty(M) = \coprod_{i=0}^\infty \Sigma^i(M)$.
 Let $C_*(X, k)$ denote the singular chain complex of the space $X$ with coefficients in $k$.
 
 \begin{prop} \label{sympowerprop}
-$\bc_*(M^n, k[t])$ is homotopy equivalent to $C_*(\Sigma^\infty(M), k)$.
+$\bc_*(M, k[t])$ is homotopy equivalent to $C_*(\Sigma^\infty(M), k)$.
 \end{prop}
 
 \begin{proof}
@@ -1552,7 +1552,7 @@ corresponding to the number of points of each color of a configuration.
 A proof similar to that of \ref{sympowerprop} shows that
 
 \begin{prop}
-$\bc_*(M^n, k[t_1, \ldots, t_m])$ is homotopy equivalent to $C_*(\Sigma_m^\infty(M), k)$.
+$\bc_*(M, k[t_1, \ldots, t_m])$ is homotopy equivalent to $C_*(\Sigma_m^\infty(M), k)$.
 \end{prop}
 
 According to \nn{Loday, 3.2.2},
@@ -1569,9 +1569,20 @@ The homology calculation we desire follows easily from this.
 
 \nn{say something about cyclic homology in this case?  probably not necessary.}
 
+\medskip
 
+Next we consider the case $C = k[t]/t^l$ --- polynomials in $t$ with $t^l = 0$.
+Define $\Delta_l \sub \Sigma^\infty(M)$ to be those configurations of points with $l$ or
+more points coinciding.
 
+\begin{prop}
+$\bc_*(M, k[t]/t^l)$ is homotopy equivalent to $C_*(\Sigma^\infty(M), \Delta_l, k)$
+(relative singular chains with coefficients in $k$).
+\end{prop}
 
+\begin{proof}
+\nn{...}
+\end{proof}
 
 \nn{...}
 
