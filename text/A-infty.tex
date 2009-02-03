@@ -1,0 +1,43 @@
+\section{Homological systems of fields}
+
+In this section, we extend the definition of blob homology to allow \emph{homological systems of fields}.
+
+We begin with a definition of a \emph{topological $A_\infty$ category}, and then introduce the notion of a homological system of fields. A topological $A_\infty$ category gives a $1$-dimensional homological system of fields. We'll suggest that any good definition of a topological $A_\infty$ $n$-category with duals should allow construction of an $n$-dimensional homological system of fields, but we won't propose any such definition here. Later, we extend the definition of blob homology to allow homological fields as input. These definitions allow us to state and prove a theorem about the blob homology of a product manifold, and an intermediate theorem about gluing, in preparation for the proof of \ref{thm:gluing}.
+
+\begin{defn}
+A \emph{topological $A_\infty$ category $\cC$} has a set of objects $\Obj(\cC)$ and for each $a,b \in \Obj(\cC)$, a chain complex $\cC_{a,b}$, along with a compatible `composition map' and `action of families of diffeomorphisms'.
+
+A \emph{decomposition of the interval} is a collection of disjoint subintervals $\{(a_i,b_i)\}_{i=1}^k$ of $[0,1]$, along with a labeling of the complementary regions by objects of $\cC$, $\{o_0, \ldots, o_k\}$. A \emph{composition map} is a family of chain maps, one for each decomposition of the interval, $f_\cJ : A^k \to A$. Given two decompositions $\cJ_1$ and $\cJ_2$, and an index $m$ such that $o^{(1)}_{m-1} = o^{(2)}_0$ and $o^{(1)}_{m} = o^{(2)}_{k^{(2)}}$, we can form a new decomposition by inserting the intervals of $\cJ_2$ linearly inside the $m$-th interval of $\cJ_1$. We call the resulting decomposition$\cJ_1 \circ_m \cJ_2$. We insist that
+\begin{equation*}
+f_{\cJ_1 \circ_m \cJ_2} = f_{\cJ_1} \circ (\id^{\tensor m-1} \tensor f_{\cJ_2} \tensor \id^{\tensor k^{(1)} - m}).
+\end{equation*}
+
+An \emph{action of families of diffeomorphisms} is a chain map $C_*(Diff([0,1])) \tensor A \to A$, such that \todo{What goes here, if anything?} 
+\end{defn}
+
+From a topological $A_\infty$ category $\cC$ we can produce a `conventional' $A_\infty$ category $(A, \{m_k\})$ as defined in, for example, \cite{Keller}. We'll just describe the algebra case (that is, a category with only one object), as the modifications required to deal with multiple objects are trivial. Define $A = \cC$ as a chain complex (so $m_1 = d$). Define $m_2 : A\tensor A \to A$ by $f_{\{(0,\frac{1}{2}),(\frac{1}{2},1)\}}$. To define $m_3$, we begin by taking the one parameter family of diffeomorphisms of $[0,1]$ $\phi_3$ that interpolates linearly between the identity and the piecewise linear diffeomorphism taking $\frac{1}{4}$ to $\frac{1}{2}$ and $\frac{1}{2}$ to $\frac{3}{4}$, and then define
+\begin{equation*}
+m_3(a,b,c) = ev(\phi_3, m_2(m_2(a,b), c))
+\end{equation*}
+\todo{Explain why this works, then the general case.}
+We won't describe a reverse construction (producing a topological $A_\infty$ category from a `conventional' $A_\infty$ category), but we presume that this will be easy for the experts.
+
+\begin{thm}[Product formula]
+Suppose $M = B \times F$ is a trivial bundle with $b$-dimensional base $B$ and $f$-dimensional fiber $F$. The blob homology of $M$ can be computed as
+\begin{equation*}
+\cB_*(M, \cF) = \cB_*(B, \cB_*(F, \cF)).
+\end{equation*}
+On the right hand side, $\cB_*(F, \cF)$ means the homological system of fields constructed from the $A_\infty$ $b$-category $\cB_*(F \times [0,1]^b, \cF)$.
+\end{thm}
+
+\begin{question}
+Is it possible to compute the blob homology of a non-trivial bundle in terms of the blob homology of its fiber?
+\end{question}
+
+\begin{thm}[Gluing, intermediate form]
+Suppose $M = M_1 \cup_Y M_2$ is the union of two submanifolds $M_1$ and $M_2$ along a codimension $1$ manifold $Y$. The blob homology of $M$ can be computed as
+\begin{equation*}
+\cB_*(M, \cF) = \cB_*(([0,1], \{0\}, \{1\}), (\cB_*(Y, \cF), \cB_*(M_1, \cF), \cB_*(M_2, \cF))).
+\end{equation*}
+The right hand side is the blob homology of the interval, using ...
+\end{thm}

@@ -1,3 +1,5 @@
+\todo{beginning of scott's attempt to write down what fields are...}
+
 \newcommand{\manifolds}[1]{\cM_{#1}}
 \newcommand{\closedManifolds}[1]{\cM_{#1}^{\text{closed}}}
 \newcommand{\boundaryConditions}[1]{\cM_{#1}^{\bdy}}
@@ -5,10 +7,10 @@ Let $\manifolds{k}$ be the groupoid of manifolds (possibly with boundary) of dim
 $\closedManifolds{k}$ for the subgroupoid of closed manifolds. Taking the boundary gives a functor $\bdy : \manifolds{k} \to \closedManifolds{k-1}$.
 Both $\manifolds{k}$ and $\closedManifolds{k}$ are symmetric tensor categories under the operation of disjoint union.
 \begin{defn}
-A \emph{system of fields} is a collection of functors associating a `set of fields' to each manifold of dimension at most $n$.
+A \emph{system of fields} is a collection of functors $\cF_k$ associating a `set of fields' to each manifold of dimension at most $n$.
 
-First, there are functors $\cC_k : \closedManifolds{k} \to \Set$ for each $0 \leq k < n$. We ask that these are tensor functors, so they
-take disjoint unions of manifolds to cartesian products of sets. In particular, this means that $\cC_k(\eset)$ is a point; there's only one field
+First, there are functors $\cF_k : \closedManifolds{k} \to \Set$ for each $0 \leq k < n$. We ask that these are tensor functors, so they
+take disjoint unions of manifolds to cartesian products of sets. In particular, this means that $\cF_k(\eset)$ is a point; there's only one field
 on the empty manifold of any dimension.
 
 Define the groupoid $\boundaryConditions{k}$ of `manifolds with boundary conditions' as
@@ -23,8 +25,8 @@ where we think of $f: Y \diffeoto Y'$ as a morphism $(Y; c) \isoto (Y'; \cC_{k-1
 %a field on the boundary of $Y$. A morphism $(Y; c) \to (Y'; c')$ is any diffeomorphism $f: Y \to Y'$ such that $\cC_{k-1}(\restrict{f}{\bdy Y})(c) = c'$.
 Notice that $\closedManifolds{k}$ is naturally a subgroupoid of $\boundaryConditions{k}$, since a closed manifold has a unique field on its (empty) boundary.
 
-We now ask that the functors $\cC_k$ above extend to functors $\cC_k : \boundaryConditions{k} \to \Set$ for  each $0 \leq k < n$,
-and that there is an extra functor at the top level, $\cC_n : \boundaryConditions{n} \to \Vect$. (Notice that for $n$-manifolds we ask for a vector space, not just a set. This isn't essential for the definition, but we will only be interested in this case hereafter.)
+We now ask that the functors $\cF_k$ above extend to functors $\cF_k : \boundaryConditions{k} \to \Set$ for  each $0 \leq k < n$,
+and that there is an extra functor at the top level, $\cF_n : \boundaryConditions{n} \to \Vect$. (Notice that for $n$-manifolds we ask for a vector space, not just a set. This isn't essential for the definition, but we will only be interested in this case hereafter.)
 We still require that these are tensor functors, and so take disjoint unions of manifolds to cartesian products of sets, or tensor products of vector spaces, as appropriate.
 
 \scott{Not sure how to say product fields in this setup.}
@@ -34,3 +36,5 @@ Finally (?) we ask for natural transformations $- \times I : \cC_k \to \cC_{k+1}
 \begin{rem}
 Where the dimension of the manifold is clear, we'll often leave off the subscript on $\cC_k$.
 \end{rem}
+
+\todo{end}
