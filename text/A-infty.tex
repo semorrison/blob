@@ -6,80 +6,148 @@ We begin with a definition of a \emph{topological $A_\infty$ category}, and then
 
 \subsection{Topological $A_\infty$ categories}
 
-First recall the \emph{coloured little intervals operad}. Given a set of labels $\cL$, the operations are indexed by \emph{decompositions of the interval}, each of which is a collection of disjoint subintervals $\{(a_i,b_i)\}_{i=1}^k$ of $[0,1]$, along with a labeling of the complementary regions by $cL$, $\{l_0, \ldots, l_k\}$.  Given two decompositions $\cJ_1$ and $\cJ_2$, and an index $m$ such that $l^{(1)}_{m-1} = l^{(2)}_0$ and $l^{(1)}_{m} = l^{(2)}_{k^{(2)}}$, we can form a new decomposition by inserting the intervals of $\cJ_2$ linearly inside the $m$-th interval of $\cJ_1$. We call the resulting decomposition $\cJ_1 \circ_m \cJ_2$.
+First recall the \emph{coloured little intervals operad}. Given a set of labels $\cL$, the operations are indexed by \emph{decompositions of the interval}, each of which is a collection of disjoint subintervals $\{(a_i,b_i)\}_{i=1}^k$ of $[0,1]$, along with a labeling of the complementary regions by $\cL$, $\{l_0, \ldots, l_k\}$.  Given two decompositions $\cJ_1$ and $\cJ_2$, and an index $m$ such that $l^{(1)}_{m-1} = l^{(2)}_0$ and $l^{(1)}_{m} = l^{(2)}_{k^{(2)}}$, we can form a new decomposition by inserting the intervals of $\cJ_2$ linearly inside the $m$-th interval of $\cJ_1$. We call the resulting decomposition $\cJ_1 \circ_m \cJ_2$.
 
 \begin{defn}
 A \emph{topological $A_\infty$ category} $\cC$ has a set of objects $\Obj(\cC)$ and for each $a,b \in \Obj(\cC)$ a chain complex $\cC_{a,b}$, along with a compatible `composition map' and `action of families of diffeomorphisms'.
 
-A \emph{composition map} is a family of chain maps, one for each decomposition of the interval, $f_\cJ : A^k \to A$, making $\cC$ into a category over the coloured little intervals operad, with labels $\cL = \Obj(\cC)$. Thus the chain maps satisfy the identity 
+A \emph{composition map} $f$ is a family of chain maps, one for each decomposition of the interval, $f_\cJ : A^{\tensor k} \to A$, making $\cC$ into a category over the coloured little intervals operad, with labels $\cL = \Obj(\cC)$. Thus the chain maps satisfy the identity 
 \begin{equation*}
 f_{\cJ_1 \circ_m \cJ_2} = f_{\cJ_1} \circ (\id^{\tensor m-1} \tensor f_{\cJ_2} \tensor \id^{\tensor k^{(1)} - m}).
 \end{equation*}
 
-An \emph{action of families of diffeomorphisms} is a chain map $C_*(Diff([0,1])) \tensor A \to A$, such that \todo{What goes here, if anything?} 
+An \emph{action of families of diffeomorphisms} is a chain map $ev: \CD{[0,1]} \tensor A \to A$, such that \todo{What goes here, if anything?} 
+\begin{enumerate}
+\item The diagram 
+\todo{}
+commutes up to weakly unique \todo{???} homotopy.
+\item If $\phi \in \Diff([0,1])$ and $\cJ$ is a decomposition of the interval, we obtain a new decomposition $\phi(\cJ)$ and a collection $\phi_m \in \Diff([0,1])$ of diffeomorphisms obtained by taking the restrictions $\restrict{\phi}{[a_m,b_m]} : [a_m,b_m] \to [\phi(a_m),\phi(b_m)]$ and pre- and post-composing these with the linear diffeomorphisms $[0,1] \to [a_m,b_m]$ and $[\phi(a_m),\phi(b_m)] \to [0,1]$. We require that
+\begin{equation*}
+\phi(f_\cJ(a_1, \cdots, a_k)) = f_{\phi(\cJ)}(\phi_1(a_1), \cdots, \phi_k(a_k)).
+\end{equation*}
+\end{enumerate}
 \end{defn}
 
-From a topological $A_\infty$ category $\cC$ we can produce a `conventional' $A_\infty$ category $(A, \{m_k\})$ as defined in, for example, \cite{Keller}. We'll just describe the algebra case (that is, a category with only one object), as the modifications required to deal with multiple objects are trivial. Define $A = \cC$ as a chain complex (so $m_1 = d$). Define $m_2 : A\tensor A \to A$ by $f_{\{(0,\frac{1}{2}),(\frac{1}{2},1)\}}$. To define $m_3$, we begin by taking the one parameter family of diffeomorphisms of $[0,1]$ $\phi_3$ that interpolates linearly between the identity and the piecewise linear diffeomorphism taking $\frac{1}{4}$ to $\frac{1}{2}$ and $\frac{1}{2}$ to $\frac{3}{4}$, and then define
+From a topological $A_\infty$ category $\cC$ we can produce a `conventional' $A_\infty$ category $(A, \{m_k\})$ as defined in, for example, \cite{MR1854636}. We'll just describe the algebra case (that is, a category with only one object), as the modifications required to deal with multiple objects are trivial. Define $A = \cC$ as a chain complex (so $m_1 = d$). Define $m_2 : A\tensor A \to A$ by $f_{\{(0,\frac{1}{2}),(\frac{1}{2},1)\}}$. To define $m_3$, we begin by taking the one parameter family $\phi_3$ of diffeomorphisms of $[0,1]$ that interpolates linearly between the identity and the piecewise linear diffeomorphism taking $\frac{1}{4}$ to $\frac{1}{2}$ and $\frac{1}{2}$ to $\frac{3}{4}$, and then define
 \begin{equation*}
-m_3(a,b,c) = ev(\phi_3, m_2(m_2(a,b), c))
+m_3(a,b,c) = ev(\phi_3, m_2(m_2(a,b), c)).
 \end{equation*}
-\todo{Explain why this works, then the general case.}
+
+It's then easy to calculate that
+\begin{align*}
+d(m_3(a,b,c)) & = ev(d \phi_3, m_2(m_2(a,b),c)) - ev(\phi_3 d m_2(m_2(a,b), c)) \\
+ & = ev( \phi_3(1), m_2(m_2(a,b),c)) - ev(\phi_3(0), m_2 (m_2(a,b),c)) - \\ & \qquad - ev(\phi_3, m_2(m_2(da, b), c) + (-1)^{\deg a} m_2(m_2(a, db), c) + \\ & \qquad \quad + (-1)^{\deg a+\deg b} m_2(m_2(a, b), dc) \\
+ & = m_2(a , m_2(b,c)) - m_2(m_2(a,b),c) - \\ & \qquad - m_3(da,b,c) + (-1)^{\deg a + 1} m_3(a,db,c) + \\ & \qquad \quad + (-1)^{\deg a + \deg b + 1} m_3(a,b,dc), \\
+\intertext{and thus that}
+m_1 \circ m_3 & =  m_2 \circ (\id \tensor m_2) - m_2 \circ (m_2 \tensor \id) - \\ & \qquad - m_3 \circ (m_1 \tensor \id \tensor \id) - m_3 \circ (\id \tensor m_1 \tensor \id) - m_3 \circ (\id \tensor \id \tensor m_1)
+\end{align*}
+as required (c.f. \cite[p. 6]{MR1854636}.
+\todo{then the general case.}
 We won't describe a reverse construction (producing a topological $A_\infty$ category from a `conventional' $A_\infty$ category), but we presume that this will be easy for the experts.
 
 \subsection{Homological systems of fields}
+\todo{Describe homological fields}
 
-\subsection{Blob homology}
-The definition of blob homology for $(\cF, \cU)$ a homological system of fields and local relations is essentially the same as that given before in \S \ref{???}.
-The blob complex $\cB_*^{\cF,\cU}(M)$ is a doubly-graded vector space, with a `blob degree' and an `internal degree'. 
+A topological $A_\infty$ category $\cC$ gives rise to a one dimensional homological system of fields. The functor $\cF_0$ simply assigns the set of objects of $\cC$ to a point. 
+For a $1$-manifold $X$, define a \emph{decomposition of $X$} with labels in $\cL$ as a (possibly empty) set of disjoint closed intervals $\{J\}$ in $X$, and a labeling of the complementary regions by elements of $\cL$.
 
-We'll write $\cT_k$ for the set of finite rooted trees with $k$ vertices labelled $1, \cdots, k$, and $\cT$ for the union of all $\cT_k$. We'll think of such a rooted tree as a category, with objects $1, \cdots, k$, and each morphism set either empty or a singleton, with $v \to w$ if $w$ is closer to a root of the tree than $v$. For such a tree $t \in \cT_k$, define $\abs{t} = k$, and for a vertex $v$ labelled by $i$ define $\sigma(v \in t) = (-1)^k$. We'll write $\hat{v}$ for the `parent' of a vertex $v$ if $v$ is not a root (that is, $\hat{v}$ is the unique vertex such that $v \to \hat{v}$ but there is no $w$ with $v \to w \to \hat{v}$. If $v$ is a root, we'll write $\hat{v}=\star$.
-
-Given $v \in t$ labelled by $i$, there's a functor $\partial_v$ which removes the vertex $v$ and relabels all vertices labelled by $j>i$ with $j-1$. Notice that $$\sigma(v \in t) \sigma(w \in \partial_v t) = - \sigma(w \in t) \sigma(v \in \partial_w t).$$
-
-Let $\operatorname{balls}(M)$ denote the category of open balls in $M$ with inclusions.
-Given a tree $t \in \cT$ and a functor $b : t \to \operatorname{balls}(M)$ (one might call such a functor a `dendroidal ball' if one where so inclined), define  
+The functor $\cF_1$ assigns to a $1$-manifold $X$ the vector space
 \begin{equation*}
-\cF(t,b) = \cF\left(M \setminus b(t)\right) \tensor \left(\Tensor_{\substack{v \in t \\ \text{$v$ not a leaf}}} \cF\left(b(v) \setminus b(v' \to v)\right)\right) \tensor \left(\Tensor_{\substack{v \in t \\ \text{$v$ a leaf}}} \cU\left(b(v)\right)\right)
+\cF_1(X) = \DirectSum_{\substack{\cJ \\ \text{a decomposition of $X$}}} \Tensor_{J \in \cJ} \cC_{l(J),r(J)}
 \end{equation*}
-and then
+where $l(J)$ and $r(J)$ denote the labels on the complementary regions on either side of the interval $J$. If $X$ has boundary, and we specify a boundary condition $c$ consisting of a label from $\Obj(\cC)$ at each boundary point, $\cF_1(X;c)$ is just the direct sum over decompositions agreeing with these boundary conditions. For any interval $I$, we define the local relations $\cU(I)$ to be the subcomplex of $\cF_1(I)$
 \begin{equation*}
-\cB_*^{\cF,\cU}(M) = \DirectSum_{t \in \cT} \DirectSum_{\substack{\text{functors} \\ f: t \to \operatorname{balls}(M)}} \cF(t,f)
+\cU(I) = \DirectSum_{\cJ} \ker\left(f_\cJ : \Tensor_{J \in \cJ} \cC_{l(J),r(J)} \to \cC_{l(I),r(I)} \right),
 \end{equation*}
+that is, the kernel of the composition map for $\cC$.
 
-It becomes a chain complex by taking the homological degree to be the sum of the blob and internal degrees, and defining $d$ on $\cF(t,b)$ by
-\begin{equation*}
-d f = \sum_{v \in t} \partial_v f + \sum_{v' \in t \cup \{\star\}} d_{v'} f,
-\end{equation*}
-where if $f \in \cF(t,b)$ is an elementary tensor of the form $f = f_\star \tensor \Tensor_{v \in t} f_v$ with
-\begin{align*}
-f_\star & \in \cF(M \setminus b(t)) & \\
-f_v       & \in \cF(b(v) \setminus b(v' \to v)) & \text{if $v$ is not a leaf} \\
-f_v       & \in \cU(b(v)) & \text{if $v$ is a leaf}
-\end{align*}
-the terms $\partial_v f$ are again elementary tensors defined by
-\begin{equation*}
-(\partial_v f)_{v'} = \begin{cases} \sigma(v \in t) f_{\hat{v}} \circ f_v & \text{if $v' = \hat{v}$} \\ f_{v'} & \text{otherwise} \end{cases}
-\end{equation*}
-and the terms $d_v f$ are also elementary tensors defined by
-\begin{equation*}
-(d_v f)_{v'} = \begin{cases} (-1)^{\sum_{v \to v'} \deg f(v')} & \text{if $v'=v$} \\ f_v & \text{otherwise.} \end{cases}
-\end{equation*}
+\todo{explain why this satisfies the axioms}
+
+We now give two motivating examples, as theorems constructing other homological systems of fields,
 
 
+\begin{thm}
+For a fixed target space $X$, `chains of maps to $X$' is a homological system of fields $\Xi$, defined as
+\begin{equation*}
+\Xi(M) = \CM{M}{X}.
+\end{equation*}
+\end{thm}
 
-\subsection{Product and gluing theorems}
+\begin{thm}
+Given an $n$-dimensional system of fields $\cF$, and a $k$-manifold $F$, there is an $n-k$ dimensional homological system of fields $\cF^{\times F}$ defined by
+\begin{equation*}
+\cF^{\times F}(M) = \cB_*(M \times F, \cF).
+\end{equation*}
+\end{thm}
+
+In later sections, we'll prove the following two unsurprising theorems, about the (as-yet-undefined) blob homology of these homological systems of fields.
+
+
+\begin{thm}
+\begin{equation*}
+\cB_*(M, \CM{-}{X}) \iso \CM{M}{X}))
+\end{equation*}
+\end{thm}
 
 \begin{thm}[Product formula]
-Suppose $M = B \times F$ is a trivial bundle with $b$-dimensional base $B$ and $f$-dimensional fiber $F$. The blob homology of $M$ can be computed as
-\begin{equation*}
-\cB_*(M, \cF) = \cB_*(B, \cB_*(F, \cF)).
-\end{equation*}
-On the right hand side, $\cB_*(F, \cF)$ means the homological system of fields constructed from the $A_\infty$ $b$-category $\cB_*(F \times [0,1]^b, \cF)$.
+Given a $b$-manifold $B$, an $f$-manifold $F$ and a $b+f$ dimensional system of fields,
+there is a quasi-isomorphism
+\begin{align*}
+\cB_*(B \times F, \cF) & \quismto \cB_*(B, \cF^{\times F}) \\
+\intertext{or suggestively}
+\cB_*(B \times F, \cF) & \quismto  \cB_*(B, \cB_*(F \times [0,1]^b, \cF)).
+\end{align*}
+where on the right we intend $\cB_*(F \times [0,1]^b, \cF)$ to be interpreted as the homological system of fields coming from an (undefined) $A_\infty$ $b$-category.
 \end{thm}
 
 \begin{question}
 Is it possible to compute the blob homology of a non-trivial bundle in terms of the blob homology of its fiber?
 \end{question}
+
+
+\subsection{Blob homology}
+The definition of blob homology for $(\cF, \cU)$ a homological system of fields and local relations is essentially the same as that given before in \S \ref{???}.
+The blob complex $\cB_*^{\cF,\cU}(M)$ is a doubly-graded vector space, with a `blob degree' and an `internal degree'. 
+
+We'll write $\cT$ for the set of finite rooted trees. We'll think of each such a rooted tree as a category, with vertices as objects  and each morphism set either empty or a singleton, with $v \to w$ if $w$ is closer to a root of the tree than $v$. We'll write $\hat{v}$ for the `parent' of a vertex $v$ if $v$ is not a root (that is, $\hat{v}$ is the unique vertex such that $v \to \hat{v}$ but there is no $w$ with $v \to w \to \hat{v}$. If $v$ is a root, we'll write $\hat{v}=\star$. Further, for each tree $t$, let's arbitrarily choose an orientation $\lambda_t$, that is, an alternating $\pm1$-valued function on orderings of the vertices.
+
+Given $v \in t$ there's a functor $\partial_v : t \to t \setminus \{v\}$ which removes the vertex $v$. Notice that removing a vertex naturally produces an orientation on $t \setminus \{v\}$ from the orientation on $t$, by $(\partial_v \lambda_t)(o) = \lambda_t(vo)$. This orientation may or may not agree with the chosen orientation of $t \setminus \{v\}$. We'll define $\sigma(v \in t) = \pm 1$ according to whether or not they agree. Notice that $$\sigma(v \in t) \sigma(w \in \partial_v t) = - \sigma(w \in t) \sigma(v \in \partial_w t).$$
+
+Let $\operatorname{balls}(M)$ denote the category of open balls in $M$ with inclusions. Given a tree $t \in \cT$ we'll call a functor $b : t \to \operatorname{balls}(M)$ such that if $b(v) \cap b(v') \neq \emptyset$) then either $v \to v'$ or $v' \to v$, \emph{non-intersecting}.\footnote{Equivalently, if $b(v)$ and $b(v')$ are spanned in $\operatorname{balls}(M)$, then $v$ and $v'$ are spanned in $t$. That is, if there exists some ball $B \subset M$ so $B \subset b(v)$ and $B \subset b(v')$, then there must exist some $v'' \in t$ so $v'' \to v$ and $v'' \to v'$. Because $t$ is a tree, this implies either $v \to v'$ or $v' \to v$} For each non-intersecting functor $b$ define  
+\begin{equation*}
+\cF(t,b) = \cF\left(M \setminus b(t)\right) \tensor \left(\Tensor_{\substack{v \in t \\ \text{$v$ not a leaf}}} \cF\left(b(v) \setminus b(v' \to v)\right)\right) \tensor \left(\Tensor_{\substack{v \in t \\ \text{$v$ a leaf}}} \cU\left(b(v)\right)\right)
+\end{equation*}
+and then the vector space
+\begin{equation*}
+\cB_*^{\cF,\cU}(M) = \DirectSum_{t \in \cT} \DirectSum_{\substack{\text{non-intersecting}\\\text{functors} \\ b: t \to \operatorname{balls}(M)}} \cF(t,b)
+\end{equation*}
+
+The blob degree of an element of $\cF(t,b)$ is the number of vertices in $t$, and the internal degree is the sum of the homological degrees in the tensor factors.
+The vector space $\cB_*^{\cF,\cU}(M)$ becomes a chain complex by taking the homological degree to be the sum of the blob and internal degrees, and defining $d$ on $\cF(t,b)$ by
+\begin{equation*}
+d f = \sum_{v \in t} \partial_v f + \sum_{v' \in t \cup \{\star\}} d_{v'} f,
+\end{equation*}
+where if $f \in \cF(t,b)$ is an elementary tensor of the form $f = f_\star \tensor \Tensor_{v \in t} f_v$ with
+\begin{align*}
+f_\star & \in \cF(M \setminus b(t)) && \\
+f_v       & \in \cF(b(v) \setminus b(v' \to v)) && \text{if $v$ is not a leaf} \\
+f_v       & \in \cU(b(v)) && \text{if $v$ is a leaf}
+\end{align*}
+the terms $\partial_v f$ are elementary tensors in $\cF(\partial_v t, \restrict{b}{\partial_v t})$ defined by
+\begin{equation*}
+(\partial_v f)_{v'} = \begin{cases} \sigma(v \in t) f_{\hat{v}} \circ f_v & \text{if $v' = \hat{v}$} \\ f_{v'} & \text{otherwise} \end{cases}
+\end{equation*}
+and the terms $d_v f$ are also elementary tensors in $\cF(t, b)$ defined by
+\begin{equation*}
+(d_v f)_{v'} = \begin{cases} (-1)^{\sum_{v \to v'} \deg f(v')} & \text{if $v'=v$} \\ f_v & \text{otherwise.} \end{cases}
+\end{equation*}
+
+We remark that if $\cF$ takes values in vector spaces, not chain complexes, then the $d_v$ terms vanish, and this coincides with our earlier definition of blob homomology for (non-homological) systems of fields.
+
+\todo{We'll quickly check $d^2=0$.}
+
+
+\subsection{An intermediate gluing theorem}
 
 \begin{thm}[Gluing, intermediate form]
 Suppose $M = M_1 \cup_Y M_2$ is the union of two submanifolds $M_1$ and $M_2$ along a codimension $1$ manifold $Y$. The blob homology of $M$ can be computed as
