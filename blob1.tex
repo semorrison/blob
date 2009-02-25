@@ -4,9 +4,8 @@
 \input{text/article_preamble.tex}
 \input{text/top_matter.tex}
 
-% test edit #3
 
-%%%%% excerpts from my include file of standard macros
+%%%%% excerpts from KW's include file of standard macros
 
 \def\z{\mathbb{Z}}
 \def\r{\mathbb{R}}
@@ -118,17 +117,64 @@
 
 \section{Introduction}
 
-(motivation, summary/outline, etc.)
+[Outline for intro]
+\begin{itemize}
+\item Starting point: TQFTs via fields and local relations.
+This gives a satisfactory treatment for semisimple TQFTs
+(i.e. TQFTs for which the cylinder 1-category associated to an
+$n{-}1$-manifold $Y$ is semisimple for all $Y$).
+\item For non-semiemple TQFTs, this approach is less satisfactory.
+Our main motivating example (though we will not develop it in this paper)
+is the $4{+}1$-dimensional TQFT associated to Khovanov homology.
+It associates a bigraded vector space $A_{Kh}(W^4, L)$ to a 4-manifold $W$ together
+with a link $L \subset \bd W$.
+The original Khovanov homology of a link in $S^3$ is recovered as $A_{Kh}(B^4, L)$.
+\item How would we go about computing $A_{Kh}(W^4, L)$?
+For $A_{Kh}(B^4, L)$, the main tool is the exact triangle (long exact sequence)
+\nn{... $L_1, L_2, L_3$}.
+Unfortunately, the exactness breaks if we glue $B^4$ to itself and attempt
+to compute $A_{Kh}(S^1\times B^3, L)$.
+According to the gluing theorem for TQFTs-via-fields, gluing along $B^3 \subset \bd B^4$
+corresponds to taking a coend (self tensor product) over the cylinder category
+associated to $B^3$ (with appropriate boundary conditions).
+The coend is not an exact functor, so the exactness of the triangle breaks.
+\item The obvious solution to this problem is to replace the coend with its derived counterpart.
+This presumably works fine for $S^1\times B^3$ (the answer being to Hochschild homology
+of an appropriate bimodule), but for more complicated 4-manifolds this leaves much to be desired.
+If we build our manifold up via a handle decomposition, the computation
+would be a sequence of derived coends.
+A different handle decomposition of the same manifold would yield a different
+sequence of derived coends.
+To show that our definition in terms of derived coends is well-defined, we
+would need to show that the above two sequences of derived coends yield the same answer.
+This is probably not easy to do.
+\item Instead, we would prefer a definition for a derived version of $A_{Kh}(W^4, L)$
+which is manifestly invariant.
+(That is, a definition that does not
+involve choosing a decomposition of $W$.
+After all, one of the virtues of our starting point --- TQFTs via field and local relations ---
+is that it has just this sort of manifest invariance.)
+\item The solution is to replace $A_{Kh}(W^4, L)$, which is a quotient
+\[
+ \text{linear combinations of fields} \;\big/\; \text{local relations} ,
+\]
+with an appropriately free resolution (the ``blob complex")
+\[
+	\cdots\to \bc_2(W, L) \to \bc_1(W, L) \to \bc_0(W, L) .
+\]
+Here $\bc_0$ is linear combinations of fields on $W$,
+$\bc_1$ is linear combinations of local relations on $W$,
+$\bc_1$ is linear combinations of relations amongst relations on $W$,
+and so on.
+\item None of the above ideas depend on the details of the Khovanov homology example,
+so we develop the general theory in the paper and postpone specific applications
+to later papers.
+\item The blob complex enjoys the following nice properties \nn{...}
+\end{itemize}
 
-(motivation:
-(1) restore exactness in pictures-mod-relations;
-(1') add relations-amongst-relations etc. to pictures-mod-relations;
-(2) want answer independent of handle decomp (i.e. don't
-just go from coend to derived coend (e.g. Hochschild homology));
-(3) ...
-)
-
-
+\bigskip
+\hrule
+\bigskip
 
 We then show that blob homology enjoys the following
 \ref{property:gluing} properties.
