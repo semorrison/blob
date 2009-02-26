@@ -193,7 +193,7 @@ is a functor from $n$-manifolds and diffeomorphisms between them to chain comple
 \label{property:disjoint-union}
 The blob complex of a disjoint union is naturally the tensor product of the blob complexes.
 \begin{equation*}
-\bc_*(X_1 \sqcup X_2) \iso \bc_*(X_1) \tensor \bc_*(X_2)
+\bc_*(X_1 \du X_2) \iso \bc_*(X_1) \tensor \bc_*(X_2)
 \end{equation*}
 \end{property}
 
@@ -286,20 +286,72 @@ and Property \ref{property:gluing} in \S \ref{sec:gluing}.
 \subsection{Systems of fields}
 \label{sec:fields}
 
+Let $\cM_k$ denote the category (groupoid, in fact) with objects 
+oriented PL manifolds of dimension
+$k$ and morphisms homeomorphisms.
+(We could equally well work with a different category of manifolds ---
+unoriented, topological, smooth, spin, etc. --- but for definiteness we
+will stick with oriented PL.)
+
 Fix a top dimension $n$.
 
 A {\it system of fields}
-\nn{maybe should look for better name; but this is the name I use elsewhere}
-is a collection of functors $\cC$ from manifolds of dimension $n$ or less
-to sets.
-These functors must satisfy various properties (see \cite{kw:tqft} for details).
-For example:
-there is a canonical identification $\cC(X \du Y) = \cC(X) \times \cC(Y)$;
-there is a restriction map $\cC(X) \to \cC(\bd X)$;
-gluing manifolds corresponds to fibered products of fields;
-given a field $c \in \cC(Y)$ there is a ``product field"
-$c\times I \in \cC(Y\times I)$; ...
-\nn{should eventually include full details of definition of fields.}
+is a collection of functors $\cC_k$, for $k \le n$, from $\cM_k$ to the
+category of sets,
+together with some additional data and satisfying some additional conditions, all specified below.
+
+\nn{refer somewhere to my TQFT notes \cite{kw:tqft}, and possibly also to paper with Chris}
+
+Before finishing the definition of fields, we give two motivating examples
+(actually, families of examples) of systems of fields.
+
+The first examples: Fix a target space $B$, and let $\cC(X)$ be the set of continuous maps
+from X to $B$.
+
+The second examples: Fix an $n$-category $C$, and let $\cC(X)$ be 
+the set of sub-cell-complexes of $X$ with codimension-$j$ cells labeled by
+$j$-morphisms of $C$.
+One can think of such sub-cell-complexes as dual to pasting diagrams for $C$.
+This is described in more detail below.
+
+Now for the rest of the definition of system of fields.
+\begin{enumerate}
+\item There are boundary restriction maps $\cC_k(X) \to \cC_{k-1}(\bd X)$, 
+and these maps are a natural
+transformation between the functors $\cC_k$ and $\cC_{k-1}\circ\bd$.
+\item There are orientation reversal maps $\cC_k(X) \to \cC_k(-X)$, and these maps
+again comprise a natural transformation of functors.
+\item $\cC_k$ is compatible with the symmetric monoidal
+structures on $\cM_k$ and sets: $\cC_k(X \du W) \cong \cC_k(X)\times \cC_k(W)$,
+compatibly with homeomorphisms, restriction to boundary, and orientation reversal.
+\item Gluing without corners.
+Let $\bd X = Y \du -Y \du W$, where $Y$ and $W$ are closed $k{-}1$-manifolds.
+Let $X\sgl$ denote $X$ glued to itself along $\pm Y$.
+Using the boundary restriction, disjoint union, and (in one case) orientation reversal
+maps, we get two maps $\cC_k(X) \to \cC(Y)$, corresponding to the two
+copies of $Y$ in $\bd X$.
+Let $\Eq_Y(\cC_k(X))$ denote the equalizer of these two maps.
+Then (here's the axiom/definition part) there is an injective ``gluing" map
+\[
+	\Eq_Y(\cC_k(X)) \hookrightarrow \cC_k(X\sgl) ,
+\]
+and this gluing map is compatible with all of the above structure (actions
+of homeomorphisms, boundary restrictions, orientation reversal, disjoint union).
+Furthermore, up to homeomorphisms of $X\sgl$ isotopic to the identity,
+the gluing map is surjective.
+From the point of view of $X\sgl$ and the image $Y \subset X\sgl$ of the 
+gluing surface, we say that fields in the image of the gluing map
+are transverse to $Y$ or cuttable along $Y$.
+\item Gluing with corners. \nn{...}
+\item ``product with $I$" maps $\cC(Y)\to \cC(Y\times I)$; 
+fiber-preserving homeos of $Y\times I$ act trivially on image
+\nn{...}
+\end{enumerate}
+
+
+\bigskip
+\hrule
+\bigskip
 
 \input{text/fields.tex}
 
