@@ -4,6 +4,10 @@ In this section we analyze the blob complex in dimension $n=1$
 and find that for $S^1$ the blob complex is homotopy equivalent to the 
 Hochschild complex of the category (algebroid) that we started with.
 
+\nn{need to be consistent about quasi-isomorphic versus homotopy equivalent
+in this section.
+since the various complexes are free, q.i. implies h.e.}
+
 Let $C$ be a *-1-category.
 Then specializing the definitions from above to the case $n=1$ we have:
 \begin{itemize}
@@ -53,7 +57,7 @@ This follows from two results. First, we see that
 \begin{lem}
 \label{lem:module-blob}%
 The complex $K_*(C)$ (here $C$ is being thought of as a
-$C$-$C$-bimodule, not a category) is quasi-isomorphic to the blob complex
+$C$-$C$-bimodule, not a category) is homotopy equivalent to the blob complex
 $\bc_*(S^1; C)$. (Proof later.)
 \end{lem}
 
@@ -179,17 +183,28 @@ where there are no labeled points
 in $N_\ep$, except perhaps $*$, and $N_\ep$ is either disjoint from or contained in 
 every blob in the diagram.
 Note that for any chain $x \in \bc_*(S^1)$, $x \in L_*^\ep$ for sufficiently small $\ep$.
+\nn{what if * is on boundary of a blob?  need preliminary homotopy to prevent this.}
 
 We define a degree $1$ chain map $j_\ep: L_*^\ep \to L_*^\ep$ as follows. Let $x \in L_*^\ep$ be a blob diagram.
+\nn{maybe add figures illustrating $j_\ep$?}
 If $*$ is not contained in any twig blob, we define $j_\ep(x)$ by adding $N_\ep$ as a new twig blob, with label $y - s(y)$ where $y$ is the restriction
 of $x$ to $N_\ep$. If $*$ is contained in a twig blob $B$ with label $u=\sum z_i$,
 write $y_i$ for the restriction of $z_i$ to $N_\ep$, and let
 $x_i$ be equal to $x$ on $S^1 \setmin B$, equal to $z_i$ on $B \setmin N_\ep$,
 and have an additional blob $N_\ep$ with label $y_i - s(y_i)$.
 Define $j_\ep(x) = \sum x_i$.
-\todo{need to check signs coming from blob complex differential}
-\todo{finish this}
+
+It is not hard to show that on $L_*^\ep$
+\[
+	\bd j_\ep  + j_\ep \bd = \id - i \circ s .
+\]
+\nn{need to check signs coming from blob complex differential}
+Since for $\ep$ small enough $L_*^\ep$ captures all of the
+homology of $\bc_*(S^1)$, 
+it follows that the mapping cone of $i \circ s$ is acyclic and therefore (using the fact that
+these complexes are free) $i \circ s$ is homotopic to the identity.
 \end{proof}
+
 \begin{proof}[Proof of Lemma \ref{lem:hochschild-exact}]
 We now prove that $K_*$ is an exact functor.
 
