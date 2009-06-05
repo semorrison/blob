@@ -384,6 +384,49 @@ Adding $B$ as a blob to $x$ gives a contraction.
 \nn{need to say something else in degree zero}
 \end{proof}
 
+\medskip
+
+For purposes of illustration, we describe an explicit chain map
+$HC_*(M) \to K_*(M)$
+between the Hochschild complex and the blob complex (with bimodule point)
+for degree $\le 2$.
+This map can be completed to a homotopy equivalence, though we will not prove that here.
+There are of course many such maps; what we describe here is one of the simpler possibilities.
+Describing the extension to higher degrees is straightforward but tedious.
+\nn{but probably we should include the general case in a future version of this paper}
+
+Recall that in low degrees $HC_*(M)$ is
+\[
+	\cdots \stackrel{\bd}{\to} M \otimes C\otimes C \stackrel{\bd}{\to} 
+			M \otimes C \stackrel{\bd}{\to} M
+\]
+with
+\eqar{
+	\bd(m\otimes a)  & = & ma - am \\
+	\bd(m\otimes a \otimes b) & = & ma\otimes b - m\otimes ab + bm \otimes a .
+}
+In degree 0, we send $m\in M$ to the 0-blob diagram in Figure xx0; the base point
+in $S^1$ is labeled by $m$ and there are no other labeled points.
+In degree 1, we send $m\ot a$ to the sum of two 1-blob diagrams
+as shown in Figure xx1.
+In degree 2, we send $m\ot a \ot b$ to the sum of 22 (=4+4+4+4+3+3) 2-blob diagrams as shown in
+Figure xx2.
+In Figure xx2 the 1- and 2-blob diagrams are indicated only by their support.
+We leave it to the reader to determine the labels of the 1-blob diagrams.
+Each 2-cell in the figure is labeled by a ball $V$ in $S^1$ which contains the support of all
+1-blob diagrams in its boundary.
+Such a 2-cell corresponds to a sum of the 2-blob diagrams obtained by adding $V$
+as an outer (non-twig) blob to each of the 1-blob diagrams in the boundary of the 2-cell.
+Figure xx3 shows this explicitly for one of the 2-cells.
+Note that the (blob complex) boundary of this sum of 2-blob diagrams is
+precisely the sum of the 1-blob diagrams corresponding to the boundary of the 2-cell.
+(Compare with the proof of \ref{bcontract}.)
+
+
+
+\medskip
+\nn{old stuff; delete soon....}
+
 We can also describe explicitly a map from the standard Hochschild
 complex to the blob complex on the circle. \nn{What properties does this
 map have?}
