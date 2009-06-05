@@ -3,62 +3,7 @@
 \newcommand{\pathtotrunk}{./}
 \input{text/article_preamble.tex}
 \input{text/top_matter.tex}
-
-
-%%%%% excerpts from KW's include file of standard macros
-
-\def\z{\mathbb{Z}}
-\def\r{\mathbb{R}}
-\def\c{\mathbb{C}}
-\def\t{\mathbb{T}}
-
-\def\du{\sqcup}
-\def\bd{\partial}
-\def\sub{\subset}
-\def\sup{\supset}
-%\def\setmin{\smallsetminus}
-\def\setmin{\setminus}
-\def\ep{\epsilon}
-\def\sgl{_\mathrm{gl}}
-\def\op{^\mathrm{op}}
-\def\deq{\stackrel{\mathrm{def}}{=}}
-\def\pd#1#2{\frac{\partial #1}{\partial #2}}
-\def\lf{\overline{\cC}}
-
-\def\nn#1{{{\it \small [#1]}}}
-\long\def\noop#1{}
-
-% equations
-\newcommand{\eq}[1]{\begin{displaymath}#1\end{displaymath}}
-\newcommand{\eqar}[1]{\begin{eqnarray*}#1\end{eqnarray*}}
-\newcommand{\eqspl}[1]{\begin{displaymath}\begin{split}#1\end{split}\end{displaymath}}
-
-% tricky way to iterate macros over a list
-\def\semicolon{;}
-\def\applytolist#1{
-    \expandafter\def\csname multi#1\endcsname##1{
-        \def\multiack{##1}\ifx\multiack\semicolon
-            \def\next{\relax}
-        \else
-            \csname #1\endcsname{##1}
-            \def\next{\csname multi#1\endcsname}
-        \fi
-        \next}
-    \csname multi#1\endcsname}
-
-% \def\cA{{\cal A}} for A..Z
-\def\calc#1{\expandafter\def\csname c#1\endcsname{{\mathcal #1}}}
-\applytolist{calc}QWERTYUIOPLKJHGFDSAZXCVBNM;
-
-% \DeclareMathOperator{\pr}{pr} etc.
-\def\declaremathop#1{\expandafter\DeclareMathOperator\csname #1\endcsname{#1}}
-\applytolist{declaremathop}{pr}{im}{gl}{ev}{coinv}{tr}{rot}{Eq}{obj}{mor}{ob}{Rep}{Tet}{cat}{Maps}{Diff}{sign}{supp};
-
-
-
-%%%%%% end excerpt
-
-
+\input{text/kw_macros.tex}
 
 
 
