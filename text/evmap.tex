@@ -100,6 +100,7 @@ The proof will be given in Section \ref{sec:localising}.
 
 Before diving into the details, we outline our strategy for the proof of Proposition \ref{CDprop}.
 
+%Suppose for the moment that evaluation maps with the advertised properties exist.
 Let $p$ be a singular cell in $CD_k(X)$ and $b$ be a blob diagram in $\bc_*(X)$.
 Suppose that there exists $V \sub X$ such that
 \begin{enumerate}
@@ -112,12 +113,41 @@ We then have a factorization
 	p = \gl(q, r),
 \]
 where $q \in CD_k(V, V')$ and $r' \in CD_0(W, W')$.
+We can also factorize $b = \gl(b_V, b_W)$, where $b_V\in \bc_*(V)$ and $b_W\in\bc_0(W)$.
 According to the commutative diagram of the proposition, we must have
 \[
-	e_X(p) = e_X(\gl(q, r)) = gl(e_{VV'}(q), e_{WW'}(r)) .
+	e_X(p\otimes b) = e_X(\gl(q\otimes b_V, r\otimes b_W)) = 
+				gl(e_{VV'}(q\otimes b_V), e_{WW'}(r\otimes b_W)) .
 \]
-\nn{need to add blob parts to above}
-Since $r$ is a plain, 0-parameter family of diffeomorphisms, 
+Since $r$ is a plain, 0-parameter family of diffeomorphisms, we must have
+\[
+	e_{WW'}(r\otimes b_W) = r(b_W),
+\]
+where $r(b_W)$ denotes the obvious action of diffeomorphisms on blob diagrams (in
+this case a 0-blob diagram).
+Since $V'$ is a disjoint union of balls, $\bc_*(V')$ is acyclic in degrees $>0$ 
+(by \ref{disjunion} and \ref{bcontract}).
+Assuming inductively that we have already defined $e_{VV'}(\bd(q\otimes b_V))$,
+there is, up to homotopy, a unique choice for $e_{VV'}(q\otimes b_V)$
+such that 
+\[
+	\bd(e_{VV'}(q\otimes b_V)) = e_{VV'}(\bd(q\otimes b_V)) .
+\]
+
+Thus the conditions of the proposition determine (up to homotopy) the evaluation
+map for generators $p\otimes b$ such that $\supp(p) \cup \supp(b)$ is contained in a disjoint
+union of balls.
+On the other hand, Lemma \ref{extension_lemma} allows us to homotope 
+\nn{is this commonly used as a verb?} arbitrary generators to sums of generators with this property.
+\nn{should give a name to this property}
+This (roughly) establishes the uniqueness part of the proposition.
+To show existence, we must show that the various choices involved in constructing
+evaluation maps in this way affect the final answer only by a homotopy.
+
+\nn{now for a more detailed outline of the proof...}
+
+
+
 \medskip
 
 \nn{to be continued....}
