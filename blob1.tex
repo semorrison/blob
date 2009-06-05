@@ -26,7 +26,7 @@
 \def\lf{\overline{\cC}}
 
 \def\nn#1{{{\it \small [#1]}}}
-
+\long\def\noop#1{}
 
 % equations
 \newcommand{\eq}[1]{\begin{displaymath}#1\end{displaymath}}
@@ -879,26 +879,29 @@ Note that we have resumed our habit of omitting boundary labels from the notatio
 \section{Action of $\CD{X}$}
 \label{sec:evaluation}
 
-Let $CD_*(X)$ denote $C_*(\Diff(X))$, the singular chain complex of
+Let $CD_*(X, Y)$ denote $C_*(\Diff(X \to Y))$, the singular chain complex of
 the space of diffeomorphisms
-of the $n$-manifold $X$ (fixed on $\bd X$).
-For convenience, we will permit the singular cells generating $CD_*(X)$ to be more general
+\nn{or homeomorphisms}
+between the $n$-manifolds $X$ and $Y$ (extending a fixed diffeomorphism $\bd X \to \bd Y$).
+For convenience, we will permit the singular cells generating $CD_*(X, Y)$ to be more general
 than simplices --- they can be based on any linear polyhedron.
 \nn{be more restrictive here?  does more need to be said?}
+We also will use the abbreviated notation $CD_*(X) \deq CD_*(X, X)$.
 
 \begin{prop}  \label{CDprop}
 For each $n$-manifold $X$ there is a chain map
 \eq{
-    e_X : CD_*(X) \otimes \bc_*(X) \to \bc_*(X) .
+    e_X : CD_*(X, Y) \otimes \bc_*(X) \to \bc_*(Y) .
 }
-On $CD_0(X) \otimes \bc_*(X)$ it agrees with the obvious action of $\Diff(X)$ on $\bc_*(X)$
+On $CD_0(X, Y) \otimes \bc_*(X)$ it agrees with the obvious action of $\Diff(X, Y)$ on $\bc_*(X)$
 (Proposition (\ref{diff0prop})).
-For any splitting $X = X_1 \cup X_2$, the following diagram commutes
+For any splittings $X = X_1 \cup X_2$ and $Y = Y_1 \cup Y_2$, 
+the following diagram commutes up to homotopy
 \eq{ \xymatrix{
-     CD_*(X) \otimes \bc_*(X) \ar[r]^{e_X}    & \bc_*(X) \\
-     CD_*(X_1) \otimes CD_*(X_2) \otimes \bc_*(X_1) \otimes \bc_*(X_2)
+     CD_*(X, Y) \otimes \bc_*(X) \ar[r]^{e_X}    & \bc_*(Y) \\
+     CD_*(X_1, Y_1) \otimes CD_*(X_2, Y_2) \otimes \bc_*(X_1) \otimes \bc_*(X_2)
         \ar@/_4ex/[r]_{e_{X_1} \otimes e_{X_2}}  \ar[u]^{\gl \otimes \gl}  &
-            \bc_*(X_1) \otimes \bc_*(X_2) \ar[u]_{\gl}
+            \bc_*(Y_1) \otimes \bc_*(Y_2) \ar[u]_{\gl}
 } }
 Any other map satisfying the above two properties is homotopic to $e_X$.
 \end{prop}
@@ -921,6 +924,8 @@ I lean toward the latter.}
 
 The proof will occupy the remainder of this section.
 \nn{unless we put associativity prop at end}
+
+Without loss of generality, we will assume $X = Y$.
 
 \medskip
 
@@ -955,8 +960,12 @@ where $k_i = \dim(P_i)$; and
 \item $f(p, \cdot) = g \circ f_1(p_1, \cdot) \circ \cdots \circ f_m(p_m, \cdot)$
 for all $p = (p_1, \ldots, p_m)$, for some fixed $g \in \Diff(X)$.
 \end{itemize}
-A chain $x \in C_k(\Diff(X))$ is (by definition) adapted to $\cU$ if it is the sum
+A chain $x \in CD_k(X)$ is (by definition) adapted to $\cU$ if it is the sum
 of singular cells, each of which is adapted to $\cU$.
+
+(Actually, in this section we will only need families of diffeomorphisms to be 
+{\it weakly adapted} to $\cU$, meaning that the support of $f$ is contained in the union
+of at most $k$ of the $U_\alpha$'s.)
 
 \begin{lemma}  \label{extension_lemma}
 Let $x \in CD_k(X)$ be a singular chain such that $\bd x$ is adapted to $\cU$.
@@ -968,122 +977,21 @@ The proof will be given in Section \ref{sec:localising}.
 
 \medskip
 
-The strategy for the proof of Proposition \ref{CDprop} is as follows.
-We will identify a subcomplex
-\[
-    G_* \sub CD_*(X) \otimes \bc_*(X)
-\]
-on which the evaluation map is uniquely determined (up to homotopy) by the conditions
-in \ref{CDprop}.
-We then show that the inclusion of $G_*$ into the full complex
-is an equivalence in the appropriate sense.
-\nn{need to be more specific here}
+Before diving into the details, we outline our strategy for the proof of Proposition \ref{CDprop}.
 
 Let $p$ be a singular cell in $CD_*(X)$ and $b$ be a blob diagram in $\bc_*(X)$.
-Roughly speaking, $p\otimes b$ is in $G_*$ if each component $V$ of the support of $p$
-intersects at most one blob $B$ of $b$.
-Since $V \cup B$ might not itself be a ball, we need a more careful and complicated definition.
-Choose a metric for $X$.
-We define $p\otimes b$ to be in $G_*$ if there exist $\epsilon > 0$ such that
-$\supp(p) \cup N_\epsilon(b)$ is a union of balls, where $N_\epsilon(b)$ denotes the epsilon
-neighborhood of the support of $b$.
-\nn{maybe also require that $N_\delta(b)$ is a union of balls for all $\delta<\epsilon$.}
-
-\nn{need to worry about case where the intrinsic support of $p$ is not a union of balls.
-probably we can just stipulate that it is (i.e. only consider families of diffeos with this property).
-maybe we should build into the definition of ``adapted" that support takes up all of $U_i$.}
-
-\nn{need to eventually show independence of choice of metric.  maybe there's a better way than
-choosing a metric.  perhaps just choose a nbd of each ball, but I think I see problems
-with that as well.
-the bottom line is that we need a scheme for choosing unions of balls
-which satisfies the $C$, $C'$, $C''$ claim made a few paragraphs below.}
-
-Next we define the evaluation map $e_X$ on $G_*$.
-We'll proceed inductively on $G_i$.
-The induction starts on $G_0$, where the evaluation map is determined
-by the action of $\Diff(X)$ on $\bc_*(X)$
-because $G_0 \sub CD_0\otimes \bc_0$.
-Assume we have defined the evaluation map up to $G_{k-1}$ and
-let $p\otimes b$ be a generator of $G_k$.
-Let $C \sub X$ be a union of balls (as described above) containing $\supp(p)\cup\supp(b)$.
-There is a factorization $p = g \circ p'$, where $g\in \Diff(X)$ and $p'$ is a family of diffeomorphisms which is the identity outside of $C$.
-Let $b = b'\bullet b''$, where $b' \in \bc_*(C)$ and $b'' \in \bc_0(X\setmin C)$.
-We may assume inductively 
-(cf the end of this paragraph)
-that $e_X(\bd(p\otimes b))$ has a similar factorization $x\bullet g(b'')$, where
-$x \in \bc_*(g(C))$ and $\bd x = 0$.
-Since $\bc_*(g(C))$ is contractible, there exists $y \in \bc_*(g(C))$ such that $\bd y = x$.
-Define $e_X(p\otimes b) = y\bullet g(b'')$.
-
-We now show that $e_X$ on $G_*$ is, up to homotopy, independent of the various choices made.
-If we make a different series of choice of the chain $y$ in the previous paragraph,
-we can inductively construct a homotopy between the two sets of choices,
-again relying on the contractibility of $\bc_*(g(G))$.
-A similar argument shows that this homotopy is unique up to second order homotopy, and so on.
-
-Given a different set of choices $\{C'\}$ of the unions of balls $\{C\}$,
-we can find a third set of choices $\{C''\}$ such that $C, C' \sub C''$.
-The argument now proceeds as in the previous paragraph.
-\nn{should maybe say more here; also need to back up claim about third set of choices}
-\nn{this definitely needs reworking}
-
-Next we show that given $x \in CD_*(X) \otimes \bc_*(X)$ with $\bd x \in G_*$, there exists
-a homotopy (rel $\bd x$) to $x' \in G_*$, and further that $x'$ and
-this homotopy are unique up to iterated homotopy.
-
-Given $k>0$ and a blob diagram $b$, we say that a cover $\cU$ of $X$ is $k$-compatible with
-$b$ if, for any $\{U_1, \ldots, U_k\} \sub \cU$, the union
-$U_1\cup\cdots\cup U_k$ is a union of balls which satisfies the condition used to define $G_*$ above.
-It follows from Lemma \ref{extension_lemma}
-that if $\cU$ is $k$-compatible with $b$ and
-$p$ is a $k$-parameter family of diffeomorphisms which is adapted to $\cU$, then
-$p\otimes b \in G_*$.
-\nn{maybe emphasize this more; it's one of the main ideas in the proof}
-
-Let $k$ be the degree of $x$ and choose a cover $\cU$ of $X$ such that $\cU$ is
-$k$-compatible with each of the (finitely many) blob diagrams occurring in $x$.
-We will use Lemma \ref{extension_lemma} with respect to the cover $\cU$ to
-construct the homotopy to $G_*$.
-First we will construct a homotopy $h \in G_*$ from $\bd x$ to a cycle $z$ such that
-each family of diffeomorphisms $p$ occurring in $z$ is adapted to $\cU$.
-Then we will construct a homotopy (rel boundary) $r$ from $x + h$ to $y$ such that
-each family of diffeomorphisms $p$ occurring in $y$ is adapted to $\cU$.
-This implies that $y \in G_*$.
-The homotopy $r$ can also be thought of as a homotopy from $x$ to $y-h \in G_*$, and this is the homotopy we seek.
-
-We will define $h$ inductively on bidegrees $(0, k-1), (1, k-2), \ldots, (k-1, 0)$.
-Define $h$ to be zero on bidegree $(0, k-1)$.
-Let $p\otimes b$ be a generator occurring in $\bd x$ with bidegree $(1, k-2)$.
-Using Lemma \ref{extension_lemma}, construct a homotopy (rel $\bd$) $q$ from $p$ to $p'$ which is adapted to $\cU$.
-Define $h$ at $p\otimes b$ to be $q\otimes b$.
-Let $p'\otimes b'$ be a generator occurring in $\bd x$ with bidegree $(2, k-3)$.
-Let $s$ denote the sum of the $q$'s from the previous step for generators
-adjacent to $(\bd p')\otimes b'$.
-\nn{need to say more here}
-Apply Lemma \ref{extension_lemma} to $p'+s$
-yielding a family of diffeos $q'$.
-Define $h$ at $p'\otimes b'$ to be $q'\otimes b'$.
-Continuing in this way, we define all of $h$.
-
-The homotopy $r$ is constructed similarly.
-
-\nn{need to say something about uniqueness of $r$, $h$ etc.
-postpone this until second draft.}
-
-At this point, we have finished defining the evaluation map.
-The uniqueness statement in the proposition is clear from the method of proof.
-All that remains is to show that the evaluation map gets along well with cutting and gluing,
-as claimed in the proposition.
-This is in fact not difficult, since the myriad choices involved in defining the
-evaluation map can be made in parallel for the top and bottom
-arrows in the commutative diagram.
-
-This completes the proof of Proposition \ref{CDprop}.
+Suppose that there exists $V \sub X$ such that
+\begin{enumerate}
+\item $V$ is homeomorphic to a disjoint union of balls, and
+\item $\supp(p) \cup \supp(b) \sub V$.
+\end{enumerate}
 
 \medskip
 
-\nn{say something about associativity here}
+\nn{to be continued....}
+
+
+%\nn{say something about associativity here}
 
 \input{text/A-infty.tex}
 

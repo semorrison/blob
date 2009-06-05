@@ -218,8 +218,7 @@ is exact. For completeness we'll explain this below.
 Suppose we have a short exact sequence of $C$-$C$ bimodules $$\xymatrix{0 \ar[r] & K \ar@{^{(}->}[r]^f & E \ar@{->>}[r]^g & Q \ar[r] & 0}.$$
 We'll write $\hat{f}$ and $\hat{g}$ for the image of $f$ and $g$ under the functor.
 Most of what we need to check is easy.
-If $(a \tensor k \tensor b) \in \ker(C \tensor K \tensor C \to K)$, to have $\hat{f}(a \tensor k \tensor b) = 0 \in \ker(C \tensor E \tensor C \to E)$, we must have $f(k) = 0 \in E$, so
-be $k=0$ itself. If $(a \tensor e \tensor b) \in \ker(C \tensor E \tensor C \to E)$ is in the image of $\ker(C \tensor K \tensor C \to K)$ under $\hat{f}$, clearly
+If $(a \tensor k \tensor b) \in \ker(C \tensor K \tensor C \to K)$, to have $\hat{f}(a \tensor k \tensor b) = 0 \in \ker(C \tensor E \tensor C \to E)$, we must have $f(k) = 0 \in E$, which implies $k=0$ itself. If $(a \tensor e \tensor b) \in \ker(C \tensor E \tensor C \to E)$ is in the image of $\ker(C \tensor K \tensor C \to K)$ under $\hat{f}$, clearly
 $e$ is in the image of the original $f$, so is in the kernel of the original $g$, and so $\hat{g}(a \tensor e \tensor b) = 0$.
 If $\hat{g}(a \tensor e \tensor b) = 0$, then $g(e) = 0$, so $e = f(\widetilde{e})$ for some $\widetilde{e} \in K$, and $a \tensor e \tensor b = \hat{f}(a \tensor \widetilde{e} \tensor b)$.
 Finally, the interesting step is in checking that any $q = \sum_i a_i \tensor q_i \tensor b_i$ such that $\sum_i a_i q_i b_i = 0$ is in the image of $\ker(C \tensor E \tensor C \to C)$ under $\hat{g}$.
@@ -232,7 +231,7 @@ $\widetilde{q} \in \ker(C \tensor E \tensor C \to E)$. Further,
 \end{align*}
 (here we used that $g$ is a map of $C$-$C$ bimodules, and that $\sum_i a_i q_i b_i = 0$).
 
-Identical arguments show that the functors
+Similar arguments show that the functors
 \begin{equation}
 \label{eq:ker-functor}%
 M \mapsto \ker(C^{\tensor k} \tensor M \tensor C^{\tensor l} \to M)
