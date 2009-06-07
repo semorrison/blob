@@ -1201,6 +1201,7 @@ a 2-cell supported on $U_\beta \cup U_\gamma$.
 \input{text/explicit.tex}
 
 \section{Comparing definitions of $A_\infty$ algebras}
+\label{sec:comparing-A-infty}
 In this section, we make contact between the usual definition of an $A_\infty$ algebra and our definition of a topological $A_\infty$ algebra, from Definition \ref{defn:topological-Ainfty-category}.
 
 We begin be restricting the data of a topological $A_\infty$ algebra to the standard interval $[0,1]$, which we can alternatively characterise as:
@@ -1262,6 +1263,31 @@ as required (c.f. \cite[p. 6]{MR1854636}).
 \todo{then the general case.}
 We won't describe a reverse construction (producing a topological $A_\infty$ category from a `conventional' $A_\infty$ category), but we presume that this will be easy for the experts.
 
+\section{Morphisms and duals of topological $A_\infty$ modules}
+\label{sec:A-infty-hom-and-duals}%
+
+\begin{defn}
+If $\cM$ and $\cN$ are topological $A_\infty$ left modules over a topological $A_\infty$ category $\cC$, then a morphism $f: \cM \to \cN$ consists of a chain map $f:\cM(J,p;b) \to \cN(J,p;b)$ for each right marked interval $(J,p)$ with a boundary condition $b$, such that  for each interval $J'$ the diagram
+\begin{equation*}
+\xymatrix{
+\cC(J';a,b) \tensor \cM(J,p;b) \ar[r]^{\text{gl}} \ar[d]^{\id \tensor f} & \cM(J' cup J,a) \ar[d]^f \\
+\cC(J';a,b) \tensor \cN(J,p;b) \ar[r]^{\text{gl}}                                & \cN(J' cup J,a) 
+}
+\end{equation*}
+commutes on the nose, and the diagram
+\begin{equation*}
+\xymatrix{
+\CD{(J,p) \to (J',p')} \tensor \cM(J,p;a) \ar[r]^{\text{ev}} \ar[d]^{\id \tensor f} & \cM(J',p';a) \ar[d]^f \\
+\CD{(J,p) \to (J',p')} \tensor \cN(J,p;a) \ar[r]^{\text{ev}}  & \cN(J',p';a) \\
+}
+\end{equation*}
+commutes up to a weakly unique homotopy.
+\end{defn}
+
+The variations required for right modules and bimodules should be obvious.
+
+\todo{duals}
+\todo{ the functors $\hom_{\lmod{\cC}}\left(\cM \to -\right)$ and $\cM^* \tensor_{\cC} -$ from $\lmod{\cC}$ to $\Vect$ are naturally isomorphic}
 
 
 \input{text/obsolete.tex}
