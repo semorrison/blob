@@ -405,55 +405,52 @@ with
 	\bd(m\otimes a)  & = & ma - am \\
 	\bd(m\otimes a \otimes b) & = & ma\otimes b - m\otimes ab + bm \otimes a .
 }
-In degree 0, we send $m\in M$ to the 0-blob diagram in Figure xx0; the base point
+In degree 0, we send $m\in M$ to the 0-blob diagram $\mathfig{0.05}{hochschild/0-chains}$; the base point
 in $S^1$ is labeled by $m$ and there are no other labeled points.
 In degree 1, we send $m\ot a$ to the sum of two 1-blob diagrams
-as shown in Figure xx1.
-In degree 2, we send $m\ot a \ot b$ to the sum of 22 (=4+4+4+4+3+3) 2-blob diagrams as shown in
-Figure xx2.
-In Figure xx2 the 1- and 2-blob diagrams are indicated only by their support.
+as shown in Figure \ref{fig:hochschild-1-chains}.
+
+\begin{figure}[!ht]
+\begin{equation*}
+\mathfig{0.4}{hochschild/1-chains}
+\end{equation*}
+\begin{align*}
+u_1 & = \mathfig{0.05}{hochschild/u_1-1} - \mathfig{0.05}{hochschild/u_1-2} & u_2 & = \mathfig{0.05}{hochschild/u_2-1} - \mathfig{0.05}{hochschild/u_2-2} 
+\end{align*}
+\caption{The image of $m \tensor a$ in the blob complex.}
+\label{fig:hochschild-1-chains}
+\end{figure}
+
+In degree 2, we send $m\ot a \ot b$ to the sum of 24 (=6*4) 2-blob diagrams as shown in
+Figure \ref{fig:hochschild-2-chains}. In Figure \ref{fig:hochschild-2-chains} the 1- and 2-blob diagrams are indicated only by their support.
 We leave it to the reader to determine the labels of the 1-blob diagrams.
+\begin{figure}[!ht]
+\begin{equation*}
+\mathfig{0.6}{hochschild/2-chains-0}
+\end{equation*}
+\begin{equation*}
+\mathfig{0.4}{hochschild/2-chains-1} \qquad \mathfig{0.4}{hochschild/2-chains-2}
+\end{equation*}
+\caption{The 0-, 1- and 2-chains in the image of $m \tensor a \tensor b$. Only the supports of the 1- and 2-blobs are shown.}
+\label{fig:hochschild-2-chains}
+\end{figure}
 Each 2-cell in the figure is labeled by a ball $V$ in $S^1$ which contains the support of all
 1-blob diagrams in its boundary.
 Such a 2-cell corresponds to a sum of the 2-blob diagrams obtained by adding $V$
 as an outer (non-twig) blob to each of the 1-blob diagrams in the boundary of the 2-cell.
-Figure xx3 shows this explicitly for one of the 2-cells.
+Figure \ref{fig:hochschild-example-2-cell} shows this explicitly for one of the 2-cells.
 Note that the (blob complex) boundary of this sum of 2-blob diagrams is
 precisely the sum of the 1-blob diagrams corresponding to the boundary of the 2-cell.
 (Compare with the proof of \ref{bcontract}.)
 
-
-
-\medskip
-\nn{old stuff; delete soon....}
-
-We can also describe explicitly a map from the standard Hochschild
-complex to the blob complex on the circle. \nn{What properties does this
-map have?}
-
-\begin{figure}%
-$$\mathfig{0.6}{barycentric/barycentric}$$
-\caption{The Hochschild chain $a \tensor b \tensor c$ is sent to
-the sum of six blob $2$-chains, corresponding to a barycentric subdivision of a $2$-simplex.}
-\label{fig:Hochschild-example}%
-\end{figure}
-
-As an example, Figure \ref{fig:Hochschild-example} shows the image of the Hochschild chain $a \tensor b \tensor c$. Only the $0$-cells are shown explicitly.
-The edges marked $x, y$ and $z$ carry the $1$-chains
+\begin{figure}[!ht]
+\begin{equation*}
+A = \mathfig{0.1}{hochschild/v_1} + \mathfig{0.1}{hochschild/v_2} + \mathfig{0.1}{hochschild/v_3} + \mathfig{0.1}{hochschild/v_4}
+\end{equation*}
 \begin{align*}
-x & = \mathfig{0.1}{barycentric/ux} & u_x = \mathfig{0.1}{barycentric/ux_ca} - \mathfig{0.1}{barycentric/ux_c-a} \\
-y & = \mathfig{0.1}{barycentric/uy} & u_y = \mathfig{0.1}{barycentric/uy_cab} - \mathfig{0.1}{barycentric/uy_ca-b} \\
-z & = \mathfig{0.1}{barycentric/uz} & u_z = \mathfig{0.1}{barycentric/uz_c-a-b} - \mathfig{0.1}{barycentric/uz_cab}
+v_1 & = \mathfig{0.05}{hochschild/v_1-1} -  \mathfig{0.05}{hochschild/v_1-2} &  v_2 & = \mathfig{0.05}{hochschild/v_2-1} -  \mathfig{0.05}{hochschild/v_2-2} \\ 
+v_3 & = \mathfig{0.05}{hochschild/v_3-1} -  \mathfig{0.05}{hochschild/v_3-2} &  v_4 & = \mathfig{0.05}{hochschild/v_4-1} -  \mathfig{0.05}{hochschild/v_4-2}
 \end{align*}
-and the $2$-chain labelled $A$ is
-\begin{equation*}
-A = \mathfig{0.1}{barycentric/Ax}+\mathfig{0.1}{barycentric/Ay}.
-\end{equation*}
-Note that we then have
-\begin{equation*}
-\bdy A = x+y+z.
-\end{equation*}
-
-In general, the Hochschild chain $\Tensor_{i=1}^n a_i$ is sent to the sum of $n!$ blob $(n-1)$-chains, indexed by permutations,
-$$\phi\left(\Tensor_{i=1}^n a_i\right) = \sum_{\pi} \phi^\pi(a_1, \ldots, a_n)$$
-with ... (hmmm, problems making this precise; you need to decide where to put the labels, but then it's hard to make an honest chain map!)
+\caption{One of the 2-cells from Figure \ref{fig:hochschild-2-chains}.}
+\label{fig:hochschild-example-2-cell}
+\end{figure}
