@@ -25,6 +25,8 @@
 
 \versioninfo
 
+\noop{
+
 \section*{Todo}
 
 \subsection*{What else?...}
@@ -46,11 +48,8 @@
 \item dimension $n+1$ (generalized Deligne conjecture?)
 \item should be clear about PL vs Diff; probably PL is better
 (or maybe not)
-\item say what we mean by $n$-category, $A_\infty$ or $E_\infty$ $n$-category
 \item something about higher derived coend things (derived 2-coend, e.g.)
 \item shuffle product vs gluing product (?)
-\item commutative algebra results
-\item $A_\infty$ blob complex
 \item connection between $A_\infty$ operad and topological $A_\infty$ cat defs
 \end{itemize}
 \item lower priority
@@ -61,6 +60,7 @@
 \end{itemize}
 \end{itemize}
 
+} %end \noop
 
 \section{Introduction}
 
@@ -164,7 +164,9 @@ The blob complex for an $n$-category on an $n$-ball is quasi-isomorphic to its $
 
 \begin{property}[Skein modules]
 \label{property:skein-modules}%
-The $0$-th blob homology of $X$ is the usual skein module associated to $X$. (See \S \ref{sec:local-relations}.)
+The $0$-th blob homology of $X$ is the usual 
+(dual) TQFT Hilbert space (a.k.a.\ skein module) associated to $X$
+by $(\cF,\cU)$. (See \S \ref{sec:local-relations}.)
 \begin{equation*}
 H_0(\bc_*^{\cF,\cU}(X)) \iso A^{\cF,\cU}(X)
 \end{equation*}
@@ -198,7 +200,9 @@ any codimension $1$-submanifold $Y \subset X$ dividing $X$ into $X_1 \cup_Y X_2$
             \bc_*(X_1) \otimes \bc_*(X_2) \ar[u]_{\gl_Y}
 }
 \end{equation*}
+\nn{should probably say something about associativity here (or not?)}
 \end{property}
+
 
 \begin{property}[Gluing formula]
 \label{property:gluing}%
@@ -219,6 +223,8 @@ $\bc_*(X)$ as an $\bc_*(Y \times I)$-bimodule.
 \end{equation*}
 \end{itemize}
 \end{property}
+
+\nn{add product formula?  $n$-dimensional fat graph operad stuff?}
 
 Properties \ref{property:functoriality}, \ref{property:gluing-map} and \ref{property:skein-modules} will be immediate from the definition given in
 \S \ref{sec:blob-definition}, and we'll recall them at the appropriate points there. \todo{Make sure this gets done.}
