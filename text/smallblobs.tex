@@ -1,0 +1,45 @@
+Not sure where this goes yet.
+
+Fix $\cU$, an open cover of $M$. Define the `small blob complex' $\bc^{\cU}_*(M)$ to be the subcomplex of $\bc_*(M)$ of all blob diagrams in which every blob is contained in some open set of $\cU$.
+
+\begin{lem}[Small blobs]
+The inclusion $i: \bc^{\cU}_*(M) \into \bc_*(M)$ is a homotopy equivalence.
+\end{lem}
+\begin{proof}
+Given a blob diagram $b \in \bc_k(M)$, denote by $b_\cS$ for $\cS \subset \{1, \ldots, k\}$ the blob diagram obtained by erasing the corresponding blobs. In particular, $b_\eset = b$, $b_{\{1,\ldots,k\}} \in \bc_0(M)$, and $d b_\cS = \sum_{\cS' = \cS'\sqcup\{i\}} \text{some sign} b_{\cS'}$.
+Similarly, for a configuration of $k$ blobs $\beta$ (that is, an choice of embeddings of balls in $M$, satisfying the disjointness rules for blobs, rather than a blob diagram, which is additionally labelled by appropriate fields), $\beta_\cS$ denotes the result of erasing a subset of blobs. We'll write $\beta' \prec \beta$ if $\beta' = \beta_\cS$ for some $\cS$.
+
+Next, we'll choose a `shrinking system' for $\cU$, namely for each increasing sequence of blob configurations
+$\beta_0 \prec \beta_1 \prec \cdots \prec \beta_m$, an $m$ parameter family of diffeomorphisms
+$\phi_{\beta_0 \prec \cdots \prec \beta_m} : \Delta^m \to \Diff{M}$ (here $\Delta^m$ is the standard simplex $\setc{\mathbf{x} \in \Real^{m+1}}{\sum_i x_i = 1}$), such that
+\begin{itemize}
+\item if $\beta$ is the empty configuration, $\phi_{\beta}(1) = \id_M$,
+\item if $\beta$ is a single configuration of blobs, then $\phi_{\beta}(1)(\beta)$ (which is another configuration of blobs: $\phi_{\beta}(1)$ is a diffeomorphism of $M$) is subordinate to $\cU$,
+\item (more generally) for any $x$ with $x_0 = 0$, $\phi_{\beta_0 \prec \cdots \prec \beta_m}(x)(\beta)$ is subordinate to $\cU$, and
+\item for each $i = 1, \ldots, m$,
+\begin{align*}
+\phi_{\beta_0 \prec \cdots \prec \beta_m}(x_0, \ldots, x_{i-1},0,x_{i+1},\ldots,x_m) & = \phi_{\beta_0 \prec \cdots \beta_{i-1} \prec \beta_{i+1} \prec \beta_m}(x_0,\ldots, x_{i-1},x_{i+1},\ldots,x_m).
+\end{align*}
+\end{itemize}
+It's not immediately obvious that it's possible to make such choices, but it follows quickly from
+\begin{claim}
+If $\beta$ is a collection of disjointly embedded balls in $M$, and $\varphi: B^k \to \Diff{M}$ is a map into diffeomorphisms such that for every $x\in \bdy B^k$, $\varphi(x)(\beta)$ is subordinate to $\cU$, then we can extend $\varphi$ to $\varphi:B^{k+1} \to \Diff{M}$, with the original $B^k$ as $\bdy^{\text{north}}(B^{k+1})$, and $\varphi(x)(\beta)$ subordinate to $\cU$ for every $x \in \bdy^{\text{south}}(B^{k+1})$.
+
+In fact, for a fixed $\beta$, $\Diff{M}$ retracts onto the subset $\setc{\varphi \in \Diff{M}}{\text{$\varphi(\beta)$ is subordinate to $\cU$}}$.
+\end{claim}
+\todo{Ooooh, I hope that's true.}
+
+We'll need a stronger version of Property \ref{property:evaluation}; while the evaluation map $ev: \CD{M} \tensor \bc_*(M) \to \bc_*(M)$ is not unique, it has an up-to-homotopy representative (satisfying the usual conditions) which restricts to become a chain map $ev: \CD{M} \tensor \bc^{\cU}_*(M) \to \bc^{\cU}_*(M)$. The proof is straightforward: when deforming the family of diffeomorphisms to shrink its supports to a union of open sets, do so such that those open sets are subordinate to the cover.
+
+Now define a map $s: \bc_*(M) \to \bc^{\cU}_*(M)$, and then a homotopy $h:\bc_*(M) \to \bc_{*+1}(M)$ so that $dh+hd=i\circ s$. The map $s: \bc_0(M) \to \bc^{\cU}_0(M)$ is just the identity; blob diagrams without blobs are automatically compatible with any cover. Given a blob diagram $b$, we'll abuse notation and write $\phi_b$ to mean $\phi_\beta$ for the blob configuration $\beta$ underlying $b$. We have
+$$s(b) = \sum_{i} ev(\restrict{\phi_{i(b)}}{x_0 = 0}, b_i)$$
+where the sum is over sequences $i=(i_1,\ldots,i_m)$ in $\{1,\ldots,k\}$, with $0\leq m < k$, $i(b)$ denotes the increasing sequence of blob configurations
+$$\beta_{(i_1,\ldots,i_m)} \prec \beta_{(i_2,\ldots,i_m)} \prec \cdots \prec \beta_{()},$$
+and, as usual, $i(b)$ denotes $b$ with blobs $i_1, \ldots i_m$ erased. 
+
+We need to check that $s$ is a chain map, and that the image of $s$ in fact lies in $\bc^{\cU}_*(M)$. \todo{}
+
+Next, we define the homotopy $h:\bc_*(M) \to \bc_{*+1}(M)$ by
+$$h(b) = \sum_{i} ev(\phi_{i(b)}, b_i).$$
+\todo{and check that it's the right one...}
+\end{proof}
