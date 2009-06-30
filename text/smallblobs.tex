@@ -7,7 +7,7 @@ The inclusion $i: \bc^{\cU}_*(M) \into \bc_*(M)$ is a homotopy equivalence.
 \end{lem}
 \begin{proof}
 Given a blob diagram $b \in \bc_k(M)$, denote by $b_\cS$ for $\cS \subset \{1, \ldots, k\}$ the blob diagram obtained by erasing the corresponding blobs. In particular, $b_\eset = b$, $b_{\{1,\ldots,k\}} \in \bc_0(M)$, and $d b_\cS = \sum_{\cS' = \cS'\sqcup\{i\}} \text{some sign} b_{\cS'}$.
-Similarly, for a configuration of $k$ blobs $\beta$ (that is, an choice of embeddings of balls in $M$, satisfying the disjointness rules for blobs, rather than a blob diagram, which is additionally labelled by appropriate fields), $\beta_\cS$ denotes the result of erasing a subset of blobs. We'll write $\beta' \prec \beta$ if $\beta' = \beta_\cS$ for some $\cS$.
+Similarly, for a configuration of $k$ blobs $\beta$ (that is, an choice of embeddings of balls in $M$, satisfying the disjointness rules for blobs, rather than a blob diagram, which is additionally labelled by appropriate fields), $\beta_\cS$ denotes the result of erasing a subset of blobs. We'll write $\beta' \prec \beta$ if $\beta' = \beta_\cS$ for some $\cS$. Finally, for finite sequences, we'll write $i \prec i'$ if $i$ is subsequence of $i'$, and $i \prec_1 i$ if the lengths differ by exactly 1.
 
 Next, we'll choose a `shrinking system' for $\cU$, namely for each increasing sequence of blob configurations
 $\beta_0 \prec \beta_1 \prec \cdots \prec \beta_m$, an $m$ parameter family of diffeomorphisms
@@ -32,12 +32,23 @@ In fact, for a fixed $\beta$, $\Diff{M}$ retracts onto the subset $\setc{\varphi
 We'll need a stronger version of Property \ref{property:evaluation}; while the evaluation map $ev: \CD{M} \tensor \bc_*(M) \to \bc_*(M)$ is not unique, it has an up-to-homotopy representative (satisfying the usual conditions) which restricts to become a chain map $ev: \CD{M} \tensor \bc^{\cU}_*(M) \to \bc^{\cU}_*(M)$. The proof is straightforward: when deforming the family of diffeomorphisms to shrink its supports to a union of open sets, do so such that those open sets are subordinate to the cover.
 
 Now define a map $s: \bc_*(M) \to \bc^{\cU}_*(M)$, and then a homotopy $h:\bc_*(M) \to \bc_{*+1}(M)$ so that $dh+hd=i\circ s$. The map $s: \bc_0(M) \to \bc^{\cU}_0(M)$ is just the identity; blob diagrams without blobs are automatically compatible with any cover. Given a blob diagram $b$, we'll abuse notation and write $\phi_b$ to mean $\phi_\beta$ for the blob configuration $\beta$ underlying $b$. We have
-$$s(b) = \sum_{i} ev(\restrict{\phi_{i(b)}}{x_0 = 0}, b_i)$$
+$$s(b) = \sum_{i} ev(\restrict{\phi_{i(b)}}{x_0 = 0} \tensor b_i)$$
 where the sum is over sequences $i=(i_1,\ldots,i_m)$ in $\{1,\ldots,k\}$, with $0\leq m < k$, $i(b)$ denotes the increasing sequence of blob configurations
 $$\beta_{(i_1,\ldots,i_m)} \prec \beta_{(i_2,\ldots,i_m)} \prec \cdots \prec \beta_{()},$$
-and, as usual, $i(b)$ denotes $b$ with blobs $i_1, \ldots i_m$ erased. 
+and, as usual, $i(b)$ denotes $b$ with blobs $i_1, \ldots i_m$ erased. We'll also write
+$$s(b) = \sum_{m=0}^{k-1} \sum_{\norm{i}=m} ev(\restrict{\phi_{i(b)}}{x_0 = 0} \tensor b_i),$$
+arranging the sum according to the length $\norm{i}$ of $i$.
 
-We need to check that $s$ is a chain map, and that the image of $s$ in fact lies in $\bc^{\cU}_*(M)$. \todo{}
+
+We need to check that $s$ is a chain map, and that the image of $s$ in fact lies in $\bc^{\cU}_*(M)$. \todo{} Calculate
+\begin{align*}
+\bdy(s(b)) & = \sum_{m=0}^{k-1} \sum_{\norm{i}=m} \ev\left(\bdy(\restrict{\phi_{i(b)}}{x_0 = 0})\tensor b_i\right) + (-1)^m \ev\left(\restrict{\phi_{i(b)}}{x_0 = 0} \tensor \bdy b_i\right) \\
+                & = \sum_{m=0}^{k-1} \sum_{\norm{i}=m} \ev\left(\sum_{i' \prec_1 i} \pm \restrict{\phi_{i'(b)}}{x_0 = 0})\tensor b_i\right) + (-1)^m \ev\left(\restrict{\phi_{i(b)}}{x_0 = 0}\tensor \sum_{i \prec_1 i'} \pm b_{i'}\right) \\
+\intertext{and telescoping the sum}
+		& = \sum_{m=0}^{k-2} \left(\sum_{\norm{i}=m}  (-1)^m \ev\left(\restrict{\phi_{i(b)}}{x_0 = 0} \tensor \sum_{i \prec_1 i'} \pm b_{i'}\right) \right) + \left(\sum_{\norm{i}=m+1} \ev\left(\sum_{i' \prec_1 i} \pm \restrict{\phi_{i'(b)}}{x_0 = 0} \tensor b_i\right) \right) + \\
+		& \qquad + (-1)^{k-1} \sum_{\norm{i}=k-1} \ev\left(\restrict{\phi_{i(b)}}{x_0 = 0} \tensor \sum_{i \prec_1 i'} \pm b_{i'}\right) \\
+		& = (-1)^{k-1} \sum_{\norm{i}=k-1} \ev\left(\restrict{\phi_{i(b)}}{x_0 = 0} \tensor \sum_{i \prec_1 i'} \pm b_{i'}\right)
+\end{align*}
 
 Next, we define the homotopy $h:\bc_*(M) \to \bc_{*+1}(M)$ by
 $$h(b) = \sum_{i} ev(\phi_{i(b)}, b_i).$$
