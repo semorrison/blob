@@ -177,11 +177,11 @@ Next we define subcomplexes $G_*^{i,m} \sub CD_*(X)\otimes \bc_*(X)$.
 Let $p\ot b$ be a generator of $CD_*(X)\otimes \bc_*(X)$ and let $k = \deg(p\ot b)
 = \deg(p) + \deg(b)$.
 $p\ot b$ is (by definition) in $G_*^{i,m}$ if either (a) $\deg(p) = 0$ or (b)
-there exist codimension-zero submanifolds $V_1,\ldots,V_m \sub X$ such that each $V_j$
+there exist codimension-zero submanifolds $V_0,\ldots,V_m \sub X$ such that each $V_j$
 is homeomorphic to a disjoint union of balls and
 \[
-	N_{i,k}(p\ot b) \subeq V_1 \subeq N_{i,k+1}(p\ot b)
-			\subeq V_2 \subeq \cdots \subeq V_m \subeq N_{i,k+m}(p\ot b) .
+	N_{i,k}(p\ot b) \subeq V_0 \subeq N_{i,k+1}(p\ot b)
+			\subeq V_1 \subeq \cdots \subeq V_m \subeq N_{i,k+m+1}(p\ot b) .
 \]
 Further, we require (inductively) that $\bd(p\ot b) \in G_*^{i,m}$.
 We also require that $b$ is splitable (transverse) along the boundary of each $V_l$.
@@ -191,9 +191,10 @@ Note that $G_*^{i,m+1} \subeq G_*^{i,m}$.
 As sketched above and explained in detail below, 
 $G_*^{i,m}$ is a subcomplex where it is easy to define
 the evaluation map.
-The parameter $m$ controls the number of iterated homotopies we are able to construct.
+The parameter $m$ controls the number of iterated homotopies we are able to construct
+(Lemma \ref{mhtyLemma}).
 The larger $i$ is (i.e.\ the smaller $\ep_i$ is), the better $G_*^{i,m}$ approximates all of
-$CD_*(X)\ot \bc_*(X)$.
+$CD_*(X)\ot \bc_*(X)$ (Lemma \ref{xxxlemma}).
 
 Next we define a chain map (dependent on some choices) $e: G_*^{i,m} \to \bc_*(X)$.
 Let $p\ot b \in G_*^{i,m}$.
@@ -204,37 +205,118 @@ If $\deg(p) = 0$, define
 where $p(b)$ denotes the obvious action of the diffeomorphism(s) $p$ on the blob diagram $b$.
 For general $p\ot b$ ($\deg(p) \ge 1$) assume inductively that we have already defined
 $e(p'\ot b')$ when $\deg(p') + \deg(b') < k = \deg(p) + \deg(b)$.
-Choose $V_1$ as above so that 
+Choose $V = V_0$ as above so that 
 \[
-	N_{i,k}(p\ot b) \subeq V_1 \subeq N_{i,k+1}(p\ot b) .
+	N_{i,k}(p\ot b) \subeq V \subeq N_{i,k+1}(p\ot b) .
 \]
-Let $\bd(p\ot b) = \sum_j p_j\ot b_j$, and let $V_1^j$ be the choice of neighborhood
+Let $\bd(p\ot b) = \sum_j p_j\ot b_j$, and let $V^j$ be the choice of neighborhood
 of $|p_j|\cup |b_j|$ made at the preceding stage of the induction.
 For all $j$, 
 \[
-	V_1^j \subeq N_{i,(k-1)+1}(p_j\ot b_j) \subeq N_{i,k}(p\ot b) \subeq V_1 .
+	V^j \subeq N_{i,(k-1)+1}(p_j\ot b_j) \subeq N_{i,k}(p\ot b) \subeq V .
 \]
 (The second inclusion uses the facts that $|p_j| \subeq |p|$ and $|b_j| \subeq |b|$.)
 We therefore have splittings
 \[
 	p = p'\bullet p'' , \;\; b = b'\bullet b'' , \;\; e(\bd(p\ot b)) = f'\bullet f'' ,
 \]
-where $p' \in CD_*(V_1)$, $p'' \in CD_*(X\setmin V_1)$, 
-$b' \in \bc_*(V_1)$, $b'' \in \bc_*(X\setmin V_1)$, 
-$e' \in \bc_*(p(V_1))$, and $e'' \in \bc_*(p(X\setmin V_1))$.
+where $p' \in CD_*(V)$, $p'' \in CD_*(X\setmin V)$, 
+$b' \in \bc_*(V)$, $b'' \in \bc_*(X\setmin V)$, 
+$e' \in \bc_*(p(V))$, and $e'' \in \bc_*(p(X\setmin V))$.
 (Note that since the family of diffeomorphisms $p$ is constant (independent of parameters)
-near $\bd V_1)$, the expressions $p(V_1) \sub X$ and $p(X\setmin V_1) \sub X$ are
+near $\bd V)$, the expressions $p(V) \sub X$ and $p(X\setmin V) \sub X$ are
 unambiguous.)
 We also have that $\deg(b'') = 0 = \deg(p'')$.
-Choose $x' \in \bc_*(p(V_1))$ such that $\bd x' = f'$.
+Choose $x' \in \bc_*(p(V))$ such that $\bd x' = f'$.
 This is possible by \nn{...}.
 Finally, define
 \[
 	e(p\ot b) \deq x' \bullet p''(b'') .
 \]
 
+Note that above we are essentially using the method of acyclic models.
+For each generator $p\ot b$ we specify the acyclic (in positive degrees) 
+target complex $\bc_*(p(V)) \bullet p''(b'')$.
+
+The definition of $e: G_*^{i,m} \to \bc_*(X)$ depends on two sets of choices:
+The choice of neighborhoods $V$ and the choice of inverse boundaries $x'$.
+The next two lemmas show that up to (iterated) homotopy $e$ is independent
+of these choices.
+
+\begin{lemma}
+Let $\tilde{e} :  G_*^{i,m} \to \bc_*(X)$ be a chain map constructed like $e$ above, but with
+different choices of $x'$ at each step.
+(Same choice of $V$ at each step.)
+Then $e$ and $\tilde{e}$ are homotopic via a homotopy in $\bc_*(p(V)) \bullet p''(b'')$.
+Any two choices of such a first-order homotopy are second-order homotopic, and so on, 
+to arbitrary order.
+\end{lemma}
+
+\begin{proof}
+This is a standard result in the method of acyclic models.
+\nn{should we say more here?}
+\nn{maybe this lemma should be subsumed into the next lemma.  probably it should.}
+\end{proof}
+
+\begin{lemma}
+Let $\tilde{e} :  G_*^{i,m} \to \bc_*(X)$ be a chain map constructed like $e$ above, but with
+different choices of $V$ (and hence also different choices of $x'$) at each step.
+If $m \ge 1$ then $e$ and $\tilde{e}$ are homotopic.
+If $m \ge 2$ then any two choices of this first-order homotopy are second-order homotopic.
+And so on.
+In other words,  $e :  G_*^{i,m} \to \bc_*(X)$ is well-defined up to $m$-th order homotopy.
+\end{lemma}
+
+\begin{proof}
+We construct $h: G_*^{i,m} \to \bc_*(X)$ such that $\bd h + h\bd = e - \tilde{e}$.
+$e$ and $\tilde{e}$ coincide on bidegrees $(0, j)$, so define $h$
+to be zero there.
+Assume inductively that $h$ has been defined for degrees less than $k$.
+Let $p\ot b$ be a generator of degree $k$.
+Choose $V_1$ as in the definition of $G_*^{i,m}$ so that
+\[
+	N_{i,k+1}(p\ot b) \subeq V_1 \subeq N_{i,k+2}(p\ot b) .
+\]
+There are splittings
+\[
+	p = p'_1\bullet p''_1 , \;\; b = b'_1\bullet b''_1 , 
+			\;\; e(p\ot b) - \tilde{e}(p\ot b) - h(\bd(p\ot b)) = f'_1\bullet f''_1 ,
+\]
+where $p'_1 \in CD_*(V_1)$, $p''_1 \in CD_*(X\setmin V_1)$, 
+$b'_1 \in \bc_*(V_1)$, $b''_1 \in \bc_*(X\setmin V_1)$, 
+$f'_1 \in \bc_*(p(V_1))$, and $f''_1 \in \bc_*(p(X\setmin V_1))$.
+Inductively, $\bd f'_1 = 0$.
+Choose $x'_1 \in \bc_*(p(V_1))$ so that $\bd x'_1 = f'_1$.
+Define 
+\[
+	h(p\ot b) \deq x'_1 \bullet p''_1(b''_1) .
+\]
+This completes the construction of the first-order homotopy when $m \ge 1$.
+
+The $j$-th order homotopy is constructed similarly, with $V_j$ replacing $V_1$ above.
+\end{proof}
+
+Note that on $G_*^{i,m+1} \subeq G_*^{i,m}$, we have defined two maps,
+call them $e_{i,m}$ and $e_{i,m+1}$.
+An easy variation on the above lemma shows that $e_{i,m}$ and $e_{i,m+1}$ are $m$-th 
+order homotopic.
+
 
 \medskip
+
+\noop{
+
+
+\begin{lemma}
+
+\end{lemma}
+\begin{proof}
+
+\end{proof}
+
+
+}
+
 
 \nn{to be continued....}
 
