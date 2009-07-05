@@ -301,11 +301,58 @@ call them $e_{i,m}$ and $e_{i,m+1}$.
 An easy variation on the above lemma shows that $e_{i,m}$ and $e_{i,m+1}$ are $m$-th 
 order homotopic.
 
+Next we show how to homotope chains in $CD_*(X)\ot \bc_*(X)$ to one of the 
+$G_*^{i,m}$.
+Choose a monotone decreasing sequence of real numbers $\gamma_j$ converging to zero.
+Let $\cU_j$ denote the open cover of $X$ by balls of radius $\gamma_j$.
+Let $h_j: CD_*(X)\to CD_*(X)$ be a chain map homotopic to the identity whose image is spanned by diffeomorphisms with support compatible with $\cU_j$, as described in Lemma \ref{xxxxx}.
+Recall that $h_j$ and also its homotopy back to the identity do not increase
+supports.
+Define
+\[
+	g_j \deq h_j\circ h_{j-1} \circ \cdots \circ h_1 .
+\]
+The next lemma says that for all generators $p\ot b$ we can choose $j$ large enough so that
+$g_j(p)\ot b$ lies in $G_*^{i,m}$, for arbitrary $m$ and sufficiently large $i$ 
+(depending on $b$, $n = \deg(p)$ and $m$).
+
+\begin{lemma}
+Fix a blob diagram $b$, a homotopy order $m$ and a degree $n$ for $CD_*(X)$.
+Then there exists a constant $k_{bmn}$ such that for all $i \ge k_{bmn}$
+there exists another constant $j_i$ such that for all $j \ge j_i$ and all $p\in CD_n(X)$ 
+we have $g_j(p)\ot b \in G_*^{i,m}$.
+\end{lemma}
+
+\begin{proof}
+Let $c$ be a subset of the blobs of $b$.
+There exists $l > 0$ such that $\Nbd_u(c)$ is homeomorphic to $|c|$ for all $u < l$ 
+and all such $c$.
+(Here we are using a piecewise smoothness assumption for $\bd c$).
+
+Let $r = \deg(b)$.
+
+Choose $k = k_{bmn}$ such that
+\[
+	(r+n+m+1)\ep_k < l
+\]
+and
+\[
+	n\cdot (3\delta_k\cdot(r+n+m+1)) < \ep_k .
+\]
+Let $i \ge k_{bmn}$.
+Choose $j = j_i$ so that
+\[
+	3\cdot(r+n+m+1)\gamma_j < \ep_i
+\]
+and also so that for any subset $S\sub X$ of diameter less than or equal to 
+$2n\gamma_j$ we have that $\Nbd_u(S)$ is
+\end{proof}
+
+
 
 \medskip
 
 \noop{
-
 
 \begin{lemma}
 
@@ -313,7 +360,6 @@ order homotopic.
 \begin{proof}
 
 \end{proof}
-
 
 }
 
