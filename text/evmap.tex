@@ -169,6 +169,7 @@ define
 \[
 	N_{i,k}(p\ot b) \deq \Nbd_{k\ep_i}(|b|) \cup \Nbd_{4^k\delta_i}(|p|).
 \]
+\nn{not currently correct; maybe need to split $k$ into two parameters}
 In other words, we use the metric to choose nested neighborhoods of $|b|\cup |p|$ (parameterized
 by $k$), with $\ep_i$ controlling the size of the buffer around $|b|$ and $\delta_i$ controlling
 the size of the buffer around $|p|$.
@@ -193,9 +194,9 @@ As sketched above and explained in detail below,
 $G_*^{i,m}$ is a subcomplex where it is easy to define
 the evaluation map.
 The parameter $m$ controls the number of iterated homotopies we are able to construct
-(see Lemma \ref{mhtyLemma}).
+(see Lemma \ref{m_order_hty}).
 The larger $i$ is (i.e.\ the smaller $\ep_i$ is), the better $G_*^{i,m}$ approximates all of
-$CD_*(X)\ot \bc_*(X)$ (see Lemma \ref{xxxlemma}).
+$CD_*(X)\ot \bc_*(X)$ (see Lemma \ref{Gim_approx}).
 
 Next we define a chain map (dependent on some choices) $e: G_*^{i,m} \to \bc_*(X)$.
 Let $p\ot b \in G_*^{i,m}$.
@@ -260,7 +261,7 @@ This is a standard result in the method of acyclic models.
 \nn{maybe this lemma should be subsumed into the next lemma.  probably it should.}
 \end{proof}
 
-\begin{lemma}
+\begin{lemma} \label{m_order_hty}
 Let $\tilde{e} :  G_*^{i,m} \to \bc_*(X)$ be a chain map constructed like $e$ above, but with
 different choices of $V$ (and hence also different choices of $x'$) at each step.
 If $m \ge 1$ then $e$ and $\tilde{e}$ are homotopic.
@@ -319,7 +320,7 @@ $g_j(p)\ot b$ lies in $G_*^{i,m}$, for arbitrary $m$ and sufficiently large $i$
 (depending on $b$, $n = \deg(p)$ and $m$).
 \nn{not the same $n$ as the dimension of the manifolds; fix this}
 
-\begin{lemma}
+\begin{lemma} \label{Gim_approx}
 Fix a blob diagram $b$, a homotopy order $m$ and a degree $n$ for $CD_*(X)$.
 Then there exists a constant $k_{bmn}$ such that for all $i \ge k_{bmn}$
 there exists another constant $j_i$ such that for all $j \ge j_i$ and all $p\in CD_n(X)$ 
