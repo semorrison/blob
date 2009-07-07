@@ -167,11 +167,12 @@ converges monotonically to zero (e.g.\ $\delta_i = \ep_i^2$).
 Given a generator $p\otimes b$ of $CD_*(X)\otimes \bc_*(X)$ and non-negative integers $i$ and $k$
 define
 \[
-	N_{i,k}(p\ot b) \deq \Nbd_{k\ep_i}(|b|) \cup \Nbd_{k\delta_i}(|p|).
+	N_{i,k}(p\ot b) \deq \Nbd_{k\ep_i}(|b|) \cup \Nbd_{4^k\delta_i}(|p|).
 \]
 In other words, we use the metric to choose nested neighborhoods of $|b|\cup |p|$ (parameterized
 by $k$), with $\ep_i$ controlling the size of the buffer around $|b|$ and $\delta_i$ controlling
 the size of the buffer around $|p|$.
+(The $4^k$ comes from Lemma \ref{xxxx}.)
 
 Next we define subcomplexes $G_*^{i,m} \sub CD_*(X)\otimes \bc_*(X)$.
 Let $p\ot b$ be a generator of $CD_*(X)\otimes \bc_*(X)$ and let $k = \deg(p\ot b)
@@ -192,9 +193,9 @@ As sketched above and explained in detail below,
 $G_*^{i,m}$ is a subcomplex where it is easy to define
 the evaluation map.
 The parameter $m$ controls the number of iterated homotopies we are able to construct
-(Lemma \ref{mhtyLemma}).
+(see Lemma \ref{mhtyLemma}).
 The larger $i$ is (i.e.\ the smaller $\ep_i$ is), the better $G_*^{i,m}$ approximates all of
-$CD_*(X)\ot \bc_*(X)$ (Lemma \ref{xxxlemma}).
+$CD_*(X)\ot \bc_*(X)$ (see Lemma \ref{xxxlemma}).
 
 Next we define a chain map (dependent on some choices) $e: G_*^{i,m} \to \bc_*(X)$.
 Let $p\ot b \in G_*^{i,m}$.
@@ -218,15 +219,16 @@ For all $j$,
 (The second inclusion uses the facts that $|p_j| \subeq |p|$ and $|b_j| \subeq |b|$.)
 We therefore have splittings
 \[
-	p = p'\bullet p'' , \;\; b = b'\bullet b'' , \;\; e(\bd(p\ot b)) = f'\bullet f'' ,
+	p = p'\bullet p'' , \;\; b = b'\bullet b'' , \;\; e(\bd(p\ot b)) = f'\bullet b'' ,
 \]
 where $p' \in CD_*(V)$, $p'' \in CD_*(X\setmin V)$, 
 $b' \in \bc_*(V)$, $b'' \in \bc_*(X\setmin V)$, 
-$e' \in \bc_*(p(V))$, and $e'' \in \bc_*(p(X\setmin V))$.
+$f' \in \bc_*(p(V))$, and $f'' \in \bc_*(p(X\setmin V))$.
 (Note that since the family of diffeomorphisms $p$ is constant (independent of parameters)
-near $\bd V)$, the expressions $p(V) \sub X$ and $p(X\setmin V) \sub X$ are
+near $\bd V$, the expressions $p(V) \sub X$ and $p(X\setmin V) \sub X$ are
 unambiguous.)
-We also have that $\deg(b'') = 0 = \deg(p'')$.
+We have $\deg(p'') = 0$ and, inductively, $f'' = p''(b'')$.
+%We also have that $\deg(b'') = 0 = \deg(p'')$.
 Choose $x' \in \bc_*(p(V))$ such that $\bd x' = f'$.
 This is possible by \nn{...}.
 Finally, define
@@ -306,7 +308,7 @@ $G_*^{i,m}$.
 Choose a monotone decreasing sequence of real numbers $\gamma_j$ converging to zero.
 Let $\cU_j$ denote the open cover of $X$ by balls of radius $\gamma_j$.
 Let $h_j: CD_*(X)\to CD_*(X)$ be a chain map homotopic to the identity whose image is spanned by diffeomorphisms with support compatible with $\cU_j$, as described in Lemma \ref{xxxxx}.
-Recall that $h_j$ and also its homotopy back to the identity do not increase
+Recall that $h_j$ and also the homotopy connecting it to the identity do not increase
 supports.
 Define
 \[
@@ -315,6 +317,7 @@ Define
 The next lemma says that for all generators $p\ot b$ we can choose $j$ large enough so that
 $g_j(p)\ot b$ lies in $G_*^{i,m}$, for arbitrary $m$ and sufficiently large $i$ 
 (depending on $b$, $n = \deg(p)$ and $m$).
+\nn{not the same $n$ as the dimension of the manifolds; fix this}
 
 \begin{lemma}
 Fix a blob diagram $b$, a homotopy order $m$ and a degree $n$ for $CD_*(X)$.
@@ -327,36 +330,124 @@ we have $g_j(p)\ot b \in G_*^{i,m}$.
 Let $c$ be a subset of the blobs of $b$.
 There exists $l > 0$ such that $\Nbd_u(c)$ is homeomorphic to $|c|$ for all $u < l$ 
 and all such $c$.
-(Here we are using a piecewise smoothness assumption for $\bd c$).
+(Here we are using a piecewise smoothness assumption for $\bd c$, and also
+the fact that $\bd c$ is collared.)
 
-Let $r = \deg(b)$.
+Let $r = \deg(b)$ and 
+\[
+	t = r+n+m+1 .
+\]
 
 Choose $k = k_{bmn}$ such that
 \[
-	(r+n+m+1)\ep_k < l
+	t\ep_k < l
 \]
 and
 \[
-	n\cdot (3\delta_k\cdot(r+n+m+1)) < \ep_k .
+	n\cdot ( 4^t \delta_i) < \ep_k/3 .
 \]
 Let $i \ge k_{bmn}$.
 Choose $j = j_i$ so that
 \[
-	3\cdot(r+n+m+1)\gamma_j < \ep_i
+	t\gamma_j < \ep_i/3
 \]
-and also so that for any subset $S\sub X$ of diameter less than or equal to 
-$2n\gamma_j$ we have that $\Nbd_u(S)$ is
+and also so that $\gamma_j$ is less than the constant $\eta(X, m, k)$ of Lemma \ref{xxyy5}.
+
+\nn{...}
+
+\end{proof}
+
+In the next few lemmas we have made no effort to optimize the various bounds.
+(The bounds are, however, optimal in the sense of minimizing the amount of work
+we do.  Equivalently, they are the first bounds we thought of.)
+
+We say that a subset $S$ of a metric space has radius $\le r$ if $S$ is contained in
+some metric ball of radius $r$.
+
+\begin{lemma}
+Let $S \sub \ebb^n$ (Euclidean $n$-space) have radius $\le r$.  
+Then $\Nbd_a(S)$ is homeomorphic to a ball for $a \ge 2r$.
+\end{lemma}
+
+\begin{proof} \label{xxyy2}
+Let $S$ be contained in $B_r(y)$, $y \in \ebb^n$.
+Note that $\Nbd_a(S) \sup B_r(y)$.
+Simple applications of the triangle inequality show that $\Nbd_a(S)$ 
+is star-shaped with respect to $y$.
 \end{proof}
 
 
+\begin{lemma} \label{xxyy3}
+Let $S \sub \ebb^n$ be contained in a union (not necessarily disjoint)
+of $k$ metric balls of radius $r$.
+Then there exists a neighborhood $U$ of $S$ such that $U$ is homeomorphic to a disjoint union
+of balls and
+\[
+	\Nbd_{2r}(S) \subeq U \subeq \Nbd_{4^k r}(S) .
+\]
+\end{lemma}
+
+\begin{proof}
+Partition $S$ into $k$ disjoint subsets $S_1,\ldots,S_k$, each of radius $\le r$.
+By Lemma \ref{xxyy2}, each $\Nbd(S_i)$ is homeomorphic to a ball.
+If these balls are disjoint (always the case if $k=1$) we are done.
+If two (or more) of them intersect, then $S$ is contained in a union of $k-1$ metric
+balls of radius $4r$.
+By induction, there is a neighborhood $U$ of $S$ such that
+\[
+	U \subeq \Nbd_{4^{k-1}\cdot4r} .
+\]
+\end{proof}
+
+\begin{lemma} \label{xxyy4}
+Let $S \sub \ebb^n$ be contained in a union (not necessarily disjoint)
+of $k$ metric balls of radius $r$.
+Then there exist neighborhoods $U_0, U_1, U_2, \ldots$ of $S$,
+each homeomorphic to a disjoint union of balls, such that
+\[
+	\Nbd_{2r}(S) \subeq U_0 \subeq \Nbd_{4^k r}(S)
+		\subeq U_1 \subeq \Nbd_{4^{2k} r}(S)
+		\subeq U_2 \subeq \Nbd_{4^{3k} r}(S) \cdots
+\]
+\end{lemma}
+
+\begin{proof}
+Apply Lemma \ref {xxyy3} repeatedly.
+\end{proof}
+
+\begin{lemma} \label{xxyy5}
+Let $M$ be a Riemannian $n$-manifold and positive integers $m$ and $k$.
+There exists a constant $\eta(M, m, k)$ such that for all subsets
+$S\subeq M$ which are contained in a (not necessarily disjoint) union of
+$k$ metric balls of radius $r$, $r < \eta(M, m, k)$, 
+there exist neighborhoods $U_0, U_1, \ldots, U_m$ of $S$,
+each homeomorphic to a disjoint union of balls, such that
+\[
+	\Nbd_{2r}(S) \subeq U_0 \subeq \Nbd_{4^k r}(S)
+		\subeq U_1 \subeq \Nbd_{4^{2k} r}(S) \cdots
+		\subeq U_m \subeq \Nbd_{4^{(m+1)k} r}(S) .
+\]
+
+\end{lemma}
+
+\begin{proof}
+Choose $\eta = \eta(M, m, k)$ small enough so that metric balls of radius $4^{(m+1)k} \eta$
+are injective and also have small distortion with respect to a Euclidean metric.
+Then proceed as in the proof of Lemma \ref{xxyy4}.
+\end{proof}
 
 \medskip
+
+
+
+
 
 \noop{
 
 \begin{lemma}
 
 \end{lemma}
+
 \begin{proof}
 
 \end{proof}
