@@ -164,16 +164,16 @@ Choose a monotone decreasing sequence of positive real numbers $\ep_i$ convergin
 (e.g.\ $\ep_i = 2^{-i}$).
 Choose another sequence of positive real numbers $\delta_i$ such that $\delta_i/\ep_i$
 converges monotonically to zero (e.g.\ $\delta_i = \ep_i^2$).
-Given a generator $p\otimes b$ of $CD_*(X)\otimes \bc_*(X)$ and non-negative integers $i$ and $k$
+Let $\phi_l$ be an increasing sequence of positive numbers
+satisfying the inequalities of Lemma \ref{xx2phi} (e.g. $\phi_l = 2^{3^{l-1}}$).
+Given a generator $p\otimes b$ of $CD_*(X)\otimes \bc_*(X)$ and non-negative integers $i$ and $l$
 define
 \[
-	N_{i,k}(p\ot b) \deq \Nbd_{k\ep_i}(|b|) \cup \Nbd_{4^k\delta_i}(|p|).
+	N_{i,l}(p\ot b) \deq \Nbd_{l\ep_i}(|b|) \cup \Nbd_{\phi_l\delta_i}(|p|).
 \]
-\nn{not currently correct; maybe need to split $k$ into two parameters}
 In other words, we use the metric to choose nested neighborhoods of $|b|\cup |p|$ (parameterized
-by $k$), with $\ep_i$ controlling the size of the buffer around $|b|$ and $\delta_i$ controlling
-the size of the buffer around $|p|$.
-(The $4^k$ comes from Lemma \ref{xxxx}.)
+by $l$), with $\ep_i$ controlling the size of the buffers around $|b|$ and $\delta_i$ controlling
+the size of the buffers around $|p|$.
 
 Next we define subcomplexes $G_*^{i,m} \sub CD_*(X)\otimes \bc_*(X)$.
 Let $p\ot b$ be a generator of $CD_*(X)\otimes \bc_*(X)$ and let $k = \deg(p\ot b)
@@ -215,7 +215,7 @@ Let $\bd(p\ot b) = \sum_j p_j\ot b_j$, and let $V^j$ be the choice of neighborho
 of $|p_j|\cup |b_j|$ made at the preceding stage of the induction.
 For all $j$, 
 \[
-	V^j \subeq N_{i,(k-1)+1}(p_j\ot b_j) \subeq N_{i,k}(p\ot b) \subeq V .
+	V^j \subeq N_{i,k}(p_j\ot b_j) \subeq N_{i,k}(p\ot b) \subeq V .
 \]
 (The second inclusion uses the facts that $|p_j| \subeq |p|$ and $|b_j| \subeq |b|$.)
 We therefore have splittings
@@ -231,7 +231,7 @@ unambiguous.)
 We have $\deg(p'') = 0$ and, inductively, $f'' = p''(b'')$.
 %We also have that $\deg(b'') = 0 = \deg(p'')$.
 Choose $x' \in \bc_*(p(V))$ such that $\bd x' = f'$.
-This is possible by \nn{...}.
+This is possible by \ref{bcontract}, \ref{disjunion} and \nn{prop. 2 of local relations (isotopy)}.
 Finally, define
 \[
 	e(p\ot b) \deq x' \bullet p''(b'') .
@@ -243,23 +243,25 @@ target complex $\bc_*(p(V)) \bullet p''(b'')$.
 
 The definition of $e: G_*^{i,m} \to \bc_*(X)$ depends on two sets of choices:
 The choice of neighborhoods $V$ and the choice of inverse boundaries $x'$.
-The next two lemmas show that up to (iterated) homotopy $e$ is independent
+The next lemma shows that up to (iterated) homotopy $e$ is independent
 of these choices.
+(Note that independence of choices of $x'$ (for fixed choices of $V$)
+is a standard result in the method of acyclic models.)
 
-\begin{lemma}
-Let $\tilde{e} :  G_*^{i,m} \to \bc_*(X)$ be a chain map constructed like $e$ above, but with
-different choices of $x'$ at each step.
-(Same choice of $V$ at each step.)
-Then $e$ and $\tilde{e}$ are homotopic via a homotopy in $\bc_*(p(V)) \bullet p''(b'')$.
-Any two choices of such a first-order homotopy are second-order homotopic, and so on, 
-to arbitrary order.
-\end{lemma}
+%\begin{lemma}
+%Let $\tilde{e} :  G_*^{i,m} \to \bc_*(X)$ be a chain map constructed like $e$ above, but with
+%different choices of $x'$ at each step.
+%(Same choice of $V$ at each step.)
+%Then $e$ and $\tilde{e}$ are homotopic via a homotopy in $\bc_*(p(V)) \bullet p''(b'')$.
+%Any two choices of such a first-order homotopy are second-order homotopic, and so on, 
+%to arbitrary order.
+%\end{lemma}
 
-\begin{proof}
-This is a standard result in the method of acyclic models.
-\nn{should we say more here?}
-\nn{maybe this lemma should be subsumed into the next lemma.  probably it should.}
-\end{proof}
+%\begin{proof}
+%This is a standard result in the method of acyclic models.
+%\nn{should we say more here?}
+%\nn{maybe this lemma should be subsumed into the next lemma.  probably it should.}
+%\end{proof}
 
 \begin{lemma} \label{m_order_hty}
 Let $\tilde{e} :  G_*^{i,m} \to \bc_*(X)$ be a chain map constructed like $e$ above, but with
@@ -288,7 +290,7 @@ There are splittings
 where $p'_1 \in CD_*(V_1)$, $p''_1 \in CD_*(X\setmin V_1)$, 
 $b'_1 \in \bc_*(V_1)$, $b''_1 \in \bc_*(X\setmin V_1)$, 
 $f'_1 \in \bc_*(p(V_1))$, and $f''_1 \in \bc_*(p(X\setmin V_1))$.
-Inductively, $\bd f'_1 = 0$.
+Inductively, $\bd f'_1 = 0$ and $f_1'' = p_1''(b_1'')$.
 Choose $x'_1 \in \bc_*(p(V_1))$ so that $\bd x'_1 = f'_1$.
 Define 
 \[
@@ -318,7 +320,7 @@ Define
 The next lemma says that for all generators $p\ot b$ we can choose $j$ large enough so that
 $g_j(p)\ot b$ lies in $G_*^{i,m}$, for arbitrary $m$ and sufficiently large $i$ 
 (depending on $b$, $n = \deg(p)$ and $m$).
-\nn{not the same $n$ as the dimension of the manifolds; fix this}
+(Note: Don't confuse this $n$ with the top dimension $n$ used elsewhere in this paper.)
 
 \begin{lemma} \label{Gim_approx}
 Fix a blob diagram $b$, a homotopy order $m$ and a degree $n$ for $CD_*(X)$.
@@ -345,7 +347,7 @@ Choose $k = k_{bmn}$ such that
 \]
 and
 \[
-	n\cdot ( 4^t \delta_i) < \ep_k/3 .
+	n\cdot ( \phi_t \delta_i) < \ep_k/3 .
 \]
 Let $i \ge k_{bmn}$.
 Choose $j = j_i$ so that
