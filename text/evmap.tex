@@ -334,11 +334,13 @@ Let $c$ be a subset of the blobs of $b$.
 There exists $l > 0$ such that $\Nbd_u(c)$ is homeomorphic to $|c|$ for all $u < l$ 
 and all such $c$.
 (Here we are using a piecewise smoothness assumption for $\bd c$, and also
-the fact that $\bd c$ is collared.)
+the fact that $\bd c$ is collared.
+We need to consider all such $c$ because all generators appearing in
+iterated boundaries of must be in $G_*^{i,m}$.)
 
 Let $r = \deg(b)$ and 
 \[
-	t = r+n+m+1 .
+	t = r+n+m+1 = \deg(p\ot b) + m + 1.
 \]
 
 Choose $k = k_{bmn}$ such that
@@ -347,17 +349,50 @@ Choose $k = k_{bmn}$ such that
 \]
 and
 \[
-	n\cdot ( \phi_t \delta_i) < \ep_k/3 .
+	n\cdot (2 (\phi_t + 1) \delta_k) < \ep_k .
 \]
 Let $i \ge k_{bmn}$.
 Choose $j = j_i$ so that
 \[
-	t\gamma_j < \ep_i/3
+	\gamma_j < \delta_i
 \]
-and also so that $\gamma_j$ is less than the constant $\eta(X, m, k)$ of Lemma \ref{xxyy5}.
+and also so that $\phi_t \gamma_j$ is less than the constant $\rho(M)$ of Lemma \ref{xxzz11}.
 
-\nn{...}
+Let $j \ge j_i$ and $p\in CD_n(X)$.
+Let $q$ be a generator appearing in $g_j(p)$.
+Note that $|q|$ is contained in a union of $n$ elements of the cover $\cU_j$,
+which implies that $|q|$ is contained in a union of $n$ metric balls of radius $\delta_i$.
+We must show that $q\ot b \in G_*^{i,m}$, which means finding neighborhoods
+$V_0,\ldots,V_m \sub X$ of $|q|\cup |b|$ such that each $V_j$
+is homeomorphic to a disjoint union of balls and
+\[
+	N_{i,n}(q\ot b) \subeq V_0 \subeq N_{i,n+1}(q\ot b)
+			\subeq V_1 \subeq \cdots \subeq V_m \subeq N_{i,t}(q\ot b) .
+\]
+By repeated applications of Lemma \ref{xx2phi} we can find neighborhoods $U_0,\ldots,U_m$
+of $|q|$, each homeomorphic to a disjoint union of balls, with
+\[
+	\Nbd_{\phi_{n+l} \delta_i}(|q|) \subeq U_l \subeq \Nbd_{\phi_{n+l+1} \delta_i}(|q|) .
+\]
+The inequalities above \nn{give ref} guarantee that we can find $u_l$ with 
+\[
+	(n+l)\ep_i \le u_l \le (n+l+1)\ep_i
+\]
+such that each component of $U_l$ is either disjoint from $\Nbd_{u_l}(|b|)$ or contained in 
+$\Nbd_{u_l}(|b|)$.
+This is because there are at most $n$ components of $U_l$, and each component
+has radius $\le (\phi_t + 1) \delta_i$.
+It follows that
+\[
+	V_l \deq \Nbd_{u_l}(|b|) \cup U_l
+\]
+is homeomorphic to a disjoint union of balls and satisfies
+\[
+	N_{i,n+l}(q\ot b) \subeq V_l \subeq N_{i,n+l+1}(q\ot b) .
+\]
 
+The same argument shows that each generator involved in iterated boundaries of $q\ot b$
+is in $G_*^{i,m}$.
 \end{proof}
 
 In the next few lemmas we have made no effort to optimize the various bounds.
@@ -437,7 +472,6 @@ of balls, and such that
 \]
 where $t = \phi_{k-1}(2\phi_{k-1}+2)r + \phi_{k-1} r$.
 \end{proof}
-
 
 
 \medskip
