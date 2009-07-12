@@ -165,7 +165,7 @@ Choose a monotone decreasing sequence of positive real numbers $\ep_i$ convergin
 Choose another sequence of positive real numbers $\delta_i$ such that $\delta_i/\ep_i$
 converges monotonically to zero (e.g.\ $\delta_i = \ep_i^2$).
 Let $\phi_l$ be an increasing sequence of positive numbers
-satisfying the inequalities of Lemma \ref{xx2phi} (e.g. $\phi_l = 2^{3^{l-1}}$).
+satisfying the inequalities of Lemma \ref{xx2phi}.
 Given a generator $p\otimes b$ of $CD_*(X)\otimes \bc_*(X)$ and non-negative integers $i$ and $l$
 define
 \[
@@ -231,7 +231,7 @@ unambiguous.)
 We have $\deg(p'') = 0$ and, inductively, $f'' = p''(b'')$.
 %We also have that $\deg(b'') = 0 = \deg(p'')$.
 Choose $x' \in \bc_*(p(V))$ such that $\bd x' = f'$.
-This is possible by \ref{bcontract}, \ref{disjunion} and \nn{prop. 2 of local relations (isotopy)}.
+This is possible by \ref{bcontract}, \ref{disjunion} and \nn{property 2 of local relations (isotopy)}.
 Finally, define
 \[
 	e(p\ot b) \deq x' \bullet p''(b'') .
@@ -374,70 +374,71 @@ Then $\Nbd_a(S)$ is homeomorphic to a ball for $a \ge 2r$.
 
 \begin{proof} \label{xxyy2}
 Let $S$ be contained in $B_r(y)$, $y \in \ebb^n$.
-Note that $\Nbd_a(S) \sup B_r(y)$.
-Simple applications of the triangle inequality show that $\Nbd_a(S)$ 
-is star-shaped with respect to $y$.
+Note that if $a \ge 2r$ then $\Nbd_a(S) \sup B_r(y)$.
+Let $z\in \Nbd_a(S) \setmin B_r(y)$.
+Consider the triangle
+\nn{give figure?} with vertices $z$, $y$ and $s$ with $s\in S$.
+The length of the edge $yz$ is greater than $r$ which is greater
+than the length of the edge $ys$.
+It follows that the angle at $z$ is less than $\pi/2$ (less than $\pi/3$, in fact),
+which means that points on the edge $yz$ near $z$ are closer to $s$ than $z$ is,
+which implies that these points are also in $\Nbd_a(S)$.
+Hence $\Nbd_a(S)$ is star-shaped with respect to $y$.
+\end{proof}
+
+If we replace $\ebb^n$ above with an arbitrary compact Riemannian manifold $M$,
+the same result holds, so long as $a$ is not too large:
+
+\begin{lemma} \label{xxzz11}
+Let $M$ be a compact Riemannian manifold.
+Then there is a constant $\rho(M)$ such that for all
+subsets $S\sub M$ of radius $\le r$ and all $a$ such that $2r \le a \le \rho(M)$,
+$\Nbd_a(S)$ is homeomorphic to a ball.
+\end{lemma}
+
+\begin{proof}
+Choose $\rho = \rho(M)$ such that $3\rho/2$ is less than the radius of injectivity of $M$,
+and also so that for any point $y\in M$ the geodesic coordinates of radius $3\rho/2$ around
+$y$ distort angles by only a small amount.
+Now the argument of the previous lemma works.
 \end{proof}
 
 
-\begin{lemma} \label{xxyy3}
-Let $S \sub \ebb^n$ be contained in a union (not necessarily disjoint)
+
+\begin{lemma} \label{xx2phi}
+Let $S \sub M$ be contained in a union (not necessarily disjoint)
 of $k$ metric balls of radius $r$.
-Then there exists a neighborhood $U$ of $S$ such that $U$ is homeomorphic to a disjoint union
-of balls and
+Let $\phi_1, \phi_2, \ldots$ be an increasing sequence of real numbers satisfying
+$\phi_1 \ge 2$ and $\phi_{i+1} \ge \phi_i(2\phi_i + 2) + \phi_i$.
+For convenience, let $\phi_0 = 0$.
+Assume also that $\phi_k r \le \rho(M)$.
+Then there exists a neighborhood $U$ of $S$,
+homeomorphic to a disjoint union of balls, such that
 \[
-	\Nbd_{2r}(S) \subeq U \subeq \Nbd_{4^k r}(S) .
+	\Nbd_{\phi_{k-1} r}(S) \subeq U \subeq \Nbd_{\phi_k r}(S) .
 \]
 \end{lemma}
 
 \begin{proof}
+For $k=1$ this follows from Lemma \ref{xxzz11}.
+Assume inductively that it holds for $k-1$.
 Partition $S$ into $k$ disjoint subsets $S_1,\ldots,S_k$, each of radius $\le r$.
-By Lemma \ref{xxyy2}, each $\Nbd(S_i)$ is homeomorphic to a ball.
-If these balls are disjoint (always the case if $k=1$) we are done.
-If two (or more) of them intersect, then $S$ is contained in a union of $k-1$ metric
-balls of radius $4r$.
-By induction, there is a neighborhood $U$ of $S$ such that
+By Lemma \ref{xxzz11}, each $\Nbd_{\phi_{k-1} r}(S_i)$ is homeomorphic to a ball.
+If these balls are disjoint, let $U$ be their union.
+Otherwise, assume WLOG that $S_{k-1}$ and $S_k$ are distance less than $2\phi_{k-1}r$ apart.
+Let $R_i = \Nbd_{\phi_{k-1} r}(S_i)$ for $i = 1,\ldots,k-2$ 
+and $R_{k-1} = \Nbd_{\phi_{k-1} r}(S_{k-1})\cup \Nbd_{\phi_{k-1} r}(S_k)$.
+Each $R_i$ is contained in a metric ball of radius $r' \deq (2\phi_{k-1}+2)r$.
+By induction, there is a neighborhood $U$ of $R \deq \bigcup_i R_i$, 
+homeomorphic to a disjoint union
+of balls, and such that
 \[
-	U \subeq \Nbd_{4^{k-1}\cdot4r} .
+	U \subeq \Nbd_{\phi_{k-1}r'}(R) = \Nbd_{t}(S) \subeq \Nbd_{\phi_k r}(S) ,
 \]
+where $t = \phi_{k-1}(2\phi_{k-1}+2)r + \phi_{k-1} r$.
 \end{proof}
 
-\begin{lemma} \label{xxyy4}
-Let $S \sub \ebb^n$ be contained in a union (not necessarily disjoint)
-of $k$ metric balls of radius $r$.
-Then there exist neighborhoods $U_0, U_1, U_2, \ldots$ of $S$,
-each homeomorphic to a disjoint union of balls, such that
-\[
-	\Nbd_{2r}(S) \subeq U_0 \subeq \Nbd_{4^k r}(S)
-		\subeq U_1 \subeq \Nbd_{4^{2k} r}(S)
-		\subeq U_2 \subeq \Nbd_{4^{3k} r}(S) \cdots
-\]
-\end{lemma}
 
-\begin{proof}
-Apply Lemma \ref {xxyy3} repeatedly.
-\end{proof}
-
-\begin{lemma} \label{xxyy5}
-Let $M$ be a Riemannian $n$-manifold and positive integers $m$ and $k$.
-There exists a constant $\eta(M, m, k)$ such that for all subsets
-$S\subeq M$ which are contained in a (not necessarily disjoint) union of
-$k$ metric balls of radius $r$, $r < \eta(M, m, k)$, 
-there exist neighborhoods $U_0, U_1, \ldots, U_m$ of $S$,
-each homeomorphic to a disjoint union of balls, such that
-\[
-	\Nbd_{2r}(S) \subeq U_0 \subeq \Nbd_{4^k r}(S)
-		\subeq U_1 \subeq \Nbd_{4^{2k} r}(S) \cdots
-		\subeq U_m \subeq \Nbd_{4^{(m+1)k} r}(S) .
-\]
-
-\end{lemma}
-
-\begin{proof}
-Choose $\eta = \eta(M, m, k)$ small enough so that metric balls of radius $4^{(m+1)k} \eta$
-are injective and also have small distortion with respect to a Euclidean metric.
-Then proceed as in the proof of Lemma \ref{xxyy4}.
-\end{proof}
 
 \medskip
 
