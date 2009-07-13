@@ -107,12 +107,12 @@ Suppose that there exists $V \sub X$ such that
 \item $V$ is homeomorphic to a disjoint union of balls, and
 \item $\supp(p) \cup \supp(b) \sub V$.
 \end{enumerate}
-Let $W = X \setmin V$, and let $V' = p(V)$ and $W' = p(W)$.
+Let $W = X \setmin V$, $W' = p(W)$ and $V' = X\setmin W'$.
 We then have a factorization 
 \[
 	p = \gl(q, r),
 \]
-where $q \in CD_k(V, V')$ and $r' \in CD_0(W, W')$.
+where $q \in CD_k(V, V')$ and $r \in CD_0(W, W')$.
 We can also factorize $b = \gl(b_V, b_W)$, where $b_V\in \bc_*(V)$ and $b_W\in\bc_0(W)$.
 According to the commutative diagram of the proposition, we must have
 \[
@@ -464,6 +464,10 @@ Otherwise, assume WLOG that $S_{k-1}$ and $S_k$ are distance less than $2\phi_{k
 Let $R_i = \Nbd_{\phi_{k-1} r}(S_i)$ for $i = 1,\ldots,k-2$ 
 and $R_{k-1} = \Nbd_{\phi_{k-1} r}(S_{k-1})\cup \Nbd_{\phi_{k-1} r}(S_k)$.
 Each $R_i$ is contained in a metric ball of radius $r' \deq (2\phi_{k-1}+2)r$.
+Note that the defining inequality of the $\phi_i$ guarantees that
+\[
+	\phi_{k-1}r' = \phi_{k-1}(2\phi_{k-1}+2)r \le \phi_k r \le \rho(M) .
+\]
 By induction, there is a neighborhood $U$ of $R \deq \bigcup_i R_i$, 
 homeomorphic to a disjoint union
 of balls, and such that
