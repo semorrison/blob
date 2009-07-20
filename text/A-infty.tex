@@ -31,6 +31,9 @@ such that
 
 Appendix \ref{sec:comparing-A-infty} explains the translation between this definition and the usual one expressed in terms of `associativity up to higher homotopy', as in \cite{MR1854636}. (In this version of the paper, that appendix is incomplete, however.)
 
+\nn{should say something about objects and restrictions of maps to boundaries of intervals 
+in next paragraph.}
+
 The motivating example is `chains of maps to $M$' for some fixed target space $M$. This is a topological $A_\infty$ category $\Xi_M$ with $\Xi_M(J) = C_*(\Maps(J \to M))$. The gluing maps $\Xi_M(J) \tensor \Xi_M(J') \to \Xi_M(J \cup J')$  takes the product of singular chains, then glues maps to $M$ together; the associativity condition is automatically satisfied. The evaluation map $\ev_{J,J'} : \CD{J \to J'} \tensor \Xi_M(J) \to \Xi_M(J')$ is the composition
 \begin{align*}
 \CD{J \to J'} \tensor C_*(\Maps(J \to M)) & \to C_*(\Diff(J \to J') \times \Maps(J \to M)) \\ & \to C_*(\Maps(J' \to M)),
@@ -67,6 +70,8 @@ satisfying the same axioms given for a topological $A_\infty$ category in Defini
 
 We now define the tensor product of a left module with a right module. The notion of the self-tensor product of a bimodule is a minor variation which we'll leave to the reader.
 Our definition requires choosing a `fixed' interval, and for simplicity we'll use $[0,1]$, but you should note that the definition is equivariant with respect to diffeomorphisms of this interval.
+
+\nn{maybe should do a general interval instead of $[0,1]$.}
 
 \begin{defn}
 The tensor product of a left module $\cM$ and a right module $\cN$ over a topological $A_\infty$ category $\cC$, denoted $\cM \tensor_{\cC} \cN$, is a vector space, which we'll specify as the limit of a certain commutative diagram. This (infinite) diagram has vertices indexed by partitions $$[0,1] = [0,x_1] \cup \cdots \cup [x_k,1]$$ and boundary conditions $$a_1, \ldots, a_k \in \Obj(\cC),$$ and arrows labeled by refinements. At each vertex put the vector space $$\cM([0,x_1],0; a_1) \tensor \cC([x_1,x_2];a_1,a_2]) \tensor \cdots \tensor \cC([x_{k-1},x_k];a_{k-1},a_k) \tensor \cN([x_k,1],1;a_k),$$ and on each arrow the corresponding gluing map. Faces of this diagram commute because the gluing maps compose associatively.
