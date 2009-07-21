@@ -200,6 +200,10 @@ We define a map
 \end{eqnarray*}
 \nn{need to say something somewhere about pinched boundary convention for products}
 We will call $\psi_{Y,J}$ an extended isotopy.
+\nn{or extended homeomorphism?  see below.}
+\nn{maybe remark that in some examples (e.g.\ ones based on sub cell complexes) 
+extended isotopies are also plain isotopies, so
+no extension necessary}
 It can be thought of as the action of the inverse of
 a map which projects a collar neighborhood of $Y$ onto $Y$.
 (This sort of collapse map is the other sense of ``pseudo-isotopy".)
@@ -213,6 +217,47 @@ to the identity on $\bd X$ and is pseudo-isotopic or extended isotopic (rel boun
 Then $f$ acts trivially on $\cC(X)$.}
 
 \nn{need to rephrase this, since extended isotopies don't correspond to homeomorphisms.}
+
+\smallskip
+
+For $A_\infty$ $n$-categories, we replace
+isotopy invariance with the requirement that families of homeomorphisms act.
+For the moment, assume that our $n$-morphisms are enriched over chain complexes.
+
+\xxpar{Families of homeomorphisms act.}
+{For each $n$-ball $X$ and each $c\in \cC(\bd X)$ we have a map of chain complexes
+\[
+	C_*(\Homeo_\bd(X))\ot \cC(X; c) \to \cC(X; c) .
+\]
+Here $C_*$ means singular chains and $\Homeo_\bd(X)$ is the space of homeomorphisms of $X$
+which fix $\bd X$.
+These action maps are required to be associative up to homotopy
+\nn{iterated homotopy?}, and also compatible with composition (gluing) in the sense that
+a diagram like the one in Proposition \ref{CDprop} commutes.
+\nn{repeat diagram here?}
+\nn{restate this with $\Homeo(X\to X')$?  what about boundary fixing property?}}
+
+We should strengthen the above axiom to apply to families of extended homeomorphisms.
+To do this we need to explain extended homeomorphisms form a space.
+Roughly, the set of $n{-}1$-balls in the boundary of an $n$-ball has a natural topology,
+and we can replace the class of all intervals $J$ with intervals contained in $\r$.
+\nn{need to also say something about collaring homeomorphisms.}
+\nn{this paragraph needs work.}
+
+Note that if take homology of chain complexes, we turn an $A_\infty$ $n$-category
+into a plain $n$-category.
+\nn{say more here?}
+In the other direction, if we enrich over topological spaces instead of chain complexes,
+we get a space version of an $A_\infty$ $n$-category, with $\Homeo_\bd(X)$ acting 
+instead of  $C_*(\Homeo_\bd(X))$.
+Taking singular chains converts a space-type $A_\infty$ $n$-category into a chain complex
+type $A_\infty$ $n$-category.
+
+
+
+
+
+
 
 
 
