@@ -1,0 +1,171 @@
+%!TEX root = ../blob1.tex
+
+\section{Introduction}
+
+[Outline for intro]
+\begin{itemize}
+\item Starting point: TQFTs via fields and local relations.
+This gives a satisfactory treatment for semisimple TQFTs
+(i.e.\ TQFTs for which the cylinder 1-category associated to an
+$n{-}1$-manifold $Y$ is semisimple for all $Y$).
+\item For non-semiemple TQFTs, this approach is less satisfactory.
+Our main motivating example (though we will not develop it in this paper)
+is the $4{+}1$-dimensional TQFT associated to Khovanov homology.
+It associates a bigraded vector space $A_{Kh}(W^4, L)$ to a 4-manifold $W$ together
+with a link $L \subset \bd W$.
+The original Khovanov homology of a link in $S^3$ is recovered as $A_{Kh}(B^4, L)$.
+\item How would we go about computing $A_{Kh}(W^4, L)$?
+For $A_{Kh}(B^4, L)$, the main tool is the exact triangle (long exact sequence)
+\nn{... $L_1, L_2, L_3$}.
+Unfortunately, the exactness breaks if we glue $B^4$ to itself and attempt
+to compute $A_{Kh}(S^1\times B^3, L)$.
+According to the gluing theorem for TQFTs-via-fields, gluing along $B^3 \subset \bd B^4$
+corresponds to taking a coend (self tensor product) over the cylinder category
+associated to $B^3$ (with appropriate boundary conditions).
+The coend is not an exact functor, so the exactness of the triangle breaks.
+\item The obvious solution to this problem is to replace the coend with its derived counterpart.
+This presumably works fine for $S^1\times B^3$ (the answer being the Hochschild homology
+of an appropriate bimodule), but for more complicated 4-manifolds this leaves much to be desired.
+If we build our manifold up via a handle decomposition, the computation
+would be a sequence of derived coends.
+A different handle decomposition of the same manifold would yield a different
+sequence of derived coends.
+To show that our definition in terms of derived coends is well-defined, we
+would need to show that the above two sequences of derived coends yield the same answer.
+This is probably not easy to do.
+\item Instead, we would prefer a definition for a derived version of $A_{Kh}(W^4, L)$
+which is manifestly invariant.
+(That is, a definition that does not
+involve choosing a decomposition of $W$.
+After all, one of the virtues of our starting point --- TQFTs via field and local relations ---
+is that it has just this sort of manifest invariance.)
+\item The solution is to replace $A_{Kh}(W^4, L)$, which is a quotient
+\[
+ \text{linear combinations of fields} \;\big/\; \text{local relations} ,
+\]
+with an appropriately free resolution (the ``blob complex")
+\[
+	\cdots\to \bc_2(W, L) \to \bc_1(W, L) \to \bc_0(W, L) .
+\]
+Here $\bc_0$ is linear combinations of fields on $W$,
+$\bc_1$ is linear combinations of local relations on $W$,
+$\bc_2$ is linear combinations of relations amongst relations on $W$,
+and so on.
+\item None of the above ideas depend on the details of the Khovanov homology example,
+so we develop the general theory in the paper and postpone specific applications
+to later papers.
+\item The blob complex enjoys the following nice properties \nn{...}
+\end{itemize}
+
+\bigskip
+\hrule
+\bigskip
+
+We then show that blob homology enjoys the following
+\ref{property:gluing} properties.
+
+\begin{property}[Functoriality]
+\label{property:functoriality}%
+Blob homology is functorial with respect to diffeomorphisms. That is, fixing an $n$-dimensional system of fields $\cF$ and local relations $\cU$, the association
+\begin{equation*}
+X \mapsto \bc_*^{\cF,\cU}(X)
+\end{equation*}
+is a functor from $n$-manifolds and diffeomorphisms between them to chain complexes and isomorphisms between them.
+\end{property}
+
+\begin{property}[Disjoint union]
+\label{property:disjoint-union}
+The blob complex of a disjoint union is naturally the tensor product of the blob complexes.
+\begin{equation*}
+\bc_*(X_1 \du X_2) \iso \bc_*(X_1) \tensor \bc_*(X_2)
+\end{equation*}
+\end{property}
+
+\begin{property}[A map for gluing]
+\label{property:gluing-map}%
+If $X_1$ and $X_2$ are $n$-manifolds, with $Y$ a codimension $0$-submanifold of $\bdy X_1$, and $Y^{\text{op}}$ a codimension $0$-submanifold of $\bdy X_2$,
+there is a chain map
+\begin{equation*}
+\gl_Y: \bc_*(X_1) \tensor \bc_*(X_2) \to \bc_*(X_1 \cup_Y X_2).
+\end{equation*}
+\end{property}
+
+\begin{property}[Contractibility]
+\label{property:contractibility}%
+\todo{Err, requires a splitting?}
+The blob complex for an $n$-category on an $n$-ball is quasi-isomorphic to its $0$-th homology.
+\begin{equation}
+\xymatrix{\bc_*^{\cC}(B^n) \ar[r]^{\iso}_{\text{qi}} & H_0(\bc_*^{\cC}(B^n))}
+\end{equation}
+\todo{Say that this is just the original $n$-category?}
+\end{property}
+
+\begin{property}[Skein modules]
+\label{property:skein-modules}%
+The $0$-th blob homology of $X$ is the usual 
+(dual) TQFT Hilbert space (a.k.a.\ skein module) associated to $X$
+by $(\cF,\cU)$. (See \S \ref{sec:local-relations}.)
+\begin{equation*}
+H_0(\bc_*^{\cF,\cU}(X)) \iso A^{\cF,\cU}(X)
+\end{equation*}
+\end{property}
+
+\begin{property}[Hochschild homology when $X=S^1$]
+\label{property:hochschild}%
+The blob complex for a $1$-category $\cC$ on the circle is
+quasi-isomorphic to the Hochschild complex.
+\begin{equation*}
+\xymatrix{\bc_*^{\cC}(S^1) \ar[r]^{\iso}_{\text{qi}} & HC_*(\cC)}
+\end{equation*}
+\end{property}
+
+\begin{property}[Evaluation map]
+\label{property:evaluation}%
+There is an `evaluation' chain map
+\begin{equation*}
+\ev_X: \CD{X} \tensor \bc_*(X) \to \bc_*(X).
+\end{equation*}
+(Here $\CD{X}$ is the singular chain complex of the space of diffeomorphisms of $X$, fixed on $\bdy X$.)
+
+Restricted to $C_0(\Diff(X))$ this is just the action of diffeomorphisms described in Property \ref{property:functoriality}. Further, for
+any codimension $1$-submanifold $Y \subset X$ dividing $X$ into $X_1 \cup_Y X_2$, the following diagram
+(using the gluing maps described in Property \ref{property:gluing-map}) commutes.
+\begin{equation*}
+\xymatrix{
+     \CD{X} \otimes \bc_*(X) \ar[r]^{\ev_X}    & \bc_*(X) \\
+     \CD{X_1} \otimes \CD{X_2} \otimes \bc_*(X_1) \otimes \bc_*(X_2)
+        \ar@/_4ex/[r]_{\ev_{X_1} \otimes \ev_{X_2}}  \ar[u]^{\gl^{\Diff}_Y \otimes \gl_Y}  &
+            \bc_*(X_1) \otimes \bc_*(X_2) \ar[u]_{\gl_Y}
+}
+\end{equation*}
+\nn{should probably say something about associativity here (or not?)}
+\end{property}
+
+
+\begin{property}[Gluing formula]
+\label{property:gluing}%
+\mbox{}% <-- gets the indenting right
+\begin{itemize}
+\item For any $(n-1)$-manifold $Y$, the blob homology of $Y \times I$ is
+naturally an $A_\infty$ category. % We'll write $\bc_*(Y)$ for $\bc_*(Y \times I)$ below.
+
+\item For any $n$-manifold $X$, with $Y$ a codimension $0$-submanifold of its boundary, the blob homology of $X$ is naturally an
+$A_\infty$ module for $\bc_*(Y \times I)$.
+
+\item For any $n$-manifold $X$, with $Y \cup Y^{\text{op}}$ a codimension
+$0$-submanifold of its boundary, the blob homology of $X'$, obtained from
+$X$ by gluing along $Y$, is the $A_\infty$ self-tensor product of
+$\bc_*(X)$ as an $\bc_*(Y \times I)$-bimodule.
+\begin{equation*}
+\bc_*(X') \iso \bc_*(X) \Tensor^{A_\infty}_{\mathclap{\bc_*(Y \times I)}} \!\!\!\!\!\!\xymatrix{ \ar@(ru,rd)@<-1ex>[]}
+\end{equation*}
+\end{itemize}
+\end{property}
+
+\nn{add product formula?  $n$-dimensional fat graph operad stuff?}
+
+Properties \ref{property:functoriality}, \ref{property:gluing-map} and \ref{property:skein-modules} will be immediate from the definition given in
+\S \ref{sec:blob-definition}, and we'll recall them at the appropriate points there. \todo{Make sure this gets done.}
+Properties \ref{property:disjoint-union} and \ref{property:contractibility} are established in \S \ref{sec:basic-properties}.
+Property \ref{property:hochschild} is established in \S \ref{sec:hochschild}, Property \ref{property:evaluation} in \S \ref{sec:evaluation},
+and Property \ref{property:gluing} in \S \ref{sec:gluing}.
