@@ -273,12 +273,74 @@ Need to explain how it relates to the old definition.}
 
 \medskip
 
-\hrule
+\nn{these examples need to be fleshed out a bit more}
+
+Examples of plain $n$-categories:
+\begin{itemize}
+
+\item Let $F$ be a closed $m$-manifold (e.g.\ a point).
+Let $T$ be a topological space.
+For $X$ a $k$-ball or $k$-sphere with $k < n$, define $\cC(X)$ to be the set of 
+all maps from $X\times F$ to $T$.
+For $X$ an $n$-ball define $\cC(X)$ to be maps from $X\times F$ to $T$ modulo
+homotopies fixed on $\bd X$.
+(Note that homotopy invariance implies isotopy invariance.)
+For $a\in \cC(X)$ define the product morphism $a\times D \in \cC(X\times D)$ to
+be $a\circ\pi_X$, where $\pi_X : X\times D \to X$ is the projection.
+
+\item We can linearize the above example as follows.
+Let $\alpha$ be an $(n{+}m{+}1)$-cocycle on $T$ with values in a ring $R$
+(e.g.\ the trivial cocycle).
+For $X$ of dimension less than $n$ define $\cC(X)$ as before.
+For $X$ an $n$-ball and $c\in \cC(\bd X)$ define $\cC(X; c)$ to be
+the $R$-module of finite linear combinations of maps from $X\times F$ to $T$,
+modulo the relation that if $a$ is homotopic to $b$ (rel boundary) via a homotopy
+$h: X\times F\times I \to T$, then $a \sim \alpha(h)b$.
+\nn{need to say something about fundamental classes, or choose $\alpha$ carefully}
+
+\item Given a traditional $n$-category $C$ (with strong duality etc.),
+define $\cC(X)$ (with $\dim(X) < n$) 
+to be the set of all $C$-labeled sub cell complexes of $X$.
+For $X$ an $n$-ball and $c\in \cC(\bd X)$, define $\cC(X)$ to finite linear
+combinations of $C$-labeled sub cell complexes of $X$
+modulo the kernel of the evaluation map.
+Define a product morphism $a\times D$ to be the product of the cell complex of $a$ with $D$,
+and with the same labeling as $a$.
+\nn{refer elsewhere for details?}
+
+\item Variation on the above examples:
+We could allow $F$ to have boundary and specify boundary conditions on $(\bd X)\times F$,
+for example product boundary conditions or take the union over all boundary conditions.
+
+\end{itemize}
+
+
+Examples of $A_\infty$ $n$-categories:
+\begin{itemize}
+
+\item Same as in example \nn{xxxx} above (fiber $F$, target space $T$),
+but we define, for an $n$-ball $X$, $\cC(X; c)$ to be the chain complex 
+$C_*(\Maps_c(X\times F))$, where $\Maps_c$ denotes continuous maps restricting to $c$ on the boundary,
+and $C_*$ denotes singular chains.
+
+\item
+Given a plain $n$-category $C$, 
+define $\cC(X; c) = \bc^C_*(X\times F; c)$, where $X$ is an $n$-ball
+and $\bc^C_*$ denotes the blob complex based on $C$.
+
+\end{itemize}
 
 \medskip
 
-\nn{to be continued...}
+Next we define [$A_\infty$] $n$-category modules (a.k.a.\ representations,
+a.k.a.\ actions).
 
+\medskip
+\hrule
+\medskip
+
+\nn{to be continued...}
+\medskip
 
 
 Stuff that remains to be done (either below or in an appendix or in a separate section or in
