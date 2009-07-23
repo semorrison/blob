@@ -27,7 +27,8 @@ model the $k$-morphisms on more complicated combinatorial polyhedra.
 We will allow our $k$-morphisms to have any shape, so long as it is homeomorphic to a $k$-ball.
 In other words,
 
-\xxpar{Morphisms (preliminary version):}{For any $k$-manifold $X$ homeomorphic 
+\xxpar{Morphisms (preliminary version):}
+{For any $k$-manifold $X$ homeomorphic 
 to a $k$-ball, we have a set of $k$-morphisms
 $\cC(X)$.}
 
@@ -35,7 +36,8 @@ Given a homeomorphism $f:X\to Y$ between such $k$-manifolds, we want a correspon
 bijection of sets $f:\cC(X)\to \cC(Y)$.
 So we replace the above with
 
-\xxpar{Morphisms:}{For each $0 \le k \le n$, we have a functor $\cC_k$ from 
+\xxpar{Morphisms:}
+{For each $0 \le k \le n$, we have a functor $\cC_k$ from 
 the category of manifolds homeomorphic to the $k$-ball and 
 homeomorphisms to the category of sets and bijections.}
 
@@ -144,14 +146,18 @@ If $k < n$ we require that $\gl_Y$ is injective.
 (For $k=n$, see below.)}
 
 \xxpar{Strict associativity:}
-{The composition (gluing) maps above are strictly associative.
-It follows that given a decomposition $B = B_1\cup\cdots\cup B_m$ of a $k$-ball
-into small $k$-balls, there is a well-defined
-map from an appropriate subset of $\cC(B_1)\times\cdots\times\cC(B_m)$ to $\cC(B)$,
-and these various $m$-fold composition maps satisfy an
-operad-type associativity condition.}
+{The composition (gluing) maps above are strictly associative.}
 
-\nn{above maybe needs some work}
+The above two axioms are equivalent to the following axiom,
+which we state in slightly vague form.
+
+\xxpar{Multi-composition:}
+{Given any decomposition $B = B_1\cup\cdots\cup B_m$ of a $k$-ball
+into small $k$-balls, there is a 
+map from an appropriate subset (like a fibered product) 
+of $\cC(B_1)\times\cdots\times\cC(B_m)$ to $\cC(B)$,
+and these various $m$-fold composition maps satisfy an
+operad-type strict associativity condition.}
 
 The next axiom is related to identity morphisms, though that might not be immediately obvious.
 
@@ -306,11 +312,19 @@ combinations of $C$-labeled sub cell complexes of $X$
 modulo the kernel of the evaluation map.
 Define a product morphism $a\times D$ to be the product of the cell complex of $a$ with $D$,
 and with the same labeling as $a$.
+More generally, start with an $n{+}m$-category $C$ and a closed $m$-manifold $F$.
+Define $\cC(X)$, for $\dim(X) < n$,
+to be the set of all $C$-labeled sub cell complexes of $X\times F$.
+Define $\cC(X; c)$, for $X$ an $n$-ball,
+to be the dual Hilbert space $A(X\times F; c)$.
 \nn{refer elsewhere for details?}
 
 \item Variation on the above examples:
 We could allow $F$ to have boundary and specify boundary conditions on $(\bd X)\times F$,
 for example product boundary conditions or take the union over all boundary conditions.
+\nn{maybe should not emphasize this case, since it's ``better" in some sense
+to think of these guys as affording a representation
+of the $n{+}1$-category associated to $\bd F$.}
 
 \end{itemize}
 
@@ -334,6 +348,65 @@ and $\bc^C_*$ denotes the blob complex based on $C$.
 
 Next we define [$A_\infty$] $n$-category modules (a.k.a.\ representations,
 a.k.a.\ actions).
+The definition will be very similar to that of $n$-categories.
+
+Out motivating example comes from an $(m{-}n{+}1)$-dimensional manifold $W$ with boundary
+in the context of an $m{+}1$-dimensional TQFT.
+Such a $W$ gives rise to a module for the $n$-category associated to $\bd W$.
+This will be explained in more detail as we present the axioms.
+
+Fix an $n$-category $\cC$.
+
+Define a {\it marked $k$-ball} to be a pair $(B, N)$ homeomorphic to the pair
+(standard $k$-ball, northern hemisphere in boundary of standard $k$-ball).
+We call $B$ the ball and $N$ the marking.
+A homeomorphism between marked $k$-balls is a homeomorphism of balls which
+restricts to a homeomorphism of markings.
+
+\xxpar{Module morphisms}
+{For each $0 \le k \le n$, we have a functor $\cM_k$ from 
+the category of marked $k$-balls and 
+homeomorphisms to the category of sets and bijections.}
+
+(As with $n$-categories, we will usually omit the subscript $k$.)
+
+In our example, let $\cM(B, N) = \cD((B\times \bd W)\cup_{N\times \bd W} (N\times W))$, 
+where $\cD$ is the fields functor for the TQFT.
+
+Define the boundary of a marked ball $(B, N)$ to be the pair $(\bd B \setmin N, \bd N)$.
+Call such a thing a {marked hemisphere}.
+
+\xxpar{Module boundaries, part 1:}
+{For each $0 \le k \le n-1$, we have a functor $\cM_k$ from 
+the category of marked hemispheres (of dimension $k$) and 
+homeomorphisms to the category of sets and bijections.}
+
+\xxpar{Module boundaries, part 2:}
+{For each marked $k$-ball $M$ we have a map of sets $\bd: \cM(M)\to \cM(\bd M)$.
+These maps, for various $M$, comprise a natural transformation of functors.}
+
+Given $c\in\cM(\bd M)$, let $\cM(M; c) = \bd^{-1}(c)$.
+
+If the $n$-category $\cC$ is enriched over some other category (e.g.\ vector spaces),
+then $\cM(M; c)$ should be an object in that category for each marked $n$-ball $M$
+and $c\in \cC(\bd M)$.
+
+\xxpar{Module domain $+$ range $\to$ boundary:}
+{Let $H = M_1 \cup_E M_2$, where $H$ is a marked $k$-hemisphere ($0\le k\le n-1$),
+$B_i$ is a marked $k$-ball, and $E = B_1\cap B_2$ is a marked $k{-}1$-hemisphere.
+Let $\cM(B_1) \times_{\cM(E)} \cM(B_2)$ denote the fibered product of the 
+two maps $\bd: \cM(B_i)\to \cM(E)$.
+Then (axiom) we have an injective map
+\[
+	\gl_E : \cM(M_1) \times_{\cM(E)} \cM(M_2) \to \cM(H)
+\]
+which is natural with respect to the actions of homeomorphisms.}
+
+
+
+
+
+
 
 \medskip
 \hrule
@@ -346,7 +419,6 @@ a.k.a.\ actions).
 Stuff that remains to be done (either below or in an appendix or in a separate section or in
 a separate paper):
 \begin{itemize}
-\item modules/representations/actions (need to decide what to call them)
 \item tensor products
 \item blob complex is an example of an $A_\infty$ $n$-category
 \item fundamental $n$-groupoid is an example of an $A_\infty$ $n$-category
