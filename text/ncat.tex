@@ -357,7 +357,7 @@ Next we define [$A_\infty$] $n$-category modules (a.k.a.\ representations,
 a.k.a.\ actions).
 The definition will be very similar to that of $n$-categories.
 
-Out motivating example comes from an $(m{-}n{+}1)$-dimensional manifold $W$ with boundary
+Our motivating example comes from an $(m{-}n{+}1)$-dimensional manifold $W$ with boundary
 in the context of an $m{+}1$-dimensional TQFT.
 Such a $W$ gives rise to a module for the $n$-category associated to $\bd W$.
 This will be explained in more detail as we present the axioms.
@@ -377,16 +377,22 @@ homeomorphisms to the category of sets and bijections.}
 
 (As with $n$-categories, we will usually omit the subscript $k$.)
 
-In our example, let $\cM(B, N) = \cD((B\times \bd W)\cup_{N\times \bd W} (N\times W))$, 
-where $\cD$ is the fields functor for the TQFT.
+For example, let $\cD$ be the $m{+}1$-dimensional TQFT which assigns to a $k$-manifold $N$ the set 
+of maps from $N$ to $T$, modulo homotopy (and possibly linearized) if $k=m$.
+Let $W$ be an $(m{-}n{+}1)$-dimensional manifold with boundary.
+Let $\cC$ be the $n$-category with $\cC(X) \deq \cD(X\times \bd W)$.
+Let $\cM(B, N) \deq \cD((B\times \bd W)\cup (N\times W))$.
+(The union is along $N\times \bd W$.)
 
 Define the boundary of a marked $k$-ball $(B, N)$ to be the pair $(\bd B \setmin N, \bd N)$.
 Call such a thing a {marked $k{-}1$-hemisphere}.
 
 \xxpar{Module boundaries, part 1:}
 {For each $0 \le k \le n-1$, we have a functor $\cM_k$ from 
-the category of marked hemispheres (of dimension $k$) and 
+the category of marked $k$-hemispheres and 
 homeomorphisms to the category of sets and bijections.}
+
+In our example, let $\cM(H) \deq \cD(H\times\bd W \cup \bd H\times W)$.
 
 \xxpar{Module boundaries, part 2:}
 {For each marked $k$-ball $M$ we have a map of sets $\bd: \cM(M)\to \cM(\bd M)$.
@@ -400,9 +406,9 @@ and $c\in \cC(\bd M)$.
 
 \xxpar{Module domain $+$ range $\to$ boundary:}
 {Let $H = M_1 \cup_E M_2$, where $H$ is a marked $k$-hemisphere ($0\le k\le n-1$),
-$B_i$ is a marked $k$-ball, and $E = B_1\cap B_2$ is a marked $k{-}1$-hemisphere.
-Let $\cM(B_1) \times_{\cM(E)} \cM(B_2)$ denote the fibered product of the 
-two maps $\bd: \cM(B_i)\to \cM(E)$.
+$M_i$ is a marked $k$-ball, and $E = M_1\cap M_2$ is a marked $k{-}1$-hemisphere.
+Let $\cM(M_1) \times_{\cM(E)} \cM(M_2)$ denote the fibered product of the 
+two maps $\bd: \cM(M_i)\to \cM(E)$.
 Then (axiom) we have an injective map
 \[
 	\gl_E : \cM(M_1) \times_{\cM(E)} \cM(M_2) \to \cM(H)
@@ -421,7 +427,10 @@ a natural map from a subset of $\cM(B, N)$ to $\cC(Y)$.
 This fact will be used below.
 \nn{need to say more about splitableness/transversality in various places above}
 
-We stipulate two sorts of composition (gluing) for modules, corresponding to two ways
+In our example, the various restriction and gluing maps above come from
+restricting and gluing maps into $T$.
+
+We require two sorts of composition (gluing) for modules, corresponding to two ways
 of splitting a marked $k$-ball into two (marked or plain) $k$-balls.
 First, we can compose two module morphisms to get another module morphism.
 
@@ -534,7 +543,13 @@ a diagram like the one in Proposition \ref{CDprop} commutes.
 
 \medskip
 
-
+Note that the above axioms imply that an $n$-category module has the structure
+of an $n{-}1$-category.
+More specifically, let $J$ be a marked 1-ball, and define $\cE(X)\deq \cM(X\times J)$,
+where $X$ is a $k$-ball or $k{-}1$-sphere and in the product $X\times J$ we pinch 
+above the non-marked boundary component of $J$.
+\nn{give figure for this, or say more?}
+Then $\cE$ has the structure of an $n{-}1$-category.
 
 
 \medskip
