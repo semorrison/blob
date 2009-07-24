@@ -29,16 +29,22 @@ In other words,
 
 \xxpar{Morphisms (preliminary version):}
 {For any $k$-manifold $X$ homeomorphic 
-to a $k$-ball, we have a set of $k$-morphisms
+to the standard $k$-ball, we have a set of $k$-morphisms
 $\cC(X)$.}
 
-Given a homeomorphism $f:X\to Y$ between such $k$-manifolds, we want a corresponding
+Terminology: By ``a $k$-ball" we mean any $k$-manifold which is homeomorphic to the 
+standard $k$-ball.
+We {\it do not} assume that it is equipped with a 
+preferred homeomorphism to the standard $k$-ball.
+The same goes for ``a $k$-sphere" below.
+
+Given a homeomorphism $f:X\to Y$ between $k$-balls, we want a corresponding
 bijection of sets $f:\cC(X)\to \cC(Y)$.
 So we replace the above with
 
 \xxpar{Morphisms:}
 {For each $0 \le k \le n$, we have a functor $\cC_k$ from 
-the category of manifolds homeomorphic to the $k$-ball and 
+the category of $k$-balls and 
 homeomorphisms to the category of sets and bijections.}
 
 (Note: We usually omit the subscript $k$.)
@@ -55,6 +61,7 @@ Next we consider domains and ranges of morphisms (or, as we prefer to say, bound
 of morphisms).
 The 0-sphere is unusual among spheres in that it is disconnected.
 Correspondingly, for 1-morphisms it makes sense to distinguish between domain and range.
+(Actually, this is only true in the oriented case.)
 For $k>1$ and in the presence of strong duality the domain/range division makes less sense.
 \nn{maybe say more here; rotate disk, Frobenius reciprocity blah blah}
 We prefer to combine the domain and range into a single entity which we call the 
@@ -63,13 +70,13 @@ Morphisms are modeled on balls, so their boundaries are modeled on spheres:
 
 \xxpar{Boundaries (domain and range), part 1:}
 {For each $0 \le k \le n-1$, we have a functor $\cC_k$ from 
-the category of manifolds homeomorphic to the $k$-sphere and 
+the category of $k$-spheres and 
 homeomorphisms to the category of sets and bijections.}
 
 (In order to conserve symbols, we use the same symbol $\cC_k$ for both morphisms and boundaries.)
 
 \xxpar{Boundaries, part 2:}
-{For each $X$ homeomorphic to a $k$-ball, we have a map of sets $\bd: \cC(X)\to \cC(\bd X)$.
+{For each $k$-ball $X$, we have a map of sets $\bd: \cC(X)\to \cC(\bd X)$.
 These maps, for various $X$, comprise a natural transformation of functors.}
 
 (Note that the first ``$\bd$" above is part of the data for the category, 
@@ -78,7 +85,7 @@ while the second is the ordinary boundary of manifolds.)
 Given $c\in\cC(\bd(X))$, let $\cC(X; c) = \bd^{-1}(c)$.
 
 Most of the examples of $n$-categories we are interested in are enriched in the following sense.
-The various sets of $n$-morphisms $\cC(X; c)$, for all $X$ homeomorphic to an $n$-ball and
+The various sets of $n$-morphisms $\cC(X; c)$, for all $n$-balls $X$ and
 all $c\in \cC(\bd X)$, have the structure of an object in some auxiliary category
 (e.g.\ vector spaces, or modules over some ring, or chain complexes),
 and all the structure maps of the $n$-category should be compatible with the auxiliary
@@ -104,8 +111,8 @@ That is, given compatible domain and range, we should be able to combine them in
 the full boundary of a morphism:
 
 \xxpar{Domain $+$ range $\to$ boundary:}
-{Let $S = B_1 \cup_E B_2$, where $S$ is homeomorphic to a $k$-sphere ($0\le k\le n-1$),
-$B_i$ is homeomorphic to a $k$-ball, and $E = B_1\cap B_2$ is homeomorphic to  a $k{-}1$-sphere.
+{Let $S = B_1 \cup_E B_2$, where $S$ is a $k$-sphere ($0\le k\le n-1$),
+$B_i$ is a $k$-ball, and $E = B_1\cap B_2$ is a $k{-}1$-sphere.
 Let $\cC(B_1) \times_{\cC(E)} \cC(B_2)$ denote the fibered product of the 
 two maps $\bd: \cC(B_i)\to \cC(E)$.
 Then (axiom) we have an injective map
@@ -119,7 +126,7 @@ Let $\cC(S)_E$ denote the image of $\gl_E$.
 We have ``restriction" maps $\cC(S)_E \to \cC(B_i)$, which can be thought of as
 domain and range maps, relative to the choice of splitting $S = B_1 \cup_E B_2$.
 
-If $B$ is homeomorphic to a $k$-ball and $E \sub \bd B$ splits $\bd B$ into two $k{-}1$-balls
+If $B$ is a $k$-ball and $E \sub \bd B$ splits $\bd B$ into two $k{-}1$-balls
 as above, then we define $\cC(B)_E = \bd^{-1}(\cC(\bd B)_E)$.
 
 Next we consider composition of morphisms.
@@ -130,9 +137,9 @@ In the presence of strong duality, these $k$ distinct compositions are subsumed 
 one general type of composition which can be in any ``direction".
 
 \xxpar{Composition:}
-{Let $B = B_1 \cup_Y B_2$, where $B$, $B_1$ and $B_2$ are homeomorphic to $k$-balls ($0\le k\le n$)
-and $Y = B_1\cap B_2$ is homeomorphic to a $k{-}1$-ball.
-Let $E = \bd Y$, which is homeomorphic to a $k{-}2$-sphere.
+{Let $B = B_1 \cup_Y B_2$, where $B$, $B_1$ and $B_2$ are $k$-balls ($0\le k\le n$)
+and $Y = B_1\cap B_2$ is a $k{-}1$-ball.
+Let $E = \bd Y$, which is a $k{-}2$-sphere.
 Note that each of $B$, $B_1$ and $B_2$ has its boundary split into two $k{-}1$-balls by $E$.
 We have restriction (domain or range) maps $\cC(B_i)_E \to \cC(Y)$.
 Let $\cC(B_1)_E \times_{\cC(Y)} \cC(B_2)_E$ denote the fibered product of these two maps. 
@@ -162,7 +169,7 @@ operad-type strict associativity condition.}
 The next axiom is related to identity morphisms, though that might not be immediately obvious.
 
 \xxpar{Product (identity) morphisms:}
-{Let $X$ be homeomorphic to a $k$-ball and $D$ be homeomorphic to an $m$-ball, with $k+m \le n$.
+{Let $X$ be a $k$-ball and $D$ be an $m$-ball, with $k+m \le n$.
 Then we have a map $\cC(X)\to \cC(X\times D)$, usually denoted $a\mapsto a\times D$ for $a\in \cC(X)$.
 If $f:X\to X'$ and $\tilde{f}:X\times D \to X'\times D'$ are maps such that the diagram
 \[ \xymatrix{
@@ -180,7 +187,7 @@ homeomorphisms in the top dimension $n$, distinguishes the two cases.
 We start with the plain $n$-category case.
 
 \xxpar{Isotopy invariance in dimension $n$ (preliminary version):}
-{Let $X$ be homeomorphic to the $n$-ball and $f: X\to X$ be a homeomorphism which restricts
+{Let $X$ be an $n$-ball and $f: X\to X$ be a homeomorphism which restricts
 to the identity on $\bd X$ and is isotopic (rel boundary) to the identity.
 Then $f$ acts trivially on $\cC(X)$; $f(a) = a$ for all $a\in \cC(X)$.}
 
@@ -196,7 +203,7 @@ then these two $n{+}1$-manifolds should induce the same map from $\cC(X)$ to its
 \nn{is there a non-TQFT reason to require this?}
 
 Second, we require that product (a.k.a.\ identity) $n$-morphisms act as the identity.
-Let $X$ be an $n$-ball and $Y\sub\bd X$ be at $n{-}1$-ball.
+Let $X$ be an $n$-ball and $Y\sub\bd X$ be an $n{-}1$-ball.
 Let $J$ be a 1-ball (interval).
 We have a collaring homeomorphism $s_{Y,J}: X\cup_Y (Y\times J) \to X$.
 We define a map
@@ -218,7 +225,7 @@ a map which projects a collar neighborhood of $Y$ onto $Y$.
 The revised axiom is
 
 \xxpar{Pseudo and extended isotopy invariance in dimension $n$:}
-{Let $X$ be homeomorphic to the $n$-ball and $f: X\to X$ be a homeomorphism which restricts
+{Let $X$ be an $n$-ball and $f: X\to X$ be a homeomorphism which restricts
 to the identity on $\bd X$ and is pseudo-isotopic or extended isotopic (rel boundary) to the identity.
 Then $f$ acts trivially on $\cC(X)$.}
 
@@ -250,8 +257,8 @@ and we can replace the class of all intervals $J$ with intervals contained in $\
 \nn{need to also say something about collaring homeomorphisms.}
 \nn{this paragraph needs work.}
 
-Note that if take homology of chain complexes, we turn an $A_\infty$ $n$-category
-into a plain $n$-category.
+Note that if we take homology of chain complexes, we turn an $A_\infty$ $n$-category
+into a plain $n$-category (enriched over graded groups).
 \nn{say more here?}
 In the other direction, if we enrich over topological spaces instead of chain complexes,
 we get a space version of an $A_\infty$ $n$-category, with $\Homeo_\bd(X)$ acting 
@@ -289,7 +296,7 @@ Let $T$ be a topological space.
 For $X$ a $k$-ball or $k$-sphere with $k < n$, define $\cC(X)$ to be the set of 
 all maps from $X\times F$ to $T$.
 For $X$ an $n$-ball define $\cC(X)$ to be maps from $X\times F$ to $T$ modulo
-homotopies fixed on $\bd X$.
+homotopies fixed on $\bd X \times F$.
 (Note that homotopy invariance implies isotopy invariance.)
 For $a\in \cC(X)$ define the product morphism $a\times D \in \cC(X\times D)$ to
 be $a\circ\pi_X$, where $\pi_X : X\times D \to X$ is the projection.
@@ -320,7 +327,7 @@ to be the dual Hilbert space $A(X\times F; c)$.
 \nn{refer elsewhere for details?}
 
 \item Variation on the above examples:
-We could allow $F$ to have boundary and specify boundary conditions on $(\bd X)\times F$,
+We could allow $F$ to have boundary and specify boundary conditions on $X\times \bd F$,
 for example product boundary conditions or take the union over all boundary conditions.
 \nn{maybe should not emphasize this case, since it's ``better" in some sense
 to think of these guys as affording a representation
@@ -373,8 +380,8 @@ homeomorphisms to the category of sets and bijections.}
 In our example, let $\cM(B, N) = \cD((B\times \bd W)\cup_{N\times \bd W} (N\times W))$, 
 where $\cD$ is the fields functor for the TQFT.
 
-Define the boundary of a marked ball $(B, N)$ to be the pair $(\bd B \setmin N, \bd N)$.
-Call such a thing a {marked hemisphere}.
+Define the boundary of a marked $k$-ball $(B, N)$ to be the pair $(\bd B \setmin N, \bd N)$.
+Call such a thing a {marked $k{-}1$-hemisphere}.
 
 \xxpar{Module boundaries, part 1:}
 {For each $0 \le k \le n-1$, we have a functor $\cM_k$ from 
@@ -402,8 +409,130 @@ Then (axiom) we have an injective map
 \]
 which is natural with respect to the actions of homeomorphisms.}
 
+\xxpar{Axiom yet to be named:}
+{For each marked $k$-hemisphere $H$ there is a restriction map
+$\cM(H)\to \cC(H)$.  
+($\cC(H)$ means apply $\cC$ to the underlying $k$-ball of $H$.)
+These maps comprise a natural transformation of functors.}
 
+Note that combining the various boundary and restriction maps above
+we have for each marked $k$-ball $(B, N)$ and each $k{-}1$-ball $Y\sub \bd B \setmin N$
+a natural map from a subset of $\cM(B, N)$ to $\cC(Y)$.
+This fact will be used below.
+\nn{need to say more about splitableness/transversality in various places above}
 
+We stipulate two sorts of composition (gluing) for modules, corresponding to two ways
+of splitting a marked $k$-ball into two (marked or plain) $k$-balls.
+First, we can compose two module morphisms to get another module morphism.
+
+\nn{need figures for next two axioms}
+
+\xxpar{Module composition:}
+{Let $M = M_1 \cup_Y M_2$, where $M$, $M_1$ and $M_2$ are marked $k$-balls ($0\le k\le n$)
+and $Y = M_1\cap M_2$ is a marked $k{-}1$-ball.
+Let $E = \bd Y$, which is a marked $k{-}2$-hemisphere.
+Note that each of $M$, $M_1$ and $M_2$ has its boundary split into two marked $k{-}1$-balls by $E$.
+We have restriction (domain or range) maps $\cM(M_i)_E \to \cM(Y)$.
+Let $\cM(M_1)_E \times_{\cM(Y)} \cM(M_2)_E$ denote the fibered product of these two maps. 
+Then (axiom) we have a map
+\[
+	\gl_Y : \cM(M_1)_E \times_{\cM(Y)} \cM(M_2)_E \to \cM(M)_E
+\]
+which is natural with respect to the actions of homeomorphisms, and also compatible with restrictions
+to the intersection of the boundaries of $M$ and $M_i$.
+If $k < n$ we require that $\gl_Y$ is injective.
+(For $k=n$, see below.)}
+
+Second, we can compose an $n$-category morphism with a module morphism to get another
+module morphism.
+We'll call this the action map to distinguish it from the other kind of composition.
+
+\xxpar{$n$-category action:}
+{Let $M = X \cup_Y M'$, where $M$ and $M'$ are marked $k$-balls ($0\le k\le n$),
+$X$ is a plain $k$-ball,
+and $Y = X\cap M'$ is a $k{-}1$-ball.
+Let $E = \bd Y$, which is a $k{-}2$-sphere.
+We have restriction maps $\cM(M')_E \to \cC(Y)$ and $\cC(X)_E\to \cC(Y)$.
+Let $\cC(X)_E \times_{\cC(Y)} \cM(M')_E$ denote the fibered product of these two maps. 
+Then (axiom) we have a map
+\[
+	\gl_Y :\cC(X)_E \times_{\cC(Y)} \cM(M')_E \to \cM(M)_E
+\]
+which is natural with respect to the actions of homeomorphisms, and also compatible with restrictions
+to the intersection of the boundaries of $X$ and $M'$.
+If $k < n$ we require that $\gl_Y$ is injective.
+(For $k=n$, see below.)}
+
+\xxpar{Module strict associativity:}
+{The composition and action maps above are strictly associative.}
+
+The above two axioms are equivalent to the following axiom,
+which we state in slightly vague form.
+\nn{need figure for this}
+
+\xxpar{Module multi-composition:}
+{Given any decomposition 
+\[
+	M =  X_1 \cup\cdots\cup X_p \cup M_1\cup\cdots\cup M_q
+\]
+of a marked $k$-ball $M$
+into small (marked and plain) $k$-balls $M_i$ and $X_j$, there is a 
+map from an appropriate subset (like a fibered product) 
+of 
+\[
+	\cC(X_1)\times\cdots\times\cC(X_p) \times \cM(M_1)\times\cdots\times\cM(M_q) 
+\]
+to $\cM(M)$,
+and these various multifold composition maps satisfy an
+operad-type strict associativity condition.}
+
+(The above operad-like structure is analogous to the swiss cheese operad
+\nn{need citation}.)
+\nn{need to double-check that this is true.}
+
+\xxpar{Module product (identity) morphisms:}
+{Let $M$ be a marked $k$-ball and $D$ be a plain $m$-ball, with $k+m \le n$.
+Then we have a map $\cM(M)\to \cM(M\times D)$, usually denoted $a\mapsto a\times D$ for $a\in \cM(M)$.
+If $f:M\to M'$ and $\tilde{f}:M\times D \to M'\times D'$ are maps such that the diagram
+\[ \xymatrix{
+	M\times D \ar[r]^{\tilde{f}} \ar[d]_{\pi} & M'\times D' \ar[d]^{\pi} \\
+	M \ar[r]^{f} & M'
+} \]
+commutes, then we have $\tilde{f}(a\times D) = f(a)\times D'$.}
+
+\nn{Need to say something about compatibility with gluing (of both $M$ and $D$) above.}
+
+There are two alternatives for the next axiom, according whether we are defining
+modules for plain $n$-categories or $A_\infty$ $n$-categories.
+In the plain case we require
+
+\xxpar{Pseudo and extended isotopy invariance in dimension $n$:}
+{Let $M$ be a marked $n$-ball and $f: M\to M$ be a homeomorphism which restricts
+to the identity on $\bd M$ and is pseudo-isotopic or extended isotopic (rel boundary) to the identity.
+Then $f$ acts trivially on $\cM(M)$.}
+
+\nn{need to rephrase this, since extended isotopies don't correspond to homeomorphisms.}
+
+We emphasize that the $\bd M$ above means boundary in the marked $k$-ball sense.
+In other words, if $M = (B, N)$ then we require only that isotopies are fixed 
+on $\bd B \setmin N$.
+
+For $A_\infty$ modules we require
+
+\xxpar{Families of homeomorphisms act.}
+{For each marked $n$-ball $M$ and each $c\in \cM(\bd M)$ we have a map of chain complexes
+\[
+	C_*(\Homeo_\bd(M))\ot \cM(M; c) \to \cM(M; c) .
+\]
+Here $C_*$ means singular chains and $\Homeo_\bd(M)$ is the space of homeomorphisms of $M$
+which fix $\bd M$.
+These action maps are required to be associative up to homotopy
+\nn{iterated homotopy?}, and also compatible with composition (gluing) in the sense that
+a diagram like the one in Proposition \ref{CDprop} commutes.
+\nn{repeat diagram here?}
+\nn{restate this with $\Homeo(M\to M')$?  what about boundary fixing property?}}
+
+\medskip
 
 
 
