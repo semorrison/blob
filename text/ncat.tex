@@ -566,12 +566,15 @@ or coends).
 
 \nn{start with (less general) tensor products; maybe change this later}
 
-Define a {\it doubly marked $k$-ball} to be a triple $(B, N, N')$, where $B$ is a $k$-ball
-and $N$ and $N'$ are disjoint $k{-}1$-balls in $\bd B$.
-
 Let $\cM$ and $\cM'$ be modules for an $n$-category $\cC$.
 (If $k=1$ and manifolds are oriented, then one should be 
 a left module and the other a right module.)
+We will define an $n{-}1$-category $\cM\ot_\cC\cM'$, which depend (functorially)
+on a choice of 1-ball (interval) $J$.
+
+Define a {\it doubly marked $k$-ball} to be a triple $(B, N, N')$, where $B$ is a $k$-ball
+and $N$ and $N'$ are disjoint $k{-}1$-balls in $\bd B$.
+
 Let $D = (B, N, N')$ be a doubly marked $k$-ball, $1\le k \le n$.
 We will define a set $\cM\ot_\cC\cM'(D)$.
 (If $k = n$ and our $k$-categories are enriched, then
@@ -596,7 +599,7 @@ morphism from $x$ to $y$ if and only if $x$ is a refinement of $y$.)
 $\cC$, $\cM$ and $\cM'$ determine 
 a functor $\psi$ from $\cJ(D)$ to the category of sets 
 (possibly with additional structure if $k=n$).
-For a decomposition $x = (X_a, M_b, M'_c)$ in $\cJ(D)$, define $\psi(x)$ to subset
+For a decomposition $x = (X_a, M_b, M'_c)$ in $\cJ(D)$, define $\psi(x)$ to be the subset
 \[
 	\psi(x) \sub (\prod_a \cC(X_a)) \prod (\prod_b \cM(M_b)) \prod (\prod_c \cM'(M'_c))
 \]
@@ -611,10 +614,54 @@ In other words, for each decomposition $x$ there is a map
 $\psi(x)\to \cM\ot_\cC\cM'(D)$, these maps are compatible with the refinement maps
 above, and $\cM\ot_\cC\cM'(D)$ is universal with respect to these properties.
 
+Define a {\it marked $k$-annulus} to be a manifold homeomorphic
+to $S^{k-1}\times I$, with its entire boundary ``marked".
+Define the boundary of a doubly marked $k$-ball $(B, N, N')$ to be the marked
+$k{-}1$-annulus $\bd B \setmin(N\cup N')$.
+
+Using a colimit construction similar to the one above, we can define a set
+$\cM\ot_\cC\cM'(A)$ for any marked $k$-annulus $A$ (for $k < n$).
+
+$\cM\ot_\cC\cM'$ is (among other things) a functor from the category of 
+doubly marked $k$-balls ($k\le n$) and homeomorphisms to the category of sets.
+We have other functors, also denoted $\cM\ot_\cC\cM'$, from the category of 
+marked $k$-annuli ($k < n$) and homeomorphisms to the category of sets.
+
+For each marked $k$-ball $D$ there is a restriction map
+\[
+	\bd : \cM\ot_\cC\cM(D) \to \cM\ot_\cC\cM(\bd D) .
+\]
+These maps comprise a natural transformation of functors.
+\nn{possible small problem: might need to define $\cM$ of a singly marked annulus}
+
+For $c \in \cM\ot_\cC\cM(\bd D)$, let 
+\[
+	\cM\ot_\cC\cM(D; c) \deq \bd\inv(c) .
+\]
+
 Note that if $k=n$ and we fix boundary conditions $c$ on the unmarked boundary of $D$,
 then $\cM\ot_\cC\cM'(D; c)$ will be an object in the enriching category
 (e.g.\ vector space or chain complex).
-\nn{say this more precisely?}
+
+Let $J$ be a doubly marked 1-ball (i.e. an interval, where we think of both endpoints
+as marked).
+For $X$ a plain $k$-ball ($k \le n-1$) or $k$-sphere ($k \le n-2$), define
+\[
+	\cM\ot_\cC\cM'(X) \deq \cM\ot_\cC\cM'(X\times J) .
+\]
+We claim that $\cM\ot_\cC\cM'$ has the structure of an $n{-}1$-category.
+We have already defined restriction maps $\bd : \cM\ot_\cC\cM'(X) \to 
+\cM\ot_\cC\cM'(\bd X)$.
+The only data for the $n{-}1$-category that we have not defined yet are the product
+morphisms.
+\nn{so next define those}
+
+\nn{need to check whether any of the steps in verifying that we have
+an $n{-}1$-category are non-trivial.}
+
+
+
+
 
 \medskip
 \hrule
@@ -627,7 +674,6 @@ then $\cM\ot_\cC\cM'(D; c)$ will be an object in the enriching category
 Stuff that remains to be done (either below or in an appendix or in a separate section or in
 a separate paper):
 \begin{itemize}
-\item tensor products
 \item traditional $n$-cat defs (e.g. *-1-cat, pivotal 2-cat) imply our def of plain $n$-cat
 \item conversely, our def implies other defs
 \item do same for modules; maybe an appendix on relating topological
