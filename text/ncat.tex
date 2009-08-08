@@ -33,7 +33,7 @@ In other words,
 \xxpar{Morphisms (preliminary version):}
 {For any $k$-manifold $X$ homeomorphic 
 to the standard $k$-ball, we have a set of $k$-morphisms
-$\cC(X)$.}
+$\cC_k(X)$.}
 
 Terminology: By ``a $k$-ball" we mean any $k$-manifold which is homeomorphic to the 
 standard $k$-ball.
@@ -41,8 +41,11 @@ We {\it do not} assume that it is equipped with a
 preferred homeomorphism to the standard $k$-ball.
 The same goes for ``a $k$-sphere" below.
 
-Given a homeomorphism $f:X\to Y$ between $k$-balls, we want a corresponding
+
+Given a homeomorphism $f:X\to Y$ between $k$-balls (not necessarily fixed on 
+the boundary), we want a corresponding
 bijection of sets $f:\cC(X)\to \cC(Y)$.
+(This will imply ``strong duality", among other things.)
 So we replace the above with
 
 \xxpar{Morphisms:}
@@ -55,6 +58,7 @@ homeomorphisms to the category of sets and bijections.}
 We are being deliberately vague about what flavor of manifolds we are considering.
 They could be unoriented or oriented or Spin or $\mbox{Pin}_\pm$.
 They could be topological or PL or smooth.
+\nn{need to check whether this makes much difference --- see pseudo-isotopy below}
 (If smooth, ``homeomorphism" should be read ``diffeomorphism", and we would need
 to be fussier about corners.)
 For each flavor of manifold there is a corresponding flavor of $n$-category.
@@ -64,7 +68,8 @@ Next we consider domains and ranges of morphisms (or, as we prefer to say, bound
 of morphisms).
 The 0-sphere is unusual among spheres in that it is disconnected.
 Correspondingly, for 1-morphisms it makes sense to distinguish between domain and range.
-(Actually, this is only true in the oriented case.)
+(Actually, this is only true in the oriented case, with 1-morphsims parameterized
+by oriented 1-balls.)
 For $k>1$ and in the presence of strong duality the domain/range division makes less sense.
 \nn{maybe say more here; rotate disk, Frobenius reciprocity blah blah}
 We prefer to combine the domain and range into a single entity which we call the 
@@ -85,7 +90,7 @@ These maps, for various $X$, comprise a natural transformation of functors.}
 (Note that the first ``$\bd$" above is part of the data for the category, 
 while the second is the ordinary boundary of manifolds.)
 
-Given $c\in\cC(\bd(X))$, let $\cC(X; c) = \bd^{-1}(c)$.
+Given $c\in\cC(\bd(X))$, let $\cC(X; c) \deq \bd^{-1}(c)$.
 
 Most of the examples of $n$-categories we are interested in are enriched in the following sense.
 The various sets of $n$-morphisms $\cC(X; c)$, for all $n$-balls $X$ and
@@ -97,8 +102,11 @@ Note that this auxiliary structure is only in dimension $n$;
 $\cC(Y; c)$ is just a plain set if $\dim(Y) < n$.
 
 \medskip
-\nn{At the moment I'm a little confused about orientations, and more specifically
-about the role of orientation-reversing maps of boundaries when gluing oriented manifolds.
+\nn{
+%At the moment I'm a little confused about orientations, and more specifically
+%about the role of orientation-reversing maps of boundaries when gluing oriented manifolds.
+Maybe need a discussion about what the boundary of a manifold with a 
+structure (e.g. orientation) means.
 Tentatively, I think we need to redefine the oriented boundary of an oriented $n$-manifold.
 Instead of an ordinary oriented $(n-1)$-manifold via the inward (or outward) normal 
 first (or last) convention, perhaps it is better to define the boundary to be an $(n-1)$-manifold
@@ -125,7 +133,10 @@ Then (axiom) we have an injective map
 which is natural with respect to the actions of homeomorphisms.}
 
 Note that we insist on injectivity above.
+
 Let $\cC(S)_E$ denote the image of $\gl_E$.
+We will refer to elements of $\cC(S)_E$ as ``splittable along $E$" or ``transverse to $E$". 
+
 We have ``restriction" maps $\cC(S)_E \to \cC(B_i)$, which can be thought of as
 domain and range maps, relative to the choice of splitting $S = B_1 \cup_E B_2$.
 
@@ -158,6 +169,8 @@ If $k < n$ we require that $\gl_Y$ is injective.
 \xxpar{Strict associativity:}
 {The composition (gluing) maps above are strictly associative.}
 
+Notation: $a\bullet b \deq \gl_Y(a, b)$ and/or $a\cup b \deq \gl_Y(a, b)$.
+
 The above two axioms are equivalent to the following axiom,
 which we state in slightly vague form.
 
@@ -179,9 +192,29 @@ If $f:X\to X'$ and $\tilde{f}:X\times D \to X'\times D'$ are maps such that the 
 	X\times D \ar[r]^{\tilde{f}} \ar[d]_{\pi} & X'\times D' \ar[d]^{\pi} \\
 	X \ar[r]^{f} & X'
 } \]
-commutes, then we have $\tilde{f}(a\times D) = f(a)\times D'$.}
+commutes, then we have 
+\[
+	\tilde{f}(a\times D) = f(a)\times D' .
+\]
+Product morphisms are compatible with gluing (composition) in both factors:
+\[
+	(a'\times D)\bullet(a''\times D) = (a'\bullet a'')\times D
+\]
+and
+\[
+	(a\times D')\bullet(a\times D'') = a\times (D'\bullet D'') .
+\]
+Product morphisms are associative:
+\[
+	(a\times D)\times D' = a\times (D\times D') .
+\]
+(Here we are implicitly using functoriality and the obvious homeomorphism
+$(X\times D)\times D' \to X\times(D\times D')$.)
+}
 
-\nn{Need to say something about compatibility with gluing (of both $X$ and $D$) above.}
+\nn{need even more subaxioms for product morphisms?
+YES: need compatibility with certain restriction maps 
+in order to prove that dimension less than $n$ identities are act like identities.}
 
 All of the axioms listed above hold for both ordinary $n$-categories and $A_\infty$ $n$-categories.
 The last axiom (below), concerning actions of 
@@ -254,7 +287,7 @@ a diagram like the one in Proposition \ref{CDprop} commutes.
 \nn{restate this with $\Homeo(X\to X')$?  what about boundary fixing property?}}
 
 We should strengthen the above axiom to apply to families of extended homeomorphisms.
-To do this we need to explain extended homeomorphisms form a space.
+To do this we need to explain how extended homeomorphisms form a topological space.
 Roughly, the set of $n{-}1$-balls in the boundary of an $n$-ball has a natural topology,
 and we can replace the class of all intervals $J$ with intervals contained in $\r$.
 \nn{need to also say something about collaring homeomorphisms.}
@@ -281,6 +314,7 @@ balls.
 The $n$-category can be thought of as the local part of the fields.
 Conversely, given an $n$-category we can construct a system of fields via 
 \nn{gluing, or a universal construction}
+\nn{see subsection below}
 
 \nn{Next, say something about $A_\infty$ $n$-categories and ``homological" systems
 of fields.
@@ -418,6 +452,7 @@ define $k$-cat $\cC(\cdot\times W)$}
 Next we define [$A_\infty$] $n$-category modules (a.k.a.\ representations,
 a.k.a.\ actions).
 The definition will be very similar to that of $n$-categories.
+\nn{** need to make sure all revisions of $n$-cat def are also made to module def.}
 
 Our motivating example comes from an $(m{-}n{+}1)$-dimensional manifold $W$ with boundary
 in the context of an $m{+}1$-dimensional TQFT.
@@ -628,6 +663,8 @@ Let $\cC$ be an [$A_\infty$] $n$-category, let $W$ be a $k$-manifold ($k\le n$),
 and let $\cN = (\cN_i)$ be an assignment of a $\cC$ module $\cN_i$ to each boundary 
 component $\bd_i W$ of $W$.
 
+\nn{need to generalize to labeling codim 0 submanifolds of the boundary}
+
 We will define a set $\cC(W, \cN)$ using a colimit construction similar to above.
 \nn{give ref}
 (If $k = n$ and our $k$-categories are enriched, then
@@ -681,8 +718,13 @@ or coends).
 Let $\cM$ and $\cM'$ be modules for an $n$-category $\cC$.
 (If $k=1$ and manifolds are oriented, then one should be 
 a left module and the other a right module.)
-We will define an $n{-}1$-category $\cM\ot_\cC\cM'$, which depend (functorially)
+We will define an $n{-}1$-category $\cM\ot_\cC\cM'$, which depends (functorially)
 on a choice of 1-ball (interval) $J$.
+
+
+
+
+
 
 Define a {\it doubly marked $k$-ball} to be a triple $(B, N, N')$, where $B$ is a $k$-ball
 and $N$ and $N'$ are disjoint $k{-}1$-balls in $\bd B$.
