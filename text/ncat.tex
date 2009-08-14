@@ -137,7 +137,10 @@ Note that we insist on injectivity above.
 Let $\cC(S)_E$ denote the image of $\gl_E$.
 We will refer to elements of $\cC(S)_E$ as ``splittable along $E$" or ``transverse to $E$". 
 
-We have ``restriction" maps $\cC(S)_E \to \cC(B_i)$, which can be thought of as
+We will call the projection $\cC(S)_E \to \cC(B_i)$
+a {\it restriction} map and write $\res_{B_i}(a)$
+(or simply $\res(a)$ when there is no ambiguity), for $a\in \cC(S)_E$.
+These restriction maps can be thought of as
 domain and range maps, relative to the choice of splitting $S = B_1 \cup_E B_2$.
 
 If $B$ is a $k$-ball and $E \sub \bd B$ splits $\bd B$ into two $k{-}1$-balls
@@ -170,6 +173,15 @@ If $k < n$ we require that $\gl_Y$ is injective.
 {The composition (gluing) maps above are strictly associative.}
 
 Notation: $a\bullet b \deq \gl_Y(a, b)$ and/or $a\cup b \deq \gl_Y(a, b)$.
+In the other direction, we will call the projection from $\cC(B)_E$ to $\cC(B_i)_E$ 
+a {\it restriction} map and write $\res_{B_i}(a)$ for $a\in \cC(B)_E$.
+Compositions of boundary and restriction maps will also be called restriction maps.
+For example, if $B$ is a $k$-ball and $Y\sub \bd B$ is a $k{-}1$-ball, there is a
+restriction map from $\cC(B)_{\bd Y}$ to $\cC(Y)$.
+
+%More notation and terminology:
+%We will call the projection from $\cC(B)_E$ to $\cC(B_i)_E$ a {\it restriction}
+%map
 
 The above two axioms are equivalent to the following axiom,
 which we state in slightly vague form.
@@ -210,11 +222,14 @@ Product morphisms are associative:
 \]
 (Here we are implicitly using functoriality and the obvious homeomorphism
 $(X\times D)\times D' \to X\times(D\times D')$.)
+Product morphisms are compatible with restriction:
+\[
+	\res_{X\times E}(a\times D) = a\times E
+\]
+for $E\sub \bd D$ and $a\in \cC(X)$.
 }
 
-\nn{need even more subaxioms for product morphisms?
-YES: need compatibility with certain restriction maps 
-in order to prove that dimension less than $n$ identities are act like identities.}
+\nn{need even more subaxioms for product morphisms?}
 
 All of the axioms listed above hold for both ordinary $n$-categories and $A_\infty$ $n$-categories.
 The last axiom (below), concerning actions of 
@@ -453,6 +468,7 @@ Next we define [$A_\infty$] $n$-category modules (a.k.a.\ representations,
 a.k.a.\ actions).
 The definition will be very similar to that of $n$-categories.
 \nn{** need to make sure all revisions of $n$-cat def are also made to module def.}
+\nn{should they be called $n$-modules instead of just modules?  probably not, but worth considering.}
 
 Our motivating example comes from an $(m{-}n{+}1)$-dimensional manifold $W$ with boundary
 in the context of an $m{+}1$-dimensional TQFT.
@@ -480,6 +496,8 @@ Let $W$ be an $(m{-}n{+}1)$-dimensional manifold with boundary.
 Let $\cC$ be the $n$-category with $\cC(X) \deq \cD(X\times \bd W)$.
 Let $\cM(B, N) \deq \cD((B\times \bd W)\cup (N\times W))$.
 (The union is along $N\times \bd W$.)
+(If $\cD$ were a general TQFT, we would define $\cM(B, N)$ to be
+the subset of $\cD((B\times \bd W)\cup (N\times W))$ which is splittable along $N\times \bd W$.)
 
 Define the boundary of a marked $k$-ball $(B, N)$ to be the pair $(\bd B \setmin N, \bd N)$.
 Call such a thing a {marked $k{-}1$-hemisphere}.
@@ -495,7 +513,7 @@ In our example, let $\cM(H) \deq \cD(H\times\bd W \cup \bd H\times W)$.
 {For each marked $k$-ball $M$ we have a map of sets $\bd: \cM(M)\to \cM(\bd M)$.
 These maps, for various $M$, comprise a natural transformation of functors.}
 
-Given $c\in\cM(\bd M)$, let $\cM(M; c) = \bd^{-1}(c)$.
+Given $c\in\cM(\bd M)$, let $\cM(M; c) \deq \bd^{-1}(c)$.
 
 If the $n$-category $\cC$ is enriched over some other category (e.g.\ vector spaces),
 then $\cM(M; c)$ should be an object in that category for each marked $n$-ball $M$
@@ -512,6 +530,10 @@ Then (axiom) we have an injective map
 \]
 which is natural with respect to the actions of homeomorphisms.}
 
+Let $\cM(H)_E$ denote the image of $\gl_E$.
+We will refer to elements of $\cM(H)_E$ as ``splittable along $E$" or ``transverse to $E$". 
+
+
 \xxpar{Axiom yet to be named:}
 {For each marked $k$-hemisphere $H$ there is a restriction map
 $\cM(H)\to \cC(H)$.  
@@ -519,10 +541,12 @@ $\cM(H)\to \cC(H)$.
 These maps comprise a natural transformation of functors.}
 
 Note that combining the various boundary and restriction maps above
+(for both modules and $n$-categories)
 we have for each marked $k$-ball $(B, N)$ and each $k{-}1$-ball $Y\sub \bd B \setmin N$
 a natural map from a subset of $\cM(B, N)$ to $\cC(Y)$.
+The subset is the subset of morphisms which are appropriately splittable (transverse to the
+cutting submanifolds).
 This fact will be used below.
-\nn{need to say more about splitableness/transversality in various places above}
 
 In our example, the various restriction and gluing maps above come from
 restricting and gluing maps into $T$.
@@ -572,7 +596,11 @@ If $k < n$ we require that $\gl_Y$ is injective.
 \xxpar{Module strict associativity:}
 {The composition and action maps above are strictly associative.}
 
-The above two axioms are equivalent to the following axiom,
+Note that the above associativity axiom applies to mixtures of module composition,
+action maps and $n$-category composition.
+See Figure xxxx.
+
+The above three axioms are equivalent to the following axiom,
 which we state in slightly vague form.
 \nn{need figure for this}
 
@@ -607,6 +635,8 @@ If $f:M\to M'$ and $\tilde{f}:M\times D \to M'\times D'$ are maps such that the 
 commutes, then we have $\tilde{f}(a\times D) = f(a)\times D'$.}
 
 \nn{Need to say something about compatibility with gluing (of both $M$ and $D$) above.}
+
+\nn{** marker --- resume revising here **}
 
 There are two alternatives for the next axiom, according whether we are defining
 modules for plain $n$-categories or $A_\infty$ $n$-categories.
