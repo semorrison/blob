@@ -216,6 +216,7 @@ and
 \[
 	(a\times D')\bullet(a\times D'') = a\times (D'\bullet D'') .
 \]
+\nn{problem: if pinched boundary, then only one factor}
 Product morphisms are associative:
 \[
 	(a\times D)\times D' = a\times (D\times D') .
@@ -448,6 +449,9 @@ Finally, define $\cC(W)$ to be the colimit of $\psi_\cC$.
 In other words, for each decomposition $x$ there is a map
 $\psi_\cC(x)\to \cC(W)$, these maps are compatible with the refinement maps
 above, and $\cC(W)$ is universal with respect to these properties.
+\nn{in A-inf case, need to say more}
+
+\nn{should give more concrete description (two cases)}
 
 $\cC(W)$ is functorial with respect to homeomorphisms of $k$-manifolds.
 
@@ -634,7 +638,7 @@ If $f:M\to M'$ and $\tilde{f}:M\times D \to M'\times D'$ are maps such that the 
 } \]
 commutes, then we have $\tilde{f}(a\times D) = f(a)\times D'$.}
 
-\nn{Need to say something about compatibility with gluing (of both $M$ and $D$) above.}
+\nn{Need to add compatibility with various things, as in the n-cat version of this axiom above.}
 
 \nn{** marker --- resume revising here **}
 
@@ -719,7 +723,7 @@ a functor $\psi_\cN$ from $\cJ(W)$ to the category of sets
 (possibly with additional structure if $k=n$).
 For a decomposition $x = (X_a, M_{ib})$ in $\cJ(W)$, define $\psi_\cN(x)$ to be the subset
 \[
-	\psi_\cN(x) \sub (\prod_a \cC(X_a)) \prod (\prod_{ib} \cN_i(M_{ib}))
+	\psi_\cN(x) \sub (\prod_a \cC(X_a)) \times (\prod_{ib} \cN_i(M_{ib}))
 \]
 such that the restrictions to the various pieces of shared boundaries amongst the
 $X_a$ and $M_{ib}$ all agree.
@@ -785,7 +789,7 @@ a functor $\psi$ from $\cJ(D)$ to the category of sets
 (possibly with additional structure if $k=n$).
 For a decomposition $x = (X_a, M_b, M'_c)$ in $\cJ(D)$, define $\psi(x)$ to be the subset
 \[
-	\psi(x) \sub (\prod_a \cC(X_a)) \prod (\prod_b \cM(M_b)) \prod (\prod_c \cM'(M'_c))
+	\psi(x) \sub (\prod_a \cC(X_a)) \times (\prod_b \cM(M_b)) \times (\prod_c \cM'(M'_c))
 \]
 such that the restrictions to the various pieces of shared boundaries amongst the
 $X_a$, $M_b$ and $M'_c$ all agree.
