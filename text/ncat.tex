@@ -410,6 +410,7 @@ and $\bc^C_*$ denotes the blob complex based on $C$.
 
 
 \subsection{From $n$-categories to systems of fields}
+\label{ss:ncat_fields}
 
 We can extend the functors $\cC$ above from $k$-balls to arbitrary $k$-manifolds as follows.
 
@@ -466,13 +467,13 @@ $a\in \psi_\cC(x)$ for some decomposition $x$, $x\le y$, and $g: \psi_\cC(x)
 
 In the $A_\infty$ case enriched over chain complexes, the concrete description of the colimit
 is as follows.
-Define an $m$-sequence to be a sequence $x_0 \le x_1 \le \dots \le x_{m-1}$ of permissible decompositions.
+Define an $m$-sequence to be a sequence $x_0 \le x_1 \le \dots \le x_m$ of permissible decompositions.
 Such sequences (for all $m$) form a simplicial set.
 Let
 \[
 	V = \bigoplus_{(x_i)} \psi_\cC(x_0) ,
 \]
-where the sum is over all $m$-sequences and all $m$.
+where the sum is over all $m$-sequences and all $m$, and each summand is degree shifted by $m$.
 We endow $V$ with a differential which is the sum of the differential of the $\psi_\cC(x_0)$
 summands plus another term using the differential of the simplicial set of $m$-sequences.
 More specifically, if $(a, \bar{x})$ denotes an element in the $\bar{x}$
@@ -486,6 +487,14 @@ is the usual map.
 \nn{maybe mention that there is a version that emphasizes minimal gluings (antirefinements) which
 combine only two balls at a time; for $n=1$ this version will lead to usual definition
 of $A_\infty$ category}
+
+We will call $m$ the filtration degree of the complex.
+We can think of this construction as starting with a disjoint copy of a complex for each
+permissible decomposition (filtration degree 0).
+Then we glue these together with mapping cylinders coming from gluing maps
+(filtration degree 1).
+Then we kill the extra homology we just introduced with mapping cylinder between the mapping cylinders (filtration degree 2).
+And so on.
 
 $\cC(W)$ is functorial with respect to homeomorphisms of $k$-manifolds.
 
