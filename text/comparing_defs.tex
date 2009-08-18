@@ -1,0 +1,92 @@
+%!TEX root = ../blob1.tex
+
+\section{Comparing $n$-category definitions}
+\label{sec:comparing-defs}
+
+In this appendix we relate the ``topological" category definitions of Section \ref{sec:ncats}
+to more traditional definitions, for $n=1$ and 2.
+
+\subsection{Plain 1-categories}
+
+Given a topological 1-category $\cC$, we construct a traditional 1-category $C$.
+(This is quite straightforward, but we include the details for the sake of completeness and
+to shed some light on the $n=2$ case.)
+
+Let the objects of $C$ be $C^0 \deq \cC(B^0)$ and the morphisms of $C$ be $C^1 \deq \cC(B^1)$, 
+where $B^k$ denotes the standard $k$-ball.
+The boundary and restriction maps of $\cC$ give domain and range maps from $C^1$ to $C^0$.
+
+Choose a homeomorphism $B^1\cup_{pt}B^1 \to B^1$.
+Define composition in $C$ to be the induced map $C^1\times C^1 \to C^1$ (defined only when range and domain agree).
+By isotopy invariance in $C$, any other choice of homeomorphism gives the same composition rule.
+
+Given $a\in C^0$, define $\id_a \deq a\times B^1$.
+By extended isotopy invariance in $\cC$, this has the expected properties of an identity morphism.
+
+\nn{(slash)id seems to rendering a a boldface 1 --- is this what we want?}
+
+\medskip
+
+For 1-categories based on oriented manifolds, there is no additional structure.
+
+For 1-categories based on unoriented manifolds, there is a map $*:C^1\to C^1$
+coming from $\cC$ applied to an orientation-reversing homeomorphism (unique up to isotopy) 
+from $B^1$ to itself.
+Topological properties of this homeomorphism imply that 
+$a^{**} = a$ (* is order 2), * reverses domain and range, and $(ab)^* = b^*a^*$
+(* is an anti-automorphism).
+
+For 1-categories based on Spin manifolds,
+the the nontrivial spin homeomorphism from $B^1$ to itself which covers the identity
+gives an order 2 automorphism of $C^1$.
+
+For 1-categories based on $\text{Pin}_-$ manifolds,
+we have an order 4 antiautomorphism of $C^1$.
+
+For 1-categories based on $\text{Pin}_+$ manifolds,
+we have an order 2 antiautomorphism and also an order 2 automorphism of $C^1$,
+and these two maps commute with each other.
+
+\nn{need to also consider automorphisms of $B^0$ / objects}
+
+\medskip
+
+In the other direction, given a traditional 1-category $C$
+(with objects $C^0$ and morphisms $C^1$) we will construct a topological
+1-category $\cC$.
+
+If $X$ is a 0-ball (point), let $\cC(X) \deq C^0$.
+If $S$ is a 0-sphere, let $\cC(S) \deq C^0\times C^0$.
+If $X$ is a 1-ball, let $\cC(X) \deq C^1$.
+Homeomorphisms isotopic to the identity act trivially.
+If $C$ has extra structure (e.g.\ it's a *-1-category), we use this structure
+to define the action of homeomorphisms not isotopic to the identity
+(and get, e.g., an unoriented topological 1-category).
+
+The domain and range maps of $C$ determine the boundary and restriction maps of $\cC$.
+
+Gluing maps for $\cC$ are determined my composition of morphisms in $C$.
+
+For $X$ a 0-ball, $D$ a 1-ball and $a\in \cC(X)$, define the product morphism 
+$a\times D \deq \id_a$.
+It is not hard to verify that this has the desired properties.
+
+\medskip
+
+The compositions of the above two ``arrows" ($\cC\to C\to \cC$ and $C\to \cC\to C$) give back 
+more or less exactly the same thing we started with.  
+\nn{need better notation here}
+As we will see below, for $n>1$ the compositions yield a weaker sort of equivalence.
+
+
+\subsection{Plain 2-categories}
+
+blah
+\nn{...}
+
+\medskip
+\hrule
+\medskip
+
+\nn{to be continued...}
+\medskip
