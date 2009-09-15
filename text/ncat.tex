@@ -432,8 +432,17 @@ Given permissible decompositions $x$ and $y$, we say that $x$ is a refinement
 of $y$, or write $x \le y$, if each ball of $y$ is a union of balls of $x$.
 This defines a partial ordering $\cJ(W)$, which we will think of as a category.
 (The objects of $\cJ(W)$ are permissible decompositions of $W$, and there is a unique
-morphism from $x$ to $y$ if and only if $x$ is a refinement of $y$.)
-\nn{need figures}
+morphism from $x$ to $y$ if and only if $x$ is a refinement of $y$.
+See Figure \ref{partofJfig}.)
+
+\begin{figure}[!ht]
+\begin{equation*}
+\mathfig{.63}{tempkw/zz2}
+\end{equation*}
+\caption{A small part of $\cJ(W)$}
+\label{partofJfig}
+\end{figure}
+
 
 $\cC$ determines 
 a functor $\psi_\cC$ from $\cJ(W)$ to the category of sets 
@@ -604,9 +613,17 @@ restricting and gluing maps into $T$.
 
 We require two sorts of composition (gluing) for modules, corresponding to two ways
 of splitting a marked $k$-ball into two (marked or plain) $k$-balls.
-First, we can compose two module morphisms to get another module morphism.
+(See Figure \ref{zzz3}.)
 
-\nn{need figures for next two axioms}
+\begin{figure}[!ht]
+\begin{equation*}
+\mathfig{.63}{tempkw/zz3}
+\end{equation*}
+\caption{Module composition (top); $n$-category action (bottom)}
+\label{zzz3}
+\end{figure}
+
+First, we can compose two module morphisms to get another module morphism.
 
 \xxpar{Module composition:}
 {Let $M = M_1 \cup_Y M_2$, where $M$, $M_1$ and $M_2$ are marked $k$-balls ($0\le k\le n$)
@@ -623,6 +640,8 @@ which is natural with respect to the actions of homeomorphisms, and also compati
 to the intersection of the boundaries of $M$ and $M_i$.
 If $k < n$ we require that $\gl_Y$ is injective.
 (For $k=n$, see below.)}
+
+
 
 Second, we can compose an $n$-category morphism with a module morphism to get another
 module morphism.
@@ -649,7 +668,16 @@ If $k < n$ we require that $\gl_Y$ is injective.
 
 Note that the above associativity axiom applies to mixtures of module composition,
 action maps and $n$-category composition.
-See Figure xxxx.
+See Figure \ref{zzz1b}.
+
+\begin{figure}[!ht]
+\begin{equation*}
+\mathfig{1}{tempkw/zz1b}
+\end{equation*}
+\caption{Two examples of mixed associativity}
+\label{zzz1b}
+\end{figure}
+
 
 The above three axioms are equivalent to the following axiom,
 which we state in slightly vague form.
@@ -762,7 +790,6 @@ of $y$, or write $x \le y$, if each ball of $y$ is a union of balls of $x$.
 This defines a partial ordering $\cJ(W)$, which we will think of as a category.
 (The objects of $\cJ(D)$ are permissible decompositions of $W$, and there is a unique
 morphism from $x$ to $y$ if and only if $x$ is a refinement of $y$.)
-\nn{need figures}
 
 $\cN$ determines 
 a functor $\psi_\cN$ from $\cJ(W)$ to the category of sets 
