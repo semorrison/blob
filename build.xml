@@ -85,8 +85,14 @@
             <arg value="stripall.sh"/>
         </exec>
     </target>
+
+    <target name="direct-pdf" depends="bbl">
+        <exec executable="pdflatex">
+            <arg value="blob1"/>
+        </exec>
+    </target>
     
-    <target name="scott-copy-pdf" depends="pdf">
+    <target name="scott-copy-pdf" depends="direct-pdf">
         <copy file="blob1.pdf" tofile="../../Sites/tqft.net/papers/blobs.pdf"/>
         <exec executable="svn" dir="../../Sites/tqft.net/papers/">
             <arg value="commit"/>
@@ -94,7 +100,7 @@
             <arg value="blob"/>
         </exec>
         <exec executable="ssh">
-            <arg value="scottmorrison@heracles.dreamhost.com"/>
+            <arg value="scottmorrison@tqft.net"/>
             <arg value="svn"/>
             <arg value="up"/>      
             <arg value="tqft.net"/>                  
