@@ -93,6 +93,10 @@ We will construct a traditional pivotal 2-category.
 We will try to describe the construction in such a way the the generalization to $n>2$ is clear,
 though this will make the $n=2$ case a little more complicated than necessary.
 
+\nn{Note: We have to decide whether our 2-morphsism are shaped like rectangles or bigons.
+Each approach has advantages and disadvantages.
+For better or worse, we choose bigons here.}
+
 Define the $k$-morphisms $C^k$ of $C$ to be $\cC(B^k)_E$, where $B^k$ denotes the standard
 $k$-ball, which we also think of as the standard bihedron.
 Since we are thinking of $B^k$ as a bihedron, we have a standard decomposition of the $\bd B^k$
@@ -105,13 +109,36 @@ boundary and restriction maps of $\cC$.
 Choosing a homeomorphism $B^1\cup B^1 \to B^1$ defines a composition map on $C^1$.
 This is not associative, but we will see later that it is weakly associative.
 
-Choosing a homeomorphism $B^2\cup B^2 \to B^2$ defines a ``vertical" composition map on $C^2$.
+Choosing a homeomorphism $B^2\cup B^2 \to B^2$ defines a ``vertical" composition map 
+on $C^2$ (Figure \ref{fzo1}).
 Isotopy invariance implies that this is associative.
 We will define a ``horizontal" composition later.
 
+Given $a\in C^1$, define $\id_a = a\times I \in C^1$ (pinched boundary).
+Extended isotopy invariance for $\cC$ shows that this morphism is an identity for 
+vertical composition.
 
+Given $x\in C^0$, define $\id_x = x\times B^1 \in C^1$.
+We will show that this 1-morphism is a weak identity.
+This would be easier if our 2-morphisms were shaped like rectangles rather than bigons.
+Define let $a: y\to x$ be a 1-morphism.
+Define maps $a \to a\bullet \id_x$ and $a\bullet \id_x \to a$
+as shown in Figure \ref{fzo2}.
+In that figure, the red cross-hatched areas are the product of $x$ and a smaller bigon,
+while the remained is a half-pinched version of $a\times I$.
+We must show that the two compositions of these two maps give the identity 2-morphisms
+on $a$ and $a\bullet \id_x$, as defined above.
+Figure \ref{fzo3} shows one case.
+In the first step we have inserted a copy of $id(id(x))$ \nn{need better notation for this}.
+\nn{also need to talk about (somewhere above) 
+how this sort of insertion is allowed by extended isotopy invariance and gluing}
+Figure \ref{fzo4} shows the other case.
+\nn{At the moment, I don't see how the case follows from our candidate axioms for products.
+Probably the axioms need to be strengthened a little bit.}
 
+\nn{postponing horizontal composition of 2-morphisms until we make up our minds about product axioms.}
 
+\nn{need to find a list of axioms for pivotal 2-cats to check}
 
 \nn{...}
 
