@@ -2,7 +2,30 @@
 
 \section{Introduction}
 
-[Outline for intro]
+[some things to cover in the intro]
+\begin{itemize}
+\item explain relation between old and new blob complex definitions
+\item overview of sections
+\item state main properties of blob complex (already mostly done below)
+\item give multiple motivations/viewpoints for blob complex: (1) derived cat
+version of TQFT Hilbert space; (2) generalization of Hochschild homology to higher $n$-cats;
+(3) ? sort-of-obvious colimit type construction;
+(4) ? a generalization of $C_*(\Maps(M, T))$ to the case where $T$ is
+a category rather than a manifold
+\item hope to apply to Kh, contact, (other examples?) in the future
+\item ?? we have resisted the temptation 
+(actually, it was not a temptation) to state things in the greatest
+generality possible
+\item related: we are being unsophisticated from a homotopy theory point of
+view and using chain complexes in many places where we could be by with spaces
+\item ? one of the points we make (far) below is that there is not really much
+difference between (a) systems of fields and local relations and (b) $n$-cats;
+thus we tend to switch between talking in terms of one or the other
+\end{itemize}
+
+\medskip\hrule\medskip
+
+[Old outline for intro]
 \begin{itemize}
 \item Starting point: TQFTs via fields and local relations.
 This gives a satisfactory treatment for semisimple TQFTs
@@ -61,17 +84,19 @@ to later papers.
 \hrule
 \bigskip
 
-We then show that blob homology enjoys the following
-\ref{property:gluing} properties.
+We then show that blob homology enjoys the following properties.
 
 \begin{property}[Functoriality]
 \label{property:functoriality}%
-Blob homology is functorial with respect to diffeomorphisms. That is, fixing an $n$-dimensional system of fields $\cF$ and local relations $\cU$, the association
+Blob homology is functorial with respect to homeomorphisms. That is, 
+for fixed $n$-category / fields $\cC$, the association
 \begin{equation*}
-X \mapsto \bc_*^{\cF,\cU}(X)
+X \mapsto \bc_*^{\cC}(X)
 \end{equation*}
-is a functor from $n$-manifolds and diffeomorphisms between them to chain complexes and isomorphisms between them.
+is a functor from $n$-manifolds and homeomorphisms between them to chain complexes and isomorphisms between them.
 \end{property}
+
+\nn{should probably also say something about being functorial in $\cC$}
 
 \begin{property}[Disjoint union]
 \label{property:disjoint-union}
@@ -81,13 +106,19 @@ The blob complex of a disjoint union is naturally the tensor product of the blob
 \end{equation*}
 \end{property}
 
-\begin{property}[A map for gluing]
+\begin{property}[Gluing map]
 \label{property:gluing-map}%
 If $X_1$ and $X_2$ are $n$-manifolds, with $Y$ a codimension $0$-submanifold of $\bdy X_1$, and $Y^{\text{op}}$ a codimension $0$-submanifold of $\bdy X_2$,
 there is a chain map
 \begin{equation*}
 \gl_Y: \bc_*(X_1) \tensor \bc_*(X_2) \to \bc_*(X_1 \cup_Y X_2).
 \end{equation*}
+\nn{alternate version:}Given a gluing $X_\mathrm{cut} \to X_\mathrm{gl}$, there is
+a natural map
+\[
+	\bc_*(X_\mathrm{cut}) \to \bc_*(X_\mathrm{gl}) .
+\]
+(Natural with respect to homeomorphisms, and also associative with respect to iterated gluings.)
 \end{property}
 
 \begin{property}[Contractibility]
@@ -104,9 +135,9 @@ The blob complex for an $n$-category on an $n$-ball is quasi-isomorphic to its $
 \label{property:skein-modules}%
 The $0$-th blob homology of $X$ is the usual 
 (dual) TQFT Hilbert space (a.k.a.\ skein module) associated to $X$
-by $(\cF,\cU)$. (See \S \ref{sec:local-relations}.)
+by $\cC$. (See \S \ref{sec:local-relations}.)
 \begin{equation*}
-H_0(\bc_*^{\cF,\cU}(X)) \iso A^{\cF,\cU}(X)
+H_0(\bc_*^{\cC}(X)) \iso A^{\cC}(X)
 \end{equation*}
 \end{property}
 
