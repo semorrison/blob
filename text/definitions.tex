@@ -1,22 +1,22 @@
 %!TEX root = ../blob1.tex
 
-\section{Definitions}
-\label{sec:definitions}
+\section{TQFTs via fields}
+%\label{sec:definitions}
 
-\nn{this section is a bit out of date; needs to be updated 
-to fit with $n$-category definition given later}
+In this section we review the construction of TQFTs from ``topological fields".
+For more details see xxxx.
 
 \subsection{Systems of fields}
 \label{sec:fields}
 
-Let $\cM_k$ denote the category (groupoid, in fact) with objects 
-oriented PL manifolds of dimension
+Let $\cM_k$ denote the category with objects 
+unoriented PL manifolds of dimension
 $k$ and morphisms homeomorphisms.
 (We could equally well work with a different category of manifolds ---
-unoriented, topological, smooth, spin, etc. --- but for definiteness we
-will stick with oriented PL.)
+oriented, topological, smooth, spin, etc. --- but for definiteness we
+will stick with unoriented PL.)
 
-Fix a top dimension $n$, and a symmetric monoidal category $\cS$ whose objects are sets. While reading the definition, you should just think about the case $\cS = \Set$ with cartesian product, until you reach the discussion of a \emph{linear system of fields} later in this section, where $\cS = \Vect$, and \S \ref{sec:homological-fields}, where $\cS = \Kom$.
+%Fix a top dimension $n$, and a symmetric monoidal category $\cS$ whose objects are sets. While reading the definition, you should just think about the case $\cS = \Set$ with cartesian product, until you reach the discussion of a \emph{linear system of fields} later in this section, where $\cS = \Vect$, and \S \ref{sec:homological-fields}, where $\cS = \Kom$.
 
 A $n$-dimensional {\it system of fields} in $\cS$
 is a collection of functors $\cC_k : \cM_k \to \Set$ for $0 \leq k \leq n$
@@ -45,9 +45,6 @@ For $c \in \cC_{k-1}(\bd X)$, we will denote by $\cC_k(X; c)$ the subset of
 $\cC(X)$ which restricts to $c$.
 In this context, we will call $c$ a boundary condition.
 \item The subset $\cC_n(X;c)$ of top fields with a given boundary condition is an object in our symmetric monoidal category $\cS$. (This condition is of course trivial when $\cS = \Set$.) If the objects are sets with extra structure (e.g. $\cS = \Vect$ or $\Kom$), then this extra structure is considered part of the definition of $\cC_n$. Any maps mentioned below between top level fields must be morphisms in $\cS$.
-\item There are orientation reversal maps $\cC_k(X) \to \cC_k(-X)$, and these maps
-again comprise a natural transformation of functors.
-In addition, the orientation reversal maps are compatible with the boundary restriction maps.
 \item $\cC_k$ is compatible with the symmetric monoidal
 structures on $\cM_k$, $\Set$ and $\cS$: $\cC_k(X \du W) \cong \cC_k(X)\times \cC_k(W)$,
 compatibly with homeomorphisms, restriction to boundary, and orientation reversal.
@@ -70,13 +67,13 @@ Furthermore, up to homeomorphisms of $X\sgl$ isotopic to the identity,
 the gluing map is surjective.
 From the point of view of $X\sgl$ and the image $Y \subset X\sgl$ of the 
 gluing surface, we say that fields in the image of the gluing map
-are transverse to $Y$ or cuttable along $Y$.
+are transverse to $Y$ or splittable along $Y$.
 \item Gluing with corners.
 Let $\bd X = Y \cup -Y \cup W$, where $\pm Y$ and $W$ might intersect along their boundaries.
 Let $X\sgl$ denote $X$ glued to itself along $\pm Y$.
 Note that $\bd X\sgl = W\sgl$, where $W\sgl$ denotes $W$ glued to itself
 (without corners) along two copies of $\bd Y$.
-Let $c\sgl \in \cC_{k-1}(W\sgl)$ be a be a cuttable field on $W\sgl$ and let
+Let $c\sgl \in \cC_{k-1}(W\sgl)$ be a be a splittable field on $W\sgl$ and let
 $c \in \cC_{k-1}(W)$ be the cut open version of $c\sgl$.
 Let $\cC^c_k(X)$ denote the subset of $\cC(X)$ which restricts to $c$ on $W$.
 (This restriction map uses the gluing without corners map above.)
@@ -94,7 +91,7 @@ Furthermore, up to homeomorphisms of $X\sgl$ isotopic to the identity,
 the gluing map is surjective.
 From the point of view of $X\sgl$ and the image $Y \subset X\sgl$ of the 
 gluing surface, we say that fields in the image of the gluing map
-are transverse to $Y$ or cuttable along $Y$.
+are transverse to $Y$ or splittable along $Y$.
 \item There are maps $\cC_{k-1}(Y) \to \cC_k(Y \times I)$, denoted
 $c \mapsto c\times I$.
 These maps comprise a natural transformation of functors, and commute appropriately
@@ -111,7 +108,7 @@ with boundary collar homeomorphisms of manifolds, we can define the notion of
 {\it extended isotopy}.
 Let $M$ be an $n$-manifold and $Y \subset \bd M$ be a codimension zero submanifold
 of $\bd M$.
-Let $x \in \cC(M)$ be a field on $M$ and such that $\bd x$ is cuttable along $\bd Y$.
+Let $x \in \cC(M)$ be a field on $M$ and such that $\bd x$ is splittable along $\bd Y$.
 Let $c$ be $x$ restricted to $Y$.
 Let $M \cup (Y\times I)$ denote $M$ glued to $Y\times I$ along $Y$.
 Then we have the glued field $x \bullet (c\times I)$ on $M \cup (Y\times I)$.
@@ -123,19 +120,6 @@ on $M$ generated by isotopy plus all instance of the above construction
 
 \nn{should also say something about pseudo-isotopy}
 
-%\bigskip
-%\hrule
-%\bigskip
-%
-%\input{text/fields.tex}
-%
-%
-%\bigskip
-%\hrule
-%\bigskip
-
-\nn{note: probably will suppress from notation the distinction
-between fields and their (orientation-reversal) duals}
 
 \nn{remark that if top dimensional fields are not already linear
 then we will soon linearize them(?)}
@@ -291,6 +275,11 @@ domain and range.
 
 \nn{maybe examples of local relations before general def?}
 
+\subsection{Constructing a TQFT}
+
+\nn{need to expand this; use $\bc_0/\bc_1$ notation (maybe); also introduce
+cylinder categories and gluing formula}
+
 Given a system of fields and local relations, we define the skein space
 $A(Y^n; c)$ to be the space of all finite linear combinations of fields on
 the $n$-manifold $Y$ modulo local relations.
@@ -304,7 +293,7 @@ The blob complex is in some sense the derived version of $A(Y; c)$.
 
 
 
-\subsection{The blob complex}
+\section{The blob complex}
 \label{sec:blob-definition}
 
 Let $X$ be an $n$-manifold.
@@ -379,7 +368,7 @@ A nested 2-blob diagram consists of
 \begin{itemize}
 \item A pair of nested balls (blobs) $B_0 \sub B_1 \sub X$.
 \item A field $r \in \cC(X \setmin B_0; c_0)$
-(for some $c_0 \in \cC(\bd B_0)$), which is cuttable along $\bd B_1$.
+(for some $c_0 \in \cC(\bd B_0)$), which is splittable along $\bd B_1$.
 \item A local relation field $u_0 \in U(B_0; c_0)$.
 \end{itemize}
 Let $r = r_1 \bullet r'$, where $r_1 \in \cC(B_1 \setmin B_0; c_0, c_1)$
@@ -408,7 +397,7 @@ As with the 1-blob diagrams, in order to get the linear structure correct it is 
 			U(B_0; c_0) \otimes \lf(X\setmin B_0; c_0)
 	\right) .
 \end{eqnarray*}
-The final $\lf(X\setmin B_0; c_0)$ above really means fields cuttable along $\bd B_1$,
+The final $\lf(X\setmin B_0; c_0)$ above really means fields splittable along $\bd B_1$,
 but we didn't feel like introducing a notation for that.
 For the disjoint blobs, reversing the ordering of $B_0$ and $B_1$ introduces a minus sign
 (rather than a new, linearly independent 2-blob diagram).
@@ -430,7 +419,7 @@ if the latter space is not empty.
 \item A field $r \in \cC(X \setmin B^t; c^t)$,
 where $B^t$ is the union of all the twig blobs and $c^t \in \cC(\bd B^t)$
 is determined by the $c_i$'s.
-$r$ is required to be cuttable along the boundaries of all blobs, twigs or not.
+$r$ is required to be splittable along the boundaries of all blobs, twigs or not.
 \item For each twig blob $B_j$ a local relation field $u_j \in U(B_j; c_j)$,
 where $c_j$ is the restriction of $c^t$ to $\bd B_j$.
 If $B_i = B_j$ then $u_i = u_j$.
@@ -449,7 +438,7 @@ of tensor products:
 \]
 Here $\overline{B}$ runs over all configurations of blobs, satisfying the conditions above.
 $\overline{c}$ runs over all boundary conditions, again as described above.
-$j$ runs over all indices of twig blobs. The final $\lf(X \setmin B^t; c^t)$ must be interpreted as fields which are cuttable along all of the blobs in $\overline{B}$.
+$j$ runs over all indices of twig blobs. The final $\lf(X \setmin B^t; c^t)$ must be interpreted as fields which are splittable along all of the blobs in $\overline{B}$.
 
 The boundary map $\bd : \bc_k(X) \to \bc_{k-1}(X)$ is defined as follows.
 Let $b = (\{B_i\}, \{u_j\}, r)$ be a $k$-blob diagram.
