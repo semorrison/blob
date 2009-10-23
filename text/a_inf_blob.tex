@@ -168,9 +168,50 @@ Apply Theorem \ref{product_thm} with the fiber $F$ equal to a point.
 \end{proof}
 
 \medskip
+
+Next we prove a gluing theorem.
+Let $X$ be a closed $k$-manifold with a splitting $X = X'_1\cup_Y X'_2$.
+We will need an explicit collar on $Y$, so rewrite this as
+$X = X_1\cup (Y\times J) \cup X_2$.
+\nn{need figure}
+Given this data we have: \nn{need refs to above for these}
+\begin{itemize}
+\item An $A_\infty$ $n{-}k$-category $\bc(X)$, which assigns to an $m$-ball
+$D$ fields on $D\times X$ (for $m+k < n$) or the blob complex $\bc_*(D\times X; c)$
+(for $m+k = n$). \nn{need to explain $c$}.
+\item An $A_\infty$ $n{-}k{+}1$-category $\bc(Y)$, defined similarly.
+\item Two $\bc(Y)$ modules $\bc(X_1)$ and $\bc(X_2)$, which assign to a marked
+$m$-ball $(D, H)$ either fields on $(D\times Y) \cup (H\times X_i)$ (if $m+k < n$)
+or the blob complex $\bc_*((D\times Y) \cup (H\times X_i))$ (if $m+k = n$).
+\end{itemize}
+
+\begin{thm}
+$\bc(X) \cong \bc(X_1) \otimes_{\bc(Y), J} \bc(X_2)$.
+\end{thm}
+
+\begin{proof}
+The proof is similar to that of Theorem \ref{product_thm}.
+\nn{need to say something about dimensions less than $n$, 
+but for now concentrate on top dimension.}
+
+Let $\cT$ denote the $n{-}k$-category $\bc(X_1) \otimes_{\bc(Y), J} \bc(X_2)$.
+Let $D$ be an $n{-}k$-ball.
+There is an obvious map from $\cT(D)$ to $\bc_*(D\times X)$.
+To get a map in the other direction, we replace $\bc_*(D\times X)$ with a subcomplex
+$\cS_*$ which is adapted to a fine open cover of $D\times X$.
+For sufficiently small $j$ (depending on the cover), we can find, for each $j$-blob diagram $b$
+on $D\times X$, a decomposition of $J$ such that $b$ splits on the corresponding
+decomposition of $D\times X$.
+The proof that these two maps are inverse to each other is the same as in
+Theorem \ref{product_thm}.
+\end{proof}
+
+
+\medskip
 \hrule
 \medskip
 
 \nn{to be continued...}
 \medskip
+\nn{still to do: fiber bundles, general maps}
 
