@@ -25,7 +25,9 @@ The old-fashioned blob complex $\bc_*^C(Y\times F)$ is homotopy equivalent to th
 new-fangled blob complex $\bc_*^\cF(Y)$.
 \end{thm}
 
-\begin{proof}
+\input{text/smallblobs}
+
+\begin{proof}[Proof of Theorem \ref{product_thm}]
 We will use the concrete description of the colimit from Subsection \ref{ss:ncat_fields}.
 
 First we define a map 
@@ -214,4 +216,31 @@ Theorem \ref{product_thm}.
 \nn{to be continued...}
 \medskip
 \nn{still to do: fiber bundles, general maps}
+
+\todo{}
+Various citations we might want to make:
+\begin{itemize}
+\item \cite{MR2061854} McClure and Smith's review article
+\item \cite{MR0420610} May, (inter alia, definition of $E_\infty$ operad)
+\item \cite{MR0236922,MR0420609} Boardman and Vogt
+\item \cite{MR1256989} definition of framed little-discs operad
+\end{itemize}
+
+We now turn to establishing the gluing formula for blob homology, restated from Property \ref{property:gluing} in the Introduction
+\begin{itemize}
+%\mbox{}% <-- gets the indenting right
+\item For any $(n-1)$-manifold $Y$, the blob homology of $Y \times I$ is
+naturally an $A_\infty$ category. % We'll write $\bc_*(Y)$ for $\bc_*(Y \times I)$ below.
+
+\item For any $n$-manifold $X$, with $Y$ a codimension $0$-submanifold of its boundary, the blob homology of $X$ is naturally an
+$A_\infty$ module for $\bc_*(Y \times I)$.
+
+\item For any $n$-manifold $X$, with $Y \cup Y^{\text{op}}$ a codimension
+$0$-submanifold of its boundary, the blob homology of $X'$, obtained from
+$X$ by gluing along $Y$, is the $A_\infty$ self-tensor product of
+$\bc_*(X)$ as an $\bc_*(Y \times I)$-bimodule.
+\begin{equation*}
+\bc_*(X') \iso \bc_*(X) \Tensor^{A_\infty}_{\mathclap{\bc_*(Y \times I)}} \!\!\!\!\!\!\xymatrix{ \ar@(ru,rd)@<-1ex>[]}
+\end{equation*}
+\end{itemize}
 

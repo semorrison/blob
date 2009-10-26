@@ -905,4 +905,55 @@ a.k.a.\ $n{+}1$-category of sphere modules); discuss Morita equivalence
 \item morphisms of modules; show that it's adjoint to tensor product
 \end{itemize}
 
+\nn{Some salvaged paragraphs that we might want to work back in:}
+\hrule
 
+Appendix \ref{sec:comparing-A-infty} explains the translation between this definition of an $A_\infty$ $1$-category and the usual one expressed in terms of `associativity up to higher homotopy', as in \cite{MR1854636}. (In this version of the paper, that appendix is incomplete, however.)
+
+The motivating example is `chains of maps to $M$' for some fixed target space $M$. This is a topological $A_\infty$ category $\Xi_M$ with $\Xi_M(J) = C_*(\Maps(J \to M))$. The gluing maps $\Xi_M(J) \tensor \Xi_M(J') \to \Xi_M(J \cup J')$  takes the product of singular chains, then glues maps to $M$ together; the associativity condition is automatically satisfied. The evaluation map $\ev_{J,J'} : \CD{J \to J'} \tensor \Xi_M(J) \to \Xi_M(J')$ is the composition
+\begin{align*}
+\CD{J \to J'} \tensor C_*(\Maps(J \to M)) & \to C_*(\Diff(J \to J') \times \Maps(J \to M)) \\ & \to C_*(\Maps(J' \to M)),
+\end{align*}
+where the first map is the product of singular chains, and the second is precomposition by the inverse of a diffeomorphism.
+
+We now give two motivating examples, as theorems constructing other homological systems of fields,
+
+
+\begin{thm}
+For a fixed target space $X$, `chains of maps to $X$' is a homological system of fields $\Xi$, defined as
+\begin{equation*}
+\Xi(M) = \CM{M}{X}.
+\end{equation*}
+\end{thm}
+
+\begin{thm}
+Given an $n$-dimensional system of fields $\cF$, and a $k$-manifold $F$, there is an $n-k$ dimensional homological system of fields $\cF^{\times F}$ defined by
+\begin{equation*}
+\cF^{\times F}(M) = \cB_*(M \times F, \cF).
+\end{equation*}
+\end{thm}
+We might suggestively write $\cF^{\times F}$ as  $\cB_*(F \times [0,1]^b, \cF)$, interpreting this as an (undefined!) $A_\infty$ $b$-category, and then as the resulting homological system of fields, following a recipe analogous to that given above for $A_\infty$ $1$-categories.
+
+
+In later sections, we'll prove the following two unsurprising theorems, about the (as-yet-undefined) blob homology of these homological systems of fields.
+
+
+\begin{thm}
+\begin{equation*}
+\cB_*(M, \Xi) \iso \Xi(M)
+\end{equation*}
+\end{thm}
+
+\begin{thm}[Product formula]
+Given a $b$-manifold $B$, an $f$-manifold $F$ and a $b+f$ dimensional system of fields,
+there is a quasi-isomorphism
+\begin{align*}
+\cB_*(B \times F, \cF) & \quismto \cB_*(B, \cF^{\times F})
+\end{align*}
+\end{thm}
+
+\begin{question}
+Is it possible to compute the blob homology of a non-trivial bundle in terms of the blob homology of its fiber?
+\end{question}
+
+\hrule
