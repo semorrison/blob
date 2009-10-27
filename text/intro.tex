@@ -88,7 +88,7 @@ We then show that blob homology enjoys the following properties.
 
 \begin{property}[Functoriality]
 \label{property:functoriality}%
-Blob homology is functorial with respect to homeomorphisms. That is, 
+The blob complex is functorial with respect to homeomorphisms. That is, 
 for fixed $n$-category / fields $\cC$, the association
 \begin{equation*}
 X \mapsto \bc_*^{\cC}(X)
@@ -96,7 +96,7 @@ X \mapsto \bc_*^{\cC}(X)
 is a functor from $n$-manifolds and homeomorphisms between them to chain complexes and isomorphisms between them.
 \end{property}
 
-\nn{should probably also say something about being functorial in $\cC$}
+The blob complex is also functorial with respect to $\cC$, although we will not address this in detail here.
 
 \begin{property}[Disjoint union]
 \label{property:disjoint-union}
@@ -106,17 +106,17 @@ The blob complex of a disjoint union is naturally the tensor product of the blob
 \end{equation*}
 \end{property}
 
+If an $n$-manifold $X_\text{cut}$ contains $Y \sqcup Y^\text{op}$ as a codimension $0$-submanifold of its boundary, write $X_\text{glued} = X_\text{cut} \bigcup_{Y}\selfarrow$ for the manifold obtained by gluing together $Y$ and $Y^\text{op}$. Note that this includes the case of gluing two disjoint manifolds together.
 \begin{property}[Gluing map]
 \label{property:gluing-map}%
-If $X_1$ and $X_2$ are $n$-manifolds, with $Y$ a codimension $0$-submanifold of $\bdy X_1$, and $Y^{\text{op}}$ a codimension $0$-submanifold of $\bdy X_2$,
-there is a chain map
-\begin{equation*}
-\gl_Y: \bc_*(X_1) \tensor \bc_*(X_2) \to \bc_*(X_1 \cup_Y X_2).
-\end{equation*}
-\nn{alternate version:}Given a gluing $X_\mathrm{cut} \to X_\mathrm{gl}$, there is
+%If $X_1$ and $X_2$ are $n$-manifolds, with $Y$ a codimension $0$-submanifold of $\bdy X_1$, and $Y^{\text{op}}$ a codimension $0$-submanifold of $\bdy X_2$, there is a chain map
+%\begin{equation*}
+%\gl_Y: \bc_*(X_1) \tensor \bc_*(X_2) \to \bc_*(X_1 \cup_Y X_2).
+%\end{equation*}
+Given a gluing $X_\mathrm{cut} \to X_\mathrm{glued}$, there is
 a natural map
 \[
-	\bc_*(X_\mathrm{cut}) \to \bc_*(X_\mathrm{gl}) .
+	\bc_*(X_\mathrm{cut}) \to \bc_*(X_\mathrm{glued}) .
 \]
 (Natural with respect to homeomorphisms, and also associative with respect to iterated gluings.)
 \end{property}
@@ -124,11 +124,10 @@ a natural map
 \begin{property}[Contractibility]
 \label{property:contractibility}%
 \todo{Err, requires a splitting?}
-The blob complex for an $n$-category on an $n$-ball is quasi-isomorphic to its $0$-th homology.
+The blob complex on an $n$-ball is contractible in the sense that it is quasi-isomorphic to its $0$-th homology. Moreover, the $0$-th homology of balls can be canonically identified with the original $n$-category $\cC$.
 \begin{equation}
 \xymatrix{\bc_*^{\cC}(B^n) \ar[r]^{\iso}_{\text{qi}} & H_0(\bc_*^{\cC}(B^n))}
 \end{equation}
-\todo{Say that this is just the original $n$-category?}
 \end{property}
 
 \begin{property}[Skein modules]
@@ -146,13 +145,12 @@ H_0(\bc_*^{\cC}(X)) \iso A^{\cC}(X)
 The blob complex for a $1$-category $\cC$ on the circle is
 quasi-isomorphic to the Hochschild complex.
 \begin{equation*}
-\xymatrix{\bc_*^{\cC}(S^1) \ar[r]^{\iso}_{\text{qi}} & HC_*(\cC)}
+\xymatrix{\bc_*^{\cC}(S^1) \ar[r]^{\iso}_{\text{qi}} & \HC_*(\cC)}
 \end{equation*}
 \end{property}
 
-\nn{$HC_*$ or $\rm{Hoch}_*$?}
 
-\begin{property}[$C_*(\Diff(\cdot))$ action]
+\begin{property}[$C_*(\Diff(-))$ action]
 \label{property:evaluation}%
 There is a chain map
 \begin{equation*}
@@ -175,6 +173,19 @@ any codimension $1$-submanifold $Y \subset X$ dividing $X$ into $X_1 \cup_Y X_2$
 \nn{maybe do self-gluing instead of 2 pieces case}
 \end{property}
 
+There is a version of the blob complex for $\cC$ an $A_\infty$ $n$-category
+instead of a garden variety $n$-category.
+
+\begin{property}[Product formula]
+Let $M^n = Y^{n-k}\times W^k$ and let $\cC$ be an $n$-category.
+Let $A_*(Y)$ be the $A_\infty$ $k$-category associated to $Y$ via blob homology, which associates to each $k$-ball $D$ the complex $A_*(Y)(D) = \bc_*(Y \times D, \cC)$.
+Then
+\[
+	\bc_*(Y^{n-k}\times W^k, \cC) \simeq \bc_*(W, A_*(Y)) .
+\]
+Note on the right here we have the version of the blob complex for $A_\infty$ $n$-categories.
+\nn{say something about general fiber bundles?}
+\end{property}
 
 \begin{property}[Gluing formula]
 \label{property:gluing}%
@@ -186,12 +197,10 @@ naturally an $A_\infty$ category. % We'll write $\bc_*(Y)$ for $\bc_*(Y \times I
 \item For any $n$-manifold $X$, with $Y$ a codimension $0$-submanifold of its boundary, the blob homology of $X$ is naturally an
 $A_\infty$ module for $\bc_*(Y \times I)$.
 
-\item For any $n$-manifold $X$, with $Y \cup Y^{\text{op}}$ a codimension
-$0$-submanifold of its boundary, the blob homology of $X'$, obtained from
-$X$ by gluing along $Y$, is the $A_\infty$ self-tensor product of
-$\bc_*(X)$ as an $\bc_*(Y \times I)$-bimodule.
+\item For any $n$-manifold $X_\text{glued} = X_\text{cut} \bigcup_Y \selfarrow$, the blob complex $\bc_*(X_\text{glued})$ is the $A_\infty$ self-tensor product of
+$\bc_*(X_\text{cut})$ as an $\bc_*(Y \times I)$-bimodule.
 \begin{equation*}
-\bc_*(X') \iso \bc_*(X) \Tensor^{A_\infty}_{\mathclap{\bc_*(Y \times I)}} \!\!\!\!\!\!\xymatrix{ \ar@(ru,rd)@<-1ex>[]}
+\bc_*(X_\text{glued}) \simeq \bc_*(X_\text{cut}) \Tensor^{A_\infty}_{\mathclap{\bc_*(Y \times I)}} \selfarrow
 \end{equation*}
 \end{itemize}
 \end{property}
@@ -199,50 +208,30 @@ $\bc_*(X)$ as an $\bc_*(Y \times I)$-bimodule.
 
 
 \begin{property}[Relation to mapping spaces]
-There is a version of the blob complex for $C$ an $A_\infty$ $n$-category
-instead of a garden variety $n$-category.
-
 Let $\pi^\infty_{\le n}(W)$ denote the $A_\infty$ $n$-category based on maps 
 $B^n \to W$.
 (The case $n=1$ is the usual $A_\infty$ category of paths in $W$.)
-Then $\bc_*(M, \pi^\infty_{\le n}(W))$ is 
-homotopy equivalent to $C_*(\{\text{maps}\; M \to W\})$.
+Then 
+$$\bc_*(M, \pi^\infty_{\le n}(W) \simeq \CM{M}{W}.$$
 \end{property}
-
-
-
-
-\begin{property}[Product formula]
-Let $M^n = Y^{n-k}\times W^k$ and let $C$ be an $n$-category.
-Let $A_*(Y)$ be the $A_\infty$ $k$-category associated to $Y$ via blob homology.
-Then
-\[
-	\bc_*(Y^{n-k}\times W^k, C) \simeq \bc_*(W, A_*(Y)) .
-\]
-\nn{say something about general fiber bundles?}
-\end{property}
-
-
-
 
 \begin{property}[Higher dimensional Deligne conjecture]
 The singular chains of the $n$-dimensional fat graph operad act on blob cochains.
-
+\end{property}
+\begin{rem}
 The $n$-dimensional fat graph operad can be thought of as a sequence of general surgeries
 of $n$-manifolds
 $R_i \cup A_i \leadsto R_i \cup B_i$ together with mapping cylinders of diffeomorphisms
 $f_i: R_i\cup B_i \to R_{i+1}\cup A_{i+1}$.
 (Note that the suboperad where $A_i$, $B_i$ and $R_i\cup A_i$ are all diffeomorphic to 
 the $n$-ball is equivalent to the little $n{+}1$-disks operad.)
-
-If $A$ and $B$ are $n$-manifolds sharing the same boundary, define
+If $A$ and $B$ are $n$-manifolds sharing the same boundary, we define
 the blob cochains $\bc^*(A, B)$ (analogous to Hochschild cohomology) to be
 $A_\infty$ maps from $\bc_*(A)$ to $\bc_*(B)$, where we think of both
-(collections of) complexes as modules over the $A_\infty$ category associated to $\bd A = \bd B$.
+collections of complexes as modules over the $A_\infty$ category associated to $\bd A = \bd B$.
 The ``holes" in the above 
 $n$-dimensional fat graph operad are labeled by $\bc^*(A_i, B_i)$.
-\end{property}
-
+\end{rem}
 
 
 
