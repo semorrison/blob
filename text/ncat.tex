@@ -438,6 +438,7 @@ For $k=n$ define $\cC(X)$ to be homeomorphism classes (rel boundary) of such sub
 we identify $W$ and $W'$ if $\bd W = \bd W'$ and there is a homeomorphism
 $W\to W'$ which restricts to the identity on the boundary.
 
+\item \nn{sphere modules; ref to below}
 
 \end{itemize}
 
@@ -829,8 +830,13 @@ Examples of modules:
 \label{moddecss}
 
 Let $\cC$ be an [$A_\infty$] $n$-category, let $W$ be a $k$-manifold ($k\le n$),
-and let $\cN = (\cN_i)$ be an assignment of a $\cC$ module $\cN_i$ to each boundary 
-component $\bd_i W$ of $W$.
+let $\{Y_i\}$ be a collection of disjoint codimension 0 submanifolds of $\bd W$,
+and let $\cN = (\cN_i)$ be an assignment of a $\cC$ module $\cN_i$ to $Y_i$.
+
+%Let $\cC$ be an [$A_\infty$] $n$-category, let $W$ be a $k$-manifold ($k\le n$),
+%and let $\cN = (\cN_i)$ be an assignment of a $\cC$ module $\cN_i$ to each boundary 
+%component $\bd_i W$ of $W$.
+%(More generally, each $\cN_i$ could label some codimension zero submanifold of $\bd W$.)
 
 We will define a set $\cC(W, \cN)$ using a colimit construction similar to above.
 \nn{give ref}
@@ -843,8 +849,12 @@ Define a permissible decomposition of $W$ to be a decomposition
 \]
 where each $X_a$ is a plain $k$-ball (disjoint from $\bd W$) and
 each $M_{ib}$ is a marked $k$-ball intersecting $\bd_i W$,
-with $M_{ib}\cap\bd_i W$ being the marking.
-\nn{need figure}
+with $M_{ib}\cap Y_i$ being the marking.
+(See Figure \ref{mblabel}.)
+\begin{figure}[!ht]\begin{equation*}
+\mathfig{.9}{tempkw/mblabel}
+\end{equation*}\caption{A permissible decomposition of a manifold
+whose boundary components are labeled my $\cC$ modules $\{\cN_i\}$.}\label{mblabel}\end{figure}
 Given permissible decompositions $x$ and $y$, we say that $x$ is a refinement
 of $y$, or write $x \le y$, if each ball of $y$ is a union of balls of $x$.
 This defines a partial ordering $\cJ(W)$, which we will think of as a category.
@@ -865,14 +875,17 @@ If $x$ is a refinement of $y$, define a map $\psi_\cN(x)\to\psi_\cN(y)$
 via the gluing (composition or action) maps from $\cC$ and the $\cN_i$.
 
 Finally, define $\cC(W, \cN)$ to be the colimit of $\psi_\cN$.
-In other words, for each decomposition $x$ there is a map
-$\psi(x)\to \cC(W, \cN)$, these maps are compatible with the refinement maps
-above, and $\cC(W, \cN)$ is universal with respect to these properties.
+(Recall that if $k=n$ and we are in the $A_\infty$ case, then ``colimit" means
+homotopy colimit.)
 
-More generally, each $\cN_i$ could label some codimension zero submanifold of $\bd W$.
-\nn{need to say more?}
+If $D$ is an $m$-ball, $0\le m \le n-k$, then we can similarly define
+$\cC(D\times W, \cN)$, where in this case $\cN_i$ labels the submanifold 
+$D\times Y_i \sub \bd(D\times W)$.
 
-\nn{boundary restrictions, $k$-cat $\cC(\cdot\times W; N)$ etc.}
+It is not hard to see that the assignment $D \mapsto \cT(W, \cN)(D) \deq \cC(D\times W, \cN)$
+has the structure of an $n{-}k$-category.
+We will use a simple special case of this construction in the next subsection to define tensor products 
+of modules.
 
 \subsection{Tensor products}
 
