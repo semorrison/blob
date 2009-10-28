@@ -884,40 +884,43 @@ $D\times Y_i \sub \bd(D\times W)$.
 
 It is not hard to see that the assignment $D \mapsto \cT(W, \cN)(D) \deq \cC(D\times W, \cN)$
 has the structure of an $n{-}k$-category.
-We will use a simple special case of this construction in the next subsection to define tensor products 
+
+\medskip
+
+
+%\subsection{Tensor products}
+
+We will use a simple special case of the above 
+construction to define tensor products 
 of modules.
+Let $\cM_1$ and $\cM_2$ be modules for an $n$-category $\cC$.
+(If $k=1$ and manifolds are oriented, then one should be 
+a left module and the other a right module.)
+Choose a 1-ball $J$, and label the two boundary points of $J$ by $\cM_1$ and $\cM_2$.
+Define the tensor product of $\cM_1$ and $\cM_2$ to be the 
+$n{-}1$-category $\cT(J, \cM_1, \cM_2)$,
+\[
+	\cM_1\otimes \cM_2 \deq \cT(J, \cM_1, \cM_2) .
+\]
+This of course depends (functorially)
+on the choice of 1-ball $J$.
 
-\subsection{Tensor products}
+We will define a more general self tensor product (categorified coend) below.
 
-Next we consider tensor products.
 
-\nn{what about self tensor products /coends ?}
+
+
+%\nn{what about self tensor products /coends ?}
 
 \nn{maybe ``tensor product" is not the best name?}
 
-\nn{start with (less general) tensor products; maybe change this later}
-
-
-Let $\cM$ and $\cM'$ be modules for an $n$-category $\cC$.
-(If $k=1$ and manifolds are oriented, then one should be 
-a left module and the other a right module.)
-We will define an $n{-}1$-category $\cM\ot_\cC\cM'$, which depends (functorially)
-on a choice of 1-ball (interval) $J$.
-
-Let $p$ and $p'$ be the boundary points of $J$.
-Given a $k$-ball $X$, let $(X\times J, \cM, \cM')$ denote $X\times J$ with
-$X\times\{p\}$ labeled by $\cM$ and $X\times\{p'\}$ labeled by $\cM'$, as in Subsection \ref{moddecss}.
-Let
-\[
-	\cT(X) \deq \cC(X\times J, \cM, \cM') ,
-\]
-where the right hand side is the colimit construction defined in Subsection \ref{moddecss}.
-It is not hard to see that $\cT$ becomes an $n{-}1$-category.
-\nn{maybe follows from stuff (not yet written) in previous subsection?}
+%\nn{start with (less general) tensor products; maybe change this later}
 
 
 
 \subsection{The $n{+}1$-category of sphere modules}
+
+
 
 Outline:
 \begin{itemize}
@@ -925,6 +928,7 @@ Outline:
 \end{itemize}
 
 
+\nn{need to assume a little extra structure to define the top ($n+1$) part (?)}
 
 \medskip
 \hrule
