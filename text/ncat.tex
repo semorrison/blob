@@ -2,14 +2,17 @@
 
 \def\xxpar#1#2{\smallskip\noindent{\bf #1} {\it #2} \smallskip}
 
-\section{$n$-categories (maybe)}
+\section{$n$-categories}
 \label{sec:ncats}
 
-\nn{experimental section.  maybe this should be rolled into other sections.
-maybe it should be split off into a separate paper.}
+%In order to make further progress establishing properties of the blob complex,
+%we need a definition of $A_\infty$ $n$-category that is adapted to our needs.
+%(Even in the case $n=1$, we need the new definition given below.)
+%It turns out that the $A_\infty$ $n$-category definition and the plain $n$-category
+%definition are mostly the same, so we give a new definition of plain
+%$n$-categories too.
+%We also define modules and tensor products for both plain and $A_\infty$ $n$-categories.
 
-\nn{comment somewhere that what we really need is a convenient def of infty case, including tensor products etc.
-but while we're at it might as well do plain case too.}
 
 \subsection{Definition of $n$-categories}
 
@@ -17,6 +20,16 @@ Before proceeding, we need more appropriate definitions of $n$-categories,
 $A_\infty$ $n$-categories, modules for these, and tensor products of these modules.
 (As is the case throughout this paper, by ``$n$-category" we mean
 a weak $n$-category with strong duality.)
+
+The definitions presented below tie the categories more closely to the topology
+and avoid combinatorial questions about, for example, the minimal sufficient
+collections of generalized associativity axioms; we prefer maximal sets of axioms to minimal sets.
+For examples of topological origin, it is typically easy to show that they
+satisfy our axioms.
+For examples of a more purely algebraic origin, one would typically need the combinatorial
+results that we have avoided here.
+
+\medskip
 
 Consider first ordinary $n$-categories.
 We need a set (or sets) of $k$-morphisms for each $0\le k \le n$.
@@ -52,6 +65,7 @@ bijection of sets $f:\cC(X)\to \cC(Y)$.
 So we replace the above with
 
 \xxpar{Morphisms:}
+%\xxpar{Axiom 1 -- Morphisms:}
 {For each $0 \le k \le n$, we have a functor $\cC_k$ from 
 the category of $k$-balls and 
 homeomorphisms to the category of sets and bijections.}
@@ -116,6 +130,7 @@ first (or last) convention, perhaps it is better to define the boundary to be an
 equipped with an orientation of its once-stabilized tangent bundle.
 Similarly, in dimension $n-k$ we would have manifolds equipped with an orientation of 
 their $k$ times stabilized tangent bundles.
+(cf. [Stolz and Teichner].)
 Probably should also have a framing of the stabilized dimensions in order to indicate which 
 side the bounded manifold is on.
 For the moment just stick with unoriented manifolds.}

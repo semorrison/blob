@@ -5,7 +5,7 @@
 
 Let $CD_*(X, Y)$ denote $C_*(\Diff(X \to Y))$, the singular chain complex of
 the space of diffeomorphisms
-\nn{or homeomorphisms}
+\nn{or homeomorphisms; need to fix the diff vs homeo inconsistency}
 between the $n$-manifolds $X$ and $Y$ (extending a fixed diffeomorphism $\bd X \to \bd Y$).
 For convenience, we will permit the singular cells generating $CD_*(X, Y)$ to be more general
 than simplices --- they can be based on any linear polyhedron.
@@ -19,14 +19,22 @@ For $n$-manifolds $X$ and $Y$ there is a chain map
 }
 On $CD_0(X, Y) \otimes \bc_*(X)$ it agrees with the obvious action of $\Diff(X, Y)$ on $\bc_*(X)$
 (Proposition (\ref{diff0prop})).
-For any splittings $X = X_1 \cup X_2$ and $Y = Y_1 \cup Y_2$, 
+For any compatible splittings $X\to X\sgl$ and $Y\to Y\sgl$, 
 the following diagram commutes up to homotopy
 \eq{ \xymatrix{
-     CD_*(X, Y) \otimes \bc_*(X) \ar[r]^{e_{XY}}    & \bc_*(Y) \\
-     CD_*(X_1, Y_1) \otimes CD_*(X_2, Y_2) \otimes \bc_*(X_1) \otimes \bc_*(X_2)
-        \ar@/_4ex/[r]_{e_{X_1Y_1} \otimes e_{X_2Y_2}}  \ar[u]^{\gl \otimes \gl}  &
-            \bc_*(Y_1) \otimes \bc_*(Y_2) \ar[u]_{\gl}
+     CD_*(X\sgl, Y\sgl) \otimes \bc_*(X\sgl) \ar[r]^(.7){e_{X\sgl Y\sgl}}    & \bc_*(Y\sgl) \\
+      CD_*(X, Y) \otimes \bc_*(X)
+        \ar@/_4ex/[r]_{e_{XY}}  \ar[u]^{\gl \otimes \gl}  &
+            \bc_*(Y) \ar[u]_{\gl}
 } }
+%For any splittings $X = X_1 \cup X_2$ and $Y = Y_1 \cup Y_2$, 
+%the following diagram commutes up to homotopy
+%\eq{ \xymatrix{
+%     CD_*(X, Y) \otimes \bc_*(X) \ar[r]^{e_{XY}}    & \bc_*(Y) \\
+%     CD_*(X_1, Y_1) \otimes CD_*(X_2, Y_2) \otimes \bc_*(X_1) \otimes \bc_*(X_2)
+%        \ar@/_4ex/[r]_{e_{X_1Y_1} \otimes e_{X_2Y_2}}  \ar[u]^{\gl \otimes \gl}  &
+%            \bc_*(Y_1) \otimes \bc_*(Y_2) \ar[u]_{\gl}
+%} }
 Any other map satisfying the above two properties is homotopic to $e_X$.
 \end{prop}
 
