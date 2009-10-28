@@ -256,7 +256,8 @@ for $E\sub \bd D$ and $a\in \cC(X)$.
 More specifically, in order to bootstrap our way from the top dimension
 properties of identity morphisms to low dimensions, we need regular products,
 pinched products and even half-pinched products.
-I'm not sure what the best way to cleanly axiomatize the properties of these various is.
+I'm not sure what the best way to cleanly axiomatize the properties of these various
+products is.
 For the moment, I'll assume that all flavors of the product are at
 our disposal, and I'll plan on revising the axioms later.}
 
@@ -301,7 +302,10 @@ We define a map
 	\psi_{Y,J}: \cC(X) &\to& \cC(X) \\
 	a & \mapsto & s_{Y,J}(a \cup ((a|_Y)\times J)) .
 \end{eqnarray*}
-\nn{need to say something somewhere about pinched boundary convention for products}
+(See Figure \ref{glue-collar}.)
+\begin{figure}[!ht]\begin{equation*}
+\mathfig{.9}{tempkw/glue-collar}
+\end{equation*}\caption{Extended homeomorphism.}\label{glue-collar}\end{figure}
 We will call $\psi_{Y,J}$ an extended isotopy.
 \nn{or extended homeomorphism?  see below.}
 \nn{maybe remark that in some examples (e.g.\ ones based on sub cell complexes) 
@@ -360,20 +364,21 @@ type $A_\infty$ $n$-category.
 
 The alert reader will have already noticed that our definition of (plain) $n$-category
 is extremely similar to our definition of topological fields.
-The only difference is that for the $n$-category definition we restrict our attention to balls
+The main difference is that for the $n$-category definition we restrict our attention to balls
 (and their boundaries), while for fields we consider all manifolds.
-\nn{also: difference at the top dimension; fix this}
+(A minor difference is that in the category definition we directly impose isotopy
+invariance in dimension $n$, while in the fields definition we have non-isotopy-invariant fields
+but then mod out by local relations which imply isotopy invariance.)
 Thus a system of fields determines an $n$-category simply by restricting our attention to
 balls.
-The $n$-category can be thought of as the local part of the fields.
+This $n$-category can be thought of as the local part of the fields.
 Conversely, given an $n$-category we can construct a system of fields via 
-\nn{gluing, or a universal construction}
-\nn{see subsection below}
+a colimit construction; see below.
 
-\nn{Next, say something about $A_\infty$ $n$-categories and ``homological" systems
-of fields.
-The universal (colimit) construction becomes our generalized definition of blob homology.
-Need to explain how it relates to the old definition.}
+%\nn{Next, say something about $A_\infty$ $n$-categories and ``homological" systems
+%of fields.
+%The universal (colimit) construction becomes our generalized definition of blob homology.
+%Need to explain how it relates to the old definition.}
 
 \medskip
 
@@ -405,6 +410,7 @@ $h: X\times F\times I \to T$, then $a \sim \alpha(h)b$.
 \item Given a traditional $n$-category $C$ (with strong duality etc.),
 define $\cC(X)$ (with $\dim(X) < n$) 
 to be the set of all $C$-labeled sub cell complexes of $X$.
+(See Subsection \ref{sec:fields}.)
 For $X$ an $n$-ball and $c\in \cC(\bd X)$, define $\cC(X)$ to finite linear
 combinations of $C$-labeled sub cell complexes of $X$
 modulo the kernel of the evaluation map.
@@ -420,11 +426,18 @@ to be the dual Hilbert space $A(X\times F; c)$.
 \item Variation on the above examples:
 We could allow $F$ to have boundary and specify boundary conditions on $X\times \bd F$,
 for example product boundary conditions or take the union over all boundary conditions.
-\nn{maybe should not emphasize this case, since it's ``better" in some sense
-to think of these guys as affording a representation
-of the $n{+}1$-category associated to $\bd F$.}
+%\nn{maybe should not emphasize this case, since it's ``better" in some sense
+%to think of these guys as affording a representation
+%of the $n{+}1$-category associated to $\bd F$.}
 
-\item \nn{should add bordism $n$-cat}
+\item Here's our version of the bordism $n$-category.
+For a $k$-ball $X$, $k<n$, define $\cC(X)$ to be the set of all $k$-dimensional
+submanifolds $W$ of $X\times \r^\infty$ such that the projection $W \to X$ is transverse
+to $\bd X$.
+For $k=n$ define $\cC(X)$ to be homeomorphism classes (rel boundary) of such submanifolds;
+we identify $W$ and $W'$ if $\bd W = \bd W'$ and there is a homeomorphism
+$W\to W'$ which restricts to the identity on the boundary.
+
 
 \end{itemize}
 
@@ -463,11 +476,11 @@ $\cC(W)$ will have additional structure; see below.)
 $\cC(W)$ will be the colimit of a functor defined on a category $\cJ(W)$,
 which we define next.
 
-Define a permissible decomposition of $W$ to be a decomposition
+Define a permissible decomposition of $W$ to be a cell decomposition
 \[
 	W = \bigcup_a X_a ,
 \]
-where each $X_a$ is a $k$-ball.
+where each closed top-dimensional cell $X_a$ is an embedded $k$-ball.
 Given permissible decompositions $x$ and $y$, we say that $x$ is a refinement
 of $y$, or write $x \le y$, if each ball of $y$ is a union of balls of $x$.
 This defines a partial ordering $\cJ(W)$, which we will think of as a category.
@@ -501,13 +514,12 @@ product in the enriching category.
 \nn{should probably be more explicit here})
 
 Finally, define $\cC(W)$ to be the colimit of $\psi_\cC$.
-In the plain (non-$A_\infty$) case, this means that
+When $k<n$ or $k=n$ and we are in the plain (non-$A_\infty$) case, this means that
 for each decomposition $x$ there is a map
 $\psi_\cC(x)\to \cC(W)$, these maps are compatible with the refinement maps
 above, and $\cC(W)$ is universal with respect to these properties.
-In the $A_\infty$ case, it means 
-\nn{.... need to check if there is a def in the literature before writing this down;
-homotopy colimit I think}
+When $k=n$ and we are in the $A_\infty$ case, it means
+homotopy colimit.
 
 More concretely, in the plain case enriched over vector spaces, and with $\dim(W) = n$, we can take
 \[
@@ -519,7 +531,7 @@ $a\in \psi_\cC(x)$ for some decomposition $x$, $x\le y$, and $g: \psi_\cC(x)
 
 In the $A_\infty$ case enriched over chain complexes, the concrete description of the colimit
 is as follows.
-\nn{should probably rewrite this to be compatible with some standard reference}
+%\nn{should probably rewrite this to be compatible with some standard reference}
 Define an $m$-sequence to be a sequence $x_0 \le x_1 \le \dots \le x_m$ of permissible decompositions.
 Such sequences (for all $m$) form a simplicial set.
 Let
@@ -809,7 +821,8 @@ there is no left/right module distinction.
 
 Examples of modules:
 \begin{itemize}
-\item
+\item \nn{examples from TQFTs}
+\item \nn{for maps to $T$, can restrict to subspaces of $T$;}
 \end{itemize}
 
 \subsection{Modules as boundary labels}
@@ -831,6 +844,7 @@ Define a permissible decomposition of $W$ to be a decomposition
 where each $X_a$ is a plain $k$-ball (disjoint from $\bd W$) and
 each $M_{ib}$ is a marked $k$-ball intersecting $\bd_i W$,
 with $M_{ib}\cap\bd_i W$ being the marking.
+\nn{need figure}
 Given permissible decompositions $x$ and $y$, we say that $x$ is a refinement
 of $y$, or write $x \le y$, if each ball of $y$ is a union of balls of $x$.
 This defines a partial ordering $\cJ(W)$, which we will think of as a category.
