@@ -33,9 +33,6 @@ In the third part of the paper (section \S \ref{sec:ainfblob}) we explain how to
 \begin{itemize}
 \item explain relation between old and new blob complex definitions
 \item overview of sections
-\item ?? we have resisted the temptation 
-(actually, it was not a temptation) to state things in the greatest
-generality possible
 \item related: we are being unsophisticated from a homotopy theory point of
 view and using chain complexes in many places where we could be by with spaces
 \item ? one of the points we make (far) below is that there is not really much
@@ -250,25 +247,7 @@ $$\bc_*(M, \pi^\infty_{\le n}(W) \simeq \CM{M}{W}.$$
 \begin{property}[Higher dimensional Deligne conjecture]
 The singular chains of the $n$-dimensional fat graph operad act on blob cochains.
 \end{property}
-\begin{rem}
-The $n$-dimensional fat graph operad can be thought of as a sequence of general surgeries
-of $n$-manifolds
-$R_i \cup A_i \leadsto R_i \cup B_i$ together with mapping cylinders of diffeomorphisms
-$f_i: R_i\cup B_i \to R_{i+1}\cup A_{i+1}$.
-(Note that the suboperad where $A_i$, $B_i$ and $R_i\cup A_i$ are all diffeomorphic to 
-the $n$-ball is equivalent to the little $n{+}1$-disks operad.)
-If $A$ and $B$ are $n$-manifolds sharing the same boundary, we define
-the blob cochains $\bc^*(A, B)$ (analogous to Hochschild cohomology) to be
-$A_\infty$ maps from $\bc_*(A)$ to $\bc_*(B)$, where we think of both
-collections of complexes as modules over the $A_\infty$ category associated to $\bd A = \bd B$.
-The ``holes" in the above 
-$n$-dimensional fat graph operad are labeled by $\bc^*(A_i, B_i)$.
-\end{rem}
-
-
-
-
-
+See \S \ref{sec:deligne} for an explanation of the terms appearing here, and (in a later edition of this paper) the proof.
 
 
 Properties \ref{property:functoriality}, \ref{property:gluing-map} and \ref{property:skein-modules} will be immediate from the definition given in
@@ -277,3 +256,13 @@ Properties \ref{property:disjoint-union} and \ref{property:contractibility} are 
 Property \ref{property:hochschild} is established in \S \ref{sec:hochschild}, Property \ref{property:evaluation} in \S \ref{sec:evaluation},
 and Property \ref{property:gluing} in \S \ref{sec:gluing}.
 \nn{need to say where the remaining properties are proved.}
+
+\subsection{Future directions}
+Throughout, we have resisted the temptation to work in the greatest generality possible (don't worry, it wasn't that hard). More could be said about finite characteristic (there appears in be $2$-torsion in $\bc_1(S^2, \cC)$ for any spherical $2$-category $\cC$). Much more could be said about other types of manifolds, in particular oriented, $\operatorname{Spin}$ and $\operatorname{Pin}^{\pm}$ manifolds, where boundary issues become more complicated. (We'd recommend thinking about boundaries as germs, rather than just codimension $1$ manifolds.) We've also take the path of least resistance by considering $\operatorname{PL}$ manifolds; there may be some differences for topological manifolds and smooth manifolds.
+
+Many results in Hochschild homology can be understood `topologically' via the blob complex. For example, we expect that the shuffle product on the Hochschild homology of a commutative algebra $A$ simply corresponds to the gluing operation on $\bc_*(S^1 \times I, A)$, but haven't investigated the details.
+
+Most importantly, however, \nn{applications!} \nn{$n=2$ cases, contact, Kh}
+
+
+\subsection{Thanks and acknowledgements}
