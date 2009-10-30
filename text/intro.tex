@@ -2,17 +2,37 @@
 
 \section{Introduction}
 
-[some things to cover in the intro]
+We construct the ``blob complex'' $\bc_*(M; \cC)$ associated to an $n$-manifold $M$ and a ``linear $n$-category with strong duality'' $\cC$. This blob complex provides a simultaneous generalisation of several well-understood constructions:
 \begin{itemize}
-\item explain relation between old and new blob complex definitions
-\item overview of sections
-\item state main properties of blob complex (already mostly done below)
-\item give multiple motivations/viewpoints for blob complex: (1) derived cat
+\item The vector space $H_0(\bc_*(M; \cC))$ is isomorphic to the usual topological quantum field theory invariant of $M$ associated to $\cC$. (See \S \ref{sec:fields} \nn{more specific}.)
+\item When $n=1$, $\cC$ is just an associative algebroid, and $\bc_*(S^1; \cC)$ is quasi-isomorphic to the Hochschild complex $\HC_*(\cC)$. (See \S \ref{sec:hochschild}.)
+\item When $\cC = k[t]$, thought of as an n-category, we have $$H_*(\bc_*(M; k[t])) = H^{\text{sing}}_*(\Delta^\infty(M), k).$$ (See \S \ref{sec:comm_alg}.)
+\end{itemize}
+The blob complex has good formal properties, summarized in \S \ref{sec:properties}. These include an action of $\CD{M}$, extending the usual $\Diff(M)$ action on the TQFT space $H_0$ (see Property \ref{property:evaluation}) and a `gluing formula' allowing calculations by cutting manifolds into smaller parts (see Property \ref{property:gluing}).
+
+The blob complex definition is motivated by \nn{ continue here ...} give multiple motivations/viewpoints for blob complex: (1) derived cat
 version of TQFT Hilbert space; (2) generalization of Hochschild homology to higher $n$-cats;
 (3) ? sort-of-obvious colimit type construction;
 (4) ? a generalization of $C_*(\Maps(M, T))$ to the case where $T$ is
 a category rather than a manifold
-\item hope to apply to Kh, contact, (other examples?) in the future
+
+We expect applications of the blob complex to \nn{ ... } but do not address these in this paper.
+\nn{hope to apply to Kh, contact, (other examples?) in the future}
+
+
+\subsubsection{Structure of the paper}
+
+The first part of the paper (sections \S \ref{sec:fields}---\S \ref{sec:evaluation}) gives the definition of the blob complex, and establishes some of its properties. There are many alternative definitions of $n$-categories, and part of our difficulty defining the blob complex is simply explaining what we mean by an ``$n$-category with strong duality'' as one of the inputs. At first we entirely avoid this problem by introducing the notion of a `system of fields', and define the blob complex associated to an $n$-manifold and an $n$-dimensional system of fields. We sketch the construction of a system of fields from a $1$-category or from a pivotal $2$-category.
+
+Nevertheless, when we attempt to establish all of the observed properties of the blob complex, we find this situation unsatisfactory. Thus, in the second part of the paper (section \S \ref{sec:ncats}) we pause and give yet another definition of an $n$-category, or rather a definition of an $n$-category with strong duality. (It's not clear that we could remove the duality conditions from our definition, even if we wanted to.) We call these ``topological $n$-categories'', to differentiate them from previous versions. Moreover, we find that we need analogous $A_\infty$ $n$-categories, and we define these as well following very similar axioms. When $n=1$ these reduce to the usual $A_\infty$ categories.
+
+In the third part of the paper (section \S \ref{sec:ainfblob}) we explain how to construct a system of fields from a topological $n$-category, and give an alternative definition of the blob complex for an $n$-manifold and an $A_\infty$ $n$-category. Using these definitions, we show how to use the blob complex to `resolve' any topological $n$-category as an $A_\infty$ $n$-category, and relate the first and second definitions of the blob complex. We use the blob complex for $A_\infty$ $n$-categories to establish important properties of the blob complex (in both variants), in particular the `gluing formula' of Property \ref{property:gluing} below.
+
+
+[some things to cover in the intro]
+\begin{itemize}
+\item explain relation between old and new blob complex definitions
+\item overview of sections
 \item ?? we have resisted the temptation 
 (actually, it was not a temptation) to state things in the greatest
 generality possible
@@ -84,6 +104,8 @@ to later papers.
 \hrule
 \bigskip
 
+\subsection{Formal properties}
+\label{sec:properties}
 We then show that blob homology enjoys the following properties.
 
 \begin{property}[Functoriality]
@@ -149,14 +171,13 @@ quasi-isomorphic to the Hochschild complex.
 \end{equation*}
 \end{property}
 
-
+Here $\CD{X}$ is the singular chain complex of the space of diffeomorphisms of $X$, fixed on $\bdy X$.
 \begin{property}[$C_*(\Diff(-))$ action]
 \label{property:evaluation}%
 There is a chain map
 \begin{equation*}
 \ev_X: \CD{X} \tensor \bc_*(X) \to \bc_*(X).
 \end{equation*}
-(Here $\CD{X}$ is the singular chain complex of the space of diffeomorphisms of $X$, fixed on $\bdy X$.)
 
 Restricted to $C_0(\Diff(X))$ this is just the action of diffeomorphisms described in Property \ref{property:functoriality}. Further, for
 any codimension $1$-submanifold $Y \subset X$ dividing $X$ into $X_1 \cup_Y X_2$, the following diagram
@@ -170,11 +191,22 @@ any codimension $1$-submanifold $Y \subset X$ dividing $X$ into $X_1 \cup_Y X_2$
 }
 \end{equation*}
 \nn{should probably say something about associativity here (or not?)}
-\nn{maybe do self-gluing instead of 2 pieces case}
+\nn{maybe do self-gluing instead of 2 pieces case:}
+Further, for
+any codimension $0$-submanifold $Y \sqcup Y^\text{op} \subset \bdy X$ the following diagram
+(using the gluing maps described in Property \ref{property:gluing-map}) commutes.
+\begin{equation*}
+\xymatrix@C+2cm{
+     \CD{X \bigcup_Y \selfarrow} \otimes \bc_*(X \bigcup_Y \selfarrow) \ar[r]^<<<<<<<<<<<<{\ev_{(X \bigcup_Y \scalebox{0.5}{\selfarrow})}}    & \bc_*(X \bigcup_Y \selfarrow) \\
+     \CD{X} \otimes \bc_*(X)
+        \ar[r]_{\ev_{X}}  \ar[u]^{\gl^{\Diff}_Y \otimes \gl_Y}  &
+            \bc_*(X) \ar[u]_{\gl_Y}
+}
+\end{equation*}
 \end{property}
 
 There is a version of the blob complex for $\cC$ an $A_\infty$ $n$-category
-instead of a garden variety $n$-category.
+instead of a garden variety $n$-category; this is described in \S \ref{sec:ainfblob}.
 
 \begin{property}[Product formula]
 Let $M^n = Y^{n-k}\times W^k$ and let $\cC$ be an $n$-category.
