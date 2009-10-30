@@ -1,0 +1,29 @@
+\usepackage{etex}
+\usepackage{pgfpages}
+
+\usepackage{color}
+
+\usepackage{tikz}
+\usetikzlibrary{shapes}
+\usetikzlibrary{backgrounds}
+
+% beamer mode
+\mode<beamer>{
+ \usetheme{Warsaw}
+}
+
+% transparency mode
+\mode<trans>{
+ \usetheme{Warsaw}
+}
+
+% handout mode
+\mode<handout>{
+ \usetheme{default}
+ \setbeamercolor{background canvas}{bg=black!5}
+ \pgfpagesuselayout{4 on 1}[letterpaper,landscape,border shrink=2.5mm]
+}
+
+\newcommand{\return}[2]{\hyperlink{#1}{\beamerreturnbutton{#2}}}
+\newcommand{\goto}[2]{\hyperlink{#1}{\beamergotobutton{#2}}}
+\newcommand{\skipto}[2]{\hyperlink{#1}{\beamerskipbutton{#2}}}
