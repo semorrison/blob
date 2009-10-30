@@ -47,11 +47,6 @@
 \end{array}\hspace{-3pt}}}
 \newcommand{\placefig}[2]{\includegraphics[width=#1\linewidth]{\pathtodiagrams #2}}
 
-\ifpdf
-\usepackage[pdftex,plainpages=false,hypertexnames=false,pdfpagelabels]{hyperref}
-\else
-\usepackage[dvips,plainpages=false,hypertexnames=false]{hyperref}
-\fi
 \newcommand{\arxiv}[1]{\href{http://arxiv.org/abs/#1}{\tt arXiv:\nolinkurl{#1}}}
 \newcommand{\doi}[1]{\href{http://dx.doi.org/#1}{{\tt DOI:#1}}}
 \newcommand{\euclid}[1]{\href{http://projecteuclid.org/euclid.cmp/#1}{{\tt at Project Euclid: #1}}}
@@ -60,13 +55,12 @@
 
 % THEOREMS -------------------------------------------------------
 \theoremstyle{plain}
-\newtheorem*{fact}{Fact}
+%\newtheorem*{fact}{Fact}
 \newtheorem{prop}{Proposition}[section]
 \newtheorem{conj}[prop]{Conjecture}
 \newtheorem{thm}[prop]{Theorem}
 \newtheorem{lem}[prop]{Lemma}
 \newtheorem{claim}[prop]{Claim}
-\newtheorem{lemma}[prop]{Lemma}
 \newtheorem{cor}[prop]{Corollary}
 \newtheorem*{cor*}{Corollary}
 \newtheorem*{exc}{Exercise}
@@ -203,3 +197,5 @@
 \setlength{\parsep}{\parskip}}%
 \item[]}{\end{list}}
 % ----------------------------------------------------------------
+
+

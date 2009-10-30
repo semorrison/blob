@@ -5,6 +5,14 @@
 
 \input{\pathtotrunk preamble.tex}
 
+\newtheorem{lemma}[prop]{Lemma}
+
+\ifpdf
+\usepackage[pdftex,plainpages=false,hypertexnames=false,pdfpagelabels]{hyperref}
+\else
+\usepackage[dvips,plainpages=false,hypertexnames=false]{hyperref}
+\fi
+
 \usepackage{breakurl}
 
 \ifpdf
