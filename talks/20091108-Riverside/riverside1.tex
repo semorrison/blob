@@ -1,0 +1,61 @@
+% use options
+%  '[beamer]' for a digital projector
+%  '[trans]' for an overhead projector
+%  '[handout]' for 4-up printed notes
+\documentclass[beamer]{beamer}
+
+% change talk_preamble if you want to modify the slide theme, colours, and settings for trans and handout modes.
+\newcommand{\pathtotrunk}{../../}
+\input{\pathtotrunk talks/talk_preamble.tex}
+
+%\setbeameroption{previous slide on second screen=right}
+
+\author[Scott Morrison]{Scott Morrison \\ \texttt{http://tqft.net/} \\ joint work with Kevin Walker}
+\institute{UC Berkeley}
+\title{Blob homology, part $\mathbb{I}$}
+\date{Homotopy Theory and Higher Algebraic Structures, UC Riverside, November 10 2009 \\ \url{http://tqft.net/UCR-blobs1}}
+
+\begin{document}
+
+\frame{\titlepage}
+
+\begin{frame}
+       \frametitle{Outline}
+       \tableofcontents
+\end{frame}
+
+\beamertemplatetransparentcovered 
+
+\mode<beamer>{\setbeamercolor{block title}{bg=green!40!black}}
+
+\beamersetuncovermixins 
+{\opaqueness<1->{60}} 
+{} 
+
+
+
+\section{Overview}
+
+\AtBeginSection[]
+{
+   \begin{frame}<beamer>
+       \frametitle{Outline}
+       \tableofcontents[currentsection]
+   \end{frame}
+}
+
+\begin{frame}{What is \emph{blob homology}?}
+\begin{block}{}
+The blob complex takes an $n$-manifold $M$ and an `$n$-category with strong duality' $\cC$ and produces a chain complex, $\bc_*(M; \cC)$.
+\end{block}
+\begin{tikzpicture}
+\node (blobs) at (0,0) {$\bc_*(M; \cC)$};
+\node (skein) at (3,0) {$A(M; \cC)$};
+\node (hoch) at (0,3) {$HH_*(\cA)$};
+\path[->]<1-> (blobs) edge (skein);
+\end{tikzpicture}
+\end{frame}
+
+\end{document}
+% ----------------------------------------------------------------
+

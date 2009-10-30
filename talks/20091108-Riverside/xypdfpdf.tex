@@ -1,0 +1,189 @@
+%% xypdfpdf.tex from $Id: xypdfpdf.doc,v $
+%%
+%% Xy-pic ``PDF-PDF'' PDF support.
+%% Copyright (c) 1999-1999 Ross Moore <ross@mpce.mq.edu.au>
+%%
+%% This file is part of the Xy-pic package for graphs and diagrams in TeX.
+%% See the companion README and INSTALL files for further information.
+%% Copyright (c) 1991-1999 Kristoffer H. Rose <krisrose@ens-lyon.fr>
+%%
+%% The Xy-pic package is free software; you can redistribute it and/or modify
+%% it under the terms of the GNU General Public License as published by the
+%% Free Software Foundation; either version 2 of the License, or (at your
+%% option) any later version.
+%%
+%% The Xy-pic package is distributed in the hope that it will be useful, but
+%% WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
+%% or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License
+%% for more details.
+%%
+%% You should have received a copy of the GNU General Public License along
+%% with this package; if not, write to the Free Software Foundation, Inc.,
+%% 675 Mass Ave, Cambridge, MA 02139, USA.
+%%
+%% As a special exception, you may use this file and all files derived
+%% from it without restrictions. This special exception was added with
+%% version 3.7 of Xy-pic.
+%%
+\expandafter\ifx\csname xypdf-pdfloaded\endcsname\empty
+ \message{not reloaded}\endinput \fi
+\expandafter\let\csname xypdf-pdfloaded\endcsname=\empty \xycatcodes
+\global\newif\ifPDFspecials@
+\xylet@\PDFmacro@@=\eat@
+\xylet@\PDFdict@@=\eat@
+\xylet@\PDFspecial@@=\eat@
+\xylet@\PDFread@@=\eat@
+\xylet@\PDFinclude@@=\eat@
+\xylet@\PDFraw@@=\eat@
+\xylet@\xyPDFobeylines@@=\relax
+\xylet@\PDFspecialdict@@=\eat@
+\xydef@\UnloadPDFpdf@{%
+ \let\PDFmacro@@=\eat@
+ \let\PDFdict@@=\eat@
+ \let\PDFspecial@@=\eat@
+ \let\PDFread@@=\eat@
+ \let\PDFinclude@@=\eat@
+ \let\PDFraw@@=\eat@
+ \let\xyPDFobeylines@@=\relax
+ \let\PDFspecialdict@@=\eat@
+}
+\xydef@\UnloadPDF@{\UnloadPDFpdf@
+ \expandafter\ifx\csname xypdfloaded\endcsname\unknown\PDFspecials@false
+ \else\expandafter\NoPDFspecials\fi}
+\xylet@\UnloadPDF@@=\UnloadPDF@
+\ifx\undefined\dvitype@\xydef@\dvitype@{null}\fi
+\xylet@\xyrealshipout@=\shipout
+\xydef@\xyPDFshipout@{\xyrealshipout@}
+\xydef@\firstPDF@{%
+ \global\let\firstPDF@@=\relax \global\let\firstPDF@=\relax}
+\xylet@\firstPDF@@=\firstPDF@
+\xylet@\dumpPDFdict@@=\relax
+\xydef@\installxypdf@{%
+ \xyinputorelse@{xypdfpdf}{\xydrivernoload@{pdfpdf}}\xycatcodes
+ \installxypdf@@ \installxypdf@x }
+\xylet@\installxypdf@@=\relax
+\xylet@\setupxyPDF@@=\PDFspecials@true
+\xywithoption{pdf}{\let\setupxyPDF@@=\setupxyPDF@}
+\xydef@\installxypdf@x{
+ \let\firstPDF@=\relax
+ \let\XYpredict@=\relax
+ \setupxyPDF@@ }
+\xydef@\setupxyPDF@{\PDFspecials@true}
+\let\realinstallxypdf@x=\installxypdf@x
+\ifx\undefined\AfterBeginDocument
+ \def\installxypdf@x{\xysetup@@{\realinstallxypdf@x}}%
+\else
+ \def\installxypdf@x{\AfterBeginDocument{\realinstallxypdf@x}}%
+\fi
+\xydef@\xydefaultdriver@{dvipdf}
+\xydef@\xyPDFdriver#1{\def\xydefaultdriver@{#1}}
+\xydef@\installxypdf@orig{\DN@{}%
+ \ifx\xydriversselected@@\empty
+ \DN@{\expandafter\defaultinstallpdf@\expandafter{\xydefaultdriver@}}%
+ \else \def\do##1{%
+ \expandafter\ifx\csname##1@xy@pdf\endcsname\relax
+ \DN@{\defaultinstallpdf@{##1}}}%
+ \xydriversselected@@ 
+ \else \DN@##1{}\fi\fi \next@ }
+\xydef@\defaultinstallpdf@#1#2{%
+ \xywarning@{no driver specified, using #1 }%
+ \xyrequire{#1}\csname #1@xy@pdf\endcsname{}}
+\xydef@\null@xy@pdf{\installxypdf@}
+\xydefcsname@{shape [!...]}#1{%
+ \expandafter\ifx\csname xypdf-sloaded\endcsname\empty \DN@{\xyPDFescapestyle@{#1}@@}%
+ \else\ifxyPDFshapes@\DN@{\xyPDFshapechar@{#1}@@}%
+ \else \DN@{\xyPDFcharwarning@}\fi\fi \next@ }
+\xydefcsname@{shape [pdfxy]}{\ifxyPDFshapes@\DN@{\xyPDFpdfxy@}%
+ \else \DN@{\xyPDFcharwarning@}\fi \next@ }
+\xydef@\xyPDFpdfxy@{%
+ \setboxz@h{\dimen@=\L@p \advance\dimen@-\R@p 
+ \dimen@ii=-\U@p \raise\dimen@ii\hbox to\z@{%
+ \kern\dimen@\xyPDFcurrpt@\kern-\dimen@}\boxz@}}%
+\xydef@\xyPDFcurrpt@{\ifxyPDFshapes@\expandafter\xyPDFcurrpt@@\fi}
+\xydef@\xyPDFcurrpt@@@{\PDFspecial@@{xyi}\PDFraw@@{userdict begin xyx end}}%%%%<<<<<--- here
+\ifx\undefined\xyPDFcurrpt@@ \xylet@\xyPDFcurrpt@@=\xyPDFcurrpt@@@ \fi
+\xywarnifdefined\xyPDFshapechar@
+\xywarnifdefined\xyPDFsplitshape@
+{\xyuncatcodes \catcode`@=11
+ \gdef\xyPDFshapechar@#1@@{\xyPDFsplitshape@#1<><>@@}%
+ \gdef\xyPDFsplitshape@#1<>#2<>#3@@{\xyPDFsplitPDF@{#1}{#2}}}
+\xydef@\xyPDFrawA@#1{\expandafter\xyPDFrawAA@ #1{}{}}%
+\xydef@\xyPDFrawAA@#1#2{\PDFraw@@{ #1 #2}\PDFmessage{ #1 #2 }}%
+\xydef@\xyPDFrawZ@#1{\PDFraw@@{ #1}\PDFmessage{ #1 }}%
+\xydef@\modPDFboxz@{%
+ \expandafter\DN@\expandafter{\xyPDFpre@{}}\ifx\next@\empty\else
+ \setboxz@h{\expandafter\xyPDFrawA@\expandafter{\xyPDFpre@{}}\boxz@
+ \expandafter\xyPDFrawZ@\expandafter{\xyPDFpost@}}\DN@{}\fi}%
+\xydef@\modPDFdrop@{%
+ \expandafter\DNii@\expandafter{%
+ \expandafter\xyPDFrawA@\expandafter{\xyPDFpre@{}}}%
+ \DN@##1{\expandafter\def\expandafter\tmp@\expandafter{\nextii@ ##1}}%
+ \expandafter\next@\expandafter{\Drop@@}%
+ \expandafter\DNii@\expandafter{%
+ \expandafter\xyPDFrawZ@\expandafter{\xyPDFpost@}}%
+ \DN@##1{\expandafter\def\expandafter\Drop@@\expandafter{\tmp@ ##1}}%
+ \expandafter\next@\expandafter{\nextii@}}%
+\xydef@\modPDFconnect@{%
+ \expandafter\DNii@\expandafter{%
+ \expandafter\xyPDFrawA@\expandafter{\xyPDFpre@{}}}%
+ \DN@##1{\expandafter\def\expandafter\tmp@\expandafter{\nextii@ ##1}}%
+ \expandafter\next@\expandafter{\Connect@@}%
+ \expandafter\DNii@\expandafter{%
+ \expandafter\xyPDFrawZ@\expandafter{\xyPDFpost@}}%
+ \DN@##1{\expandafter\def\expandafter\Connect@@\expandafter{\tmp@ ##1}}%
+ \expandafter\next@\expandafter{\nextii@}}%
+\xydef@\xyPDFpre@{{}{}}
+\xydef@\xyPDFpost@{}
+\xydef@\PDFmessage@#1{\W@{PDF: #1}}
+\xydef@\PDFignore@#1{}%
+\xydef@\showPDFmessages{\let\PDFmessage=\PDFmessage@}
+\xydef@\hidePDFmessages{\let\PDFmessage=\PDFignore@}
+\xylet@\PDFtracing=\showPDFmessages
+\hidePDFmessages
+\xydef@\PDFmacro@#1{\PDFmacro@@{#1}\PDFmessage{#1}}
+\xydef@\includeXYPDFdict@{\relax}
+\xydef@\xyPDFdictknown@{}
+\xywarnifdefined\obeyoutlines@
+{\catcode`\^^M=\active%
+ \gdef\obeyoutlines@{\catcode`\^^M=\active \def^^M{^^J}%
+ \newlinechar=`\^^J\obeyspaces}}
+\xynew@{if}\ifxyPDFshapes@ \xyPDFshapes@true 
+\xydef@\xyPDFcharwarning@@{\xyPDFcharmessage@
+ \gdef\xyPDFcharwarning@@{\xyPDFcharmessage@
+ \xywarning@{...no further PDF warnings will be given}%
+ \global\let\xyPDFcharwarning@@=\relax }}
+\xydef@\xyPDFcharmessage@{\xywarning@{%
+ the current <driver> does not fully support PDF effects}}%
+\xydef@\newxyshape#1#2#3{%
+ \DN@{#3}\ifx\next@\empty
+ \xydefcsname@{shape [#1]}{\csname xyshape@#1@\endcsname}%
+ \else \expandafter\def\csname shape [#1]\endcsname{%
+ \csname xyshape@#1@\endcsname}\fi
+ \DN@{#2}\ifx\next@\empty
+ \expandafter\def\csname xyshape@#1@\endcsname{%
+ \xyundefinedEffect@{#1}{}@@}%
+ \else \expandafter\def\csname xyshape@#1@\endcsname{#2}\fi }
+\xydef@\xyundefinedEffect@#1#2@@{%
+ \xywarning@{The #1 #2 effect is not implemented with the current driver}}%
+\xydef@\newxyPDFshape#1#2{%
+ \expandafter\DN@\expandafter{\csname shape [#1]\endcsname}%
+ \DNii@{\relax}\ifx\next@\nextii@ \newxyshape{#1}{}\relax\fi
+ \expandafter\DNii@\expandafter{\csname xyPDFshape@#1@\endcsname}%
+ \expandafter\def\nextii@{#2}%
+ \ifx\nextii@\empty\expandafter\def\next@{\xyPDFnotimplemented@@`#1'@@}%
+ \else
+ \edef\tmp@{\noexpand\let\expandafter\noexpand\next@
+ \expandafter\noexpand\nextii@}%
+ \expandafter\tmp@\fi }
+\xydef@\xyPDFnotimplemented@@#1@@{%
+ \xywarning@{This PostScript effect is not implemented yet}}%
+\xydef@\xyPDFnotfinished@@{%
+ \xywarning@{This effect is not reliable yet; box sizes may be wrong}}%
+\installxypdf@
+\endinput
+
+
+
+
+
+

@@ -1,0 +1,69 @@
+%% xypdf-l.tex from $Id: xypdf-l.doc,v $
+%%
+%% Xy-pic ``Line extension'' PDF backend support.
+%% Copyright (c) 1999-1999 Ross Moore <ross@mpce.mq.edu.au>
+%%
+%% This file is part of the Xy-pic package for graphs and diagrams in TeX.
+%% See the companion README and INSTALL files for further information.
+%% Copyright (c) 1991-1999 Kristoffer H. Rose <krisrose@brics.dk>
+%%
+%% The Xy-pic package is free software; you can redistribute it and/or modify
+%% it under the terms of the GNU General Public License as published by the
+%% Free Software Foundation; either version 2 of the License, or (at your
+%% option) any later version.
+%%
+%% The Xy-pic package is distributed in the hope that it will be useful, but
+%% WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
+%% or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License
+%% for more details.
+%%
+%% You should have received a copy of the GNU General Public License along
+%% with this package; if not, write to the Free Software Foundation, Inc.,
+%% 675 Mass Ave, Cambridge, MA 02139, USA.
+%%
+%% As a special exception, you may use this file and all files derived
+%% from it without restrictions. This special exception was added with
+%% version 3.7 of Xy-pic.
+%%
+\expandafter\ifx\csname xypdf-lloaded\endcsname\empty
+ \message{not reloaded}\endinput \fi
+\expandafter\let\csname xypdf-lloaded\endcsname=\empty \xycatcodes
+\expandafter\ifx\csname xypdf-sloaded\endcsname\empty\else
+ \xyinputorelse@{xypdf-s}{\xyerror@{Could not load xypdf-s}{}}%
+ \xycatcodes\fi
+\xydef@\installPDFline@{\installPDFstyle@
+ \installPDFlinestyles@ \installPDFpolylines@ }
+\xydef@\UsePDFlines{\installPDFline@}
+\xydef@\NoPDFlines{\UnloadLine@\relax}
+\xydef@\xyPDFlineSpecial@#1{\xyPDFrawZ@{ #1 w}}
+\xydef@\xyPDFcapSpecial@#1{\xyPDFrawZ@{ #1 J}}
+\xydef@\xyPDFjoinSpecial@#1{\xyPDFrawZ@{ #1 j}}
+\xydef@\xyPDFmiterSpecial@#1{\xyPDFrawZ@{ #1 M}}
+\xydef@\installPDFlinestyles@{%
+ \let\xylinewidth@@=\xylinewidth@
+ \let\transxyline@@=\transxyline@
+ \let\xylineSpecial@@=\xyPDFlineSpecial@
+ \let\resetxyline@@=\resetxyline@i
+ \let\xy@linecap@@=\xy@linecap@
+ \let\xycapSpecial@@=\xyPDFcapSpecial@
+ \let\resetxylinecap@@=\resetxylinecap@i
+ \let\xy@linejoin@@=\xy@linejoin@
+ \let\xyjoinSpecial@@=\xyPDFjoinSpecial@
+ \let\resetxylinejoin@@=\resetxylinejoin@i
+ \let\xy@linemiter@@=\xy@linemiter@
+ \let\xymiterSpecial@@=\xyPDFmiterSpecial@
+ \let\resetxylinemiter@@=\resetxylinemiter@i
+}
+\xydef@\xypolylinePDF@Special#1{\PDFspecial@@{ q [] 0 d #1 S Q}}
+\xydef@\xypolydotPDF@Special#1{\PDFspecial@@{ q [1 3] 0 d S Q}}
+\xydef@\xypolydashPDF@Special#1{\PDFspecial@@{ q [5] 0 d #1 S Q}}
+\xydef@\xypolyfillPDF@Special#1{\PDFspecial@@{ q #1 f Q}}
+\xydef@\xypolyeofillPDF@Special#1{\PDFmacro@{ q #1 f* Q}}
+\xydef@\installPDFpolylines@{%
+ \let\xypolyline@Special=\xypolylinePDF@Special
+ \let\xypolydot@Special=\xypolydotPDF@Special
+ \let\xypolydash@Special=\xypolydashPDF@Special
+ \let\xypolyfill@Special=\xypolyfillPDF@Special
+%\let\xypolyeofill@Special=\xypolyeofillPDF@Special
+ \let\xy@polystyle@@=\xy@polystyle@ }
+\endinput

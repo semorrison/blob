@@ -1,0 +1,132 @@
+%% xypdftex.tex from $Id: xypdftex.doc,v $
+%%
+%% Xy-pic ``pdf-TeX'' driver interface option.
+%% Copyright (c) 1999-1999 Ross Moore <ross@mpce.mq.edu.au>
+%%
+%% This file is part of the Xy-pic package for graphs and diagrams in TeX.
+%% See the companion README and INSTALL files for further information.
+%% Copyright (c) 1991-1999 Kristoffer H. Rose <krisrose@brics.dk>
+%%
+%% The Xy-pic package is free software; you can redistribute it and/or modify
+%% it under the terms of the GNU General Public License as published by the
+%% Free Software Foundation; either version 2 of the License, or (at your
+%% option) any later version.
+%%
+%% The Xy-pic package is distributed in the hope that it will be useful, but
+%% WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
+%% or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License
+%% for more details.
+%%
+%% You should have received a copy of the GNU General Public License along
+%% with this package; if not, write to the Free Software Foundation, Inc.,
+%% 675 Mass Ave, Cambridge, MA 02139, USA.
+%%
+\ifx\xyloaded\undefined \input xy \fi
+\xyprovide{pdftex}{pdf-TeX driver}{\stripRCS$Revision: 3.8 $}%
+ {Ross Moore}{ross@mpce.mq.edu.au}%
+ {Mathematics Department, Macquarie University, NSW~2109, Australia}
+\xydef@\pdfTeX@@#1{\dvimessage@{pdf-TeX}{#1}}
+\newdriver{%
+ \xyaddsupport{color}\pdftexColor@@
+ \xyaddsupport{crayon}\pdftexCrayon@@
+% \xyaddsupport{pdf}\pdftexPDF@@
+% \xyaddsupport{rotate}\pdftexRotate@@
+ \xyaddsupport{line}\pdftexLine@@
+% \xyaddsupport{frame}\pdftexFrames@@
+% \xyaddsupport{tile}\pdftexTiles@@
+ \xyaddsupport{cmtip}\relax
+}
+%\xydef@\pdfTeXcolor@push#1{\special{pdfcolor push}\special{pdfcolor #1}}
+\xydef@\pdfTeXcolor@push#1{\edef\pdfsaved@color{\pdfcurrent@color}%
+ \def\pdfcurrent@color{#1}\special{#1}}%%%<<<<<<--- WRONG !
+\xydef@\pdfTeXcolor@pop{\let\pdfcurrent@color\pdfsaved@color
+ \expandafter\special\expandafter{\pdfsaved@color}}
+\xydef@\pdfTeXcolours@{\pdftexPDFtypes@
+% \let\xylocalColor@=\xystackcolor@
+% \let\xycolor@push=\pdfTeXcolor@push
+% \let\xycolor@pop=\pdfTeXcolor@pop
+ \def\xycolor@{\xycolor@@}%
+ \expandafter\ifx\csname xypdf-pdfloaded\endcsname\empty\DN@{%
+ \xyinputorelse@{xypdf-c}{\xydrivernoload@{pdf-c}}%
+ \if@pdf@known\installPDFcolor@ }\else\DN@{}\fi \next@
+ \ifx\xycolor@@\xyNoColor@ \let\xycolor@@=\xycolor@raw@@\fi
+ \ifx\xycrayolaloaded\empty \DN@{\xystandardcolors@\pdftexCrayon@@{}}%
+ \else\let\next@=\xystandardcolors@ \fi \next@ 
+ \let\xycolorwarning@=\relax \pdfTeX@@{color}%
+ \let\pdftexColor@@=\relax
+ \let\UnloadColor@@=\NopdfTeXcolor@
+ }
+\xydef@\pdftexColor@@{\pdfTeXcolours@}
+\xydef@\NopdfTeXcolor@{%
+ \let\xylocalColor@=\xyNoColor@@
+ \let\xycolor@=\xyNoColor@
+ \let\xycolorwarning@=\xycolorwarning@@
+ \let\pdftexColor@@=\pdfTeXcolours@
+ \let\UnloadColor@@=\UnloadColor@
+ }
+\xydef@\pdftexCrayon@@{\pdftexColor@@\pdftexCrayon@}
+\xydef@\pdftexCrayon@{\installCrayolaColors@}%
+\xydef@\pdftexPDF@@{\if@pdf@known\pdftexPDF@}
+\xydef@\pdftexPDFunload@{\if@pdf@known\UnloadPDF@
+ \let\UnloadPDF@@=\UnloadPDF@
+ \let\pdftexPDF@@=\pdftexPDF@ }
+\xydef@\pdftexPDFtypes@{%
+ \xyinputorelse@{xypdfpdf}{\xydrivernoload@{pdfpdf}}%
+ \ifx\PDFspecial@@\pdfTeXspecial@\else
+ \let\PDFspecial@@=\pdfTeXspecial@
+ \let\PDFmacro@@=\pdfTeXmacro@
+ \let\PDFdict@@=\pdfTeXdict@
+ \let\PDFraw@@=\pdfTeXraw@
+ \let\PDFinclude@@=\pdfTeXinclude@
+ \let\PDFspecialdict@@=\pdfTeXspecialDict@
+ \let\xyPDFobeylines@@=\obeypdfTeXlines@
+ \pdfTeX@@{PDF}%
+ \fi \pdftexCurrpt@ }
+\xydef@\pdfTeXspecial@#1{\if@pdf@known\firstPDF@@\pdfobj{#1}\pdflastobj}
+\xydef@\pdfTeXmacro@#1{\pdfobj{#1}}
+\xydef@\pdfTeXdict@#1{\pdfnames{#1}}
+\xydef@\pdfTeXspecialDict@#1{\pdfnames{#1}}
+\xydef@\pdfTeXinclude@#1{\if@pdf@known\firstPDF@@\special{prePDFfile #1}}
+\xydef@\pdfTeXraw@#1{\if@pdf@known\firstPDF@@\pdfliteral{#1}}%
+{\catcode`\^^M=\active%
+ \gdef\next{\catcode`\^^M=\active \let^^M=\par%
+ \let\PDFspecial@@=\pdfTeXdict@ \obeyspaces}}
+\xylet@\obeypdfTeXlines@=\next
+\xydef@\pdftexCurrpt@{\let\xyPDFcurrpt@@=\pdftexCurrpt@@}%
+\xydef@\pdftexCurrpt@@{\PDFspecial@@{xyi}\PDFraw@@{userdict begin xyx end}}%%%%%<<<<<--- here
+\xydef@\pdftexPDF@{\pdftexPDFtypes@
+ \let\pdftexPDF@@=\relax
+ \let\UnloadPDF@@=\pdftexPDFunload@ 
+ \let\installxypdf@@=\relax \if@pdf@known\installxypdf@ }
+\xydef@\pdftexRotate@@{\pdftexRotate@}
+\xydef@\pdftexRotate@{\pdftexPDFtypes@
+ \expandafter\ifx\csname xypdf-pdfloaded\endcsname\empty\DN@{%
+ \xyinputorelse@{xypdf-r}{\xydrivernoload@{pdf-r}}%
+ \xyRotScale@@ \if@pdf@known\installPDFrotscale@ }%
+ \else\DN@{\xydriverfail@{rotations are}\if@pdf@known\UnloadRotate@\relax}\fi
+ \next@}
+\xydef@\pdftexLine@@{\pdftexLine@}
+\xydef@\pdftexLine@{\pdftexPDFtypes@
+ \expandafter\ifx\csname xypdf-pdfloaded\endcsname\empty\DN@{%
+ \xyinputorelse@{xypdf-l}{\xydrivernoload@{pdf-l}}%
+ \if@pdf@known\installPDFline@ }%
+ \else\DN@{\xydriverfail@{line-widths are}\if@pdf@known\UnloadLine@\relax}\fi
+ \next@ }
+\xydef@\pdftexFrames@@{\pdftexFrames@}
+\xydef@\pdftexFrames@{\pdftexPDFtypes@
+ \expandafter\ifx\csname xypdf-pdfloaded\endcsname\empty\DN@{%
+ \xyinputorelse@{xypdf-f}{\xydrivernoload@{pdf-f}}%
+ \if@pdf@known\installPDFframes@ }%
+ \else\DN@{\xydriverfail@{frames are}\if@pdf@known\UnloadPDFframes@\relax}\fi
+ \next@ }
+\xydef@\pdftexTiles@@{\pdftexTiles@}
+\xydef@\pdftexTiles@{\pdftexPDFtypes@
+ \expandafter\ifx\csname xypdf-pdfloaded\endcsname\empty\DN@{%
+ \xyinputorelse@{xypdf-t}{\xydrivernoload@{pdf-t}}%
+ \if@pdf@known\installPDFpatterns@ \xystandardpatterns@}%
+ \else\DN@{\xydriverfail@{Patterns are}\if@pdf@known\UnloadPDFpatterns@\relax}\fi
+ \next@ }
+\xydef@\if@pdf@known#1{\ifx\undefined#1\else\expandafter#1\fi}
+\xyendinput
+
+

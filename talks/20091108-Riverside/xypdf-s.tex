@@ -1,0 +1,52 @@
+%% xypdf-s.tex from $Id: xypdf-s.doc,v $
+%%
+%% Xy-pic ``Style extension'' PDF support.
+%% Copyright (c) 1999-1999 Ross Moore <ross@mpce.mq.edu.au>
+%%
+%% This file is part of the Xy-pic package for graphs and diagrams in TeX.
+%% See the companion README and INSTALL files for further information.
+%% Copyright (c) 1991-1999 Kristoffer H. Rose <krisrose@brics.dk>
+%%
+%% The Xy-pic package is free software; you can redistribute it and/or modify
+%% it under the terms of the GNU General Public License as published by the
+%% Free Software Foundation; either version 2 of the License, or (at your
+%% option) any later version.
+%%
+%% The Xy-pic package is distributed in the hope that it will be useful, but
+%% WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
+%% or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License
+%% for more details.
+%%
+%% You should have received a copy of the GNU General Public License along
+%% with this package; if not, write to the Free Software Foundation, Inc.,
+%% 675 Mass Ave, Cambridge, MA 02139, USA.
+%%
+%% As a special exception, you may use this file and all files derived
+%% from it without restrictions. This special exception was added with
+%% version 3.7 of Xy-pic.
+%%
+\expandafter\ifx\csname xypdf-sloaded\endcsname\empty
+ \message{not reloaded}\endinput \fi
+\expandafter\let\csname xypdf-sloaded\endcsname=\empty \xycatcodes
+\xydef@\xykillstyles@@{\Unloadstyle@}%
+\xywarnifdefined\xyPDFescapestyle@
+\xywarnifdefined\xyPDFsplitescape@
+{\xyuncatcodes \catcode`@=11
+ \gdef\xyPDFescapestyle@#1@@{\xyPDFsplitescape@#1<><>@@}%
+ \gdef\xyPDFsplitescape@#1<>#2<>#3@@{\xyescape@@{#1}{#2}}}
+\xydef@\xyPDFsplitPDF@#1#2{%
+ \def\xyPDFpre@{#1}\def\xyPDFpost@{#2}\modPDFboxz@ }
+\xydef@\xyescape@@#1#2{\checkXyStyle@ 
+ \applyFIFOstyle@\prexyescape@{#1}\postxyescape@{#2}}
+\xydef@\prexyescape@{\xyescapeSpecial@}
+\xydef@\postxyescape@{\xyescapeSpecial@}
+\xylet@\xyescapeSpecial@=\eat@
+\let\xyescapeSpecial@=\addtostyletoks@
+\xydef@\installPDFstyle@{%
+ \def\preXYstyle@@{\xyPDFpre@}%
+ \let\xydoprestyles@=\xyPDFrawstyleA@
+ \let\xydopoststyles@=\xyPDFrawZ@
+ \let\xykillstyles@=\xykillstyles@@
+ }
+\xydef@\xyPDFrawstyleA@#1{\xyPDFrawA@{{#1}{}}}
+\endinput
