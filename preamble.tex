@@ -1,4 +1,5 @@
 %auto-ignore
+%!TEX root = blob1.tex
 %this ensures the arxiv doesn't try to start TeXing here.
 
 \usepackage{amsmath,amssymb,amsfonts}
@@ -122,7 +123,11 @@
 \newcommand{\HC}{\operatorname{Hoch}}
 \newcommand{\HH}{\operatorname{HH}}
 
-\newcommand{\selfarrow}{\ensuremath{\!\!\!\!\!\!\xymatrix{ \ar@(ru,rd)@<-1ex>[]}\phantom{++.}}}
+\newcommand{\selfarrow}{\ensuremath{\!\!\!\!\!\!\xymatrix{ \ar@(ru,rd)@<-1ex>[]}\phantom{++.\!\!}}}
+\newsavebox{\selfarrowcontents}
+\savebox{\selfarrowcontents}{\selfarrow}
+\renewcommand{\selfarrow}{\usebox{\selfarrowcontents}}
+
 
 \def\bc{{\mathcal B}}
 
