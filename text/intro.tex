@@ -6,11 +6,18 @@ We construct the ``blob complex'' $\bc_*(M; \cC)$ associated to an $n$-manifold 
 \begin{itemize}
 \item The vector space $H_0(\bc_*(M; \cC))$ is isomorphic to the usual topological quantum field theory invariant of $M$ associated to $\cC$. (See \S \ref{sec:fields} \nn{more specific}.)
 \item When $n=1$, $\cC$ is just an associative algebroid, and $\bc_*(S^1; \cC)$ is quasi-isomorphic to the Hochschild complex $\HC_*(\cC)$. (See \S \ref{sec:hochschild}.)
-\item When $\cC = k[t]$, thought of as an n-category (see \S \ref{sec:comm_alg}), we have $$H_*(\bc_*(M; k[t])) = H^{\text{sing}}_*(\Delta^\infty(M), k).$$ 
+\item When $\cC$ is the polynomial algebra $k[t]$, thought of as an n-category (see \S \ref{sec:comm_alg}), we have 
+that $\bc_*(M; k[t])$ is homotopy equivalent to $C_*(\Sigma^\infty(M), k)$, the singular chains
+on the configurations space of unlabeled points in $M$.
+%$$H_*(\bc_*(M; k[t])) = H^{\text{sing}}_*(\Delta^\infty(M), k).$$ 
 \end{itemize}
-The blob complex has good formal properties, summarized in \S \ref{sec:properties}. These include an action of $\CD{M}$, extending the usual $\Diff(M)$ action on the TQFT space $H_0$ (see Property \ref{property:evaluation}) and a `gluing formula' allowing calculations by cutting manifolds into smaller parts (see Property \ref{property:gluing}).
+The blob complex has good formal properties, summarized in \S \ref{sec:properties}. These include an action of $\CD{M}$, 
+\nn{maybe replace Diff with Homeo?}
+extending the usual $\Diff(M)$ action on the TQFT space $H_0$ (see Property \ref{property:evaluation}) and a gluing formula allowing calculations by cutting manifolds into smaller parts (see Property \ref{property:gluing}).
 
-The blob complex definition is motivated by the desire for a `derived' analogue of the usual TQFT Hilbert space (replacing quotient of fields by local relations with some sort of 'resolution'), and for a generalization of Hochschild homology to higher $n$-categories. We would also like to be able to talk about $\CM{M}{T}$ when $T$ is an $n$-category rather than a manifold. The blob complex allows us to do all of these! More detailed motivations are described in \S \ref{sec:motivations}.
+The blob complex definition is motivated by the desire for a `derived' analogue of the usual TQFT Hilbert space (replacing quotient of fields by local relations with some sort of `resolution'), 
+\nn{are the quotes around `derived' and `resolution' necessary?}
+and for a generalization of Hochschild homology to higher $n$-categories. We would also like to be able to talk about $\CM{M}{T}$ when $T$ is an $n$-category rather than a manifold. The blob complex allows us to do all of these! More detailed motivations are described in \S \ref{sec:motivations}.
 
 We expect applications of the blob complex to contact topology and Khovanov homology but do not address these in this paper. See \S \ref{sec:future} for slightly more detail.
 
@@ -22,11 +29,15 @@ The first part of the paper (sections \S \ref{sec:fields}---\S \ref{sec:evaluati
 Nevertheless, when we attempt to establish all of the observed properties of the blob complex, we find this situation unsatisfactory. Thus, in the second part of the paper (section \S \ref{sec:ncats}) we pause and give yet another definition of an $n$-category, or rather a definition of an $n$-category with strong duality. (It's not clear that we could remove the duality conditions from our definition, even if we wanted to.) We call these ``topological $n$-categories'', to differentiate them from previous versions. Moreover, we find that we need analogous $A_\infty$ $n$-categories, and we define these as well following very similar axioms.
 
 \nn{Not sure that the next para is appropriate here}
-The basic idea is that each potential definition of an $n$-category makes a choice about the `shape' of morphisms. We try to be as lax as possible; a topological $n$-category associates a vector space to every $B$ diffeomorphic to the $n$-ball. This vector spaces glue together associatively. For an $A_\infty$ $n$-category, we instead associate a chain complex to each such $B$. We require that diffeomorphisms (or the complex of singular chains of diffeomorphisms in the $A_\infty$ case) act. The axioms for an $A_\infty$ $n$-category are designed to capture two main examples: the blob complexes of $n$-balls, using a topological $n$-category, and the complex $\CM{-}{X}$ of maps to a fix target space $X$.
+The basic idea is that each potential definition of an $n$-category makes a choice about the `shape' of morphisms. We try to be as lax as possible; a topological $n$-category associates a vector space to every $B$ diffeomorphic to the $n$-ball. This vector spaces glue together associatively. For an $A_\infty$ $n$-category, we instead associate a chain complex to each such $B$. We require that diffeomorphisms (or the complex of singular chains of diffeomorphisms in the $A_\infty$ case) act. The axioms for an $A_\infty$ $n$-category are designed to capture two main examples: the blob complexes of $n$-balls, using a topological $n$-category, and the complex $\CM{-}{X}$ of maps to a fixed target space $X$.
+\nn{we might want to make our choice of notation here ($B$, $X$) consistent with later sections ($X$, $T$), or vice versa}
 
 In  \S \ref{sec:ainfblob} we explain how to construct a system of fields from a topological $n$-category, and give an alternative definition of the blob complex for an $n$-manifold and an $A_\infty$ $n$-category. Using these definitions, we show how to use the blob complex to `resolve' any topological $n$-category as an $A_\infty$ $n$-category, and relate the first and second definitions of the blob complex. We use the blob complex for $A_\infty$ $n$-categories to establish important properties of the blob complex (in both variants), in particular the `gluing formula' of Property \ref{property:gluing} below.
 
+\nn{KW: the previous two paragraphs seem a little awkward to me, but I don't presently have a good idea for fixing them.}
+
 Finally, later sections address other topics. Section \S \ref{sec:comm_alg} describes the blob complex when $\cC$ is a commutative algebra, thought of as a topological $n$-category, in terms of the topology of $M$. Section \S \ref{sec:deligne} states (and in a later edition of this paper, hopefully proves) a generalisation of the Deligne conjecture (that the little discs operad acts on Hochschild cohomology) in terms of the blob complex. The appendixes prove technical results about $\CD{M}$, and make connections between our definitions of $n$-categories and familar definitions for $n=1$ and $n=2$, as well as relating the $n=1$ case of our $A_\infty$ $n$-categories with usual $A_\infty$ algebras.
+
 
 \nn{some more things to cover in the intro}
 \begin{itemize}
@@ -137,7 +148,8 @@ a natural map
 
 \begin{property}[Contractibility]
 \label{property:contractibility}%
-\todo{Err, requires a splitting?}
+\nn{this holds with field coefficients, or more generally when
+the map to 0-th homology has a splitting; need to fix statement}
 The blob complex on an $n$-ball is contractible in the sense that it is quasi-isomorphic to its $0$-th homology. Moreover, the $0$-th homology of balls can be canonically identified with the original $n$-category $\cC$.
 \begin{equation}
 \xymatrix{\bc_*^{\cC}(B^n) \ar[r]^{\iso}_{\text{qi}} & H_0(\bc_*^{\cC}(B^n))}
@@ -201,7 +213,9 @@ In \S \ref{sec:ncats} we introduce the notion of topological $n$-categories, fro
 
 \begin{property}[Blob complexes of balls form an $A_\infty$ $n$-category]
 \label{property:blobs-ainfty}
- Let $\cC$ be  a topological $n$-category.  Let $Y$ be a $n-k$-manifold. Define $A_*(Y, \cC)$ on each $m$-ball $D$, for $0 \leq m \leq k$ to be the set $$A_*(Y, \cC)(D) = \bc_*(Y \times D, \cC).$$ (When $m=k$ the subsets with fixed boundary conditions form a chain complex.) These sets have the structure of an $A_\infty$ $k$-category
+Let $\cC$ be  a topological $n$-category.  Let $Y$ be an $n{-}k$-manifold. 
+Define $A_*(Y, \cC)$ on each $m$-ball $D$, for $0 \leq m \leq k$ to be the set $$A_*(Y, \cC)(D) = \bc_*(Y \times D, \cC).$$ (When $m=k$ the subsets with fixed boundary conditions form a chain complex.) These sets have the structure of an $A_\infty$ $k$-category.
+\nn{the subscript * is only appropriate when $m=k$. }
 \end{property}
 \begin{rem}
 Perhaps the most interesting case is when $Y$ is just a point; then we have a way of building an $A_\infty$ $n$-category from a topological $n$-category.
@@ -264,7 +278,10 @@ and Property \ref{property:gluing} in \S \ref{sec:gluing}.
 
 \subsection{Future directions}
 \label{sec:future}
-Throughout, we have resisted the temptation to work in the greatest generality possible (don't worry, it wasn't that hard). More could be said about finite characteristic (there appears in be $2$-torsion in $\bc_1(S^2, \cC)$ for any spherical $2$-category $\cC$). Much more could be said about other types of manifolds, in particular oriented, $\operatorname{Spin}$ and $\operatorname{Pin}^{\pm}$ manifolds, where boundary issues become more complicated. (We'd recommend thinking about boundaries as germs, rather than just codimension $1$ manifolds.) We've also take the path of least resistance by considering $\operatorname{PL}$ manifolds; there may be some differences for topological manifolds and smooth manifolds.
+Throughout, we have resisted the temptation to work in the greatest generality possible (don't worry, it wasn't that hard). 
+In most of the places where we say ``set" or ``vector space", any symmetric monoidal category would do.
+\nn{maybe make similar remark about chain complexes and $(\infty, 0)$-categories}
+More could be said about finite characteristic (there appears in be $2$-torsion in $\bc_1(S^2, \cC)$ for any spherical $2$-category $\cC$). Much more could be said about other types of manifolds, in particular oriented, $\operatorname{Spin}$ and $\operatorname{Pin}^{\pm}$ manifolds, where boundary issues become more complicated. (We'd recommend thinking about boundaries as germs, rather than just codimension $1$ manifolds.) We've also take the path of least resistance by considering $\operatorname{PL}$ manifolds; there may be some differences for topological manifolds and smooth manifolds.
 
 Many results in Hochschild homology can be understood `topologically' via the blob complex. For example, we expect that the shuffle product on the Hochschild homology of a commutative algebra $A$ simply corresponds to the gluing operation on $\bc_*(S^1 \times [0,1], A)$, but haven't investigated the details.
 
@@ -273,3 +290,13 @@ Most importantly, however, \nn{applications!} \nn{$n=2$ cases, contact, Kh}
 
 \subsection{Thanks and acknowledgements}
 We'd like to thank David Ben-Zvi, Michael Freedman, Vaughan Jones, Justin Roberts, Chris Schommer-Pries, Peter Teichner \nn{probably lots more} for many interesting and useful conversations. During this work, Kevin Walker has been at Microsoft Station Q, and Scott Morrison has been at Microsoft Station Q and the Miller Institute for Basic Research at UC Berkeley.
+
+
+\medskip\hrule\medskip
+
+Still to do:
+\begin{itemize}
+\item say something about starting with semisimple n-cat (trivial?? not trivial?)
+\item Mention somewhere \cite{MR1624157} ``Skein homology''; it's not directly related, but has similar motivations.
+\end{itemize}
+
