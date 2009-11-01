@@ -46,14 +46,118 @@
 
 \begin{frame}{What is \emph{blob homology}?}
 \begin{block}{}
-The blob complex takes an $n$-manifold $M$ and an `$n$-category with strong duality' $\cC$ and produces a chain complex, $\bc_*(M; \cC)$.
+The blob complex takes an $n$-manifold $\cM$ and an `$n$-category with strong duality' $\cC$ and produces a chain complex, $\bc_*(\cM; \cC)$.
 \end{block}
-\begin{tikzpicture}
-\node (blobs) at (0,0) {$\bc_*(M; \cC)$};
-\node (skein) at (3,0) {$A(M; \cC)$};
-\node (hoch) at (0,3) {$HH_*(\cA)$};
-\path[->]<1-> (blobs) edge (skein);
+\tikzstyle{description}=[gray, font=\tiny, text centered, text width=2cm]
+\begin{tikzpicture}[]
+\setbeamercovered{%
+ transparent=5,
+% still covered={\opaqueness<1>{15}\opaqueness<2>{10}\opaqueness<3>{5}\opaqueness<4->{2}},
+ again covered={\opaqueness<1->{50}}
+}
+
+\node[red] (blobs) at (0,0) {$H(\bc_*(\cM; \cC))$};
+\uncover<1>{
+\node[blue] (skein) at (4,0) {$A(\cM; \cC)$};
+\node[below=5pt, description] (skein-label) at (skein) {(the usual TQFT Hilbert space)};
+\path[->](blobs) edge node[above] {$*= 0$} (skein);
+}
+
+\uncover<2>{
+  \node[blue] (hoch) at (0,3) {$HH_*(\cC)$};
+  \node[right=20pt, description] (hoch-label) at (hoch) {(the Hochschild homology)};
+  \path[->](blobs) edge node[right] {$\cM = S^1$} (hoch);
+}
+
+\uncover<3>{
+  \node[blue] (comm) at (-2.4, -1.8) {$H_*(\Delta^\infty(\cM), k)$};
+  \node[description, below=5pt] (comm-label) at (comm) {(singular homology of the infinite configuration space)};
+  \path[->](blobs) edge node[right=5pt] {$\cC = k[t]$} (comm);
+}
+
 \end{tikzpicture}
+\end{frame}
+
+\begin{frame}{$n$-categories}
+\begin{block}{Defining $n$-categories is fraught with difficulties}
+I'm not going to go into details; I'll draw $2$-dimensional pictures, and rely on your intuition for pivotal $2$-categories.
+\end{block}
+\begin{block}{}
+\begin{itemize}
+\item
+Kevin's talk (part $\mathbb{II}$) will explain the notions of `topological $n$-categories' and `$A_\infty$ $n$-categories'.\item
+Defining $n$-categories: a choice of `shape' for morphisms.
+\item
+We allow all shapes! A vector space for every ball.
+\item
+`Strong duality' is integral in our definition.
+\end{itemize}
+\end{block}
+\end{frame}
+
+\newcommand{\roundframe}[1]{\begin{tikzpicture}[baseline]\node[rectangle,inner sep=1pt,rounded corners,fill=white] {#1};\end{tikzpicture}}
+
+
+\begin{frame}{Fields and pasting diagrams}
+\begin{block}{Pasting diagrams}
+Fix an $n$-category with strong duality $\cC$. A \emph{field} on $\cM$ is a pasting diagram drawn on $\cM$, with cells labelled by morphisms from $\cC$.
+\end{block}
+\begin{example}[$\cC = \text{TL}_d$ the Temperley-Lieb category]
+$$\roundframe{\mathfig{0.35}{definition/example-pasting-diagram}} \in \cF^{\text{TL}_d}\left(T^2\right)$$
+\end{example}
+\begin{block}{}
+Given a field on a ball, we can evaluate it to a morphism. We call the kernel the \emph{null fields}.
+\vspace{-3mm}
+$$\text{ev}\Bigg(\roundframe{d \mathfig{0.12}{definition/evaluation1}} - \roundframe{\mathfig{0.12}{definition/evaluation2}}\Bigg) = 0$$
+\end{block}
+\end{frame}
+
+\begin{frame}{\emph{Definition} of the blob complex, $k=0,1$}
+\begin{block}{Motivation}
+A \emph{local} construction, such that when $\cM$ is a ball, $\bc_*(\cM; \cC)$ is a resolution of $A(\cM,; \cC)$.
+\end{block}
+
+\begin{block}{}
+\center
+$\bc_0(\cM; \cC) = \cF(\cM)$, arbitrary fields on $\cM$.
+\end{block}
+
+\begin{block}{}
+\vspace{-1mm}
+$$\bc_1(\cM; \cC) = \setc{(B, u, r)}{\begin{array}{c}\text{$B$ an embedded ball}\\\text{$u \in \cF(B)$ in the kernel}\\ r \in \cF(\cM \setminus B)\end{array}}.$$
+\end{block}
+\vspace{-3.5mm}
+$$\mathfig{.5}{definition/single-blob}$$
+\vspace{-3mm}
+\begin{block}{}
+\vspace{-6mm}
+\begin{align*}
+d_1 : (B, u, r) & \mapsto u \circ r & \bc_0 / \im(d_1) \iso A(\cM; \cC)
+\end{align*}
+\end{block}
+\end{frame}
+
+\begin{frame}{Definition, $k=2$}
+\begin{block}{}
+\vspace{-1mm}
+$$\bc_2 = \bc_2^{\text{disjoint}} \oplus \bc_2^{\text{nested}}$$
+\end{block}
+\begin{block}{}
+\vspace{-5mm}
+\begin{align*}
+\bc_2^{\text{disjoint}} & =  \roundframe{\mathfig{0.5}{definition/disjoint-blobs}} & u_i \in \ker{\text{ev}_{B_i}}
+\end{align*}
+\vspace{-4mm}
+$$d_2 : (B_1, B_2, u_1, u_2, r) \mapsto (B_2, u_2, r \circ u_1) - (B_1, u_1, r \circ u_2)$$
+\end{block}
+\begin{block}{}
+\vspace{-5mm}
+\begin{align*}
+\bc_2^{\text{nested}} & = \roundframe{\mathfig{0.5}{definition/nested-blobs}} & u \in \ker{\text{ev}_{B_1}}
+\end{align*}
+\vspace{-4mm}
+$$d_2 : (B_1, B_2, u, r', r) \mapsto (B_2, u \circ r', r) - (B_1, u, r \circ r')$$
+\end{block}
 \end{frame}
 
 \end{document}
