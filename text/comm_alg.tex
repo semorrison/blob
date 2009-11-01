@@ -12,11 +12,15 @@ is homotopy equivalent to [higher Hochschild complex for $M^n$ with coefficients
 (Thomas Tradler's idea.)
 Should prove (or at least conjecture) that here.}
 
+\nn{also, this section needs a little updating to be compatible with the rest of the paper.}
+
 If $C$ is a commutative algebra it
-can (and will) also be thought of as an $n$-category whose $j$-morphisms are trivial for
+can also be thought of as an $n$-category whose $j$-morphisms are trivial for
 $j<n$ and whose $n$-morphisms are $C$. 
 The goal of this \nn{subsection?} is to compute
 $\bc_*(M^n, C)$ for various commutative algebras $C$.
+
+\medskip
 
 Let $k[t]$ denote the ring of polynomials in $t$ with coefficients in $k$.
 
@@ -45,6 +49,7 @@ $f(c) \in R(c)_*$ for all $c$ is contractible (and in particular non-empty).
 
 \begin{proof}
 \nn{easy, but should probably write the details eventually}
+\nn{this is just the standard ``method of acyclic models" set up, so we should just give a reference for that}
 \end{proof}
 
 Our first task: For each blob diagram $b$ define a subcomplex $R(b)_* \sub C_*(\Sigma^\infty(M))$
@@ -161,9 +166,10 @@ The homology calculation we desire follows easily from this.
 
 \medskip
 
-Next we consider the case $C = k[t]/t^l$ --- polynomials in $t$ with $t^l = 0$.
-Define $\Delta_l \sub \Sigma^\infty(M)$ to be those configurations of points with $l$ or
-more points coinciding.
+Next we consider the case $C$ is the truncated polynomial
+algebra $k[t]/t^l$ --- polynomials in $t$ with $t^l = 0$.
+Define $\Delta_l \sub \Sigma^\infty(M)$ to be configurations of points in $M$ with $l$ or
+more of the points coinciding.
 
 \begin{prop}
 $\bc_*(M, k[t]/t^l)$ is homotopy equivalent to $C_*(\Sigma^\infty(M), \Delta_l, k)$
@@ -174,5 +180,14 @@ $\bc_*(M, k[t]/t^l)$ is homotopy equivalent to $C_*(\Sigma^\infty(M), \Delta_l, 
 \nn{...}
 \end{proof}
 
-\nn{...}
+\medskip
+\hrule
+\medskip
+
+Still to do:
+\begin{itemize}
+\item compare the topological computation for truncated polynomial algebra with [Loday]
+\item multivariable truncated polynomial algebras (at least mention them)
+\item ideally, say something more about higher hochschild homology (maybe sketch idea for proof of equivalence)
+\end{itemize}
 

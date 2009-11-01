@@ -7,6 +7,76 @@ In this section we discuss Property \ref{property:deligne},
 The singular chains of the $n$-dimensional fat graph operad act on blob cochains.
 \end{prop}
 
+We will give a more precise statement of the proposition below.
+
+\nn{for now, we just sketch the proof.}
+
+\def\mapinf{\Maps_\infty}
+
+The usual Deligne conjecture \nn{need refs} gives a map
+\[
+	C_*(LD_k)\otimes \overbrace{Hoch^*(C, C)\otimes\cdots\otimes Hoch^*(C, C)}^{\text{$k$ copies}}
+			\to  Hoch^*(C, C) .
+\]
+Here $LD_k$ is the $k$-th space of the little disks operad, and $Hoch^*(C, C)$ denotes Hochschild
+cochains.
+The little disks operad is homotopy equivalent to the fat graph operad
+\nn{need ref; and need to restrict which fat graphs}, and Hochschild cochains are homotopy equivalent to $A_\infty$ endomorphisms
+of the blob complex of the interval.
+\nn{need to make sure we prove this above}.
+So the 1-dimensional Deligne conjecture can be restated as
+\begin{eqnarray*}
+	C_*(FG_k)\otimes \mapinf(\bc^C_*(I), \bc^C_*(I))\otimes\cdots
+	\otimes \mapinf(\bc^C_*(I), \bc^C_*(I)) & \\
+	  & \hspace{-5em} \to  \mapinf(\bc^C_*(I), \bc^C_*(I)) .
+\end{eqnarray*}
+See Figure \ref{delfig1}.
+\begin{figure}[!ht]
+$$\mathfig{.9}{tempkw/delfig1}$$
+\caption{A fat graph}\label{delfig1}\end{figure}
+
+We can think of a fat graph as encoding a sequence of surgeries, starting at the bottommost interval
+of Figure \ref{delfig1} and ending at the topmost interval.
+The surgeries correspond to the $k$ bigon-shaped ``holes" in the fat graph.
+We remove the bottom interval of the bigon and replace it with the top interval.
+To map this topological operation to an algebraic one, we need, for each hole, element of
+$\mapinf(\bc^C_*(I_{\text{bottom}}), \bc^C_*(I_{\text{top}}))$.
+So for each fixed fat graph we have a map
+\[
+	 \mapinf(\bc^C_*(I), \bc^C_*(I))\otimes\cdots
+	\otimes \mapinf(\bc^C_*(I), \bc^C_*(I))  \to  \mapinf(\bc^C_*(I), \bc^C_*(I)) .
+\]
+If we deform the fat graph, corresponding to a 1-chain in $C_*(FG_k)$, we get a homotopy
+between the maps associated to the endpoints of the 1-chain.
+Similarly, higher-dimensional chains in $C_*(FG_k)$ give rise to higher homotopies.
+
+It should now be clear how to generalize this to higher dimensions.
+In the sequence-of-surgeries description above, we never used the fact that the manifolds
+involved were 1-dimensional.
+Thus we can define a $n$-dimensional fat graph to sequence of general surgeries
+on an $n$-manifold.
+More specifically, \nn{...}
+
+
+\medskip
+\hrule\medskip
+
+
+Figure \ref{delfig2}
+\begin{figure}[!ht]
+$$\mathfig{.9}{tempkw/delfig2}$$
+\caption{A fat graph}\label{delfig2}\end{figure}
+
+
+\begin{eqnarray*}
+	C_*(FG^n_{\overline{M}, \overline{N}})\otimes \mapinf(\bc_*(M_0), \bc_*(N_0))\otimes\cdots\otimes 
+\mapinf(\bc_*(M_{k-1}), \bc_*(N_{k-1})) & \\
+	& \hspace{-5em}\to  \mapinf(\bc_*(M_k), \bc_*(N_k))
+\end{eqnarray*}
+
+\medskip
+\hrule\medskip
+
 The $n$-dimensional fat graph operad can be thought of as a sequence of general surgeries
 of $n$-manifolds
 $R_i \cup A_i \leadsto R_i \cup B_i$ together with mapping cylinders of diffeomorphisms
