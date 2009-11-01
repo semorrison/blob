@@ -219,7 +219,6 @@ these complexes are free) $i \circ s$ is homotopic to the identity.
 \begin{proof}[Proof of Lemma \ref{lem:hochschild-exact}]
 We now prove that $K_*$ is an exact functor.
 
-%\todo{p. 1478 of scott's notes}
 Essentially, this comes down to the unsurprising fact that the functor on $C$-$C$ bimodules
 \begin{equation*}
 M \mapsto \ker(C \tensor M \tensor C \xrightarrow{c_1 \tensor m \tensor c_2 \mapsto c_1 m c_2} M)
@@ -227,12 +226,12 @@ M \mapsto \ker(C \tensor M \tensor C \xrightarrow{c_1 \tensor m \tensor c_2 \map
 is exact. For completeness we'll explain this below.
 
 Suppose we have a short exact sequence of $C$-$C$ bimodules $$\xymatrix{0 \ar[r] & K \ar@{^{(}->}[r]^f & E \ar@{->>}[r]^g & Q \ar[r] & 0}.$$
-We'll write $\hat{f}$ and $\hat{g}$ for the image of $f$ and $g$ under the functor.
+We'll write $\hat{f}$ and $\hat{g}$ for the image of $f$ and $g$ under the functor, so $\hat{f}(a \tensor k \tensor b) = a \tensor f(k) \tensor b$, and similarly for $\hat{g}$.
 Most of what we need to check is easy.
-\nn{don't we need to consider sums here, e.g. $\sum_i(a_i\ot k_i\ot b_i)$ ?}
-If $(a \tensor k \tensor b) \in \ker(C \tensor K \tensor C \to K)$, to have $\hat{f}(a \tensor k \tensor b) = 0 \in \ker(C \tensor E \tensor C \to E)$, we must have $f(k) = 0 \in E$, which implies $k=0$ itself. If $(a \tensor e \tensor b) \in \ker(C \tensor E \tensor C \to E)$ is in the image of $\ker(C \tensor K \tensor C \to K)$ under $\hat{f}$, clearly
-$e$ is in the image of the original $f$, so is in the kernel of the original $g$, and so $\hat{g}(a \tensor e \tensor b) = 0$.
-If $\hat{g}(a \tensor e \tensor b) = 0$, then $g(e) = 0$, so $e = f(\widetilde{e})$ for some $\widetilde{e} \in K$, and $a \tensor e \tensor b = \hat{f}(a \tensor \widetilde{e} \tensor b)$.
+Suppose we have $\sum_i (a_i \tensor k_i \tensor b_i) \in \ker(C \tensor K \tensor C \to K)$, assuming without loss of generality that $\{a_i \tensor b_i\}_i$ is linearly independent in $C \tensor C$, and $\hat{f}(a \tensor k \tensor b) = 0 \in \ker(C \tensor E \tensor C \to E)$. We must then have $f(k_i) = 0 \in E$ for each $i$, which implies $k_i=0$ itself. 
+If $\sum_i (a \tensor e \tensor b) \in \ker(C \tensor E \tensor C \to E)$ is in the image of $\ker(C \tensor K \tensor C \to K)$ under $\hat{f}$, again by assuming the set  $\{a_i \tensor b_i\}_i$ is linearly independent we can deduce that each
+$e_i$ is in the image of the original $f$, and so is in the kernel of the original $g$, and so $\hat{g}(\sum_i a_i \tensor e_i \tensor b_i) = 0$.
+If $\hat{g}(\sum_i a_i \tensor e_i \tensor b_i) = 0$, then each $g(e_i) = 0$, so $e_i = f(\widetilde{e_i})$ for some $\widetilde{e_i} \in K$, and $\sum_i a_i \tensor e_i \tensor b_i = \hat{f}(\sum_i a_i \tensor \widetilde{e_i} \tensor b_i)$.
 Finally, the interesting step is in checking that any $q = \sum_i a_i \tensor q_i \tensor b_i$ such that $\sum_i a_i q_i b_i = 0$ is in the image of $\ker(C \tensor E \tensor C \to C)$ under $\hat{g}$.
 For each $i$, we can find $\widetilde{q_i}$ so $g(\widetilde{q_i}) = q_i$. However $\sum_i a_i \widetilde{q_i} b_i$ need not be zero.
 Consider then $$\widetilde{q} = \sum_i (a_i \tensor \widetilde{q_i} \tensor b_i) - 1 \tensor (\sum_i a_i \widetilde{q_i} b_i) \tensor 1.$$ Certainly
@@ -255,8 +254,8 @@ other and with $C$ or $\ker(C^{\tensor k} \to C)$ (e.g., producing the functor $
 Finally, then we see that the functor $K_*$ is simply an (infinite)
 direct sum of copies of this sort of functor. The direct sum is indexed by
 configurations of nested blobs and of labels; for each such configuration, we have one of the above tensor product functors,
-with the labels of twig blobs corresponding to tensor factors as in \eqref{eq:ker-functor} or $\ker(C^{\tensor k} \to C)$, and all other labelled points corresponding
-to tensor factors of $C$.
+with the labels of twig blobs corresponding to tensor factors as in \eqref{eq:ker-functor} or $\ker(C^{\tensor k} \to C)$ (depending on whether they contain a marked point $p_i$), and all other labelled points corresponding
+to tensor factors of $C$ and $M$.
 \end{proof}
 \begin{proof}[Proof of Lemma \ref{lem:hochschild-coinvariants}]
 We show that $H_0(K_*(M))$ is isomorphic to the coinvariants of $M$.
