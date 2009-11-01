@@ -27,8 +27,6 @@ A $n$-dimensional {\it system of fields} in $\cS$
 is a collection of functors $\cC_k : \cM_k \to \Set$ for $0 \leq k \leq n$
 together with some additional data and satisfying some additional conditions, all specified below.
 
-\nn{refer somewhere to my TQFT notes \cite{kw:tqft}}
-
 Before finishing the definition of fields, we give two motivating examples
 (actually, families of examples) of systems of fields.
 
@@ -390,7 +388,7 @@ combinations of 1-blob diagrams, where a 1-blob diagram to consists of
 \end{itemize}
 (See Figure \ref{blob1diagram}.)
 \begin{figure}[!ht]\begin{equation*}
-\mathfig{.9}{tempkw/blob1diagram}
+\mathfig{.9}{definition/single-blob}
 \end{equation*}\caption{A 1-blob diagram.}\label{blob1diagram}\end{figure}
 In order to get the linear structure correct, we (officially) define
 \[
@@ -423,11 +421,11 @@ A disjoint 2-blob diagram consists of
 \item A pair of closed balls (blobs) $B_0, B_1 \sub X$ with disjoint interiors.
 \item A field $r \in \cC(X \setmin (B_0 \cup B_1); c_0, c_1)$
 (where $c_i \in \cC(\bd B_i)$).
-\item Local relation fields $u_i \in U(B_i; c_i)$, $i=1,2$.
+\item Local relation fields $u_i \in U(B_i; c_i)$, $i=1,2$. \nn{We're inconsistent with the indexes -- are they 0,1 or 1,2? I'd prefer 1,2.}
 \end{itemize}
 (See Figure \ref{blob2ddiagram}.)
 \begin{figure}[!ht]\begin{equation*}
-\mathfig{.9}{tempkw/blob2ddiagram}
+\mathfig{.9}{definition/disjoint-blobs}
 \end{equation*}\caption{A disjoint 2-blob diagram.}\label{blob2ddiagram}\end{figure}
 We also identify $(B_0, B_1, u_0, u_1, r)$ with $-(B_1, B_0, u_1, u_0, r)$;
 reversing the order of the blobs changes the sign.
@@ -447,7 +445,7 @@ A nested 2-blob diagram consists of
 \end{itemize}
 (See Figure \ref{blob2ndiagram}.)
 \begin{figure}[!ht]\begin{equation*}
-\mathfig{.9}{tempkw/blob2ndiagram}
+\mathfig{.9}{definition/nested-blobs}
 \end{equation*}\caption{A nested 2-blob diagram.}\label{blob2ndiagram}\end{figure}
 Let $r = r_1 \bullet r'$, where $r_1 \in \cC(B_1 \setmin B_0; c_0, c_1)$
 (for some $c_1 \in \cC(B_1)$) and
