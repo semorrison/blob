@@ -2,7 +2,7 @@
 %  '[beamer]' for a digital projector
 %  '[trans]' for an overhead projector
 %  '[handout]' for 4-up printed notes
-\documentclass[beamer]{beamer}
+\documentclass[beamer, compress]{beamer}
 
 % change talk_preamble if you want to modify the slide theme, colours, and settings for trans and handout modes.
 \newcommand{\pathtotrunk}{../../}
@@ -19,11 +19,6 @@
 
 \frame{\titlepage}
 
-\begin{frame}
-       \frametitle{Outline}
-       \tableofcontents
-\end{frame}
-
 \beamertemplatetransparentcovered 
 
 \mode<beamer>{\setbeamercolor{block title}{bg=green!40!black}}
@@ -36,13 +31,14 @@
 
 \section{Overview}
 
-\AtBeginSection[]
-{
    \begin{frame}<beamer>
-       \frametitle{Outline}
-       \tableofcontents[currentsection]
-   \end{frame}
-}
+       \frametitle{Blob homology}
+       \begin{quote}
+      ... homotopical topology and TQFT have grown so close that I have started thinking that they are turning into the language of new foundations. 
+        \end{quote}
+        \flushright{--- \href{http://www.ams.org/notices/200910/rtx091001268p.pdf}{Yuri Manin, September 2008}}
+      \tableofcontents
+\end{frame}
 
 \begin{frame}{What is \emph{blob homology}?}
 \begin{block}{}
@@ -83,9 +79,12 @@ The blob complex takes an $n$-manifold $\cM$ and an `$n$-category with strong du
 I'm not going to go into details; I'll draw $2$-dimensional pictures, and rely on your intuition for pivotal $2$-categories.
 \end{block}
 \begin{block}{}
+Kevin's talk (part $\mathbb{II}$) will explain the notions of `topological $n$-categories' and `$A_\infty$ $n$-categories'.
+\end{block}
+
+\begin{block}{}
 \begin{itemize}
 \item
-Kevin's talk (part $\mathbb{II}$) will explain the notions of `topological $n$-categories' and `$A_\infty$ $n$-categories'.\item
 Defining $n$-categories: a choice of `shape' for morphisms.
 \item
 We allow all shapes! A vector space for every ball.
@@ -95,9 +94,9 @@ We allow all shapes! A vector space for every ball.
 \end{block}
 \end{frame}
 
-\newcommand{\roundframe}[1]{\begin{tikzpicture}[baseline]\node[rectangle,inner sep=1pt,rounded corners,fill=white] {#1};\end{tikzpicture}}
+\newcommand{\roundframe}[1]{\begin{tikzpicture}[baseline=-2pt]\node[rectangle,inner sep=1pt,rounded corners,fill=white] {#1};\end{tikzpicture}}
 
-
+\section{Definition}
 \begin{frame}{Fields and pasting diagrams}
 \begin{block}{Pasting diagrams}
 Fix an $n$-category with strong duality $\cC$. A \emph{field} on $\cM$ is a pasting diagram drawn on $\cM$, with cells labelled by morphisms from $\cC$.
@@ -106,7 +105,7 @@ Fix an $n$-category with strong duality $\cC$. A \emph{field} on $\cM$ is a past
 $$\roundframe{\mathfig{0.35}{definition/example-pasting-diagram}} \in \cF^{\text{TL}_d}\left(T^2\right)$$
 \end{example}
 \begin{block}{}
-Given a field on a ball, we can evaluate it to a morphism. We call the kernel the \emph{null fields}.
+Given a pasting diagram on a ball, we can evaluate it to a morphism. We call the kernel the \emph{null fields}.
 \vspace{-3mm}
 $$\text{ev}\Bigg(\roundframe{\mathfig{0.12}{definition/evaluation1}} - \frac{1}{d}\roundframe{\mathfig{0.12}{definition/evaluation2}}\Bigg) = 0$$
 \end{block}
@@ -119,12 +118,12 @@ A \emph{local} construction, such that when $\cM$ is a ball, $\bc_*(\cM; \cC)$ i
 
 \begin{block}{}
 \center
-$\bc_0(\cM; \cC) = \cF(\cM)$, arbitrary fields on $\cM$.
+$\bc_0(\cM; \cC) = \cF(\cM)$, arbitrary pasting diagrams on $\cM$.
 \end{block}
 
 \begin{block}{}
 \vspace{-1mm}
-$$\bc_1(\cM; \cC) = \setc{(B, u, r)}{\begin{array}{c}\text{$B$ an embedded ball}\\\text{$u \in \cF(B)$ in the kernel}\\ r \in \cF(\cM \setminus B)\end{array}}.$$
+$$\bc_1(\cM; \cC) = \setcr{(B, u, r)}{\begin{array}{c}\text{$B$ an embedded ball}\\\text{$u \in \cF(B)$ in the kernel}\\ r \in \cF(\cM \setminus B)\end{array}}.$$
 \end{block}
 \vspace{-3.5mm}
 $$\mathfig{.5}{definition/single-blob}$$
@@ -145,7 +144,7 @@ $$\bc_2 = \bc_2^{\text{disjoint}} \oplus \bc_2^{\text{nested}}$$
 \begin{block}{}
 \vspace{-5mm}
 \begin{align*}
-\bc_2^{\text{disjoint}} & =  \roundframe{\mathfig{0.5}{definition/disjoint-blobs}} & u_i \in \ker{\text{ev}_{B_i}}
+\bc_2^{\text{disjoint}} & =  \setcl{\roundframe{\mathfig{0.5}{definition/disjoint-blobs}}}{\text{ev}_{B_i}(u_i) = 0}
 \end{align*}
 \vspace{-4mm}
 $$d_2 : (B_1, B_2, u_1, u_2, r) \mapsto (B_2, u_2, r \circ u_1) - (B_1, u_1, r \circ u_2)$$
@@ -153,13 +152,55 @@ $$d_2 : (B_1, B_2, u_1, u_2, r) \mapsto (B_2, u_2, r \circ u_1) - (B_1, u_1, r \
 \begin{block}{}
 \vspace{-5mm}
 \begin{align*}
-\bc_2^{\text{nested}} & = \roundframe{\mathfig{0.5}{definition/nested-blobs}} & u \in \ker{\text{ev}_{B_1}}
+\bc_2^{\text{nested}} & = \setcl{\roundframe{\mathfig{0.5}{definition/nested-blobs}}}{\text{ev}_{B_1}(u)=0}
 \end{align*}
 \vspace{-4mm}
 $$d_2 : (B_1, B_2, u, r', r) \mapsto (B_2, u \circ r', r) - (B_1, u, r \circ r')$$
 \end{block}
 \end{frame}
 
+\begin{frame}{Definition, general case}
+\begin{block}{}
+$$\bc_k = \set{\mathfig{0.4}{tempkw/blobkdiagram}}$$
+$k$ blobs, properly nested or disjoint, with ``innermost'' blobs labelled by pasting diagrams that evaluate to zero.
+\end{block}
+\begin{block}{}
+\vspace{-2mm}
+$$d_k : \bc_k \to \bc_{k-1} = {\textstyle \sum_i} (-1)^i (\text{erase blob $i$})$$
+\end{block}
+\end{frame}
+
+\section{Properties}
+\begin{frame}{An action of $\CH{\cM}$}
+\begin{thm}
+There's a chain map
+$$\CH{\cM} \tensor \bc_*(\cM) \to \bc_*(\cM).$$
+which is associative up to homotopy, and compatible with gluing.
+\end{thm}
+\begin{block}{}
+Taking $H_0$, this is the mapping class group acting on a TQFT skein module.
+\end{block}
+\end{frame}
+
+\begin{frame}{Gluing}
+\begin{block}{$\bc_*(Y \times [0,1])$ is naturally an $A_\infty$ category}
+\begin{itemize}
+\item[$m_2$:] gluing $[0,1] \simeq [0,1] \cup [0,1]$
+\item[$m_k$:] reparametrising $[0,1]$
+\end{itemize}
+\end{block}
+\begin{block}{}
+If $Y \subset \bdy X$ then $\bc_*(X)$ is an $A_\infty$ module over $\bc_*(Y)$.
+\end{block}
+\begin{thm}[Gluing formula]
+When $Y \sqcup Y^{\text{op}} \subset \bdy X$,
+\vspace{-5mm}
+\[
+	\bc_*(X \bigcup_Y \selfarrow) \iso \bc_*(X) \bigotimes_{\bc_*(Y)}^{A_\infty} \selfarrow.
+\]
+\end{thm}
+In principle, we can compute blob homology from a handle decomposition, by iterated Hochschild homology.
+\end{frame}
 \end{document}
 % ----------------------------------------------------------------
 
