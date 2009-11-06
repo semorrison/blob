@@ -13,7 +13,7 @@
 \author[Scott Morrison]{Scott Morrison \\ \texttt{http://tqft.net/} \\ joint work with Kevin Walker}
 \institute{UC Berkeley / Miller Institute for Basic Research}
 \title{Blob homology, part $\mathbb{I}$}
-\date{Homotopy Theory and Higher Algebraic Structures, UC Riverside, November 10 2009 \\ \url{http://tqft.net/UCR-blobs1}}
+\date{Homotopy Theory and Higher Algebraic Structures, UC Riverside, November 10 2009 \\ \begin{description}\item[slides, part $\mathbb{I}$:]\url{http://tqft.net/UCR-blobs1} \item[slides, part $\mathbb{II}$:]\url{http://tqft.net/UCR-blobs2} \item[draft:]\url{http://tqft.net/blobs}\end{description}}
 
 \begin{document}
 
@@ -54,7 +54,7 @@ The blob complex takes an $n$-manifold $\cM$ and an `$n$-category with strong du
 
 \node[red] (blobs) at (0,0) {$H(\bc_*(\cM; \cC))$};
 \uncover<1>{
-\node[blue] (skein) at (4,0) {$A(\cM; \cC)$};
+\node[blue] (skein) at (4,0) {$\cA(\cM; \cC)$};
 \node[below=5pt, description] (skein-label) at (skein) {(the usual TQFT Hilbert space)};
 \path[->](blobs) edge node[above] {$*= 0$} (skein);
 }
@@ -111,9 +111,33 @@ $$\text{ev}\Bigg(\roundframe{\mathfig{0.12}{definition/evaluation1}} - \frac{1}{
 \end{block}
 \end{frame}
 
+\begin{frame}{Background: TQFT invariants}
+\begin{defn}
+A decapitated $n+1$-dimensional TQFT associates a vector space $\cA(\cM)$ to each $n$-manifold $\cM$.
+\end{defn}
+(`decapitated': no numerical invariants of $n+1$-manifolds.)
+
+\begin{block}{}
+If the manifold has boundary, we get a category. Objects are boundary data, $\Hom{\cA(\cM)}{x}{y} = \cA(\cM; x,y)$.
+\end{block}
+
+\begin{block}{}
+We want to extend `all the way down'. The $k$-category associated to the $n-k$-manifold $\cY$ is $\cA(\cY \times B^k)$.
+\end{block}
+
+\begin{defn}
+Given an $n$-category $\cC$, the associated TQFT is 
+\vspace{-3mm}
+$$\cA(\cM) = \cF(M) / \ker{ev},$$
+
+\vspace{-3mm}
+fields modulo fields which evaluate to zero inside some ball.
+\end{defn}
+\end{frame}
+
 \begin{frame}{\emph{Definition} of the blob complex, $k=0,1$}
 \begin{block}{Motivation}
-A \emph{local} construction, such that when $\cM$ is a ball, $\bc_*(\cM; \cC)$ is a resolution of $A(\cM,; \cC)$.
+A \emph{local} construction, such that when $\cM$ is a ball, $\bc_*(\cM; \cC)$ is a resolution of $\cA(\cM,; \cC)$.
 \end{block}
 
 \begin{block}{}
@@ -161,7 +185,7 @@ $$d_2 : (B_1, B_2, u, r', r) \mapsto (B_2, u \circ r', r) - (B_1, u, r \circ r')
 
 \begin{frame}{Definition, general case}
 \begin{block}{}
-$$\bc_k = \set{\mathfig{0.4}{tempkw/blobkdiagram}}$$
+$$\bc_k = \set{\roundframe{\mathfig{0.7}{definition/k-blobs}}}$$
 $k$ blobs, properly nested or disjoint, with ``innermost'' blobs labelled by pasting diagrams that evaluate to zero.
 \end{block}
 \begin{block}{}
@@ -171,6 +195,27 @@ $$d_k : \bc_k \to \bc_{k-1} = {\textstyle \sum_i} (-1)^i (\text{erase blob $i$})
 \end{frame}
 
 \section{Properties}
+\begin{frame}{Hochschild homology}
+\begin{block}{TQFT on $S^1$ is `coinvariants'}
+\vspace{-3mm}
+$$\cA(S^1, A) = \Complex\set{\roundframe{\mathfig{0.1}{hochschild/m-a-b}}}\scalebox{2}{$/$}\set{\roundframe{\mathfig{0.065}{hochschild/ma}} - \roundframe{\mathfig{0.12}{hochschild/m-a}}} = A/(ab-ba)$$
+\end{block}
+\begin{block}{}
+The Hochschild complex is `coinvariants of the bar resolution'
+\vspace{-2mm}
+$$ \cdots \to A \tensor A \tensor A \to A \tensor A \xrightarrow{m \tensor a \mapsto ma-am} A$$
+\end{block}
+\begin{thm}[$ \HC_*(A) \iso \bc_*(S^1; A)$]
+$$m \tensor a \mapsto
+\roundframe{\mathfig{0.35}{hochschild/1-chains}}
+$$
+\vspace{-5mm}
+\begin{align*}
+u_1 & = \mathfig{0.05}{hochschild/u_1-1} - \mathfig{0.05}{hochschild/u_1-2} & u_2  &= \mathfig{0.05}{hochschild/u_2-1} - \mathfig{0.05}{hochschild/u_2-2} 
+\end{align*}
+\end{thm}
+\end{frame}
+
 \begin{frame}{An action of $\CH{\cM}$}
 \begin{thm}
 There's a chain map
