@@ -119,8 +119,40 @@ Then we have a filtration degree 2 chain, as shown in Figure \ref{zzz5}, which d
 (Each small triangle in Figure \ref{zzz5} can be filled with a filtration degree 2 chain.)
 
 \begin{figure}[!ht]
+%\begin{equation*}
+%\mathfig{1.0}{tempkw/zz5}
+%\end{equation*}
 \begin{equation*}
-\mathfig{1.0}{tempkw/zz5}
+\begin{tikzpicture}
+\node(M) at (0,0) {$M$};
+\foreach \angle/\label in {0/K', 45/K'L, 90/L, 135/KL, 180/K, 225/KL', 270/L', 315/K'L'} {
+	\node(\label) at (\angle:4) {$\label$};
+}
+\foreach \label in {K', L, K, L'} {
+	\node(\label M) at ($(M)!0.6!(\label)$) {$\label M$};
+	\draw[->] (\label M)--(M);
+	\draw[->] (\label M)--(\label);
+}
+\foreach \k in {K, K'} {
+	\foreach \l in {L, L'} {
+		\node(\k \l M) at (intersection cs: first line={(\k M)--(\l)}, second line={(\l M)--(\k)}) {$\k \l M$};
+		\draw[->] (\k \l M)--(M);
+		\draw[->] (\k \l M)--(\k \l );
+		\draw[->] (\k \l M)--(\k M);
+		\draw[->] (\k \l M)--(\l);
+		\draw[->] (\k \l M)--(\l M);
+		\draw[->] (\k \l M)--(\k);
+	}
+}
+\draw[->] (K'L') to[bend right=10] (K');
+\draw[->] (K'L') to[bend left=10] (L');
+\draw[->] (KL') to[bend left=10] (K);
+\draw[->] (KL') to[bend right=10] (L');
+\draw[->] (K'L) to[bend left=10] (K');
+\draw[->] (K'L) to[bend right=10] (L);
+\draw[->] (KL) to[bend right=10] (K);
+\draw[->] (KL) to[bend left=10] (L);
+\end{tikzpicture}
 \end{equation*}
 \caption{Filling in $K$-$KL$-$L$-$K'L$-$K'$-$K'L'$-$L'$-$KL'$-$K$}
 \label{zzz5}
