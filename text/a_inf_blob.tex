@@ -103,7 +103,16 @@ give the desired chain connecting $(a, K)$ and $(a, K')$
 
 \begin{figure}[!ht]
 \begin{equation*}
-\mathfig{.63}{tempkw/zz4}
+\begin{tikzpicture}
+\foreach \x/\label in {-3/K, 0/L, 3/K'} {
+	\node(\label) at (\x,0) {$\label$};
+}
+\foreach \x/\la/\lb in {-1.5/K/L, 1.5/K'/L} {
+	\node(\la \lb) at (\x,-1.5) {$\la \lb$};
+	\draw[->] (\la \lb) -- (\la);
+	\draw[->] (\la \lb) -- (\lb); 
+}
+\end{tikzpicture}
 \end{equation*}
 \caption{Connecting $K$ and $K'$ via $L$}
 \label{zzz4}
