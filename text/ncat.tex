@@ -18,8 +18,8 @@
 
 Before proceeding, we need more appropriate definitions of $n$-categories, 
 $A_\infty$ $n$-categories, modules for these, and tensor products of these modules.
-(As is the case throughout this paper, by ``$n$-category" we mean
-a weak $n$-category with strong duality.)
+(As is the case throughout this paper, by ``$n$-category" we implicitly intend some notion of
+a `weak' $n$-category with `strong duality'.)
 
 The definitions presented below tie the categories more closely to the topology
 and avoid combinatorial questions about, for example, the minimal sufficient
@@ -46,10 +46,11 @@ We will allow our $k$-morphisms to have any shape, so long as it is homeomorphic
 the standard $k$-ball.
 In other words,
 
-\xxpar{Morphisms (preliminary version):}
-{For any $k$-manifold $X$ homeomorphic 
+\begin{preliminary-axiom}{\ref{axiom:morphisms}}{Morphisms}
+For any $k$-manifold $X$ homeomorphic 
 to the standard $k$-ball, we have a set of $k$-morphisms
-$\cC_k(X)$.}
+$\cC_k(X)$.
+\end{preliminary-axiom}
 
 Terminology: By ``a $k$-ball" we mean any $k$-manifold which is homeomorphic to the 
 standard $k$-ball.
@@ -64,15 +65,17 @@ bijection of sets $f:\cC(X)\to \cC(Y)$.
 (This will imply ``strong duality", among other things.)
 So we replace the above with
 
-\xxpar{Morphisms:}
-%\xxpar{Axiom 1 -- Morphisms:}
-{For each $0 \le k \le n$, we have a functor $\cC_k$ from 
+\begin{axiom}[Morphisms]
+\label{axiom:morphisms}
+For each $0 \le k \le n$, we have a functor $\cC_k$ from 
 the category of $k$-balls and 
-homeomorphisms to the category of sets and bijections.}
+homeomorphisms to the category of sets and bijections.
+\end{axiom}
+
 
 (Note: We usually omit the subscript $k$.)
 
-We are being deliberately vague about what flavor of manifolds we are considering.
+We are so far  being deliberately vague about what flavor of manifolds we are considering.
 They could be unoriented or oriented or Spin or $\mbox{Pin}_\pm$.
 They could be topological or PL or smooth.
 \nn{need to check whether this makes much difference --- see pseudo-isotopy below}
@@ -93,16 +96,18 @@ We prefer to combine the domain and range into a single entity which we call the
 boundary of a morphism.
 Morphisms are modeled on balls, so their boundaries are modeled on spheres:
 
-\xxpar{Boundaries (domain and range), part 1:}
-{For each $0 \le k \le n-1$, we have a functor $\cC_k$ from 
+\begin{axiom}[Boundaries (spheres)]
+For each $0 \le k \le n-1$, we have a functor $\cC_k$ from 
 the category of $k$-spheres and 
-homeomorphisms to the category of sets and bijections.}
+homeomorphisms to the category of sets and bijections.
+\end{axiom}
 
 (In order to conserve symbols, we use the same symbol $\cC_k$ for both morphisms and boundaries.)
 
-\xxpar{Boundaries, part 2:}
-{For each $k$-ball $X$, we have a map of sets $\bd: \cC(X)\to \cC(\bd X)$.
-These maps, for various $X$, comprise a natural transformation of functors.}
+\begin{axiom}[Boundaries (maps)]
+For each $k$-ball $X$, we have a map of sets $\bd: \cC(X)\to \cC(\bd X)$.
+These maps, for various $X$, comprise a natural transformation of functors.
+\end{axiom}
 
 (Note that the first ``$\bd$" above is part of the data for the category, 
 while the second is the ordinary boundary of manifolds.)
@@ -141,16 +146,17 @@ domain and range, but the converse meets with our approval.
 That is, given compatible domain and range, we should be able to combine them into
 the full boundary of a morphism:
 
-\xxpar{Domain $+$ range $\to$ boundary:}
-{Let $S = B_1 \cup_E B_2$, where $S$ is a $k$-sphere ($0\le k\le n-1$),
+\begin{axiom}[Boundary from domain and range]
+Let $S = B_1 \cup_E B_2$, where $S$ is a $k$-sphere $(0\le k\le n-1)$,
 $B_i$ is a $k$-ball, and $E = B_1\cap B_2$ is a $k{-}1$-sphere (Figure \ref{blah3}).
 Let $\cC(B_1) \times_{\cC(E)} \cC(B_2)$ denote the fibered product of the 
 two maps $\bd: \cC(B_i)\to \cC(E)$.
-Then (axiom) we have an injective map
+Then we have an injective map
 \[
 	\gl_E : \cC(B_1) \times_{\cC(E)} \cC(B_2) \to \cC(S)
 \]
-which is natural with respect to the actions of homeomorphisms.}
+which is natural with respect to the actions of homeomorphisms.
+\end{axiom}
 
 \begin{figure}[!ht]
 $$
@@ -187,8 +193,8 @@ $k$ different types of composition of $k$-morphisms, each associated to a differ
 In the presence of strong duality, these $k$ distinct compositions are subsumed into 
 one general type of composition which can be in any ``direction".
 
-\xxpar{Composition:}
-{Let $B = B_1 \cup_Y B_2$, where $B$, $B_1$ and $B_2$ are $k$-balls ($0\le k\le n$)
+\begin{axiom}[Composition]
+Let $B = B_1 \cup_Y B_2$, where $B$, $B_1$ and $B_2$ are $k$-balls ($0\le k\le n$)
 and $Y = B_1\cap B_2$ is a $k{-}1$-ball (Figure \ref{blah5}).
 Let $E = \bd Y$, which is a $k{-}2$-sphere.
 Note that each of $B$, $B_1$ and $B_2$ has its boundary split into two $k{-}1$-balls by $E$.
@@ -201,14 +207,16 @@ Then (axiom) we have a map
 which is natural with respect to the actions of homeomorphisms, and also compatible with restrictions
 to the intersection of the boundaries of $B$ and $B_i$.
 If $k < n$ we require that $\gl_Y$ is injective.
-(For $k=n$, see below.)}
+(For $k=n$, see below.)
+\end{axiom}
 
 \begin{figure}[!ht]
 $$\mathfig{.4}{tempkw/blah5}$$
 \caption{From two balls to one ball}\label{blah5}\end{figure}
 
-\xxpar{Strict associativity:}
-{The composition (gluing) maps above are strictly associative.}
+\begin{axiom}[Strict associativity]
+The composition (gluing) maps above are strictly associative.
+\end{axiom}
 
 \begin{figure}[!ht]
 $$\mathfig{.65}{tempkw/blah6}$$
@@ -242,8 +250,8 @@ $$\mathfig{.8}{tempkw/blah7}$$
 
 The next axiom is related to identity morphisms, though that might not be immediately obvious.
 
-\xxpar{Product (identity) morphisms:}
-{Let $X$ be a $k$-ball and $D$ be an $m$-ball, with $k+m \le n$.
+\begin{axiom}[Product (identity) morphisms]
+Let $X$ be a $k$-ball and $D$ be an $m$-ball, with $k+m \le n$.
 Then we have a map $\cC(X)\to \cC(X\times D)$, usually denoted $a\mapsto a\times D$ for $a\in \cC(X)$.
 If $f:X\to X'$ and $\tilde{f}:X\times D \to X'\times D'$ are maps such that the diagram
 \[ \xymatrix{
@@ -274,7 +282,7 @@ Product morphisms are compatible with restriction:
 	\res_{X\times E}(a\times D) = a\times E
 \]
 for $E\sub \bd D$ and $a\in \cC(X)$.
-}
+\end{axiom}
 
 \nn{need even more subaxioms for product morphisms?}
 
@@ -301,10 +309,11 @@ homeomorphisms in the top dimension $n$, distinguishes the two cases.
 
 We start with the plain $n$-category case.
 
-\xxpar{Isotopy invariance in dimension $n$ (preliminary version):}
-{Let $X$ be an $n$-ball and $f: X\to X$ be a homeomorphism which restricts
+\begin{preliminary-axiom}{\ref{axiom:extended-isotopies}}{Isotopy invariance in dimension $n$}
+Let $X$ be an $n$-ball and $f: X\to X$ be a homeomorphism which restricts
 to the identity on $\bd X$ and is isotopic (rel boundary) to the identity.
-Then $f$ acts trivially on $\cC(X)$; $f(a) = a$ for all $a\in \cC(X)$.}
+Then $f$ acts trivially on $\cC(X)$; $f(a) = a$ for all $a\in \cC(X)$.
+\end{preliminary-axiom}
 
 This axiom needs to be strengthened to force product morphisms to act as the identity.
 Let $X$ be an $n$-ball and $Y\sub\bd X$ be an $n{-}1$-ball.
@@ -333,10 +342,12 @@ a map which projects a collar neighborhood of $Y$ onto $Y$.
 
 The revised axiom is
 
-\xxpar{Extended isotopy invariance in dimension $n$:}
-{Let $X$ be an $n$-ball and $f: X\to X$ be a homeomorphism which restricts
+\begin{axiom}[Extended isotopy invariance in dimension $n$]
+\label{axiom:extended-isotopies}
+Let $X$ be an $n$-ball and $f: X\to X$ be a homeomorphism which restricts
 to the identity on $\bd X$ and is extended isotopic (rel boundary) to the identity.
-Then $f$ acts trivially on $\cC(X)$.}
+Then $f$ acts trivially on $\cC(X)$.
+\end{axiom}
 
 \nn{need to rephrase this, since extended isotopies don't correspond to homeomorphisms.}
 
@@ -346,8 +357,8 @@ For $A_\infty$ $n$-categories, we replace
 isotopy invariance with the requirement that families of homeomorphisms act.
 For the moment, assume that our $n$-morphisms are enriched over chain complexes.
 
-\xxpar{Families of homeomorphisms act in dimension $n$.}
-{For each $n$-ball $X$ and each $c\in \cC(\bd X)$ we have a map of chain complexes
+\begin{axiom}[Families of homeomorphisms act in dimension $n$]
+For each $n$-ball $X$ and each $c\in \cC(\bd X)$ we have a map of chain complexes
 \[
 	C_*(\Homeo_\bd(X))\ot \cC(X; c) \to \cC(X; c) .
 \]
@@ -357,7 +368,8 @@ These action maps are required to be associative up to homotopy
 \nn{iterated homotopy?}, and also compatible with composition (gluing) in the sense that
 a diagram like the one in Proposition \ref{CDprop} commutes.
 \nn{repeat diagram here?}
-\nn{restate this with $\Homeo(X\to X')$?  what about boundary fixing property?}}
+\nn{restate this with $\Homeo(X\to X')$?  what about boundary fixing property?}
+\end{axiom}
 
 We should strengthen the above axiom to apply to families of extended homeomorphisms.
 To do this we need to explain how extended homeomorphisms form a topological space.
