@@ -12,57 +12,8 @@
 \title{Sandbox}
 
 \begin{document}
-\begin{equation*}
-\begin{tikzpicture}
-\def\rad{1}
-\def\srad{0.75}
-\foreach \i in {0, 1, 2} {
-	\node(\i) at ($\i*(4.5,0)$) {};
-}
-\draw (0) circle (\rad);
-
-\draw ($(1)+(1,0)$) circle (\srad);
-\draw[fill=white] (1) circle (\rad);
-
-\begin{scope}
-\draw[clip] (2) circle (\rad);
-\draw ($(2)+(1,0)$) circle (\srad);
-\end{scope}
-
-\end{tikzpicture}
-\end{equation*}
 
 \begin{equation*}
-\begin{tikzpicture}
-\node(M) at (0,0) {$M$};
-\foreach \angle/\label in {0/K', 45/K'L, 90/L, 135/KL, 180/K, 225/KL', 270/L', 315/K'L'} {
-	\node(\label) at (\angle:4) {$\label$};
-}
-\foreach \label in {K', L, K, L'} {
-	\node(\label M) at ($(M)!0.6!(\label)$) {$\label M$};
-	\draw[->] (\label M)--(M);
-	\draw[->] (\label M)--(\label);
-}
-\foreach \k in {K, K'} {
-	\foreach \l in {L, L'} {
-		\node(\k \l M) at (intersection cs: first line={(\k M)--(\l)}, second line={(\l M)--(\k)}) {$\k \l M$};
-		\draw[->] (\k \l M)--(M);
-		\draw[->] (\k \l M)--(\k \l );
-		\draw[->] (\k \l M)--(\k M);
-		\draw[->] (\k \l M)--(\l);
-		\draw[->] (\k \l M)--(\l M);
-		\draw[->] (\k \l M)--(\k);
-	}
-}
-\draw[->] (K'L') to[bend right=10] (K');
-\draw[->] (K'L') to[bend left=10] (L');
-\draw[->] (KL') to[bend left=10] (K);
-\draw[->] (KL') to[bend right=10] (L');
-\draw[->] (K'L) to[bend left=10] (K');
-\draw[->] (K'L) to[bend right=10] (L);
-\draw[->] (KL) to[bend right=10] (K);
-\draw[->] (KL) to[bend left=10] (L);
-\end{tikzpicture}
 \end{equation*}
 
 \end{document}
