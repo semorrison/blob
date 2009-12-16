@@ -5,15 +5,6 @@
 \section{$n$-categories}
 \label{sec:ncats}
 
-%In order to make further progress establishing properties of the blob complex,
-%we need a definition of $A_\infty$ $n$-category that is adapted to our needs.
-%(Even in the case $n=1$, we need the new definition given below.)
-%It turns out that the $A_\infty$ $n$-category definition and the plain $n$-category
-%definition are mostly the same, so we give a new definition of plain
-%$n$-categories too.
-%We also define modules and tensor products for both plain and $A_\infty$ $n$-categories.
-
-
 \subsection{Definition of $n$-categories}
 
 Before proceeding, we need more appropriate definitions of $n$-categories, 
@@ -329,7 +320,46 @@ We define a map
 (See Figure \ref{glue-collar}.)
 \begin{figure}[!ht]
 \begin{equation*}
-\mathfig{.9}{tempkw/blah10}
+\begin{tikzpicture}
+\def\rad{1}
+\def\srad{0.75}
+\def\gap{4.5}
+\foreach \i in {0, 1, 2} {
+	\node(\i) at ($\i*(\gap,0)$) [draw, circle through = {($\i*(\gap,0)+(\rad,0)$)}] {};
+	\node(\i-small) at (\i.east) [circle through={($(\i.east)+(\srad,0)$)}] {};
+	\foreach \n in {1,2} {
+		\fill (intersection \n of \i-small and \i) node(\i-intersection-\n) {} circle (2pt);
+	}
+}
+
+\begin{scope}[decoration={brace,amplitude=10,aspect=0.5}]
+	\draw[decorate] (0-intersection-1.east) -- (0-intersection-2.east);
+\end{scope}
+\node[right=1mm] at (0.east) {$a$};
+\draw[->] ($(0.east)+(0.75,0)$) -- ($(1.west)+(-0.2,0)$);
+
+\draw (1-small)  circle (\srad);
+\foreach \theta in {90, 72, ..., -90} {
+	\draw[blue] (1) -- ($(1)+(\rad,0)+(\theta:\srad)$);
+}
+\filldraw[fill=white] (1) circle (\rad);
+\foreach \n in {1,2} {
+	\fill (intersection \n of 1-small and 1) circle (2pt);
+}
+\node[below] at (1-small.south) {$a \times J$};
+\draw[->] ($(1.east)+(1,0)$) -- ($(2.west)+(-0.2,0)$);
+
+\begin{scope}
+\path[clip] (2) circle (\rad);
+\draw[clip] (2.east) circle (\srad);
+\foreach \y in {1, 0.86, ..., -1} {
+	\draw[blue] ($(2)+(-1,\y) $)-- ($(2)+(1,\y)$);
+}
+\end{scope}
+\end{tikzpicture}
+\end{equation*}
+\begin{equation*}
+\xymatrix@C+2cm{\cC(X) \ar[r]^(0.45){\text{glue}} & \cC(X \cup \text{collar}) \ar[r]^(0.55){\text{homeo}} & \cC(X)}
 \end{equation*}
 
 \caption{Extended homeomorphism.}\label{glue-collar}\end{figure}
@@ -345,12 +375,13 @@ a map which projects a collar neighborhood of $Y$ onto $Y$.
 
 The revised axiom is
 
-\begin{axiom}[Extended isotopy invariance in dimension $n$]
+\stepcounter{axiom}
+\begin{axiom-numbered}{\arabic{axiom}a}{Extended isotopy invariance in dimension $n$}
 \label{axiom:extended-isotopies}
 Let $X$ be an $n$-ball and $f: X\to X$ be a homeomorphism which restricts
 to the identity on $\bd X$ and is extended isotopic (rel boundary) to the identity.
 Then $f$ acts trivially on $\cC(X)$.
-\end{axiom}
+\end{axiom-numbered}
 
 \nn{need to rephrase this, since extended isotopies don't correspond to homeomorphisms.}
 
@@ -360,7 +391,7 @@ For $A_\infty$ $n$-categories, we replace
 isotopy invariance with the requirement that families of homeomorphisms act.
 For the moment, assume that our $n$-morphisms are enriched over chain complexes.
 
-\begin{axiom}[Families of homeomorphisms act in dimension $n$]
+\begin{axiom-numbered}{\arabic{axiom}b}{Families of homeomorphisms act in dimension $n$}
 For each $n$-ball $X$ and each $c\in \cC(\bd X)$ we have a map of chain complexes
 \[
 	C_*(\Homeo_\bd(X))\ot \cC(X; c) \to \cC(X; c) .
@@ -372,7 +403,7 @@ These action maps are required to be associative up to homotopy
 a diagram like the one in Proposition \ref{CDprop} commutes.
 \nn{repeat diagram here?}
 \nn{restate this with $\Homeo(X\to X')$?  what about boundary fixing property?}
-\end{axiom}
+\end{axiom-numbered}
 
 We should strengthen the above axiom to apply to families of extended homeomorphisms.
 To do this we need to explain how extended homeomorphisms form a topological space.
@@ -412,13 +443,15 @@ a colimit construction; see below.
 
 \medskip
 
+\subsection{Examples of $n$-categories}
+
 \nn{these examples need to be fleshed out a bit more}
 
-Examples of plain $n$-categories:
-\begin{itemize}
+We know describe several classes of examples of $n$-categories satisfying our axioms.
 
-\item Let $F$ be a closed $m$-manifold (e.g.\ a point).
-Let $T$ be a topological space.
+\begin{example}{Maps to a space}
+\label{ex:maps-to-a-space}%
+Fix $F$ a closed $m$-manifold (keep in mind the case where $F$ is a point). Fix a `target space' $T$, any topological space.
 For $X$ a $k$-ball or $k$-sphere with $k < n$, define $\cC(X)$ to be the set of 
 all maps from $X\times F$ to $T$.
 For $X$ an $n$-ball define $\cC(X)$ to be maps from $X\times F$ to $T$ modulo
@@ -426,8 +459,11 @@ homotopies fixed on $\bd X \times F$.
 (Note that homotopy invariance implies isotopy invariance.)
 For $a\in \cC(X)$ define the product morphism $a\times D \in \cC(X\times D)$ to
 be $a\circ\pi_X$, where $\pi_X : X\times D \to X$ is the projection.
+\end{example}
 
-\item We can linearize the above example as follows.
+\begin{example}{Linearized, twisted, maps to a space}
+\label{ex:linearized-maps-to-a-space}%
+We can linearize the above example as follows.
 Let $\alpha$ be an $(n{+}m{+}1)$-cocycle on $T$ with values in a ring $R$
 (e.g.\ the trivial cocycle).
 For $X$ of dimension less than $n$ define $\cC(X)$ as before.
@@ -436,6 +472,11 @@ the $R$-module of finite linear combinations of maps from $X\times F$ to $T$,
 modulo the relation that if $a$ is homotopic to $b$ (rel boundary) via a homotopy
 $h: X\times F\times I \to T$, then $a \sim \alpha(h)b$.
 \nn{need to say something about fundamental classes, or choose $\alpha$ carefully}
+\end{example}
+
+\begin{itemize}
+
+\item \nn{Continue converting these into examples}
 
 \item Given a traditional $n$-category $C$ (with strong duality etc.),
 define $\cC(X)$ (with $\dim(X) < n$) 
@@ -473,22 +514,25 @@ $W\to W'$ which restricts to the identity on the boundary.
 \end{itemize}
 
 
-Examples of $A_\infty$ $n$-categories:
-\begin{itemize}
+We have two main examples of $A_\infty$ $n$-categories, coming from maps to a target space and from the blob complex.
 
-\item Same as in example \nn{xxxx} above (fiber $F$, target space $T$),
-but we define, for an $n$-ball $X$, $\cC(X; c)$ to be the chain complex 
-$C_*(\Maps_c(X\times F))$, where $\Maps_c$ denotes continuous maps restricting to $c$ on the boundary,
+\begin{example}{Chains of maps to a space}
+We can modify Example \ref{ex:maps-to-a-space} above by defining $\cC(X; c)$ for an $n$-ball $X$  to be the chain complex 
+$C_*(\Maps_c(X\times F \to T))$, where $\Maps_c$ denotes continuous maps restricting to $c$ on the boundary,
 and $C_*$ denotes singular chains.
+\end{example}
 
-\item
+\begin{example}{Blob complexes of balls (with a fiber)}
+Fix an $m$-dimensional manifold $F$.
 Given a plain $n$-category $C$, 
-define $\cC(X; c) = \bc^C_*(X\times F; c)$, where $X$ is an $n$-ball
-and $\bc^C_*$ denotes the blob complex based on $C$.
+when $X$ is a $k$-ball or $k$-sphere, with $k<n-m$, define $\cC(X) = C(X)$. When $X$ is an $(n-m)$-ball,
+define $\cC(X; c) = \bc^C_*(X\times F; c)$
+where $\bc^C_*$ denotes the blob complex based on $C$.
+\end{example}
 
-\item \nn{should add $\infty$ version of bordism $n$-cat}
-
-\end{itemize}
+\begin{defn}
+\nn{should add $\infty$ version of bordism $n$-cat}
+\end{defn}
 
 
 
