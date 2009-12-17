@@ -183,7 +183,7 @@ quasi-isomorphic to the Hochschild complex.
 \end{equation*}
 \end{property}
 
-Here $\CH{X}$ is the singular chain complex of the space of homeomorphisms of $X$, fixed on $\bdy X$.
+In the following $\CH{X}$ is the singular chain complex of the space of homeomorphisms of $X$, fixed on $\bdy X$.
 \begin{property}[$C_*(\Homeo(-))$ action]
 \label{property:evaluation}%
 There is a chain map
@@ -191,19 +191,10 @@ There is a chain map
 \ev_X: \CH{X} \tensor \bc_*(X) \to \bc_*(X).
 \end{equation*}
 
-Restricted to $C_0(\Homeo(X))$ this is just the action of homeomorphisms described in Property \ref{property:functoriality}. Further, for
-any codimension $1$-submanifold $Y \subset X$ dividing $X$ into $X_1 \cup_Y X_2$, the following diagram
-(using the gluing maps described in Property \ref{property:gluing-map}) commutes.
-\begin{equation*}
-\xymatrix{
-     \CH{X} \otimes \bc_*(X) \ar[r]^{\ev_X}    & \bc_*(X) \\
-     \CH{X_1} \otimes \CH{X_2} \otimes \bc_*(X_1) \otimes \bc_*(X_2)
-        \ar@/_4ex/[r]_{\ev_{X_1} \otimes \ev_{X_2}}  \ar[u]^{\gl^{\Homeo}_Y \otimes \gl_Y}  &
-            \bc_*(X_1) \otimes \bc_*(X_2) \ar[u]_{\gl_Y}
-}
-\end{equation*}
+Restricted to $C_0(\Homeo(X))$ this is just the action of homeomorphisms described in Property \ref{property:functoriality}. 
 \nn{should probably say something about associativity here (or not?)}
-Further, for
+
+For
 any codimension $0$-submanifold $Y \sqcup Y^\text{op} \subset \bdy X$ the following diagram
 (using the gluing maps described in Property \ref{property:gluing-map}) commutes.
 \begin{equation*}
@@ -214,7 +205,13 @@ any codimension $0$-submanifold $Y \sqcup Y^\text{op} \subset \bdy X$ the follow
             \bc_*(X) \ar[u]_{\gl_Y}
 }
 \end{equation*}
+
+\nn{unique up to homotopy?}
 \end{property}
+
+Since the blob complex is functorial in the manifold $X$, we can use this to build a chain map
+$$ev_{X \to Y} : \CH{X \to Y} \tensor \bc_*(X) \to \bc_*(Y)$$
+satisfying corresponding conditions.
 
 In \S \ref{sec:ncats} we introduce the notion of topological $n$-categories, from which we can construct systems of fields, as well as the notion of an $A_\infty$ $n$-category.
 

@@ -242,8 +242,9 @@ $$\mathfig{.8}{tempkw/blah7}$$
 The next axiom is related to identity morphisms, though that might not be immediately obvious.
 
 \begin{axiom}[Product (identity) morphisms]
-Let $X$ be a $k$-ball and $D$ be an $m$-ball, with $k+m \le n$.
-Then we have a map $\cC(X)\to \cC(X\times D)$, usually denoted $a\mapsto a\times D$ for $a\in \cC(X)$.
+For each $k$-ball $X$ and $m$-ball $D$, with $k+m \le n$, there is a map $\cC(X)\to \cC(X\times D)$, usually denoted $a\mapsto a\times D$ for $a\in \cC(X)$. These maps must satisfy the following conditions.
+\begin{enumerate}
+\item
 If $f:X\to X'$ and $\tilde{f}:X\times D \to X'\times D'$ are maps such that the diagram
 \[ \xymatrix{
 	X\times D \ar[r]^{\tilde{f}} \ar[d]_{\pi} & X'\times D' \ar[d]^{\pi} \\
@@ -253,6 +254,7 @@ commutes, then we have
 \[
 	\tilde{f}(a\times D) = f(a)\times D' .
 \]
+\item
 Product morphisms are compatible with gluing (composition) in both factors:
 \[
 	(a'\times D)\bullet(a''\times D) = (a'\bullet a'')\times D
@@ -262,17 +264,20 @@ and
 	(a\times D')\bullet(a\times D'') = a\times (D'\bullet D'') .
 \]
 \nn{if pinched boundary, then remove first case above}
+\item
 Product morphisms are associative:
 \[
 	(a\times D)\times D' = a\times (D\times D') .
 \]
 (Here we are implicitly using functoriality and the obvious homeomorphism
 $(X\times D)\times D' \to X\times(D\times D')$.)
+\item
 Product morphisms are compatible with restriction:
 \[
 	\res_{X\times E}(a\times D) = a\times E
 \]
 for $E\sub \bd D$ and $a\in \cC(X)$.
+\end{enumerate}
 \end{axiom}
 
 \nn{need even more subaxioms for product morphisms?}
@@ -434,7 +439,7 @@ Thus a system of fields determines an $n$-category simply by restricting our att
 balls.
 This $n$-category can be thought of as the local part of the fields.
 Conversely, given an $n$-category we can construct a system of fields via 
-a colimit construction; see below.
+a colimit construction; see \S \ref{ss:ncat_fields} below.
 
 %\nn{Next, say something about $A_\infty$ $n$-categories and ``homological" systems
 %of fields.
@@ -447,53 +452,80 @@ a colimit construction; see below.
 
 \nn{these examples need to be fleshed out a bit more}
 
-We know describe several classes of examples of $n$-categories satisfying our axioms.
+We now describe several classes of examples of $n$-categories satisfying our axioms.
 
-\begin{example}{Maps to a space}
+\begin{example}[Maps to a space]
+\rm
 \label{ex:maps-to-a-space}%
-Fix $F$ a closed $m$-manifold (keep in mind the case where $F$ is a point). Fix a `target space' $T$, any topological space.
-For $X$ a $k$-ball or $k$-sphere with $k < n$, define $\cC(X)$ to be the set of 
-all maps from $X\times F$ to $T$.
-For $X$ an $n$-ball define $\cC(X)$ to be maps from $X\times F$ to $T$ modulo
+Fix a `target space' $T$, any topological space. We define $\pi_{\leq n}(T)$, the fundamental $n$-category of $T$, as follows.
+For $X$ a $k$-ball or $k$-sphere with $k < n$, define $\pi_{\leq n}(T)(X)$ to be the set of 
+all continuous maps from $X$ to $T$.
+For $X$ an $n$-ball define $\pi_{\leq n}(T)(X)$ to be continuous maps from $X$ to $T$ modulo
 homotopies fixed on $\bd X \times F$.
 (Note that homotopy invariance implies isotopy invariance.)
 For $a\in \cC(X)$ define the product morphism $a\times D \in \cC(X\times D)$ to
 be $a\circ\pi_X$, where $\pi_X : X\times D \to X$ is the projection.
 \end{example}
 
-\begin{example}{Linearized, twisted, maps to a space}
+\begin{example}[Maps to a space, with a fiber]
+\rm
+\label{ex:maps-to-a-space-with-a-fiber}%
+We can modify the example above, by fixing an $m$-manifold $F$, and defining $\pi^{\times F}_{\leq n}(T)(X) = \Maps(X \times F \to T)$, otherwise leaving the definition in Example \ref{ex:maps-to-a-space} unchanged. Taking $F$ to be a point recovers the previous case.
+\end{example}
+
+\begin{example}[Linearized, twisted, maps to a space]
+\rm
 \label{ex:linearized-maps-to-a-space}%
-We can linearize the above example as follows.
+We can linearize Examples \ref{ex:maps-to-a-space} and \ref{ex:maps-to-a-space-with-a-fiber} as follows.
 Let $\alpha$ be an $(n{+}m{+}1)$-cocycle on $T$ with values in a ring $R$
-(e.g.\ the trivial cocycle).
-For $X$ of dimension less than $n$ define $\cC(X)$ as before.
-For $X$ an $n$-ball and $c\in \cC(\bd X)$ define $\cC(X; c)$ to be
-the $R$-module of finite linear combinations of maps from $X\times F$ to $T$,
+(have in mind the trivial cocycle).
+For $X$ of dimension less than $n$ define $\pi^{\alpha, \times F}_{\leq n}(T)(X)$ as before, ignoring $\alpha$.
+For $X$ an $n$-ball and $c\in \Maps(\bdy X \times F \to T)$ define $\pi^{\alpha, \times F}_{\leq n}(T)(X; c)$ to be
+the $R$-module of finite linear combinations of continuous maps from $X\times F$ to $T$,
 modulo the relation that if $a$ is homotopic to $b$ (rel boundary) via a homotopy
-$h: X\times F\times I \to T$, then $a \sim \alpha(h)b$.
+$h: X\times F\times I \to T$, then $a = \alpha(h)b$.
 \nn{need to say something about fundamental classes, or choose $\alpha$ carefully}
 \end{example}
 
-\begin{itemize}
-
-\item \nn{Continue converting these into examples}
-
-\item Given a traditional $n$-category $C$ (with strong duality etc.),
-define $\cC(X)$ (with $\dim(X) < n$) 
+The next example is only intended to be illustrative, as we don't specify which definition of a `traditional $n$-category' we intend. Further, most of these definitions don't even have an agreed-upon notion of `strong duality', which we assume here.
+\begin{example}[Traditional $n$-categories]
+\rm
+\label{ex:traditional-n-categories}
+Given a `traditional $n$-category with strong duality' $C$
+define $\cC(X)$, for $X$ a $k$-ball or $k$-sphere with $k < n$,
 to be the set of all $C$-labeled sub cell complexes of $X$.
 (See Subsection \ref{sec:fields}.)
 For $X$ an $n$-ball and $c\in \cC(\bd X)$, define $\cC(X)$ to finite linear
 combinations of $C$-labeled sub cell complexes of $X$
 modulo the kernel of the evaluation map.
-Define a product morphism $a\times D$ to be the product of the cell complex of $a$ with $D$,
-and with the same labeling as $a$.
+Define a product morphism $a\times D$, for $D$ an $m$-ball, to be the product of the cell complex of $a$ with $D$,
+with each cell labelled by the $m$-th iterated identity morphism of the corresponding cell for $a$.
 More generally, start with an $n{+}m$-category $C$ and a closed $m$-manifold $F$.
 Define $\cC(X)$, for $\dim(X) < n$,
 to be the set of all $C$-labeled sub cell complexes of $X\times F$.
 Define $\cC(X; c)$, for $X$ an $n$-ball,
 to be the dual Hilbert space $A(X\times F; c)$.
 \nn{refer elsewhere for details?}
+\end{example}
 
+Finally, we describe a version of the bordism $n$-category suitable to our definitions.
+\newcommand{\Bord}{\operatorname{Bord}}
+\begin{example}[The bordism $n$-category]
+\rm
+\label{ex:bordism-category}
+For a $k$-ball $X$, $k<n$, define $\Bord^n(X)$ to be the set of all $k$-dimensional
+submanifolds $W$ of $X\times \Real^\infty$ such that the projection $W \to X$ is transverse
+to $\bd X$. \nn{spheres}
+For an $n$-ball $X$ define $\Bord^n(X)$ to be homeomorphism classes (rel boundary) of such submanifolds;
+we identify $W$ and $W'$ if $\bd W = \bd W'$ and there is a homeomorphism
+$W \to W'$ which restricts to the identity on the boundary
+\end{example}
+
+\begin{itemize}
+
+\item \nn{Continue converting these into examples}
+
+\item 
 \item Variation on the above examples:
 We could allow $F$ to have boundary and specify boundary conditions on $X\times \bd F$,
 for example product boundary conditions or take the union over all boundary conditions.
@@ -501,28 +533,26 @@ for example product boundary conditions or take the union over all boundary cond
 %to think of these guys as affording a representation
 %of the $n{+}1$-category associated to $\bd F$.}
 
-\item Here's our version of the bordism $n$-category.
-For a $k$-ball $X$, $k<n$, define $\cC(X)$ to be the set of all $k$-dimensional
-submanifolds $W$ of $X\times \r^\infty$ such that the projection $W \to X$ is transverse
-to $\bd X$.
-For $k=n$ define $\cC(X)$ to be homeomorphism classes (rel boundary) of such submanifolds;
-we identify $W$ and $W'$ if $\bd W = \bd W'$ and there is a homeomorphism
-$W\to W'$ which restricts to the identity on the boundary.
-
-\item \nn{sphere modules; ref to below}
-
 \end{itemize}
 
 
 We have two main examples of $A_\infty$ $n$-categories, coming from maps to a target space and from the blob complex.
 
-\begin{example}{Chains of maps to a space}
-We can modify Example \ref{ex:maps-to-a-space} above by defining $\cC(X; c)$ for an $n$-ball $X$  to be the chain complex 
-$C_*(\Maps_c(X\times F \to T))$, where $\Maps_c$ denotes continuous maps restricting to $c$ on the boundary,
+\begin{example}[Chains of maps to a space]
+\rm
+\label{ex:chains-of-maps-to-a-space}
+We can modify Example \ref{ex:maps-to-a-space} above to define the fundamental $A_\infty$ $n$-category $\pi^\infty_{\le n}(T)$ of a topological space $T$.
+For $k$-balls and $k$-spheres $X$, with $k < n$, the sets $\pi^\infty_{\leq n}(T)(X)$ are just $\Maps{X \to T}$.
+Define $\pi^\infty_{\leq n}(T)(X; c)$ for an $n$-ball $X$ and $c \in \pi^\infty_{\leq n}(T)(\bdy X)$ to be the chain complex
+$$C_*(\Maps_c(X\times F \to T)),$$ where $\Maps_c$ denotes continuous maps restricting to $c$ on the boundary,
 and $C_*$ denotes singular chains.
 \end{example}
 
-\begin{example}{Blob complexes of balls (with a fiber)}
+See ??? below, recovering $C_*(\Maps{M \to T})$ as (up to homotopy) the blob complex of $M$ with coefficients in $\pi^\infty_{\le n}(T)$.
+
+\begin{example}[Blob complexes of balls (with a fiber)]
+\rm
+\label{ex:blob-complexes-of-balls}
 Fix an $m$-dimensional manifold $F$.
 Given a plain $n$-category $C$, 
 when $X$ is a $k$-ball or $k$-sphere, with $k<n-m$, define $\cC(X) = C(X)$. When $X$ is an $(n-m)$-ball,
@@ -530,9 +560,11 @@ define $\cC(X; c) = \bc^C_*(X\times F; c)$
 where $\bc^C_*$ denotes the blob complex based on $C$.
 \end{example}
 
-\begin{defn}
+This example will be essential for ???, which relates ...
+
+\begin{example}
 \nn{should add $\infty$ version of bordism $n$-cat}
-\end{defn}
+\end{example}
 
 
 
@@ -541,27 +573,23 @@ where $\bc^C_*$ denotes the blob complex based on $C$.
 
 \subsection{From $n$-categories to systems of fields}
 \label{ss:ncat_fields}
+In this section we describe how to extend an $n$-category as described above (of either the plain or $A_\infty$ variation) to a system of fields. That is, we show that functors $\cC_k$ satisfying the axioms above have a canonical extension, from $k$-balls and $k$-spheres to arbitrary $k$-manifolds.
 
-We can extend the functors $\cC$ above from $k$-balls to arbitrary $k$-manifolds as follows.
+We will first define the `cell-decomposition' poset $\cJ(W)$ for any $k$-manifold $W$, for $1 \leq k \leq n$. An $n$-category $\cC$ provides a functor from this poset to the category of sets, and we  will define $\cC(W)$ as a suitable colimit (or homotopy colimit) of this functor. We'll later give a more explicit description of this colimit. In the case that the $n$-category $\cC$ is enriched (e.g. associates vector spaces or chain complex to $n$-manifolds with boundary data), then the resulting system of fields is also enriched, that is, the set associated to $W$ splits into subsets according to boundary data, and each of these subsets has the appropriate structure (e.g. a vector space or chain complex).
 
-Let $W$ be a $k$-manifold, $1\le k \le n$.
-We will define a set $\cC(W)$.
-(If $k = n$ and our $k$-categories are enriched, then
-$\cC(W)$ will have additional structure; see below.)
-$\cC(W)$ will be the colimit of a functor defined on a category $\cJ(W)$,
-which we define next.
-
-Define a permissible decomposition of $W$ to be a cell decomposition
+\begin{defn}
+Say that a `permissible decomposition' of $W$ is a cell decomposition
 \[
 	W = \bigcup_a X_a ,
 \]
 where each closed top-dimensional cell $X_a$ is an embedded $k$-ball.
+
 Given permissible decompositions $x$ and $y$, we say that $x$ is a refinement
-of $y$, or write $x \le y$, if each ball of $y$ is a union of balls of $x$.
-This defines a partial ordering $\cJ(W)$, which we will think of as a category.
-(The objects of $\cJ(W)$ are permissible decompositions of $W$, and there is a unique
-morphism from $x$ to $y$ if and only if $x$ is a refinement of $y$.
-See Figure \ref{partofJfig}.)
+of $y$, or write $x \le y$, if each $k$-ball of $y$ is a union of $k$-balls of $x$.
+
+The category $\cJ(W)$ has objects the permissible decompositions of $W$, and a unique morphism from $x$ to $y$ if and only if $x$ is a refinement of $y$.
+See Figure \ref{partofJfig} for an example.
+\end{defn}
 
 \begin{figure}[!ht]
 \begin{equation*}
@@ -572,57 +600,70 @@ See Figure \ref{partofJfig}.)
 \end{figure}
 
 
-$\cC$ determines 
-a functor $\psi_\cC$ from $\cJ(W)$ to the category of sets 
+
+
+An $n$-category $\cC$ determines 
+a functor $\psi_{\cC;W}$ from $\cJ(W)$ to the category of sets 
 (possibly with additional structure if $k=n$).
-For a decomposition $x = (X_a)$ in $\cJ(W)$, define $\psi_\cC(x)$ to be the subset
-\[
-	\psi_\cC(x) \sub \prod_a \cC(X_a)
-\]
-such that the restrictions to the various pieces of shared boundaries amongst the
-$X_a$ all agree.
-(Think fibered product.)
-If $x$ is a refinement of $y$, define a map $\psi_\cC(x)\to\psi_\cC(y)$
-via the composition maps of $\cC$.
-(If $\dim(W) = n$ then we need to also make use of the monoidal
-product in the enriching category.
-\nn{should probably be more explicit here})
+For a $k$-cell $X$ in a cell composition of $W$, we can consider the `splittable fields' $\cC(X)_{\bdy X}$, the subset of $\cC(X)$ consisting of fields which are splittable with respect to each boundary $k-1$-cell.
 
-Finally, define $\cC(W)$ to be the colimit of $\psi_\cC$.
-When $k<n$ or $k=n$ and we are in the plain (non-$A_\infty$) case, this means that
-for each decomposition $x$ there is a map
-$\psi_\cC(x)\to \cC(W)$, these maps are compatible with the refinement maps
+\begin{defn}
+Define the functor $\psi_{\cC;W} : \cJ(W) \to \Set$ as follows.
+For a decomposition $x = \bigcup_a X_a$ in $\cJ(W)$, $\psi_{\cC;W}(x)$ is the subset
+\begin{equation}
+\label{eq:psi-C}
+	\psi_{\cC;W}(x) \sub \prod_a \cC(X_a)_{\bdy X_a}
+\end{equation}
+where the restrictions to the various pieces of shared boundaries amongst the cells
+$X_a$ all agree (this is a fibered product of all the labels of $n$-cells over the labels of $n-1$-cells).
+If $x$ is a refinement of $y$, the map $\psi_{\cC;W}(x) \to \psi_{\cC;W}(y)$ is given by the composition maps of $\cC$.
+\end{defn}
+
+When the $n$-category $\cC$ is enriched in some monoidal category $(A,\boxtimes)$, and $W$ is an $n$-manifold, the functor $\psi_{\cC;W}$ has target $A$
+we replace the cartesian product of sets appearing in Equation \eqref{eq:psi-C} with the monoidal product $\boxtimes$. (Moreover, $\psi_{\cC;W}(x)$ might be a subobject, rather than a subset, of the product.)
+
+Finally, we construct $\cC(W)$ as the appropriate colimit of $\psi_{\cC;W}$.
+
+\begin{defn}[System of fields functor]
+If $\cC$ is an $n$-category enriched in sets or vector spaces, $\cC(W)$ is the usual colimit of the functor $\psi_{\cC;W}$.
+That is, for each decomposition $x$ there is a map
+$\psi_{\cC;W}(x)\to \cC(W)$, these maps are compatible with the refinement maps
 above, and $\cC(W)$ is universal with respect to these properties.
-When $k=n$ and we are in the $A_\infty$ case, it means
-homotopy colimit.
+\end{defn}
 
-More concretely, in the plain case enriched over vector spaces, and with $\dim(W) = n$, we can take
-\[
-	\cC(W) = \left( \oplus_x \psi_\cC(x)\right) \big/ K
-\]
-where $K$ is generated by all things of the form $a - g(a)$, where
-$a\in \psi_\cC(x)$ for some decomposition $x$, $x\le y$, and $g: \psi_\cC(x)
-\to \psi_\cC(y)$ is value of $\psi_\cC$ on the antirefinement $x\to y$.
+\begin{defn}[System of fields functor, $A_\infty$ case]
+When $\cC$ is an $A_\infty$ $n$-category, $\cC(W)$ for $W$ a $k$-manifold with $k < n$ is defined as above, as the colimit of $\psi_{\cC;W}$. When $W$ is an $n$-manifold, the chain complex $\cC(W)$ is the homotopy colimit of the functor $\psi_{\cC;W}$.
+\end{defn}
 
-In the $A_\infty$ case enriched over chain complexes, the concrete description of the colimit
-is as follows.
+We can specify boundary data $c \in \cC(\bdy W)$, and define functors $\psi_{\cC;W,c}$ with values the subsets of those of $\psi_{\cC;W}$ which agree with $c$ on the boundary of $W$.
+
+We can now give a more concrete description of the colimit in each case. If $\cC$ is enriched over vector spaces, and $W$ is an $n$-manifold, we can take the vector space $\cC(W,c)$ to be the direct sum over all permissible decompositions of $W$
+\begin{equation*}
+	\cC(W,c) = \left( \bigoplus_x \psi_{\cC;W,c}(x)\right) \big/ K
+\end{equation*}
+where $K$ is the vector space spanned by elements $a - g(a)$, with
+$a\in \psi_{\cC;W,c}(x)$ for some decomposition $x$, and $g: \psi_{\cC;W,c}(x)
+\to \psi_{\cC;W,c}(y)$ is value of $\psi_{\cC;W,c}$ on some antirefinement $x \leq y$.
+
+In the $A_\infty$ case enriched over chain complexes, the concrete description of the homotopy colimit
+is slightly more involved.
 %\nn{should probably rewrite this to be compatible with some standard reference}
-Define an $m$-sequence to be a sequence $x_0 \le x_1 \le \dots \le x_m$ of permissible decompositions.
-Such sequences (for all $m$) form a simplicial set.
-Let
+Define an $m$-sequence in $W$ to be a sequence $x_0 \le x_1 \le \dots \le x_m$ of permissible decompositions of $W$.
+Such sequences (for all $m$) form a simplicial set in $\cJ(W)$.
+Define $V$ as a vector space via
 \[
-	V = \bigoplus_{(x_i)} \psi_\cC(x_0) ,
+	V = \bigoplus_{(x_i)} \psi_{\cC;W}(x_0)[m] ,
 \]
-where the sum is over all $m$-sequences and all $m$, and each summand is degree shifted by $m$.
-We endow $V$ with a differential which is the sum of the differential of the $\psi_\cC(x_0)$
+where the sum is over all $m$-sequences $(x_i)$ and all $m$, and each summand is degree shifted by $m$. (Our homological conventions are obtuse: if a complex $U$ is concentrated in degree $0$, the complex $U[m]$ is concentrated in degree $m$.)
+We endow $V$ with a differential which is the sum of the differential of the $\psi_{\cC;W}(x_0)$
 summands plus another term using the differential of the simplicial set of $m$-sequences.
 More specifically, if $(a, \bar{x})$ denotes an element in the $\bar{x}$
 summand of $V$ (with $\bar{x} = (x_0,\dots,x_k)$), define
 \[
-	\bd (a, \bar{x}) = (\bd a, \bar{x}) \pm (g(a), d_0(\bar{x})) + \sum_{j=1}^k \pm (a, d_j(\bar{x})) ,
+	\bd (a, \bar{x}) = (\bd a, \bar{x}) + (-1)^{\deg{a}} (g(a), d_0(\bar{x})) + (-1)^{\deg{a}} \sum_{j=1}^k (-1)^{j} (a, d_j(\bar{x})) ,
 \]
 where $d_j(\bar{x}) = (x_0,\dots,x_{j-1},x_{j+1},\dots,x_k)$ and $g: \psi_\cC(x_0)\to \psi_\cC(x_1)$
-is the usual map.
+is the usual gluing map coming from the antirefinement $x_0 < x_1$.
 \nn{need to say this better}
 \nn{maybe mention that there is a version that emphasizes minimal gluings (antirefinements) which
 combine only two balls at a time; for $n=1$ this version will lead to usual definition
@@ -923,7 +964,7 @@ $\cC(W, \cN)$ will have additional structure; see below.)
 
 Define a permissible decomposition of $W$ to be a decomposition
 \[
-	W = (\bigcup_a X_a) \cup (\bigcup_{i,b} M_{ib}) ,
+	W = \left(\bigcup_a X_a\right) \cup \left(\bigcup_{i,b} M_{ib}\right) ,
 \]
 where each $X_a$ is a plain $k$-ball (disjoint from $\bd W$) and
 each $M_{ib}$ is a marked $k$-ball intersecting $\bd_i W$,
@@ -944,7 +985,7 @@ a functor $\psi_\cN$ from $\cJ(W)$ to the category of sets
 (possibly with additional structure if $k=n$).
 For a decomposition $x = (X_a, M_{ib})$ in $\cJ(W)$, define $\psi_\cN(x)$ to be the subset
 \[
-	\psi_\cN(x) \sub (\prod_a \cC(X_a)) \times (\prod_{ib} \cN_i(M_{ib}))
+	\psi_\cN(x) \sub \left(\prod_a \cC(X_a)\right) \times \left(\prod_{ib} \cN_i(M_{ib})\right)
 \]
 such that the restrictions to the various pieces of shared boundaries amongst the
 $X_a$ and $M_{ib}$ all agree.
