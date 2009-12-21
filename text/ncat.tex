@@ -226,7 +226,16 @@ We will write $\cC(B)_Y$ for the image of $\gl_Y$ in $\cC(B)$.
 We will call $\cC(B)_Y$ morphisms which are splittable along $Y$ or transverse to $Y$.
 We have $\cC(B)_Y \sub \cC(B)_E \sub \cC(B)$.
 
-More generally, if $X$ is a sphere or ball subdivided \nn{...}
+More generally, let $\alpha$ be a subdivision of a ball (or sphere) $X$ into smaller balls.
+Let $\cC(X)_\alpha \sub \cC(X)$ denote the image of the iterated gluing maps from 
+the smaller balls to $X$.
+We will also say that $\cC(X)_\alpha$ are morphisms which are splittable along $\alpha$.
+In situations where the subdivision is notationally anonymous, we will write
+$\cC(X)\spl$ for the morphisms which are splittable along (a.k.a.\ transverse to)
+the unnamed subdivision.
+If $\beta$ is a subdivision of $\bd X$, we define $\cC(X)_\beta \deq \bd\inv(\cC(\bd X)_\beta)$;
+this can also be denoted $\cC(X)\spl$ if the context contains an anonymous
+subdivision of $\bd X$ and no competing subdivision of $X$.
 
 The above two composition axioms are equivalent to the following one,
 which we state in slightly vague form.
@@ -235,7 +244,7 @@ which we state in slightly vague form.
 {Given any decomposition $B = B_1\cup\cdots\cup B_m$ of a $k$-ball
 into small $k$-balls, there is a 
 map from an appropriate subset (like a fibered product) 
-of $\cC(B_1)\times\cdots\times\cC(B_m)$ to $\cC(B)$,
+of $\cC(B_1)\spl\times\cdots\times\cC(B_m)\spl$ to $\cC(B)\spl$,
 and these various $m$-fold composition maps satisfy an
 operad-type strict associativity condition (Figure \ref{blah7}).}
 
