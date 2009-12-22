@@ -6,32 +6,28 @@
 In this appendix we relate the ``topological" category definitions of Section \ref{sec:ncats}
 to more traditional definitions, for $n=1$ and 2.
 
-\subsection{Plain 1-categories}
+\subsection{$1$-categories over $\Set$ or $\Vect$}
+\label{ssec:1-cats}
+Given a topological $1$-category $\cX$ we construct a $1$-category in the conventional sense, $c(\cX)$.
+This construction is quite straightforward, but we include the details for the sake of completeness, because it illustrates the role of structures (e.g. orientations, spin structures, etc) on the underlying manifolds, and 
+to shed some light on the $n=2$ case, which we describe in \S \ref{ssec:2-cats}.
 
-Given a topological 1-category $\cC$, we construct a traditional 1-category $C$.
-(This is quite straightforward, but we include the details for the sake of completeness and
-to shed some light on the $n=2$ case.)
-
-Let the objects of $C$ be $C^0 \deq \cC(B^0)$ and the morphisms of $C$ be $C^1 \deq \cC(B^1)$, 
-where $B^k$ denotes the standard $k$-ball.
-The boundary and restriction maps of $\cC$ give domain and range maps from $C^1$ to $C^0$.
+Let $B^k$ denote the \emph{standard} $k$-ball.
+Let the objects of $c(\cX)$ be $c(\cX)^0 = \cX(B^0)$ and the morphisms of $c(\cX)$ be $c(\cX)^1 = \cX(B^1)$. The boundary and restriction maps of $\cX$ give domain and range maps from $c(\cX)^1$ to $c(\cX)^0$.
 
 Choose a homeomorphism $B^1\cup_{pt}B^1 \to B^1$.
-Define composition in $C$ to be the induced map $C^1\times C^1 \to C^1$ (defined only when range and domain agree).
-By isotopy invariance in $\cC$, any other choice of homeomorphism gives the same composition rule.
-Also by isotopy invariance, composition is associative.
+Define composition in $c(\cX)$ to be the induced map $c(\cX)^1\times c(\cX)^1 \to c(\cX)^1$ (defined only when range and domain agree).
+By isotopy invariance in $\cX$, any other choice of homeomorphism gives the same composition rule.
+Also by isotopy invariance, composition is associative on the nose.
 
-Given $a\in C^0$, define $\id_a \deq a\times B^1$.
-By extended isotopy invariance in $\cC$, this has the expected properties of an identity morphism.
+Given $a\in c(\cX)^0$, define $\id_a \deq a\times B^1$.
+By extended isotopy invariance in $\cX$, this has the expected properties of an identity morphism.
 
-\nn{(slash)id seems to rendering a a boldface 1 --- is this what we want?}
 
-\medskip
+If the underlying manifolds for $\cX$ have further geometric structure, then we obtain certain functors. The base case is for oriented manifolds, where we obtain no extra algebraic data.
 
-For 1-categories based on oriented manifolds, there is no additional structure.
-
-For 1-categories based on unoriented manifolds, there is a map $*:C^1\to C^1$
-coming from $\cC$ applied to an orientation-reversing homeomorphism (unique up to isotopy) 
+For 1-categories based on unoriented manifolds (somewhat confusingly, we're thinking of being unoriented as requiring extra data beyond being oriented, namely the identification between the orientations), there is a map $*:c(\cX)^1\to c(\cX)^1$
+coming from $\cX$ applied to an orientation-reversing homeomorphism (unique up to isotopy) 
 from $B^1$ to itself.
 Topological properties of this homeomorphism imply that 
 $a^{**} = a$ (* is order 2), * reverses domain and range, and $(ab)^* = b^*a^*$
@@ -39,44 +35,42 @@ $a^{**} = a$ (* is order 2), * reverses domain and range, and $(ab)^* = b^*a^*$
 
 For 1-categories based on Spin manifolds,
 the the nontrivial spin homeomorphism from $B^1$ to itself which covers the identity
-gives an order 2 automorphism of $C^1$.
+gives an order 2 automorphism of $c(\cX)^1$.
 
 For 1-categories based on $\text{Pin}_-$ manifolds,
-we have an order 4 antiautomorphism of $C^1$.
-
+we have an order 4 antiautomorphism of $c(\cX)^1$.
 For 1-categories based on $\text{Pin}_+$ manifolds,
-we have an order 2 antiautomorphism and also an order 2 automorphism of $C^1$,
+we have an order 2 antiautomorphism and also an order 2 automorphism of $c(\cX)^1$,
 and these two maps commute with each other.
-
 \nn{need to also consider automorphisms of $B^0$ / objects}
 
 \medskip
 
-In the other direction, given a traditional 1-category $C$
+In the other direction, given a $1$-category $C$
 (with objects $C^0$ and morphisms $C^1$) we will construct a topological
-1-category $\cC$.
+$1$-category $t(C)$.
 
-If $X$ is a 0-ball (point), let $\cC(X) \deq C^0$.
-If $S$ is a 0-sphere, let $\cC(S) \deq C^0\times C^0$.
-If $X$ is a 1-ball, let $\cC(X) \deq C^1$.
+If $X$ is a 0-ball (point), let $t(C)(X) \deq C^0$.
+If $S$ is a 0-sphere, let $t(C)(S) \deq C^0\times C^0$.
+If $X$ is a 1-ball, let $t(C)(X) \deq C^1$.
 Homeomorphisms isotopic to the identity act trivially.
 If $C$ has extra structure (e.g.\ it's a *-1-category), we use this structure
 to define the action of homeomorphisms not isotopic to the identity
 (and get, e.g., an unoriented topological 1-category).
 
-The domain and range maps of $C$ determine the boundary and restriction maps of $\cC$.
+The domain and range maps of $C$ determine the boundary and restriction maps of $t(C)$.
 
-Gluing maps for $\cC$ are determined my composition of morphisms in $C$.
+Gluing maps for $t(C)$ are determined by composition of morphisms in $C$.
 
-For $X$ a 0-ball, $D$ a 1-ball and $a\in \cC(X)$, define the product morphism 
+For $X$ a 0-ball, $D$ a 1-ball and $a\in t(C)(X)$, define the product morphism 
 $a\times D \deq \id_a$.
 It is not hard to verify that this has the desired properties.
 
 \medskip
 
-The compositions of the above two ``arrows" ($\cC\to C\to \cC$ and $C\to \cC\to C$) give back 
+The compositions of the constructions above, $$\cX\to c(\cX)\to t(c(\cX))$$ and $$C\to t(C)\to c(t(C)),$$ give back 
 more or less exactly the same thing we started with.  
-\nn{need better notation here}
+
 As we will see below, for $n>1$ the compositions yield a weaker sort of equivalence.
 
 \medskip
@@ -85,7 +79,7 @@ Similar arguments show that modules for topological 1-categories are essentially
 the same thing as traditional modules for traditional 1-categories.
 
 \subsection{Plain 2-categories}
-
+\label{ssec:2-cats}
 Let $\cC$ be a topological 2-category.
 We will construct a traditional pivotal 2-category.
 (The ``pivotal" corresponds to our assumption of strong duality for $\cC$.)
@@ -191,3 +185,66 @@ It is not hard to show that this is independent of the arbitrary (left/right) ch
 
 \nn{to be continued...}
 \medskip
+
+\subsection{$A_\infty$ $1$-categories}
+\label{sec:comparing-A-infty}
+In this section, we make contact between the usual definition of an $A_\infty$ algebra and our definition of a topological $A_\infty$ algebra, from Definition \ref{defn:topological-Ainfty-category}.
+
+We begin be restricting the data of a topological $A_\infty$ algebra to the standard interval $[0,1]$, which we can alternatively characterise as:
+\begin{defn}
+A \emph{topological $A_\infty$ category on $[0,1]$} $\cC$ has a set of objects $\Obj(\cC)$, and for each $a,b \in \Obj(\cC)$, a chain complex $\cC_{a,b}$, along with
+\begin{itemize}
+\item an action of the operad of $\Obj(\cC)$-labeled cell decompositions
+\item and a compatible action of $\CD{[0,1]}$.
+\end{itemize}
+\end{defn}
+Here the operad of cell decompositions of $[0,1]$ has operations indexed by a finite set of points $0 < x_1< \cdots < x_k < 1$, cutting $[0,1]$ into subintervals. An $X$-labeled cell decomposition labels $\{0, x_1, \ldots, x_k, 1\}$ by $X$. Given two cell decompositions $\cJ^{(1)}$ and $\cJ^{(2)}$, and an index $m$, we can compose them to form a new cell decomposition $\cJ^{(1)} \circ_m \cJ^{(2)}$ by inserting the points of $\cJ^{(2)}$ linearly into the $m$-th interval of $\cJ^{(1)}$. In the $X$-labeled case, we insist that the appropriate labels match up. Saying we have an action of this operad means that for each labeled cell decomposition $0 < x_1< \cdots < x_k < 1$, $a_0, \ldots, a_{k+1} \subset \Obj(\cC)$, there is a chain map $$\cC_{a_0,a_1} \tensor \cdots \tensor \cC_{a_k,a_{k+1}} \to \cC(a_0,a_{k+1})$$ and these chain maps compose exactly as the cell decompositions.
+An action of $\CD{[0,1]}$ is compatible with an action of the cell decomposition operad if given a decomposition $\pi$, and a family of diffeomorphisms $f \in \CD{[0,1]}$ which is supported on the subintervals determined by $\pi$, then the two possible operations (glue intervals together, then apply the diffeomorphisms, or apply the diffeormorphisms separately to the subintervals, then glue) commute (as usual, up to a weakly unique homotopy).
+
+Translating between this notion and the usual definition of an $A_\infty$ category is now straightforward. To restrict to the standard interval, define $\cC_{a,b} = \cC([0,1];a,b)$. Given a cell decomposition $0 < x_1< \cdots < x_k < 1$, we use the map (suppressing labels)
+$$\cC([0,1])^{\tensor k+1} \to \cC([0,x_1]) \tensor \cdots \tensor \cC[x_k,1] \to \cC([0,1])$$
+where the factors of the first map are induced by the linear isometries $[0,1] \to [x_i, x_{i+1}]$, and the second map is just gluing. The action of $\CD{[0,1]}$ carries across, and is automatically compatible. Going the other way, we just declare $\cC(J;a,b) = \cC_{a,b}$, pick a diffeomorphism $\phi_J : J \isoto [0,1]$ for every interval $J$, define the gluing map $\cC(J_1) \tensor \cC(J_2) \to \cC(J_1 \cup J_2)$ by the first applying the cell decomposition map for $0 < \frac{1}{2} < 1$, then the self-diffeomorphism of $[0,1]$ given by $\frac{1}{2} (\phi_{J_1} \cup (1+ \phi_{J_2})) \circ \phi_{J_1 \cup J_2}^{-1}$. You can readily check that this gluing map is associative on the nose. \todo{really?}
+
+%First recall the \emph{coloured little intervals operad}. Given a set of labels $\cL$, the operations are indexed by \emph{decompositions of the interval}, each of which is a collection of disjoint subintervals $\{(a_i,b_i)\}_{i=1}^k$ of $[0,1]$, along with a labeling of the complementary regions by $\cL$, $\{l_0, \ldots, l_k\}$.  Given two decompositions $\cJ^{(1)}$ and $\cJ^{(2)}$, and an index $m$ such that $l^{(1)}_{m-1} = l^{(2)}_0$ and $l^{(1)}_{m} = l^{(2)}_{k^{(2)}}$, we can form a new decomposition by inserting the intervals of $\cJ^{(2)}$ linearly inside the $m$-th interval of $\cJ^{(1)}$. We call the resulting decomposition $\cJ^{(1)} \circ_m \cJ^{(2)}$.
+
+%\begin{defn}
+%A \emph{topological $A_\infty$ category} $\cC$ has a set of objects $\Obj(\cC)$ and for each $a,b \in \Obj(\cC)$ a chain complex $\cC_{a,b}$, along with a compatible `composition map' and an `action of families of diffeomorphisms'.
+
+%A \emph{composition map} $f$ is a family of chain maps, one for each decomposition of the interval, $f_\cJ : A^{\tensor k} \to A$, making $\cC$ into a category over the coloured little intervals operad, with labels $\cL = \Obj(\cC)$. Thus the chain maps satisfy the identity 
+%\begin{equation*}
+%f_{\cJ^{(1)} \circ_m \cJ^{(2)}} = f_{\cJ^{(1)}} \circ (\id^{\tensor m-1} \tensor f_{\cJ^{(2)}} \tensor \id^{\tensor k^{(1)} - m}).
+%\end{equation*}
+
+%An \emph{action of families of diffeomorphisms} is a chain map $ev: \CD{[0,1]} \tensor A \to A$, such that 
+%\begin{enumerate}
+%\item The diagram 
+%\begin{equation*}
+%\xymatrix{
+%\CD{[0,1]} \tensor \CD{[0,1]} \tensor A \ar[r]^{\id \tensor ev} \ar[d]^{\circ \tensor \id} & \CD{[0,1]} \tensor A \ar[d]^{ev} \\
+%\CD{[0,1]} \tensor A \ar[r]^{ev} & A
+%}
+%\end{equation*}
+%commutes up to weakly unique homotopy.
+%\item If $\phi \in \Diff([0,1])$ and $\cJ$ is a decomposition of the interval, we obtain a new decomposition $\phi(\cJ)$ and a collection $\phi_m \in \Diff([0,1])$ of diffeomorphisms obtained by taking the restrictions $\restrict{\phi}{[a_m,b_m]} : [a_m,b_m] \to [\phi(a_m),\phi(b_m)]$ and pre- and post-composing these with the linear diffeomorphisms $[0,1] \to [a_m,b_m]$ and $[\phi(a_m),\phi(b_m)] \to [0,1]$. We require that
+%\begin{equation*}
+%\phi(f_\cJ(a_1, \cdots, a_k)) = f_{\phi(\cJ)}(\phi_1(a_1), \cdots, \phi_k(a_k)).
+%\end{equation*}
+%\end{enumerate}
+%\end{defn}
+
+From a topological $A_\infty$ category on $[0,1]$ $\cC$ we can produce a `conventional' $A_\infty$ category $(A, \{m_k\})$ as defined in, for example, \cite{MR1854636}. We'll just describe the algebra case (that is, a category with only one object), as the modifications required to deal with multiple objects are trivial. Define $A = \cC$ as a chain complex (so $m_1 = d$). Define $m_2 : A\tensor A \to A$ by $f_{\{(0,\frac{1}{2}),(\frac{1}{2},1)\}}$. To define $m_3$, we begin by taking the one parameter family $\phi_3$ of diffeomorphisms of $[0,1]$ that interpolates linearly between the identity and the piecewise linear diffeomorphism taking $\frac{1}{4}$ to $\frac{1}{2}$ and $\frac{1}{2}$ to $\frac{3}{4}$, and then define
+\begin{equation*}
+m_3(a,b,c) = ev(\phi_3, m_2(m_2(a,b), c)).
+\end{equation*}
+
+It's then easy to calculate that
+\begin{align*}
+d(m_3(a,b,c)) & = ev(d \phi_3, m_2(m_2(a,b),c)) - ev(\phi_3 d m_2(m_2(a,b), c)) \\
+ & = ev( \phi_3(1), m_2(m_2(a,b),c)) - ev(\phi_3(0), m_2 (m_2(a,b),c)) - \\ & \qquad - ev(\phi_3, m_2(m_2(da, b), c) + (-1)^{\deg a} m_2(m_2(a, db), c) + \\ & \qquad \quad + (-1)^{\deg a+\deg b} m_2(m_2(a, b), dc) \\
+ & = m_2(a , m_2(b,c)) - m_2(m_2(a,b),c) - \\ & \qquad - m_3(da,b,c) + (-1)^{\deg a + 1} m_3(a,db,c) + \\ & \qquad \quad + (-1)^{\deg a + \deg b + 1} m_3(a,b,dc), \\
+\intertext{and thus that}
+m_1 \circ m_3 & =  m_2 \circ (\id \tensor m_2) - m_2 \circ (m_2 \tensor \id) - \\ & \qquad - m_3 \circ (m_1 \tensor \id \tensor \id) - m_3 \circ (\id \tensor m_1 \tensor \id) - m_3 \circ (\id \tensor \id \tensor m_1)
+\end{align*}
+as required (c.f. \cite[p. 6]{MR1854636}).
+\todo{then the general case.}
+We won't describe a reverse construction (producing a topological $A_\infty$ category from a `conventional' $A_\infty$ category), but we presume that this will be easy for the experts.

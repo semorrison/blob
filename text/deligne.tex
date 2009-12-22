@@ -2,14 +2,14 @@
 
 \section{Higher-dimensional Deligne conjecture}
 \label{sec:deligne}
-In this section we discuss Property \ref{property:deligne},
-\begin{prop}[Higher dimensional Deligne conjecture]
+In this section we discuss
+\newenvironment{property:deligne}{\textbf{Property \ref{property:deligne} (Higher dimensional Deligne conjecture)}\it}{}
+
+\begin{property:deligne}
 The singular chains of the $n$-dimensional fat graph operad act on blob cochains.
-\end{prop}
+\end{property:deligne}
 
-We will give a more precise statement of the proposition below.
-
-\nn{for now, we just sketch the proof.}
+We will state this more precisely below as Proposition \ref{prop:deligne}, and just sketch a proof. First, we recall the usual Deligne conjecture, explain how to think of it as a statement about blob complexes, and begin to generalize it.
 
 \def\mapinf{\Maps_\infty}
 
@@ -77,13 +77,17 @@ The ``holes" in the above
 $n$-dimensional fat graph operad are labeled by $\bc^*(A_i, B_i)$.
 \nn{need to make up my mind which notation I'm using for the module maps}
 
-Putting this together we get a collection of maps
+Putting this together we get 
+\begin{prop}(Precise statement of Property \ref{property:deligne})
+\label{prop:deligne}
+There is a collection of maps
 \begin{eqnarray*}
 	C_*(FG^n_{\overline{M}, \overline{N}})\otimes \mapinf(\bc_*(M_0), \bc_*(N_0))\otimes\cdots\otimes 
 \mapinf(\bc_*(M_{k-1}), \bc_*(N_{k-1})) & \\
 	& \hspace{-11em}\to  \mapinf(\bc_*(M_k), \bc_*(N_k))
 \end{eqnarray*}
-which satisfy an operad type compatibility condition.
+which satisfy an operad type compatibility condition. \nn{spell this out}
+\end{prop}
 
 Note that if $k=0$ then this is just the action of chains of diffeomorphisms from Section \ref{sec:evaluation}.
 And indeed, the proof is very similar \nn{...}
