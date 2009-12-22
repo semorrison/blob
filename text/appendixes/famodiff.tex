@@ -2,15 +2,21 @@
 
 \section{Families of Diffeomorphisms}  \label{sec:localising}
 
-Lo, the proof of Lemma (\ref{extension_lemma}):
+In this appendix we provide the proof of
 
-\nn{should this be an appendix instead?}
+\begin{lem*}[Restatement of Lemma \ref{extension_lemma}]
+Let $x \in CD_k(X)$ be a singular chain such that $\bd x$ is adapted to $\cU$.
+Then $x$ is homotopic (rel boundary) to some $x' \in CD_k(X)$ which is adapted to $\cU$.
+Furthermore, one can choose the homotopy so that its support is equal to the support of $x$.
+\end{lem*}
 
 \nn{for pedagogical reasons, should do $k=1,2$ cases first; probably do this in
 later draft}
 
 \nn{not sure what the best way to deal with boundary is; for now just give main argument, worry
 about boundary later}
+
+\begin{proof}
 
 Recall that we are given
 an open cover $\cU = \{U_\alpha\}$ and an
@@ -94,12 +100,13 @@ Let $\cN$ be the set of all $\beta$ for which $K_\beta$ has a $k$-cell whose bou
 the $k{-}j$-cell corresponding to $E$.
 For each $\beta \in \cN$, let $\{q_{\beta i}\}$ be the set of points in $P$ associated to the aforementioned $k$-cells.
 Now define, for $p \in E$,
-\eq{
+\begin{equation}
+\label{eq:u}
     u(t, p, x) = (1-t)p + t \left(
             \sum_{\alpha \notin \cN} r_\alpha(x) p_{c_\alpha}
                 + \sum_{\beta \in \cN} r_\beta(x) \left( \sum_i \eta_{\beta i}(p) \cdot q_{\beta i} \right)
              \right) .
-}
+\end{equation}
 Here $\eta_{\beta i}(p)$ is the weight given to $q_{\beta i}$ by the linear extension
 mentioned above.
 
@@ -125,7 +132,7 @@ Since $f$ is a family of diffeomorphisms, $\pd{f}{x}$ is non-singular and
 (Recall that $X$ and $P$ are compact.)
 Also, $\pd{f}{p}$ is bounded.
 So if we can insure that $\pd{u}{x}$ is sufficiently small, we are done.
-It follows from Equation xxxx above that $\pd{u}{x}$ depends on $\pd{r_\alpha}{x}$
+It follows from Equation \eqref{eq:u} above that $\pd{u}{x}$ depends on $\pd{r_\alpha}{x}$
 (which is bounded)
 and the differences amongst the various $p_{c_\alpha}$'s and $q_{\beta i}$'s.
 These differences are small if the cell decompositions $K_\alpha$ are sufficiently fine.
@@ -185,5 +192,7 @@ a 2-cell supported on $U_\beta \cup U_\gamma$.
 
 \nn{this completes proof}
 
-\input{text/explicit.tex}
+\end{proof}
+
+\input{text/appendixes/explicit.tex}
 

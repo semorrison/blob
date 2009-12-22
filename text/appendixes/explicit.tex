@@ -1,6 +1,9 @@
-%!TEX root = ../blob1.tex
+%!TEX root = ../../blob1.tex
 
-\nn{Here's the ``explicit'' version.}
+Here's an alternative proof of the special case in which $P$, the parameter space for the family of diffeomorphisms, is a cube. It is much more explicit, for better or worse.
+
+\begin{proof}[Alternative, more explicit proof of Lemma \ref{extension_lemma}]
+
 
 Fix a finite open cover of $X$, say $(U_l)_{l=1}^L$, along with an
 associated partition of unity $(r_l)$.
@@ -90,3 +93,5 @@ calculate \todo{err... this is a mess, and probably wrong.}
 \norm{\partial_x u(t,p,x)_i} & \leq \frac{1}{2 K} \sum_{l=1}^L \norm{\partial_x r_l(x)}.
 \end{align*}
 The sum here is bounded, so for large enough $K$ this is small enough that $\partial_x H(t,p,x)$ is never zero.
+
+\end{proof}
