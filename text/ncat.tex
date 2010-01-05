@@ -484,7 +484,7 @@ Fix a `target space' $T$, any topological space. We define $\pi_{\leq n}(T)$, th
 For $X$ a $k$-ball or $k$-sphere with $k < n$, define $\pi_{\leq n}(T)(X)$ to be the set of 
 all continuous maps from $X$ to $T$.
 For $X$ an $n$-ball define $\pi_{\leq n}(T)(X)$ to be continuous maps from $X$ to $T$ modulo
-homotopies fixed on $\bd X \times F$.
+homotopies fixed on $\bd X$.
 (Note that homotopy invariance implies isotopy invariance.)
 For $a\in \cC(X)$ define the product morphism $a\times D \in \cC(X\times D)$ to
 be $a\circ\pi_X$, where $\pi_X : X\times D \to X$ is the projection.
@@ -493,7 +493,8 @@ be $a\circ\pi_X$, where $\pi_X : X\times D \to X$ is the projection.
 \begin{example}[Maps to a space, with a fiber]
 \rm
 \label{ex:maps-to-a-space-with-a-fiber}%
-We can modify the example above, by fixing an $m$-manifold $F$, and defining $\pi^{\times F}_{\leq n}(T)(X) = \Maps(X \times F \to T)$, otherwise leaving the definition in Example \ref{ex:maps-to-a-space} unchanged. Taking $F$ to be a point recovers the previous case.
+We can modify the example above, by fixing a
+closed $m$-manifold $F$, and defining $\pi^{\times F}_{\leq n}(T)(X) = \Maps(X \times F \to T)$, otherwise leaving the definition in Example \ref{ex:maps-to-a-space} unchanged. Taking $F$ to be a point recovers the previous case.
 \end{example}
 
 \begin{example}[Linearized, twisted, maps to a space]
@@ -536,27 +537,23 @@ Finally, we describe a version of the bordism $n$-category suitable to our defin
 \begin{example}[The bordism $n$-category]
 \rm
 \label{ex:bordism-category}
-For a $k$-ball $X$, $k<n$, define $\Bord^n(X)$ to be the set of all $k$-dimensional
+For a $k$-ball or $k$-sphere $X$, $k<n$, define $\Bord^n(X)$ to be the set of all $k$-dimensional
 submanifolds $W$ of $X\times \Real^\infty$ such that the projection $W \to X$ is transverse
-to $\bd X$. \nn{spheres}
+to $\bd X$.
 For an $n$-ball $X$ define $\Bord^n(X)$ to be homeomorphism classes (rel boundary) of such submanifolds;
 we identify $W$ and $W'$ if $\bd W = \bd W'$ and there is a homeomorphism
-$W \to W'$ which restricts to the identity on the boundary
+$W \to W'$ which restricts to the identity on the boundary.
 \end{example}
 
-\begin{itemize}
+%\nn{the next example might be an unnecessary distraction.  consider deleting it.}
 
-\item \nn{Continue converting these into examples}
-
-\item 
-\item Variation on the above examples:
-We could allow $F$ to have boundary and specify boundary conditions on $X\times \bd F$,
-for example product boundary conditions or take the union over all boundary conditions.
-%\nn{maybe should not emphasize this case, since it's ``better" in some sense
-%to think of these guys as affording a representation
-%of the $n{+}1$-category associated to $\bd F$.}
-
-\end{itemize}
+%\begin{example}[Variation on the above examples]
+%We could allow $F$ to have boundary and specify boundary conditions on $X\times \bd F$,
+%for example product boundary conditions or take the union over all boundary conditions.
+%%\nn{maybe should not emphasize this case, since it's ``better" in some sense
+%%to think of these guys as affording a representation
+%%of the $n{+}1$-category associated to $\bd F$.}
+%\end{example}
 
 
 We have two main examples of $A_\infty$ $n$-categories, coming from maps to a target space and from the blob complex.
@@ -624,6 +621,7 @@ See Figure \ref{partofJfig} for an example.
 
 
 
+\nn{resume revising here}
 
 An $n$-category $\cC$ determines 
 a functor $\psi_{\cC;W}$ from $\cJ(W)$ to the category of sets 
