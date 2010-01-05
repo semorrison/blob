@@ -23,6 +23,7 @@ results that we have avoided here.
 \medskip
 
 Consider first ordinary $n$-categories.
+\nn{Actually, we're doing both plain and infinity cases here}
 We need a set (or sets) of $k$-morphisms for each $0\le k \le n$.
 We must decide on the ``shape" of the $k$-morphisms.
 Some $n$-category definitions model $k$-morphisms on the standard bihedron (interval, bigon, ...).
@@ -66,14 +67,15 @@ homeomorphisms to the category of sets and bijections.
 
 (Note: We usually omit the subscript $k$.)
 
-We are so far  being deliberately vague about what flavor of manifolds we are considering.
+We are so far  being deliberately vague about what flavor of $k$-balls
+we are considering.
 They could be unoriented or oriented or Spin or $\mbox{Pin}_\pm$.
 They could be topological or PL or smooth.
-\nn{need to check whether this makes much difference --- see pseudo-isotopy below}
+%\nn{need to check whether this makes much difference}
 (If smooth, ``homeomorphism" should be read ``diffeomorphism", and we would need
 to be fussier about corners.)
 For each flavor of manifold there is a corresponding flavor of $n$-category.
-We will concentrate of the case of PL unoriented manifolds.
+We will concentrate on the case of PL unoriented manifolds.
 
 Next we consider domains and ranges of morphisms (or, as we prefer to say, boundaries
 of morphisms).
@@ -95,7 +97,7 @@ homeomorphisms to the category of sets and bijections.
 
 (In order to conserve symbols, we use the same symbol $\cC_k$ for both morphisms and boundaries.)
 
-\begin{axiom}[Boundaries (maps)]
+\begin{axiom}[Boundaries (maps)]\label{nca-boundary}
 For each $k$-ball $X$, we have a map of sets $\bd: \cC(X)\to \cC(\bd X)$.
 These maps, for various $X$, comprise a natural transformation of functors.
 \end{axiom}
@@ -161,21 +163,29 @@ $$
 \end{tikzpicture}
 $$
 $$\mathfig{.4}{tempkw/blah3}$$
-\caption{Combining two balls to get a full boundary}\label{blah3}\end{figure}
+\caption{Combining two balls to get a full boundary
+\nn{maybe smaller dots for $E$ in pdf fig}}\label{blah3}\end{figure}
 
 Note that we insist on injectivity above.
 
 Let $\cC(S)_E$ denote the image of $\gl_E$.
 We will refer to elements of $\cC(S)_E$ as ``splittable along $E$" or ``transverse to $E$". 
 
+If $X$ is a $k$-ball and $E \sub \bd X$ splits $\bd X$ into two $k{-}1$-balls $B_1$ and $B_2$
+as above, then we define $\cC(X)_E = \bd^{-1}(\cC(\bd X)_E)$.
+
 We will call the projection $\cC(S)_E \to \cC(B_i)$
 a {\it restriction} map and write $\res_{B_i}(a)$
 (or simply $\res(a)$ when there is no ambiguity), for $a\in \cC(S)_E$.
-These restriction maps can be thought of as
-domain and range maps, relative to the choice of splitting $S = B_1 \cup_E B_2$.
+More generally, we also include under the rubric ``restriction map" the
+the boundary maps of Axiom \ref{nca-boundary} above,
+another calss of maps introduced after Axion \ref{nca-assoc} below, as well as any composition
+of restriction maps (inductive definition).
+In particular, we have restriction maps $\cC(X)_E \to \cC(B_i)$
+($i = 1, 2$, notation from previous paragraph).
+These restriction maps can be thought of as 
+domain and range maps, relative to the choice of splitting $\bd X = B_1 \cup_E B_2$.
 
-If $B$ is a $k$-ball and $E \sub \bd B$ splits $\bd B$ into two $k{-}1$-balls
-as above, then we define $\cC(B)_E = \bd^{-1}(\cC(\bd B)_E)$.
 
 Next we consider composition of morphisms.
 For $n$-categories which lack strong duality, one usually considers
@@ -205,7 +215,7 @@ If $k < n$ we require that $\gl_Y$ is injective.
 $$\mathfig{.4}{tempkw/blah5}$$
 \caption{From two balls to one ball}\label{blah5}\end{figure}
 
-\begin{axiom}[Strict associativity]
+\begin{axiom}[Strict associativity] \label{nca-assoc}
 The composition (gluing) maps above are strictly associative.
 \end{axiom}
 
@@ -217,10 +227,10 @@ $$\mathfig{.65}{tempkw/blah6}$$
 
 Notation: $a\bullet b \deq \gl_Y(a, b)$ and/or $a\cup b \deq \gl_Y(a, b)$.
 In the other direction, we will call the projection from $\cC(B)_E$ to $\cC(B_i)_E$ 
-a {\it restriction} map and write $\res_{B_i}(a)$ for $a\in \cC(B)_E$.
-Compositions of boundary and restriction maps will also be called restriction maps.
-For example, if $B$ is a $k$-ball and $Y\sub \bd B$ is a $k{-}1$-ball, there is a
-restriction map from $\cC(B)_{\bd Y}$ to $\cC(Y)$.
+a restriction map (one of many types of map so called) and write $\res_{B_i}(a)$ for $a\in \cC(B)_E$.
+%Compositions of boundary and restriction maps will also be called restriction maps.
+%For example, if $B$ is a $k$-ball and $Y\sub \bd B$ is a $k{-}1$-ball, there is a
+%restriction map from $\cC(B)_{\bd Y}$ to $\cC(Y)$.
 
 We will write $\cC(B)_Y$ for the image of $\gl_Y$ in $\cC(B)$.
 We will call $\cC(B)_Y$ morphisms which are splittable along $Y$ or transverse to $Y$.
@@ -461,7 +471,7 @@ a colimit construction; see \S \ref{ss:ncat_fields} below.
 
 \medskip
 
-\subsection{Examples of $n$-categories}
+\subsection{Examples of $n$-categories}\ \
 
 \nn{these examples need to be fleshed out a bit more}
 
