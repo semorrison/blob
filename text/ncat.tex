@@ -673,8 +673,6 @@ where $K$ is the vector space spanned by elements $a - g(a)$, with
 $a\in \psi_{\cC;W,c}(x)$ for some decomposition $x$, and $g: \psi_{\cC;W,c}(x)
 \to \psi_{\cC;W,c}(y)$ is value of $\psi_{\cC;W,c}$ on some antirefinement $x \leq y$.
 
-\nn{ ** resume revising here}
-
 In the $A_\infty$ case enriched over chain complexes, the concrete description of the homotopy colimit
 is more involved.
 %\nn{should probably rewrite this to be compatible with some standard reference}
@@ -684,7 +682,7 @@ Define $V$ as a vector space via
 \[
 	V = \bigoplus_{(x_i)} \psi_{\cC;W}(x_0)[m] ,
 \]
-where the sum is over all $m$-sequences $(x_i)$ and all $m$, and each summand is degree shifted by $m$. (Our homological conventions are obtuse: if a complex $U$ is concentrated in degree $0$, the complex $U[m]$ is concentrated in degree $m$.)
+where the sum is over all $m$-sequences $(x_i)$ and all $m$, and each summand is degree shifted by $m$. (Our homological conventions are non-standard: if a complex $U$ is concentrated in degree $0$, the complex $U[m]$ is concentrated in degree $m$.)
 We endow $V$ with a differential which is the sum of the differential of the $\psi_{\cC;W}(x_0)$
 summands plus another term using the differential of the simplicial set of $m$-sequences.
 More specifically, if $(a, \bar{x})$ denotes an element in the $\bar{x}$
@@ -693,7 +691,7 @@ summand of $V$ (with $\bar{x} = (x_0,\dots,x_k)$), define
 	\bd (a, \bar{x}) = (\bd a, \bar{x}) + (-1)^{\deg{a}} (g(a), d_0(\bar{x})) + (-1)^{\deg{a}} \sum_{j=1}^k (-1)^{j} (a, d_j(\bar{x})) ,
 \]
 where $d_j(\bar{x}) = (x_0,\dots,x_{j-1},x_{j+1},\dots,x_k)$ and $g: \psi_\cC(x_0)\to \psi_\cC(x_1)$
-is the usual gluing map coming from the antirefinement $x_0 < x_1$.
+is the usual gluing map coming from the antirefinement $x_0 \le x_1$.
 \nn{need to say this better}
 \nn{maybe mention that there is a version that emphasizes minimal gluings (antirefinements) which
 combine only two balls at a time; for $n=1$ this version will lead to usual definition
@@ -704,7 +702,7 @@ We can think of this construction as starting with a disjoint copy of a complex 
 permissible decomposition (filtration degree 0).
 Then we glue these together with mapping cylinders coming from gluing maps
 (filtration degree 1).
-Then we kill the extra homology we just introduced with mapping cylinder between the mapping cylinders (filtration degree 2).
+Then we kill the extra homology we just introduced with mapping cylinders between the mapping cylinders (filtration degree 2).
 And so on.
 
 $\cC(W)$ is functorial with respect to homeomorphisms of $k$-manifolds.
@@ -726,7 +724,9 @@ Next we define [$A_\infty$] $n$-category modules (a.k.a.\ representations,
 a.k.a.\ actions).
 The definition will be very similar to that of $n$-categories.
 \nn{** need to make sure all revisions of $n$-cat def are also made to module def.}
-\nn{should they be called $n$-modules instead of just modules?  probably not, but worth considering.}
+%\nn{should they be called $n$-modules instead of just modules?  probably not, but worth considering.}
+
+\nn{** resume revising here}
 
 Our motivating example comes from an $(m{-}n{+}1)$-dimensional manifold $W$ with boundary
 in the context of an $m{+}1$-dimensional TQFT.
