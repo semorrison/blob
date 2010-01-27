@@ -827,7 +827,7 @@ of splitting a marked $k$-ball into two (marked or plain) $k$-balls.
 
 First, we can compose two module morphisms to get another module morphism.
 
-\xxpar{Module composition:}
+\mmpar{Module axiom 6}{Module composition}
 {Let $M = M_1 \cup_Y M_2$, where $M$, $M_1$ and $M_2$ are marked $k$-balls ($0\le k\le n$)
 and $Y = M_1\cap M_2$ is a marked $k{-}1$-ball.
 Let $E = \bd Y$, which is a marked $k{-}2$-hemisphere.
@@ -849,7 +849,7 @@ Second, we can compose an $n$-category morphism with a module morphism to get an
 module morphism.
 We'll call this the action map to distinguish it from the other kind of composition.
 
-\xxpar{$n$-category action:}
+\mmpar{Module axiom 7}{$n$-category action}
 {Let $M = X \cup_Y M'$, where $M$ and $M'$ are marked $k$-balls ($0\le k\le n$),
 $X$ is a plain $k$-ball,
 and $Y = X\cap M'$ is a $k{-}1$-ball.
@@ -865,7 +865,7 @@ to the intersection of the boundaries of $X$ and $M'$.
 If $k < n$ we require that $\gl_Y$ is injective.
 (For $k=n$, see below.)}
 
-\xxpar{Module strict associativity:}
+\mmpar{Module axiom 8}{Strict associativity}
 {The composition and action maps above are strictly associative.}
 
 Note that the above associativity axiom applies to mixtures of module composition,
@@ -903,9 +903,9 @@ operad-type strict associativity condition.}
 
 (The above operad-like structure is analogous to the swiss cheese operad
 \cite{MR1718089}.)
-\nn{need to double-check that this is true.}
+%\nn{need to double-check that this is true.}
 
-\xxpar{Module product (identity) morphisms:}
+\mmpar{Module axiom 9}{Product/identity morphisms}
 {Let $M$ be a marked $k$-ball and $D$ be a plain $m$-ball, with $k+m \le n$.
 Then we have a map $\cM(M)\to \cM(M\times D)$, usually denoted $a\mapsto a\times D$ for $a\in \cM(M)$.
 If $f:M\to M'$ and $\tilde{f}:M\times D \to M'\times D'$ are maps such that the diagram
@@ -917,13 +917,13 @@ commutes, then we have $\tilde{f}(a\times D) = f(a)\times D'$.}
 
 \nn{Need to add compatibility with various things, as in the n-cat version of this axiom above.}
 
-\nn{** marker --- resume revising here **}
+\nn{postpone finalizing the above axiom until the n-cat version is finalized}
 
 There are two alternatives for the next axiom, according whether we are defining
 modules for plain $n$-categories or $A_\infty$ $n$-categories.
 In the plain case we require
 
-\xxpar{Extended isotopy invariance in dimension $n$:}
+\mmpar{Module axiom 10a}{Extended isotopy invariance in dimension $n$}
 {Let $M$ be a marked $n$-ball and $f: M\to M$ be a homeomorphism which restricts
 to the identity on $\bd M$ and is extended isotopic (rel boundary) to the identity.
 Then $f$ acts trivially on $\cM(M)$.}
@@ -936,7 +936,7 @@ on $\bd B \setmin N$.
 
 For $A_\infty$ modules we require
 
-\xxpar{Families of homeomorphisms act.}
+\mmpar{Module axiom 10b}{Families of homeomorphisms act}
 {For each marked $n$-ball $M$ and each $c\in \cM(\bd M)$ we have a map of chain complexes
 \[
 	C_*(\Homeo_\bd(M))\ot \cM(M; c) \to \cM(M; c) .
@@ -956,7 +956,9 @@ of an $n{-}1$-category.
 More specifically, let $J$ be a marked 1-ball, and define $\cE(X)\deq \cM(X\times J)$,
 where $X$ is a $k$-ball or $k{-}1$-sphere and in the product $X\times J$ we pinch 
 above the non-marked boundary component of $J$.
-\nn{give figure for this, or say more?}
+(More specifically, we collapse $X\times P$ to a single point, where
+$P$ is the non-marked boundary component of $J$.)
+\nn{give figure for this?}
 Then $\cE$ has the structure of an $n{-}1$-category.
 
 All marked $k$-balls are homeomorphic, unless $k = 1$ and our manifolds
