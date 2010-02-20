@@ -534,6 +534,9 @@ to be the dual Hilbert space $A(X\times F; c)$.
 \end{example}
 
 Finally, we describe a version of the bordism $n$-category suitable to our definitions.
+
+\nn{should also include example of ncats coming from TQFTs, or refer ahead to where we discuss that example}
+
 \newcommand{\Bord}{\operatorname{Bord}}
 \begin{example}[The bordism $n$-category]
 \rm
@@ -595,6 +598,12 @@ This example will be essential for ???, which relates ...
 \subsection{From $n$-categories to systems of fields}
 \label{ss:ncat_fields}
 In this section we describe how to extend an $n$-category as described above (of either the plain or $A_\infty$ variety) to a system of fields. That is, we show that functors $\cC_k$ satisfying the axioms above have a canonical extension, from $k$-balls and $k$-spheres to arbitrary $k$-manifolds.
+In the case of plain $n$-categories, this is just the usual construction of a TQFT
+from an $n$-category.
+For $\infty$ $n$-categories \nn{or whatever we decide to call them}, this gives an alternate (and
+somewhat more canonical/tautological) construction of the blob complex.
+\nn{though from this point of view it seems more natural to just add some
+adjective to ``TQFT" rather than coining a completely new term like ``blob complex".}
 
 We will first define the `cell-decomposition' poset $\cJ(W)$ for any $k$-manifold $W$, for $1 \leq k \leq n$. 
 An $n$-category $\cC$ provides a functor from this poset to the category of sets, and we  will define $\cC(W)$ as a suitable colimit (or homotopy colimit in the $A_\infty$ case) of this functor. 
@@ -1094,13 +1103,6 @@ so we prefer the term ``sphere module" for the general case.)
 Stuff that remains to be done (either below or in an appendix or in a separate section or in
 a separate paper):
 \begin{itemize}
-\item traditional $n$-cat defs (e.g. *-1-cat, pivotal 2-cat) imply our def of plain $n$-cat
-\item conversely, our def implies other defs
-\item do same for modules; maybe an appendix on relating topological
-vs traditional defs, $n = 1,2$, $A_\infty$ or not, cats, modules, tensor products
-\item traditional $A_\infty$ 1-cat def implies our def
-\item ... and vice-versa (already done in appendix)
-\item say something about unoriented vs oriented vs spin vs pin for $n=1$ (and $n=2$?)
 \item spell out what difference (if any) Top vs PL vs Smooth makes
 \item define $n{+}1$-cat of $n$-cats (a.k.a.\ $n{+}1$-category of generalized bimodules
 a.k.a.\ $n{+}1$-category of sphere modules); discuss Morita equivalence
@@ -1109,8 +1111,11 @@ a.k.a.\ $n{+}1$-category of sphere modules); discuss Morita equivalence
 \item functors
 \end{itemize}
 
-\nn{Some salvaged paragraphs that we might want to work back in:}
+\bigskip
+
 \hrule
+\nn{Some salvaged paragraphs that we might want to work back in:}
+\bigskip
 
 Appendix \ref{sec:comparing-A-infty} explains the translation between this definition of an $A_\infty$ $1$-category and the usual one expressed in terms of `associativity up to higher homotopy', as in \cite{MR1854636}. (In this version of the paper, that appendix is incomplete, however.)
 
