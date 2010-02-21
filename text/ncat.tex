@@ -1172,8 +1172,52 @@ circles (1-spheres) which we just introduced.
 Equivalently, we can define 1-sphere modules in terms of 1-marked $k$-balls, $2\le k\le n$.
 Fix a marked (and labeled) circle $S$.
 Let $C(S)$ denote the cone of $S$, a marked 2-ball (Figure xxxx).
-\nn{I need to make up my mind whether marked things are always labeled too.}
-A 1-marked $k$-ball is anything homeomorphic to $B^j \times C(S)$, $0\le j\le n-2$.
+\nn{I need to make up my mind whether marked things are always labeled too.
+For the time being, let's say they are.}
+A 1-marked $k$-ball is anything homeomorphic to $B^j \times C(S)$, $0\le j\le n-2$, 
+where $B^j$ is the standard $j$-ball.
+1-marked $k$-balls can be decomposed in various ways into smaller balls, which are either 
+smaller 1-marked $k$-balls or the product of an unmarked ball with a marked interval.
+We now proceed as in the above module definitions.
+
+A $n$-category 1-sphere module is, among other things, an $n{-}2$-category $\cD$ with
+\[
+	\cD(X) \deq \cM(X\times C(S)) .
+\]
+The product is pinched over the boundary of $C(S)$.
+$\cD$ breaks into ``blocks" according to the restriction to the 
+image of $\bd C(S) = S$ in $X\times C(S)$.
+
+More generally, consider a 2-manifold $Y$ 
+(e.g.\ 2-ball or 2-sphere) marked by an embedded 1-complex $K$.
+The components of $Y\setminus K$ are labeled by $n$-categories, 
+the edges of $K$ are labeled by 0-sphere modules, 
+and the 0-cells of $K$ are labeled by 1-sphere modules.
+We can now apply the coend construction and obtain an $n{-}2$-category.
+If $Y$ has boundary then this $n{-}2$-category is a module for the $n{-}1$-manifold
+associated to the (marked, labeled) boundary of $Y$.
+In particular, if $\bd Y$ is a 1-sphere then we get a 1-sphere module as defined above.
+
+\medskip
+
+It should now be clear how to define $n$-category $m$-sphere modules for $0\le m \le n-1$.
+For example, there is an $n{-}2$-category associated to a marked, labeled 2-sphere,
+and an $m$-sphere module is a representation of such an $n{-}2$-category.
+
+\medskip
+
+We can now define the $n$- or less dimensional part of our $n{+}1$-category $\cS$.
+Choose some collection of $n$-categories, then choose some collections of bimodules for
+these $n$-categories, then choose some collection of 1-sphere modules for the various
+possible marked 1-spheres labeled by the $n$-categories and bimodules, and so on.
+Let $L_i$ denote the collection of $i{-}1$-sphere modules we have chosen.
+(For convenience, we declare a $(-1)$-sphere module to be an $n$-category.)
+There is a wide range of possibilities.
+$L_0$ could contain infinitely many $n$-categories or just one.
+For each pair of $n$-categories in $L_0$, $L_1$ could contain no bimodules at all or 
+it could contain several.
+
+\nn{...}
 
 \medskip
 \hrule
@@ -1187,8 +1231,7 @@ Stuff that remains to be done (either below or in an appendix or in a separate s
 a separate paper):
 \begin{itemize}
 \item spell out what difference (if any) Top vs PL vs Smooth makes
-\item define $n{+}1$-cat of $n$-cats (a.k.a.\ $n{+}1$-category of generalized bimodules
-a.k.a.\ $n{+}1$-category of sphere modules); discuss Morita equivalence
+\item discuss Morita equivalence
 \item morphisms of modules; show that it's adjoint to tensor product
 (need to define dual module for this)
 \item functors
