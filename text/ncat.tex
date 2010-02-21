@@ -1136,8 +1136,44 @@ from the product of these various sets into $\cM(X)$.
 
 \medskip
 
+Part of the structure of an $n$-cat 0-sphere module is captured my saying it is
+a collection $\cD^{ab}$ of $n{-}1$-categories, indexed by pairs $(a, b)$ of objects (0-morphisms)
+of $\cA$ and $\cB$.
+Let $J$ be some standard 0-marked 1-ball (i.e.\ an interval with a marked point in its interior).
+Given a $j$-ball $X$, $0\le j\le n-1$, we define
+\[
+	\cD(X) \deq \cM(X\times J) .
+\]
+The product is pinched over the boundary of $J$.
+$\cD$ breaks into ``blocks" according to the restrictions to the pinched points of $X\times J$
+(see Figure xxxx).
+These restrictions are 0-morphisms $(a, b)$ of $\cA$ and $\cB$.
 
+More generally, consider an interval with interior marked points, and with the complements
+of these points labeled by $n$-categories $\cA_i$ ($0\le i\le l$) and the marked points labeled
+by $\cA_i$-$\cA_{i+1}$ bimodules $\cM_i$.
+(See Figure xxxx.)
+To this data we can apply to coend construction as in Subsection \ref{moddecss} above
+to obtain an $\cA_0$-$\cA_l$ bimodule and, forgetfully, an $n{-}1$-category.
+This amounts to a definition of taking tensor products of bimodules over $n$-categories.
 
+We could also similarly mark and label a circle, obtaining an $n{-}1$-category
+associated to the marked and labeled circle.
+(See Figure xxxx.)
+If the circle is divided into two intervals, we can think of this $n{-}1$-category
+as the 2-ended tensor product of the two bimodules associated to the two intervals.
+
+\medskip
+
+Next we define $n$-category 1-sphere modules.
+These are just representations of (modules for) $n{-}1$-categories associated to marked and labeled 
+circles (1-spheres) which we just introduced.
+
+Equivalently, we can define 1-sphere modules in terms of 1-marked $k$-balls, $2\le k\le n$.
+Fix a marked (and labeled) circle $S$.
+Let $C(S)$ denote the cone of $S$, a marked 2-ball (Figure xxxx).
+\nn{I need to make up my mind whether marked things are always labeled too.}
+A 1-marked $k$-ball is anything homeomorphic to $B^j \times C(S)$, $0\le j\le n-2$.
 
 \medskip
 \hrule
