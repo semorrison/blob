@@ -90,6 +90,8 @@ We prefer to combine the domain and range into a single entity which we call the
 boundary of a morphism.
 Morphisms are modeled on balls, so their boundaries are modeled on spheres:
 
+\nn{perhaps it's better to define $\cC(S^k)$ as a colimit, rather than making it new data}
+
 \begin{axiom}[Boundaries (spheres)]
 For each $0 \le k \le n-1$, we have a functor $\cC_k$ from 
 the category of $k$-spheres and 
@@ -1080,17 +1082,62 @@ We will define a more general self tensor product (categorified coend) below.
 
 \subsection{The $n{+}1$-category of sphere modules}
 
-In this subsection we define an $n{+}1$-category of ``sphere modules" whose objects
-correspond to $n$-categories.
-This is a version of the familiar algebras-bimodules-intertwinors 2-category.
+In this subsection we define an $n{+}1$-category $\cS$ of ``sphere modules" 
+whose objects correspond to $n$-categories.
+This is a version of the familiar algebras-bimodules-intertwiners 2-category.
 (Terminology: It is clearly appropriate to call an $S^0$ modules a bimodule,
 since a 0-sphere has an obvious bi-ness.
 This is much less true for higher dimensional spheres, 
 so we prefer the term ``sphere module" for the general case.)
 
+The $0$- through $n$-dimensional parts of $\cC$ are various sorts of modules, and we describe
+these first.
+The $n{+}1$-dimensional part of $\cS$ consist of intertwiners
+(of garden-variety $1$-category modules associated to decorated $n$-balls).
+We will see below that in order for these $n{+}1$-morphisms to satisfy all of
+the duality requirements of an $n{+}1$-category, we will have to assume
+that our $n$-categories and modules have non-degenerate inner products.
+(In other words, we need to assume some extra duality on the $n$-categories and modules.)
+
+\medskip
+
+Our first task is to define an $n$-category $m$-sphere module, for $0\le m \le n-1$.
+These will be defined in terms of certain classes of marked balls, very similarly
+to the definition of $n$-category modules above.
+(This, in turn, is very similar to our definition of $n$-category.)
+Because of this similarity, we only sketch the definitions below.
+
+We start with 0-sphere modules, which also could reasonably be called (categorified) bimodules.
+(For $n=1$ they are precisely bimodules in the usual, uncategorified sense.)
+Define a 0-marked $k$-ball $(X, M)$, $1\le k \le n$, to be a pair homeomorphic to the standard
+$(B^k, B^{k-1})$, where $B^{k-1}$ is properly embedded in $B^k$.
+See Figure xxxx.
+Another way to say this is that $(X, M)$ is homeomorphic to $B^{k-1}\times([-1,1], \{0\})$.
+
+0-marked balls can be cut into smaller balls in various ways.
+These smaller balls could be 0-marked or plain.
+We can also take the boundary of a 0-marked ball, which is 0-marked sphere.
+
+Fix $n$-categories $\cA$ and $\cB$.
+These will label the two halves of a 0-marked $k$-ball.
+The 0-sphere module we define next will depend on $\cA$ and $\cB$ 
+(it's an $\cA$-$\cB$ bimodule), but we will suppress that from the notation.
+
+An $n$-category 0-sphere module $\cM$ is a collection of functors $\cM_k$ from the category
+of 0-marked $k$-balls, $1\le k \le n$,
+(with the two halves labeled by $\cA$ and $\cB$) to the category of sets.
+If $k=n$ these sets should be enriched to the extent $\cA$ and $\cB$ are.
+Given a decomposition of a 0-marked $k$-ball $X$ into smaller balls $X_i$, we have
+morphism sets $\cA_k(X_i)$ (if $X_i$ lies on the $\cA$-labeled side)
+or $\cB_k(X_i)$ (if $X_i$ lies on the $\cB$-labeled side)
+or $\cM_k(X_i)$ (if $X_i$ intersects the marking and is therefore a smaller 0-marked ball).
+Corresponding to this decomposition we have an action and/or composition map
+from the product of these various sets into $\cM(X)$.
+
+\medskip
 
 
-\nn{need to assume a little extra structure to define the top ($n+1$) part (?)}
+
 
 \medskip
 \hrule
