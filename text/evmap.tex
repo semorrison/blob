@@ -106,6 +106,23 @@ Furthermore, one can choose the homotopy so that its support is equal to the sup
 \end{lemma}
 
 The proof will be given in Section \ref{sec:localising}.
+We will actually prove the following more general result.
+Let $S$ and $T$ be an arbitrary topological spaces.
+%\nn{might need to restrict $S$; the proof uses partition of unity on $S$;
+%check this; or maybe just restrict the cover}
+Let $CM_*(S, T)$ denote the singular chains on the space of continuous maps
+from $S$ to $T$.
+Let $\cU$ be an open cover of $S$ which affords a partition of unity.
+\nn{for some $S$ and $\cU$ there is no partition of unity?  like if $S$ is not paracompact?}
+
+\begin{lemma}  \label{extension_lemma_b}
+Let $x \in CM_k(S, T)$ be a singular chain such that $\bd x$ is adapted to $\cU$.
+Then $x$ is homotopic (rel boundary) to some $x' \in CM_k(S, T)$ which is adapted to $\cU$.
+Furthermore, one can choose the homotopy so that its support is equal to the support of $x$.
+If $S$ and $T$ are manifolds, the statement remains true if we replace $CM_*(S, T)$ with
+chains of smooth maps or immersions.
+\end{lemma}
+
 
 \medskip
 
