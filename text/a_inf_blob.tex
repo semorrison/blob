@@ -251,6 +251,28 @@ Theorem \ref{product_thm}.
 
 
 \medskip
+
+The next theorem shows how to reconstruct a mapping space from local data.
+Let $T$ be a topological space, let $M$ be an $n$-manifold, 
+and recall the $A_\infty$ $n$-category $\pi^\infty_{\leq n}(T)$ 
+of Example \ref{ex:chains-of-maps-to-a-space}.
+Think of $\pi^\infty_{\leq n}(T)$ as encoding everything you would ever
+want to know about spaces of maps of $k$-balls into $T$ ($k\le n$).
+To simplify notation, let $\cT = \pi^\infty_{\leq n}(T)$.
+
+\begin{thm} \label{thm:map-recon}
+$\cB^\cT(M) \simeq C_*(\Maps(M\to T))$.
+\end{thm}
+\begin{proof}
+\nn{obvious map in one direction; use \ref{extension_lemma_b}; ...}
+\end{proof}
+
+\nn{should also mention version where we enrich over
+spaces rather than chain complexes; should comment on Lurie's (and others')  similar result
+for the $E_\infty$ case, and mention that our version does not require 
+any connectivity assumptions}
+
+\medskip
 \hrule
 \medskip
 
