@@ -264,11 +264,45 @@ To simplify notation, let $\cT = \pi^\infty_{\leq n}(T)$.
 $\cB^\cT(M) \simeq C_*(\Maps(M\to T))$.
 \end{thm}
 \begin{proof}
-\nn{obvious map in one direction; use \ref{extension_lemma_b}; ...}
+We begin by constructing chain map $g: \cB^\cT(M) \to C_*(\Maps(M\to T))$.
+We then use \ref{extension_lemma_b} to show that $g$ induces isomorphisms on homology.
+
+Recall that the homotopy colimit $\cB^\cT(M)$ is constructed out of a series of
+$j$-fold mapping cylinders, $j \ge 0$.
+So, as an abelian group (but not as a chain complex), 
+\[
+	\cB^\cT(M) = \bigoplus_{j\ge 0} C^j,
+\]
+where $C^j$ denotes the new chains introduced by the $j$-fold mapping cylinders.
+
+Recall that $C^0$ is a direct sum of chain complexes with the summands indexed by
+decompositions of $M$ which have their $n{-}1$-skeletons labeled by $n{-}1$-morphisms
+of $\cT$.
+Since $\cT = \pi^\infty_{\leq n}(T)$, this means that the summands are indexed by pairs
+$(K, \vphi)$, where $K$ is a decomposition of $M$ and $\vphi$ is a continuous
+maps from the $n{-}1$-skeleton of $K$ to $T$.
+The summand indexed by $(K, \vphi)$ is
+\[
+	\bigotimes_b D_*(b, \vphi),
+\]
+where $b$ runs through the $n$-cells of $K$ and $D_*(b, \vphi)$ denotes
+chains of maps from $b$ to $T$ compatible with $\vphi$.
+We can take the product of these chains of maps to get a chains of maps from
+all of $M$ to $K$.
+This defines $g$ on $C^0$.
+
+We define $g(C^j) = 0$ for $j > 0$.
+It is not hard to see that this defines a chain map from 
+$\cB^\cT(M)$ to $C_*(\Maps(M\to T))$.
+
+\nn{...}
+
+
+
 \end{proof}
 
-\nn{should also mention version where we enrich over
-spaces rather than chain complexes; should comment on Lurie's (and others')  similar result
+\nn{maybe should also mention version where we enrich over
+spaces rather than chain complexes; should comment on Lurie's (and others') similar result
 for the $E_\infty$ case, and mention that our version does not require 
 any connectivity assumptions}
 
