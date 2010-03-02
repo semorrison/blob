@@ -4,7 +4,10 @@
 \label{sec:blob-definition}
 
 Let $X$ be an $n$-manifold.
-Assume a fixed system of fields and local relations.
+Let $\cC$ be a fixed system of fields (enriched over Vect) and local relations.
+(If $\cC$ is not enriched over Vect, we can make it so by allowing finite
+linear combinations of elements of $\cC(X; c)$, for fixed $c\in \cC(\bd X)$.)
+
 In this section we will usually suppress boundary conditions on $X$ from the notation
 (e.g. write $\lf(X)$ instead of $\lf(X; c)$).
 
@@ -22,11 +25,11 @@ We will define $\bc_0(X)$, $\bc_1(X)$ and $\bc_2(X)$, then give the general case
 We of course define $\bc_0(X) = \lf(X)$.
 (If $X$ has nonempty boundary, instead define $\bc_0(X; c) = \lf(X; c)$.
 We'll omit this sort of detail in the rest of this section.)
-In other words, $\bc_0(X)$ is just the space of all linearized fields on $X$.
+In other words, $\bc_0(X)$ is just the vector space of all (linearized) fields on $X$.
 
 $\bc_1(X)$ is, roughly, the space of all local relations that can be imposed on $\bc_0(X)$.
 Less roughly (but still not the official definition), $\bc_1(X)$ is finite linear
-combinations of 1-blob diagrams, where a 1-blob diagram to consists of
+combinations of 1-blob diagrams, where a 1-blob diagram consists of
 \begin{itemize}
 \item An embedded closed ball (``blob") $B \sub X$.
 \item A field $r \in \cC(X \setmin B; c)$
@@ -35,7 +38,7 @@ combinations of 1-blob diagrams, where a 1-blob diagram to consists of
 (same $c$ as previous bullet).
 \end{itemize}
 (See Figure \ref{blob1diagram}.)
-\begin{figure}[!ht]\begin{equation*}
+\begin{figure}[t]\begin{equation*}
 \mathfig{.9}{definition/single-blob}
 \end{equation*}\caption{A 1-blob diagram.}\label{blob1diagram}\end{figure}
 In order to get the linear structure correct, we (officially) define
@@ -50,8 +53,7 @@ Define the boundary map $\bd : \bc_1(X) \to \bc_0(X)$ by
 \[ 
 	(B, u, r) \mapsto u\bullet r, 
 \]
-where $u\bullet r$ denotes the linear
-combination of fields on $X$ obtained by gluing $u$ to $r$.
+where $u\bullet r$ denotes the field on $X$ obtained by gluing $u$ to $r$.
 In other words $\bd : \bc_1(X) \to \bc_0(X)$ is given by
 just erasing the blob from the picture
 (but keeping the blob label $u$).
@@ -59,7 +61,7 @@ just erasing the blob from the picture
 Note that the skein space $A(X)$
 is naturally isomorphic to $\bc_0(X)/\bd(\bc_1(X))) = H_0(\bc_*(X))$.
 
-$\bc_2(X)$ is, roughly, the space of all relations (redundancies) among the 
+$\bc_2(X)$ is, roughly, the space of all relations (redundancies, syzygies) among the 
 local relations encoded in $\bc_1(X)$.
 More specifically, $\bc_2(X)$ is the space of all finite linear combinations of
 2-blob diagrams, of which there are two types, disjoint and nested.
@@ -72,7 +74,7 @@ A disjoint 2-blob diagram consists of
 \item Local relation fields $u_i \in U(B_i; c_i)$, $i=1,2$. \nn{We're inconsistent with the indexes -- are they 0,1 or 1,2? I'd prefer 1,2.}
 \end{itemize}
 (See Figure \ref{blob2ddiagram}.)
-\begin{figure}[!ht]\begin{equation*}
+\begin{figure}[t]\begin{equation*}
 \mathfig{.9}{definition/disjoint-blobs}
 \end{equation*}\caption{A disjoint 2-blob diagram.}\label{blob2ddiagram}\end{figure}
 We also identify $(B_0, B_1, u_0, u_1, r)$ with $-(B_1, B_0, u_1, u_0, r)$;
@@ -92,7 +94,7 @@ A nested 2-blob diagram consists of
 \item A local relation field $u_0 \in U(B_0; c_0)$.
 \end{itemize}
 (See Figure \ref{blob2ndiagram}.)
-\begin{figure}[!ht]\begin{equation*}
+\begin{figure}[t]\begin{equation*}
 \mathfig{.9}{definition/nested-blobs}
 \end{equation*}\caption{A nested 2-blob diagram.}\label{blob2ndiagram}\end{figure}
 Let $r = r_1 \bullet r'$, where $r_1 \in \cC(B_1 \setmin B_0; c_0, c_1)$
@@ -128,7 +130,7 @@ Now for the general case.
 A $k$-blob diagram consists of
 \begin{itemize}
 \item A collection of blobs $B_i \sub X$, $i = 0, \ldots, k-1$.
-For each $i$ and $j$, we require that either $B_i$ and $B_j$have disjoint interiors or
+For each $i$ and $j$, we require that either $B_i$ and $B_j$ have disjoint interiors or
 $B_i \sub B_j$ or $B_j \sub B_i$.
 (The case $B_i = B_j$ is allowed.
 If $B_i \sub B_j$ the boundaries of $B_i$ and $B_j$ are allowed to intersect.)
@@ -147,7 +149,7 @@ where $c_j$ is the restriction of $c^t$ to $\bd B_j$.
 If $B_i = B_j$ then $u_i = u_j$.
 \end{itemize}
 (See Figure \ref{blobkdiagram}.)
-\begin{figure}[!ht]\begin{equation*}
+\begin{figure}[t]\begin{equation*}
 \mathfig{.9}{definition/k-blobs}
 \end{equation*}\caption{A $k$-blob diagram.}\label{blobkdiagram}\end{figure}
 
@@ -166,7 +168,11 @@ Here $\overline{B}$ runs over all configurations of blobs, satisfying the condit
 $\overline{c}$ runs over all boundary conditions, again as described above.
 $j$ runs over all indices of twig blobs. The final $\lf(X \setmin B^t; c^t)$ must be interpreted as fields which are splittable along all of the blobs in $\overline{B}$.
 
-The boundary map $\bd : \bc_k(X) \to \bc_{k-1}(X)$ is defined as follows.
+The boundary map 
+\[
+	\bd : \bc_k(X) \to \bc_{k-1}(X)
+\]
+is defined as follows.
 Let $b = (\{B_i\}, \{u_j\}, r)$ be a $k$-blob diagram.
 Let $E_j(b)$ denote the result of erasing the $j$-th blob.
 If $B_j$ is not a twig blob, this involves only decrementing
@@ -182,8 +188,20 @@ Finally, define
 The $(-1)^j$ factors imply that the terms of $\bd^2(b)$ all cancel.
 Thus we have a chain complex.
 
-\nn{?? say something about the ``shape" of tree? (incl = cone, disj = product)}
-
-\nn{?? remark about dendroidal sets?; probably not}
+We note that blob diagrams in $X$ have a structure similar to that of a simplicial set,
+but with simplices replaced by a more general class of combinatorial shapes.
+Let $P$ be the minimal set of (isomorphisms classes of) polyhedra which is closed under products
+and cones, and which contains the point.
+We can associate an element $p(b)$ of $P$ to each blob diagram $b$ 
+(equivalently, to each rooted tree) according to the following rules:
+\begin{itemize}
+\item $p(\emptyset) = pt$, where $\emptyset$ denotes a 0-blob diagram or empty tree;
+\item $p(a \du b) = p(a) \times p(b)$, where $a \du b$ denotes the distant (non-overlapping) union of two blob diagrams (equivalently, join two trees at the roots); and
+\item $p(\bar{b}) = \kone(p(b))$, where $\bar{b}$ is obtained from $b$ by adding an outer blob which encloses all the others.
+\end{itemize}
+(This correspondence works best if we thing of each twig label $u_i$ as being a difference of
+two fields.)
+For example, a diagram of $k$ strictly nested blobs corresponds to a $k$-simplex, while
+a diagram of $k$ disjoint blobs corresponds to a $k$-cube.
 
 
