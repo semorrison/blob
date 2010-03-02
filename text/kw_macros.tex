@@ -21,7 +21,8 @@
 \def\op{^\mathrm{op}}
 \def\deq{\stackrel{\mathrm{def}}{=}}
 \def\pd#1#2{\frac{\partial #1}{\partial #2}}
-\def\lf{\overline{\cC}}
+%\def\lf{\overline{\cC}}
+\def\lf{\cC}
 \def\ot{\otimes}
 \def\vphi{\varphi}
 \def\inv{^{-1}}
@@ -58,6 +59,7 @@
 \def\declaremathop#1{\expandafter\DeclareMathOperator\csname #1\endcsname{#1}}
 \applytolist{declaremathop}{pr}{im}{gl}{ev}{coinv}{tr}{rot}{Eq}{obj}{mor}{ob}{Rep}{Tet}{cat}{Maps}{Diff}{Homeo}{sign}{supp}{Nbd}{res};
 
+\DeclareMathOperator{\kone}{cone}
 
 %%%%%% end excerpt
 
