@@ -38,26 +38,33 @@ Thus we can, if we choose, restrict the blob twig labels to things of this form.
 
 We want to show that $\bc_*(S^1)$ is homotopy equivalent to the
 Hochschild complex of $C$.
-Note that both complexes are free (and hence projective), so it suffices to show that they
-are quasi-isomorphic.
 In order to prove this we will need to extend the 
 definition of the blob complex to allow points to also
 be labeled by elements of $C$-$C$-bimodules.
+(See Subsections \ref{moddecss} and \ref{ssec:spherecat} for a more general (i.e.\ $n>1$)
+version of this construction.)
 
 Fix points $p_1, \ldots, p_k \in S^1$ and $C$-$C$-bimodules $M_1, \ldots M_k$.
 We define a blob-like complex $K_*(S^1, (p_i), (M_i))$.
-The fields have elements of $M_i$ labeling $p_i$ and elements of $C$ labeling
-other points.
+The fields have elements of $M_i$ labeling 
+the fixed points $p_i$ and elements of $C$ labeling other (variable) points.
+As before, the regions between the marked points are labeled by
+objects of $\cC$.
 The blob twig labels lie in kernels of evaluation maps.
-(The range of these evaluation maps is a tensor product (over $C$) of $M_i$'s.)
+(The range of these evaluation maps is a tensor product (over $C$) of $M_i$'s,
+corresponding to the $p_i$'s that lie within the twig blob.)
 Let $K_*(M) = K_*(S^1, (*), (M))$, where $* \in S^1$ is some standard base point.
 In other words, fields for $K_*(M)$ have an element of $M$ at the fixed point $*$
 and elements of $C$ at variable other points.
 
+In the theorems, propositions and lemmas below we make various claims
+about complexes being homotopy equivalent.
+In all cases the complexes in question are free (and hence projective), 
+so it suffices to show that they are quasi-isomorphic.
 
 We claim that
 \begin{thm} \label{hochthm}
-The blob complex $\bc_*(S^1; C)$ on the circle is quasi-isomorphic to the
+The blob complex $\bc_*(S^1; C)$ on the circle is homotopy equivalent to the
 usual Hochschild complex for $C$.
 \end{thm}
 
@@ -71,7 +78,7 @@ $\bc_*(S^1; C)$. (Proof later.)
 
 Next, we show that for any $C$-$C$-bimodule $M$,
 \begin{prop} \label{prop:hoch}
-The complex $K_*(M)$ is quasi-isomorphic to $\HC_*(M)$, the usual
+The complex $K_*(M)$ is homotopy equivalent to $\HC_*(M)$, the usual
 Hochschild complex of $M$.
 \end{prop}
 \begin{proof}
@@ -91,7 +98,8 @@ $\HC_*(C\otimes C)$ is contractible.
 (Here $C\otimes C$ denotes
 the free $C$-$C$-bimodule with one generator.)
 That is, $\HC_*(C\otimes C)$ is
-quasi-isomorphic to its $0$-th homology (which in turn, by \ref{item:hochschild-coinvariants}, is just $C$) via the quotient map $\HC_0 \onto \HH_0$.
+quasi-isomorphic to its $0$-th homology (which in turn, by \ref{item:hochschild-coinvariants}
+above, is just $C$) via the quotient map $\HC_0 \onto \HH_0$.
 \end{enumerate}
 (Together, these just say that Hochschild homology is `the derived functor of coinvariants'.)
 We'll first recall why these properties are characteristic.
