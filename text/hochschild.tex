@@ -182,14 +182,27 @@ $K_*(C)$ differs from $\bc_*(S^1)$ only in that the base point *
 is always a labeled point in $K_*(C)$, while in $\bc_*(S^1)$ it may or may not be.
 In particular, there is an inclusion map $i: K_*(C) \to \bc_*(S^1)$.
 
-We define a left inverse $s: \bc_*(S^1) \to K_*(C)$ to the inclusion as follows.
+We want to define a homotopy inverse to the above inclusion, but before doing so
+we must replace $\bc_*(S^1)$ with a homotopy equivalent subcomplex.
+Let $J_* \sub \bc_*(S^1)$ be the subcomplex where * does not lie to the boundary
+of any blob.  Note that the image of $i$ is contained in $J_*$.
+Note also that in $\bc_*(S^1)$ (away from $J_*$) 
+a blob diagram could have multiple (nested) blobs whose
+boundaries contain *, on both the right and left of *.
+
+We claim that $J_*$ is homotopy equivalent to $\bc_*(S^1)$.
+Let $F_*^\ep \sub \bc_*(S^1)$ be the subcomplex where there there are no labeled
+points within distance $\ep$ of * on the right.
+(This includes * itself.)
+\nn{...}
+
+
+
+We want to define a homotopy inverse $s: \bc_*(S^1) \to K_*(C)$ to the inclusion.
 If $y$ is a field defined on a neighborhood of *, define $s(y) = y$ if
 * is a labeled point in $y$.
 Otherwise, define $s(y)$ to be the result of adding a label 1 (identity morphism) at *.
 Extending linearly, we get the desired map $s: \bc_*(S^1) \to K_*(C)$.
-%Let $x \in \bc_*(S^1)$.
-%Let $s(x)$ be the result of replacing each field $y$ (containing *) mentioned in
-%$x$ with $s(y)$.
 It is easy to check that $s$ is a chain map and $s \circ i = \id$.
 
 Let $N_\ep$ denote the ball of radius $\ep$ around *.
