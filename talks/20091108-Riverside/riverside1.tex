@@ -101,6 +101,14 @@ We allow all shapes! A vector space for every ball.
 \begin{block}{Pasting diagrams}
 Fix an $n$-category with strong duality $\cC$. A \emph{field} on $\cM$ is a pasting diagram drawn on $\cM$, with cells labelled by morphisms from $\cC$.
 \end{block}
+\begin{example}[$\cC = \text{TL}_d$ the Temperley-Lieb category]
+$$\roundframe{\mathfig{0.35}{definition/example-pasting-diagram}} \in \cF^{\text{TL}_d}\left(T^2\right)$$
+\end{example}
+\begin{block}{}
+Given a pasting diagram on a ball, we can evaluate it to a morphism. We call the kernel the \emph{null fields}.
+\vspace{-3mm}
+$$\text{ev}\Bigg(\roundframe{\mathfig{0.12}{definition/evaluation1}} - \frac{1}{d}\roundframe{\mathfig{0.12}{definition/evaluation2}}\Bigg) = 0$$
+\end{block}
 \end{frame}
 
 \begin{frame}{Background: TQFT invariants}
@@ -139,7 +147,7 @@ $\bc_0(\cM; \cC) = \cF(\cM)$, arbitrary pasting diagrams on $\cM$.
 
 \begin{block}{}
 \vspace{-1mm}
-$$\bc_1(\cM; \cC) = \setcr{(B, u, r)}{\begin{array}{c}\text{$B$ an embedded ball}\\\text{$u \in \cF(B)$ in the kernel}\\ r \in \cF(\cM \setminus B)\end{array}}.$$
+$$\bc_1(\cM; \cC) = \Complex\setcr{(B, u, r)}{\begin{array}{c}\text{$B$ an embedded ball}\\\text{$u \in \cF(B)$ in the kernel}\\ r \in \cF(\cM \setminus B)\end{array}}.$$
 \end{block}
 \vspace{-3.5mm}
 $$\mathfig{.5}{definition/single-blob}$$
@@ -160,7 +168,7 @@ $$\bc_2 = \bc_2^{\text{disjoint}} \oplus \bc_2^{\text{nested}}$$
 \begin{block}{}
 \vspace{-5mm}
 \begin{align*}
-\bc_2^{\text{disjoint}} & =  \setcl{\roundframe{\mathfig{0.5}{definition/disjoint-blobs}}}{\text{ev}_{B_i}(u_i) = 0}
+\bc_2^{\text{disjoint}} & =  \Complex\setcl{\roundframe{\mathfig{0.5}{definition/disjoint-blobs}}}{\text{ev}_{B_i}(u_i) = 0}
 \end{align*}
 \vspace{-4mm}
 $$d_2 : (B_1, B_2, u_1, u_2, r) \mapsto (B_2, u_2, r \circ u_1) - (B_1, u_1, r \circ u_2)$$
@@ -168,7 +176,7 @@ $$d_2 : (B_1, B_2, u_1, u_2, r) \mapsto (B_2, u_2, r \circ u_1) - (B_1, u_1, r \
 \begin{block}{}
 \vspace{-5mm}
 \begin{align*}
-\bc_2^{\text{nested}} & = \setcl{\roundframe{\mathfig{0.5}{definition/nested-blobs}}}{\text{ev}_{B_1}(u)=0}
+\bc_2^{\text{nested}} & = \Complex\setcl{\roundframe{\mathfig{0.5}{definition/nested-blobs}}}{\text{ev}_{B_1}(u)=0}
 \end{align*}
 \vspace{-4mm}
 $$d_2 : (B_1, B_2, u, r', r) \mapsto (B_2, u \circ r', r) - (B_1, u, r \circ r')$$
@@ -177,7 +185,7 @@ $$d_2 : (B_1, B_2, u, r', r) \mapsto (B_2, u \circ r', r) - (B_1, u, r \circ r')
 
 \begin{frame}{Definition, general case}
 \begin{block}{}
-$$\bc_k = \set{\roundframe{\mathfig{0.7}{definition/k-blobs}}}$$
+$$\bc_k = \Complex\set{\roundframe{\mathfig{0.7}{definition/k-blobs}}}$$
 $k$ blobs, properly nested or disjoint, with ``innermost'' blobs labelled by pasting diagrams that evaluate to zero.
 \end{block}
 \begin{block}{}
@@ -216,6 +224,22 @@ which is associative up to homotopy, and compatible with gluing.
 \end{thm}
 \begin{block}{}
 Taking $H_0$, this is the mapping class group acting on a TQFT skein module.
+\end{block}
+\end{frame}
+
+\begin{frame}{Higher Deligne conjecture}
+\begin{block}{Deligne conjecture}
+Chains on the little discs operad acts on Hochschild cohomology.
+\end{block}
+
+\begin{block}{}
+Call $\Hom{A_\infty}{\bc_*(\cM)}{\bc_*(\cM)}$ `blob cochains on $\cM$'.
+\end{block}
+
+\begin{block}{Theorem* (Higher Deligne conjecture)}
+\scalebox{0.96}{Chains on the $n$-dimensional fat graph operad acts on blob cochains.}
+\vspace{-3mm}
+$$\mathfig{.85}{tempkw/delfig2}$$
 \end{block}
 \end{frame}
 

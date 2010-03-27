@@ -4,15 +4,15 @@
 
 We construct the ``blob complex'' $\bc_*(M; \cC)$ associated to an $n$-manifold $M$ and a ``linear $n$-category with strong duality'' $\cC$. This blob complex provides a simultaneous generalisation of several well-understood constructions:
 \begin{itemize}
-\item The vector space $H_0(\bc_*(M; \cC))$ is isomorphic to the usual topological quantum field theory invariant of $M$ associated to $\cC$. (See \S \ref{sec:fields} \nn{more specific}.)
-\item When $n=1$, $\cC$ is just a 1-category (e.g.\ an associative algebra), and $\bc_*(S^1; \cC)$ is quasi-isomorphic to the Hochschild complex $\HC_*(\cC)$. (See \S \ref{sec:hochschild}.)
+\item The vector space $H_0(\bc_*(M; \cC))$ is isomorphic to the usual topological quantum field theory invariant of $M$ associated to $\cC$. (See Property \ref{property:skein-modules} later in the introduction and \S \ref{sec:constructing-a-tqft}.)
+\item When $n=1$ and $\cC$ is just a 1-category (e.g.\ an associative algebra), the blob complex $\bc_*(S^1; \cC)$ is quasi-isomorphic to the Hochschild complex $\HC_*(\cC)$. (See Property \ref{property:hochschild} and \S \ref{sec:hochschild}.)
 \item When $\cC$ is the polynomial algebra $k[t]$, thought of as an n-category (see \S \ref{sec:comm_alg}), we have 
 that $\bc_*(M; k[t])$ is homotopy equivalent to $C_*(\Sigma^\infty(M), k)$, the singular chains
 on the configurations space of unlabeled points in $M$.
 %$$H_*(\bc_*(M; k[t])) = H^{\text{sing}}_*(\Delta^\infty(M), k).$$ 
 \end{itemize}
 The blob complex definition is motivated by the desire for a derived analogue of the usual TQFT Hilbert space (replacing quotient of fields by local relations with some sort of resolution), 
-and for a generalization of Hochschild homology to higher $n$-categories. We would also like to be able to talk about $\CM{M}{T}$ when $T$ is an $n$-category rather than a manifold. The blob complex allows us to do all of these! More detailed motivations are described in \S \ref{sec:motivations}.
+and for a generalization of Hochschild homology to higher $n$-categories. We would also like to be able to talk about $\CM{M}{T}$ when $T$ is an $n$-category rather than a manifold. The blob complex gives us all of these! More detailed motivations are described in \S \ref{sec:motivations}.
 
 The blob complex has good formal properties, summarized in \S \ref{sec:properties}. These include an action of $\CH{M}$, 
 extending the usual $\Homeo(M)$ action on the TQFT space $H_0$ (see Property \ref{property:evaluation}) and a gluing formula allowing calculations by cutting manifolds into smaller parts (see Property \ref{property:gluing}).
@@ -128,8 +128,9 @@ X \mapsto \bc_*^{\cC}(X)
 \end{equation*}
 is a functor from $n$-manifolds and homeomorphisms between them to chain complexes and isomorphisms between them.
 \end{property}
+As a consequence, there is an action of $\Homeo(X)$ on the chain complex $\bc_*^\cC(X)$; this action is extended to all of $C_*(\Homeo(X))$ in Property \ref{property:evaluation} below.
 
-The blob complex is also functorial with respect to $\cC$, although we will not address this in detail here.
+The blob complex is also functorial with respect to $\cC$, although we will not address this in detail here. \todo{exact w.r.t $\cC$?}
 
 \begin{property}[Disjoint union]
 \label{property:disjoint-union}
@@ -139,7 +140,7 @@ The blob complex of a disjoint union is naturally the tensor product of the blob
 \end{equation*}
 \end{property}
 
-If an $n$-manifold $X_\text{cut}$ contains $Y \sqcup Y^\text{op}$ as a codimension $0$-submanifold of its boundary, write $X_\text{glued} = X_\text{cut} \bigcup_{Y}\selfarrow$ for the manifold obtained by gluing together $Y$ and $Y^\text{op}$. Note that this includes the case of gluing two disjoint manifolds together.
+If an $n$-manifold $X_\text{cut}$ contains $Y \sqcup Y^\text{op}$ as a codimension $0$ submanifold of its boundary, write $X_\text{glued} = X_\text{cut} \bigcup_{Y}\selfarrow$ for the manifold obtained by gluing together $Y$ and $Y^\text{op}$. Note that this includes the case of gluing two disjoint manifolds together.
 \begin{property}[Gluing map]
 \label{property:gluing-map}%
 %If $X_1$ and $X_2$ are $n$-manifolds, with $Y$ a codimension $0$-submanifold of $\bdy X_1$, and $Y^{\text{op}}$ a codimension $0$-submanifold of $\bdy X_2$, there is a chain map
@@ -156,9 +157,7 @@ a natural map
 
 \begin{property}[Contractibility]
 \label{property:contractibility}%
-\nn{this holds with field coefficients, or more generally when
-the map to 0-th homology has a splitting; need to fix statement}
-The blob complex on an $n$-ball is contractible in the sense that it is quasi-isomorphic to its $0$-th homology. Moreover, the $0$-th homology of balls can be canonically identified with the original $n$-category $\cC$.
+With field coefficients, the blob complex on an $n$-ball is contractible in the sense that it is homotopic to its $0$-th homology. Moreover, the $0$-th homology of balls can be canonically identified with the vector spaces associated by the system of fields $\cC$ to balls.
 \begin{equation}
 \xymatrix{\bc_*^{\cC}(B^n) \ar[r]^(0.4){\iso}_(0.4){\text{qi}} & H_0(\bc_*^{\cC}(B^n)) \ar[r]^(0.6)\iso & \cC(B^n)}
 \end{equation}
@@ -213,21 +212,22 @@ Since the blob complex is functorial in the manifold $X$, we can use this to bui
 $$ev_{X \to Y} : \CH{X \to Y} \tensor \bc_*(X) \to \bc_*(Y)$$
 satisfying corresponding conditions.
 
-In \S \ref{sec:ncats} we introduce the notion of topological $n$-categories, from which we can construct systems of fields, as well as the notion of an $A_\infty$ $n$-category.
+In \S \ref{sec:ncats} we introduce the notion of topological $n$-categories, from which we can construct systems of fields. Below, we talk about the blob complex associated to a topological $n$-category, implicitly passing to the system of fields. Further, in \S \ref{sec:ncats} we also have the notion of an $A_\infty$ $n$-category.
 
 \begin{property}[Blob complexes of (products with) balls form an $A_\infty$ $n$-category]
 \label{property:blobs-ainfty}
 Let $\cC$ be  a topological $n$-category.  Let $Y$ be an $n{-}k$-manifold. 
-Define $A_*(Y, \cC)$ on each $m$-ball $D$, for $0 \leq m < k$, to be the set $$A_*(Y,\cC)(D) = A^\cC(Y \times D)$$ and on $k$-balls $D$ to be the set $$A_*(Y, \cC)(D) = \bc_*(Y \times D, \cC).$$ (When $m=k$ the subsets with fixed boundary conditions form a chain complex.) These sets have the structure of an $A_\infty$ $k$-category.
+There is an $A_\infty$ $k$-category $A_*(Y, \cC)$, defined on each $m$-ball $D$, for $0 \leq m < k$, to be the set $$A_*(Y,\cC)(D) = A^\cC(Y \times D)$$ and on $k$-balls $D$ to be the set $$A_*(Y, \cC)(D) = \bc_*(Y \times D, \cC).$$ (When $m=k$ the subsets with fixed boundary conditions form a chain complex.) These sets have the structure of an $A_\infty$ $k$-category, with compositions coming from the gluing map in Property \ref{property:gluing-map} and with the action of families of homeomorphisms given in Property \ref{property:evaluation}.
 \end{property}
 \begin{rem}
-Perhaps the most interesting case is when $Y$ is just a point; then we have a way of building an $A_\infty$ $n$-category from a topological $n$-category.
+Perhaps the most interesting case is when $Y$ is just a point; then we have a way of building an $A_\infty$ $n$-category from a topological $n$-category. We think of this $A_\infty$ $n$-category as a free resolution.
 \end{rem}
 
 There is a version of the blob complex for $\cC$ an $A_\infty$ $n$-category
 instead of a garden variety $n$-category; this is described in \S \ref{sec:ainfblob}.
 
 \begin{property}[Product formula]
+\label{property:product}
 Let $W$ be a $k$-manifold and $Y$ be an $n-k$ manifold. Let $\cC$ be an $n$-category.
 Let $A_*(Y,\cC)$ be the $A_\infty$ $k$-category associated to $Y$ via blob homology (see Property \ref{property:blobs-ainfty}).
 Then
@@ -242,14 +242,14 @@ It seems reasonable to expect a generalization describing an arbitrary fibre bun
 \label{property:gluing}%
 \mbox{}% <-- gets the indenting right
 \begin{itemize}
-\item For any $(n-1)$-manifold $Y$, the blob homology of $Y \times I$ is
+\item For any $(n-1)$-manifold $Y$, the blob complex of $Y \times I$ is
 naturally an $A_\infty$ category. % We'll write $\bc_*(Y)$ for $\bc_*(Y \times I)$ below.
 
-\item For any $n$-manifold $X$, with $Y$ a codimension $0$-submanifold of its boundary, the blob homology of $X$ is naturally an
+\item For any $n$-manifold $X$, with $Y$ a codimension $0$-submanifold of its boundary, the blob complex of $X$ is naturally an
 $A_\infty$ module for $\bc_*(Y \times I)$.
 
 \item For any $n$-manifold $X_\text{glued} = X_\text{cut} \bigcup_Y \selfarrow$, the blob complex $\bc_*(X_\text{glued})$ is the $A_\infty$ self-tensor product of
-$\bc_*(X_\text{cut})$ as an $\bc_*(Y \times I)$-bimodule.
+$\bc_*(X_\text{cut})$ as an $\bc_*(Y \times I)$-bimodule:
 \begin{equation*}
 \bc_*(X_\text{glued}) \simeq \bc_*(X_\text{cut}) \Tensor^{A_\infty}_{\mathclap{\bc_*(Y \times I)}} \selfarrow
 \end{equation*}
@@ -261,7 +261,7 @@ Finally, we state two more properties, which we will not prove in this paper.
 \begin{property}[Mapping spaces]
 Let $\pi^\infty_{\le n}(T)$ denote the $A_\infty$ $n$-category based on maps 
 $B^n \to T$.
-(The case $n=1$ is the usual $A_\infty$ category of paths in $T$.)
+(The case $n=1$ is the usual $A_\infty$-category of paths in $T$.)
 Then 
 $$\bc_*(X, \pi^\infty_{\le n}(T)) \simeq \CM{X}{T}.$$
 \end{property}
@@ -277,20 +277,18 @@ See \S \ref{sec:deligne} for an explanation of the terms appearing here. The pro
 Properties \ref{property:functoriality}, \ref{property:gluing-map} and \ref{property:skein-modules} will be immediate from the definition given in
 \S \ref{sec:blob-definition}, and we'll recall them at the appropriate points there. \todo{Make sure this gets done.}
 Properties \ref{property:disjoint-union} and \ref{property:contractibility} are established in \S \ref{sec:basic-properties}.
-Property \ref{property:hochschild} is established in \S \ref{sec:hochschild}, Property \ref{property:evaluation} in \S \ref{sec:evaluation},
-and Property \ref{property:gluing} in \S \ref{sec:gluing}.
-\nn{need to say where the remaining properties are proved.}
+Property \ref{property:hochschild} is established in \S \ref{sec:hochschild}, Property \ref{property:evaluation} in \S \ref{sec:evaluation}, Property \ref{property:blobs-ainfty} as Example \ref{ex:blob-complexes-of-balls} in \S \ref{sec:ncats},
+and Properties \ref{property:product} and \ref{property:gluing} in \S \ref{sec:ainfblob} as consequences of Theorem \ref{product_thm}.
 
 \subsection{Future directions}
 \label{sec:future}
 Throughout, we have resisted the temptation to work in the greatest generality possible (don't worry, it wasn't that hard). 
-In most of the places where we say ``set" or ``vector space", any symmetric monoidal category would do.
-\nn{maybe make similar remark about chain complexes and $(\infty, 0)$-categories}
+In most of the places where we say ``set" or ``vector space", any symmetric monoidal category would do. We could presumably also replace many of our chain complexes with topological spaces (or indeed, work at the generality of model categories), and likely it will prove useful to think about the connections between what we do here and $(\infty,k)$-categories.
 More could be said about finite characteristic (there appears in be $2$-torsion in $\bc_1(S^2, \cC)$ for any spherical $2$-category $\cC$, for example). Much more could be said about other types of manifolds, in particular oriented, $\operatorname{Spin}$ and $\operatorname{Pin}^{\pm}$ manifolds, where boundary issues become more complicated. (We'd recommend thinking about boundaries as germs, rather than just codimension $1$ manifolds.) We've also take the path of least resistance by considering $\operatorname{PL}$ manifolds; there may be some differences for topological manifolds and smooth manifolds.
 
 Many results in Hochschild homology can be understood `topologically' via the blob complex. For example, we expect that the shuffle product on the Hochschild homology of a commutative algebra $A$ simply corresponds to the gluing operation on $\bc_*(S^1 \times [0,1], A)$, but haven't investigated the details.
 
-Most importantly, however, \nn{applications!} \nn{$n=2$ cases, contact, Kh}
+Most importantly, however, \nn{applications!} \nn{cyclic homology, $n=2$ cases, contact, Kh}
 
 
 \subsection{Thanks and acknowledgements}
