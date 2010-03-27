@@ -156,18 +156,17 @@ which is natural with respect to the actions of homeomorphisms.
 
 \begin{figure}[!ht]
 $$
-\begin{tikzpicture}[every label/.style={green}]
-\node[fill=black, circle, label=below:$E$](S) at (0,0) {};
-\node[fill=black, circle, label=above:$E$](N) at (0,2) {};
+\begin{tikzpicture}[%every label/.style={green}
+					]
+\node[fill=black, circle, label=below:$E$, inner sep=2pt](S) at (0,0) {};
+\node[fill=black, circle, label=above:$E$, inner sep=2pt](N) at (0,2) {};
 \draw (S) arc  (-90:90:1);
 \draw (N) arc  (90:270:1);
 \node[left] at (-1,1) {$B_1$};
 \node[right] at (1,1) {$B_2$};
 \end{tikzpicture}
 $$
-$$\mathfig{.4}{tempkw/blah3}$$
-\caption{Combining two balls to get a full boundary
-\nn{maybe smaller dots for $E$ in pdf fig}}\label{blah3}\end{figure}
+\caption{Combining two balls to get a full boundary.}\label{blah3}\end{figure}
 
 Note that we insist on injectivity above.
 
@@ -215,8 +214,21 @@ If $k < n$ we require that $\gl_Y$ is injective.
 \end{axiom}
 
 \begin{figure}[!ht]
+$$
+\begin{tikzpicture}[%every label/.style={green},
+				x=1.5cm,y=1.5cm]
+\node[fill=black, circle, label=below:$E$, inner sep=2pt](S) at (0,0) {};
+\node[fill=black, circle, label=above:$E$, inner sep=2pt](N) at (0,2) {};
+\draw (S) arc  (-90:90:1);
+\draw (N) arc  (90:270:1);
+\draw (N) -- (S);
+\node[left] at (-1/4,1) {$B_1$};
+\node[right] at (1/4,1) {$B_2$};
+\node at (1/6,3/2)  {$Y$};
+\end{tikzpicture}
+$$
 $$\mathfig{.4}{tempkw/blah5}$$
-\caption{From two balls to one ball}\label{blah5}\end{figure}
+\caption{From two balls to one ball.}\label{blah5}\end{figure}
 
 \begin{axiom}[Strict associativity] \label{nca-assoc}
 The composition (gluing) maps above are strictly associative.
@@ -224,7 +236,7 @@ The composition (gluing) maps above are strictly associative.
 
 \begin{figure}[!ht]
 $$\mathfig{.65}{tempkw/blah6}$$
-\caption{An example of strict associativity}\label{blah6}\end{figure}
+\caption{An example of strict associativity.}\label{blah6}\end{figure}
 
 \nn{figure \ref{blah6} (blah6) needs a dotted line in the south split ball}
 
@@ -263,7 +275,7 @@ operad-type strict associativity condition (Figure \ref{blah7}).}
 
 \begin{figure}[!ht]
 $$\mathfig{.8}{tempkw/blah7}$$
-\caption{Operadish composition and associativity}\label{blah7}\end{figure}
+\caption{Operad composition and associativity}\label{blah7}\end{figure}
 
 The next axiom is related to identity morphisms, though that might not be immediately obvious.
 
@@ -520,8 +532,7 @@ The next example is only intended to be illustrative, as we don't specify which 
 \label{ex:traditional-n-categories}
 Given a `traditional $n$-category with strong duality' $C$
 define $\cC(X)$, for $X$ a $k$-ball or $k$-sphere with $k < n$,
-to be the set of all $C$-labeled sub cell complexes of $X$.
-(See Subsection \ref{sec:fields}.)
+to be the set of all $C$-labeled sub cell complexes of $X$ (c.f. \S \ref{sec:fields}).
 For $X$ an $n$-ball and $c\in \cC(\bd X)$, define $\cC(X)$ to finite linear
 combinations of $C$-labeled sub cell complexes of $X$
 modulo the kernel of the evaluation map.
@@ -628,7 +639,7 @@ See Figure \ref{partofJfig} for an example.
 
 \begin{figure}[!ht]
 \begin{equation*}
-\mathfig{.63}{tempkw/zz2}
+\mathfig{.63}{ncat/zz2}
 \end{equation*}
 \caption{A small part of $\cJ(W)$}
 \label{partofJfig}
@@ -733,8 +744,7 @@ define $k$-cat $\cC(\cdot\times W)$}
 
 \subsection{Modules}
 
-Next we define [$A_\infty$] $n$-category modules (a.k.a.\ representations,
-a.k.a.\ actions).
+Next we define topological and $A_\infty$ $n$-category modules.
 The definition will be very similar to that of $n$-categories,
 but with $k$-balls replaced by {\it marked $k$-balls,} defined below.
 \nn{** need to make sure all revisions of $n$-cat def are also made to module def.}
@@ -745,10 +755,10 @@ in the context of an $m{+}1$-dimensional TQFT.
 Such a $W$ gives rise to a module for the $n$-category associated to $\bd W$.
 This will be explained in more detail as we present the axioms.
 
-Fix an $n$-category $\cC$.
+Throughout, we fix an $n$-category $\cC$. For all but one axiom, it doesn't matter whether $\cC$ is a topological $n$-category or an $A_\infty$ $n$-category. We state the final axiom, on actions of homeomorphisms, differently in the two cases.
 
 Define a {\it marked $k$-ball} to be a pair $(B, N)$ homeomorphic to the pair
-(standard $k$-ball, northern hemisphere in boundary of standard $k$-ball).
+$$(\text{standard $k$-ball}, \text{northern hemisphere in boundary of standard $k$-ball}).$$
 We call $B$ the ball and $N$ the marking.
 A homeomorphism between marked $k$-balls is a homeomorphism of balls which
 restricts to a homeomorphism of markings.
@@ -831,16 +841,16 @@ of splitting a marked $k$-ball into two (marked or plain) $k$-balls.
 
 \begin{figure}[!ht]
 \begin{equation*}
-\mathfig{.63}{tempkw/zz3}
+\mathfig{.4}{ncat/zz3}
 \end{equation*}
-\caption{Module composition (top); $n$-category action (bottom)}
+\caption{Module composition (top); $n$-category action (bottom).}
 \label{zzz3}
 \end{figure}
 
 First, we can compose two module morphisms to get another module morphism.
 
 \mmpar{Module axiom 6}{Module composition}
-{Let $M = M_1 \cup_Y M_2$, where $M$, $M_1$ and $M_2$ are marked $k$-balls ($0\le k\le n$)
+{Let $M = M_1 \cup_Y M_2$, where $M$, $M_1$ and $M_2$ are marked $k$-balls (with $0\le k\le n$)
 and $Y = M_1\cap M_2$ is a marked $k{-}1$-ball.
 Let $E = \bd Y$, which is a marked $k{-}2$-hemisphere.
 Note that each of $M$, $M_1$ and $M_2$ has its boundary split into two marked $k{-}1$-balls by $E$.
@@ -886,7 +896,7 @@ See Figure \ref{zzz1b}.
 
 \begin{figure}[!ht]
 \begin{equation*}
-\mathfig{1}{tempkw/zz1b}
+\mathfig{0.49}{ncat/zz0} \mathfig{0.49}{ncat/zz1}
 \end{equation*}
 \caption{Two examples of mixed associativity}
 \label{zzz1b}
@@ -1015,9 +1025,9 @@ each $M_{ib}$ is a marked $k$-ball intersecting $\bd_i W$,
 with $M_{ib}\cap Y_i$ being the marking.
 (See Figure \ref{mblabel}.)
 \begin{figure}[!ht]\begin{equation*}
-\mathfig{.9}{tempkw/mblabel}
+\mathfig{.6}{ncat/mblabel}
 \end{equation*}\caption{A permissible decomposition of a manifold
-whose boundary components are labeled by $\cC$ modules $\{\cN_i\}$.}\label{mblabel}\end{figure}
+whose boundary components are labeled by $\cC$ modules $\{\cN_i\}$. Marked balls are shown shaded, plain balls are unshaded.}\label{mblabel}\end{figure}
 Given permissible decompositions $x$ and $y$, we say that $x$ is a refinement
 of $y$, or write $x \le y$, if each ball of $y$ is a union of balls of $x$.
 This defines a partial ordering $\cJ(W)$, which we will think of as a category.
@@ -1087,9 +1097,8 @@ We will define a more general self tensor product (categorified coend) below.
 In this subsection we define an $n{+}1$-category $\cS$ of ``sphere modules" 
 whose objects correspond to $n$-categories.
 This is a version of the familiar algebras-bimodules-intertwiners 2-category.
-(Terminology: It is clearly appropriate to call an $S^0$ modules a bimodule,
-since a 0-sphere has an obvious bi-ness.
-This is much less true for higher dimensional spheres, 
+(Terminology: It is clearly appropriate to call an $S^0$ module a bimodule,
+but this is much less true for higher dimensional spheres, 
 so we prefer the term ``sphere module" for the general case.)
 
 The $0$- through $n$-dimensional parts of $\cC$ are various sorts of modules, and we describe
@@ -1146,7 +1155,7 @@ from the product of these various sets into $\cM(X)$.
 
 \medskip
 
-Part of the structure of an $n$-cat 0-sphere module is captured my saying it is
+Part of the structure of an $n$-category 0-sphere module is captured by saying it is
 a collection $\cD^{ab}$ of $n{-}1$-categories, indexed by pairs $(a, b)$ of objects (0-morphisms)
 of $\cA$ and $\cB$.
 Let $J$ be some standard 0-marked 1-ball (i.e.\ an interval with a marked point in its interior).
