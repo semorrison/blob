@@ -10,25 +10,24 @@ The inclusion $i: \bc^{\cU}_*(M) \into \bc_*(M)$ is a homotopy equivalence.
 We begin by describing the homotopy inverse in small degrees, to illustrate the general technique.
 We will construct a chain map $s:  \bc_*(M) \to \bc^{\cU}_*(M)$ and a homotopy $h:\bc_*(M) \to \bc_{*+1}(M)$ so that $\bdy h+h \bdy=\id - i\circ s$. The composition $s \circ i$ will just be the identity.
 
-On $0$-blobs, $s$ is just the identity; a blob diagram without any blobs is compatible with any open cover. Nevertheless, we'll begin introducing nomenclature at this point: for configuration $\beta$ of disjoint embedded balls in $M$ we'll associate a one parameter family of homeomorphisms $\phi_\beta : \Delta^1 \to \Homeo(M)$ (here $\Delta^m$ is the standard simplex $\setc{\mathbf{x} \in \Real^{m+1}}{\sum_i x_i = 1}$). For $0$-blobs, where $\beta = \eset$, all these homeomorphisms are just the identity.
+On $0$-blobs, $s$ is just the identity; a blob diagram without any blobs is compatible with any open cover. Nevertheless, we'll begin introducing nomenclature at this point: for configuration $\beta$ of disjoint embedded balls in $M$ we'll associate a one parameter family of homeomorphisms $\phi_\beta : \Delta^1 \to \Homeo(M)$ (here $\Delta^m$ is the standard simplex $\setc{\mathbf{x} \in \Real^{m+1}}{\sum_{i=0}^m x_i = 1}$). For $0$-blobs, where $\beta = \eset$, all these homeomorphisms are just the identity.
 
-On a $1$-blob $b$, with ball $\beta$, $s$ is defined as the sum of two terms. Essentially, the first term `makes $\beta$ small', while the other term `gets the boundary right'. First, pick a one-parameter family $\phi_\beta : \Delta^1 \to \Homeo(M)$ of homeomorphisms, so $\phi_\beta(0,1)$ is the identity and $\phi_\beta(1,0)$ makes the ball $\beta$ small. Next, pick a two-parameter family $\phi_{\eset \prec \beta} : \Delta^2 \to \Homeo(M)$ so that $\phi_{\eset \prec \beta}(s,t,0)$ makes the ball $\beta$ small for all $s+t=1$, while $\phi_{\eset \prec \beta}(0,t,u) = \phi_\eset(t,u)$ and $\phi_{\eset \prec \beta}(s,0,u) = \phi_\beta(s,u)$. (It's perhaps not obvious that this is even possible --- see Lemma \ref{lem:extend-small-homeomorphisms} below.) We now define $s$ by
-$$s(b) = \phi_\beta(1,0)(b) + \restrict{\phi_{\eset \prec \beta}}{u=0}(\bdy b).$$
-Here, $\phi_\beta(1,0)$ is just a homeomorphism, which we apply to $b$, while $\restrict{\phi_{\eset \prec \beta}}{u=0}$ is a one parameter family of homeomorphisms which acts on the $0$-blob $\bdy b$ to give a $1$-blob. We now check that $s$, as defined so far, is a chain map, calculating
+On a $1$-blob $b$, with ball $\beta$, $s$ is defined as the sum of two terms. Essentially, the first term `makes $\beta$ small', while the other term `gets the boundary right'. First, pick a one-parameter family $\phi_\beta : \Delta^1 \to \Homeo(M)$ of homeomorphisms, so $\phi_\beta(1,0)$ is the identity and $\phi_\beta(0,1)$ makes the ball $\beta$ small. Next, pick a two-parameter family $\phi_{\eset \prec \beta} : \Delta^2 \to \Homeo(M)$ so that $\phi_{\eset \prec \beta}(0,x_1,x_2)$ makes the ball $\beta$ small for all $x_1+x_2=1$, while $\phi_{\eset \prec \beta}(x_0,0,x_2) = \phi_\eset(x_0,x_2)$ and $\phi_{\eset \prec \beta}(x_0,x_1,0) = \phi_\beta(x_0,x_1)$. (It's perhaps not obvious that this is even possible --- see Lemma \ref{lem:extend-small-homeomorphisms} below.) We now define $s$ by
+$$s(b) = \restrict{\phi_\beta}{x_0=0}(b) + \restrict{\phi_{\eset \prec \beta}}{x_0=0}(\bdy b).$$
+Here, $\restrict{\phi_\beta}{x_0=0} = \phi_\beta(0,1)$ is just a homeomorphism, which we apply to $b$, while $\restrict{\phi_{\eset \prec \beta}}{x_0=0}$ is a one parameter family of homeomorphisms which acts on the $0$-blob $\bdy b$ to give a $1$-blob. We now check that $s$, as defined so far, is a chain map, calculating
 \begin{align*}
-\bdy (s(b)) & = \phi_\beta(1,0)(\bdy b) + (\bdy \restrict{\phi_{\eset \prec \beta}}{u=0})(\bdy b) \\
-		 & = \phi_\beta(1,0)(\bdy b) + \phi_\eset(1,0)(\bdy b) - \phi_\beta(1,0)(\bdy b) \\
-		 & = \phi_\eset(1,0)(\bdy b) \\
+\bdy (s(b)) & = \restrict{\phi_\beta}{x_0=0}(\bdy b) + (\bdy \restrict{\phi_{\eset \prec \beta}}{x_0=0})(\bdy b) \\
+		 & = \restrict{\phi_\beta}{x_0=0}(\bdy b) + \restrict{\phi_\eset}{x_0=0}(\bdy b) - \restrict{\phi_\beta}{x_0=0}(\bdy b) \\
+		 & = \restrict{\phi_\eset}{x_0=0}(\bdy b) \\
 		 & = s(\bdy b)
 \end{align*}
-Next, we compute the compositions $s \circ i$ and $i \circ s$. If we start with a small $1$-blob diagram $b$, first include it up to the full blob complex then apply $s$, we get exactly back to $b$, at least assuming we adopt the convention that for any ball $\beta$ which is already small, we choose the families of homeomorphisms $\phi_\beta$ and $\phi_{\eset \prec \beta}$ to always be the identity. In the other direction, $i \circ s$, we will need to construct the homotopy $h:\bc_*(M) \to \bc_{*+1}(M)$ for $*=0$ or $1$. This is defined by $h(b) = \phi_\eset(b)$ when $b$ is a $0$-blob (here $\phi_\eset$ is a one parameter family of homeomorphisms, so this is a $1$-blob), and $h(b) = \phi_\beta(b) - \phi_{\eset \prec \beta}(\bdy b)$ when $b$ is a $1$-blob (here $\beta$ is the ball in $b$, and this is the action of a one parameter family of homeomorphisms on a $1$-blob, so a $2$-blob).
-
+Next, we compute the compositions $s \circ i$ and $i \circ s$. If we start with a small $1$-blob diagram $b$, first include it up to the full blob complex then apply $s$, we get exactly back to $b$, at least assuming we adopt the convention that for any ball $\beta$ which is already small, we choose the families of homeomorphisms $\phi_\beta$ and $\phi_{\eset \prec \beta}$ to always be the identity. In the other direction, $i \circ s$, we will need to construct a homotopy $h:\bc_*(M) \to \bc_{*+1}(M)$ for $*=0$ or $1$. This is defined by $h(b) = \phi_\eset(b)$ when $b$ is a $0$-blob (here $\phi_\eset$ is a one parameter family of homeomorphisms, so this is a $1$-blob), and $h(b) = \phi_\beta(b) + \phi_{\eset \prec \beta}(\bdy b)$ when $b$ is a $1$-blob (here $\beta$ is the ball in $b$, and the first term is the action of a one parameter family of homeomorphisms on a $1$-blob, and the second term is the action of a two parameter family of homeomorphisms on a $0$-blob, so both are $2$-blobs).
 \begin{align*}
-(\bdy h+h \bdy)(b) & = \bdy (\phi_{\beta}(b) - \phi_{\eset \prec \beta}{\bdy b}) + \phi_\eset(\bdy b)  \\
-	& = b - \phi_\beta(1,0)(b) - \phi_\beta(\bdy b) - (\bdy \phi_{\eset \prec \beta})(\bdy b) + \phi_\eset(\bdy b) \\
-	& =  b - \phi_\beta(1,0)(b) - \phi_\beta(\bdy b) -  \phi_\eset(\bdy b) + \phi_\beta(\bdy b) - \restrict{\phi_{\eset \prec \beta}}{u=0}(\bdy b) + \phi_\eset(\bdy b) \\
-	& = b - \phi_\beta(1,0)(b) - \restrict{\phi_{\eset \prec \beta}}{u=0}(\bdy b) \\
-	& = (\id - i \circ s)(b)
+(\bdy h+h \bdy)(b) & = \bdy (\phi_{\beta}(b) + \phi_{\eset \prec \beta}{\bdy b}) + \phi_\eset(\bdy b)  \\
+	& =  \restrict{\phi_\beta}{x_0=0}(b) - \restrict{\phi_\beta}{x_1=0}(b) - \phi_\beta(\bdy b) + (\bdy \phi_{\eset \prec \beta})(\bdy b) + \phi_\eset(\bdy b) \\
+	& =  \restrict{\phi_\beta}{x_0=0}(b) - b - \phi_\beta(\bdy b) + \restrict{\phi_{\eset \prec \beta}}{x_0=0}(\bdy b) -  \phi_\eset(\bdy b) + \phi_\beta(\bdy b) + \phi_\eset(\bdy b) \\
+	& = \restrict{\phi_\beta}{x_0=0}(b) - b + \restrict{\phi_{\eset \prec \beta}}{x_0=0}(\bdy b) \\
+	& = (i \circ s - \id)(b)
 \end{align*}
 
 
