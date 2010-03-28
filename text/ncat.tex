@@ -586,19 +586,19 @@ and $C_*$ denotes singular chains.
 \nn{maybe should also mention version where we enrich over spaces rather than chain complexes}
 \end{example}
 
-See \ref{thm:map-recon} below, recovering $C_*(\Maps{M \to T})$ as (up to homotopy) the blob complex of $M$ with coefficients in $\pi^\infty_{\le n}(T)$.
+See also Theorem \ref{thm:map-recon} below, recovering $C_*(\Maps{M \to T})$ up to homotopy the blob complex of $M$ with coefficients in $\pi^\infty_{\le n}(T)$.
 
 \begin{example}[Blob complexes of balls (with a fiber)]
 \rm
 \label{ex:blob-complexes-of-balls}
-Fix an $m$-dimensional manifold $F$.
+Fix an $m$-dimensional manifold $F$. We will define an $A_\infty$ $n-m$-category $\cC$.
 Given a plain $n$-category $C$, 
 when $X$ is a $k$-ball or $k$-sphere, with $k<n-m$, define $\cC(X) = C(X)$. When $X$ is an $(n-m)$-ball,
 define $\cC(X; c) = \bc^C_*(X\times F; c)$
 where $\bc^C_*$ denotes the blob complex based on $C$.
 \end{example}
 
-This example will be essential for ???, which relates ...
+This example will be essential for Theorem \ref{product_thm} below, which relates ...
 
 \begin{example}
 \nn{should add $\infty$ version of bordism $n$-cat}
@@ -780,7 +780,7 @@ Let $\cM(B, N) \deq \cD((B\times \bd W)\cup (N\times W))$.
 the subset of $\cD((B\times \bd W)\cup (N\times W))$ which is splittable along $N\times \bd W$.)
 
 \begin{figure}[!ht]
-$$\mathfig{.8}{tempkw/blah15}$$
+$$\mathfig{.8}{ncat/boundary-collar}$$
 \caption{From manifold with boundary collar to marked ball}\label{blah15}\end{figure}
 
 Define the boundary of a marked $k$-ball $(B, N)$ to be the pair $(\bd B \setmin N, \bd N)$.
@@ -993,16 +993,21 @@ there is no left/right module distinction.
 
 \medskip
 
+We now give some examples of modules over topological and $A_\infty$ $n$-categories.
+
 Examples of modules:
 \begin{itemize}
 \item \nn{examples from TQFTs}
-\item \nn{for maps to $T$, can restrict to subspaces of $T$;}
 \end{itemize}
+
+\begin{example}
+Suppose $S$ is a topological space, with a subspace $T$. We can define a module $\pi_{\leq n}(S,T)$ so that on each marked $k$-ball $(B,N)$ for $k<n$ the set $\pi_{\leq n}(S,T)(B,N)$ consists of all continuous maps of pairs $(B,N) \to (S,T)$ and on each marked $n$-ball $(B,N)$ it consists of all such maps modulo homotopies fixed on $\bdy B \setminus N$. This is a module over the fundamental $n$-category $\pi_{\leq n}(S)$ of $S$, from Example \ref{ex:maps-to-a-space}. Modifications corresponding to Examples \ref{ex:maps-to-a-space-with-a-fiber} and \ref{ex:linearized-maps-to-a-space} are also possible, and there is an $A_\infty$ version analogous to Example \ref{ex:chains-of-maps-to-a-space} given by taking singular chains.
+\end{example}
 
 \subsection{Modules as boundary labels}
 \label{moddecss}
 
-Let $\cC$ be an [$A_\infty$] $n$-category, let $W$ be a $k$-manifold ($k\le n$),
+Fix a topological $n$-category or $A_\infty$ $n$-category  $\cC$. Let $W$ be a $k$-manifold ($k\le n$),
 let $\{Y_i\}$ be a collection of disjoint codimension 0 submanifolds of $\bd W$,
 and let $\cN = (\cN_i)$ be an assignment of a $\cC$ module $\cN_i$ to $Y_i$.
 
