@@ -8,13 +8,15 @@ The inclusion $i: \bc^{\cU}_*(M) \into \bc_*(M)$ is a homotopy equivalence.
 \end{thm}
 \begin{proof}
 We begin by describing the homotopy inverse in small degrees, to illustrate the general technique.
-We will construct a chain map $s:  \bc_*(M) \to \bc^{\cU}_*(M)$ and a homotopy $h:\bc_*(M) \to \bc_{*+1}(M)$ so that $\bdy h+h \bdy=\id - i\circ s$. The composition $s \circ i$ will just be the identity.
+We will construct a chain map $s:  \bc_*(M) \to \bc^{\cU}_*(M)$ and a homotopy $h:\bc_*(M) \to \bc_{*+1}(M)$ so that $\bdy h+h \bdy=i\circ s - \id$. The composition $s \circ i$ will just be the identity.
 
 On $0$-blobs, $s$ is just the identity; a blob diagram without any blobs is compatible with any open cover. Nevertheless, we'll begin introducing nomenclature at this point: for configuration $\beta$ of disjoint embedded balls in $M$ we'll associate a one parameter family of homeomorphisms $\phi_\beta : \Delta^1 \to \Homeo(M)$ (here $\Delta^m$ is the standard simplex $\setc{\mathbf{x} \in \Real^{m+1}}{\sum_{i=0}^m x_i = 1}$). For $0$-blobs, where $\beta = \eset$, all these homeomorphisms are just the identity.
 
 On a $1$-blob $b$, with ball $\beta$, $s$ is defined as the sum of two terms. Essentially, the first term `makes $\beta$ small', while the other term `gets the boundary right'. First, pick a one-parameter family $\phi_\beta : \Delta^1 \to \Homeo(M)$ of homeomorphisms, so $\phi_\beta(1,0)$ is the identity and $\phi_\beta(0,1)$ makes the ball $\beta$ small. Next, pick a two-parameter family $\phi_{\eset \prec \beta} : \Delta^2 \to \Homeo(M)$ so that $\phi_{\eset \prec \beta}(0,x_1,x_2)$ makes the ball $\beta$ small for all $x_1+x_2=1$, while $\phi_{\eset \prec \beta}(x_0,0,x_2) = \phi_\eset(x_0,x_2)$ and $\phi_{\eset \prec \beta}(x_0,x_1,0) = \phi_\beta(x_0,x_1)$. (It's perhaps not obvious that this is even possible --- see Lemma \ref{lem:extend-small-homeomorphisms} below.) We now define $s$ by
 $$s(b) = \restrict{\phi_\beta}{x_0=0}(b) + \restrict{\phi_{\eset \prec \beta}}{x_0=0}(\bdy b).$$
-Here, $\restrict{\phi_\beta}{x_0=0} = \phi_\beta(0,1)$ is just a homeomorphism, which we apply to $b$, while $\restrict{\phi_{\eset \prec \beta}}{x_0=0}$ is a one parameter family of homeomorphisms which acts on the $0$-blob $\bdy b$ to give a $1$-blob. We now check that $s$, as defined so far, is a chain map, calculating
+Here, $\restrict{\phi_\beta}{x_0=0} = \phi_\beta(0,1)$ is just a homeomorphism, which we apply to $b$, while $\restrict{\phi_{\eset \prec \beta}}{x_0=0}$ is a one parameter family of homeomorphisms which acts on the $0$-blob $\bdy b$ to give a $1$-blob.
+\todo{Does $s$ actually land in small blobs?}
+We now check that $s$, as defined so far, is a chain map, calculating
 \begin{align*}
 \bdy (s(b)) & = \restrict{\phi_\beta}{x_0=0}(\bdy b) + (\bdy \restrict{\phi_{\eset \prec \beta}}{x_0=0})(\bdy b) \\
 		 & = \restrict{\phi_\beta}{x_0=0}(\bdy b) + \restrict{\phi_\eset}{x_0=0}(\bdy b) - \restrict{\phi_\beta}{x_0=0}(\bdy b) \\
@@ -30,20 +32,23 @@ Next, we compute the compositions $s \circ i$ and $i \circ s$. If we start with 
 	& = (i \circ s - \id)(b)
 \end{align*}
 
-
-Given a blob diagram $b \in \bc_k(M)$, denote by $b_\cS$ for $\cS \subset \{1, \ldots, k\}$ the blob diagram obtained by erasing the corresponding blobs. In particular, $b_\eset = b$, $b_{\{1,\ldots,k\}} \in \bc_0(M)$, and $d b_\cS = \sum_{\cS' = \cS'\sqcup\{i\}} \pm  b_{\cS'}$.
+We now describe the general case. For a $k$-blob diagram $b \in \bc_k(M)$, denote by $b_\cS$ for $\cS \subset \{0, \ldots, k-1\}$ the blob diagram obtained by erasing the corresponding blobs. In particular, $b_\eset = b$, $b_{\{0,\ldots,k-1\}} \in \bc_0(M)$, and $d b_\cS = \sum_{i \notin \cS} \pm  b_{\cS \cup \{i\}}$.
 Similarly, for a disjoint embedding of $k$ balls $\beta$ (that is, a blob diagram but without the labels on regions), $\beta_\cS$ denotes the result of erasing a subset of blobs. We'll write $\beta' \prec \beta$ if $\beta' = \beta_\cS$ for some $\cS$. Finally, for finite sequences, we'll write $i \prec i'$ if $i$ is subsequence of $i'$, and $i \prec_1 i$ if the lengths differ by exactly 1.
 
+For a $2$-blob $b$, with balls $\beta$, $s$ is the sum of $5$ terms. Again, there is a term that makes $\beta$ small, while the others `get the boundary right'. It may be useful to look at Figure \ref{fig:erectly-a-tent-badly} to help understand the arrangement.
+\begin{figure}[!ht]
+\todo{}
+\caption{``Erecting a tent badly.'' We know where we want to send a simplex, and each of the iterated boundary components. However, these do not agree, and we need to stitch the pieces together. Note that these diagrams don't exactly match the situation in the text: a $k$-simplex has $k+1$ boundary components, while a $k$-blob has $k$ boundary terms.}
+\end{figure}
+
 Next, we'll choose a `shrinking system' for $\cU$, namely for each increasing sequence of blob configurations
-$\beta_0 \prec \beta_1 \prec \cdots \prec \beta_m$, an $m$ parameter family of diffeomorphisms
-$\phi_{\beta_0 \prec \cdots \prec \beta_m} : \Delta^m \to \Diff{M}$ (here $\Delta^m$ is the standard simplex $\setc{\mathbf{x} \in \Real^{m+1}}{\sum_i x_i = 1}$), such that
+$\beta_0 \prec \beta_1 \prec \cdots \prec \beta_m$, an $m+1$ parameter family of diffeomorphisms
+$\phi_{\beta_0 \prec \cdots \prec \beta_m} : \Delta^{m+1} \to \Diff{M}$, such that
 \begin{itemize}
-\item if $\beta$ is the empty configuration, $\phi_{\beta}(1) = \id_M$,
-\item if $\beta$ is a single configuration of blobs, then $\phi_{\beta}(1)(\beta)$ (which is another configuration of blobs: $\phi_{\beta}(1)$ is a diffeomorphism of $M$) is subordinate to $\cU$,
-\item (more generally) for any $x$ with $x_0 = 0$, $\phi_{\beta_0 \prec \cdots \prec \beta_m}(x)(\beta)$ is subordinate to $\cU$, and
+\item for any $x$ with $x_0 = 0$, $\phi_{\beta_0 \prec \cdots \prec \beta_m}(x)(\beta_m)$ is subordinate to $\cU$, and
 \item for each $i = 1, \ldots, m$,
 \begin{align*}
-\phi_{\beta_0 \prec \cdots \prec \beta_m}(x_0, \ldots, x_{i-1},0,x_{i+1},\ldots,x_m) & = \phi_{\beta_0 \prec \cdots \beta_{i-1} \prec \beta_{i+1} \prec \beta_m}(x_0,\ldots, x_{i-1},x_{i+1},\ldots,x_m).
+\phi_{\beta_0 \prec \cdots \prec \beta_m}&(x_0, \ldots, x_{i-1},0,x_{i+1},\ldots,x_m) = \\ &\phi_{\beta_0 \prec \cdots \prec \beta_{i-1} \prec \beta_{i+1} \prec \cdots \prec \beta_m}(x_0,\ldots, x_{i-1},x_{i+1},\ldots,x_m).
 \end{align*}
 \end{itemize}
 It's not immediately obvious that it's possible to make such choices, but it follows readily from the following Lemma.

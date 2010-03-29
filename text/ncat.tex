@@ -557,7 +557,7 @@ Finally, we describe a version of the bordism $n$-category suitable to our defin
 For a $k$-ball or $k$-sphere $X$, $k<n$, define $\Bord^n(X)$ to be the set of all $k$-dimensional
 submanifolds $W$ of $X\times \Real^\infty$ such that the projection $W \to X$ is transverse
 to $\bd X$.
-For an $n$-ball $X$ define $\Bord^n(X)$ to be homeomorphism classes (rel boundary) of such submanifolds;
+For an $n$-ball $X$ define $\Bord^n(X)$ to be homeomorphism classes (rel boundary) of such $n$-dimensional submanifolds;
 we identify $W$ and $W'$ if $\bd W = \bd W'$ and there is a homeomorphism
 $W \to W'$ which restricts to the identity on the boundary.
 \end{example}
@@ -614,7 +614,7 @@ This example will be essential for Theorem \ref{product_thm} below, which relate
 In this section we describe how to extend an $n$-category as described above (of either the plain or $A_\infty$ variety) to a system of fields. That is, we show that functors $\cC_k$ satisfying the axioms above have a canonical extension, from $k$-balls and $k$-spheres to arbitrary $k$-manifolds.
 In the case of plain $n$-categories, this is just the usual construction of a TQFT
 from an $n$-category.
-For $\infty$ $n$-categories \nn{or whatever we decide to call them}, this gives an alternate (and
+For $A_\infty$ $n$-categories, this gives an alternate (and
 somewhat more canonical/tautological) construction of the blob complex.
 \nn{though from this point of view it seems more natural to just add some
 adjective to ``TQFT" rather than coining a completely new term like ``blob complex".}
@@ -697,7 +697,7 @@ where $K$ is the vector space spanned by elements $a - g(a)$, with
 $a\in \psi_{\cC;W,c}(x)$ for some decomposition $x$, and $g: \psi_{\cC;W,c}(x)
 \to \psi_{\cC;W,c}(y)$ is value of $\psi_{\cC;W,c}$ on some antirefinement $x \leq y$.
 
-In the $A_\infty$ case enriched over chain complexes, the concrete description of the homotopy colimit
+In the $A_\infty$ case, enriched over chain complexes, the concrete description of the homotopy colimit
 is more involved.
 %\nn{should probably rewrite this to be compatible with some standard reference}
 Define an $m$-sequence in $W$ to be a sequence $x_0 \le x_1 \le \dots \le x_m$ of permissible decompositions of $W$.
@@ -995,10 +995,9 @@ there is no left/right module distinction.
 
 We now give some examples of modules over topological and $A_\infty$ $n$-categories.
 
-Examples of modules:
-\begin{itemize}
-\item \nn{examples from TQFTs}
-\end{itemize}
+\begin{example}[Examples from TQFTs]
+\todo{}
+\end{example}
 
 \begin{example}
 Suppose $S$ is a topological space, with a subspace $T$. We can define a module $\pi_{\leq n}(S,T)$ so that on each marked $k$-ball $(B,N)$ for $k<n$ the set $\pi_{\leq n}(S,T)(B,N)$ consists of all continuous maps of pairs $(B,N) \to (S,T)$ and on each marked $n$-ball $(B,N)$ it consists of all such maps modulo homotopies fixed on $\bdy B \setminus N$. This is a module over the fundamental $n$-category $\pi_{\leq n}(S)$ of $S$, from Example \ref{ex:maps-to-a-space}. Modifications corresponding to Examples \ref{ex:maps-to-a-space-with-a-fiber} and \ref{ex:linearized-maps-to-a-space} are also possible, and there is an $A_\infty$ version analogous to Example \ref{ex:chains-of-maps-to-a-space} given by taking singular chains.
