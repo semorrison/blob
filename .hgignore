@@ -1,0 +1,8 @@
+# use glob syntax.
+syntax: glob
+
+*.aux
+*.log
+*.out
+*.synctex.gz
+blob1.pdf
