@@ -32,7 +32,7 @@ So the 1-dimensional Deligne conjecture can be restated as
 \end{eqnarray*}
 See Figure \ref{delfig1}.
 \begin{figure}[!ht]
-$$\mathfig{.9}{tempkw/delfig1}$$
+$$\mathfig{.9}{deligne/intervals}$$
 \caption{A fat graph}\label{delfig1}\end{figure}
 
 We can think of a fat graph as encoding a sequence of surgeries, starting at the bottommost interval
@@ -53,7 +53,7 @@ Similarly, higher-dimensional chains in $C_*(FG_k)$ give rise to higher homotopi
 It should now be clear how to generalize this to higher dimensions.
 In the sequence-of-surgeries description above, we never used the fact that the manifolds
 involved were 1-dimensional.
-Thus we can define a $n$-dimensional fat graph to sequence of general surgeries
+Thus we can define a $n$-dimensional fat graph to be a sequence of general surgeries
 on an $n$-manifold.
 More specifically,
 the $n$-dimensional fat graph operad can be thought of as a sequence of general surgeries
@@ -61,7 +61,7 @@ $R_i \cup M_i \leadsto R_i \cup N_i$ together with mapping cylinders of diffeomo
 $f_i: R_i\cup N_i \to R_{i+1}\cup M_{i+1}$.
 (See Figure \ref{delfig2}.)
 \begin{figure}[!ht]
-$$\mathfig{.9}{tempkw/delfig2}$$
+$$\mathfig{.9}{deligne/manifolds}$$
 \caption{A fat graph}\label{delfig2}\end{figure}
 The components of the $n$-dimensional fat graph operad are indexed by tuples
 $(\overline{M}, \overline{N}) = ((M_0,\ldots,M_k), (N_0,\ldots,N_k))$.
@@ -82,9 +82,9 @@ Putting this together we get
 \label{prop:deligne}
 There is a collection of maps
 \begin{eqnarray*}
-	C_*(FG^n_{\overline{M}, \overline{N}})\otimes \mapinf(\bc_*(M_0), \bc_*(N_0))\otimes\cdots\otimes 
-\mapinf(\bc_*(M_{k-1}), \bc_*(N_{k-1})) & \\
-	& \hspace{-11em}\to  \mapinf(\bc_*(M_k), \bc_*(N_k))
+	C_*(FG^n_{\overline{M}, \overline{N}})\otimes \mapinf(\bc_*(M_1), \bc_*(N_1))\otimes\cdots\otimes 
+\mapinf(\bc_*(M_{k}), \bc_*(N_{k})) & \\
+	& \hspace{-11em}\to  \mapinf(\bc_*(M_0), \bc_*(N_0))
 \end{eqnarray*}
 which satisfy an operad type compatibility condition. \nn{spell this out}
 \end{prop}

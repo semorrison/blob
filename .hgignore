@@ -14,3 +14,13 @@ blob1.pdf
 *.bbl
 *.blg
 bibliography
+
+# generic OSX crap
+.DS_Store
+
+# latex2pdf temporary files
+diagrams/latex2pdf/defontify.dvi
+diagrams/latex2pdf/defontify.pdf
+diagrams/latex2pdf/defontify.ps
+diagrams/latex2pdf/nofonts.ps
+
