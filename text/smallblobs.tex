@@ -1,7 +1,19 @@
 %!TEX root = ../blob1.tex
 \nn{Not sure where this goes yet: small blobs, unfinished:}
 
-Fix $\cU$, an open cover of $M$. Define the `small blob complex' $\bc^{\cU}_*(M)$ to be the subcomplex of $\bc_*(M)$ of all blob diagrams in which every blob is contained in some open set of $\cU$.
+Fix $\cU$, an open cover of $M$. Define the `small blob complex' $\bc^{\cU}_*(M)$ to be the subcomplex of $\bc_*(M)$ of all blob diagrams in which every blob is contained in some open set of $\cU$. Say that an open cover $\cV$ is strictly subordinate to $\cU$ if every open set of $\cV$ is contained in some closed set which is contained in some open set of $\cU$.
+
+\begin{lem}
+For any open cover $\cU$ of $M$ and strictly subordinate open cover $\cV$, we can choose an up-to-homotopy representative $\ev_{X,\cU,\cV}$ of the chain map $\ev_X$ of Property ?? which gives the action of families of homeomorphisms, so that the restriction of $\ev_{X,\cU,\cV} : \CH{X} \tensor \bc_*(X) \to \bc_*(X)$ to the subcomplex $\CH{X} \tensor \bc^{\cV}_*(X)$ has image contained in the small blob complex $\bc^{\cU}_*(X)$.
+\end{lem}
+\begin{rem}
+This says that while we can't quite get a map $\CH{X} \tensor \bc^{\cU}_*(X) \to \bc^{\cU}_*(X)$, we can get by if we give ourselves arbitrarily little room to maneuver, by making the blobs we act on slightly smaller.
+\end{rem}
+\begin{proof}
+\todo{We have to choose the open cover differently for each $k$...}
+We choose yet another open cover, $\cW$, which so fine that the union (disjoint or not) of any one open set $V \in \cV$ with $k$ open sets $W_i \in \cW$ is contained in a disjoint union of open sets of $\cU$.
+\todo{explain why we can do this, and then why it works.}
+\end{proof}
 
 \begin{thm}[Small blobs]
 The inclusion $i: \bc^{\cU}_*(M) \into \bc_*(M)$ is a homotopy equivalence.
@@ -11,6 +23,8 @@ We begin by describing the homotopy inverse in small degrees, to illustrate the 
 We will construct a chain map $s:  \bc_*(M) \to \bc^{\cU}_*(M)$ and a homotopy $h:\bc_*(M) \to \bc_{*+1}(M)$ so that $\bdy h+h \bdy=i\circ s - \id$. The composition $s \circ i$ will just be the identity.
 
 On $0$-blobs, $s$ is just the identity; a blob diagram without any blobs is compatible with any open cover. Nevertheless, we'll begin introducing nomenclature at this point: for configuration $\beta$ of disjoint embedded balls in $M$ we'll associate a one parameter family of homeomorphisms $\phi_\beta : \Delta^1 \to \Homeo(M)$ (here $\Delta^m$ is the standard simplex $\setc{\mathbf{x} \in \Real^{m+1}}{\sum_{i=0}^m x_i = 1}$). For $0$-blobs, where $\beta = \eset$, all these homeomorphisms are just the identity.
+
+\todo{have to decide which open cover we're going to use in the action of homeomorphisms, and then ensure that we make $\beta$ sufficiently small to apply the lemma above.}
 
 On a $1$-blob $b$, with ball $\beta$, $s$ is defined as the sum of two terms. Essentially, the first term `makes $\beta$ small', while the other term `gets the boundary right'. First, pick a one-parameter family $\phi_\beta : \Delta^1 \to \Homeo(M)$ of homeomorphisms, so $\phi_\beta(1,0)$ is the identity and $\phi_\beta(0,1)$ makes the ball $\beta$ small. Next, pick a two-parameter family $\phi_{\eset \prec \beta} : \Delta^2 \to \Homeo(M)$ so that $\phi_{\eset \prec \beta}(0,x_1,x_2)$ makes the ball $\beta$ small for all $x_1+x_2=1$, while $\phi_{\eset \prec \beta}(x_0,0,x_2) = \phi_\eset(x_0,x_2)$ and $\phi_{\eset \prec \beta}(x_0,x_1,0) = \phi_\beta(x_0,x_1)$. (It's perhaps not obvious that this is even possible --- see Lemma \ref{lem:extend-small-homeomorphisms} below.) We now define $s$ by
 $$s(b) = \restrict{\phi_\beta}{x_0=0}(b) + \restrict{\phi_{\eset \prec \beta}}{x_0=0}(\bdy b).$$
