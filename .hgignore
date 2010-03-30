@@ -1,9 +1,16 @@
 # use glob syntax.
 syntax: glob
 
+# temporary files
 *.aux
 *.log
 *.out
 *.synctex.gz
+
+# the article PDF
 blob1.pdf
+
+# bibliograph stuff
+*.bbl
+*.blg
 bibliography
