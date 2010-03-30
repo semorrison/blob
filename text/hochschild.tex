@@ -219,7 +219,7 @@ in $N_\ep$, except perhaps $*$, and $N_\ep$ is either disjoint from or contained
 every blob in the diagram.
 Note that for any chain $x \in \bc_*(S^1)$, $x \in L_*^\ep$ for sufficiently small $\ep$.
 
-We define a degree $1$ chain map $j_\ep: L_*^\ep \to L_*^\ep$ as follows. Let $x \in L_*^\ep$ be a blob diagram.
+We define a degree $1$ map $j_\ep: L_*^\ep \to L_*^\ep$ as follows. Let $x \in L_*^\ep$ be a blob diagram.
 \nn{maybe add figures illustrating $j_\ep$?}
 If $*$ is not contained in any twig blob, we define $j_\ep(x)$ by adding $N_\ep$ as a new twig blob, with label $y - s(y)$ where $y$ is the restriction
 of $x$ to $N_\ep$. If $*$ is contained in a twig blob $B$ with label $u=\sum z_i$,
@@ -242,17 +242,22 @@ these complexes are free) $i \circ s$ is homotopic to the identity.
 \begin{proof}[Proof of Lemma \ref{lem:hochschild-exact}]
 We now prove that $K_*$ is an exact functor.
 
-Essentially, this comes down to the unsurprising fact that the functor on $C$-$C$ bimodules
+As a warm-up, we prove
+that the functor on $C$-$C$ bimodules
 \begin{equation*}
 M \mapsto \ker(C \tensor M \tensor C \xrightarrow{c_1 \tensor m \tensor c_2 \mapsto c_1 m c_2} M)
 \end{equation*}
-is exact. For completeness we'll explain this below.
-
+is exact.
 Suppose we have a short exact sequence of $C$-$C$ bimodules $$\xymatrix{0 \ar[r] & K \ar@{^{(}->}[r]^f & E \ar@{->>}[r]^g & Q \ar[r] & 0}.$$
-We'll write $\hat{f}$ and $\hat{g}$ for the image of $f$ and $g$ under the functor, so $\hat{f}(a \tensor k \tensor b) = a \tensor f(k) \tensor b$, and similarly for $\hat{g}$.
+We'll write $\hat{f}$ and $\hat{g}$ for the image of $f$ and $g$ under the functor, so 
+\[
+	\hat{f}(\textstyle\sum_i a_i \tensor k_i \tensor b_i) = 
+						\textstyle\sum_i a_i \tensor f(k_i) \tensor b_i ,
+\]
+and similarly for $\hat{g}$.
 Most of what we need to check is easy.
 Suppose we have $\sum_i (a_i \tensor k_i \tensor b_i) \in \ker(C \tensor K \tensor C \to K)$, assuming without loss of generality that $\{a_i \tensor b_i\}_i$ is linearly independent in $C \tensor C$, and $\hat{f}(a \tensor k \tensor b) = 0 \in \ker(C \tensor E \tensor C \to E)$. We must then have $f(k_i) = 0 \in E$ for each $i$, which implies $k_i=0$ itself. 
-If $\sum_i (a \tensor e \tensor b) \in \ker(C \tensor E \tensor C \to E)$ is in the image of $\ker(C \tensor K \tensor C \to K)$ under $\hat{f}$, again by assuming the set  $\{a_i \tensor b_i\}_i$ is linearly independent we can deduce that each
+If $\sum_i (a_i \tensor e_i \tensor b_i) \in \ker(C \tensor E \tensor C \to E)$ is in the image of $\ker(C \tensor K \tensor C \to K)$ under $\hat{f}$, again by assuming the set  $\{a_i \tensor b_i\}_i$ is linearly independent we can deduce that each
 $e_i$ is in the image of the original $f$, and so is in the kernel of the original $g$, and so $\hat{g}(\sum_i a_i \tensor e_i \tensor b_i) = 0$.
 If $\hat{g}(\sum_i a_i \tensor e_i \tensor b_i) = 0$, then each $g(e_i) = 0$, so $e_i = f(\widetilde{e_i})$ for some $\widetilde{e_i} \in K$, and $\sum_i a_i \tensor e_i \tensor b_i = \hat{f}(\sum_i a_i \tensor \widetilde{e_i} \tensor b_i)$.
 Finally, the interesting step is in checking that any $q = \sum_i a_i \tensor q_i \tensor b_i$ such that $\sum_i a_i q_i b_i = 0$ is in the image of $\ker(C \tensor E \tensor C \to C)$ under $\hat{g}$.
@@ -285,7 +290,12 @@ We show that $H_0(K_*(M))$ is isomorphic to the coinvariants of $M$.
 
 We define a map $\ev: K_0(M) \to M$. If $x \in K_0(M)$ has the label $m \in M$ at $*$, and labels $c_i \in C$ at the other labeled points of $S^1$, reading clockwise from $*$,
 we set $\ev(x) = m c_1 \cdots c_k$. We can think of this as $\ev : M \tensor C^{\tensor k} \to M$, for each direct summand of $K_0(M)$ indexed by a configuration of labeled points.
-There is a quotient map $\pi: M \to \coinv{M}$, and the composition $\pi \compose \ev$ is well-defined on the quotient $H_0(K_*(M))$; if $y \in K_1(M)$, the blob in $y$ either contains $*$ or does not. If it doesn't, then
+
+There is a quotient map $\pi: M \to \coinv{M}$.
+We claim that the composition $\pi \compose \ev$ is well-defined on the quotient $H_0(K_*(M))$; 
+i.e.\ that $\pi(\ev(\bd y)) = 0$ for all $y \in K_1(M)$.
+There are two cases, depending on whether the blob of $y$ contains the point *.
+If it doesn't, then
 suppose $y$ has label $m$ at $*$, labels $c_i$ at other labeled points outside the blob, and the field inside the blob is a sum, with the $j$-th term having
 labeled points $d_{j,i}$. Then $\sum_j d_{j,1} \tensor \cdots \tensor d_{j,k_j} \in \ker(\DirectSum_k C^{\tensor k} \to C)$, and so
 $\ev(\bdy y) = 0$, because $$C^{\tensor \ell_1} \tensor \ker(\DirectSum_k C^{\tensor k} \to C) \tensor C^{\tensor \ell_2} \subset \ker(\DirectSum_k C^{\tensor k} \to C).$$
@@ -332,7 +342,7 @@ s_\ep(y) & = \mathfig{0.2}{hochschild/sy}
 \label{fig:sy}
 \end{figure}
 
-Define a degree 1 chain map $j_\ep : K_*^\ep \to K_*^\ep$ as follows.
+Define a degree 1 map $j_\ep : K_*^\ep \to K_*^\ep$ as follows.
 Let $x \in K_*^\ep$ be a blob diagram.
 If $*$ is not contained in any twig blob, $j_\ep(x)$ is obtained by adding $N_\ep$ to
 $x$ as a new twig blob, with label $y - s_\ep(y)$, where $y$ is the restriction of $x$ to $N_\ep$.
