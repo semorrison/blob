@@ -192,16 +192,19 @@ boundaries contain *, on both the right and left of *.
 
 We claim that $J_*$ is homotopy equivalent to $\bc_*(S^1)$.
 Let $F_*^\ep \sub \bc_*(S^1)$ be the subcomplex where either
-(a) the point * is not the left boundary of any blob or
-(b) there are no labeled points to the right of * within distance $\ep$.
+(a) the point * is not on the boundary of any blob or
+(b) there are no labeled points or blob boundaries within distance $\ep$ of *.
 Note that all blob diagrams are in $F_*^\ep$ for $\ep$ sufficiently small.
+Let $b$ be a blob diagram in $F_*^\ep$.
+Define $f(b)$ to be the result of moving any blob boundary points which lie on *
+to distance $\ep$ from *.
+(Move right or left so as to shrink the blob.)
+Extend to get a chain map $f: F_*^\ep \to F_*^\ep$.
+By Lemma \ref{support-shrink}, $f$ is homotopic to the identity.
+Since the image of $f$ is in $J_*$, and since any blob chain is in $F_*^\ep$
+for $\ep$ sufficiently small, we have that $J_*$ is homotopic to all of $\bc_*(S^1)$.
 
-
-\nn{...}
-
-
-
-We want to define a homotopy inverse $s: \bc_*(S^1) \to K_*(C)$ to the inclusion.
+We now define a homotopy inverse $s: J_* \to K_*(C)$ to the inclusion $i$.
 If $y$ is a field defined on a neighborhood of *, define $s(y) = y$ if
 * is a labeled point in $y$.
 Otherwise, define $s(y)$ to be the result of adding a label 1 (identity morphism) at *.
@@ -215,7 +218,6 @@ where there are no labeled points
 in $N_\ep$, except perhaps $*$, and $N_\ep$ is either disjoint from or contained in 
 every blob in the diagram.
 Note that for any chain $x \in \bc_*(S^1)$, $x \in L_*^\ep$ for sufficiently small $\ep$.
-\nn{what if * is on boundary of a blob?  need preliminary homotopy to prevent this.}
 
 We define a degree $1$ chain map $j_\ep: L_*^\ep \to L_*^\ep$ as follows. Let $x \in L_*^\ep$ be a blob diagram.
 \nn{maybe add figures illustrating $j_\ep$?}
