@@ -1,14 +1,16 @@
 %!TEX root = ../blob1.tex
 \nn{Not sure where this goes yet: small blobs, unfinished:}
 
-Fix $\cU$, an open cover of $M$. Define the `small blob complex' $\bc^{\cU}_*(M)$ to be the subcomplex of $\bc_*(M)$ of all blob diagrams in which every blob is contained in some open set of $\cU$. Say that an open cover $\cV$ is strictly subordinate to $\cU$ if every open set of $\cV$ is contained in some closed set which is contained in some open set of $\cU$.
+Fix $\cU$, an open cover of $M$. Define the `small blob complex' $\bc^{\cU}_*(M)$ to be the subcomplex of $\bc_*(M)$ of all blob diagrams in which every blob is contained in some open set of $\cU$. Say that an open cover $\cV$ is strictly subordinate to $\cU$ if the closure of every open set of $\cV$ is contained in some open set of $\cU$.
 
 \begin{lem}
 \label{lem:CH-small-blobs}
-For any open cover $\cU$ of $M$ and strictly subordinate open cover $\cV$, and for any $k \in \Natural$, we can choose an up-to-homotopy representative $\ev_{M,\cU,\cV,k}$ of the chain map $\ev_M$ of Property \ref{property:evaluation} which gives the action of families of homeomorphisms, which restricts to give a map $$\ev_{M,\cU,\cV,k} : C_{*\leq k}(\Homeo(M)) \tensor \bc^{\cV}_*(M) \to \bc^{\cU}_*(M).$$
+Fix an open cover $\cU$, and a sequence $\cV_k$ of open covers which are each strictly subordinate to $\cU$. For a given $k$, consider $\cG_k$ the subspace of $C_k(\Homeo(M)) \tensor \bc_*(M)$ spanned by $f \tensor b$, where $f:P^k \times M \to M$ is a $k$-parameter family of homeomorphisms such that for each $p \in P$, $f(p, -)$ makes $b$ small with respect to $\cV_k$. We can choose an up-to-homotopy representative $\ev$ of the chain map of Property \ref{property:evaluation} which gives the action of families of homeomorphisms, which restricts to give a map
+$$\ev : \cG_k \subset C_k(\Homeo(M)) \tensor \bc_*(M) \to \bc^{\cU}_*(M)$$
+for each $k$.
 \end{lem}
 \begin{rem}
-This says that while we can't quite get a map $\CH{M} \tensor \bc^{\cU}_*(M) \to \bc^{\cU}_*(M)$, we can get by if we give ourselves arbitrarily little room to maneuver, by making the blobs we act on slightly smaller.
+We can't quite do the same with all $\cV_k$ just equal to $\cU$, but we can get by if we give ourselves arbitrarily little room to maneuver, by making the blobs we act on slightly smaller.
 \end{rem}
 \begin{proof}
 We choose yet another open cover, $\cW$, which so fine that the union (disjoint or not) of any one open set $V \in \cV$ with $k$ open sets $W_i \in \cW$ is contained in a disjoint union of open sets of $\cU$.
@@ -27,9 +29,9 @@ On $0$-blobs, $s$ is just the identity; a blob diagram without any blobs is comp
 
 When $\beta$ is a collection of disjoint embedded balls in $M$, we say that a homeomorphism of $M$ `makes $\beta$ small' if the image of each ball in $\beta$ under the homeomorphism is contained in some open set of $\cU$. Further, we'll say a homeomorphism `makes $\beta$ $\epsilon$-small' if the image of each ball is contained in some open ball of radius $\epsilon$.
 
-On a $1$-blob $b$, with ball $\beta$, $s$ is defined as the sum of two terms. Essentially, the first term `makes $\beta$ small', while the other term `gets the boundary right'. First, pick a one-parameter family $\phi_\beta : \Delta^1 \to \Homeo(M)$ of homeomorphisms, so $\phi_\beta(1,0)$ is the identity and $\phi_\beta(0,1)$ makes the ball $\beta$ small --- in fact, not just small with respect to $\cU$, but $\epsilon/2$-small, where $\epsilon > 0$ is such that every $\epsilon$ ball is contained in some open set of $\cU$. Next, pick a two-parameter family $\phi_{\eset \prec \beta} : \Delta^2 \to \Homeo(M)$ so that $\phi_{\eset \prec \beta}(0,x_1,x_2)$ makes the ball $\beta$ $\frac{3\epsilon}{4}$-small for all $x_1+x_2=1$, while $\phi_{\eset \prec \beta}(x_0,0,x_2) = \phi_\eset(x_0,x_2)$ and $\phi_{\eset \prec \beta}(x_0,x_1,0) = \phi_\beta(x_0,x_1)$. (It's perhaps not obvious that this is even possible --- see Lemma \ref{lem:extend-small-homeomorphisms} below.) We now define $s$ by
+On a $1$-blob $b$, with ball $\beta$, $s$ is defined as the sum of two terms. Essentially, the first term `makes $\beta$ small', while the other term `gets the boundary right'. First, pick a one-parameter family $\phi_\beta : \Delta^1 \to \Homeo(M)$ of homeomorphisms, so $\phi_\beta(1,0)$ is the identity and $\phi_\beta(0,1)$ makes the ball $\beta$-small --- in fact, not just small with respect to $\cU$, but $\epsilon/2$-small, where $\epsilon > 0$ is such that every $\epsilon$-ball is contained in some open set of $\cU$. Next, pick a two-parameter family $\phi_{\eset \prec \beta} : \Delta^2 \to \Homeo(M)$ so that $\phi_{\eset \prec \beta}(0,x_1,x_2)$ makes the ball $\beta$ $\frac{3\epsilon}{4}$-small for all $x_1+x_2=1$, while $\phi_{\eset \prec \beta}(x_0,0,x_2) = \phi_\eset(x_0,x_2)$ and $\phi_{\eset \prec \beta}(x_0,x_1,0) = \phi_\beta(x_0,x_1)$. (It's perhaps not obvious that this is even possible --- see Lemma \ref{lem:extend-small-homeomorphisms} below.) We now define $s$ by
 $$s(b) = \restrict{\phi_\beta}{x_0=0}(b) + \restrict{\phi_{\eset \prec \beta}}{x_0=0}(\bdy b).$$
-Here, $\restrict{\phi_\beta}{x_0=0} = \phi_\beta(0,1)$ is just a homeomorphism, which we apply to $b$, while $\restrict{\phi_{\eset \prec \beta}}{x_0=0}$ is a one parameter family of homeomorphisms which acts on the $0$-blob $\bdy b$ to give a $1$-blob. To be precise, this action is via the chain map identified in Lemma \ref{lem:CH-small-blobs} as $\ev_{M, \cU, \cV, 1}$, where $\cV$ is the open cover by $\epsilon/2$ balls. From this, it is immediate that $s(b) \in \bc^{\cU}_1(M)$, as desired.
+Here, $\restrict{\phi_\beta}{x_0=0} = \phi_\beta(0,1)$ is just a homeomorphism, which we apply to $b$, while $\restrict{\phi_{\eset \prec \beta}}{x_0=0}$ is a one parameter family of homeomorphisms which acts on the $0$-blob $\bdy b$ to give a $1$-blob. To be precise, this action is via the chain map identified in Lemma \ref{lem:CH-small-blobs} with $\cV_0$ the open cover by $\epsilon/2$-balls and $\cV_1$ the open cover by $\frac{3\epsilon}{4}$-balls. From this, it is immediate that $s(b) \in \bc^{\cU}_1(M)$, as desired.
 
 We now check that $s$, as defined so far, is a chain map, calculating
 \begin{align*}
@@ -39,9 +41,8 @@ We now check that $s$, as defined so far, is a chain map, calculating
 		 & = s(\bdy b)
 \end{align*}
 Next, we compute the compositions $s \circ i$ and $i \circ s$. If we start with a small $1$-blob diagram $b$, first include it up to the full blob complex then apply $s$, we get exactly back to $b$, at least assuming we adopt the convention that for any ball $\beta$ which is already small, we choose the families of homeomorphisms $\phi_\beta$ and $\phi_{\eset \prec \beta}$ to always be the identity. In the other direction, $i \circ s$, we will need to construct a homotopy $h:\bc_*(M) \to \bc_{*+1}(M)$ for $*=0$ or $1$.
-In what follows, it will be necessary to use different actions of families of homeomorphisms at different stages. We'll write $\ev_k$ for the chain map $\ev_{M,\cU, \cV_k, k}$ from Lemma \ref{lem:CH-small-blobs}, where $\cV_k$ is the open cover by $\epsilon(1-2^{-k})$ balls.
 
-The homotopy $h$ is defined by $$h(b) = \ev_1(\phi_\eset, b)$$ when $b$ is a $0$-blob (here $\phi_\eset$ is a one parameter family of homeomorphisms, so this is a $1$-blob), and $$h(b) = \ev_1(\phi_\beta,b) + \ev_2(\phi_{\eset \prec \beta},\bdy b)$$ when $b$ is a $1$-blob (here $\beta$ is the ball in $b$, and the first term is the action of a one parameter family of homeomorphisms on a $1$-blob, and the second term is the action of a two parameter family of homeomorphisms on a $0$-blob, so both are $2$-blobs).
+The homotopy $h$ is defined by $$h(b) = \phi_\eset(b)$$ when $b$ is a $0$-blob (here $\phi_\eset$ is a one parameter family of homeomorphisms, so this is a $1$-blob), and $$h(b) = \phi_\beta(b) + \phi_{\eset \prec \beta}(\bdy b)$$ when $b$ is a $1$-blob (here $\beta$ is the ball in $b$, and the first term is the action of a one parameter family of homeomorphisms on a $1$-blob, and the second term is the action of a two parameter family of homeomorphisms on a $0$-blob, so both are $2$-blobs).
 \begin{align*}
 (\bdy h+h \bdy)(b) & = \bdy (\phi_{\beta}(b) + \phi_{\eset \prec \beta}(\bdy b)) + \phi_\eset(\bdy b)  \\
 	& =  \restrict{\phi_\beta}{x_0=0}(b) - \restrict{\phi_\beta}{x_1=0}(b) - \phi_\beta(\bdy b) + (\bdy \phi_{\eset \prec \beta})(\bdy b) + \phi_\eset(\bdy b) \\
