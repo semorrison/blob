@@ -5,7 +5,6 @@
 
 Let $CH_*(X, Y)$ denote $C_*(\Homeo(X \to Y))$, the singular chain complex of
 the space of homeomorphisms
-\nn{need to fix the diff vs homeo inconsistency}
 between the $n$-manifolds $X$ and $Y$ (extending a fixed homeomorphism $\bd X \to \bd Y$).
 For convenience, we will permit the singular cells generating $CH_*(X, Y)$ to be more general
 than simplices --- they can be based on any linear polyhedron.
@@ -15,53 +14,38 @@ We also will use the abbreviated notation $CH_*(X) \deq CH_*(X, X)$.
 \begin{prop}  \label{CHprop}
 For $n$-manifolds $X$ and $Y$ there is a chain map
 \eq{
-    e_{XY} : CH_*(X, Y) \otimes \bc_*(X) \to \bc_*(Y) .
+    e_{XY} : CH_*(X, Y) \otimes \bc_*(X) \to \bc_*(Y)
 }
-On $CH_0(X, Y) \otimes \bc_*(X)$ it agrees with the obvious action of $\Homeo(X, Y)$ on $\bc_*(X)$
-(Proposition (\ref{diff0prop})).
-For any compatible splittings $X\to X\sgl$ and $Y\to Y\sgl$, 
+such that
+\begin{enumerate}
+\item on $CH_0(X, Y) \otimes \bc_*(X)$ it agrees with the obvious action of 
+$\Homeo(X, Y)$ on $\bc_*(X)$ (Proposition (\ref{diff0prop})), and
+\item for any compatible splittings $X\to X\sgl$ and $Y\to Y\sgl$, 
 the following diagram commutes up to homotopy
 \eq{ \xymatrix{
-     CH_*(X\sgl, Y\sgl) \otimes \bc_*(X\sgl) \ar[r]^(.7){e_{X\sgl Y\sgl}}    & \bc_*(Y\sgl) \\
+     CH_*(X\sgl, Y\sgl) \otimes \bc_*(X\sgl) \ar[r]^(.7){e_{X\sgl Y\sgl}}  \ar[d]^{\gl \otimes \gl}   & \bc_*(Y\sgl)  \ar[d]_{\gl} \\
       CH_*(X, Y) \otimes \bc_*(X)
-        \ar@/_4ex/[r]_{e_{XY}}  \ar[u]^{\gl \otimes \gl}  &
-            \bc_*(Y) \ar[u]_{\gl}
+        \ar@/_4ex/[r]_{e_{XY}}   &
+            \bc_*(Y)
 } }
-%For any splittings $X = X_1 \cup X_2$ and $Y = Y_1 \cup Y_2$, 
-%the following diagram commutes up to homotopy
-%\eq{ \xymatrix{
-%     CH_*(X, Y) \otimes \bc_*(X) \ar[r]^{e_{XY}}    & \bc_*(Y) \\
-%     CH_*(X_1, Y_1) \otimes CH_*(X_2, Y_2) \otimes \bc_*(X_1) \otimes \bc_*(X_2)
-%        \ar@/_4ex/[r]_{e_{X_1Y_1} \otimes e_{X_2Y_2}}  \ar[u]^{\gl \otimes \gl}  &
-%            \bc_*(Y_1) \otimes \bc_*(Y_2) \ar[u]_{\gl}
-%} }
-Any other map satisfying the above two properties is homotopic to $e_X$.
+\end{enumerate}
+Up to (iterated) homotopy, there is a unique family $\{e_{XY}\}$ of chain maps
+satisfying the above two conditions.
 \end{prop}
 
-\nn{need to rewrite for self-gluing instead of gluing two pieces together}
-
-\nn{Should say something stronger about uniqueness.
-Something like: there is
-a contractible subcomplex of the complex of chain maps
-$CH_*(X) \otimes \bc_*(X) \to \bc_*(X)$ (0-cells are the maps, 1-cells are homotopies, etc.),
-and all choices in the construction lie in the 0-cells of this
-contractible subcomplex.
-Or maybe better to say any two choices are homotopic, and
-any two homotopies and second order homotopic, and so on.}
 
 \nn{Also need to say something about associativity.
 Put it in the above prop or make it a separate prop?
 I lean toward the latter.}
 \medskip
 
-The proof will occupy the remainder of this section.
-\nn{unless we put associativity prop at end}
-
+The proof will occupy the the next several pages.
 Without loss of generality, we will assume $X = Y$.
 
 \medskip
 
-Let $f: P \times X \to X$ be a family of homeomorphisms and $S \sub X$.
+Let $f: P \times X \to X$ be a family of homeomorphisms (e.g. a generator of $CH_*(X)$)
+and let $S \sub X$.
 We say that {\it $f$ is supported on $S$} if $f(p, x) = f(q, x)$ for all
 $x \notin S$ and $p, q \in P$. Equivalently, $f$ is supported on $S$ if there is a family of homeomorphisms $f' : P \times S \to S$ and a `background'
 homeomorphism $f_0 : X \to X$ so that
