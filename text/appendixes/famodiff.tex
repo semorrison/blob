@@ -2,6 +2,63 @@
 
 \section{Families of Diffeomorphisms}  \label{sec:localising}
 
+
+\medskip
+\hrule
+\medskip
+\nn{the following was removed from earlier section; it should be reincorporated somehwere
+in this section}
+
+Let $\cU = \{U_\alpha\}$ be an open cover of $X$.
+A $k$-parameter family of homeomorphisms $f: P \times X \to X$ is
+{\it adapted to $\cU$} if there is a factorization
+\eq{
+    P = P_1 \times \cdots \times P_m
+}
+(for some $m \le k$)
+and families of homeomorphisms
+\eq{
+    f_i :  P_i \times X \to X
+}
+such that
+\begin{itemize}
+\item each $f_i$ is supported on some connected $V_i \sub X$;
+\item the sets $V_i$ are mutually disjoint;
+\item each $V_i$ is the union of at most $k_i$ of the $U_\alpha$'s,
+where $k_i = \dim(P_i)$; and
+\item $f(p, \cdot) = g \circ f_1(p_1, \cdot) \circ \cdots \circ f_m(p_m, \cdot)$
+for all $p = (p_1, \ldots, p_m)$, for some fixed $g \in \Homeo(X)$.
+\end{itemize}
+A chain $x \in CH_k(X)$ is (by definition) adapted to $\cU$ if it is the sum
+of singular cells, each of which is adapted to $\cU$.
+\medskip
+\hrule
+\medskip
+\nn{another refugee:}
+
+We will actually prove the following more general result.
+Let $S$ and $T$ be an arbitrary topological spaces.
+%\nn{might need to restrict $S$; the proof uses partition of unity on $S$;
+%check this; or maybe just restrict the cover}
+Let $CM_*(S, T)$ denote the singular chains on the space of continuous maps
+from $S$ to $T$.
+Let $\cU$ be an open cover of $S$ which affords a partition of unity.
+\nn{for some $S$ and $\cU$ there is no partition of unity?  like if $S$ is not paracompact?
+in any case, in our applications $S$ will always be a manifold}
+
+\begin{lemma}  \label{extension_lemma_b}
+Let $x \in CM_k(S, T)$ be a singular chain such that $\bd x$ is adapted to $\cU$.
+Then $x$ is homotopic (rel boundary) to some $x' \in CM_k(S, T)$ which is adapted to $\cU$.
+Furthermore, one can choose the homotopy so that its support is equal to the support of $x$.
+If $S$ and $T$ are manifolds, the statement remains true if we replace $CM_*(S, T)$ with
+chains of smooth maps or immersions.
+\end{lemma}
+
+\medskip
+\hrule
+\medskip
+
+
 In this appendix we provide the proof of
 \nn{should change this to the more general \ref{extension_lemma_b}}
 

@@ -49,39 +49,21 @@ and let $S \sub X$.
 We say that {\it $f$ is supported on $S$} if $f(p, x) = f(q, x)$ for all
 $x \notin S$ and $p, q \in P$. Equivalently, $f$ is supported on $S$ if there is a family of homeomorphisms $f' : P \times S \to S$ and a `background'
 homeomorphism $f_0 : X \to X$ so that
-\begin{align}
+\begin{align*}
 	f(p,s) & = f_0(f'(p,s)) \;\;\;\; \mbox{for}\; (p, s) \in P\times S \\
 \intertext{and}
 	f(p,x) & = f_0(x) \;\;\;\; \mbox{for}\; (p, x) \in {P \times (X \setmin S)}.
-\end{align}
+\end{align*}
 Note that if $f$ is supported on $S$ then it is also supported on any $R \sup S$.
+(So when we talk about ``the" support of a family, there is some ambiguity,
+but this ambiguity will not matter to us.)
 
 Let $\cU = \{U_\alpha\}$ be an open cover of $X$.
 A $k$-parameter family of homeomorphisms $f: P \times X \to X$ is
-{\it adapted to $\cU$} if there is a factorization
-\eq{
-    P = P_1 \times \cdots \times P_m
-}
-(for some $m \le k$)
-and families of homeomorphisms
-\eq{
-    f_i :  P_i \times X \to X
-}
-such that
-\begin{itemize}
-\item each $f_i$ is supported on some connected $V_i \sub X$;
-\item the sets $V_i$ are mutually disjoint;
-\item each $V_i$ is the union of at most $k_i$ of the $U_\alpha$'s,
-where $k_i = \dim(P_i)$; and
-\item $f(p, \cdot) = g \circ f_1(p_1, \cdot) \circ \cdots \circ f_m(p_m, \cdot)$
-for all $p = (p_1, \ldots, p_m)$, for some fixed $g \in \Homeo(X)$.
-\end{itemize}
-A chain $x \in CH_k(X)$ is (by definition) adapted to $\cU$ if it is the sum
-of singular cells, each of which is adapted to $\cU$.
-
-(Actually, in this section we will only need families of homeomorphisms to be 
-{\it weakly adapted} to $\cU$, meaning that the support of $f$ is contained in the union
-of at most $k$ of the $U_\alpha$'s.)
+{\it adapted to $\cU$} 
+\nn{or `weakly adapted'; need to decide on terminology}
+if the support of $f$ is contained in the union
+of at most $k$ of the $U_\alpha$'s.
 
 \begin{lemma}  \label{extension_lemma}
 Let $x \in CH_k(X)$ be a singular chain such that $\bd x$ is adapted to $\cU$.
@@ -89,25 +71,7 @@ Then $x$ is homotopic (rel boundary) to some $x' \in CH_k(X)$ which is adapted t
 Furthermore, one can choose the homotopy so that its support is equal to the support of $x$.
 \end{lemma}
 
-The proof will be given in Section \ref{sec:localising}.
-We will actually prove the following more general result.
-Let $S$ and $T$ be an arbitrary topological spaces.
-%\nn{might need to restrict $S$; the proof uses partition of unity on $S$;
-%check this; or maybe just restrict the cover}
-Let $CM_*(S, T)$ denote the singular chains on the space of continuous maps
-from $S$ to $T$.
-Let $\cU$ be an open cover of $S$ which affords a partition of unity.
-\nn{for some $S$ and $\cU$ there is no partition of unity?  like if $S$ is not paracompact?
-in any case, in our applications $S$ will always be a manifold}
-
-\begin{lemma}  \label{extension_lemma_b}
-Let $x \in CM_k(S, T)$ be a singular chain such that $\bd x$ is adapted to $\cU$.
-Then $x$ is homotopic (rel boundary) to some $x' \in CM_k(S, T)$ which is adapted to $\cU$.
-Furthermore, one can choose the homotopy so that its support is equal to the support of $x$.
-If $S$ and $T$ are manifolds, the statement remains true if we replace $CM_*(S, T)$ with
-chains of smooth maps or immersions.
-\end{lemma}
-
+The proof will be given in Appendix \ref{sec:localising}.
 
 \medskip
 
@@ -120,6 +84,7 @@ Suppose that there exists $V \sub X$ such that
 \item $V$ is homeomorphic to a disjoint union of balls, and
 \item $\supp(p) \cup \supp(b) \sub V$.
 \end{enumerate}
+(Recall that $\supp(b)$ is defined to be the union of the blobs of the diagram $b$.)
 Let $W = X \setmin V$, $W' = p(W)$ and $V' = X\setmin W'$.
 We then have a factorization 
 \[
@@ -151,7 +116,7 @@ Thus the conditions of the proposition determine (up to homotopy) the evaluation
 map for generators $p\otimes b$ such that $\supp(p) \cup \supp(b)$ is contained in a disjoint
 union of balls.
 On the other hand, Lemma \ref{extension_lemma} allows us to homotope 
-\nn{is this commonly used as a verb?} arbitrary generators to sums of generators with this property.
+arbitrary generators to sums of generators with this property.
 \nn{should give a name to this property; also forward reference}
 This (roughly) establishes the uniqueness part of the proposition.
 To show existence, we must show that the various choices involved in constructing
@@ -159,7 +124,7 @@ evaluation maps in this way affect the final answer only by a homotopy.
 
 \nn{maybe put a little more into the outline before diving into the details.}
 
-\nn{Note: At the moment this section is very inconsistent with respect to PL versus smooth, etc
+\noop{Note: At the moment this section is very inconsistent with respect to PL versus smooth, etc
 We expect that everything is true in the PL category, but at the moment our proof
 avails itself to smooth techniques.
 Furthermore, it traditional in the literature to speak of $C_*(\Diff(X))$
