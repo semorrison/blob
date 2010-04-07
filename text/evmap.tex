@@ -3,6 +3,15 @@
 \section{Action of \texorpdfstring{$\CH{X}$}{$C_*(Homeo(M))$}}
 \label{sec:evaluation}
 
+\nn{should comment at the start about any assumptions about smooth, PL etc.}
+
+\noop{Note: At the moment this section is very inconsistent with respect to PL versus smooth, etc
+We expect that everything is true in the PL category, but at the moment our proof
+avails itself to smooth techniques.
+Furthermore, it traditional in the literature to speak of $C_*(\Diff(X))$
+rather than $C_*(\Homeo(X))$.}
+
+
 Let $CH_*(X, Y)$ denote $C_*(\Homeo(X \to Y))$, the singular chain complex of
 the space of homeomorphisms
 between the $n$-manifolds $X$ and $Y$ (extending a fixed homeomorphism $\bd X \to \bd Y$).
@@ -79,13 +88,15 @@ Before diving into the details, we outline our strategy for the proof of Proposi
 
 %Suppose for the moment that evaluation maps with the advertised properties exist.
 Let $p$ be a singular cell in $CH_k(X)$ and $b$ be a blob diagram in $\bc_*(X)$.
-Suppose that there exists $V \sub X$ such that
-\begin{enumerate}
+We say that $p\ot b$ is {\it localizable} if there exists $V \sub X$ such that
+\begin{itemize}
 \item $V$ is homeomorphic to a disjoint union of balls, and
 \item $\supp(p) \cup \supp(b) \sub V$.
-\end{enumerate}
+\end{itemize}
 (Recall that $\supp(b)$ is defined to be the union of the blobs of the diagram $b$.)
-Let $W = X \setmin V$, $W' = p(W)$ and $V' = X\setmin W'$.
+
+Assuming that $p\ot b$ is localizable as above, 
+let $W = X \setmin V$, $W' = p(W)$ and $V' = X\setmin W'$.
 We then have a factorization 
 \[
 	p = \gl(q, r),
@@ -113,22 +124,39 @@ such that
 \]
 
 Thus the conditions of the proposition determine (up to homotopy) the evaluation
-map for generators $p\otimes b$ such that $\supp(p) \cup \supp(b)$ is contained in a disjoint
-union of balls.
+map for localizable generators $p\otimes b$.
 On the other hand, Lemma \ref{extension_lemma} allows us to homotope 
-arbitrary generators to sums of generators with this property.
-\nn{should give a name to this property; also forward reference}
+arbitrary generators to sums of localizable generators.
 This (roughly) establishes the uniqueness part of the proposition.
 To show existence, we must show that the various choices involved in constructing
 evaluation maps in this way affect the final answer only by a homotopy.
 
-\nn{maybe put a little more into the outline before diving into the details.}
+Now for a little more detail.
+(But we're still just motivating the full, gory details, which will follow.)
+Choose a metric on $X$, and let $\cU_\gamma$ be the open cover of by balls of radius $\gamma$.
+By Lemma \ref{extension_lemma} we can restrict our attention to $k$-parameter families 
+$p$ of homeomorphisms such that $\supp(p)$ is contained in the union of $k$ $\gamma$-balls.
+For fixed blob diagram $b$ and fixed $k$, it's not hard to show that for $\gamma$ small enough
+$p\ot b$ must be localizable.
+On the other hand, for fixed $k$ and $\gamma$ there exist $p$ and $b$ such that $p\ot b$ is not localizable,
+and for fixed $\gamma$ and $b$ there exist non-localizable $p\ot b$ for sufficiently large $k$.
+Thus we will need to take an appropriate limit as $\gamma$ approaches zero.
 
-\noop{Note: At the moment this section is very inconsistent with respect to PL versus smooth, etc
-We expect that everything is true in the PL category, but at the moment our proof
-avails itself to smooth techniques.
-Furthermore, it traditional in the literature to speak of $C_*(\Diff(X))$
-rather than $C_*(\Homeo(X))$.}
+The construction of $e_X$, as outlined above, depends on various choices, one of which 
+is the choice, for each localizable generator $p\ot b$, 
+of disjoint balls $V$ containing $\supp(p)\cup\supp(b)$.
+Let $V'$ be another disjoint union of balls containing $\supp(p)\cup\supp(b)$,
+and assume that there exists yet another disjoint union of balls $W$ with $W$ containing 
+$V\cup V'$.
+Then we can use $W$ to construct a homotopy between the two versions of $e_X$ 
+associated to $V$ and $V'$.
+If we impose no constraints on $V$ and $V'$ then such a $W$ need not exist.
+Thus we will insist below that $V$ (and $V'$) be contained in small metric neighborhoods
+of $\supp(p)\cup\supp(b)$.
+Because we want not mere homotopy uniqueness but iterated homotopy uniqueness,
+we will similarly require that $W$ be contained in a slightly larger metric neighborhood of 
+$\supp(p)\cup\supp(b)$, and so on.
+
 
 \medskip
 
