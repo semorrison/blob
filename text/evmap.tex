@@ -176,7 +176,8 @@ define
 \[
 	N_{i,l}(p\ot b) \deq \Nbd_{l\ep_i}(|b|) \cup \Nbd_{\phi_l\delta_i}(|p|).
 \]
-In other words, we use the metric to choose nested neighborhoods of $|b|\cup |p|$ (parameterized
+In other words, for each $i$
+we use the metric to choose nested neighborhoods of $|b|\cup |p|$ (parameterized
 by $l$), with $\ep_i$ controlling the size of the buffers around $|b|$ and $\delta_i$ controlling
 the size of the buffers around $|p|$.
 
@@ -225,7 +226,7 @@ For all $j$,
 (The second inclusion uses the facts that $|p_j| \subeq |p|$ and $|b_j| \subeq |b|$.)
 We therefore have splittings
 \[
-	p = p'\bullet p'' , \;\; b = b'\bullet b'' , \;\; e(\bd(p\ot b)) = f'\bullet b'' ,
+	p = p'\bullet p'' , \;\; b = b'\bullet b'' , \;\; e(\bd(p\ot b)) = f'\bullet f'' ,
 \]
 where $p' \in CH_*(V)$, $p'' \in CH_*(X\setmin V)$, 
 $b' \in \bc_*(V)$, $b'' \in \bc_*(X\setmin V)$, 
@@ -315,7 +316,7 @@ Next we show how to homotope chains in $CH_*(X)\ot \bc_*(X)$ to one of the
 $G_*^{i,m}$.
 Choose a monotone decreasing sequence of real numbers $\gamma_j$ converging to zero.
 Let $\cU_j$ denote the open cover of $X$ by balls of radius $\gamma_j$.
-Let $h_j: CH_*(X)\to CH_*(X)$ be a chain map homotopic to the identity whose image is spanned by homeomorphisms with support compatible with $\cU_j$, as described in Lemma \ref{xxxxx}.
+Let $h_j: CH_*(X)\to CH_*(X)$ be a chain map homotopic to the identity whose image is spanned by families of homeomorphisms with support compatible with $\cU_j$, as described in Lemma \ref{xxxxx}.
 Recall that $h_j$ and also the homotopy connecting it to the identity do not increase
 supports.
 Define
@@ -324,8 +325,8 @@ Define
 \]
 The next lemma says that for all generators $p\ot b$ we can choose $j$ large enough so that
 $g_j(p)\ot b$ lies in $G_*^{i,m}$, for arbitrary $m$ and sufficiently large $i$ 
-(depending on $b$, $n = \deg(p)$ and $m$).
-(Note: Don't confuse this $n$ with the top dimension $n$ used elsewhere in this paper.)
+(depending on $b$, $\deg(p)$ and $m$).
+%(Note: Don't confuse this $n$ with the top dimension $n$ used elsewhere in this paper.)
 
 \begin{lemma} \label{Gim_approx}
 Fix a blob diagram $b$, a homotopy order $m$ and a degree $n$ for $CH_*(X)$.
@@ -341,7 +342,7 @@ and all such $c$.
 (Here we are using a piecewise smoothness assumption for $\bd c$, and also
 the fact that $\bd c$ is collared.
 We need to consider all such $c$ because all generators appearing in
-iterated boundaries of must be in $G_*^{i,m}$.)
+iterated boundaries of $p\ot b$ must be in $G_*^{i,m}$.)
 
 Let $r = \deg(b)$ and 
 \[
