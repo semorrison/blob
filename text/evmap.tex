@@ -5,20 +5,13 @@
 
 \nn{should comment at the start about any assumptions about smooth, PL etc.}
 
-\noop{Note: At the moment this section is very inconsistent with respect to PL versus smooth, etc
-We expect that everything is true in the PL category, but at the moment our proof
-avails itself to smooth techniques.
-Furthermore, it traditional in the literature to speak of $C_*(\Diff(X))$
-rather than $C_*(\Homeo(X))$.}
-
-
 Let $CH_*(X, Y)$ denote $C_*(\Homeo(X \to Y))$, the singular chain complex of
 the space of homeomorphisms
 between the $n$-manifolds $X$ and $Y$ (extending a fixed homeomorphism $\bd X \to \bd Y$).
-For convenience, we will permit the singular cells generating $CH_*(X, Y)$ to be more general
-than simplices --- they can be based on any linear polyhedron.
-\nn{be more restrictive here?  does more need to be said?}
 We also will use the abbreviated notation $CH_*(X) \deq CH_*(X, X)$.
+(For convenience, we will permit the singular cells generating $CH_*(X, Y)$ to be more general
+than simplices --- they can be based on any linear polyhedron.
+\nn{be more restrictive here?  does more need to be said?})
 
 \begin{prop}  \label{CHprop}
 For $n$-manifolds $X$ and $Y$ there is a chain map
@@ -204,7 +197,9 @@ The parameter $m$ controls the number of iterated homotopies we are able to cons
 The larger $i$ is (i.e.\ the smaller $\ep_i$ is), the better $G_*^{i,m}$ approximates all of
 $CH_*(X)\ot \bc_*(X)$ (see Lemma \ref{Gim_approx}).
 
-Next we define a chain map (dependent on some choices) $e: G_*^{i,m} \to \bc_*(X)$.
+Next we define a chain map (dependent on some choices) $e_{i,m}: G_*^{i,m} \to \bc_*(X)$.
+(When the domain is clear from context we will drop the subscripts and write
+simply  $e: G_*^{i,m} \to \bc_*(X)$).
 Let $p\ot b \in G_*^{i,m}$.
 If $\deg(p) = 0$, define
 \[
@@ -309,8 +304,9 @@ The $j$-th order homotopy is constructed similarly, with $V_j$ replacing $V_1$ a
 \end{proof}
 
 Note that on $G_*^{i,m+1} \subeq G_*^{i,m}$, we have defined two maps,
-call them $e_{i,m}$ and $e_{i,m+1}$.
-An easy variation on the above lemma shows that $e_{i,m}$ and $e_{i,m+1}$ are $m$-th 
+$e_{i,m}$ and $e_{i,m+1}$.
+An easy variation on the above lemma shows that 
+the restrictions of $e_{i,m}$ and $e_{i,m+1}$ to $G_*^{i,m+1}$ are $m$-th 
 order homotopic.
 
 Next we show how to homotope chains in $CH_*(X)\ot \bc_*(X)$ to one of the 
@@ -435,6 +431,7 @@ Hence $\Nbd_a(S)$ is star-shaped with respect to $y$.
 
 If we replace $\ebb^n$ above with an arbitrary compact Riemannian manifold $M$,
 the same result holds, so long as $a$ is not too large:
+\nn{what about PL? TOP?}
 
 \begin{lemma} \label{xxzz11}
 Let $M$ be a compact Riemannian manifold.
