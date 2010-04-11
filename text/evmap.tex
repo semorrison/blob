@@ -237,7 +237,8 @@ unambiguous.)
 We have $\deg(p'') = 0$ and, inductively, $f'' = p''(b'')$.
 %We also have that $\deg(b'') = 0 = \deg(p'')$.
 Choose $x' \in \bc_*(p(V))$ such that $\bd x' = f'$.
-This is possible by \ref{bcontract}, \ref{disjunion} and \nn{property 2 of local relations (isotopy)}.
+This is possible by \ref{bcontract}, \ref{disjunion} and the fact that isotopic fields
+differ by a local relation \nn{give reference?}.
 Finally, define
 \[
 	e(p\ot b) \deq x' \bullet p''(b'') .
@@ -337,7 +338,7 @@ we have $g_j(p)\ot b \in G_*^{i,m}$.
 
 \begin{proof}
 Let $c$ be a subset of the blobs of $b$.
-There exists $l > 0$ such that $\Nbd_u(c)$ is homeomorphic to $|c|$ for all $u < l$ 
+There exists $\lambda > 0$ such that $\Nbd_u(c)$ is homeomorphic to $|c|$ for all $u < \lambda$ 
 and all such $c$.
 (Here we are using a piecewise smoothness assumption for $\bd c$, and also
 the fact that $\bd c$ is collared.
@@ -351,7 +352,7 @@ Let $r = \deg(b)$ and
 
 Choose $k = k_{bmn}$ such that
 \[
-	t\ep_k < l
+	t\ep_k < \lambda
 \]
 and
 \[
@@ -375,12 +376,17 @@ is homeomorphic to a disjoint union of balls and
 	N_{i,n}(q\ot b) \subeq V_0 \subeq N_{i,n+1}(q\ot b)
 			\subeq V_1 \subeq \cdots \subeq V_m \subeq N_{i,t}(q\ot b) .
 \]
+Recall that
+\[
+	N_{i,a}(q\ot b) \deq \Nbd_{a\ep_i}(|b|) \cup \Nbd_{\phi_a\delta_i}(|q|).
+\]
 By repeated applications of Lemma \ref{xx2phi} we can find neighborhoods $U_0,\ldots,U_m$
 of $|q|$, each homeomorphic to a disjoint union of balls, with
 \[
 	\Nbd_{\phi_{n+l} \delta_i}(|q|) \subeq U_l \subeq \Nbd_{\phi_{n+l+1} \delta_i}(|q|) .
 \]
-The inequalities above \nn{give ref} guarantee that we can find $u_l$ with 
+The inequalities above guarantee that 
+for each $0\le l\le m$ we can find $u_l$ with 
 \[
 	(n+l)\ep_i \le u_l \le (n+l+1)\ep_i
 \]
@@ -452,7 +458,8 @@ of $k$ metric balls of radius $r$.
 Let $\phi_1, \phi_2, \ldots$ be an increasing sequence of real numbers satisfying
 $\phi_1 \ge 2$ and $\phi_{i+1} \ge \phi_i(2\phi_i + 2) + \phi_i$.
 For convenience, let $\phi_0 = 0$.
-Assume also that $\phi_k r \le \rho(M)$.
+Assume also that $\phi_k r \le \rho(M)$,
+where $\rho(M)$ is as in Lemma \ref{xxzz11}.
 Then there exists a neighborhood $U$ of $S$,
 homeomorphic to a disjoint union of balls, such that
 \[
