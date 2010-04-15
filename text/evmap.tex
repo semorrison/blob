@@ -487,11 +487,34 @@ of balls, and such that
 where $t = \phi_{k-1}(2\phi_{k-1}+2)r + \phi_{k-1} r$.
 \end{proof}
 
-
 \medskip
 
+Next we assemble the maps $e_{i,m}$, for various $i$ but fixed $m$, into a single map 
+\[
+	e_m: CH_*(X, X) \otimes \bc_*(X) \to \bc_*(X) .
+\]
+More precisely, we will specify an $m$-connected subspace of the chain complex
+of all maps from $CH_*(X, X) \otimes \bc_*(X)$ to $\bc_*(X)$.
 
-\hrule\medskip\hrule\medskip
+First we specify an endomorphism $\alpha$ of $CH_*(X, X) \otimes \bc_*(X)$ using acyclic models.
+Let $p\ot b$ be a generator of $CH_*(X, X) \otimes \bc_*(X)$, with $n = \deg(p)$.
+Let $i = k_{bmn}$ and $j = j_i$ be as in the statement of Lemma \ref{Gim_approx}.
+Let $K_{p,b} \sub CH_*(X, X)$ be the union of the tracks of the homotopies from $g_l(p)$ to 
+$g_{l+1}(p)$, for all $l \ge j$.
+This is a contractible set, and so therefore is $K_{p,b}\ot b \sub CH_*(X, X) \otimes \bc_*(X)$.
+Without loss of generality we may assume that $k_{bmn} \ge k_{cm,n-1}$ for all blob diagrams $c$ appearing in $\bd b$.
+It follows that $K_{p,b}\ot b \sub K_{q,c}\ot c$ for all $q\ot c$ 
+appearing in the boundary of $p\ot b$.
+Thus we can apply Lemma \ref{xxxx} \nn{backward acyclic models lemma, from appendix}
+to get the desired map $\alpha$, well-defined up to a contractible set of choices.
+
+
+
+
+
+
+
+\medskip\hrule\medskip\hrule\medskip
 
 \nn{outline of what remains to be done:}
 
@@ -507,6 +530,7 @@ For a different metric etc. let $\hat{G}^{i,m}$ denote the alternate subcomplexe
 and $\hat{N}_{i,l}$ the alternate neighborhoods.
 Main idea is that for all $i$ there exists sufficiently large $k$ such that
 $\hat{N}_{k,l} \sub N_{i,l}$, and similarly with the roles of $N$ and $\hat{N}$ reversed.
+\item prove gluing compatibility, as in statement of main thm
 \item Also need to prove associativity.
 \end{itemize}
 
