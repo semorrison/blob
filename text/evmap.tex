@@ -328,16 +328,23 @@ $g_j(p)\ot b$ lies in $G_*^{i,m}$, for arbitrary $m$ and sufficiently large $i$
 \begin{lemma} \label{Gim_approx}
 Fix a blob diagram $b$, a homotopy order $m$ and a degree $n$ for $CH_*(X)$.
 Then there exists a constant $k_{bmn}$ such that for all $i \ge k_{bmn}$
-there exists another constant $j_i$ such that for all $j \ge j_i$ and all $p\in CH_n(X)$ 
+there exists another constant $j_{ibmn}$ such that for all $j \ge j_{ibmn}$ and all $p\in CH_n(X)$ 
 we have $g_j(p)\ot b \in G_*^{i,m}$.
 \end{lemma}
 
-For convenience we also define $k_{bmp} = k_{bmn}$ where $n=\deg(p)$.
+For convenience we also define $k_{bmp} = k_{bmn}$
+and $j_{ibmp} = j_{ibmn}$ where $n=\deg(p)$.
 Note that we may assume that
 \[
 	k_{bmp} \ge k_{alq}
 \]
 for all $l\ge m$ and all $q\ot a$ which appear in the boundary of $p\ot b$.
+Additionally, we may assume that
+\[
+	j_{ibmp} \ge j_{ialq}
+\]
+for all $l\ge m$ and all $q\ot a$ which appear in the boundary of $p\ot b$.
+
 
 \begin{proof}
 Let $c$ be a subset of the blobs of $b$.
@@ -509,14 +516,17 @@ On $R_0\ot CH_*(X, X) \otimes \bc_*(X)$ we define
 \[
 	\sigma(j\ot p\ot b) = g_j(p)\ot b .
 \]
-On $R_1\ot CH_*(X, X) \otimes \bc_*(X)$ we use the track of the homotopy from 
-$g_j$ to $g_{j+1}$.
+On $R_1\ot CH_*(X, X) \otimes \bc_*(X)$ we define
+\[
+	\sigma(\iota_j\ot p\ot b) = f_j(p)\ot b ,
+\]
+where $f_j$ is the homotopy from $g_j$ to $g_{j+1}$.
 
 Next we specify subcomplexes $G^m_* \sub R_*\ot CH_*(X, X) \otimes \bc_*(X)$ on which we will eventually
 define a version of the action map $e_X$.
-A generator $j\ot p\ot b$ is defined to be in $G^m_*$ if $j\ge j_k$, where
+A generator $j\ot p\ot b$ is defined to be in $G^m_*$ if $j\ge j_{kbmp}$, where
 $k = k_{bmp}$ is the constant from Lemma \ref{Gim_approx}.
-Similarly $\iota_j\ot p\ot b$ is in $G^m_*$ if $j\ge j_k$.
+Similarly $\iota_j\ot p\ot b$ is in $G^m_*$ if $j\ge j_{kbmp}$.
 The inequality following Lemma \ref{Gim_approx} guarantees that $G^m_*$ is indeed a subcomplex
 and that $G^m_* \sup G^{m+1}_*$.
 
@@ -529,6 +539,52 @@ Next we define a map
 \[
 	e_m : G^m_* \to \bc_*(X) .
 \]
+Let $p\ot b$ be a generator of $G^m_*$.
+Each $g_j(p)\ot b$ or $f_j(p)\ot b$ is a linear combination of generators $q\ot c$,
+where $\supp(q)\cup\supp(c)$ is contained in a disjoint union of balls satisfying 
+various conditions specified above.
+As in the construction of the maps $e_{i,m}$ above,
+it suffices to specify for each such $q\ot c$ a disjoint union of balls
+$V_{qc} \sup \supp(q)\cup\supp(c)$, such that $V_{qc} \sup V_{q'c'}$
+whenever $q'\ot c'$ appears in the boundary of $q\ot c$.
+
+Let $q\ot c$ be a summand of $g_j(p)\ot b$, as above.
+Let $i$ be maximal such that $j\ge j_{ibmp}$
+(notation as in Lemma \ref{Gim_approx}).
+Then $q\ot c \in G^{i,m}_*$ and we choose $V_{qc} \sup \supp(q)\cup\supp(c)$
+such that 
+\[
+	N_{i,d}(q\ot c) \subeq V_{qc} \subeq N_{i,d+1}(q\ot c) ,
+\]
+where $d = \deg(q\ot c)$.
+Let $\tilde q = f_j(q)$.
+The summands of $f_j(p)\ot b$ have the form $\tilde q \ot c$, 
+where $q\ot c$ is a summand of $g_j(p)\ot b$.
+Since the homotopy $f_j$ does not increase supports, we also have that
+\[
+	V_{qc} \sup \supp(\tilde q) \cup \supp(c) .
+\]
+So we define $V_{\tilde qc} = V_{qc}$.
+
+It is now easy to check that we have $V_{qc} \sup V_{q'c'}$
+whenever $q'\ot c'$ appears in the boundary of $q\ot c$.
+As in the construction of the maps $e_{i,m}$ above,
+this allows us to construct a map
+\[
+	e_m : G^m_* \to \bc_*(X) 
+\]
+which is well-defined up to homotopy.
+As in the proof of Lemma \ref{m_order_hty}, we can show that the map is well-defined up
+to $m$-th order homotopy.
+Put another way, we have specified an $m$-connected subcomplex of the complex of
+all maps $G^m_* \to \bc_*(X)$.
+On $G^{m+1}_* \sub G^m_*$ we have defined two maps, $e_m$ and $e_{m+1}$.
+One can similarly (to the proof of Lemma \ref{m_order_hty}) show that 
+these two maps agree up to $m$-th order homotopy.
+More precisely, one can show that the subcomplex of maps containing the various
+$e_{m+1}$ candidates is contained in the corresponding subcomplex for $e_m$.
+\nn{now should remark that we have not, in fact, produced a contractible set of maps,
+but we have come very close}
 
 
 
@@ -543,18 +599,12 @@ Next we define a map
 \nn{outline of what remains to be done:}
 
 \begin{itemize}
-\item We need to assemble the maps for the various $G^{i,m}$ into
-a map for all of $CH_*\ot \bc_*$.
-One idea: Think of the $g_j$ as a sort of homotopy (from $CH_*\ot \bc_*$ to itself) 
-parameterized by $[0,\infty)$.  For each $p\ot b$ in $CH_*\ot \bc_*$ choose a sufficiently
-large $j'$.  Use these choices to reparameterize $g_\bullet$ so that each
-$p\ot b$ gets pushed as far as the corresponding $j'$.
 \item Independence of metric, $\ep_i$, $\delta_i$:
 For a different metric etc. let $\hat{G}^{i,m}$ denote the alternate subcomplexes
 and $\hat{N}_{i,l}$ the alternate neighborhoods.
 Main idea is that for all $i$ there exists sufficiently large $k$ such that
 $\hat{N}_{k,l} \sub N_{i,l}$, and similarly with the roles of $N$ and $\hat{N}$ reversed.
-\item prove gluing compatibility, as in statement of main thm
+\item prove gluing compatibility, as in statement of main thm (this is relatively easy)
 \item Also need to prove associativity.
 \end{itemize}
 
