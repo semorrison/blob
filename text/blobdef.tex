@@ -135,6 +135,9 @@ $B_i \sub B_j$ or $B_j \sub B_i$.
 (The case $B_i = B_j$ is allowed.
 If $B_i \sub B_j$ the boundaries of $B_i$ and $B_j$ are allowed to intersect.)
 If a blob has no other blobs strictly contained in it, we call it a twig blob.
+\nn{need to allow the case where $B\to X$ is not an embedding
+on $\bd B$.  this is because any blob diagram on $X_{cut}$ should give rise to one on $X_{gl}$
+and blobs are allowed to meet $\bd X$.}
 \item Fields (boundary conditions) $c_i \in \cC(\bd B_i)$.
 (These are implied by the data in the next bullets, so we usually
 suppress them from the notation.)
@@ -187,6 +190,11 @@ Finally, define
 }
 The $(-1)^j$ factors imply that the terms of $\bd^2(b)$ all cancel.
 Thus we have a chain complex.
+
+We define the {\it support} of a blob diagram $b$, $\supp(b) \sub X$, 
+to be the union of the blobs of $b$.
+For $y \in \bc_*(X)$ with $y = \sum c_i b_i$ ($c_i$ a non-zero number, $b_i$ a blob diagram),
+we define $\supp(y) \deq \bigcup_i \supp(b_i)$.
 
 We note that blob diagrams in $X$ have a structure similar to that of a simplicial set,
 but with simplices replaced by a more general class of combinatorial shapes.
