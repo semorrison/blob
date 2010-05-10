@@ -1116,7 +1116,9 @@ and modules $\cM_\cC$ and $_\cC\cN$,
 	(\cM_\cC\ot {_\cC\cN})^* \cong  \hom_\cC(\cM_\cC \to (_\cC\cN)^*) .
 \]
 
-We must now define the things appearing in the above equation.
+In the next few paragraphs define the things appearing in the above equation:
+$\cM_\cC\ot {_\cC\cN}$, $(\cM_\cC\ot {_\cC\cN})^*$, $(_\cC\cN)^*$ and finally
+$\hom_\cC$.
 
 In the previous subsection we defined a tensor product of $A_\infty$ $n$-cat modules
 for general $n$.
@@ -1135,12 +1137,52 @@ we associate the chain complex
 To each antirefinement we associate a chain map using the composition law of $\cC$ and the 
 module actions of $\cC$ on $\cM$ and $\cN$.
 \def\olD{{\overline D}}
+\def\cbar{{\bar c}}
 The underlying graded vector space of the homotopy colimit is
 \[
 	\bigoplus_l \bigoplus_{\olD} \psi(D_0)[l] ,
 \]
 where $l$ runs through the natural numbers, $\olD = (D_0\to D_1\to\cdots\to D_l)$
 runs through chains of antirefinements, and $[l]$ denotes a grading shift.
+We will denote an element of the summand indexed by $\olD$ by
+$\olD\ot m\ot\cbar\ot n$, where $m\ot\cbar\ot n \in \psi(D_0)$.
+The boundary map is given (ignoring signs) by
+\begin{eqnarray*}
+	\bd(\olD\ot m\ot\cbar\ot n) &=& \olD\ot\bd(m\ot\cbar)\ot n + \olD\ot m\ot\cbar\ot \bd n + \\
+			& & \;\;	(\bd_+ \olD)\ot m\ot\cbar\ot n + (\bd_0 \olD)\ot \rho(m\ot\cbar\ot n) ,
+\end{eqnarray*}
+where $\bd_+ \olD = \sum_{i>0} (D_0, \cdots \widehat{D_i} \cdots , D_l)$ (the part of the simplicial
+boundary which retains $D_0$), $\bd_0 \olD = (D_1, \cdots , D_l)$,
+and $\rho$ is the gluing map associated to the antirefinement $D_0\to D_1$.
+
+$(\cM_\cC\ot {_\cC\cN})^*$ is just the dual chain complex to $\cM_\cC\ot {_\cC\cN}$:
+\[
+	\prod_l \prod_{\olD} (\psi(D_0)[l])^* ,
+\]
+where $(\psi(D_0)[l])^*$ denotes the linear dual.
+The boundary is given by
+\begin{eqnarray*}
+	(\bd f)(\olD\ot m\ot\cbar\ot n) &=& f(\olD\ot\bd(m\ot\cbar)\ot n) + 
+													f(\olD\ot m\ot\cbar\ot \bd n) + \\
+			& & \;\;	f((\bd_+ \olD)\ot m\ot\cbar\ot n) + f((\bd_0 \olD)\ot \rho(m\ot\cbar\ot n)) .
+\end{eqnarray*}
+(Again, we are ignoring signs.)
+
+Next we define the dual module $(_\cC\cN)^*$.
+This will depend on a choice of interval $J$, just as the tensor product did.
+Recall that $_\cC\cN$ is, among other things, a functor from right-marked intervals
+to chain complexes.
+Given $J$, we define for each $K\sub J$ which contains the {\it left} endpoint of $J$
+\[
+	(_\cC\cN)^*(K) \deq ({_\cC\cN}(J\setmin K))^* ,
+\]
+where $({_\cC\cN}(J\setmin K))^*$ denotes the (linear) dual of the chain complex associated
+to the right-marked interval $J\setmin K$.
+This extends to a functor from all left-marked intervals (not just those contained in $J$).
+It's easy to verify the remaining module axioms.
+
+Now re reinterpret $(\cM_\cC\ot {_\cC\cN})^*$
+as some sort of morphism $\cM_\cC \to (_\cC\cN)^*$.
 
 \nn{...}
 
@@ -1157,14 +1199,15 @@ runs through chains of antirefinements, and $[l]$ denotes a grading shift.
 
 In this subsection we define an $n{+}1$-category $\cS$ of ``sphere modules" 
 whose objects correspond to $n$-categories.
-This is a version of the familiar algebras-bimodules-intertwiners 2-category.
+When $n=2$
+this is a version of the familiar algebras-bimodules-intertwiners 2-category.
 (Terminology: It is clearly appropriate to call an $S^0$ module a bimodule,
 but this is much less true for higher dimensional spheres, 
 so we prefer the term ``sphere module" for the general case.)
 
 The $0$- through $n$-dimensional parts of $\cC$ are various sorts of modules, and we describe
 these first.
-The $n{+}1$-dimensional part of $\cS$ consist of intertwiners
+The $n{+}1$-dimensional part of $\cS$ consists of intertwiners
 (of garden-variety $1$-category modules associated to decorated $n$-balls).
 We will see below that in order for these $n{+}1$-morphisms to satisfy all of
 the duality requirements of an $n{+}1$-category, we will have to assume
