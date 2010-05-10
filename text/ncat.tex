@@ -1065,8 +1065,6 @@ has the structure of an $n{-}k$-category.
 \medskip
 
 
-%\subsection{Tensor products}
-
 We will use a simple special case of the above 
 construction to define tensor products 
 of modules.
@@ -1084,14 +1082,73 @@ on the choice of 1-ball $J$.
 
 We will define a more general self tensor product (categorified coend) below.
 
-
-
-
 %\nn{what about self tensor products /coends ?}
 
 \nn{maybe ``tensor product" is not the best name?}
 
 %\nn{start with (less general) tensor products; maybe change this later}
+
+
+
+
+\subsection{Morphisms of $A_\infty$ 1-cat modules}
+
+In order to state and prove our version of the higher dimensional Deligne conjecture
+(Section \ref{sec:deligne}),
+we need to define morphisms of $A_\infty$ 1-cat modules and establish
+some elementary properties of these.
+
+To motivate the definitions which follow, consider algebras $A$ and $B$, right/bi/left modules
+$X_B$, $_BY_A$ and $Z_A$, and the familiar adjunction
+\begin{eqnarray*}
+	\hom_A(X_B\ot {_BY_A} \to Z_A) &\cong& \hom_B(X_B \to \hom_A( {_BY_A} \to Z_A)) \\
+	f &\mapsto& [x \mapsto f(x\ot -)] \\
+	{}[x\ot y \mapsto g(x)(y)] & \leftarrowtail & g .
+\end{eqnarray*}
+\nn{how to do a left-pointing ``$\mapsto$"?}
+If $A$ and $Z_A$ are both the ground field $\k$, this simplifies to
+\[
+	(X_B\ot {_BY})^* \cong  \hom_B(X_B \to (_BY)^*) .
+\]
+We will establish the analogous isomorphism for a topological $A_\infty$ 1-cat $\cC$
+and modules $\cM_\cC$ and $_\cC\cN$,
+\[
+	(\cM_\cC\ot {_\cC\cN})^* \cong  \hom_\cC(\cM_\cC \to (_\cC\cN)^*) .
+\]
+
+We must now define the things appearing in the above equation.
+
+In the previous subsection we defined a tensor product of $A_\infty$ $n$-cat modules
+for general $n$.
+For $n=1$ this definition is a homotopy colimit indexed by subdivisions of a fixed interval $J$
+and their gluings (antirefinements).
+(The tensor product will depend (functorially) on the choice of $J$.)
+To a subdivision 
+\[
+	J = I_1\cup \cdots\cup I_m
+\]
+we associate the chain complex
+\[
+	\cM(I_1)\ot\cC(I_2)\ot\cdots\ot\cC(I_{m-1})\ot\cN(I_m) .
+\]
+(If $D$ denotes the subdivision of $J$, then we denote this complex by $\psi(D)$.)
+To each antirefinement we associate a chain map using the composition law of $\cC$ and the 
+module actions of $\cC$ on $\cM$ and $\cN$.
+\def\olD{{\overline D}}
+The underlying graded vector space of the homotopy colimit is
+\[
+	\bigoplus_l \bigoplus_{\olD} \psi(D_0)[l] ,
+\]
+where $l$ runs through the natural numbers, $\olD = (D_0\to D_1\to\cdots\to D_l)$
+runs through chains of antirefinements, and $[l]$ denotes a grading shift.
+
+\nn{...}
+
+
+
+
+
+
 
 
 
