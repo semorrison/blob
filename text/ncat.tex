@@ -1127,7 +1127,7 @@ and their gluings (antirefinements).
 (The tensor product will depend (functorially) on the choice of $J$.)
 To a subdivision 
 \[
-	J = I_1\cup \cdots\cup I_m
+	J = I_1\cup \cdots\cup I_p
 \]
 we associate the chain complex
 \[
@@ -1184,13 +1184,68 @@ It's easy to verify the remaining module axioms.
 Now we reinterpret $(\cM_\cC\ot {_\cC\cN})^*$
 as some sort of morphism $\cM_\cC \to (_\cC\cN)^*$.
 Let $f\in (\cM_\cC\ot {_\cC\cN})^*$.
-Let $\olD$ be a chain of subdivisions with $D_0 = [J = I_1\cup\cdots\cup I_m]$, and let
-$m\ot \cbar \in \cM(I_1)\ot\cC(I_2)\ot\cdots\ot\cC(I_{m-1})$.
+Let $\olD = (D_0\cdots D_l)$ be a chain of subdivisions with $D_0 = [J = I_1\cup\cdots\cup I_m]$.
+Recall that $(_\cC\cN)^*(I_1\cup\cdots\cup I_{p-1}) = (_\cC\cN(I_p))^*$.
+Then for each such $\olD$ we have a degree $l$ map
+\begin{eqnarray*}
+	\cM(I_1)\ot\cC(I_2)\ot\cdots\ot\cC(I_{p-1}) &\to& (_\cC\cN)^*(I_1\cup\cdots\cup I_{p-1}) \\
+	m\ot \cbar &\mapsto& [n\mapsto f(\olD\ot m\ot \cbar\ot n)]
+\end{eqnarray*}
 
+We are almost ready to give the definition of morphisms between arbitrary modules
+$\cX_\cC$ and $\cY_\cC$.
+Note that the rightmost interval $I_m$ does not appear above, except implicitly in $\olD$.
+To fix this, we define subdivisions are antirefinements of left-marked intervals.
+Subdivisions are just the obvious thing, but antirefinements are defined to mimic
+the above antirefinements of the fixed interval $J$, but with the rightmost subinterval $I_m$ always
+omitted.
+More specifically, $D\to D'$ is an antirefinement if $D'$ is obtained from $D$ by 
+gluing subintervals together and/or omitting some of the rightmost subintervals.
+(See Figure xxxx.)
 
+Now we define the chain complex $\hom_\cC(\cX_\cC \to \cY_\cC)$.
+The underlying vector space is 
+\[
+	\prod_l \prod_{\olD} \hom[l]\left(
+				\cX(I_1)\ot\cC(I_2)\ot\cdots\ot\cC(I_{p-1}) \to 
+							\cY(I_1\cup\cdots\cup I_{p-1}) \rule{0pt}{1.1em}\right) ,
+\]
+where, as usual $\olD = (D_0\cdots D_l)$ is a chain of antirefinements
+(but now of left-marked intervals) and $D_0$ is the subdivision $I_1\cup\cdots\cup I_{p-1}$.
+$\hom[l](- \to -)$ means graded linear maps of degree $l$.
 
+\nn{small issue (pun intended): 
+the above is a vector space only if the class of subdivisions is a set, e.g. only if
+all of our left-marked intervals are contained in some universal interval (like $J$ above).
+perhaps we should give another version of the definition in terms of natural transformations of functors.}
 
+Abusing notation slightly, we will denote elements of the above space by $g$, with
+\[
+	\olD\ot x \ot \cbar \mapsto g(\olD\ot x \ot \cbar) \in \cY(I_1\cup\cdots\cup I_{p-1}) .
+\]
+For fixed $D_0$ and $D_1$, let $\cbar = \cbar'\ot\cbar''$, where $\cbar'$ corresponds to the subintervals of $D_0$ which map to $D_1$ and $\cbar''$ corresponds to the subintervals
+which are dropped off the right side.
+(Either $\cbar'$ or $\cbar''$ might be empty.)
+Translating from the boundary map for $(\cM_\cC\ot {_\cC\cN})^*$ \nn{give ref?},
+we have
+\begin{eqnarray*}
+	(\bd g)(\olD\ot x \ot \cbar) &=& \bd(g(\olD\ot x \ot \cbar)) + g(\olD\ot\bd(x\ot\cbar)) + \\
+	& & \;\; g((\bd_+\olD)\ot x\ot\cbar) + \gl(g((\bd_0\olD)\ot x\ot\cbar')\ot\cbar'') .
+\end{eqnarray*}
+Here $\gl$ denotes the module action in $\cY_\cC$.
+This completes the definition of $\hom_\cC(\cX_\cC \to \cY_\cC)$.
 
+Note that if $\bd g = 0$, then each 
+\[
+	g(\olD\ot -) : \cX(I_1)\ot\cC(I_2)\ot\cdots\ot\cC(I_{p-1}) \to \cY(I_1\cup\cdots\cup I_{p-1})
+\]
+constitutes a null homotopy of
+$g((\bd \olD)\ot -)$ (where the $g((\bd_0 \olD)\ot -)$ part of $g((\bd \olD)\ot -)$
+should be interpreted as above).
+
+\nn{do we need to say anything about composing morphisms of modules?}
+
+\nn{should we define functors between $n$-cats in a similar way?}
 
 
 \nn{...}
