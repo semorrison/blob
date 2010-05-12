@@ -5,6 +5,7 @@ syntax: glob
 *.aux
 *.log
 *.out
+*.toc
 *.synctex.gz
 
 # the article PDF
