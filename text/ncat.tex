@@ -23,21 +23,16 @@ results that we have avoided here.
 
 \medskip
 
-Consider first ordinary $n$-categories.
-\nn{Actually, we're doing both plain and infinity cases here}
-We need a set (or sets) of $k$-morphisms for each $0\le k \le n$.
-We must decide on the ``shape" of the $k$-morphisms.
-Some $n$-category definitions model $k$-morphisms on the standard bihedron (interval, bigon, ...).
+There are many existing definitions of $n$-categories, with various intended uses. In any such definition, there are sets of $k$-morphisms for each $0 \leq k \leq n$. Generally, these sets are indexed by instances of a certain typical chape. 
+Some $n$-category definitions model $k$-morphisms on the standard bihedrons (interval, bigon, and so on).
 Other definitions have a separate set of 1-morphisms for each interval $[0,l] \sub \r$, 
 a separate set of 2-morphisms for each rectangle $[0,l_1]\times [0,l_2] \sub \r^2$,
 and so on.
 (This allows for strict associativity.)
-Still other definitions \nn{need refs for all these; maybe the Leinster book \cite{MR2094071}}
+Still other definitions (see, for example, \cite{MR2094071})
 model the $k$-morphisms on more complicated combinatorial polyhedra.
 
-We will allow our $k$-morphisms to have any shape, so long as it is homeomorphic to 
-the standard $k$-ball.
-In other words,
+For our definition, we will allow our $k$-morphisms to have any shape, so long as it is homeomorphic to the standard $k$-ball:
 
 \begin{preliminary-axiom}{\ref{axiom:morphisms}}{Morphisms}
 For any $k$-manifold $X$ homeomorphic 
@@ -45,11 +40,10 @@ to the standard $k$-ball, we have a set of $k$-morphisms
 $\cC_k(X)$.
 \end{preliminary-axiom}
 
-Terminology: By ``a $k$-ball" we mean any $k$-manifold which is homeomorphic to the 
+By ``a $k$-ball" we mean any $k$-manifold which is homeomorphic to the 
 standard $k$-ball.
 We {\it do not} assume that it is equipped with a 
-preferred homeomorphism to the standard $k$-ball.
-The same goes for ``a $k$-sphere" below.
+preferred homeomorphism to the standard $k$-ball, and the same applies to ``a $k$-sphere" below.
 
 
 Given a homeomorphism $f:X\to Y$ between $k$-balls (not necessarily fixed on 
@@ -84,13 +78,11 @@ The 0-sphere is unusual among spheres in that it is disconnected.
 Correspondingly, for 1-morphisms it makes sense to distinguish between domain and range.
 (Actually, this is only true in the oriented case, with 1-morphsims parameterized
 by oriented 1-balls.)
-For $k>1$ and in the presence of strong duality the domain/range division makes less sense.
-\nn{maybe say more here; rotate disk, Frobenius reciprocity blah blah}
-We prefer to combine the domain and range into a single entity which we call the 
+For $k>1$ and in the presence of strong duality the division into domain and range makes less sense. For example, in a pivotal tensor category, there are natural isomorphisms $\Hom{}{A}{B \tensor C} \isoto \Hom{}{A \tensor B^*}{C}$, etc. (sometimes called ``Frobenius reciprocity''), which canonically identify all the morphism spaces which have the same boundary. We prefer to not make the distinction in the first place.
+
+Instead, we combine the domain and range into a single entity which we call the 
 boundary of a morphism.
 Morphisms are modeled on balls, so their boundaries are modeled on spheres:
-
-\nn{perhaps it's better to define $\cC(S^k)$ as a colimit, rather than making it new data}
 
 \begin{axiom}[Boundaries (spheres)]
 For each $0 \le k \le n-1$, we have a functor $\cC_k$ from 
@@ -98,7 +90,9 @@ the category of $k$-spheres and
 homeomorphisms to the category of sets and bijections.
 \end{axiom}
 
-(In order to conserve symbols, we use the same symbol $\cC_k$ for both morphisms and boundaries.)
+In order to conserve symbols, we use the same symbol $\cC_k$ for both morphisms and boundaries, and again often omit the subscript.
+
+In fact, the functors for spheres are entirely determined by the functors for balls and the subsequent axioms. (In particular, $\cC(S^k)$ is the colimit of $\cC$ applied to decompositions of $S^k$ into balls.) However, it is easiest to think of it as additional data at this point.
 
 \begin{axiom}[Boundaries (maps)]\label{nca-boundary}
 For each $k$-ball $X$, we have a map of sets $\bd: \cC(X)\to \cC(\bd X)$.
@@ -108,7 +102,7 @@ These maps, for various $X$, comprise a natural transformation of functors.
 (Note that the first ``$\bd$" above is part of the data for the category, 
 while the second is the ordinary boundary of manifolds.)
 
-Given $c\in\cC(\bd(X))$, let $\cC(X; c) \deq \bd^{-1}(c)$.
+Given $c\in\cC(\bd(X))$, we will write $\cC(X; c)$ for $\bd^{-1}(c)$, those morphisms with specified boundary $c$.
 
 Most of the examples of $n$-categories we are interested in are enriched in the following sense.
 The various sets of $n$-morphisms $\cC(X; c)$, for all $n$-balls $X$ and
