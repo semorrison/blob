@@ -143,7 +143,7 @@ Let $\cC(B_1) \times_{\cC(E)} \cC(B_2)$ denote the fibered product of the
 two maps $\bd: \cC(B_i)\to \cC(E)$.
 Then we have an injective map
 \[
-	\gl_E : \cC(B_1) \times_{\cC(E)} \cC(B_2) \to \cC(S)
+	\gl_E : \cC(B_1) \times_{\cC(E)} \cC(B_2) \into \cC(S)
 \]
 which is natural with respect to the actions of homeomorphisms.
 \end{axiom}
@@ -175,8 +175,8 @@ a {\it restriction} map and write $\res_{B_i}(a)$
 (or simply $\res(a)$ when there is no ambiguity), for $a\in \cC(S)_E$.
 More generally, we also include under the rubric ``restriction map" the
 the boundary maps of Axiom \ref{nca-boundary} above,
-another calss of maps introduced after Axion \ref{nca-assoc} below, as well as any composition
-of restriction maps (inductive definition).
+another class of maps introduced after Axiom \ref{nca-assoc} below, as well as any composition
+of restriction maps.
 In particular, we have restriction maps $\cC(X)_E \to \cC(B_i)$
 ($i = 1, 2$, notation from previous paragraph).
 These restriction maps can be thought of as 
@@ -197,7 +197,7 @@ Let $E = \bd Y$, which is a $k{-}2$-sphere.
 Note that each of $B$, $B_1$ and $B_2$ has its boundary split into two $k{-}1$-balls by $E$.
 We have restriction (domain or range) maps $\cC(B_i)_E \to \cC(Y)$.
 Let $\cC(B_1)_E \times_{\cC(Y)} \cC(B_2)_E$ denote the fibered product of these two maps. 
-Then (axiom) we have a map
+We have a map
 \[
 	\gl_Y : \cC(B_1)_E \times_{\cC(Y)} \cC(B_2)_E \to \cC(B)_E
 \]
@@ -221,7 +221,6 @@ $$
 \node at (1/6,3/2)  {$Y$};
 \end{tikzpicture}
 $$
-$$\mathfig{.4}{tempkw/blah5}$$
 \caption{From two balls to one ball.}\label{blah5}\end{figure}
 
 \begin{axiom}[Strict associativity] \label{nca-assoc}
@@ -229,12 +228,10 @@ The composition (gluing) maps above are strictly associative.
 \end{axiom}
 
 \begin{figure}[!ht]
-$$\mathfig{.65}{tempkw/blah6}$$
+$$\mathfig{.65}{ncat/strict-associativity}$$
 \caption{An example of strict associativity.}\label{blah6}\end{figure}
 
-\nn{figure \ref{blah6} (blah6) needs a dotted line in the south split ball}
-
-Notation: $a\bullet b \deq \gl_Y(a, b)$ and/or $a\cup b \deq \gl_Y(a, b)$.
+We'll use the notations  $a\bullet b$ as well as $a \cup b$ for the glued together field $\gl_Y(a, b)$.
 In the other direction, we will call the projection from $\cC(B)_E$ to $\cC(B_i)_E$ 
 a restriction map (one of many types of map so called) and write $\res_{B_i}(a)$ for $a\in \cC(B)_E$.
 %Compositions of boundary and restriction maps will also be called restriction maps.
@@ -242,13 +239,13 @@ a restriction map (one of many types of map so called) and write $\res_{B_i}(a)$
 %restriction map from $\cC(B)_{\bd Y}$ to $\cC(Y)$.
 
 We will write $\cC(B)_Y$ for the image of $\gl_Y$ in $\cC(B)$.
-We will call $\cC(B)_Y$ morphisms which are splittable along $Y$ or transverse to $Y$.
+We will call elements of $\cC(B)_Y$ morphisms which are `splittable along $Y$' or `transverse to $Y$'.
 We have $\cC(B)_Y \sub \cC(B)_E \sub \cC(B)$.
 
 More generally, let $\alpha$ be a subdivision of a ball (or sphere) $X$ into smaller balls.
 Let $\cC(X)_\alpha \sub \cC(X)$ denote the image of the iterated gluing maps from 
 the smaller balls to $X$.
-We will also say that $\cC(X)_\alpha$ are morphisms which are splittable along $\alpha$.
+We  say that elements of $\cC(X)_\alpha$ are morphisms which are `splittable along $\alpha$'.
 In situations where the subdivision is notationally anonymous, we will write
 $\cC(X)\spl$ for the morphisms which are splittable along (a.k.a.\ transverse to)
 the unnamed subdivision.
@@ -412,13 +409,12 @@ a map which projects a collar neighborhood of $Y$ onto $Y$.
 
 The revised axiom is
 
-\stepcounter{axiom}
-\begin{axiom-numbered}{\arabic{axiom}a}{Extended isotopy invariance in dimension $n$}
+\begin{axiom}{\textup{\textbf{[topological  version]}} Extended isotopy invariance in dimension $n$}
 \label{axiom:extended-isotopies}
 Let $X$ be an $n$-ball and $f: X\to X$ be a homeomorphism which restricts
 to the identity on $\bd X$ and is extended isotopic (rel boundary) to the identity.
 Then $f$ acts trivially on $\cC(X)$.
-\end{axiom-numbered}
+\end{axiom}
 
 \nn{need to rephrase this, since extended isotopies don't correspond to homeomorphisms.}
 
@@ -428,7 +424,8 @@ For $A_\infty$ $n$-categories, we replace
 isotopy invariance with the requirement that families of homeomorphisms act.
 For the moment, assume that our $n$-morphisms are enriched over chain complexes.
 
-\begin{axiom-numbered}{\arabic{axiom}b}{Families of homeomorphisms act in dimension $n$}
+\addtocounter{axiom}{-1}
+\begin{axiom}{\textup{\textbf{[$A_\infty$ version]}} Families of homeomorphisms act in dimension $n$}
 For each $n$-ball $X$ and each $c\in \cC(\bd X)$ we have a map of chain complexes
 \[
 	C_*(\Homeo_\bd(X))\ot \cC(X; c) \to \cC(X; c) .
@@ -440,7 +437,7 @@ These action maps are required to be associative up to homotopy
 a diagram like the one in Proposition \ref{CHprop} commutes.
 \nn{repeat diagram here?}
 \nn{restate this with $\Homeo(X\to X')$?  what about boundary fixing property?}
-\end{axiom-numbered}
+\end{axiom}
 
 We should strengthen the above axiom to apply to families of extended homeomorphisms.
 To do this we need to explain how extended homeomorphisms form a topological space.
@@ -452,10 +449,10 @@ and we can replace the class of all intervals $J$ with intervals contained in $\
 Note that if we take homology of chain complexes, we turn an $A_\infty$ $n$-category
 into a plain $n$-category (enriched over graded groups).
 \nn{say more here?}
-In the other direction, if we enrich over topological spaces instead of chain complexes,
+In a different direction, if we enrich over topological spaces instead of chain complexes,
 we get a space version of an $A_\infty$ $n$-category, with $\Homeo_\bd(X)$ acting 
 instead of  $C_*(\Homeo_\bd(X))$.
-Taking singular chains converts a space-type $A_\infty$ $n$-category into a chain complex
+Taking singular chains converts such a space type $A_\infty$ $n$-category into a chain complex
 type $A_\infty$ $n$-category.
 
 \medskip
@@ -573,26 +570,30 @@ We have two main examples of $A_\infty$ $n$-categories, coming from maps to a ta
 \rm
 \label{ex:chains-of-maps-to-a-space}
 We can modify Example \ref{ex:maps-to-a-space} above to define the fundamental $A_\infty$ $n$-category $\pi^\infty_{\le n}(T)$ of a topological space $T$.
-For $k$-balls and $k$-spheres $X$, with $k < n$, the sets $\pi^\infty_{\leq n}(T)(X)$ are just $\Maps{X \to T}$.
+For $k$-balls and $k$-spheres $X$, with $k < n$, the sets $\pi^\infty_{\leq n}(T)(X)$ are just $\Maps(X \to T)$.
 Define $\pi^\infty_{\leq n}(T)(X; c)$ for an $n$-ball $X$ and $c \in \pi^\infty_{\leq n}(T)(\bdy X)$ to be the chain complex
 $$C_*(\Maps_c(X\times F \to T)),$$ where $\Maps_c$ denotes continuous maps restricting to $c$ on the boundary,
 and $C_*$ denotes singular chains.
 \nn{maybe should also mention version where we enrich over spaces rather than chain complexes}
 \end{example}
 
-See also Theorem \ref{thm:map-recon} below, recovering $C_*(\Maps{M \to T})$ up to homotopy the blob complex of $M$ with coefficients in $\pi^\infty_{\le n}(T)$.
+See also Theorem \ref{thm:map-recon} below, recovering $C_*(\Maps(M \to T))$ up to homotopy the blob complex of $M$ with coefficients in $\pi^\infty_{\le n}(T)$.
+
+\todo{Yikes! We can't do this yet, because we haven't explained how to produce a system of fields and local relations from a topological $n$-category.}
 
 \begin{example}[Blob complexes of balls (with a fiber)]
 \rm
 \label{ex:blob-complexes-of-balls}
-Fix an $m$-dimensional manifold $F$. We will define an $A_\infty$ $n-m$-category $\cC$.
+Fix an $m$-dimensional manifold $F$. We will define an $A_\infty$ $(n-m)$-category $\cC$.
 Given a plain $n$-category $C$, 
 when $X$ is a $k$-ball or $k$-sphere, with $k<n-m$, define $\cC(X) = C(X)$. When $X$ is an $(n-m)$-ball,
 define $\cC(X; c) = \bc^C_*(X\times F; c)$
 where $\bc^C_*$ denotes the blob complex based on $C$.
 \end{example}
 
-This example will be essential for Theorem \ref{product_thm} below, which relates ...
+This example will be essential for Theorem \ref{product_thm} below, which allows us to compute the blob complex of a product. Notice that with $F$ a point, the above example is a construction turning a topological $n$-category into an $A_\infty$ $n$-category. We think of this as providing a `free resolution' of the topological $n$-category. \todo{Say more here!} In fact, there is also a trivial way to do this: we can think of each vector space associated to an $n$-ball as a chain complex concentrated in degree $0$, and take $\CD{B}$ to act trivially. 
+
+Be careful that the `free resolution' of the topological $n$-category $\pi_{\leq n}(T)$ is not the $A_\infty$ $n$-category $\pi^\infty_{\leq n}(T)$. It's easy to see that with $n=0$, the corresponding system of fields is just linear combinations of connected components of $T$, and the local relations are trivial. There's no way for the blob complex to magically recover all the data of $\pi^\infty_{\leq 0}(T) \iso C_* T$.
 
 \begin{example}
 \nn{should add $\infty$ version of bordism $n$-cat}
