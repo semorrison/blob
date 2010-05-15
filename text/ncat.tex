@@ -34,11 +34,11 @@ model the $k$-morphisms on more complicated combinatorial polyhedra.
 
 For our definition, we will allow our $k$-morphisms to have any shape, so long as it is homeomorphic to the standard $k$-ball:
 
-\begin{preliminary-axiom}{\ref{axiom:morphisms}}{Morphisms}
+\begin{axiom}[Morphisms]{\textup{\textbf{[preliminary]}}}
 For any $k$-manifold $X$ homeomorphic 
 to the standard $k$-ball, we have a set of $k$-morphisms
 $\cC_k(X)$.
-\end{preliminary-axiom}
+\end{axiom}
 
 By ``a $k$-ball" we mean any $k$-manifold which is homeomorphic to the 
 standard $k$-ball.
@@ -52,6 +52,7 @@ bijection of sets $f:\cC(X)\to \cC(Y)$.
 (This will imply ``strong duality", among other things.)
 So we replace the above with
 
+\addtocounter{axiom}{-1}
 \begin{axiom}[Morphisms]
 \label{axiom:morphisms}
 For each $0 \le k \le n$, we have a functor $\cC_k$ from 
@@ -334,11 +335,11 @@ homeomorphisms in the top dimension $n$, distinguishes the two cases.
 
 We start with the plain $n$-category case.
 
-\begin{preliminary-axiom}{\ref{axiom:extended-isotopies}}{Isotopy invariance in dimension $n$}
+\begin{axiom}[Isotopy invariance in dimension $n$]{\textup{\textbf{[preliminary]}}}
 Let $X$ be an $n$-ball and $f: X\to X$ be a homeomorphism which restricts
 to the identity on $\bd X$ and is isotopic (rel boundary) to the identity.
 Then $f$ acts trivially on $\cC(X)$; $f(a) = a$ for all $a\in \cC(X)$.
-\end{preliminary-axiom}
+\end{axiom}
 
 This axiom needs to be strengthened to force product morphisms to act as the identity.
 Let $X$ be an $n$-ball and $Y\sub\bd X$ be an $n{-}1$-ball.
@@ -409,6 +410,7 @@ a map which projects a collar neighborhood of $Y$ onto $Y$.
 
 The revised axiom is
 
+\addtocounter{axiom}{-1}
 \begin{axiom}{\textup{\textbf{[topological  version]}} Extended isotopy invariance in dimension $n$}
 \label{axiom:extended-isotopies}
 Let $X$ be an $n$-ball and $f: X\to X$ be a homeomorphism which restricts
@@ -721,8 +723,7 @@ We can think of this construction as starting with a disjoint copy of a complex 
 permissible decomposition (filtration degree 0).
 Then we glue these together with mapping cylinders coming from gluing maps
 (filtration degree 1).
-Then we kill the extra homology we just introduced with mapping cylinders between the mapping cylinders (filtration degree 2).
-And so on.
+Then we kill the extra homology we just introduced with mapping cylinders between the mapping cylinders (filtration degree 2), and so on.
 
 $\cC(W)$ is functorial with respect to homeomorphisms of $k$-manifolds.
 
@@ -735,6 +736,19 @@ need to say more about ``homological" fields?
 (actions of homeomorphisms);
 define $k$-cat $\cC(\cdot\times W)$}
 
+Recall that Axiom \ref{} for an $n$-category provided functors $\cC$ from $k$-spheres to sets for $0 \leq k < n$. We claim now that these functors automatically agree with the colimits we have associated to spheres in this section. \todo{} \todo{In fact, we probably should do this for balls as well!} For the remainder of this section we will write $\underrightarrow{\cC}(W)$ for the colimit associated to an arbitary manifold $W$, to distinguish it, in the case that $W$ is a ball or a sphere, from $\cC(W)$, which is part of the definition of the $n$-category. After the next three lemmas, there will be no further need for this notational distinction.
+
+\begin{lem}
+For a $k$-ball or $k$-sphere $W$, with $0\leq k < n$, $$\underrightarrow{\cC}(W) = \cC(W).$$
+\end{lem}
+
+\begin{lem}
+For a topological $n$-category $\cC$, and an $n$-ball $B$, $$\underrightarrow{\cC}(B) = \cC(B).$$
+\end{lem}
+
+\begin{lem}
+For an $A_\infty$ $n$-category $\cC$, and an $n$-ball $B$, $$\underrightarrow{\cC}(B) \quism \cC(B).$$
+\end{lem}
 
 
 \subsection{Modules}
