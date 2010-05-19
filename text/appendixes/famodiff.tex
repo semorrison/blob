@@ -77,37 +77,37 @@ more importantly for our purposes, a $k{-}i$-dimensional normal coordinate.
 We will typically use the same notation for $i$-cells of $L$ and the 
 corresponding $i$-handles of $\jj$.
 
-For each (top-dimensional) $k$-cell $C$ of each $K_\alpha$, choose a point $p_c \in C \sub P$.
+For each (top-dimensional) $k$-cell $C$ of each $K_\alpha$, choose a point $p(C) \in C \sub P$.
 Let $D$ be a $k$-handle of $\jj$.
-To $D$ we associate the tuple $(c_\alpha)$ of $k$-cells of the $K_\alpha$'s
-which contain $D$, and also the corresponding tuple $(p_{c_\alpha})$ of points in $P$.
+For each $\alpha$ let $C(D, \alpha)$ be the $k$-cell of $K_\alpha$ which contains $D$
+and let $p(D, \alpha) = p(C(D, \alpha))$.
 
 For $p \in D$ we define
 \eq{
-    u(t, p, x) = (1-t)p + t \sum_\alpha r_\alpha(x) p_{c_\alpha} .
+    u(t, p, x) = (1-t)p + t \sum_\alpha r_\alpha(x) p(D, \alpha) .
 }
 (Recall that $P$ is a convex linear polyhedron, so the weighted average of points of $P$
 makes sense.)
 
-So far we have defined $u(t, p, x)$ when $p$ lies in a $k$-handle of $\jj$.
-For handles of $\jj$ of index less than $k$, we will define $u$ to
-interpolate between the values on $k$-handles defined above.
+Thus far we have defined $u(t, p, x)$ when $p$ lies in a $k$-handle of $\jj$.
+We will now extend $u$ inductively to handles of index less than $k$.
 
-\nn{*** resume revising here ***}
-
-If $p$ lies in a $k{-}1$-handle $E$, let $\eta : E \to [0,1]$ be the normal coordinate
+Let $E$ be a $k{-}1$-handle.
+$E$ is homeomorphic to $B^{k-1}\times [0,1]$, and meets
+the $k$-handles at $B^{k-1}\times\{0\}$ and $B^{k-1}\times\{1\}$.
+Let $\eta : E \to [0,1]$, $\eta(x, s) = s$ be the normal coordinate
 of $E$.
-In particular, $\eta$ is equal to 0 or 1 only at the intersection of $E$
-with a $k$-handle.
-Let $\beta$ be the index of the $K_\beta$ containing the $k{-}1$-cell
-corresponding to $E$.
-Let $q_0, q_1 \in P$ be the points associated to the two $k$-cells of $K_\beta$
-adjacent to the $k{-}1$-cell corresponding to $E$.
+Let $D_0$ and $D_1$ be the two $k$-handles of $\jj$ adjacent to $E$.
+There is at most one index $\beta$ such that $C(D_0, \beta) \ne C(D_1, \beta)$.
+(If there is no such index $\beta$, choose $\beta$
+arbitrarily.)
 For $p \in E$, define
 \eq{
-    u(t, p, x) = (1-t)p + t \left( \sum_{\alpha \ne \beta} r_\alpha(x) p_{c_\alpha}
-            + r_\beta(x) (\eta(p) q_1 + (1-\eta(p)) q_0) \right) .
+    u(t, p, x) = (1-t)p + t \left( \sum_{\alpha \ne \beta} r_\alpha(x) p(D_0, \alpha)
+            + r_\beta(x) (\eta(p) p(D_0, p) + (1-\eta(p)) p(D_1, p)) \right) .
 }
+
+\nn{*** resume revising here ***}
 
 In general, for $E$ a $k{-}j$-handle, there is a normal coordinate
 $\eta: E \to R$, where $R$ is some $j$-dimensional polyhedron.
