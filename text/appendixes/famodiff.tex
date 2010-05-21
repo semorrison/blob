@@ -99,7 +99,7 @@ Let $\eta : E \to [0,1]$, $\eta(x, s) = s$ be the normal coordinate
 of $E$.
 Let $D_0$ and $D_1$ be the two $k$-handles of $\jj$ adjacent to $E$.
 There is at most one index $\beta$ such that $C(D_0, \beta) \ne C(D_1, \beta)$.
-(If there is no such index $\beta$, choose $\beta$
+(If there is no such index, choose $\beta$
 arbitrarily.)
 For $p \in E$, define
 \eq{
@@ -107,16 +107,20 @@ For $p \in E$, define
             + r_\beta(x) (\eta(p) p(D_0, p) + (1-\eta(p)) p(D_1, p)) \right) .
 }
 
-\nn{*** resume revising here ***}
 
-In general, for $E$ a $k{-}j$-handle, there is a normal coordinate
-$\eta: E \to R$, where $R$ is some $j$-dimensional polyhedron.
-The vertices of $R$ are associated to $k$-cells of the $K_\alpha$, and thence to points of $P$.
-If we triangulate $R$ (without introducing new vertices), we can linearly extend
-a map from the vertices of $R$ into $P$ to a map of all of $R$ into $P$.
-Let $\cN$ be the set of all $\beta$ for which $K_\beta$ has a $k$-cell whose boundary meets
-the $k{-}j$-cell corresponding to $E$.
-For each $\beta \in \cN$, let $\{q_{\beta i}\}$ be the set of points in $P$ associated to the aforementioned $k$-cells.
+Now for the general case.
+Let $E$ be a $k{-}j$-handle.
+Let $D_0,\ldots,D_a$ be the $k$-handles adjacent to $E$.
+There is a subset of cover indices $\cN$, of cardinality $j$, 
+such that if $\alpha\notin\cN$ then
+$p(D_u, \alpha) = p(D_v, \alpha)$ for all $0\le u,v \le a$.
+For fixed $\beta\in\cN$ let $\{q_{\beta i}\}$ be the set of values of 
+$p(D_u, \beta)$ for $0\le u \le a$.
+Recall the product structure $E = B^{k-j}\times B^j$.
+Inductively, we have defined functions $\eta_{\beta i}:\bd B^j \to [0,1]$ such that
+$\sum_i \eta_{\beta i} = 1$ for all $\beta\in \cN$.
+Choose extensions of $\eta_{\beta i}$ to all of $B^j$.
+Via the projection $E\to B^j$, regard $\eta_{\beta i}$ as a function on $E$.
 Now define, for $p \in E$,
 \begin{equation}
 \label{eq:u}
@@ -125,17 +129,17 @@ Now define, for $p \in E$,
                 + \sum_{\beta \in \cN} r_\beta(x) \left( \sum_i \eta_{\beta i}(p) \cdot q_{\beta i} \right)
              \right) .
 \end{equation}
-Here $\eta_{\beta i}(p)$ is the weight given to $q_{\beta i}$ by the linear extension
-mentioned above.
 
 This completes the definition of $u: I \times P \times X \to P$.
 
 \medskip
 
-Next we verify that $u$ has the desired properties.
+Next we verify that $u$ affords $F$ the properties claimed in the statement of the lemma.
 
 Since $u(0, p, x) = p$ for all $p\in P$ and $x\in X$, $F(0, p, x) = f(p, x)$ for all $p$ and $x$.
 Therefore $F$ is a homotopy from $f$ to something.
+
+\nn{*** resume revising here ***}
 
 Next we show that if the $K_\alpha$'s are sufficiently fine cell decompositions,
 then $F$ is a homotopy through diffeomorphisms.
