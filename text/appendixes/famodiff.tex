@@ -39,17 +39,15 @@ such that
 \item $F(0, \cdot, \cdot) = f$ .
 \item We can decompose $P = \cup_i D_i$ so that
 the restrictions $F(1, \cdot, \cdot) : D_i\times X\to T$ are all adapted to $\cU$.
-\item If $f$ restricted to $Q\sub P$ has support $S\sub X$, then the restriction
-$F: (I\times Q)\times X\to T$ also has support $S$.
+\item If $f$ has support $S\sub X$, then
+$F: (I\times P)\times X\to T$ (a $k{+}1$-parameter family of maps) also has support $S$.
 \item If for all $p\in P$ we have $f(p, \cdot):X\to T$ is a 
-[submersion, diffeomorphism, PL homeomorphism, bi-Lipschitz homeomorphism]
+[immersion, diffeomorphism, PL homeomorphism, bi-Lipschitz homeomorphism]
 then the same is true of $F(t, p, \cdot)$ for all $t\in I$ and $p\in P$.
 (Of course we must assume that $X$ and $T$ are the appropriate 
 sort of manifolds for this to make sense.)
 \end{enumerate}
 \end{lemma}
-
-
 
 \begin{proof}
 Our homotopy will have the form
@@ -104,7 +102,7 @@ arbitrarily.)
 For $p \in E$, define
 \eq{
     u(t, p, x) = (1-t)p + t \left( \sum_{\alpha \ne \beta} r_\alpha(x) p(D_0, \alpha)
-            + r_\beta(x) (\eta(p) p(D_0, p) + (1-\eta(p)) p(D_1, p)) \right) .
+            + r_\beta(x) (\eta(p) p(D_0, \beta) + (1-\eta(p)) p(D_1, \beta)) \right) .
 }
 
 
@@ -125,7 +123,7 @@ Now define, for $p \in E$,
 \begin{equation}
 \label{eq:u}
     u(t, p, x) = (1-t)p + t \left(
-            \sum_{\alpha \notin \cN} r_\alpha(x) p_{c_\alpha}
+            \sum_{\alpha \notin \cN} r_\alpha(x) p(D_0, \alpha)
                 + \sum_{\beta \in \cN} r_\beta(x) \left( \sum_i \eta_{\beta i}(p) \cdot q_{\beta i} \right)
              \right) .
 \end{equation}
@@ -139,81 +137,66 @@ Next we verify that $u$ affords $F$ the properties claimed in the statement of t
 Since $u(0, p, x) = p$ for all $p\in P$ and $x\in X$, $F(0, p, x) = f(p, x)$ for all $p$ and $x$.
 Therefore $F$ is a homotopy from $f$ to something.
 
-\nn{*** resume revising here ***}
 
-Next we show that if the $K_\alpha$'s are sufficiently fine cell decompositions,
-then $F$ is a homotopy through diffeomorphisms.
-We must show that the derivative $\pd{F}{x}(t, p, x)$ is non-singular for all $(t, p, x)$.
+\medskip
+
+Next we show that for each handle $D$ of $J$, $F(1, \cdot, \cdot) : D\times X \to X$
+is a singular cell adapted to $\cU$.
+Let $k-j$ be the index of $D$.
+Referring to Equation \ref{eq:u}, we see that $F(1, p, x)$ depends on $p$ only if 
+$r_\beta(x) \ne 0$ for some $\beta\in\cN$, i.e.\ only if
+$x\in \bigcup_{\beta\in\cN} U_\beta$.
+Since the cardinality of $\cN$ is $j$ which is less than or equal to $k$,
+this shows that $F(1, \cdot, \cdot) : D\times X \to X$ is adapted to $\cU$.
+
+\medskip
+
+Next we show that $F$ does not increase supports.
+If $f(p,x) = f(p',x)$ for all $p,p'\in P$,
+then 
+\[
+	F(t, p, x) = f(u(t,p,x),x) = f(u(t',p',x),x) = F(t',p',x)
+\]
+for all $(t,p)$ and $(t',p')$ in $I\times P$.
+
+\medskip
+
+Now for claim 4 of the lemma.
+Assume that $X$ and $T$ are smooth manifolds and that $f$ is a family of diffeomorphisms.
+We must show that we can choose the $K_\alpha$'s and $u$ so that $F(t, p, \cdot)$ is a 
+diffeomorphism for all $t$ and $p$.
+It suffices to 
+show that the derivative $\pd{F}{x}(t, p, x)$ is non-singular for all $(t, p, x)$.
 We have
 \eq{
 %   \pd{F}{x}(t, p, x) = \pd{f}{x}(u(t, p, x), x) + \pd{f}{p}(u(t, p, x), x) \pd{u}{x}(t, p, x) .
     \pd{F}{x} = \pd{f}{x} + \pd{f}{p} \pd{u}{x} .
 }
-Since $f$ is a family of diffeomorphisms, $\pd{f}{x}$ is non-singular and
-\nn{bounded away from zero, or something like that}.
-(Recall that $X$ and $P$ are compact.)
+Since $f$ is a family of diffeomorphisms and $X$ and $P$ are compact, 
+$\pd{f}{x}$ is non-singular and bounded away from zero.
 Also, $\pd{f}{p}$ is bounded.
 So if we can insure that $\pd{u}{x}$ is sufficiently small, we are done.
 It follows from Equation \eqref{eq:u} above that $\pd{u}{x}$ depends on $\pd{r_\alpha}{x}$
 (which is bounded)
-and the differences amongst the various $p_{c_\alpha}$'s and $q_{\beta i}$'s.
+and the differences amongst the various $p(D_0,\alpha)$'s and $q_{\beta i}$'s.
 These differences are small if the cell decompositions $K_\alpha$ are sufficiently fine.
 This completes the proof that $F$ is a homotopy through diffeomorphisms.
 
-\medskip
+If we replace ``diffeomorphism" with ``immersion" in the above paragraph, the argument goes
+through essentially unchanged.
 
-Next we show that for each handle $D \sub P$, $F(1, \cdot, \cdot) : D\times X \to X$
-is a singular cell adapted to $\cU$.
-This will complete the proof of the lemma.
-\nn{except for boundary issues and the `$P$ is a cell' assumption}
+Next we consider the case where $f$ is a family of bi-Lipschitz homeomorphisms.
+We assume that $f$ is Lipschitz in $P$ direction as well.
+The argument in this case is similar to the one above for diffeomorphisms, with
+bounded partial derivatives replaced by Lipschitz constants.
+Since $X$ and $P$ are compact, there is a universal bi-Lipschitz constant that works for 
+$f(p, \cdot)$ for all $p$.
+By choosing the cell decompositions $K_\alpha$ sufficiently fine,
+we can insure that $u$ has a small Lipschitz constant in the $X$ direction.
+This allows us to show that $F(t, p, \cdot)$ has a bi-Lipschitz constant
+close to the universal bi-Lipschitz constant for $f$.
 
-Let $j$ be the codimension of $D$.
-(Or rather, the codimension of its corresponding cell.  From now on we will not make a distinction
-between handle and corresponding cell.)
-Then $j = j_1 + \cdots + j_m$, $0 \le m \le k$,
-where the $j_i$'s are the codimensions of the $K_\alpha$
-cells of codimension greater than 0 which intersect to form $D$.
-We will show that
-if the relevant $U_\alpha$'s are disjoint, then
-$F(1, \cdot, \cdot) : D\times X \to X$
-is a product of singular cells of dimensions $j_1, \ldots, j_m$.
-If some of the relevant $U_\alpha$'s intersect, then we will get a product of singular
-cells whose dimensions correspond to a partition of the $j_i$'s.
-We will consider some simple special cases first, then do the general case.
-
-First consider the case $j=0$ (and $m=0$).
-A quick look at Equation xxxx above shows that $u(1, p, x)$, and hence $F(1, p, x)$,
-is independent of $p \in P$.
-So the corresponding map $D \to \Diff(X)$ is constant.
-
-Next consider the case $j = 1$ (and $m=1$, $j_1=1$).
-Now Equation yyyy applies.
-We can write $D = D'\times I$, where the normal coordinate $\eta$ is constant on $D'$.
-It follows that the singular cell $D \to \Diff(X)$ can be written as a product
-of a constant map $D' \to \Diff(X)$ and a singular 1-cell $I \to \Diff(X)$.
-The singular 1-cell is supported on $U_\beta$, since $r_\beta = 0$ outside of this set.
-
-Next case: $j=2$, $m=1$, $j_1 = 2$.
-This is similar to the previous case, except that the normal bundle is 2-dimensional instead of
-1-dimensional.
-We have that $D \to \Diff(X)$ is a product of a constant singular $k{-}2$-cell
-and a 2-cell with support $U_\beta$.
-
-Next case: $j=2$, $m=2$, $j_1 = j_2 = 1$.
-In this case the codimension 2 cell $D$ is the intersection of two
-codimension 1 cells, from $K_\beta$ and $K_\gamma$.
-We can write $D = D' \times I \times I$, where the normal coordinates are constant
-on $D'$, and the two $I$ factors correspond to $\beta$ and $\gamma$.
-If $U_\beta$ and $U_\gamma$ are disjoint, then we can factor $D$ into a constant $k{-}2$-cell and
-two 1-cells, supported on $U_\beta$ and $U_\gamma$ respectively.
-If $U_\beta$ and $U_\gamma$ intersect, then we can factor $D$ into a constant $k{-}2$-cell and
-a 2-cell supported on $U_\beta \cup U_\gamma$.
-\nn{need to check that this is true}
-
-\nn{finally, general case...}
-
-\nn{this completes proof}
-
+Since PL homeomorphisms are bi-Lipschitz, we have established this last remaining case of claim 4 of the lemma as well.
 \end{proof}
 
 
