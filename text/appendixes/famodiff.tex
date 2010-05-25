@@ -8,9 +8,8 @@ Let $\cU = \{U_\alpha\}$ be an open cover of $X$ which affords a partition of
 unity $\{r_\alpha\}$.
 (That is, $r_\alpha : X \to [0,1]$; $r_\alpha(x) = 0$ if $x\notin U_\alpha$;
 for fixed $x$, $r_\alpha(x) \ne 0$ for only finitely many $\alpha$; and $\sum_\alpha r_\alpha = 1$.)
-Since $X$ is compact, we will further assume that $r_\alpha \ne 0$ (globally) 
-for only finitely
-many $\alpha$.
+Since $X$ is compact, we will further assume that $r_\alpha = 0$ (globally) 
+for all but finitely many $\alpha$.
 
 Let
 \[
@@ -29,8 +28,8 @@ A chain $c \in CM_*(X, T)$ is adapted to $\cU$ if it is a linear combination of
 generators which are adapted.
 
 \begin{lemma} \label{basic_adaptation_lemma}
-The $f: P\times X \to T$, as above.
-The there exists
+Let $f: P\times X \to T$, as above.
+Then there exists
 \[
 	F: I \times P\times X \to T
 \]
@@ -41,6 +40,9 @@ such that
 the restrictions $F(1, \cdot, \cdot) : D_i\times X\to T$ are all adapted to $\cU$.
 \item If $f$ has support $S\sub X$, then
 $F: (I\times P)\times X\to T$ (a $k{+}1$-parameter family of maps) also has support $S$.
+Furthermore, if $Q\sub\bd P$ is a convex linear subpolyhedron of $\bd P$ and $f$ restricted to $Q$
+has support $S'$, then
+$F: (I\times Q)\times X\to T$ also has support $S'$.
 \item If for all $p\in P$ we have $f(p, \cdot):X\to T$ is a 
 [immersion, diffeomorphism, PL homeomorphism, bi-Lipschitz homeomorphism]
 then the same is true of $F(t, p, \cdot)$ for all $t\in I$ and $p\in P$.
@@ -68,7 +70,7 @@ If we are in one of the cases of item 4 of the lemma, also choose $K_\alpha$
 sufficiently fine as described below.
 
 \def\jj{\tilde{L}}
-Let $L$ be a common refinement all the $K_\alpha$'s.
+Let $L$ be a common refinement of all the $K_\alpha$'s.
 Let $\jj$ denote the handle decomposition of $P$ corresponding to $L$.
 Each $i$-handle $C$ of $\jj$ has an $i$-dimensional tangential coordinate and,
 more importantly for our purposes, a $k{-}i$-dimensional normal coordinate.
@@ -76,6 +78,10 @@ We will typically use the same notation for $i$-cells of $L$ and the
 corresponding $i$-handles of $\jj$.
 
 For each (top-dimensional) $k$-cell $C$ of each $K_\alpha$, choose a point $p(C) \in C \sub P$.
+If $C$ meets a subpolyhedron $Q$ of $\bd P$, we require that $p(C)\in Q$.
+(It follows that if $C$ meets both $Q$ and $Q'$, then $p(C)\in Q\cap Q'$.
+This puts some mild constraints on the choice of $K_\alpha$.)
+
 Let $D$ be a $k$-handle of $\jj$.
 For each $\alpha$ let $C(D, \alpha)$ be the $k$-cell of $K_\alpha$ which contains $D$
 and let $p(D, \alpha) = p(C(D, \alpha))$.
@@ -129,6 +135,7 @@ Now define, for $p \in E$,
 \end{equation}
 
 This completes the definition of $u: I \times P \times X \to P$.
+Note that if $Q\sub \bd P$ is a convex linear subpolyhedron, then $u(I\times Q\times X) \sub Q$.
 
 \medskip
 
@@ -158,6 +165,13 @@ then
 	F(t, p, x) = f(u(t,p,x),x) = f(u(t',p',x),x) = F(t',p',x)
 \]
 for all $(t,p)$ and $(t',p')$ in $I\times P$.
+Similarly, if $f(q,x) = f(q',x)$ for all $q,q'\in Q\sub \bd P$,
+then 
+\[
+	F(t, q, x) = f(u(t,q,x),x) = f(u(t',q',x),x) = F(t',q',x)
+\]
+for all $(t,q)$ and $(t',q')$ in $I\times Q$.
+(Recall that we arranged above that $u(I\times Q\times X) \sub Q$.)
 
 \medskip
 
@@ -207,20 +221,22 @@ of $X$.
 Then $G_*$ is a strong deformation retract of $CM_*(X\to T)$.
 \end{lemma}
 \begin{proof}
-\nn{my current idea is too messy, so I'm going to wait and hopefully think
-of a cleaner proof}
-\noop{
-If suffices to show that 
-...
-Lemma \ref{basic_adaptation_lemma}
-...
-}
+If suffices to show that given a generator $f:P\times X\to T$ of $CM_k(X\to T)$ with
+$\bd f \in G_{k-1}$ there exists $h\in CM_{k+1}(X\to T)$ with $\bd h = f + g$ and $g \in G_k$.
+This is exactly what Lemma \ref{basic_adaptation_lemma}
+gives us.
+More specifically, let $\bd P = \sum Q_i$, with each $Q_i\in G_{k-1}$.
+Let $F: I\times P\times X\to T$ be the homotopy constructed in Lemma \ref{basic_adaptation_lemma}.
+Then $\bd F$ is equal to $f$ plus $F(1, \cdot, \cdot)$ plus the restrictions of $F$ to $I\times Q_i$.
+Part 2 of Lemma \ref{basic_adaptation_lemma} says that $F(1, \cdot, \cdot)\in G_k$,
+while part 3 of Lemma \ref{basic_adaptation_lemma} says that the restrictions to $I\times Q_i$ are in $G_k$.
 \end{proof}
 
 \medskip
 
 \nn{need to clean up references from the main text to the lemmas of this section}
 
+%%%%%% Lo, \noop{...}
 \noop{
 
 \medskip
