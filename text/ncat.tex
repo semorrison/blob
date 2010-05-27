@@ -581,7 +581,16 @@ and $C_*$ denotes singular chains.
 
 See also Theorem \ref{thm:map-recon} below, recovering $C_*(\Maps(M \to T))$ up to homotopy the blob complex of $M$ with coefficients in $\pi^\infty_{\le n}(T)$.
 
-\begin{example}[Blob complexes of balls (with a fiber)]\rm\label{ex:blob-complexes-of-balls}Fix an $m$-dimensional manifold $F$ and system of fields $\cE$.We will define an $A_\infty$ $(n-m)$-category $\cC$.When $X$ is a $k$-ball or $k$-sphere, with $k<n-m$, define $\cC(X) = \cE(X\times F)$.When $X$ is an $(n-m)$-ball,define $\cC(X; c) = \bc^\cE_*(X\times F; c)$where $\bc^\cE_*$ denotes the blob complex based on $\cE$.\end{example}
+\begin{example}[Blob complexes of balls (with a fiber)]
+\rm
+\label{ex:blob-complexes-of-balls}
+Fix an $m$-dimensional manifold $F$ and system of fields $\cE$.
+We will define an $A_\infty$ $(n-m)$-category $\cC$.
+When $X$ is a $k$-ball or $k$-sphere, with $k<n-m$, define $\cC(X) = \cE(X\times F)$.
+When $X$ is an $(n-m)$-ball,
+define $\cC(X; c) = \bc^\cE_*(X\times F; c)$
+where $\bc^\cE_*$ denotes the blob complex based on $\cE$.
+\end{example}
 
 This example will be essential for Theorem \ref{product_thm} below, which allows us to compute the blob complex of a product. Notice that with $F$ a point, the above example is a construction turning a topological $n$-category into an $A_\infty$ $n$-category. We think of this as providing a `free resolution' of the topological $n$-category. \todo{Say more here!} In fact, there is also a trivial way to do this: we can think of each vector space associated to an $n$-ball as a chain complex concentrated in degree $0$, and take $\CD{B}$ to act trivially. 
 
@@ -1104,9 +1113,8 @@ $X_B$, $_BY_A$ and $Z_A$, and the familiar adjunction
 \begin{eqnarray*}
 	\hom_A(X_B\ot {_BY_A} \to Z_A) &\cong& \hom_B(X_B \to \hom_A( {_BY_A} \to Z_A)) \\
 	f &\mapsto& [x \mapsto f(x\ot -)] \\
-	{}[x\ot y \mapsto g(x)(y)] & \leftarrowtail & g .
+	{}[x\ot y \mapsto g(x)(y)] & \mapsfrom & g .
 \end{eqnarray*}
-\nn{how to do a left-pointing ``$\mapsto$"?}
 If $A$ and $Z_A$ are both the ground field $\k$, this simplifies to
 \[
 	(X_B\ot {_BY})^* \cong  \hom_B(X_B \to (_BY)^*) .
