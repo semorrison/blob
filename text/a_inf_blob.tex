@@ -15,6 +15,12 @@ new-fangled and old-fashioned blob complex.
 
 \medskip
 
+\subsection{The small blob complex}
+
+\input{text/smallblobs}
+
+\subsection{A product formula}
+
 Let $M^n = Y^k\times F^{n-k}$.  
 Let $C$ be a plain $n$-category.
 Let $\cF$ be the $A_\infty$ $k$-category which assigns to a $k$-ball
@@ -25,7 +31,7 @@ The old-fashioned blob complex $\bc_*^C(Y\times F)$ is homotopy equivalent to th
 new-fangled blob complex $\bc_*^\cF(Y)$.
 \end{thm}
 
-\input{text/smallblobs}
+
 
 \begin{proof}[Proof of Theorem \ref{product_thm}]
 We will use the concrete description of the colimit from Subsection \ref{ss:ncat_fields}.
@@ -213,6 +219,9 @@ Apply Theorem \ref{product_thm} with the fiber $F$ equal to a point.
 
 \medskip
 
+\subsection{A gluing theorem}
+\label{sec:gluing}
+
 Next we prove a gluing theorem.
 Let $X$ be a closed $k$-manifold with a splitting $X = X'_1\cup_Y X'_2$.
 We will need an explicit collar on $Y$, so rewrite this as
@@ -230,6 +239,7 @@ or the blob complex $\bc_*((D\times Y) \cup (H\times X_i))$ (if $m+k = n$).
 \end{itemize}
 
 \begin{thm}
+\label{thm:gluing}
 $\bc(X) \cong \bc(X_1) \otimes_{\bc(Y), J} \bc(X_2)$.
 \end{thm}
 
@@ -253,6 +263,8 @@ Theorem \ref{product_thm}.
 This establishes Property \ref{property:gluing}.
 
 \medskip
+
+\subsection{Reconstructing mapping spaces}
 
 The next theorem shows how to reconstruct a mapping space from local data.
 Let $T$ be a topological space, let $M$ be an $n$-manifold, 

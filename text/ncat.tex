@@ -3,7 +3,7 @@
 \def\xxpar#1#2{\smallskip\noindent{\bf #1} {\it #2} \smallskip}
 \def\mmpar#1#2#3{\smallskip\noindent{\bf #1} (#2). {\it #3} \smallskip}
 
-\section{$n$-categories}
+\section{Definitions of $n$-categories}
 \label{sec:ncats}
 
 \subsection{Definition of $n$-categories}
@@ -1025,9 +1025,8 @@ and let $\cN = (\cN_i)$ be an assignment of a $\cC$ module $\cN_i$ to $Y_i$.
 %component $\bd_i W$ of $W$.
 %(More generally, each $\cN_i$ could label some codimension zero submanifold of $\bd W$.)
 
-We will define a set $\cC(W, \cN)$ using a colimit construction similar to above.
-\nn{give ref}
-(If $k = n$ and our $k$-categories are enriched, then
+We will define a set $\cC(W, \cN)$ using a colimit construction similar to the one appearing in \S \ref{ss:ncat_fields} above.
+(If $k = n$ and our $n$-categories are enriched, then
 $\cC(W, \cN)$ will have additional structure; see below.)
 
 Define a permissible decomposition of $W$ to be a decomposition
@@ -1039,7 +1038,7 @@ each $M_{ib}$ is a marked $k$-ball intersecting $\bd_i W$,
 with $M_{ib}\cap Y_i$ being the marking.
 (See Figure \ref{mblabel}.)
 \begin{figure}[!ht]\begin{equation*}
-\mathfig{.6}{ncat/mblabel}
+\mathfig{.4}{ncat/mblabel}
 \end{equation*}\caption{A permissible decomposition of a manifold
 whose boundary components are labeled by $\cC$ modules $\{\cN_i\}$. Marked balls are shown shaded, plain balls are unshaded.}\label{mblabel}\end{figure}
 Given permissible decompositions $x$ and $y$, we say that $x$ is a refinement
@@ -1048,7 +1047,7 @@ This defines a partial ordering $\cJ(W)$, which we will think of as a category.
 (The objects of $\cJ(D)$ are permissible decompositions of $W$, and there is a unique
 morphism from $x$ to $y$ if and only if $x$ is a refinement of $y$.)
 
-$\cN$ determines 
+The collection of modules $\cN$ determines 
 a functor $\psi_\cN$ from $\cJ(W)$ to the category of sets 
 (possibly with additional structure if $k=n$).
 For a decomposition $x = (X_a, M_{ib})$ in $\cJ(W)$, define $\psi_\cN(x)$ to be the subset
@@ -1057,20 +1056,18 @@ For a decomposition $x = (X_a, M_{ib})$ in $\cJ(W)$, define $\psi_\cN(x)$ to be 
 \]
 such that the restrictions to the various pieces of shared boundaries amongst the
 $X_a$ and $M_{ib}$ all agree.
-(Think fibered product.)
+(That is, the fibered product over the boundary maps.)
 If $x$ is a refinement of $y$, define a map $\psi_\cN(x)\to\psi_\cN(y)$
 via the gluing (composition or action) maps from $\cC$ and the $\cN_i$.
 
-Finally, define $\cC(W, \cN)$ to be the colimit of $\psi_\cN$.
-(Recall that if $k=n$ and we are in the $A_\infty$ case, then ``colimit" means
+We now define the set $\cC(W, \cN)$ to be the colimit of the functor $\psi_\cN$.
+(As usual, if $k=n$ and we are in the $A_\infty$ case, then ``colimit" means
 homotopy colimit.)
 
 If $D$ is an $m$-ball, $0\le m \le n-k$, then we can similarly define
 $\cC(D\times W, \cN)$, where in this case $\cN_i$ labels the submanifold 
-$D\times Y_i \sub \bd(D\times W)$.
-
-It is not hard to see that the assignment $D \mapsto \cT(W, \cN)(D) \deq \cC(D\times W, \cN)$
-has the structure of an $n{-}k$-category.
+$D\times Y_i \sub \bd(D\times W)$. It is not hard to see that the assignment $D \mapsto \cC(D\times W, \cN)$
+has the structure of an $n{-}k$-category, which we call $\cT(W, \cN)(D)$.
 
 \medskip
 
@@ -1079,15 +1076,11 @@ We will use a simple special case of the above
 construction to define tensor products 
 of modules.
 Let $\cM_1$ and $\cM_2$ be modules for an $n$-category $\cC$.
-(If $k=1$ and manifolds are oriented, then one should be 
+(If $k=1$ and our manifolds are oriented, then one should be 
 a left module and the other a right module.)
 Choose a 1-ball $J$, and label the two boundary points of $J$ by $\cM_1$ and $\cM_2$.
-Define the tensor product of $\cM_1$ and $\cM_2$ to be the 
-$n{-}1$-category $\cT(J, \cM_1, \cM_2)$,
-\[
-	\cM_1\otimes \cM_2 \deq \cT(J, \cM_1, \cM_2) .
-\]
-This of course depends (functorially)
+Define the tensor product $\cM_1 \tensor \cM_2$ to be the 
+$n{-}1$-category $\cT(J, \{\cM_1, \cM_2\})$. This of course depends (functorially)
 on the choice of 1-ball $J$.
 
 We will define a more general self tensor product (categorified coend) below.
@@ -1105,11 +1098,10 @@ We will define a more general self tensor product (categorified coend) below.
 
 In order to state and prove our version of the higher dimensional Deligne conjecture
 (Section \ref{sec:deligne}),
-we need to define morphisms of $A_\infty$ 1-cat modules and establish
+we need to define morphisms of $A_\infty$ 1-category modules and establish
 some of their elementary properties.
 
-To motivate the definitions which follow, consider algebras $A$ and $B$, right/bi/left modules
-$X_B$, $_BY_A$ and $Z_A$, and the familiar adjunction
+To motivate the definitions which follow, consider algebras $A$ and $B$,  right modules $X_B$ and $Z_A$ and a bimodule $\leftidx{_B}{Y}{_A}$, and the familiar adjunction
 \begin{eqnarray*}
 	\hom_A(X_B\ot {_BY_A} \to Z_A) &\cong& \hom_B(X_B \to \hom_A( {_BY_A} \to Z_A)) \\
 	f &\mapsto& [x \mapsto f(x\ot -)] \\
@@ -1125,43 +1117,43 @@ and modules $\cM_\cC$ and $_\cC\cN$,
 	(\cM_\cC\ot {_\cC\cN})^* \cong  \hom_\cC(\cM_\cC \to (_\cC\cN)^*) .
 \]
 
-In the next few paragraphs we define the things appearing in the above equation:
+In the next few paragraphs we define the objects appearing in the above equation:
 $\cM_\cC\ot {_\cC\cN}$, $(\cM_\cC\ot {_\cC\cN})^*$, $(_\cC\cN)^*$ and finally
 $\hom_\cC$.
 
-In the previous subsection we defined a tensor product of $A_\infty$ $n$-cat modules
+
+\def\olD{{\overline D}}
+\def\cbar{{\bar c}}
+In the previous subsection we defined a tensor product of $A_\infty$ $n$-category modules
 for general $n$.
 For $n=1$ this definition is a homotopy colimit indexed by subdivisions of a fixed interval $J$
 and their gluings (antirefinements).
-(The tensor product will depend (functorially) on the choice of $J$.)
-To a subdivision 
+(This tensor product depends functorially on the choice of $J$.)
+To a subdivision $D$
 \[
 	J = I_1\cup \cdots\cup I_p
 \]
 we associate the chain complex
 \[
-	\cM(I_1)\ot\cC(I_2)\ot\cdots\ot\cC(I_{m-1})\ot\cN(I_m) .
+	\psi(D) = \cM(I_1)\ot\cC(I_2)\ot\cdots\ot\cC(I_{m-1})\ot\cN(I_m) .
 \]
-(If $D$ denotes the subdivision of $J$, then we denote this complex by $\psi(D)$.)
 To each antirefinement we associate a chain map using the composition law of $\cC$ and the 
 module actions of $\cC$ on $\cM$ and $\cN$.
-\def\olD{{\overline D}}
-\def\cbar{{\bar c}}
 The underlying graded vector space of the homotopy colimit is
 \[
 	\bigoplus_l \bigoplus_{\olD} \psi(D_0)[l] ,
 \]
 where $l$ runs through the natural numbers, $\olD = (D_0\to D_1\to\cdots\to D_l)$
-runs through chains of antirefinements, and $[l]$ denotes a grading shift.
+runs through chains of antirefinements of length $l+1$, and $[l]$ denotes a grading shift.
 We will denote an element of the summand indexed by $\olD$ by
 $\olD\ot m\ot\cbar\ot n$, where $m\ot\cbar\ot n \in \psi(D_0)$.
-The boundary map is given (ignoring signs) by
-\begin{eqnarray*}
-	\bd(\olD\ot m\ot\cbar\ot n) &=& \olD\ot\bd(m\ot\cbar)\ot n + \olD\ot m\ot\cbar\ot \bd n + \\
-			& & \;\;	(\bd_+ \olD)\ot m\ot\cbar\ot n + (\bd_0 \olD)\ot \rho(m\ot\cbar\ot n) ,
-\end{eqnarray*}
-where $\bd_+ \olD = \sum_{i>0} (D_0, \cdots \widehat{D_i} \cdots , D_l)$ (the part of the simplicial
-boundary which retains $D_0$), $\bd_0 \olD = (D_1, \cdots , D_l)$,
+The boundary map is given by
+\begin{align*}
+	\bd(\olD\ot m\ot\cbar\ot n) &= (\bd_0 \olD)\ot \rho(m\ot\cbar\ot n) + (\bd_+ \olD)\ot m\ot\cbar\ot n \; + \\
+	& \qquad + (-1)^l \olD\ot\bd(m\ot\cbar\ot n) 
+\end{align*}
+where $\bd_+ \olD = \sum_{i>0} (-1)^i (D_0\to \cdots \to \widehat{D_i} \to \cdots \to D_l)$ (those parts of the simplicial
+boundary which retain $D_0$), $\bd_0 \olD = (D_1 \to \cdots \to D_l)$,
 and $\rho$ is the gluing map associated to the antirefinement $D_0\to D_1$.
 
 $(\cM_\cC\ot {_\cC\cN})^*$ is just the dual chain complex to $\cM_\cC\ot {_\cC\cN}$:
@@ -1175,7 +1167,7 @@ The boundary is given by
 													f(\olD\ot m\ot\cbar\ot \bd n) + \\
 			& & \;\;	f((\bd_+ \olD)\ot m\ot\cbar\ot n) + f((\bd_0 \olD)\ot \rho(m\ot\cbar\ot n)) .
 \end{eqnarray*}
-(Again, we are ignoring signs.)
+(Again, we are ignoring signs.) \nn{put signs in}
 
 Next we define the dual module $(_\cC\cN)^*$.
 This will depend on a choice of interval $J$, just as the tensor product did.
@@ -1205,7 +1197,7 @@ Then for each such $\olD$ we have a degree $l$ map
 We are almost ready to give the definition of morphisms between arbitrary modules
 $\cX_\cC$ and $\cY_\cC$.
 Note that the rightmost interval $I_m$ does not appear above, except implicitly in $\olD$.
-To fix this, we define subdivisions are antirefinements of left-marked intervals.
+To fix this, we define subdivisions as antirefinements of left-marked intervals.
 Subdivisions are just the obvious thing, but antirefinements are defined to mimic
 the above antirefinements of the fixed interval $J$, but with the rightmost subinterval $I_m$ always
 omitted.
