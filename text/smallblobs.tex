@@ -42,27 +42,28 @@ We now check that $s$, as defined so far, is a chain map, calculating
 \end{align*}
 Next, we compute the compositions $s \circ i$ and $i \circ s$. If we start with a small $1$-blob diagram $b$, first include it up to the full blob complex then apply $s$, we get exactly back to $b$, at least assuming we adopt the convention that for any ball $\beta$ which is already small, we choose the families of homeomorphisms $\phi_\beta$ and $\phi_{\eset \prec \beta}$ to always be the identity. In the other direction, $i \circ s$, we will need to construct a homotopy $h:\bc_*(M) \to \bc_{*+1}(M)$ for $*=0$ or $1$.
 
-The homotopy $h$ is defined by $$h(b) = \phi_\eset(b)$$ when $b$ is a $0$-blob (here $\phi_\eset$ is a one parameter family of homeomorphisms, so this is a $1$-blob), and $$h(b) = \phi_\beta(b) + \phi_{\eset \prec \beta}(\bdy b)$$ when $b$ is a $1$-blob (here $\beta$ is the ball in $b$, and the first term is the action of a one parameter family of homeomorphisms on a $1$-blob, and the second term is the action of a two parameter family of homeomorphisms on a $0$-blob, so both are $2$-blobs).
+The homotopy $h$ is defined by $$h(b) = \phi_\eset(b)$$ when $b$ is a $0$-blob (here $\phi_\eset$ is a one parameter family of homeomorphisms, so this is a $1$-blob), and $$h(b) = \phi_\beta(b) + \phi_{\eset \prec \beta}(\bdy b)$$ when $b$ is a $1$-blob (here $\beta$ is the ball in $b$, and the first term is the action of a one parameter family of homeomorphisms on a $1$-blob, and the second term is the action of a two parameter family of homeomorphisms on a $0$-blob, so both are $2$-blobs). We then calculate
 \begin{align*}
 (\bdy h+h \bdy)(b) & = \bdy (\phi_{\beta}(b) + \phi_{\eset \prec \beta}(\bdy b)) + \phi_\eset(\bdy b)  \\
 	& =  \restrict{\phi_\beta}{x_0=0}(b) - \restrict{\phi_\beta}{x_1=0}(b) - \phi_\beta(\bdy b) + (\bdy \phi_{\eset \prec \beta})(\bdy b) + \phi_\eset(\bdy b) \\
 	& =  \restrict{\phi_\beta}{x_0=0}(b) - b - \phi_\beta(\bdy b) + \restrict{\phi_{\eset \prec \beta}}{x_0=0}(\bdy b) -  \phi_\eset(\bdy b) + \phi_\beta(\bdy b) + \phi_\eset(\bdy b) \\
 	& = \restrict{\phi_\beta}{x_0=0}(b) - b + \restrict{\phi_{\eset \prec \beta}}{x_0=0}(\bdy b) \\
-	& = (i \circ s - \id)(b)
+	& = (i \circ s - \id)(b).
 \end{align*}
 
 We now describe the general case. For a $k$-blob diagram $b \in \bc_k(M)$, denote by $b_\cS$ for $\cS \subset \{0, \ldots, k-1\}$ the blob diagram obtained by erasing the corresponding blobs. In particular, $b_\eset = b$, $b_{\{0,\ldots,k-1\}} \in \bc_0(M)$, and $d b_\cS = \sum_{i \notin \cS} \pm  b_{\cS \cup \{i\}}$.
 Similarly, for a disjoint embedding of $k$ balls $\beta$ (that is, a blob diagram but without the labels on regions), $\beta_\cS$ denotes the result of erasing a subset of blobs. We'll write $\beta' \prec \beta$ if $\beta' = \beta_\cS$ for some $\cS$. Finally, for finite sequences, we'll write $i \prec i'$ if $i$ is subsequence of $i'$, and $i \prec_1 i$ if the lengths differ by exactly 1.
 
-Now we fix a sequence of strictly subordinate covers for $\cU$. First choose an $\epsilon > 0$ so every $\epsilon$ ball is contained in some open set of $\cU$. Let $\cV_{k \geq 1}$ be the open cover of $M$ by $\epsilon (1-2^{-k})$ balls, and $\cV_0 = \cU$. Certainly $\cV_k$ is strictly subordinate to $\cU$. We will write $\ev_{k \geq 0}$ for the chain map written in Lemma \ref{lem:CH-small-blobs} as $\ev_{M,\cU,\cV,k}$.
+Now we fix a sequence of strictly subordinate covers for $\cU$. First choose an $\epsilon > 0$ so every $\epsilon$ ball is contained in some open set of $\cU$. For $k \geq 1$, let $\cV_{k}$ be the open cover of $M$ by $\epsilon (1-2^{-k})$ balls, and $\cV_0 = \cU$. Certainly $\cV_k$ is strictly subordinate to $\cU$. We now chose the chain map $\ev$ provided by Lemma \ref{lem:CH-small-blobs} for the open covers $\cV_k$ strictly subordinate to $\cU$.
 
 For a $2$-blob $b$, with balls $\beta$, $s$ is the sum of $5$ terms. Again, there is a term that makes $\beta$ small, while the others `get the boundary right'. It may be useful to look at Figure \ref{fig:erectly-a-tent-badly} to help understand the arrangement.
 \begin{figure}[!ht]
-\todo{}
+$$\mathfig{0.5}{smallblobs/tent}$$
 \caption{``Erecting a tent badly.'' We know where we want to send a simplex, and each of the iterated boundary components. However, these do not agree, and we need to stitch the pieces together. Note that these diagrams don't exactly match the situation in the text: a $k$-simplex has $k+1$ boundary components, while a $k$-blob has $k$ boundary terms.}
+\label{fig:erectly-a-tent-badly}
 \end{figure}
 
-Next, we'll choose a `shrinking system' for $\cU$, namely for each increasing sequence of blob configurations
+Next, we'll choose a `shrinking system' for $\left(\cU,\{\cV_k\}_{k \geq 1}\right)$, namely for each increasing sequence of blob configurations
 $\beta_0 \prec \beta_1 \prec \cdots \prec \beta_m$, an $m+1$ parameter family of diffeomorphisms
 $\phi_{\beta_0 \prec \cdots \prec \beta_m} : \Delta^{m+1} \to \Diff{M}$, such that
 \begin{itemize}
