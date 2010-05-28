@@ -584,10 +584,10 @@ See also Theorem \ref{thm:map-recon} below, recovering $C_*(\Maps(M \to T))$ up 
 \begin{example}[Blob complexes of balls (with a fiber)]
 \rm
 \label{ex:blob-complexes-of-balls}
-Fix an $m$-dimensional manifold $F$ and system of fields $\cE$.
-We will define an $A_\infty$ $(n-m)$-category $\cC$.
-When $X$ is a $k$-ball or $k$-sphere, with $k<n-m$, define $\cC(X) = \cE(X\times F)$.
-When $X$ is an $(n-m)$-ball,
+Fix an $n-k$-dimensional manifold $F$ and an $n$-dimensional system of fields $\cE$.
+We will define an $A_\infty$ $k$-category $\cC$.
+When $X$ is a $m$-ball or $m$-sphere, with $m<k$, define $\cC(X) = \cE(X\times F)$.
+When $X$ is an $k$-ball,
 define $\cC(X; c) = \bc^\cE_*(X\times F; c)$
 where $\bc^\cE_*$ denotes the blob complex based on $\cE$.
 \end{example}
@@ -1094,12 +1094,12 @@ We will define a more general self tensor product (categorified coend) below.
 
 
 
-\subsection{Morphisms of $A_\infty$ 1-cat modules}
+\subsection{Morphisms of $A_\infty$ $1$-category modules}
 \label{ss:module-morphisms}
 
 In order to state and prove our version of the higher dimensional Deligne conjecture
 (Section \ref{sec:deligne}),
-we need to define morphisms of $A_\infty$ 1-category modules and establish
+we need to define morphisms of $A_\infty$ $1$-category modules and establish
 some of their elementary properties.
 
 To motivate the definitions which follow, consider algebras $A$ and $B$,  right modules $X_B$ and $Z_A$ and a bimodule $\leftidx{_B}{Y}{_A}$, and the familiar adjunction
@@ -1151,7 +1151,8 @@ $\olD\ot m\ot\cbar\ot n$, where $m\ot\cbar\ot n \in \psi(D_0)$.
 The boundary map is given by
 \begin{align*}
 	\bd(\olD\ot m\ot\cbar\ot n) &= (\bd_0 \olD)\ot \rho(m\ot\cbar\ot n) + (\bd_+ \olD)\ot m\ot\cbar\ot n \; + \\
-	& \qquad + (-1)^l \olD\ot\bd(m\ot\cbar\ot n) 
+	& \qquad + (-1)^l \olD\ot\bd m\ot\cbar\ot n + (-1)^{l+\deg m}  \olD\ot m\ot\bd \cbar\ot n + \\
+	& \qquad + (-1)^{l+\deg m + \deg \cbar}  \olD\ot m\ot \cbar\ot \bd n
 \end{align*}
 where $\bd_+ \olD = \sum_{i>0} (-1)^i (D_0\to \cdots \to \widehat{D_i} \to \cdots \to D_l)$ (those parts of the simplicial
 boundary which retain $D_0$), $\bd_0 \olD = (D_1 \to \cdots \to D_l)$,
@@ -1163,12 +1164,12 @@ $(\cM_\cC\ot {_\cC\cN})^*$ is just the dual chain complex to $\cM_\cC\ot {_\cC\c
 \]
 where $(\psi(D_0)[l])^*$ denotes the linear dual.
 The boundary is given by
-\begin{eqnarray*}
-	(\bd f)(\olD\ot m\ot\cbar\ot n) &=& f(\olD\ot\bd(m\ot\cbar)\ot n) + 
-													f(\olD\ot m\ot\cbar\ot \bd n) + \\
-			& & \;\;	f((\bd_+ \olD)\ot m\ot\cbar\ot n) + f((\bd_0 \olD)\ot \rho(m\ot\cbar\ot n)) .
-\end{eqnarray*}
-(Again, we are ignoring signs.) \nn{put signs in}
+\begin{align}
+\label{eq:tensor-product-boundary}
+	 (-1)^{\deg f +1} (\bd f)(\olD\ot m\ot\cbar\ot n) & = f((\bd_0 \olD)\ot \rho(m\ot\cbar\ot n)) +  f((\bd_+ \olD)\ot m\ot\cbar\ot n) + \\
+						     & \qquad + (-1)^{l} f(\olD\ot\bd m\ot\cbar \ot n)  + (-1)^{l + \deg m} f(\olD\ot m\ot\bd \cbar \ot n)  + \notag \\
+			& \qquad	 + (-1)^{l + \deg m + \deg \cbar} f(\olD\ot m\ot\cbar\ot \bd n). \notag
+\end{align}
 
 Next we define the dual module $(_\cC\cN)^*$.
 This will depend on a choice of interval $J$, just as the tensor product did.
@@ -1188,7 +1189,7 @@ Now we reinterpret $(\cM_\cC\ot {_\cC\cN})^*$
 as some sort of morphism $\cM_\cC \to (_\cC\cN)^*$.
 Let $f\in (\cM_\cC\ot {_\cC\cN})^*$.
 Let $\olD = (D_0\cdots D_l)$ be a chain of subdivisions with $D_0 = [J = I_1\cup\cdots\cup I_m]$.
-Recall that $(_\cC\cN)^*(I_1\cup\cdots\cup I_{p-1}) = (_\cC\cN(I_p))^*$.
+Recall that for any subdivision $J = I_1\cup\cdots\cup I_p$, $(_\cC\cN)^*(I_1\cup\cdots\cup I_{p-1}) = (_\cC\cN(I_p))^*$.
 Then for each such $\olD$ we have a degree $l$ map
 \begin{eqnarray*}
 	\cM(I_1)\ot\cC(I_2)\ot\cdots\ot\cC(I_{p-1}) &\to& (_\cC\cN)^*(I_1\cup\cdots\cup I_{p-1}) \\
@@ -1232,12 +1233,14 @@ Abusing notation slightly, we will denote elements of the above space by $g$, wi
 For fixed $D_0$ and $D_1$, let $\cbar = \cbar'\ot\cbar''$, where $\cbar'$ corresponds to the subintervals of $D_0$ which map to $D_1$ and $\cbar''$ corresponds to the subintervals
 which are dropped off the right side.
 (Either $\cbar'$ or $\cbar''$ might be empty.)
-Translating from the boundary map for $(\cM_\cC\ot {_\cC\cN})^*$ \nn{give ref?},
+\nn{surely $\cbar'$ can't be empy: we don't allow $D_1$ to be empty.}
+Translating from the boundary map for $(\cM_\cC\ot {_\cC\cN})^*$  appearing in Equation \eqref{eq:tensor-product-boundary},
 we have
 \begin{eqnarray*}
 	(\bd g)(\olD\ot x \ot \cbar) &=& \bd(g(\olD\ot x \ot \cbar)) + g(\olD\ot\bd(x\ot\cbar)) + \\
 	& & \;\; g((\bd_+\olD)\ot x\ot\cbar) + \gl(g((\bd_0\olD)\ot x\ot\cbar')\ot\cbar'') .
 \end{eqnarray*}
+\nn{put in signs, rearrange terms to match order in previous formulas}
 Here $\gl$ denotes the module action in $\cY_\cC$.
 This completes the definition of $\hom_\cC(\cX_\cC \to \cY_\cC)$.
 
@@ -1537,45 +1540,5 @@ The motivating example is `chains of maps to $M$' for some fixed target space $M
 \CD{J \to J'} \tensor C_*(\Maps(J \to M)) & \to C_*(\Diff(J \to J') \times \Maps(J \to M)) \\ & \to C_*(\Maps(J' \to M)),
 \end{align*}
 where the first map is the product of singular chains, and the second is precomposition by the inverse of a diffeomorphism.
-
-We now give two motivating examples, as theorems constructing other homological systems of fields,
-
-
-\begin{thm}
-For a fixed target space $X$, `chains of maps to $X$' is a homological system of fields $\Xi$, defined as
-\begin{equation*}
-\Xi(M) = \CM{M}{X}.
-\end{equation*}
-\end{thm}
-
-\begin{thm}
-Given an $n$-dimensional system of fields $\cF$, and a $k$-manifold $F$, there is an $n-k$ dimensional homological system of fields $\cF^{\times F}$ defined by
-\begin{equation*}
-\cF^{\times F}(M) = \cB_*(M \times F, \cF).
-\end{equation*}
-\end{thm}
-We might suggestively write $\cF^{\times F}$ as  $\cB_*(F \times [0,1]^b, \cF)$, interpreting this as an (undefined!) $A_\infty$ $b$-category, and then as the resulting homological system of fields, following a recipe analogous to that given above for $A_\infty$ $1$-categories.
-
-
-In later sections, we'll prove the following two unsurprising theorems, about the (as-yet-undefined) blob homology of these homological systems of fields.
-
-
-\begin{thm}
-\begin{equation*}
-\cB_*(M, \Xi) \iso \Xi(M)
-\end{equation*}
-\end{thm}
-
-\begin{thm}[Product formula]
-Given a $b$-manifold $B$, an $f$-manifold $F$ and a $b+f$ dimensional system of fields,
-there is a quasi-isomorphism
-\begin{align*}
-\cB_*(B \times F, \cF) & \quismto \cB_*(B, \cF^{\times F})
-\end{align*}
-\end{thm}
-
-\begin{question}
-Is it possible to compute the blob homology of a non-trivial bundle in terms of the blob homology of its fiber?
-\end{question}
 
 \hrule

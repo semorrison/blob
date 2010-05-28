@@ -21,16 +21,20 @@ new-fangled and old-fashioned blob complex.
 
 \subsection{A product formula}
 
-Let $M^n = Y^k\times F^{n-k}$.  
-Let $C$ be a plain $n$-category.
-Let $\cF$ be the $A_\infty$ $k$-category which assigns to a $k$-ball
-$X$ the old-fashioned blob complex $\bc_*(X\times F)$.
-
 \begin{thm} \label{product_thm}
-The old-fashioned blob complex $\bc_*^C(Y\times F)$ is homotopy equivalent to the
-new-fangled blob complex $\bc_*^\cF(Y)$.
+Given a topological $n$-category $C$ and a $n-k$-manifold $F$, recall from Example \ref{ex:blob-complexes-of-balls} that there is an  $A_\infty$ $k$-category $C^{\times F}$ defined by
+\begin{equation*}
+C^{\times F}(B) = \cB_*(B \times F, C).
+\end{equation*}
+Now, given a $k$-manifold $Y$, there is a homotopy equivalence between the `old-fashioned' blob complex for $Y \times F$ with coefficients in $C$ and the `new-fangled' (i.e. homotopy colimit) blob complex for $Y$ with coefficients in $C^{\times F}$:
+\begin{align*}
+\cB_*(Y \times F, C) & \htpy \cB_*(Y, C^{\times F})
+\end{align*}
 \end{thm}
 
+\begin{question}
+Is it possible to compute the blob homology of a non-trivial bundle in terms of the blob homology of its fiber?
+\end{question}
 
 
 \begin{proof}[Proof of Theorem \ref{product_thm}]
@@ -342,7 +346,7 @@ Next we show that $g$ is injective on homology.
 \end{proof}
 
 \nn{maybe should also mention version where we enrich over
-spaces rather than chain complexes; should comment on Lurie's (and others') similar result
+spaces rather than chain complexes; should comment on Lurie's \cite{0911.0018} (and others') similar result
 for the $E_\infty$ case, and mention that our version does not require 
 any connectivity assumptions}
 
