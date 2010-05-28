@@ -58,22 +58,29 @@ It should now be clear how to generalize this to higher dimensions.
 In the sequence-of-surgeries description above, we never used the fact that the manifolds
 involved were 1-dimensional.
 Thus we can define an $n$-dimensional fat graph to be a sequence of general surgeries
-on an $n$-manifold.
-
-\nn{*** resume revising here}
-
-More specifically,
-the $n$-dimensional fat graph operad can be thought of as a sequence of general surgeries
-$R_i \cup M_i \leadsto R_i \cup N_i$ together with mapping cylinders of diffeomorphisms
-$f_i: R_i\cup N_i \to R_{i+1}\cup M_{i+1}$.
-(See Figure \ref{delfig2}.)
+on an $n$-manifold (Figure \ref{delfig2}).
 \begin{figure}[!ht]
 $$\mathfig{.9}{deligne/manifolds}$$
-\caption{A fat graph}\label{delfig2}
+\caption{An  $n$-dimensional fat graph}\label{delfig2}
 \end{figure}
 
+More specifically, an $n$-dimensional fat graph consists of:
+\begin{itemize}
+\item ``Incoming" $n$-manifolds $M_1,\ldots,M_k$ and ``outgoing" $n$-manifolds $N_1,\ldots,N_k$,
+with $\bd M_i = \bd N_i$ for all $i$.
+\item An ``outer boundary" $n{-}1$-manifold $E$.
+\item Additional manifolds $R_0,\ldots,R_{k+1}$, with $\bd R_i = E\cup \bd M_i = E\cup \bd N_i$.
+(By convention, $M_i = N_i = \emptyset$ if $i <1$ or $i>k$.)
+We call $R_0$ the outer incoming manifold and $R_{k+1}$ the outer outgoing manifold
+\item Homeomorphisms $f_i : R_i\cup N_i\to R_{i+1}\cup M_{i+1}$, $0\le i \le k$.
+\end{itemize}
+We can think of the above data as encoding the union of the mapping cylinders $C(f_0),\ldots,C(f_k)$,
+with $C(f_i)$ glued to $C(f_{i+1})$ along $R_{i+1}$.
+\nn{need figure}
 
 
+
+\nn{*** resume revising here}
 
 
 
