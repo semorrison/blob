@@ -2,16 +2,14 @@
 
 \section{Higher-dimensional Deligne conjecture}
 \label{sec:deligne}
-In this section we discuss
-\newenvironment{property:deligne}{\textbf{Property \ref{property:deligne} (Higher dimensional Deligne conjecture)}\it}{}
-
-\begin{property:deligne}
-The singular chains of the $n$-dimensional fat graph operad act on blob cochains.
-\end{property:deligne}
-
-We will state this more precisely below as Proposition \ref{prop:deligne}, and just sketch a proof. First, we recall the usual Deligne conjecture, explain how to think of it as a statement about blob complexes, and begin to generalize it.
-
-%\def\mapinf{\Maps_\infty}
+In this section we 
+sketch
+\nn{revisit ``sketch" after proof is done} 
+the proof of a higher dimensional version of the Deligne conjecture
+about the action of the little disks operad on Hochschild cohomology.
+The first several paragraphs lead up to a precise statement of the result
+(Proposition \ref{prop:deligne} below).
+Then we sketch the proof.
 
 The usual Deligne conjecture \nn{need refs} gives a map
 \[
@@ -20,9 +18,11 @@ The usual Deligne conjecture \nn{need refs} gives a map
 \]
 Here $LD_k$ is the $k$-th space of the little disks operad, and $Hoch^*(C, C)$ denotes Hochschild
 cochains.
-The little disks operad is homotopy equivalent to the fat graph operad
-\nn{need ref; and need to restrict which fat graphs}, and Hochschild cochains are homotopy equivalent to $A_\infty$ endomorphisms
-of the blob complex of the interval.
+The little disks operad is homotopy equivalent to the 
+(transversely orient) fat graph operad
+\nn{need ref, or say more precisely what we mean}, 
+and Hochschild cochains are homotopy equivalent to $A_\infty$ endomorphisms
+of the blob complex of the interval, thought of as a bimodule for itself.
 \nn{need to make sure we prove this above}.
 So the 1-dimensional Deligne conjecture can be restated as
 \[
@@ -34,12 +34,16 @@ See Figure \ref{delfig1}.
 \begin{figure}[!ht]
 $$\mathfig{.9}{deligne/intervals}$$
 \caption{A fat graph}\label{delfig1}\end{figure}
+We emphasize that in $\hom(\bc^C_*(I), \bc^C_*(I))$ we are thinking of $\bc^C_*(I)$ as a module
+for the $A_\infty$ 1-category associated to $\bd I$, and $\hom$ means the 
+morphisms of such modules as defined in 
+Subsection \ref{ss:module-morphisms}.
 
 We can think of a fat graph as encoding a sequence of surgeries, starting at the bottommost interval
 of Figure \ref{delfig1} and ending at the topmost interval.
 The surgeries correspond to the $k$ bigon-shaped ``holes" in the fat graph.
 We remove the bottom interval of the bigon and replace it with the top interval.
-To map this topological operation to an algebraic one, we need, for each hole, an element of
+To convert this topological operation to an algebraic one, we need, for each hole, an element of
 $\hom(\bc^C_*(I_{\text{bottom}}), \bc^C_*(I_{\text{top}}))$.
 So for each fixed fat graph we have a map
 \[
@@ -53,8 +57,11 @@ Similarly, higher-dimensional chains in $C_*(FG_k)$ give rise to higher homotopi
 It should now be clear how to generalize this to higher dimensions.
 In the sequence-of-surgeries description above, we never used the fact that the manifolds
 involved were 1-dimensional.
-Thus we can define a $n$-dimensional fat graph to be a sequence of general surgeries
+Thus we can define an $n$-dimensional fat graph to be a sequence of general surgeries
 on an $n$-manifold.
+
+\nn{*** resume revising here}
+
 More specifically,
 the $n$-dimensional fat graph operad can be thought of as a sequence of general surgeries
 $R_i \cup M_i \leadsto R_i \cup N_i$ together with mapping cylinders of diffeomorphisms
@@ -62,7 +69,14 @@ $f_i: R_i\cup N_i \to R_{i+1}\cup M_{i+1}$.
 (See Figure \ref{delfig2}.)
 \begin{figure}[!ht]
 $$\mathfig{.9}{deligne/manifolds}$$
-\caption{A fat graph}\label{delfig2}\end{figure}
+\caption{A fat graph}\label{delfig2}
+\end{figure}
+
+
+
+
+
+
 The components of the $n$-dimensional fat graph operad are indexed by tuples
 $(\overline{M}, \overline{N}) = ((M_0,\ldots,M_k), (N_0,\ldots,N_k))$.
 \nn{not quite true: this is coarser than components}
