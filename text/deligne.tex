@@ -11,7 +11,7 @@ The singular chains of the $n$-dimensional fat graph operad act on blob cochains
 
 We will state this more precisely below as Proposition \ref{prop:deligne}, and just sketch a proof. First, we recall the usual Deligne conjecture, explain how to think of it as a statement about blob complexes, and begin to generalize it.
 
-\def\mapinf{\Maps_\infty}
+%\def\mapinf{\Maps_\infty}
 
 The usual Deligne conjecture \nn{need refs} gives a map
 \[
@@ -25,11 +25,11 @@ The little disks operad is homotopy equivalent to the fat graph operad
 of the blob complex of the interval.
 \nn{need to make sure we prove this above}.
 So the 1-dimensional Deligne conjecture can be restated as
-\begin{eqnarray*}
-	C_*(FG_k)\otimes \mapinf(\bc^C_*(I), \bc^C_*(I))\otimes\cdots
-	\otimes \mapinf(\bc^C_*(I), \bc^C_*(I)) & \\
-	  & \hspace{-5em} \to  \mapinf(\bc^C_*(I), \bc^C_*(I)) .
-\end{eqnarray*}
+\[
+	C_*(FG_k)\otimes \hom(\bc^C_*(I), \bc^C_*(I))\otimes\cdots
+	\otimes \hom(\bc^C_*(I), \bc^C_*(I))
+	  \to  \hom(\bc^C_*(I), \bc^C_*(I)) .
+\]
 See Figure \ref{delfig1}.
 \begin{figure}[!ht]
 $$\mathfig{.9}{deligne/intervals}$$
@@ -39,12 +39,12 @@ We can think of a fat graph as encoding a sequence of surgeries, starting at the
 of Figure \ref{delfig1} and ending at the topmost interval.
 The surgeries correspond to the $k$ bigon-shaped ``holes" in the fat graph.
 We remove the bottom interval of the bigon and replace it with the top interval.
-To map this topological operation to an algebraic one, we need, for each hole, element of
-$\mapinf(\bc^C_*(I_{\text{bottom}}), \bc^C_*(I_{\text{top}}))$.
+To map this topological operation to an algebraic one, we need, for each hole, an element of
+$\hom(\bc^C_*(I_{\text{bottom}}), \bc^C_*(I_{\text{top}}))$.
 So for each fixed fat graph we have a map
 \[
-	 \mapinf(\bc^C_*(I), \bc^C_*(I))\otimes\cdots
-	\otimes \mapinf(\bc^C_*(I), \bc^C_*(I))  \to  \mapinf(\bc^C_*(I), \bc^C_*(I)) .
+	 \hom(\bc^C_*(I), \bc^C_*(I))\otimes\cdots
+	\otimes \hom(\bc^C_*(I), \bc^C_*(I))  \to  \hom(\bc^C_*(I), \bc^C_*(I)) .
 \]
 If we deform the fat graph, corresponding to a 1-chain in $C_*(FG_k)$, we get a homotopy
 between the maps associated to the endpoints of the 1-chain.
@@ -65,8 +65,10 @@ $$\mathfig{.9}{deligne/manifolds}$$
 \caption{A fat graph}\label{delfig2}\end{figure}
 The components of the $n$-dimensional fat graph operad are indexed by tuples
 $(\overline{M}, \overline{N}) = ((M_0,\ldots,M_k), (N_0,\ldots,N_k))$.
-Note that the suboperad where $M_i$, $N_i$ and $R_i\cup M_i$ are all diffeomorphic to 
+\nn{not quite true: this is coarser than components}
+Note that the suboperad where $M_i$, $N_i$ and $R_i\cup M_i$ are all homeomorphic to 
 the $n$-ball is equivalent to the little $n{+}1$-disks operad.
+\nn{what about rotating in the horizontal directions?}
 
 
 If $M$ and $N$ are $n$-manifolds sharing the same boundary, we define
@@ -82,9 +84,9 @@ Putting this together we get
 \label{prop:deligne}
 There is a collection of maps
 \begin{eqnarray*}
-	C_*(FG^n_{\overline{M}, \overline{N}})\otimes \mapinf(\bc_*(M_1), \bc_*(N_1))\otimes\cdots\otimes 
-\mapinf(\bc_*(M_{k}), \bc_*(N_{k})) & \\
-	& \hspace{-11em}\to  \mapinf(\bc_*(M_0), \bc_*(N_0))
+	C_*(FG^n_{\overline{M}, \overline{N}})\otimes \hom(\bc_*(M_1), \bc_*(N_1))\otimes\cdots\otimes 
+\hom(\bc_*(M_{k}), \bc_*(N_{k})) & \\
+	& \hspace{-11em}\to  \hom(\bc_*(M_0), \bc_*(N_0))
 \end{eqnarray*}
 which satisfy an operad type compatibility condition. \nn{spell this out}
 \end{prop}
