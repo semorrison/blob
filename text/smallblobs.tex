@@ -5,7 +5,7 @@ Fix $\cU$, an open cover of $M$. Define the `small blob complex' $\bc^{\cU}_*(M)
 
 \begin{lem}
 \label{lem:CH-small-blobs}
-Fix an open cover $\cU$, and a sequence $\cV_k$ of open covers which are each strictly subordinate to $\cU$. For a given $k$, consider $\cG_k$ the subspace of $C_k(\Homeo(M)) \tensor \bc_*(M)$ spanned by $f \tensor b$, where $f:P^k \times M \to M$ is a $k$-parameter family of homeomorphisms such that for each $p \in P$, $f(p, -)$ makes $b$ small with respect to $\cV_k$. We can choose an up-to-homotopy representative $\ev$ of the chain map of Property \ref{property:evaluation} which gives the action of families of homeomorphisms, which restricts to give a map
+Fix an open cover $\cU$, and a sequence $\cV_k$ of open covers which are each strictly subordinate to $\cU$. \nn{Do, perhaps, the $\cV_k$ have to form a strictly subordinate sequence?} For a given $k$, consider $\cG_k$ the subspace of $C_k(\Homeo(M)) \tensor \bc_*(M)$ spanned by $f \tensor b$, where $f:P^k \times M \to M$ is a $k$-parameter family of homeomorphisms such that for each $p \in P$, $f(p, -)$ makes $b$ small with respect to $\cV_k$. We can choose an up-to-homotopy representative $\ev$ of the chain map of Property \ref{property:evaluation} which gives the action of families of homeomorphisms, which restricts to give a map
 $$\ev : \cG_k \subset C_k(\Homeo(M)) \tensor \bc_*(M) \to \bc^{\cU}_*(M)$$
 for each $k$.
 \end{lem}
@@ -58,13 +58,13 @@ Next, we choose a `shrinking system' for $\left(\cU,\{\cV_k\}_{k \geq 1}\right)$
 $\beta_0 \prec \beta_1 \prec \cdots \prec \beta_m$, an $m+1$ parameter family of diffeomorphisms
 $\phi_{\beta_0 \prec \cdots \prec \beta_m} : \Delta^{m+1} \to \Diff{M}$, such that
 \begin{itemize}
-\item for any $x$ with $x_0 = 0$, $\phi_{\beta_0 \prec \cdots \prec \beta_m}(x)(\beta_m)$ is subordinate to $\cV_{m+1}$, and
+\item for any $x$ with $x_0 = 0$, $\phi_{\beta_0 \prec \cdots \prec \beta_m}(x)(\beta_0)$ is subordinate to $\cV_{m+1}$, and
 \item for each $i = 1, \ldots, m$,
 \begin{align*}
 \phi_{\beta_0 \prec \cdots \prec \beta_m}&(x_0, \ldots, x_{i-1},0,x_{i+1},\ldots,x_m) = \\ &\phi_{\beta_0 \prec \cdots \prec \beta_{i-1} \prec \beta_{i+1} \prec \cdots \prec \beta_m}(x_0,\ldots, x_{i-1},x_{i+1},\ldots,x_m).
 \end{align*}
 \end{itemize}
-Again, we've already made the choices for $\phi_{\beta}$ and for $\phi_{\eset \prec \beta}$, where $\beta$ is a single ball. It's not immediately obvious that it's possible to make such choices, but it follows readily from the following Lemma.
+Again, we've already made the choices for $\phi_{\beta}$ and for $\phi_{\eset \prec \beta}$, where $\beta$ is a single ball. It's not immediately obvious that it's possible to make such choices, but it follows readily from the following.
 
 \begin{lem}
 \label{lem:extend-small-homeomorphisms}
@@ -77,6 +77,8 @@ There is some $K$ which uniformly bounds the expansion factors of all the homeom
 If $x \in \bdy X$, then $g_{(S-1)t+1}(\beta_i) \subset \beta_i$, and by hypothesis $f(x)$ makes $\beta_i$ small, so $\tilde{f}(t, x)$ makes $\beta$ $\cV$-small for all $t \in [0,1]$. Alternatively, $\rad g_S(\beta_i) \leq \frac{1}{S} \rad \beta_i \leq \frac{\epsilon}{K}$, so $\rad \tilde{f}(1,x)(\beta_i) \leq \epsilon$, and so $\tilde{f}(1,x)$ makes $\beta$ $\cV$-small for all $x \in X$.
 \end{proof}
 
+In fact, the application of this Lemma would allow us to choose the families of diffeomorphisms $\phi_{\beta_0 \prec \cdots \prec \beta_m}$ so that for any $x$ with $x_0 = 0$, $\phi_{\beta_0 \prec \cdots \prec \beta_m}(x)(\beta_m)$ is subordinate to any fixed open cover, for example $\cV_1$ (that is, the covering by $\epsilon/2$ balls), not just $\cV_{m+1}$, which is a weaker condition. Regardless, because of the way we have chosen the $\ev$ map, we only ensure that $\ev(\restrict{\phi_{\beta_0 \prec \cdots \prec \beta_m}}{x_0 = 0} \tensor \beta_0) \in \bc_{\deg \beta_0 + m}^{\cU}(M)$, so the distinction is not important.
+
 We now describe the general case. For a $k$-blob diagram $b \in \bc_k(M)$, denote by $b_\cS$ for $\cS \subset \{0, \ldots, k-1\}$ the blob diagram obtained by erasing the corresponding blobs. In particular, $b_\eset = b$, $b_{\{0,\ldots,k-1\}} \in \bc_0(M)$, and $d b_\cS = \sum_{i \notin \cS} \pm  b_{\cS \cup \{i\}}$.
 Similarly, for a disjoint embedding of $k$ balls $\beta$ (that is, a blob diagram but without the labels on regions), $\beta_\cS$ denotes the result of erasing a subset of blobs. We'll write $\beta' \prec \beta$ if $\beta' = \beta_\cS$ for some $\cS$. Finally, for finite sequences, we'll write $i \prec i'$ if $i$ is subsequence of $i'$, and $i \prec_1 i$ if the lengths differ by exactly 1.
 
@@ -87,26 +89,45 @@ Similarly, for a disjoint embedding of $k$ balls $\beta$ (that is, a blob diagra
 
 We've finally reached the point where we can define a map $s: \bc_*(M) \to \bc^{\cU}_*(M)$, and then a homotopy $h:\bc_*(M) \to \bc_{*+1}(M)$ so that $dh+hd=i\circ s$.  We have
 $$s(b) = \sum_{i} ev(\restrict{\phi_{i(b)}}{x_0 = 0} \tensor b_i)$$
-where the sum is over sequences $i=(i_1,\ldots,i_m)$ in $\{1,\ldots,k\}$, with $0\leq m < k$, $i(b)$ denotes the increasing sequence of blob configurations
+where the sum is over sequences $i=(i_1,\ldots,i_m)$ in $\{1,\ldots,k\}$, with $0\leq m \leq k$, $i(b)$ denotes the increasing sequence of blob configurations
 $$\beta_{(i_1,\ldots,i_m)} \prec \beta_{(i_2,\ldots,i_m)} \prec \cdots \prec \beta_{()},$$
-and, as usual, $b_i$ denotes $b$ with blobs $i_1, \ldots i_m$ erased. We'll also write
-$$s(b) = \sum_{m=0}^{k-1} \sum_{\length{i}=m} ev(\restrict{\phi_{i(b)}}{x_0 = 0} \tensor b_i),$$
+and, as usual, $b_i$ denotes $b$ with blobs $i_1, \ldots, i_m$ erased. We'll also write
+$$s(b) = \sum_{m=0}^{k} \sum_{\length{i}=m} ev(\restrict{\phi_{i(b)}}{x_0 = 0} \tensor b_i),$$
 where we arrange the sum according to the length of $i$.
 The homotopy $h:\bc_*(M) \to \bc_{*+1}(M)$ is similarly given by
 $$h(b) = \sum_{i} ev(\phi_{i(b)}, b_i).$$
 
+Before completing the proof, we unpack this definition for $b \in \bc_2(M)$, a $2$-blob. We'll write $\beta$ for the underlying balls (either nested or disjoint).
+Now $s$ is the sum of $5$ terms, split into three groups depending on with the length of the sequence $i$ is $0, 1$ or $2$. Thus
+\begin{align*}
+s(b) & = \restrict{\phi_{\beta}}{x_0 = 0}(b) + \\
+	& \quad + \restrict{\phi_{\beta_1 \prec \beta}}{x_0 = 0}(b_1) + \restrict{\phi_{\beta_2 \prec \beta}}{x_0 = 0}(b_2) + \\
+	& \quad + \restrict{\phi_{\eset \prec \beta_1 \prec \beta}}{x_0 = 0}(b_{12}) + \restrict{\phi_{\eset \prec \beta_2 \prec \beta}}{x_0 = 0}(b_{12}).
+\end{align*}
 
-Before completing the proof, we unpack this definition for $b \in \bc_2(M)$, a $2$-blob.
-Now $s$ is the sum of $5$ terms. As in the $k=1$ case, there is a term that makes the underlying balls $\beta$ small, while the other terms `get the boundary right'. It may be useful to look at Figure \ref{fig:erectly-a-tent-badly} to help understand the arrangement.
+As in the $k=1$ case, the first term, corresponding to $i(b) = \eset$, makes the all balls in $\beta$ $\cV_1$-small. However, if this were the only term $s$ would not be a chain map, because we have no control over $\restrict{\phi_{\beta}}{x_0 = 0}(\bdy b)$. This necessitates the other terms, which fix the boundary at successively higher codimensions.
+
+It may be useful to look at Figure \ref{fig:erectly-a-tent-badly} to help understand the arrangement. The red, blue and orange $2$-cells there correspond to the $m=0$, $m=1$ and $m=2$ terms respectively, while the $3$-cells (only one of each type is shown) correspond to the terms in the homotopy $h$.
 \begin{figure}[!ht]
 $$\mathfig{0.5}{smallblobs/tent}$$
 \caption{``Erecting a tent badly.'' We know where we want to send a simplex, and each of the iterated boundary components. However, these do not agree, and we need to stitch the pieces together. Note that these diagrams don't exactly match the situation in the text: a $k$-simplex has $k+1$ boundary components, while a $k$-blob has $k$ boundary terms.}
 \label{fig:erectly-a-tent-badly}
 \end{figure}
-\todo{write out the terms, talk about them.}
 
+\nn{lots of signs are wrong ...}
+\begin{align*}
+\bdy s(b) & =  \restrict{\phi_{\beta}}{x_0 = 0}(\bdy b) + \\
+	& \quad + \restrict{\phi_{\beta}}{x_0 = 0}(b_1) - \restrict{\phi_{\beta_1}}{x_0 = 0}(b_1) + \restrict{\phi_{\beta}}{x_0 = 0}(b_2) - \restrict{\phi_{\beta_2}}{x_0 = 0}(b_2) + \\
+	& \quad - \restrict{\phi_{\beta_1 \prec \beta}}{x_0 = 0}(b_{12}) - \restrict{\phi_{\beta_2 \prec \beta}}{x_0 = 0}(b_{12}) + \\
+	& \quad + \restrict{\phi_{\beta_1 \prec \beta}}{x_0 = 0}(b_{12}) - \restrict{\phi_{\eset  \prec \beta}}{x_0 = 0}(b_{12}) + \restrict{\phi_{\eset \prec \beta_1}}{x_0 = 0}(b_{12}) + \\
+	& \quad + \restrict{\phi_{\beta_2 \prec \beta}}{x_0 = 0}(b_{12}) - \restrict{\phi_{\eset \prec \beta}}{x_0 = 0}(b_{12}) + \restrict{\phi_{\eset \prec \beta_2}}{x_0 = 0}(b_{12}), \\ 
+\intertext{while}
+s(\bdy(b)) & = s(b_1) - s(b_2) \\
+		& = \restrict{\phi_{\beta_1}}{x_0=0}(b_1) + \restrict{\phi_{\eset \prec \beta_1}}{x_0=0}(b_{12}) - \restrict{\phi_{\beta_2}}{x_0=0}(b_2) - \restrict{\phi_{\eset \prec \beta_2}}{x_0=0}(b_{12}) .
+\end{align*}
+\nn{that does indeed work, modulo signs}
 
-We need to check that $s$ is a chain map, and that the image of $s$ in fact lies in $\bc^{\cU}_*(M)$. \todo{} Calculate
+We need to check that $s$ is a chain map, and that \todo{} the image of $s$ in fact lies in $\bc^{\cU}_*(M)$.  Calculate
 \begin{align*}
 \bdy(s(b)) & = \sum_{m=0}^{k-1} \sum_{\length{i}=m} \ev\left(\bdy(\restrict{\phi_{i(b)}}{x_0 = 0})\tensor b_i\right) + (-1)^m \ev\left(\restrict{\phi_{i(b)}}{x_0 = 0} \tensor \bdy b_i\right) \\
                 & = \sum_{m=0}^{k-1} \sum_{\length{i}=m} \ev\left(\sum_{i' \prec_1 i} \pm \restrict{\phi_{i'(b)}}{x_0 = 0})\tensor b_i\right) + (-1)^m \ev\left(\restrict{\phi_{i(b)}}{x_0 = 0}\tensor \sum_{i \prec_1 i'} \pm b_{i'}\right) \\
