@@ -72,18 +72,23 @@ $$\mathfig{.9}{deligne/manifolds}$$
 
 More specifically, an $n$-dimensional fat graph consists of:
 \begin{itemize}
-\item ``Incoming" $n$-manifolds $M_1,\ldots,M_k$ and ``outgoing" $n$-manifolds $N_1,\ldots,N_k$,
-with $\bd M_i = \bd N_i$ for all $i$.
-\item An ``outer boundary" $n{-}1$-manifold $E$.
-\item Additional manifolds $R_0,\ldots,R_{k+1}$, with $\bd R_i = E\cup \bd M_i = E\cup \bd N_i$.
-(By convention, $M_i = N_i = \emptyset$ if $i <1$ or $i>k$.)
-We call $R_0$ the outer incoming manifold and $R_{k+1}$ the outer outgoing manifold
-\item Homeomorphisms $f_i : R_i\cup N_i\to R_{i+1}\cup M_{i+1}$, $0\le i \le k$.
+\item ``Upper" $n$-manifolds $M_0,\ldots,M_k$ and ``lower" $n$-manifolds $N_0,\ldots,N_k$,
+with $\bd M_i = \bd N_i = E_i$ for all $i$.
+We call $M_0$ and $N_0$ the outer boundary and the remaining $M_i$'s and $N_i$'s the inner
+boundaries.
+\item Additional manifolds $R_1,\ldots,R_{k}$, with $\bd R_i = E_0\cup \bd M_i = E_0\cup \bd N_i$.
+%(By convention, $M_i = N_i = \emptyset$ if $i <1$ or $i>k$.)
+\item Homeomorphisms 
+\begin{eqnarray*}
+	f_0: M_0 &\to& R_1\cup M_1 \\
+	f_i: R_i\cup N_i &\to& R_{i+1}\cup M_{i+1}\;\; \mbox{for}\, 1\le i \le k-1 \\
+	f_k: R_k\cup N_k &\to& N_0 .
+\end{eqnarray*}
+Each $f_i$ should be the identity restricted to $E_0$.
 \end{itemize}
 We can think of the above data as encoding the union of the mapping cylinders $C(f_0),\ldots,C(f_k)$,
 with $C(f_i)$ glued to $C(f_{i+1})$ along $R_{i+1}$
 (see Figure xxxx).
-\nn{also need to revise outer labels of older fig}
 The $n$-manifolds are the ``$n$-dimensional graph" and the $I$ direction of the mapping cylinders is the ``fat" part.
 We regard two such fat graphs as the same if there is a homeomorphism between them which is the 
 identity on the boundary and which preserves the 1-dimensional fibers coming from the mapping
@@ -94,7 +99,7 @@ More specifically, we impose the following two equivalence relations:
 \[
 	(\ldots, f_{i-1}, f_i, \ldots) \to (\ldots, g\circ f_{i-1}, f_i\circ g^{-1}, \ldots) .
 \]
-(See Figure xxx.)
+(See Figure xxxx.)
 \item If $M_i = M'_i \du M''_i$ and $N_i = N'_i \du N''_i$ (and there is a
 compatible disjoint union of $\bd M = \bd N$), we can replace
 \begin{eqnarray*}
@@ -112,27 +117,48 @@ We can make a similar identification with the rolls of $M'_i$ and $M''_i$ revers
 In terms of the ``sequence of surgeries" picture, this says that if two successive surgeries
 do not overlap, we can perform them in reverse order or simultaneously.
 
-\nn{operad structure (need to ntro mroe terminology above}
+There is an operad structure on $n$-dimensional fat graphs, given by gluing the outer boundary
+of one graph into one of the inner boundaries of another graph.
+We leave it to the reader to work out a more precise statement in terms of $M_i$'s, $f_i$'s etc.
+
+For fixed $\ol{M} = (M_0,\ldots,M_k)$ and $\ol{N} = (N_0,\ldots,N_k)$, we let
+$FG^n_{\ol{M}\ol{N}}$ denote the topological space of all $n$-dimensional fat graphs as above.
+The topology comes from the spaces
+\[
+	\Homeo(M_0\to R_1\cup M_1)\times \Homeo(R_1\cup N_1\to R_2\cup M_2)\times
+			\cdots\times \Homeo(R_k\cup N_k\to N_0)
+\]
+and the above equivalence relations.
+We will denote the typical element of $FG^n_{\ol{M}\ol{N}}$ by $\ol{f} = (f_0,\ldots,f_k)$.
+
+
+\medskip
+
+Let $\ol{f} \in FG^n_{\ol{M}\ol{N}}$.
+Let $\hom(\bc_*(M_i), \bc_*(N_i))$ denote the morphisms from $\bc_*(M_i)$ to $\bc_*(N_i)$,
+as modules of the $A_\infty$ 1-category $\bc_*(E_i)$.
+We define a map
+\[
+	p(\ol{f}): \hom(\bc_*(M_1), \bc_*(N_1))\ot\cdots\ot\hom(\bc_*(M_k), \bc_*(N_k))
+				\to \hom(\bc_*(M_0), \bc_*(N_0)) .
+\]
+Given $\alpha_i\in\hom(\bc_*(M_i), \bc_*(N_i))$, we define $p(\ol{f}$ to be the composition
+\[
+	\bc_*(M_0)  \stackrel{f_0}{\to} \bc_*(R_1\cup M_1)
+				 \stackrel{\id\ot\alpha_1}{\to} \bc_*(R_1\cup N_1)
+				 \stackrel{f_1}{\to} \bc_*(R_2\cup M_2) \to
+				 \cdots  \stackrel{\id\ot\alpha_k}{\to} \bc_*(R_k\cup N_k)
+				 \stackrel{f_k}{\to} \bc_*(N_0)
+\]
+(Recall that the maps $\id\ot\alpha_i$ were defined in \nn{need ref}.)
+It is easy to check that the above definition is compatible with the equivalence relations
+and also the operad structure.
+
+\nn{little m-disks operad; }
 
 \nn{*** resume revising here}
 
 
-
-The components of the $n$-dimensional fat graph operad are indexed by tuples
-$(\overline{M}, \overline{N}) = ((M_0,\ldots,M_k), (N_0,\ldots,N_k))$.
-\nn{not quite true: this is coarser than components}
-Note that the suboperad where $M_i$, $N_i$ and $R_i\cup M_i$ are all homeomorphic to 
-the $n$-ball is equivalent to the little $n{+}1$-disks operad.
-\nn{what about rotating in the horizontal directions?}
-
-
-If $M$ and $N$ are $n$-manifolds sharing the same boundary, we define
-the blob cochains $\bc^*(A, B)$ (analogous to Hochschild cohomology) to be
-$A_\infty$ maps from $\bc_*(M)$ to $\bc_*(N)$, where we think of both
-collections of complexes as modules over the $A_\infty$ category associated to $\bd A = \bd B$.
-The ``holes" in the above 
-$n$-dimensional fat graph operad are labeled by $\bc^*(A_i, B_i)$.
-\nn{need to make up my mind which notation I'm using for the module maps}
 
 Putting this together we get 
 \begin{prop}(Precise statement of Property \ref{property:deligne})
