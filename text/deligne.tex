@@ -81,10 +81,38 @@ We call $R_0$ the outer incoming manifold and $R_{k+1}$ the outer outgoing manif
 \item Homeomorphisms $f_i : R_i\cup N_i\to R_{i+1}\cup M_{i+1}$, $0\le i \le k$.
 \end{itemize}
 We can think of the above data as encoding the union of the mapping cylinders $C(f_0),\ldots,C(f_k)$,
-with $C(f_i)$ glued to $C(f_{i+1})$ along $R_{i+1}$.
-\nn{need figure}
+with $C(f_i)$ glued to $C(f_{i+1})$ along $R_{i+1}$
+(see Figure xxxx).
+\nn{also need to revise outer labels of older fig}
+The $n$-manifolds are the ``$n$-dimensional graph" and the $I$ direction of the mapping cylinders is the ``fat" part.
+We regard two such fat graphs as the same if there is a homeomorphism between them which is the 
+identity on the boundary and which preserves the 1-dimensional fibers coming from the mapping
+cylinders.
+More specifically, we impose the following two equivalence relations:
+\begin{itemize}
+\item If $g:R_i\to R_i$ is a homeomorphism, we can replace
+\[
+	(\ldots, f_{i-1}, f_i, \ldots) \to (\ldots, g\circ f_{i-1}, f_i\circ g^{-1}, \ldots) .
+\]
+(See Figure xxx.)
+\item If $M_i = M'_i \du M''_i$ and $N_i = N'_i \du N''_i$ (and there is a
+compatible disjoint union of $\bd M = \bd N$), we can replace
+\begin{eqnarray*}
+	(\ldots, M_{i-1}, M_i, M_{i+1}, \ldots) &\to& (\ldots, M_{i-1}, M'_i, M''_i, M_{i+1}, \ldots) \\
+	(\ldots, N_{i-1}, N_i, N_{i+1}, \ldots) &\to& (\ldots, N_{i-1}, N'_i, N''_i, N_{i+1}, \ldots) \\
+	(\ldots, R_{i-1}, R_i, R_{i+1}, \ldots) &\to& 
+						(\ldots, R_{i-1}, R_i\cup M''_i, R_i\cup N'_i, R_{i+1}, \ldots) \\
+	(\ldots, f_{i-1}, f_i, \ldots) &\to& (\ldots, f_{i-1}, \rm{id}, f_i, \ldots) .
+\end{eqnarray*}
+(See Figure xxxx.)
+\end{itemize}
 
+Note that the second equivalence increases the number of holes (or arity) by 1.
+We can make a similar identification with the rolls of $M'_i$ and $M''_i$ reversed.
+In terms of the ``sequence of surgeries" picture, this says that if two successive surgeries
+do not overlap, we can perform them in reverse order or simultaneously.
 
+\nn{operad structure (need to ntro mroe terminology above}
 
 \nn{*** resume revising here}
 
