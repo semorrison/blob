@@ -279,8 +279,14 @@ want to know about spaces of maps of $k$-balls into $T$ ($k\le n$).
 To simplify notation, let $\cT = \pi^\infty_{\leq n}(T)$.
 
 \begin{thm} \label{thm:map-recon}
-$\cB^\cT(M) \simeq C_*(\Maps(M\to T))$.
+The blob complex for $M$ with coefficients in the fundamental $A_\infty$ $n$-category for $T$ is quasi-isomorphic to singular chains on maps from $M$ to $T$.
+$$\cB^\cT(M) \simeq C_*(\Maps(M\to T)).$$
 \end{thm}
+\begin{rem}
+\nn{This just isn't true, Lurie doesn't do this! I just heard this from Ricardo...}
+Lurie has shown in \cite{0911.0018} that the topological chiral homology of an $n$-manifold $M$ with coefficients in \nn{a certain $E_n$ algebra constructed from $T$} recovers  the same space of singular chains on maps from $M$ to $T$, with the additional hypothesis that $T$ is $n-1$-connected. This extra hypothesis is not surprising, in view of the idea that an $E_n$ algebra is roughly equivalent data as an $A_\infty$ $n$-category which is trivial at all but the topmost level.
+\end{rem}
+
 \begin{proof}
 We begin by constructing chain map $g: \cB^\cT(M) \to C_*(\Maps(M\to T))$.
 We then use \ref{extension_lemma_b} to show that $g$ induces isomorphisms on homology.
