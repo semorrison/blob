@@ -33,7 +33,44 @@ In  \S \ref{sec:ainfblob} we explain how to construct a system of fields from a 
 
 \nn{KW: the previous two paragraphs seem a little awkward to me, but I don't presently have a good idea for fixing them.}
 
-Finally, later sections address other topics. Section \S \ref{sec:comm_alg} describes the blob complex when $\cC$ is a commutative algebra, thought of as a topological $n$-category, in terms of the topology of $M$. Section \S \ref{sec:deligne} states (and in a later edition of this paper, hopefully proves) a higher dimensional generalisation of the Deligne conjecture (that the little discs operad acts on Hochschild cohomology) in terms of the blob complex. The appendixes prove technical results about $\CH{M}$, and make connections between our definitions of $n$-categories and familar definitions for $n=1$ and $n=2$, as well as relating the $n=1$ case of our $A_\infty$ $n$-categories with usual $A_\infty$ algebras.
+\tikzstyle{box} = [rectangle, rounded corners, draw,outer sep = 5pt, inner sep = 5pt, line width=0.5pt]
+
+{\center
+
+\begin{tikzpicture}[align=center,line width = 1.5pt]
+\newcommand{\xa}{2}
+\newcommand{\xb}{10}
+\newcommand{\ya}{14}
+\newcommand{\yb}{10}
+\newcommand{\yc}{6}
+
+\node[box] at (\xa,\ya) (C) {$\cC$ \\ a topological \\ $n$-category};
+\node[box] at (\xb,\ya) (A) {$A(M; \cC)$ \\ the (dual) TQFT \\ Hilbert space};
+\node[box] at (\xa,\yb) (FU) {$(\cF, \cU)$ \\ fields and\\ local relations};
+\node[box] at (\xb,\yb) (BC) {$\bc_*(M; \cC)$ \\ the blob complex};
+\node[box] at (\xa,\yc) (Cs) {$\cC_*$ \\ an $A_\infty$ \\$n$-category};
+\node[box] at (\xb,\yc) (BCs) {$\bc_*(M; \cC_*)$};
+
+
+
+\draw[->] (C) -- node[above] {$\displaystyle \colim_{\cell(M)} \cC$} (A);
+\draw[->] (FU) -- node[below] {blob complex \\ for $M$} (BC);
+\draw[->] (Cs) -- node[below] {$\displaystyle \hocolim_{\cell(M)} \cC_*$} (BCs);
+
+\draw[->] (FU) -- node[right=10pt] {$\cF(M)/\cU$} (A);
+
+\draw[->] (C) -- node[left=10pt,align=left] {
+	%$\displaystyle \cF(M) = \DirectSum_{c \in\cell(M)} \cC(c)$ \\ $\displaystyle \cU(B) = \DirectSum_{c \in \cell(B)} \ker \ev: \cC(c) \to \cC(B)$
+   } (FU);
+\draw[->] (BC) -- node[right] {$H_0$} (A);
+
+\draw[->] (FU) -- node[left] {blob complex \\ for balls} (Cs);
+\draw (BC) -- node[right] {$\iso$ by \\ Corollary \ref{cor:new-old}} (BCs);
+\end{tikzpicture}
+
+}
+
+Finally, later sections address other topics. Section \S \ref{sec:comm_alg} describes the blob complex when $\cC$ is a commutative algebra, thought of as a topological $n$-category, in terms of the topology of $M$. Section \S \ref{sec:deligne} states (and in a later edition of this paper, hopefully proves) a higher dimensional generalization of the Deligne conjecture (that the little discs operad acts on Hochschild cohomology) in terms of the blob complex. The appendixes prove technical results about $\CH{M}$, and make connections between our definitions of $n$-categories and familiar definitions for $n=1$ and $n=2$, as well as relating the $n=1$ case of our $A_\infty$ $n$-categories with usual $A_\infty$ algebras.
 
 
 \nn{some more things to cover in the intro}
