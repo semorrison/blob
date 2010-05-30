@@ -37,7 +37,7 @@ So the 1-dimensional Deligne conjecture can be restated as
 	  \to  \hom(\bc^C_*(I), \bc^C_*(I)) .
 \]
 See Figure \ref{delfig1}.
-\begin{figure}[!ht]
+\begin{figure}[t]
 $$\mathfig{.9}{deligne/intervals}$$
 \caption{A fat graph}\label{delfig1}\end{figure}
 We emphasize that in $\hom(\bc^C_*(I), \bc^C_*(I))$ we are thinking of $\bc^C_*(I)$ as a module
@@ -65,9 +65,9 @@ In the sequence-of-surgeries description above, we never used the fact that the 
 involved were 1-dimensional.
 Thus we can define an $n$-dimensional fat graph to be a sequence of general surgeries
 on an $n$-manifold (Figure \ref{delfig2}).
-\begin{figure}[!ht]
+\begin{figure}[t]
 $$\mathfig{.9}{deligne/manifolds}$$
-\caption{An  $n$-dimensional fat graph}\label{delfig2}
+\caption{An $n$-dimensional fat graph}\label{delfig2}
 \end{figure}
 
 More specifically, an $n$-dimensional fat graph ($n$-FG for short) consists of:
@@ -88,7 +88,11 @@ Each $f_i$ should be the identity restricted to $E_0$.
 \end{itemize}
 We can think of the above data as encoding the union of the mapping cylinders $C(f_0),\ldots,C(f_k)$,
 with $C(f_i)$ glued to $C(f_{i+1})$ along $R_{i+1}$
-(see Figure xxxx).
+(see Figure \ref{xdfig2}).
+\begin{figure}[t]
+$$\mathfig{.9}{tempkw/dfig2}$$
+\caption{$n$-dimensional fat graph from mapping cylinders}\label{xdfig2}
+\end{figure}
 The $n$-manifolds are the ``$n$-dimensional graph" and the $I$ direction of the mapping cylinders is the ``fat" part.
 We regard two such fat graphs as the same if there is a homeomorphism between them which is the 
 identity on the boundary and which preserves the 1-dimensional fibers coming from the mapping
@@ -102,7 +106,11 @@ More specifically, we impose the following two equivalence relations:
 \end{eqnarray*}
 leaving the $M_i$ and $N_i$ fixed.
 (Keep in mind the case $R'_i = R_i$.)
-(See Figure xxxx.)
+(See Figure \ref{xdfig3}.)
+\begin{figure}[t]
+$$\mathfig{.9}{tempkw/dfig3}$$
+\caption{Conjugating by a homeomorphism}\label{xdfig3}
+\end{figure}
 \item If $M_i = M'_i \du M''_i$ and $N_i = N'_i \du N''_i$ (and there is a
 compatible disjoint union of $\bd M = \bd N$), we can replace
 \begin{eqnarray*}
@@ -112,7 +120,11 @@ compatible disjoint union of $\bd M = \bd N$), we can replace
 						(\ldots, R_{i-1}, R_i\cup M''_i, R_i\cup N'_i, R_{i+1}, \ldots) \\
 	(\ldots, f_{i-1}, f_i, \ldots) &\to& (\ldots, f_{i-1}, \rm{id}, f_i, \ldots) .
 \end{eqnarray*}
-(See Figure xxxx.)
+(See Figure \ref{xdfig1}.)
+\begin{figure}[t]
+$$\mathfig{.9}{tempkw/dfig1}$$
+\caption{Changing the order of a surgery}\label{xdfig1}
+\end{figure}
 \end{itemize}
 
 Note that the second equivalence increases the number of holes (or arity) by 1.
