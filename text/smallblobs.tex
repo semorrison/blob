@@ -88,14 +88,12 @@ Similarly, for a disjoint embedding of $k$ balls $\beta$ (that is, a blob diagra
 \newcommand{\length}[1]{\operatorname{length}(#1)}
 
 We've finally reached the point where we can define a map $s: \bc_*(M) \to \bc^{\cU}_*(M)$, and then a homotopy $h:\bc_*(M) \to \bc_{*+1}(M)$ so that $dh+hd=i\circ s$.  We have
-$$s(b) = \sum_{i} (-1)^{\sigma(i)} \ev(\restrict{\phi_{i(b)}}{x_0 = 0} \tensor b_i)$$
-where the sum is over sequences $i=(i_1,\ldots,i_m)$ in $\{1,\ldots,k\}$, with $0\leq m \leq k$, $\sigma(i)$ is something to do with $i$, $i(b)$ denotes the increasing sequence of blob configurations
+$$s(b) = \sum_{m=0}^{k} \sum_{i \in \{1, \ldots, k\}^{m} \setminus \Delta} (-1)^{\sigma(i)}  \ev(\restrict{\phi_{i(b)}}{x_0 = 0} \tensor b_i),$$
+where the sum is over sequences without repeats $i=(i_1,\ldots,i_m)$ in $\{1,\ldots,k\}$, with $0\leq m \leq k$ (we're using $\Delta$ here to indicate the generalized diagonal, where any two entries coincide), $\sigma(i)$ is something to do with $i$, $i(b)$ denotes the increasing sequence of blob configurations
 $$\beta_{(i_1,\ldots,i_m)} \prec \beta_{(i_2,\ldots,i_m)} \prec \cdots \prec \beta_{()},$$
-and, as usual, $b_i$ denotes $b$ with blobs $i_1, \ldots, i_m$ erased. We'll also write
-$$s(b) = \sum_{m=0}^{k} \sum_{\length{i}=m} (-1)^{\sigma(i)}  \ev(\restrict{\phi_{i(b)}}{x_0 = 0} \tensor b_i),$$
-where we arrange the sum according to the length of $i$.
+and, as usual, $b_i$ denotes $b$ with blobs $i_1, \ldots, i_m$ erased.
 The homotopy $h:\bc_*(M) \to \bc_{*+1}(M)$ is similarly given by
-$$h(b) = \sum_{i} (-1)^{\sigma(i)} \ev(\phi_{i(b)}, b_i).$$
+$$h(b) = \sum_{m=0}^{k} \sum_{i} (-1)^{\sigma(i)} \ev(\phi_{i(b)}, b_i).$$
 
 Before completing the proof, we unpack this definition for $b \in \bc_2(M)$, a $2$-blob. We'll write $\beta$ for the underlying balls (either nested or disjoint).
 Now $s$ is the sum of $5$ terms, split into three groups depending on with the length of the sequence $i$ is $0, 1$ or $2$. Thus
@@ -125,17 +123,43 @@ $$\mathfig{0.5}{smallblobs/tent}$$
 s(\bdy(b)) & = s(b_1) - s(b_2) \\
 		& = \restrict{\phi_{\beta_1}}{x_0=0}(b_1) - \restrict{\phi_{\eset \prec \beta_1}}{x_0=0}(b_{12}) - \restrict{\phi_{\beta_2}}{x_0=0}(b_2) + \restrict{\phi_{\eset \prec \beta_2}}{x_0=0}(b_{12}) .
 \end{align*}
-\nn{that does indeed work, modulo signs}
+\nn{that does indeed work, modulo signs, with $\sigma() = 1,\sigma(1)=-1, \sigma(2)=1, \sigma(21)=-1, \sigma(12)=1$}
 
-We need to check that $s$ is a chain map, and that \todo{} the image of $s$ in fact lies in $\bc^{\cU}_*(M)$.  Calculate
+We need to check that $s$ is a chain map, and that \todo{} the image of $s$ in fact lies in $\bc^{\cU}_*(M)$.
+We first do some preliminary calculations, and introduce yet more notation. For $i \in \{1, \ldots, k\}^{m} \setminus \Delta$ and $1 \leq p \leq m$, we'll denote by $i \setminus i_p$ the sequence in $\{1, \ldots, k-1\}^{m-1} \setminus \Delta$ obtained by deleting the $p$-th entry of $i$, and reducing all entries which are greater than $i_p$ by one. Conversely, for $i \in \{1, \ldots, k-1\}^{m-1} \setminus \Delta$, $1 \leq p \leq m$ and $1 \leq q \leq k$, we'll denote by $i \ll_p q$ the sequence in $\{1, \ldots, k\}^{m} \setminus \Delta$ obtained by increasing any entries of $i$ which are at least $q$ by one, and inserting $q$ as the $p$-th entry, shifting later entries to the right. Note the natural bijection between the sets
+\begin{align}
+\setc{(i,p)}{i \in \{1, \ldots, k\}^{m} \setminus \Delta, 1 \leq p \leq m} & \iso \setc{(i,p,q)}{i \in \{1, \ldots, k-1\}^{m-1} \setminus \Delta, 1 \leq p \leq m, 1 \leq q \leq k} \notag \\ 
+\intertext{given by}
+(i, p) & \mapsto (i \setminus i_p, p, i_p) \label{eq:reindexing-bijection} \\
+(i \ll_p q, p) & \mapsfrom (i,p,q) \notag
+\end{align}
+which we will use in a moment to re-index a summation.
+
+We then calculate
 \begin{align*}
-\bdy(s(b)) & = \sum_{m=0}^{k} \sum_{\length{i}=m} (-1)^{\sigma(i)} \ev\left(\bdy(\restrict{\phi_{i(b)}}{x_0 = 0})\tensor b_i\right) + (-1)^{\sigma(i) + m} \ev\left(\restrict{\phi_{i(b)}}{x_0 = 0} \tensor \bdy b_i\right) \\
-                & = \sum_{m=0}^{k} \sum_{\length{i}=m}(-1)^{\sigma(i)} \ev\left(\sum_{p=1}^m \pm \restrict{\phi_{(i\setminus i_p)(b)}}{x_0 = 0})\tensor b_i\right) + (-1)^{\sigma(i) + m} \ev\left(\restrict{\phi_{i(b)}}{x_0 = 0}\tensor \sum_{\substack{q=1 \\ q \not\in i}}^k \pm b_{i \cup \{q\}}\right) \\
-\intertext{which we telescope as}
-		& = \ev \left( \restrict{\phi_\beta}{x_0=0} \tensor \sum_{q=1}^k \pm b_{\{q\}}\right) + \\
-		& \qquad + \sum_{m=1}^{k-1} \sum_{\length{i}=m} \Bigg( \sum_{q=1}^{m+1} \sum_{\substack{i^+ \\ i = i^+ \setminus i^+_q}} (-1)^{\sigma(i^+)} \ev\left(\sum_{p=1}^m \pm \restrict{\phi_{i(b)}}{x_0 = 0})\tensor b_{i^+}\right) + \\
-		& \qquad \qquad + (-1)^{\sigma(i) + m} \ev\left(\restrict{\phi_{i(b)}}{x_0 = 0}\tensor \sum_{\substack{q=1 \\ q \not\in i}}^k \pm b_{i \cup \{q\}}\right)\Bigg) \\
-		& \qquad + (-1)^k \sum_{\length{i}=k}(-1)^{\sigma(i)} \ev\left(\restrict{\phi_{i(b)}}{x_0 = 0}\tensor \sum_{\substack{q=1 \\ q \not\in i}}^k \pm b_{i \cup \{q\}}\right)\\		
+\bdy(s(b)) & = \sum_{m=0}^{k} \sum_{i \in \{1, \ldots, k\}^{m} \setminus \Delta} (-1)^{\sigma(i)} \ev\left(\bdy(\restrict{\phi_{i(b)}}{x_0 = 0})\tensor b_i\right) + (-1)^{\sigma(i) + m} \ev\left(\restrict{\phi_{i(b)}}{x_0 = 0} \tensor \bdy b_i\right) \\
+	& = \sum_{m=0}^{k} \sum_{i \in \{1, \ldots, k\}^{m} \setminus \Delta} \Bigg(\sum_{p=1}^m (-1)^{\sigma(i)+p+1} \ev\left(\restrict{\phi_{i(b)}}{x_0 = x_p = 0}\tensor b_i\right) \Bigg) + \\
+	& \qquad + (-1)^{\sigma(i) + m} \ev\left(\restrict{\phi_{i(b)}}{x_0 = 0} \tensor \bdy b_i\right)
+\end{align*}
+
+\nn{Crap follows:}
+\begin{align*}
+                & = \sum_{m=0}^{k} \sum_{i \in \{1, \ldots, k\}^{m} \setminus \Delta}(-1)^{\sigma(i)} \ev\left(\sum_{p=1}^m (-1)^{p+1} \restrict{\phi_{(i\setminus i_p)(b_{i_p})}}{x_0 = 0})\tensor (b_{i_p})_{(i \setminus i_p)}\right) + \\
+                & \qquad \qquad \qquad +  (-1)^{\sigma(i) + m} \ev\left(\restrict{\phi_{i(b)}}{x_0 = 0}\tensor \sum_{\substack{q=1 \\ q \not\in i}}^k (-1)^{q+1+\card{\setc{r}{i_r < q}}} b_{i \cup \{q\}}\right).
+\end{align*}
+Notice the first term vanishes when $m=0$, and the second term vanishes when $m=k$, so it is convenient to rearrange the terms according to the degree of the family of diffeomorphisms. We obtain
+\begin{align*}
+\bdy(s(b)) & = \sum_{m=0}^{k-1} \sum_{i \in \{1, \ldots, k\}^{m+1} \setminus \Delta}(-1)^{\sigma(i) + p + 1} \ev\left(\sum_{p=1}^{m+1} \restrict{\phi_{(i\setminus i_p)(b_{i_p})}}{x_0 = 0})\tensor (b_{i_p})_{(i \setminus i_p)}\right) + \\
+                & \qquad \sum_{m=0}^{k-1} \sum_{i \in \{1, \ldots, k\}^{m} \setminus \Delta}   (-1)^{\sigma(i) + m} \ev\left(\restrict{\phi_{i(b)}}{x_0 = 0}\tensor \sum_{\substack{q=1 \\ q \not\in i}}^k (-1)^{q+1+\card{\setc{r}{i_r < q}}} b_{i \cup \{q\}}\right) \\
+\intertext{then reindex the first sum using the bijection from Equation \eqref{eq:reindexing-bijection}, giving}
+               & = \sum_{m=0}^{k-1} \sum_{i \in \{1, \ldots, k-1\}^{m} \setminus \Delta} \sum_{p=1}^{m+1} \sum_{q=1}^k (-1)^{\sigma(i \ll_p q) + p + 1} \ev\left( \restrict{\phi_{i(b_{q})}}{x_0 = 0})\tensor (b_{q})_{i}\right) + \\
+                & \qquad \sum_{m=0}^{k-1} \sum_{i \in \{1, \ldots, k\}^{m} \setminus \Delta}   (-1)^{\sigma(i) + m} \ev\left(\restrict{\phi_{i(b)}}{x_0 = 0}\tensor \sum_{\substack{q=1 \\ q \not\in i}}^k (-1)^{q+1+\card{\setc{r}{i_r < q}}} b_{i \cup \{q\}}\right) \\
+\end{align*}
+
+On the other hand, we have
+\begin{align*}
+s(\bdy b) & = \sum_{q=1}^k (-1)^{q+1} s(b_q) \\
+	       & = \sum_{q=1}^k (-1)^{q+1} \sum_{m=0}^{k-1} \sum_{i \in \{1, \ldots, k-1\}^{m} \setminus \Delta} (-1)^{\sigma(i)}  \ev(\restrict{\phi_{i(b_q)}}{x_0 = 0} \tensor (b_q)_i).
 \end{align*}
 \todo{to be continued...}
 
