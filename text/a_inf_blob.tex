@@ -22,7 +22,7 @@ new-fangled and old-fashioned blob complex.
 \subsection{A product formula}
 
 \begin{thm} \label{product_thm}
-Given a topological $n$-category $C$ and a $n-k$-manifold $F$, recall from Example \ref{ex:blob-complexes-of-balls} that there is an  $A_\infty$ $k$-category $C^{\times F}$ defined by
+Given a topological $n$-category $C$ and a $n{-}k$-manifold $F$, recall from Example \ref{ex:blob-complexes-of-balls} that there is an  $A_\infty$ $k$-category $C^{\times F}$ defined by
 \begin{equation*}
 C^{\times F}(B) = \cB_*(B \times F, C).
 \end{equation*}
@@ -32,9 +32,30 @@ Now, given a $k$-manifold $Y$, there is a homotopy equivalence between the `old-
 \end{align*}
 \end{thm}
 
-\begin{question}
-Is it possible to compute the blob homology of a non-trivial bundle in terms of the blob homology of its fiber?
-\end{question}
+\nn{To do: remark on the case of a nontrivial fiber bundle.  
+I can think of two approaches.
+In the first (slick but maybe a little too tautological), we generalize the 
+notion of an $n$-category to an $n$-category {\it over a space $B$}.
+(Should be able to find precedent for this in a paper of PT.
+This idea came up in a conversation with him, so maybe should site him.)
+In this generalization, we replace the categories of balls with the categories 
+of balls equipped with maps to $B$.
+A fiber bundle $F\to E\to B$ gives an example of such an $n$-category:
+assign to $p:D\to B$ the blob complex $\bc_*(p^*(E))$.
+We can do the colimit thing over $B$ with coefficients in a n-cat-over-B.
+The proof below works essentially unchanged in this case to show that the colimit is the blob complex of the total space $E$.
+}
+
+\nn{The second approach: Choose a decomposition $B = \cup X_i$
+such that the restriction of $E$ to $X_i$ is a product $F\times X_i$.
+Choose the product structure as well.
+To each codim-1 face $D_i\cap D_j$ we have a bimodule ($S^0$-module).
+And more generally to each codim-$j$ face we have an $S^{j-1}$-module.
+Decorate the decomposition with these modules and do the colimit.
+}
+
+\nn{There is a version of this last construction for arbitrary maps $E \to B$
+(not necessarily a fibration).}
 
 
 \begin{proof}[Proof of Theorem \ref{product_thm}]
