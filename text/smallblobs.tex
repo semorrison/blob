@@ -55,13 +55,13 @@ The homotopy $h$ is defined by $$h(b) = \phi_\eset(b)$$ when $b$ is a $0$-blob (
 In order to define $s$ on arbitrary blob diagrams, we first fix a sequence of strictly subordinate covers for $\cU$. First choose an $\epsilon > 0$ so every $\epsilon$ ball is contained in some open set of $\cU$. For $k \geq 1$, let $\cV_{k}$ be the open cover of $M$ by $\epsilon (1-2^{-k})$ balls, and $\cV_0 = \cU$. Certainly $\cV_k$ is strictly subordinate to $\cU$. We now chose the chain map $\ev$ provided by Lemma \ref{lem:CH-small-blobs} for the open covers $\cV_k$ strictly subordinate to $\cU$. Note that $\cV_1$ and $\cV_2$ have already implicitly appeared in the description above.
 
 Next, we choose a `shrinking system' for $\left(\cU,\{\cV_k\}_{k \geq 1}\right)$, namely for each increasing sequence of blob configurations
-$\beta_0 \prec \beta_1 \prec \cdots \prec \beta_m$, an $m+1$ parameter family of diffeomorphisms
-$\phi_{\beta_0 \prec \cdots \prec \beta_m} : \Delta^{m+1} \to \Diff{M}$, such that
+$\beta_1 \prec \cdots \prec \beta_n$, an $n$ parameter family of diffeomorphisms
+$\phi_{\beta_1 \prec \cdots \prec \beta_n} : \Delta^{n+1} \to \Diff{M}$, such that
 \begin{itemize}
-\item for any $x$ with $x_0 = 0$, $\phi_{\beta_0 \prec \cdots \prec \beta_m}(x)(\beta_0)$ is subordinate to $\cV_{m+1}$, and
-\item for each $i = 1, \ldots, m$,
+\item for any $x$ with $x_0 = 0$, $\phi_{\beta_1 \prec \cdots \prec \beta_n}(x)(\beta_1)$ is subordinate to $\cV_{n+1}$, and
+\item for each $i = 1, \ldots, n$,
 \begin{align*}
-\phi_{\beta_0 \prec \cdots \prec \beta_m}&(x_0, \ldots, x_{i-1},0,x_{i+1},\ldots,x_m) = \\ &\phi_{\beta_0 \prec \cdots \prec \beta_{i-1} \prec \beta_{i+1} \prec \cdots \prec \beta_m}(x_0,\ldots, x_{i-1},x_{i+1},\ldots,x_m).
+\phi_{\beta_1 \prec \cdots \prec \beta_n}&(x_0, \ldots, x_{i-1},0,x_{i+1},\ldots,x_n) = \\ &\phi_{\beta_1 \prec \cdots \prec \beta_{i-1} \prec \beta_{i+1} \prec \cdots \prec \beta_n}(x_0,\ldots, x_{i-1},x_{i+1},\ldots,x_n).
 \end{align*}
 \end{itemize}
 Again, we've already made the choices for $\phi_{\beta}$ and for $\phi_{\eset \prec \beta}$, where $\beta$ is a single ball. It's not immediately obvious that it's possible to make such choices, but it follows readily from the following.
@@ -77,11 +77,10 @@ There is some $K$ which uniformly bounds the expansion factors of all the homeom
 If $x \in \bdy X$, then $g_{(S-1)t+1}(\beta_i) \subset \beta_i$, and by hypothesis $f(x)$ makes $\beta_i$ small, so $\tilde{f}(t, x)$ makes $\beta$ $\cV$-small for all $t \in [0,1]$. Alternatively, $\rad g_S(\beta_i) \leq \frac{1}{S} \rad \beta_i \leq \frac{\epsilon}{K}$, so $\rad \tilde{f}(1,x)(\beta_i) \leq \epsilon$, and so $\tilde{f}(1,x)$ makes $\beta$ $\cV$-small for all $x \in X$.
 \end{proof}
 
-In fact, the application of this Lemma would allow us to choose the families of diffeomorphisms $\phi_{\beta_0 \prec \cdots \prec \beta_m}$ so that for any $x$ with $x_0 = 0$, $\phi_{\beta_0 \prec \cdots \prec \beta_m}(x)(\beta_m)$ is subordinate to any fixed open cover, for example $\cV_1$ (that is, the covering by $\epsilon/2$ balls), not just $\cV_{m+1}$, which is a weaker condition. Regardless, because of the way we have chosen the $\ev$ map, we only ensure that $\ev(\restrict{\phi_{\beta_0 \prec \cdots \prec \beta_m}}{x_0 = 0} \tensor \beta_0) \in \bc_{\deg \beta_0 + m}^{\cU}(M)$, so the distinction is not important.
+In fact, the application of this Lemma would allow us to choose the families of diffeomorphisms $\phi_{\beta_1 \prec \cdots \prec \beta_n}$ so that for any $x$ with $x_0 = 0$, $\phi_{\beta_1 \prec \cdots \prec \beta_n}(x)(\beta_1)$ is subordinate to any fixed open cover, for example $\cV_1$ (that is, the covering by $\epsilon/2$ balls), not just $\cV_{n+1}$, which is a weaker condition. Regardless, because of the way we have chosen the $\ev$ map, we only ensure that $\ev(\restrict{\phi_{\beta_1 \prec \cdots \prec \beta_n}}{x_0 = 0} \tensor \beta_1) \in \bc_{\deg \beta_1 + n}^{\cU}(M)$, so the distinction is not important.
 
-We now describe the general case. For a $k$-blob diagram $b \in \bc_k(M)$, denote by $b_\cS$ for $\cS \subset \{0, \ldots, k-1\}$ the blob diagram obtained by erasing the corresponding blobs. In particular, $b_\eset = b$, $b_{\{0,\ldots,k-1\}} \in \bc_0(M)$, and $d b_\cS = \sum_{i \notin \cS} \pm  b_{\cS \cup \{i\}}$.
-Similarly, for a disjoint embedding of $k$ balls $\beta$ (that is, a blob diagram but without the labels on regions), $\beta_\cS$ denotes the result of erasing a subset of blobs. We'll write $\beta' \prec \beta$ if $\beta' = \beta_\cS$ for some $\cS$. Finally, for finite sequences, we'll write $i \prec i'$ if $i$ is subsequence of $i'$, and $i \prec_1 i$ if the lengths differ by exactly 1.
-
+We now describe the general case. For a $k$-blob diagram $b \in \bc_k(M)$, denote by $b_\cS$ for $\cS \subset \{1, \ldots, k\}$ the blob diagram obtained by erasing the corresponding blobs. In particular, $b_\eset = b$, $b_{\{1,\ldots,k\}} \in \bc_0(M)$, and $\bdy b_\cS = \sum_{i \notin \cS} (-1)^{i+1+\card{\setc{j \in \cS}{j < i}}}  b_{\cS \cup \{i\}}$.
+Similarly, for a disjoint embedding of $k$ balls $\beta$ (that is, a blob diagram but without the labels on regions), $\beta_\cS$ denotes the result of erasing a subset of blobs. 
 
 \nn{revision marker ...}
 
@@ -138,9 +137,21 @@ which we will use in a moment to re-index a summation.
 We then calculate
 \begin{align*}
 \bdy(s(b)) & = \sum_{m=0}^{k} \sum_{i \in \{1, \ldots, k\}^{m} \setminus \Delta} (-1)^{\sigma(i)} \ev\left(\bdy(\restrict{\phi_{i(b)}}{x_0 = 0})\tensor b_i\right) + (-1)^{\sigma(i) + m} \ev\left(\restrict{\phi_{i(b)}}{x_0 = 0} \tensor \bdy b_i\right) \\
-	& = \sum_{m=0}^{k} \sum_{i \in \{1, \ldots, k\}^{m} \setminus \Delta} \Bigg(\sum_{p=1}^m (-1)^{\sigma(i)+p+1} \ev\left(\restrict{\phi_{i(b)}}{x_0 = x_p = 0}\tensor b_i\right) \Bigg) + \\
+	& = \sum_{m=0}^{k} \sum_{i \in \{1, \ldots, k\}^{m} \setminus \Delta} \Bigg(\sum_{p=1}^{m+1} (-1)^{\sigma(i)+p+1} \ev\left(\restrict{\phi_{i(b)}}{x_0 = x_p = 0}\tensor b_i\right) \Bigg) + \\
 	& \qquad + (-1)^{\sigma(i) + m} \ev\left(\restrict{\phi_{i(b)}}{x_0 = 0} \tensor \bdy b_i\right)
 \end{align*}
+First, write $s_{p_1,p}(i)$ to indicate the sequence obtained from $i$ by transposing its $p-1$-th and $p$-th entries. Now note that for $2 \leq p \leq m$,
+\begin{align*}
+\restrict{\phi_{i(b)}}{x_0=x_p=0} & = \restrict{\phi_{\beta_{i_1\cdots i_m} \prec \beta_{i_2 \cdots i_m} \prec \cdots \prec \beta}}{x_0=x_p=0} \\
+	& = \restrict{\phi_{\beta_{i_1\cdots i_m} \prec \beta_{i_2 \cdots i_m} \prec \cdots \prec \beta_{i_{p-1} i_p \cdots i_m} \prec \beta_{i_{p+1} \cdots i_m} \prec \cdots \prec \beta}}{x_0=0} \\
+	& = \restrict{\phi_{s_{p-1,p}(i)(b)}}{x_0=x_p=0}.
+\end{align*}
+
+Since $\sigma(i) = - \sigma(s_{p_1,p}(i))$, we can cancel out in pairs all the terms above except those with $p=1$ or $p=m+1$. Thus
+\begin{align*}
+\bdy(s(b)) & = ...
+\end{align*}
+
 
 \nn{Crap follows:}
 \begin{align*}
