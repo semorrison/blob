@@ -81,23 +81,28 @@ Correspondingly, for 1-morphisms it makes sense to distinguish between domain an
 by oriented 1-balls.)
 For $k>1$ and in the presence of strong duality the division into domain and range makes less sense. For example, in a pivotal tensor category, there are natural isomorphisms $\Hom{}{A}{B \tensor C} \isoto \Hom{}{B^* \tensor A}{C}$, etc. (sometimes called ``Frobenius reciprocity''), which canonically identify all the morphism spaces which have the same boundary. We prefer to not make the distinction in the first place.
 
-Instead, we combine the domain and range into a single entity which we call the 
+Instead, we will combine the domain and range into a single entity which we call the 
 boundary of a morphism.
-Morphisms are modeled on balls, so their boundaries are modeled on spheres:
+Morphisms are modeled on balls, so their boundaries are modeled on spheres.
+In other words, we need to extend the functors $\cC_{k-1}$ from balls to spheres, for 
+$1\le k \le n$.
+At first might seem that we need another axiom for this, but in fact once we have
+all the axioms in the subsection for $0$ through $k-1$ we can use a coend
+construction, as described in Subsection \ref{ss:ncat-coend} below, to extend $\cC_{k-1}$
+to spheres (and any other manifolds):
 
-\begin{axiom}[Boundaries (spheres)]
+\begin{prop}
 \label{axiom:spheres}
-For each $0 \le k \le n-1$, we have a functor $\cC_k$ from 
-the category of $k$-spheres and 
+For each $1 \le k \le n$, we have a functor $\cC_{k-1}$ from 
+the category of $k{-}1$-spheres and 
 homeomorphisms to the category of sets and bijections.
-\end{axiom}
+\end{prop}
 
-In order to conserve symbols, we use the same symbol $\cC_k$ for both morphisms and boundaries, and again often omit the subscript.
 
-In fact, the functors for spheres are entirely determined by the functors for balls and the subsequent axioms. (In particular, $\cC(S^k)$ is the colimit of $\cC$ applied to decompositions of $S^k$ into balls.) However, it is easiest to think of it as additional data at this point.
+%In fact, the functors for spheres are entirely determined by the functors for balls and the subsequent axioms. (In particular, $\cC(S^k)$ is the colimit of $\cC$ applied to decompositions of $S^k$ into balls.) However, it is easiest to think of it as additional data at this point.
 
-\begin{axiom}[Boundaries (maps)]\label{nca-boundary}
-For each $k$-ball $X$, we have a map of sets $\bd: \cC(X)\to \cC(\bd X)$.
+\begin{axiom}[Boundaries]\label{nca-boundary}
+For each $k$-ball $X$, we have a map of sets $\bd: \cC_k(X)\to \cC_{k-1}(\bd X)$.
 These maps, for various $X$, comprise a natural transformation of functors.
 \end{axiom}
 
@@ -136,11 +141,13 @@ For the moment just stick with unoriented manifolds.}
 We have just argued that the boundary of a morphism has no preferred splitting into
 domain and range, but the converse meets with our approval.
 That is, given compatible domain and range, we should be able to combine them into
-the full boundary of a morphism:
+the full boundary of a morphism.
+The following proposition follows from the coend construction used to define $\cC_{k-1}$
+on spheres.
 
-\begin{axiom}[Boundary from domain and range]
-Let $S = B_1 \cup_E B_2$, where $S$ is a $k$-sphere $(0\le k\le n-1)$,
-$B_i$ is a $k$-ball, and $E = B_1\cap B_2$ is a $k{-}1$-sphere (Figure \ref{blah3}).
+\begin{prop}[Boundary from domain and range]
+Let $S = B_1 \cup_E B_2$, where $S$ is a $k{-}1$-sphere $(1\le k\le n)$,
+$B_i$ is a $k{-}1$-ball, and $E = B_1\cap B_2$ is a $k{-}2$-sphere (Figure \ref{blah3}).
 Let $\cC(B_1) \times_{\cC(E)} \cC(B_2)$ denote the fibered product of the 
 two maps $\bd: \cC(B_i)\to \cC(E)$.
 Then we have an injective map
@@ -148,7 +155,9 @@ Then we have an injective map
 	\gl_E : \cC(B_1) \times_{\cC(E)} \cC(B_2) \into \cC(S)
 \]
 which is natural with respect to the actions of homeomorphisms.
-\end{axiom}
+(When $k=1$ we stipulate that $\cC(E)$ is a point, so that the above fibered product
+becomes a normal product.)
+\end{prop}
 
 \begin{figure}[!ht]
 $$
@@ -244,7 +253,7 @@ We will write $\cC(B)_Y$ for the image of $\gl_Y$ in $\cC(B)$.
 We will call elements of $\cC(B)_Y$ morphisms which are `splittable along $Y$' or `transverse to $Y$'.
 We have $\cC(B)_Y \sub \cC(B)_E \sub \cC(B)$.
 
-More generally, let $\alpha$ be a subdivision of a ball (or sphere) $X$ into smaller balls.
+More generally, let $\alpha$ be a subdivision of a ball $X$ into smaller balls.
 Let $\cC(X)_\alpha \sub \cC(X)$ denote the image of the iterated gluing maps from 
 the smaller balls to $X$.
 We  say that elements of $\cC(X)_\alpha$ are morphisms which are `splittable along $\alpha$'.
@@ -490,7 +499,7 @@ We now describe several classes of examples of $n$-categories satisfying our axi
 \rm
 \label{ex:maps-to-a-space}%
 Fix a `target space' $T$, any topological space. We define $\pi_{\leq n}(T)$, the fundamental $n$-category of $T$, as follows.
-For $X$ a $k$-ball or $k$-sphere with $k < n$, define $\pi_{\leq n}(T)(X)$ to be the set of 
+For $X$ a $k$-ball with $k < n$, define $\pi_{\leq n}(T)(X)$ to be the set of 
 all continuous maps from $X$ to $T$.
 For $X$ an $n$-ball define $\pi_{\leq n}(T)(X)$ to be continuous maps from $X$ to $T$ modulo
 homotopies fixed on $\bd X$.
@@ -525,7 +534,7 @@ The next example is only intended to be illustrative, as we don't specify which 
 \rm
 \label{ex:traditional-n-categories}
 Given a `traditional $n$-category with strong duality' $C$
-define $\cC(X)$, for $X$ a $k$-ball or $k$-sphere with $k < n$,
+define $\cC(X)$, for $X$ a $k$-ball with $k < n$,
 to be the set of all $C$-labeled sub cell complexes of $X$ (c.f. \S \ref{sec:fields}).
 For $X$ an $n$-ball and $c\in \cC(\bd X)$, define $\cC(X)$ to finite linear
 combinations of $C$-labeled sub cell complexes of $X$
@@ -548,7 +557,7 @@ Finally, we describe a version of the bordism $n$-category suitable to our defin
 \begin{example}[The bordism $n$-category, plain version]
 \rm
 \label{ex:bordism-category}
-For a $k$-ball or $k$-sphere $X$, $k<n$, define $\Bord^n(X)$ to be the set of all $k$-dimensional
+For a $k$-ball $X$, $k<n$, define $\Bord^n(X)$ to be the set of all $k$-dimensional
 submanifolds $W$ of $X\times \Real^\infty$ such that the projection $W \to X$ is transverse
 to $\bd X$.
 For an $n$-ball $X$ define $\Bord^n(X)$ to be homeomorphism classes (rel boundary) of such $n$-dimensional submanifolds;
@@ -573,7 +582,7 @@ $W \to W'$ which restricts to the identity on the boundary.
 \rm
 \label{ex:chains-of-maps-to-a-space}
 We can modify Example \ref{ex:maps-to-a-space} above to define the fundamental $A_\infty$ $n$-category $\pi^\infty_{\le n}(T)$ of a topological space $T$.
-For $k$-balls and $k$-spheres $X$, with $k < n$, the sets $\pi^\infty_{\leq n}(T)(X)$ are just $\Maps(X \to T)$.
+For a $k$-ball $X$, with $k < n$, the set $\pi^\infty_{\leq n}(T)(X)$ is just $\Maps(X \to T)$.
 Define $\pi^\infty_{\leq n}(T)(X; c)$ for an $n$-ball $X$ and $c \in \pi^\infty_{\leq n}(T)(\bdy X)$ to be the chain complex
 $$C_*(\Maps_c(X\times F \to T)),$$ where $\Maps_c$ denotes continuous maps restricting to $c$ on the boundary,
 and $C_*$ denotes singular chains.
@@ -587,7 +596,7 @@ See also Theorem \ref{thm:map-recon} below, recovering $C_*(\Maps(M \to T))$ up 
 \label{ex:blob-complexes-of-balls}
 Fix an $n-k$-dimensional manifold $F$ and an $n$-dimensional system of fields $\cE$.
 We will define an $A_\infty$ $k$-category $\cC$.
-When $X$ is a $m$-ball or $m$-sphere, with $m<k$, define $\cC(X) = \cE(X\times F)$.
+When $X$ is a $m$-ball, with $m<k$, define $\cC(X) = \cE(X\times F)$.
 When $X$ is an $k$-ball,
 define $\cC(X; c) = \bc^\cE_*(X\times F; c)$
 where $\bc^\cE_*$ denotes the blob complex based on $\cE$.
@@ -615,6 +624,7 @@ in $B^n$.)
 
 Let $A$ be an $\cE\cB_n$-algebra.
 We will define an $A_\infty$ $n$-category $\cC^A$.
+\nn{...}
 \end{example}
 
 
@@ -622,9 +632,12 @@ We will define an $A_\infty$ $n$-category $\cC^A$.
 
 
 
-\subsection{From $n$-categories to systems of fields}
-\label{ss:ncat_fields}
-In this section we describe how to extend an $n$-category as described above (of either the plain or $A_\infty$ variety) to a system of fields. That is, we show that functors $\cC_k$ satisfying the axioms above have a canonical extension, from $k$-balls and $k$-spheres to arbitrary $k$-manifolds.
+%\subsection{From $n$-categories to systems of fields}
+\subsection{From balls to manifolds}
+\label{ss:ncat_fields} \label{ss:ncat-coend}
+In this section we describe how to extend an $n$-category as described above (of either the plain or $A_\infty$ variety) to a system of fields. 
+That is, we show that functors $\cC_k$ satisfying the axioms above have a canonical extension 
+from $k$-balls to arbitrary $k$-manifolds.
 In the case of plain $n$-categories, this is just the usual construction of a TQFT
 from an $n$-category.
 For $A_\infty$ $n$-categories, this gives an alternate (and
@@ -752,6 +765,8 @@ need to say more about ``homological" fields?
 (actions of homeomorphisms);
 define $k$-cat $\cC(\cdot\times W)$}
 
+\nn{need to revise stuff below, since we no longer have the sphere axiom}
+
 Recall that Axiom \ref{axiom:spheres} for an $n$-category provided functors $\cC$ from $k$-spheres to sets for $0 \leq k < n$. We claim now that these functors automatically agree with the colimits we have associated to spheres in this section. \todo{} \todo{In fact, we probably should do this for balls as well!} For the remainder of this section we will write $\underrightarrow{\cC}(W)$ for the colimit associated to an arbitary manifold $W$, to distinguish it, in the case that $W$ is a ball or a sphere, from $\cC(W)$, which is part of the definition of the $n$-category. After the next three lemmas, there will be no further need for this notational distinction.
 
 \begin{lem}
@@ -773,6 +788,7 @@ Next we define plain and $A_\infty$ $n$-category modules.
 The definition will be very similar to that of $n$-categories,
 but with $k$-balls replaced by {\it marked $k$-balls,} defined below.
 \nn{** need to make sure all revisions of $n$-cat def are also made to module def.}
+\nn{in particular, need to to get rid of the ``hemisphere axiom"}
 %\nn{should they be called $n$-modules instead of just modules?  probably not, but worth considering.}
 
 Our motivating example comes from an $(m{-}n{+}1)$-dimensional manifold $W$ with boundary
