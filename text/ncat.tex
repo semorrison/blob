@@ -79,7 +79,7 @@ The 0-sphere is unusual among spheres in that it is disconnected.
 Correspondingly, for 1-morphisms it makes sense to distinguish between domain and range.
 (Actually, this is only true in the oriented case, with 1-morphsims parameterized
 by oriented 1-balls.)
-For $k>1$ and in the presence of strong duality the division into domain and range makes less sense. For example, in a pivotal tensor category, there are natural isomorphisms $\Hom{}{A}{B \tensor C} \isoto \Hom{}{A \tensor B^*}{C}$, etc. (sometimes called ``Frobenius reciprocity''), which canonically identify all the morphism spaces which have the same boundary. We prefer to not make the distinction in the first place.
+For $k>1$ and in the presence of strong duality the division into domain and range makes less sense. For example, in a pivotal tensor category, there are natural isomorphisms $\Hom{}{A}{B \tensor C} \isoto \Hom{}{B^* \tensor A}{C}$, etc. (sometimes called ``Frobenius reciprocity''), which canonically identify all the morphism spaces which have the same boundary. We prefer to not make the distinction in the first place.
 
 Instead, we combine the domain and range into a single entity which we call the 
 boundary of a morphism.
@@ -480,9 +480,9 @@ a colimit construction; see \S \ref{ss:ncat_fields} below.
 
 \medskip
 
-\subsection{Examples of $n$-categories}\ \
+\subsection{Examples of $n$-categories}
+\label{ss:ncat-examples}
 
-\nn{these examples need to be fleshed out a bit more}
 
 We now describe several classes of examples of $n$-categories satisfying our axioms.
 
@@ -545,7 +545,7 @@ Finally, we describe a version of the bordism $n$-category suitable to our defin
 \nn{should also include example of ncats coming from TQFTs, or refer ahead to where we discuss that example}
 
 \newcommand{\Bord}{\operatorname{Bord}}
-\begin{example}[The bordism $n$-category]
+\begin{example}[The bordism $n$-category, plain version]
 \rm
 \label{ex:bordism-category}
 For a $k$-ball or $k$-sphere $X$, $k<n$, define $\Bord^n(X)$ to be the set of all $k$-dimensional
@@ -567,7 +567,7 @@ $W \to W'$ which restricts to the identity on the boundary.
 %\end{example}
 
 
-We have two main examples of $A_\infty$ $n$-categories, coming from maps to a target space and from the blob complex.
+%We have two main examples of $A_\infty$ $n$-categories, coming from maps to a target space and from the blob complex.
 
 \begin{example}[Chains of maps to a space]
 \rm
@@ -597,8 +597,24 @@ This example will be essential for Theorem \ref{product_thm} below, which allows
 
 Be careful that the `free resolution' of the topological $n$-category $\pi_{\leq n}(T)$ is not the $A_\infty$ $n$-category $\pi^\infty_{\leq n}(T)$. It's easy to see that with $n=0$, the corresponding system of fields is just linear combinations of connected components of $T$, and the local relations are trivial. There's no way for the blob complex to magically recover all the data of $\pi^\infty_{\leq 0}(T) \iso C_* T$.
 
-\begin{example}
-\nn{should add $\infty$ version of bordism $n$-cat}
+\begin{example}[The bordism $n$-category, $A_\infty$ version]
+\rm
+\label{ex:bordism-category-ainf}
+blah blah \nn{to do...}
+\end{example}
+
+
+\begin{example}[$E_n$ algebras]
+\rm
+\label{ex:e-n-alg}
+Let $\cE\cB_n$ be the operad of smooth embeddings of $k$ (little)
+copies of the standard $n$-ball $B^n$ into another (big) copy of $B^n$.
+$\cE\cB_n$ is homotopy equivalent to the standard framed little $n$-ball operad.
+(By shrining the little balls, we see that both are homotopic to the space of $k$ framed points
+in $B^n$.)
+
+Let $A$ be an $\cE\cB_n$-algebra.
+We will define an $A_\infty$ $n$-category $\cC^A$.
 \end{example}
 
 
