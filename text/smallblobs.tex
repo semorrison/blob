@@ -1,7 +1,12 @@
 %!TEX root = ../blob1.tex
 \nn{Not sure where this goes yet: small blobs, unfinished:}
 
-Fix $\cU$, an open cover of $M$. Define the `small blob complex' $\bc^{\cU}_*(M)$ to be the subcomplex of $\bc_*(M)$ of all blob diagrams in which every blob is contained in some open set of $\cU$. Say that an open cover $\cV$ is strictly subordinate to $\cU$ if the closure of every open set of $\cV$ is contained in some open set of $\cU$.
+Fix $\cU$, an open cover of $M$. Define the `small blob complex' $\bc^{\cU}_*(M)$ to be the subcomplex of $\bc_*(M)$ of all blob diagrams in which every blob is contained in some open set of $\cU$. 
+\nn{KW: We need something a little stronger: Every blob diagram (even a 0-blob diagram) is splittable into pieces which are small w.r.t.\ $\cU$.
+If field have potentially large coupons/boxes, then this is a non-trivial constraint.
+On the other hand, we could probably get away with ignoring this point.
+Maybe the exposition will be better if we sweep this technical detail under the rug?}
+Say that an open cover $\cV$ is strictly subordinate to $\cU$ if the closure of every open set of $\cV$ is contained in some open set of $\cU$.
 
 \begin{lem}
 \label{lem:CH-small-blobs}
@@ -18,14 +23,19 @@ Now, in the proof of Proposition \ref{CHprop}
 \todo{I think I need to understand better that proof before I can write this!}
 \end{proof}
 
-\begin{thm}[Small blobs]
+\begin{thm}[Small blobs] \label{thm:small-blobs}
 The inclusion $i: \bc^{\cU}_*(M) \into \bc_*(M)$ is a homotopy equivalence.
 \end{thm}
 \begin{proof}
 We begin by describing the homotopy inverse in small degrees, to illustrate the general technique.
 We will construct a chain map $s:  \bc_*(M) \to \bc^{\cU}_*(M)$ and a homotopy $h:\bc_*(M) \to \bc_{*+1}(M)$ so that $\bdy h+h \bdy=i\circ s - \id$. The composition $s \circ i$ will just be the identity.
 
-On $0$-blobs, $s$ is just the identity; a blob diagram without any blobs is compatible with any open cover. Nevertheless, we'll begin introducing nomenclature at this point: for configuration $\beta$ of disjoint embedded balls in $M$ we'll associate a one parameter family of homeomorphisms $\phi_\beta : \Delta^1 \to \Homeo(M)$ (here $\Delta^m$ is the standard simplex $\setc{\mathbf{x} \in \Real^{m+1}}{\sum_{i=0}^m x_i = 1}$). For $0$-blobs, where $\beta = \eset$, all these homeomorphisms are just the identity.
+On $0$-blobs, $s$ is just the identity; a blob diagram without any blobs is compatible with any open cover. 
+\nn{KW: For some systems of fields this is not true.
+For example, consider a planar algebra with boxes of size greater than zero.
+So I think we should do the homotopy even in degree zero.
+But as noted above, maybe it's best to ignore this.}
+Nevertheless, we'll begin introducing nomenclature at this point: for configuration $\beta$ of disjoint embedded balls in $M$ we'll associate a one parameter family of homeomorphisms $\phi_\beta : \Delta^1 \to \Homeo(M)$ (here $\Delta^m$ is the standard simplex $\setc{\mathbf{x} \in \Real^{m+1}}{\sum_{i=0}^m x_i = 1}$). For $0$-blobs, where $\beta = \eset$, all these homeomorphisms are just the identity.
 
 When $\beta$ is a collection of disjoint embedded balls in $M$, we say that a homeomorphism of $M$ `makes $\beta$ small' if the image of each ball in $\beta$ under the homeomorphism is contained in some open set of $\cU$. Further, we'll say a homeomorphism `makes $\beta$ $\epsilon$-small' if the image of each ball is contained in some open ball of radius $\epsilon$.
 
