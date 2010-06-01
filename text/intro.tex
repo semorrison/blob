@@ -26,15 +26,18 @@ The first part of the paper (sections \S \ref{sec:fields}---\S \ref{sec:evaluati
 
 Nevertheless, when we attempt to establish all of the observed properties of the blob complex, we find this situation unsatisfactory. Thus, in the second part of the paper (section \S \ref{sec:ncats}) we pause and give yet another definition of an $n$-category, or rather a definition of an $n$-category with strong duality. (It appears that removing the duality conditions from our definition would make it more complicated rather than less.) We call these ``topological $n$-categories'', to differentiate them from previous versions. Moreover, we find that we need analogous $A_\infty$ $n$-categories, and we define these as well following very similar axioms.
 
-The basic idea is that each potential definition of an $n$-category makes a choice about the `shape' of morphisms. We try to be as lax as possible: a topological $n$-category associates a vector space to every $B$ homeomorphic to the $n$-ball. These vector spaces glue together associatively, and we require that there is an action of the homeomorphism group.
+The basic idea is that each potential definition of an $n$-category makes a choice about the `shape' of morphisms. We try to be as lax as possible: a topological $n$-category associates a vector space to every $B$ homeomorphic to the $n$-ball. These vector spaces glue together associatively, and we require that there is an action of the homeomorphism groupoid.
 For an $A_\infty$ $n$-category, we associate a chain complex instead of a vector space to each such $B$ and ask that the action of homeomorphisms extends to a suitably defined action of the complex of singular chains of homeomorphisms. The axioms for an $A_\infty$ $n$-category are designed to capture two main examples: the blob complexes of $n$-balls labelled by a topological $n$-category, and the complex $\CM{-}{T}$ of maps to a fixed target space $T$.
 
-In  \S \ref{sec:ainfblob} we explain how to construct a system of fields from a topological $n$-category, and give an alternative definition of the blob complex for an $A_\infty$ $n$-category on an $n$-manifold. Using these definitions, we show how to use the blob complex to `resolve' any topological $n$-category as an $A_\infty$ $n$-category, and relate the first and second definitions of the blob complex. We use the blob complex for $A_\infty$ $n$-categories to establish important properties of the blob complex (in both variants), in particular the `gluing formula' of Property \ref{property:gluing} below.
+In  \S \ref{sec:ainfblob} we explain how to construct a system of fields from a topological $n$-category (using a colimit along cellulations of a manifold), and give an alternative definition of the blob complex for an $A_\infty$ $n$-category on an $n$-manifold (analogously, using a homotopy colimit). Using these definitions, we show how to use the blob complex to `resolve' any topological $n$-category as an $A_\infty$ $n$-category, and relate the first and second definitions of the blob complex. We use the blob complex for $A_\infty$ $n$-categories to establish important properties of the blob complex (in both variants), in particular the `gluing formula' of Property \ref{property:gluing} below.
+
+The relationship between all these ideas is sketched in Figure \ref{fig:outline}.
 
 \nn{KW: the previous two paragraphs seem a little awkward to me, but I don't presently have a good idea for fixing them.}
 
 \tikzstyle{box} = [rectangle, rounded corners, draw,outer sep = 5pt, inner sep = 5pt, line width=0.5pt]
 
+\begin{figure}[!ht]
 {\center
 
 \begin{tikzpicture}[align=center,line width = 1.5pt]
@@ -69,6 +72,9 @@ In  \S \ref{sec:ainfblob} we explain how to construct a system of fields from a 
 \end{tikzpicture}
 
 }
+\caption{The main gadgets and constructions of the paper.}
+\label{fig:outline}
+\end{figure}
 
 Finally, later sections address other topics. Section \S \ref{sec:comm_alg} describes the blob complex when $\cC$ is a commutative algebra, thought of as a topological $n$-category, in terms of the topology of $M$. Section \S \ref{sec:deligne} states (and in a later edition of this paper, hopefully proves) a higher dimensional generalization of the Deligne conjecture (that the little discs operad acts on Hochschild cohomology) in terms of the blob complex. The appendixes prove technical results about $\CH{M}$, and make connections between our definitions of $n$-categories and familiar definitions for $n=1$ and $n=2$, as well as relating the $n=1$ case of our $A_\infty$ $n$-categories with usual $A_\infty$ algebras.
 
@@ -167,7 +173,7 @@ is a functor from $n$-manifolds and homeomorphisms between them to chain complex
 \end{property}
 As a consequence, there is an action of $\Homeo(X)$ on the chain complex $\bc_*^\cC(X)$; this action is extended to all of $C_*(\Homeo(X))$ in Property \ref{property:evaluation} below.
 
-The blob complex is also functorial with respect to $\cC$, although we will not address this in detail here. \todo{exact w.r.t $\cC$?}
+The blob complex is also functorial (indeed, exact) with respect to $\cC$, although we will not address this in detail here.
 
 \begin{property}[Disjoint union]
 \label{property:disjoint-union}
@@ -220,19 +226,20 @@ quasi-isomorphic to the Hochschild complex.
 \end{property}
 
 In the following $\CH{X}$ is the singular chain complex of the space of homeomorphisms of $X$, fixed on $\bdy X$.
-\begin{property}[$C_*(\Homeo(-))$ action]
+\begin{property}[$C_*(\Homeo(-))$ action]\mbox{}\\
+\vspace{-0.5cm}
 \label{property:evaluation}%
-There is a chain map
+\begin{enumerate}
+\item There is a chain map
 \begin{equation*}
 \ev_X: \CH{X} \tensor \bc_*(X) \to \bc_*(X).
 \end{equation*}
 
-Restricted to $C_0(\Homeo(X))$ this is just the action of homeomorphisms described in Property \ref{property:functoriality}. 
-\nn{should probably say something about associativity here (or not?)}
+\item Restricted to $C_0(\Homeo(X))$ this is the action of homeomorphisms described in Property \ref{property:functoriality}. 
 
-For
+\item For
 any codimension $0$-submanifold $Y \sqcup Y^\text{op} \subset \bdy X$ the following diagram
-(using the gluing maps described in Property \ref{property:gluing-map}) commutes.
+(using the gluing maps described in Property \ref{property:gluing-map}) commutes (up to homotopy).
 \begin{equation*}
 \xymatrix@C+2cm{
      \CH{X \bigcup_Y \selfarrow} \otimes \bc_*(X \bigcup_Y \selfarrow) \ar[r]^<<<<<<<<<<<<{\ev_{(X \bigcup_Y \scalebox{0.5}{\selfarrow})}}    & \bc_*(X \bigcup_Y \selfarrow) \\
@@ -241,15 +248,23 @@ any codimension $0$-submanifold $Y \sqcup Y^\text{op} \subset \bdy X$ the follow
             \bc_*(X) \ar[u]_{\gl_Y}
 }
 \end{equation*}
-
-\nn{unique up to homotopy?}
+\item Any such chain map satisfying points 2. and 3. above is unique, up to an iterated homotopy. (That is, any pair of homotopies have a homotopy between them, and so on.)
+\item This map is associative, in the sense that the following diagram commutes (up to homotopy).
+\begin{equation*}
+\xymatrix{
+\CH{X} \tensor \CH{X} \tensor \bc_*(X) \ar[r]^<<<<<{\id \tensor \ev_X} \ar[d]^{\compose \tensor \id} & \CH{X} \tensor \bc_*(X) \ar[d]^{\ev_X} \\
+\CH{X} \tensor \bc_*(X) \ar[r]^{\ev_X} & \bc_*(X)
+}
+\end{equation*}
+\end{enumerate}
 \end{property}
 
-Since the blob complex is functorial in the manifold $X$, we can use this to build a chain map
+Since the blob complex is functorial in the manifold $X$, this is equivalent to having chain maps
 $$ev_{X \to Y} : \CH{X \to Y} \tensor \bc_*(X) \to \bc_*(Y)$$
+for any homeomorphic pair $X$ and $Y$, 
 satisfying corresponding conditions.
 
-In \S \ref{sec:ncats} we introduce the notion of topological $n$-categories, from which we can construct systems of fields. Below, we talk about the blob complex associated to a topological $n$-category, implicitly passing to the system of fields. Further, in \S \ref{sec:ncats} we also have the notion of an $A_\infty$ $n$-category.
+In \S \ref{sec:ncats} we introduce the notion of topological $n$-categories, from which we can construct systems of fields. Below, we talk about the blob complex associated to a topological $n$-category, implicitly passing first to the system of fields. Further, in \S \ref{sec:ncats} we also have the notion of an $A_\infty$ $n$-category.
 
 \begin{property}[Blob complexes of (products with) balls form an $A_\infty$ $n$-category]
 \label{property:blobs-ainfty}

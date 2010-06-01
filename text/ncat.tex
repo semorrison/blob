@@ -95,7 +95,7 @@ boundary of a morphism.
 Morphisms are modeled on balls, so their boundaries are modeled on spheres.
 In other words, we need to extend the functors $\cC_{k-1}$ from balls to spheres, for 
 $1\le k \le n$.
-At first might seem that we need another axiom for this, but in fact once we have
+At first it might seem that we need another axiom for this, but in fact once we have
 all the axioms in the subsection for $0$ through $k-1$ we can use a coend
 construction, as described in Subsection \ref{ss:ncat-coend} below, to extend $\cC_{k-1}$
 to spheres (and any other manifolds):
@@ -107,6 +107,7 @@ the category of $k{-}1$-spheres and
 homeomorphisms to the category of sets and bijections.
 \end{prop}
 
+We postpone the proof of this result until after we've actually given all the axioms. Note that defining this functor for some $k$ only requires the data described in Axiom \ref{axiom:morphisms} at level $k$, along with the data described in other Axioms at lower levels. 
 
 %In fact, the functors for spheres are entirely determined by the functors for balls and the subsequent axioms. (In particular, $\cC(S^k)$ is the colimit of $\cC$ applied to decompositions of $S^k$ into balls.) However, it is easiest to think of it as additional data at this point.
 
@@ -515,6 +516,8 @@ homotopies fixed on $\bd X$.
 (Note that homotopy invariance implies isotopy invariance.)
 For $a\in \cC(X)$ define the product morphism $a\times D \in \cC(X\times D)$ to
 be $a\circ\pi_X$, where $\pi_X : X\times D \to X$ is the projection.
+
+Recall we described a system of fields and local relations based on maps to $T$ in Example \ref{ex:maps-to-a-space(fields)} above. Constructing a system of fields from $\pi_{\leq n}(T)$ recovers that example.
 \end{example}
 
 \begin{example}[Maps to a space, with a fiber]
@@ -556,6 +559,9 @@ to be the set of all $C$-labeled sub cell complexes of $X\times F$.
 Define $\cC(X; c)$, for $X$ an $n$-ball,
 to be the dual Hilbert space $A(X\times F; c)$.
 \nn{refer elsewhere for details?}
+
+
+Recall we described a system of fields and local relations based on a `traditional $n$-category' $C$ in Example \ref{ex:traditional-n-categories(fields)} above. Constructing a system of fields from $\cC$ recovers that example.
 \end{example}
 
 Finally, we describe a version of the bordism $n$-category suitable to our definitions.
