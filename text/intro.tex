@@ -56,16 +56,17 @@ The relationship between all these ideas is sketched in Figure \ref{fig:outline}
 
 
 
-\draw[->] (C) -- node[above] {$\displaystyle \colim_{\cell(M)} \cC$} (A);
+\draw[->] (C) -- node[above] {$\displaystyle \colim_{\cell(M)} \cC$} node[below] {\S\S \ref{sec:constructing-a-tqft} \& \ref{ss:ncat_fields}} (A);
 \draw[->] (FU) -- node[below] {blob complex \\ for $M$} (BC);
-\draw[->] (Cs) -- node[below] {$\displaystyle \hocolim_{\cell(M)} \cC_*$} (BCs);
+\draw[->] (Cs) -- node[above] {$\displaystyle \hocolim_{\cell(M)} \cC_*$} node[below] {\S \ref{ss:ncat_fields}} (BCs);
 
 \draw[->] (FU) -- node[right=10pt] {$\cF(M)/\cU$} (A);
 
-\draw[->] (C) -- node[left=10pt,align=left] {
+\draw[->] (C) -- node[left=10pt] {
+	Example \ref{ex:traditional-n-categories(fields)} \\ and \S \ref{ss:ncat_fields}
 	%$\displaystyle \cF(M) = \DirectSum_{c \in\cell(M)} \cC(c)$ \\ $\displaystyle \cU(B) = \DirectSum_{c \in \cell(B)} \ker \ev: \cC(c) \to \cC(B)$
    } (FU);
-\draw[->] (BC) -- node[right] {$H_0$} (A);
+\draw[->] (BC) -- node[left] {$H_0$} node[right] {c.f. Property \ref{property:skein-modules}} (A);
 
 \draw[->] (FU) -- node[left] {blob complex \\ for balls} (Cs);
 \draw (BC) -- node[right] {$\iso$ by \\ Corollary \ref{cor:new-old}} (BCs);
@@ -339,6 +340,8 @@ Throughout, we have resisted the temptation to work in the greatest generality p
 In most of the places where we say ``set" or ``vector space", any symmetric monoidal category would do. We could presumably also replace many of our chain complexes with topological spaces (or indeed, work at the generality of model categories), and likely it will prove useful to think about the connections between what we do here and $(\infty,k)$-categories.
 More could be said about finite characteristic (there appears in be $2$-torsion in $\bc_1(S^2, \cC)$ for any spherical $2$-category $\cC$, for example). Much more could be said about other types of manifolds, in particular oriented, $\operatorname{Spin}$ and $\operatorname{Pin}^{\pm}$ manifolds, where boundary issues become more complicated. (We'd recommend thinking about boundaries as germs, rather than just codimension $1$ manifolds.) We've also take the path of least resistance by considering $\operatorname{PL}$ manifolds; there may be some differences for topological manifolds and smooth manifolds.
 
+The paper ``Skein homology'' \cite{MR1624157} has similar motivations, and it may be interesting to investigate if there is a connection with the material here.
+
 Many results in Hochschild homology can be understood `topologically' via the blob complex. For example, we expect that the shuffle product on the Hochschild homology of a commutative algebra $A$ (see \cite[\S 4.2]{MR1600246}) simply corresponds to the gluing operation on $\bc_*(S^1 \times [0,1], A)$, but haven't investigated the details.
 
 Most importantly, however, \nn{applications!} \nn{cyclic homology, $n=2$ cases, contact, Kh}
@@ -355,6 +358,5 @@ During this work, Kevin Walker has been at Microsoft Station Q, and Scott Morris
 Still to do:
 \begin{itemize}
 \item say something about starting with semisimple n-cat (trivial?? not trivial?)
-\item Mention somewhere \cite{MR1624157} ``Skein homology''; it's not directly related, but has similar motivations.
 \end{itemize}
 

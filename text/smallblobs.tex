@@ -98,11 +98,14 @@ Similarly, for a disjoint embedding of $k$ balls $\beta$ (that is, a blob diagra
 
 We've finally reached the point where we can define a map $s: \bc_*(M) \to \bc^{\cU}_*(M)$, and then a homotopy $h:\bc_*(M) \to \bc_{*+1}(M)$ so that $dh+hd=i\circ s$.  We have
 $$s(b) = \sum_{m=0}^{k} \sum_{i \in \{1, \ldots, k\}^{m} \setminus \Delta} (-1)^{\sigma(i)}  \ev(\restrict{\phi_{i(b)}}{x_0 = 0} \tensor b_i),$$
-where the sum is over sequences without repeats $i=(i_1,\ldots,i_m)$ in $\{1,\ldots,k\}$, with $0\leq m \leq k$ (we're using $\Delta$ here to indicate the generalized diagonal, where any two entries coincide), $\sigma(i)$ is something to do with $i$, $i(b)$ denotes the increasing sequence of blob configurations
+where the sum is over sequences without repeats $i=(i_1,\ldots,i_m)$ in $\{1,\ldots,k\}$, with $0\leq m \leq k$ (we're using $\Delta$ here to indicate the generalized diagonal, where any two entries coincide), $\sigma(i)$ is defined blow, $i(b)$ denotes the increasing sequence of blob configurations
 $$\beta_{(i_1,\ldots,i_m)} \prec \beta_{(i_2,\ldots,i_m)} \prec \cdots \prec \beta_{()},$$
 and, as usual, $b_i$ denotes $b$ with blobs $i_1, \ldots, i_m$ erased.
 The homotopy $h:\bc_*(M) \to \bc_{*+1}(M)$ is similarly given by
 $$h(b) = \sum_{m=0}^{k} \sum_{i} (-1)^{\sigma(i)} \ev(\phi_{i(b)}, b_i).$$
+
+Given a sequence $a \in \{1, \ldots, k\}^{m-1} \setminus \Delta$ and $1 \leq b \leq k$ with $b \not \in a$, denote by $a \!\downarrow_b\in \{1, \ldots, k-1\}^{m-1} \setminus \Delta$ the sequence obtained by reducing by 1 each entry of $a$ which is greater than $b$. Then $\sigma(i) = 0$ or $1$ is defined recursively by $\sigma() = 0$, and 
+$$\sigma(ab) = \sigma(a \!\downarrow_b) + m + b + 1 \mod{2}.$$
 
 Before completing the proof, we unpack this definition for $b \in \bc_2(M)$, a $2$-blob. We'll write $\beta$ for the underlying balls (either nested or disjoint).
 Now $s$ is the sum of $5$ terms, split into three groups depending on with the length of the sequence $i$ is $0, 1$ or $2$. Thus
@@ -134,39 +137,39 @@ s(\bdy(b)) & = s(b_1) - s(b_2) \\
 \nn{that does indeed work, with $\sigma() = 1,\sigma(1)=-1, \sigma(2)=1, \sigma(21)=-1, \sigma(12)=1$}
 
 We need to check that $s$ is a chain map, and that \todo{} the image of $s$ in fact lies in $\bc^{\cU}_*(M)$.
-We first do some preliminary calculations, and introduce yet more notation. For $i \in \{1, \ldots, k\}^{m} \setminus \Delta$ and $1 \leq p \leq m$, we'll denote by $i \setminus i_p$ the sequence in $\{1, \ldots, k-1\}^{m-1} \setminus \Delta$ obtained by deleting the $p$-th entry of $i$, and reducing all entries which are greater than $i_p$ by one. Conversely, for $i \in \{1, \ldots, k-1\}^{m-1} \setminus \Delta$, $1 \leq p \leq m$ and $1 \leq q \leq k$, we'll denote by $i \ll_p q$ the sequence in $\{1, \ldots, k\}^{m} \setminus \Delta$ obtained by increasing any entries of $i$ which are at least $q$ by one, and inserting $q$ as the $p$-th entry, shifting later entries to the right. Note the natural bijection between the sets
-\begin{align}
-\setc{(i,p)}{i \in \{1, \ldots, k\}^{m} \setminus \Delta, 1 \leq p \leq m} & \iso \setc{(i,p,q)}{i \in \{1, \ldots, k-1\}^{m-1} \setminus \Delta, 1 \leq p \leq m, 1 \leq q \leq k} \notag \\ 
-\intertext{given by}
-(i, p) & \mapsto (i \setminus i_p, p, i_p) \label{eq:reindexing-bijection} \\
-(i \ll_p q, p) & \mapsfrom (i,p,q) \notag
-\end{align}
-which we will use in a moment to re-index a summation.
-
-We then calculate
+%We first do some preliminary calculations, and introduce yet more notation. For $i \in \{1, \ldots, k\}^{m} \setminus \Delta$ and $1 \leq p \leq m$, we'll denote by $i \setminus i_p$ the sequence in $\{1, \ldots, k-1\}^{m-1} \setminus \Delta$ obtained by deleting the $p$-th entry of $i$, and reducing all entries which are greater than $i_p$ by one. Conversely, for $i \in \{1, \ldots, k-1\}^{m-1} \setminus \Delta$, $1 \leq p \leq m$ and $1 \leq q \leq k$, we'll denote by $i \ll_p q$ the sequence in $\{1, \ldots, k\}^{m} \setminus \Delta$ obtained by increasing any entries of $i$ which are at least $q$ by one, and inserting $q$ as the $p$-th entry, shifting later entries to the right. Note the natural bijection between the sets
+%\begin{align}
+%\setc{(i,p)}{i \in \{1, \ldots, k\}^{m} \setminus \Delta, 1 \leq p \leq m} & \iso \setc{(i,p,q)}{i \in \{1, \ldots, k-1\}^{m-1} \setminus \Delta, 1 \leq p \leq m, 1 \leq q \leq k} \notag \\ 
+%\intertext{given by}
+%(i, p) & \mapsto (i \setminus i_p, p, i_p) \label{eq:reindexing-bijection} \\
+%(i \ll_p q, p) & \mapsfrom (i,p,q) \notag
+%\end{align}
+%which we will use in a moment to re-index a summation.
 \begin{align*}
 \bdy(s(b)) & = \sum_{m=0}^{k} \sum_{i \in \{1, \ldots, k\}^{m} \setminus \Delta} (-1)^{\sigma(i)} \ev\left(\bdy(\restrict{\phi_{i(b)}}{x_0 = 0})\tensor b_i\right) + (-1)^{\sigma(i) + m} \ev\left(\restrict{\phi_{i(b)}}{x_0 = 0} \tensor \bdy b_i\right) \\
 \intertext{and begin by expanding out $\bdy(\restrict{\phi_{i(b)}}{x_0 = 0})$,}
 	& = \sum_{m=0}^{k} \sum_{i \in \{1, \ldots, k\}^{m} \setminus \Delta} \Bigg(\sum_{p=1}^{m+1} (-1)^{\sigma(i)+p+1} \ev\left(\restrict{\phi_{i(b)}}{x_0 = x_p = 0}\tensor b_i\right) \Bigg) + \\
 	& \qquad + (-1)^{\sigma(i) + m} \ev\left(\restrict{\phi_{i(b)}}{x_0 = 0} \tensor \bdy b_i\right)
 \end{align*}
-Now, write $s_{p_1,p}(i)$ to indicate the sequence obtained from $i$ by transposing its $p-1$-th and $p$-th entries and note that for $2 \leq p \leq m$,
+Now, write $s_{p-1,p}(i)$ to indicate the sequence obtained from $i$ by transposing its $p-1$-th and $p$-th entries and note that for $2 \leq p \leq m$,
 \begin{align*}
 \restrict{\phi_{i(b)}}{x_0=x_p=0} & = \restrict{\phi_{\beta_{i_1\cdots i_m} \prec \beta_{i_2 \cdots i_m} \prec \cdots \prec \beta}}{x_0=x_p=0} \\
 	& = \restrict{\phi_{\beta_{i_1\cdots i_m} \prec \beta_{i_2 \cdots i_m} \prec \cdots \prec \beta_{i_{p-1} i_p \cdots i_m} \prec \beta_{i_{p+1} \cdots i_m} \prec \cdots \prec \beta}}{x_0=0} \\
 	& = \restrict{\phi_{s_{p-1,p}(i)(b)}}{x_0=x_p=0}.
 \end{align*}
-Since $\sigma(i) = - \sigma(s_{p_1,p}(i))$, we can cancel out in pairs all the terms above except those with $p=1$ or $p=m+1$. Thus
+Since $\sigma(i) = - \sigma(s_{p-1,p}(i))$, we can cancel out in pairs all the terms above except those with $p=1$ or $p=m+1$. Thus
 \begin{align*}
 \bdy(s(b)) & = \sum_{m=0}^{k} \sum_{i \in \{1, \ldots, k\}^{m} \setminus \Delta} \Bigg((-1)^{\sigma(i)} \ev\left(\restrict{\phi_{\rest(i)(b)}}{x_0 = 0}\tensor b_i\right) + (-1)^{\sigma(i) + m} \ev\left(\restrict{\phi_{\most(i)(b_{i_m})}}{x_0 = 0}\tensor b_i\right)\Bigg) + \\
 	& \qquad + (-1)^{\sigma(i) + m} \ev\left(\restrict{\phi_{i(b)}}{x_0 = 0} \tensor \bdy b_i\right)
 \end{align*}
-where we write $\rest(i)$ for the `tail' of $i$ and $\most(i)$ for the `head' of $i$, so $\rest(i_1 i_2 \cdots i_m) = (i_2 \cdots i_m)$ and $\most(i_1 \cdots i_{m-1} i_m) = (i_1 \cdots i_{m-1})$. Next, we note that $b_i = (b_{i_1})_{\rest(i)} = (b_{i_m})_{\most(i)}$, and then rewrite the sum of $i$ as a double sum over $i_1$ and $\rest(i)$, with $i = \rest(i) \ll_1 i_1$, for the first term, and as a double sum over $\most(i)$ and $i_m$, with $i = \most(i) \ll_{m} i_m$, for the second term.
+where we write $\rest(i)$ for the `tail' of $i$ and $\most(i)$ for the `head' of $i$, so $\rest(i_1 i_2 \cdots i_m) = (i_2 \cdots i_m)$ and $\most(i_1 \cdots i_{m-1} i_m) = (i_1 \cdots i_{m-1})$. Next, we note that $b_i = (b_{i_1})_{\rest(i)} = (b_{i_m})_{\most(i)}$, and then rewrite the sum of $i$ as a double sum over $i_1$ and $\rest(i)$, with $i = i_1\rest(i)$, for the first term, and as a double sum over $\most(i)$ and $i_m$, with $i = \most(i)i_m$, for the second term.
 \begin{align*}
 \bdy(s(b)) & = \sum_{m=0}^{k} \Bigg( \sum_{\rest(i) \in \{1, \ldots, k\}^{m-1} \setminus \Delta} \sum_{\substack{i_1 = 1 \\ i_1 \not\in \rest(i)}}^{k}  (-1)^{\sigma(i_1\rest(i))} \ev\left(\restrict{\phi_{\rest(i)(b)}}{x_0 = 0}\tensor b_{i_1\rest(i)}\right) \Bigg)+ \\
 	& \qquad \Bigg( \sum_{\most(i) \in \{1, \ldots, k\}^{m-1} \setminus \Delta} \sum_{\substack{i_m = 1 \\ i_1 \not\in \most(i)}}^{k}  (-1)^{\sigma(\most(i) i_m) + m} \ev\left(\restrict{\phi_{\most(i)(b_{i_m})}}{x_0 = 0}\tensor b_{\most(i) i_m}\right)\Bigg) + \\
 	& \qquad \Bigg( \sum_{i \in \{1, \ldots, k\}^{m} \setminus \Delta} (-1)^{\sigma(i) + m} \ev\left(\restrict{\phi_{i(b)}}{x_0 = 0} \tensor \bdy b_i\right)\Bigg)
 \end{align*}
+We will show that the first and third rows cancel, and that the second row gives with $s(\bdy b)$.
+
 Now $$\sum_{\substack{i_1 = 1 \\ i_1 \not\in \rest(i)}}^{k} (-1)^{\sigma(i_1\rest(i))} b_{i_1\rest(i)} = (-1)^{\sigma(\rest(i))} \bdy (b_{\rest(i)})$$
 
 
@@ -177,5 +180,5 @@ s(\bdy b) & = \sum_{q=1}^k (-1)^{q+1} s(b_q) \\
 \end{align*}
 \todo{to be continued...}
 
-Finally, we need to check that $dh+hd=i\circ s$. \todo{}
+Finally, the calculation that $\bdy h+h \bdy=i\circ s - \id$ is very similar, and we omit it.
 \end{proof}
