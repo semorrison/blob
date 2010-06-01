@@ -208,7 +208,7 @@ on the intersection of the subcomplexes on which they are defined.
 This is clear, since the acyclic subcomplexes $D(a)$ above used in the definition of 
 $\phi$ and $\phi'$ do not depend on the choice of cover.
 
-\nn{need to say (and justify) that we now have a map $\phi$ indep of choice of cover}
+%\nn{need to say (and justify) that we now have a map $\phi$ indep of choice of cover}
 
 We now show that $\phi\circ\psi$ and $\psi\circ\phi$ are homotopic to the identity.
 
@@ -217,10 +217,10 @@ $\phi$ takes a blob diagram $a$ and chops it into pieces
 according to some decomposition $K$ of $Y$.
 $\psi$ glues those pieces back together, yielding the same $a$ we started with.
 
-$\phi\circ\psi$ is the identity up to homotopy by another MoAM argument...
+$\phi\circ\psi$ is the identity up to homotopy by another MoAM argument....
+
 
 This concludes the proof of Theorem \ref{product_thm}.
-\nn{at least I think it does; it's pretty rough at this point.}
 \end{proof}
 
 \nn{need to say something about dim $< n$ above}
@@ -237,21 +237,31 @@ Apply Theorem \ref{product_thm} with the fiber $F$ equal to a point.
 
 \medskip
 
-\nn{To do: remark on the case of a nontrivial fiber bundle.  
-I can think of two approaches.
-In the first (slick but maybe a little too tautological), we generalize the 
-notion of an $n$-category to an $n$-category {\it over a space $B$}.
-(Should be able to find precedent for this in a paper of PT.
-This idea came up in a conversation with him, so maybe should site him.)
-In this generalization, we replace the categories of balls with the categories 
-of balls equipped with maps to $B$.
-A fiber bundle $F\to E\to B$ gives an example of such an $n$-category:
-assign to $p:D\to B$ the blob complex $\bc_*(p^*(E))$.
-We can do the colimit thing over $B$ with coefficients in a n-cat-over-B.
-The proof below works essentially unchanged in this case to show that the colimit is the blob complex of the total space $E$.
-}
+Theorem \ref{product_thm} extends to the case of general fiber bundles
+\[
+	F \to E \to Y .
+\]
+We outline two approaches.
 
-\nn{The second approach: Choose a decomposition $B = \cup X_i$
+We can generalize the definition of a $k$-category by replacing the categories
+of $j$-balls ($j\le k$) with categories of $j$-balls $D$ equipped with a map $p:D\to Y$.
+\nn{need citation to other work that does this; Stolz and Teichner?}
+Call this a $k$-category over $Y$.
+A fiber bundle $F\to E\to Y$ gives an example of a $k$-category over $Y$:
+assign to $p:D\to Y$ the blob complex $\bc_*(p^*(E))$.
+Let $\cF_E$ denote this $k$-category over $Y$.
+We can adapt the homotopy colimit construction (based decompositions of $Y$ into balls) to
+get a chain complex $\cF_E(Y)$.
+The proof of Theorem \ref{product_thm} goes through essentially unchanged 
+to show that
+\[
+	\bc_*(E) \simeq \cF_E(Y) .
+\]
+
+
+
+
+\nn{The second approach: Choose a decomposition $Y = \cup X_i$
 such that the restriction of $E$ to $X_i$ is a product $F\times X_i$.
 Choose the product structure as well.
 To each codim-1 face $D_i\cap D_j$ we have a bimodule ($S^0$-module).
@@ -259,7 +269,7 @@ And more generally to each codim-$j$ face we have an $S^{j-1}$-module.
 Decorate the decomposition with these modules and do the colimit.
 }
 
-\nn{There is a version of this last construction for arbitrary maps $E \to B$
+\nn{There is a version of this last construction for arbitrary maps $E \to Y$
 (not necessarily a fibration).}
 
 
