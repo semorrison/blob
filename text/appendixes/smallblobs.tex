@@ -1,16 +1,13 @@
-%!TEX root = ../blob1.tex
-\nn{Not sure where this goes yet: small blobs, unfinished:}
+%!TEX root = ../../blob1.tex
+\section{Small blobs}
+\label{appendix:small-blobs}
 
-Fix $\cU$, an open cover of $M$. Define the `small blob complex' $\bc^{\cU}_*(M)$ to be the subcomplex of $\bc_*(M)$ of all blob diagrams in which every blob is contained in some open set of $\cU$. 
-\nn{KW: We need something a little stronger: Every blob diagram (even a 0-blob diagram) is splittable into pieces which are small w.r.t.\ $\cU$.
-If field have potentially large coupons/boxes, then this is a non-trivial constraint.
-On the other hand, we could probably get away with ignoring this point.
-Maybe the exposition will be better if we sweep this technical detail under the rug?}
+Before proving Theorem \ref{thm:small-blobs}, we need a lemma allowing us to choose a convenient action of families of diffeomorphisms.
 Say that an open cover $\cV$ is strictly subordinate to $\cU$ if the closure of every open set of $\cV$ is contained in some open set of $\cU$.
 
 \begin{lem}
 \label{lem:CH-small-blobs}
-Fix an open cover $\cU$, and a sequence $\cV_k$ of open covers which are each strictly subordinate to $\cU$. \nn{Do, perhaps, the $\cV_k$ have to form a strictly subordinate sequence?} For a given $k$, consider $\cG_k$ the subspace of $C_k(\Homeo(M)) \tensor \bc_*(M)$ spanned by $f \tensor b$, where $f:P^k \times M \to M$ is a $k$-parameter family of homeomorphisms such that for each $p \in P$, $f(p, -)$ makes $b$ small with respect to $\cV_k$. We can choose an up-to-homotopy representative $\ev$ of the chain map of Property \ref{property:evaluation} which gives the action of families of homeomorphisms, which restricts to give a map
+Fix an open cover $\cU$, and a sequence $\cV_k$ of open covers which are each strictly subordinate to $\cU$. For a given $k$, consider $\cG_k$ the subspace of $C_k(\Homeo(M)) \tensor \bc_*(M)$ spanned by $f \tensor b$, where $f:P^k \times M \to M$ is a $k$-parameter family of homeomorphisms such that for each $p \in P$, $f(p, -)$ makes $b$ small with respect to $\cV_k$. We can choose an up-to-homotopy representative $\ev$ of the chain map of Property \ref{property:evaluation} which gives the action of families of homeomorphisms, which restricts to give a map
 $$\ev : \cG_k \subset C_k(\Homeo(M)) \tensor \bc_*(M) \to \bc^{\cU}_*(M)$$
 for each $k$.
 \end{lem}
@@ -23,10 +20,8 @@ Now, in the proof of Proposition \ref{CHprop}
 \todo{I think I need to understand better that proof before I can write this!}
 \end{proof}
 
-\begin{thm}[Small blobs] \label{thm:small-blobs}
-The inclusion $i: \bc^{\cU}_*(M) \into \bc_*(M)$ is a homotopy equivalence.
-\end{thm}
-\begin{proof}
+
+\begin{proof}[Proof of Theorem \ref{thm:small-blobs}]
 We begin by describing the homotopy inverse in small degrees, to illustrate the general technique.
 We will construct a chain map $s:  \bc_*(M) \to \bc^{\cU}_*(M)$ and a homotopy $h:\bc_*(M) \to \bc_{*+1}(M)$ so that $\bdy h+h \bdy=i\circ s - \id$. The composition $s \circ i$ will just be the identity.
 
@@ -92,8 +87,6 @@ In fact, the application of this Lemma would allow us to choose the families of 
 We now describe the general case. For a $k$-blob diagram $b \in \bc_k(M)$, denote by $b_\cS$ for $\cS \subset \{1, \ldots, k\}$ the blob diagram obtained by erasing the corresponding blobs. In particular, $b_\eset = b$, $b_{\{1,\ldots,k\}} \in \bc_0(M)$, and $\bdy b_\cS = \sum_{i \notin \cS} (-1)^{i+1+\card{\setc{j \in \cS}{j < i}}}  b_{\cS \cup \{i\}}$.
 Similarly, for a disjoint embedding of $k$ balls $\beta$ (that is, a blob diagram but without the labels on regions), $\beta_\cS$ denotes the result of erasing a subset of blobs. 
 
-\nn{revision marker ...}
-
 \newcommand{\length}[1]{\operatorname{length}(#1)}
 
 We've finally reached the point where we can define a map $s: \bc_*(M) \to \bc^{\cU}_*(M)$, and then a homotopy $h:\bc_*(M) \to \bc_{*+1}(M)$ so that $dh+hd=i\circ s$.  We have
@@ -104,8 +97,16 @@ and, as usual, $b_i$ denotes $b$ with blobs $i_1, \ldots, i_m$ erased.
 The homotopy $h:\bc_*(M) \to \bc_{*+1}(M)$ is similarly given by
 $$h(b) = \sum_{m=0}^{k} \sum_{i} (-1)^{\sigma(i)} \ev(\phi_{i(b)}, b_i).$$
 
-Given a sequence $a \in \{1, \ldots, k\}^{m-1} \setminus \Delta$ and $1 \leq b \leq k$ with $b \not \in a$, denote by $a \!\downarrow_b\in \{1, \ldots, k-1\}^{m-1} \setminus \Delta$ the sequence obtained by reducing by 1 each entry of $a$ which is greater than $b$. Then $\sigma(i) = 0$ or $1$ is defined recursively by $\sigma() = 0$, and 
-$$\sigma(ab) = \sigma(a \!\downarrow_b) + m + b + 1 \mod{2}.$$
+ The signs $\sigma: \{1, \ldots, k\}^{m} \setminus \Delta \to \Integer/2\Integer$ are defined by
+$$\sigma(i)= \lceil\frac{m-1}{2}\rceil  +o(i) + \sum i$$
+where $o(i)$ is the number of transpositions required to bring $i$ into increasing order. Given a sequence $a \in \{1, \ldots, k\}^{m-1} \setminus \Delta$ and $1 \leq b \leq k$ with $b \not \in a$, denote by $a \!\downarrow_b\in \{1, \ldots, k-1\}^{m-1} \setminus \Delta$ the sequence obtained by reducing by 1 each entry of $a$ which is greater than $b$. We'll need the identities
+\begin{align} 
+\sigma(ab) & = \sigma(a\!\downarrow_b) +m + b+1 \label{eq:sigma(ab)}\\
+%		  & =  \sigma(a) + m+b + 1 + \card{\setc{x \in a}{x > b}} \\
+\intertext{and}
+\sigma(ba) & = \sigma(a\!\downarrow_b) + b \notag \\
+		 & = \sigma(a) + m+b + 1+\card{\setc{x \in a}{x < b}}. \label{eq:sigma(ba)}
+\end{align}
 
 Before completing the proof, we unpack this definition for $b \in \bc_2(M)$, a $2$-blob. We'll write $\beta$ for the underlying balls (either nested or disjoint).
 Now $s$ is the sum of $5$ terms, split into three groups depending on with the length of the sequence $i$ is $0, 1$ or $2$. Thus
@@ -124,6 +125,7 @@ $$\mathfig{0.5}{smallblobs/tent}$$
 \label{fig:erectly-a-tent-badly}
 \end{figure}
 
+Now
 \begin{align*}
 \bdy s(b) & =  (-1)^{\sigma()} \restrict{\phi_{\beta}}{x_0 = 0}(\bdy b) + \\
 	& \quad + (-1)^{\sigma(1)} \left( \restrict{\phi_{\beta}}{x_0 = 0}(b_1) - \restrict{\phi_{\beta_1}}{x_0 = 0}(b_1) - \restrict{\phi_{\beta_1 \prec \beta}}{x_0 = 0}(b_{12}) \right) + \\
@@ -134,17 +136,11 @@ $$\mathfig{0.5}{smallblobs/tent}$$
 s(\bdy(b)) & = s(b_1) - s(b_2) \\
 		& = \restrict{\phi_{\beta_1}}{x_0=0}(b_1) - \restrict{\phi_{\eset \prec \beta_1}}{x_0=0}(b_{12}) - \restrict{\phi_{\beta_2}}{x_0=0}(b_2) + \restrict{\phi_{\eset \prec \beta_2}}{x_0=0}(b_{12}) .
 \end{align*}
-\nn{that does indeed work, with $\sigma() = 1,\sigma(1)=-1, \sigma(2)=1, \sigma(21)=-1, \sigma(12)=1$}
+This gives what we want, since $\sigma() = 0,\sigma(1)=1, \sigma(2)=0, \sigma(21)=1$ and $\sigma(12)=0$.
 
-We need to check that $s$ is a chain map, and that \todo{} the image of $s$ in fact lies in $\bc^{\cU}_*(M)$.
-%We first do some preliminary calculations, and introduce yet more notation. For $i \in \{1, \ldots, k\}^{m} \setminus \Delta$ and $1 \leq p \leq m$, we'll denote by $i \setminus i_p$ the sequence in $\{1, \ldots, k-1\}^{m-1} \setminus \Delta$ obtained by deleting the $p$-th entry of $i$, and reducing all entries which are greater than $i_p$ by one. Conversely, for $i \in \{1, \ldots, k-1\}^{m-1} \setminus \Delta$, $1 \leq p \leq m$ and $1 \leq q \leq k$, we'll denote by $i \ll_p q$ the sequence in $\{1, \ldots, k\}^{m} \setminus \Delta$ obtained by increasing any entries of $i$ which are at least $q$ by one, and inserting $q$ as the $p$-th entry, shifting later entries to the right. Note the natural bijection between the sets
-%\begin{align}
-%\setc{(i,p)}{i \in \{1, \ldots, k\}^{m} \setminus \Delta, 1 \leq p \leq m} & \iso \setc{(i,p,q)}{i \in \{1, \ldots, k-1\}^{m-1} \setminus \Delta, 1 \leq p \leq m, 1 \leq q \leq k} \notag \\ 
-%\intertext{given by}
-%(i, p) & \mapsto (i \setminus i_p, p, i_p) \label{eq:reindexing-bijection} \\
-%(i \ll_p q, p) & \mapsfrom (i,p,q) \notag
-%\end{align}
-%which we will use in a moment to re-index a summation.
+We now return to the general case. Certainly, the image of $s$ in fact lies in $\bc^{\cU}_*(M)$: each of the families of diffeomorphisms $\phi_{i(b)}$ has been chosen so with $x_0=0$ they pointwise make $b_i$ sufficiently small that the $\ev$ map we've chosen has image in $\bc^{\cU}_*(M)$.
+
+We need to check that $s$ is a chain map.
 \begin{align*}
 \bdy(s(b)) & = \sum_{m=0}^{k} \sum_{i \in \{1, \ldots, k\}^{m} \setminus \Delta} (-1)^{\sigma(i)} \ev\left(\bdy(\restrict{\phi_{i(b)}}{x_0 = 0})\tensor b_i\right) + (-1)^{\sigma(i) + m} \ev\left(\restrict{\phi_{i(b)}}{x_0 = 0} \tensor \bdy b_i\right) \\
 \intertext{and begin by expanding out $\bdy(\restrict{\phi_{i(b)}}{x_0 = 0})$,}
@@ -159,26 +155,33 @@ Now, write $s_{p-1,p}(i)$ to indicate the sequence obtained from $i$ by transpos
 \end{align*}
 Since $\sigma(i) = - \sigma(s_{p-1,p}(i))$, we can cancel out in pairs all the terms above except those with $p=1$ or $p=m+1$. Thus
 \begin{align*}
-\bdy(s(b)) & = \sum_{m=0}^{k} \sum_{i \in \{1, \ldots, k\}^{m} \setminus \Delta} \Bigg((-1)^{\sigma(i)} \ev\left(\restrict{\phi_{\rest(i)(b)}}{x_0 = 0}\tensor b_i\right) + (-1)^{\sigma(i) + m} \ev\left(\restrict{\phi_{\most(i)(b_{i_m})}}{x_0 = 0}\tensor b_i\right)\Bigg) + \\
+\bdy(s(b)) & = \sum_{m=0}^{k} \sum_{i \in \{1, \ldots, k\}^{m} \setminus \Delta} \Bigg((-1)^{\sigma(i)} \ev\left(\restrict{\phi_{\rest(i)(b)}}{x_0 = 0}\tensor b_i\right) + (-1)^{\sigma(i) + m} \ev\left(\restrict{\phi_{\most(i)\!\downarrow_{i_m}(b_{i_m})}}{x_0 = 0}\tensor b_i\right)\Bigg) + \\
 	& \qquad + (-1)^{\sigma(i) + m} \ev\left(\restrict{\phi_{i(b)}}{x_0 = 0} \tensor \bdy b_i\right)
 \end{align*}
-where we write $\rest(i)$ for the `tail' of $i$ and $\most(i)$ for the `head' of $i$, so $\rest(i_1 i_2 \cdots i_m) = (i_2 \cdots i_m)$ and $\most(i_1 \cdots i_{m-1} i_m) = (i_1 \cdots i_{m-1})$. Next, we note that $b_i = (b_{i_1})_{\rest(i)} = (b_{i_m})_{\most(i)}$, and then rewrite the sum of $i$ as a double sum over $i_1$ and $\rest(i)$, with $i = i_1\rest(i)$, for the first term, and as a double sum over $\most(i)$ and $i_m$, with $i = \most(i)i_m$, for the second term.
+where we use the notations $\rest(i_1 i_2 \cdots i_m) = (i_2 \cdots i_m)$ and $\most(i_1 \cdots i_{m-1} i_m) = (i_1 \cdots i_{m-1})$. Next, we note that $b_i = (b_{i_1})_{\rest(i)} = (b_{i_m})_{\most(i)}$, and then rewrite the sum of $i$ as a double sum over $i_1$ and $\rest(i)$, with $i = i_1\rest(i)$, for the first term, and as a double sum over $\most(i)$ and $i_m$, with $i = \most(i)i_m$, for the second term.
 \begin{align*}
 \bdy(s(b)) & = \sum_{m=0}^{k} \Bigg( \sum_{\rest(i) \in \{1, \ldots, k\}^{m-1} \setminus \Delta} \sum_{\substack{i_1 = 1 \\ i_1 \not\in \rest(i)}}^{k}  (-1)^{\sigma(i_1\rest(i))} \ev\left(\restrict{\phi_{\rest(i)(b)}}{x_0 = 0}\tensor b_{i_1\rest(i)}\right) \Bigg)+ \\
-	& \qquad \Bigg( \sum_{\most(i) \in \{1, \ldots, k\}^{m-1} \setminus \Delta} \sum_{\substack{i_m = 1 \\ i_1 \not\in \most(i)}}^{k}  (-1)^{\sigma(\most(i) i_m) + m} \ev\left(\restrict{\phi_{\most(i)(b_{i_m})}}{x_0 = 0}\tensor b_{\most(i) i_m}\right)\Bigg) + \\
+	& \qquad \Bigg( \sum_{\most(i) \in \{1, \ldots, k\}^{m-1} \setminus \Delta} \sum_{\substack{i_m = 1 \\ i_1 \not\in \most(i)}}^{k}  (-1)^{\sigma(\most(i) i_m) + m} \ev\left(\restrict{\phi_{\most(i)\!\downarrow_{i_m}(b_{i_m})}}{x_0 = 0}\tensor b_{\most(i) i_m}\right)\Bigg) + \\
 	& \qquad \Bigg( \sum_{i \in \{1, \ldots, k\}^{m} \setminus \Delta} (-1)^{\sigma(i) + m} \ev\left(\restrict{\phi_{i(b)}}{x_0 = 0} \tensor \bdy b_i\right)\Bigg)
 \end{align*}
 We will show that the first and third rows cancel, and that the second row gives with $s(\bdy b)$.
-
-Now $$\sum_{\substack{i_1 = 1 \\ i_1 \not\in \rest(i)}}^{k} (-1)^{\sigma(i_1\rest(i))} b_{i_1\rest(i)} = (-1)^{\sigma(\rest(i))} \bdy (b_{\rest(i)})$$
-
-
-On the other hand, we have
+First,
 \begin{align*}
-s(\bdy b) & = \sum_{q=1}^k (-1)^{q+1} s(b_q) \\
-	       & = \sum_{q=1}^k (-1)^{q+1} \sum_{m=0}^{k-1} \sum_{i \in \{1, \ldots, k-1\}^{m} \setminus \Delta} (-1)^{\sigma(i)}  \ev(\restrict{\phi_{i(b_q)}}{x_0 = 0} \tensor (b_q)_i).
+\sum_{\substack{i_1 = 1 \\ i_1 \not\in \rest(i)}}^{k} (-1)^{\sigma(i_1\rest(i))} b_{i_1\rest(i)} & =
+	\sum_{\substack{i_1 = 1 \\ i_1 \not\in \rest(i)}}^{k} (-1)^{\sigma(\rest(i))+m+1+i_1 + \card{\setc{x \in \rest(i)}{x<i_1}}}  (b_{\rest(i)})_{i_1} \\
+\intertext{(using Equation \eqref{eq:sigma(ba)})}
+& = (-1)^{\sigma(\rest(i))+m} \bdy (b_{\rest(i)}),
 \end{align*}
-\todo{to be continued...}
+and this cancels exactly with the term indexed by $\rest(i)$ (with a value of $m$ off by one) in the third row.
+The second row gives 
+\begin{align*}
+& \sum_{m=0}^k  \sum_{\most(i) \in \{1, \ldots, k\}^{m-1} \setminus \Delta} \sum_{\substack{i_m = 1 \\ i_1 \not\in \most(i)}}^{k}  (-1)^{\sigma(\most(i) i_m) + m} \ev\left(\restrict{\phi_{\most(i)\!\downarrow_{i_m}(b_{i_m})}}{x_0 = 0}\tensor b_{\most(i) i_m}\right) \\
+& \quad = \sum_{m=0}^{k-1} \sum_{q=1}^k \sum_{i \in \{1, \ldots, k-1\}^m\setminus \Delta} (-1)^{\sigma(i)+q+1} \ev\left(\restrict{\phi_{i(b_{q})}}{x_0 = 0}\tensor (b_q)_i\right) \\
+\intertext{(here we've used Equation \eqref{eq:sigma(ab)} and renamed $i_m$ to $q$ and $most(i)$ to $i$, as well as shifted $m$ by one), which is just}
+& \quad = \sum_{q=1}^k (-1)^{q+1} s(b_q) \\
+& \quad = s(\bdy b).
+\end{align*}
 
 Finally, the calculation that $\bdy h+h \bdy=i\circ s - \id$ is very similar, and we omit it.
 \end{proof}
+ 

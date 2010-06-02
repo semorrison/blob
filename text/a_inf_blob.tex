@@ -15,9 +15,17 @@ new-fangled and old-fashioned blob complex.
 
 \medskip
 
-\subsection{The small blob complex}
+An important technical tool in the proofs of this section is provided by the idea of `small blobs'.
+Fix $\cU$, an open cover of $M$. Define the `small blob complex' $\bc^{\cU}_*(M)$ to be the subcomplex of $\bc_*(M)$ of all blob diagrams in which every blob is contained in some open set of $\cU$. 
+\nn{KW: We need something a little stronger: Every blob diagram (even a 0-blob diagram) is splittable into pieces which are small w.r.t.\ $\cU$.
+If field have potentially large coupons/boxes, then this is a non-trivial constraint.
+On the other hand, we could probably get away with ignoring this point.
+Maybe the exposition will be better if we sweep this technical detail under the rug?}
 
-\input{text/smallblobs}
+\begin{thm}[Small blobs] \label{thm:small-blobs}
+The inclusion $i: \bc^{\cU}_*(M) \into \bc_*(M)$ is a homotopy equivalence.
+\end{thm}
+The proof appears in \S \ref{appendix:small-blobs}.
 
 \subsection{A product formula}
 \label{ss:product-formula}
