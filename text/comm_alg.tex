@@ -109,8 +109,8 @@ on $C_*(\Sigma^\infty(S^1), k)$.
 \nn{probably should put a more precise statement about cyclic homology and $S^1$ actions in the Hochschild section}
 Let us check this directly.
 
-According to \cite[3.2.2]{MR1600246}, $HH_i(k[t]) \cong k[t]$ for $i=0,1$ and is zero for $i\ge 2$.
-\nn{say something about $t$-degree?  is this in Loday?}
+The algebra $k[t]$ has Koszul resolution $k[t] \tensor k[t] \xrightarrow{t\tensor 1 - 1 \tensor t} k[t] \tensor k[t]$, which has coinvariants $k[t] \xrightarrow{0} k[t]$. This is equal to its homology, so we have $HH_i(k[t]) \cong k[t]$ for $i=0,1$ and zero for $i\ge 2$.
+(See also  \cite[3.2.2]{MR1600246}.) This computation also tells us the $t$-gradings: $HH_0(k[t]) \iso k[t]$ is in the usual grading, and $HH_1(k[t]) \iso k[t]$ is shifted up by one.
 
 We can define a flow on $\Sigma^j(S^1)$ by having the points repel each other.
 The fixed points of this flow are the equally spaced configurations.
@@ -123,9 +123,9 @@ In particular, $\Sigma^j(S^1)$ is homotopy equivalent to a circle for $j>0$, and
 of course $\Sigma^0(S^1)$ is a point.
 Thus the singular homology $H_i(\Sigma^\infty(S^1))$ has infinitely many generators for $i=0,1$
 and is zero for $i\ge 2$.
-\nn{say something about $t$-degrees also matching up?}
+Note that the $j$-grading here matches with the $t$-grading on the algebraic side.
 
-By xxxx and \ref{ktchprop}, 
+By xxxx and Proposition \ref{ktchprop}, 
 the cyclic homology of $k[t]$ is the $S^1$-equivariant homology of $\Sigma^\infty(S^1)$.
 Up to homotopy, $S^1$ acts by $j$-fold rotation on $\Sigma^j(S^1) \simeq S^1/j$.
 If $k = \z$, $\Sigma^j(S^1)$ contributes the homology of an infinite lens space: $\z$ in degree
