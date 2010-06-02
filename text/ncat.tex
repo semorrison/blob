@@ -74,7 +74,7 @@ For each flavor of manifold there is a corresponding flavor of $n$-category.
 We will concentrate on the case of PL unoriented manifolds.
 
 (The ambitious reader may want to keep in mind two other classes of balls.
-The first is balls equipped with a map to some other space $Y$. \todo{cite something of Teichner's?}
+The first is balls equipped with a map to some other space $Y$ (c.f. \cite{MR2079378}). 
 This will be used below to describe the blob complex of a fiber bundle with
 base space $Y$.
 The second is balls equipped with a section of the the tangent bundle, or the frame
@@ -86,7 +86,7 @@ Next we consider domains and ranges of morphisms (or, as we prefer to say, bound
 of morphisms).
 The 0-sphere is unusual among spheres in that it is disconnected.
 Correspondingly, for 1-morphisms it makes sense to distinguish between domain and range.
-(Actually, this is only true in the oriented case, with 1-morphsims parameterized
+(Actually, this is only true in the oriented case, with 1-morphisms parameterized
 by oriented 1-balls.)
 For $k>1$ and in the presence of strong duality the division into domain and range makes less sense. For example, in a pivotal tensor category, there are natural isomorphisms $\Hom{}{A}{B \tensor C} \isoto \Hom{}{B^* \tensor A}{C}$, etc. (sometimes called ``Frobenius reciprocity''), which canonically identify all the morphism spaces which have the same boundary. We prefer to not make the distinction in the first place.
 
@@ -123,7 +123,7 @@ Given $c\in\cC(\bd(X))$, we will write $\cC(X; c)$ for $\bd^{-1}(c)$, those morp
 
 Most of the examples of $n$-categories we are interested in are enriched in the following sense.
 The various sets of $n$-morphisms $\cC(X; c)$, for all $n$-balls $X$ and
-all $c\in \cC(\bd X)$, have the structure of an object in some auxiliary category
+all $c\in \cC(\bd X)$, have the structure of an object in some auxiliary symmetric monoidal category
 (e.g.\ vector spaces, or modules over some ring, or chain complexes),
 and all the structure maps of the $n$-category should be compatible with the auxiliary
 category structure.
@@ -142,7 +142,7 @@ first (or last) convention, perhaps it is better to define the boundary to be an
 equipped with an orientation of its once-stabilized tangent bundle.
 Similarly, in dimension $n-k$ we would have manifolds equipped with an orientation of 
 their $k$ times stabilized tangent bundles.
-(cf. [Stolz and Teichner].)
+(cf. \cite{MR2079378}.)
 Probably should also have a framing of the stabilized dimensions in order to indicate which 
 side the bounded manifold is on.
 For the moment just stick with unoriented manifolds.}
@@ -779,23 +779,6 @@ comprise a natural transformation of functors.
 need to say more about ``homological" fields? 
 (actions of homeomorphisms);
 define $k$-cat $\cC(\cdot\times W)$}
-
-\nn{need to revise stuff below, since we no longer have the sphere axiom}
-
-Recall that Axiom \ref{axiom:spheres} for an $n$-category provided functors $\cC$ from $k$-spheres to sets for $0 \leq k < n$. We claim now that these functors automatically agree with the colimits we have associated to spheres in this section. \todo{} \todo{In fact, we probably should do this for balls as well!} For the remainder of this section we will write $\underrightarrow{\cC}(W)$ for the colimit associated to an arbitary manifold $W$, to distinguish it, in the case that $W$ is a ball or a sphere, from $\cC(W)$, which is part of the definition of the $n$-category. After the next three lemmas, there will be no further need for this notational distinction.
-
-\begin{lem}
-For a $k$-ball or $k$-sphere $W$, with $0\leq k < n$, $$\underrightarrow{\cC}(W) = \cC(W).$$
-\end{lem}
-
-\begin{lem}
-For a topological $n$-category $\cC$, and an $n$-ball $B$, $$\underrightarrow{\cC}(B) = \cC(B).$$
-\end{lem}
-
-\begin{lem}
-For an $A_\infty$ $n$-category $\cC$, and an $n$-ball $B$, $$\underrightarrow{\cC}(B) \quism \cC(B).$$
-\end{lem}
-
 
 \subsection{Modules}
 
