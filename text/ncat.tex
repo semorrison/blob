@@ -23,7 +23,7 @@ results that we have avoided here.
 
 \medskip
 
-There are many existing definitions of $n$-categories, with various intended uses. In any such definition, there are sets of $k$-morphisms for each $0 \leq k \leq n$. Generally, these sets are indexed by instances of a certain typical chape. 
+There are many existing definitions of $n$-categories, with various intended uses. In any such definition, there are sets of $k$-morphisms for each $0 \leq k \leq n$. Generally, these sets are indexed by instances of a certain typical shape. 
 Some $n$-category definitions model $k$-morphisms on the standard bihedrons (interval, bigon, and so on).
 Other definitions have a separate set of 1-morphisms for each interval $[0,l] \sub \r$, 
 a separate set of 2-morphisms for each rectangle $[0,l_1]\times [0,l_2] \sub \r^2$,
@@ -32,27 +32,17 @@ and so on.
 Still other definitions (see, for example, \cite{MR2094071})
 model the $k$-morphisms on more complicated combinatorial polyhedra.
 
-For our definition, we will allow our $k$-morphisms to have any shape, so long as it is homeomorphic to the standard $k$-ball:
-
-\begin{axiom}[Morphisms]{\textup{\textbf{[preliminary]}}}
-For any $k$-manifold $X$ homeomorphic 
-to the standard $k$-ball, we have a set of $k$-morphisms
-$\cC_k(X)$.
-\end{axiom}
-
-By ``a $k$-ball" we mean any $k$-manifold which is homeomorphic to the 
+For our definition, we will allow our $k$-morphisms to have any shape, so long as it is homeomorphic to the standard $k$-ball. Thus we expect to associate a set of $k$-morphisms $\cC_k(X)$ to any $k$-manifold $X$ homeomorphic 
+to the standard $k$-ball. By ``a $k$-ball" we mean any $k$-manifold which is homeomorphic to the 
 standard $k$-ball.
 We {\it do not} assume that it is equipped with a 
 preferred homeomorphism to the standard $k$-ball, and the same applies to ``a $k$-sphere" below.
 
-
 Given a homeomorphism $f:X\to Y$ between $k$-balls (not necessarily fixed on 
 the boundary), we want a corresponding
 bijection of sets $f:\cC(X)\to \cC(Y)$.
-(This will imply ``strong duality", among other things.)
-So we replace the above with
+(This will imply ``strong duality", among other things.) Putting these together, we have
 
-\addtocounter{axiom}{-1}
 \begin{axiom}[Morphisms]
 \label{axiom:morphisms}
 For each $0 \le k \le n$, we have a functor $\cC_k$ from 
@@ -107,7 +97,7 @@ the category of $k{-}1$-spheres and
 homeomorphisms to the category of sets and bijections.
 \end{prop}
 
-We postpone the proof of this result until after we've actually given all the axioms. Note that defining this functor for some $k$ only requires the data described in Axiom \ref{axiom:morphisms} at level $k$, along with the data described in the other Axioms at lower levels. 
+We postpone the proof \todo{} of this result until after we've actually given all the axioms. Note that defining this functor for some $k$ only requires the data described in Axiom \ref{axiom:morphisms} at level $k$, along with the data described in the other Axioms at lower levels. 
 
 %In fact, the functors for spheres are entirely determined by the functors for balls and the subsequent axioms. (In particular, $\cC(S^k)$ is the colimit of $\cC$ applied to decompositions of $S^k$ into balls.) However, it is easiest to think of it as additional data at this point.
 
@@ -479,25 +469,22 @@ type $A_\infty$ $n$-category.
 
 \medskip
 
-The alert reader will have already noticed that our definition of (plain) $n$-category
-is extremely similar to our definition of topological fields.
-The main difference is that for the $n$-category definition we restrict our attention to balls
+The alert reader will have already noticed that our definition of a (plain) $n$-category
+is extremely similar to our definition of a topological system of fields.
+There are two essential differences.
+First, for the $n$-category definition we restrict our attention to balls
 (and their boundaries), while for fields we consider all manifolds.
-(A minor difference is that in the category definition we directly impose isotopy
-invariance in dimension $n$, while in the fields definition we have non-isotopy-invariant fields
-but then mod out by local relations which imply isotopy invariance.)
-Thus a system of fields determines an $n$-category simply by restricting our attention to
-balls.
+Second,  in category definition we directly impose isotopy
+invariance in dimension $n$, while in the fields definition we have do not expect isotopy invariance on fields
+but instead remember a subspace of local relations which contain differences of isotopic fields. (Recall that the compensation for this complication is that we can demand that the gluing map for fields is injective.)
+Thus a system of fields and local relations $(\cF,\cU)$ determines an $n$-category $\cC_ {\cF,\cU}$ simply by restricting our attention to
+balls and, at level $n$, quotienting out by the local relations:
+\begin{align*}
+\cC_{\cF,\cU}(B^k) & = \begin{cases}\cF(B) & \text{when $k<n$,} \\ \cF(B) / \cU(B) & \text{when $k=n$.}\end{cases}
+\end{align*}
 This $n$-category can be thought of as the local part of the fields.
-Conversely, given an $n$-category we can construct a system of fields via 
+Conversely, given a topological $n$-category we can construct a system of fields via 
 a colimit construction; see \S \ref{ss:ncat_fields} below.
-
-%\nn{Next, say something about $A_\infty$ $n$-categories and ``homological" systems
-%of fields.
-%The universal (colimit) construction becomes our generalized definition of blob homology.
-%Need to explain how it relates to the old definition.}
-
-\medskip
 
 \subsection{Examples of $n$-categories}
 \label{ss:ncat-examples}
@@ -617,7 +604,7 @@ define $\cC(X; c) = \bc^\cE_*(X\times F; c)$
 where $\bc^\cE_*$ denotes the blob complex based on $\cE$.
 \end{example}
 
-This example will be essential for Theorem \ref{product_thm} below, which allows us to compute the blob complex of a product. Notice that with $F$ a point, the above example is a construction turning a topological $n$-category into an $A_\infty$ $n$-category. We think of this as providing a `free resolution' of the topological $n$-category. \todo{Say more here!} In fact, there is also a trivial way to do this: we can think of each vector space associated to an $n$-ball as a chain complex concentrated in degree $0$, and take $\CD{B}$ to act trivially. 
+This example will be essential for Theorem \ref{product_thm} below, which allows us to compute the blob complex of a product. Notice that with $F$ a point, the above example is a construction turning a topological $n$-category $\cC$ into an $A_\infty$ $n$-category which we'll denote by $\bc_*(\cC)$. We think of this as providing a `free resolution' of the topological $n$-category. \todo{Say more here!} In fact, there is also a trivial, but mostly uninteresting, way to do this: we can think of each vector space associated to an $n$-ball as a chain complex concentrated in degree $0$, and take $\CD{B}$ to act trivially. 
 
 Be careful that the `free resolution' of the topological $n$-category $\pi_{\leq n}(T)$ is not the $A_\infty$ $n$-category $\pi^\infty_{\leq n}(T)$. It's easy to see that with $n=0$, the corresponding system of fields is just linear combinations of connected components of $T$, and the local relations are trivial. There's no way for the blob complex to magically recover all the data of $\pi^\infty_{\leq 0}(T) \iso C_* T$.
 
@@ -633,8 +620,8 @@ blah blah \nn{to do...}
 \label{ex:e-n-alg}
 Let $\cE\cB_n$ be the operad of smooth embeddings of $k$ (little)
 copies of the standard $n$-ball $B^n$ into another (big) copy of $B^n$.
-$\cE\cB_n$ is homotopy equivalent to the standard framed little $n$-ball operad.
-(By shrining the little balls, we see that both are homotopic to the space of $k$ framed points
+The operad $\cE\cB_n$ is homotopy equivalent to the standard framed little $n$-ball operad.
+(By peeling the little balls, we see that both are homotopic to the space of $k$ framed points
 in $B^n$.)
 
 Let $A$ be an $\cE\cB_n$-algebra.
@@ -650,19 +637,15 @@ We will define an $A_\infty$ $n$-category $\cC^A$.
 %\subsection{From $n$-categories to systems of fields}
 \subsection{From balls to manifolds}
 \label{ss:ncat_fields} \label{ss:ncat-coend}
-In this section we describe how to extend an $n$-category as described above (of either the plain or $A_\infty$ variety) to a system of fields. 
+In this section we describe how to extend an $n$-category $\cC$ as described above (of either the plain or $A_\infty$ variety) to an invariant of manifolds, which we denote by $\cl{\cC}$. This extension is a certain colimit, and we've chosen the notation to remind you of this.
 That is, we show that functors $\cC_k$ satisfying the axioms above have a canonical extension 
 from $k$-balls to arbitrary $k$-manifolds.
-In the case of plain $n$-categories, this is just the usual construction of a TQFT
-from an $n$-category.
-For $A_\infty$ $n$-categories, this gives an alternate (and
-somewhat more canonical/tautological) construction of the blob complex.
-\nn{though from this point of view it seems more natural to just add some
-adjective to ``TQFT" rather than coining a completely new term like ``blob complex".}
+In the case of plain $n$-categories, this construction factors into a construction of a system of fields and local relations, followed by the usual TQFT definition of a vector space invariant of manifolds of Definition \ref{defn:TQFT-invariant}.
+For an $A_\infty$ $n$-category, $\cl{\cC}$ is defined using a homotopy colimit instead. Recall that we can take a plain $n$-category $\cC$ and pass to the `free resolution', an $A_\infty$ $n$-category $\bc_*(\cC)$, by computing the blob complex of balls (recall Example \ref{ex:blob-complexes-of-balls} above). We will show in Corollary \ref{cor:new-old} below that the homotopy colimit invariant for a manifold $M$ associated to this $A_\infty$ $n$-category is actually the same as the original blob complex  for $M$ with coefficients in $\cC$.
 
-We will first define the `cell-decomposition' poset $\cJ(W)$ for any $k$-manifold $W$, for $1 \leq k \leq n$. 
+We will first define the `cell-decomposition' poset $\cell(W)$ for any $k$-manifold $W$, for $1 \leq k \leq n$. 
 An $n$-category $\cC$ provides a functor from this poset to the category of sets, and we  will define $\cC(W)$ as a suitable colimit (or homotopy colimit in the $A_\infty$ case) of this functor. 
-We'll later give a more explicit description of this colimit. In the case that the $n$-category $\cC$ is enriched (e.g. associates vector spaces or chain complexes to $n$-manifolds with boundary data), then the resulting system of fields is also enriched, that is, the set associated to $W$ splits into subsets according to boundary data, and each of these subsets has the appropriate structure (e.g. a vector space or chain complex).
+We'll later give a more explicit description of this colimit. In the case that the $n$-category $\cC$ is enriched (e.g. associates vector spaces or chain complexes to $n$-manifolds with boundary data), then the resulting colimit is also enriched, that is, the set associated to $W$ splits into subsets according to boundary data, and each of these subsets has the appropriate structure (e.g. a vector space or chain complex).
 
 \begin{defn}
 Say that a `permissible decomposition' of $W$ is a cell decomposition
@@ -674,7 +657,7 @@ where each closed top-dimensional cell $X_a$ is an embedded $k$-ball.
 Given permissible decompositions $x$ and $y$, we say that $x$ is a refinement
 of $y$, or write $x \le y$, if each $k$-ball of $y$ is a union of $k$-balls of $x$.
 
-The category $\cJ(W)$ has objects the permissible decompositions of $W$, and a unique morphism from $x$ to $y$ if and only if $x$ is a refinement of $y$.
+The category $\cell(W)$ has objects the permissible decompositions of $W$, and a unique morphism from $x$ to $y$ if and only if $x$ is a refinement of $y$.
 See Figure \ref{partofJfig} for an example.
 \end{defn}
 
@@ -682,14 +665,14 @@ See Figure \ref{partofJfig} for an example.
 \begin{equation*}
 \mathfig{.63}{ncat/zz2}
 \end{equation*}
-\caption{A small part of $\cJ(W)$}
+\caption{A small part of $\cell(W)$}
 \label{partofJfig}
 \end{figure}
 
 
 
 An $n$-category $\cC$ determines 
-a functor $\psi_{\cC;W}$ from $\cJ(W)$ to the category of sets 
+a functor $\psi_{\cC;W}$ from $\cell(W)$ to the category of sets 
 (possibly with additional structure if $k=n$).
 Each $k$-ball $X$ of a decomposition $y$ of $W$ has its boundary decomposed into $k{-}1$-balls,
 and, as described above, we have a subset $\cC(X)\spl \sub \cC(X)$ of morphisms whose boundaries
@@ -697,8 +680,8 @@ are splittable along this decomposition.
 %For a $k$-cell $X$ in a cell composition of $W$, we can consider the `splittable fields' $\cC(X)_{\bdy X}$, the subset of $\cC(X)$ consisting of fields which are splittable with respect to each boundary $k-1$-cell.
 
 \begin{defn}
-Define the functor $\psi_{\cC;W} : \cJ(W) \to \Set$ as follows.
-For a decomposition $x = \bigcup_a X_a$ in $\cJ(W)$, $\psi_{\cC;W}(x)$ is the subset
+Define the functor $\psi_{\cC;W} : \cell(W) \to \Set$ as follows.
+For a decomposition $x = \bigcup_a X_a$ in $\cell(W)$, $\psi_{\cC;W}(x)$ is the subset
 \begin{equation}
 \label{eq:psi-C}
 	\psi_{\cC;W}(x) \sub \prod_a \cC(X_a)\spl
@@ -708,7 +691,7 @@ $X_a$ all agree (this is a fibered product of all the labels of $n$-cells over t
 If $x$ is a refinement of $y$, the map $\psi_{\cC;W}(x) \to \psi_{\cC;W}(y)$ is given by the composition maps of $\cC$.
 \end{defn}
 
-When the $n$-category $\cC$ is enriched in some monoidal category $(A,\boxtimes)$, and $W$ is a
+When the $n$-category $\cC$ is enriched in some symmetric monoidal category $(A,\boxtimes)$, and $W$ is a
 closed $n$-manifold, the functor $\psi_{\cC;W}$ has target $A$ and
 we replace the cartesian product of sets appearing in Equation \eqref{eq:psi-C} with the monoidal product $\boxtimes$. (Moreover, $\psi_{\cC;W}(x)$ might be a subobject, rather than a subset, of the product.)
 Similar things are true if $W$ is an $n$-manifold with non-empty boundary and we
@@ -742,7 +725,7 @@ In the $A_\infty$ case, enriched over chain complexes, the concrete description 
 is more involved.
 %\nn{should probably rewrite this to be compatible with some standard reference}
 Define an $m$-sequence in $W$ to be a sequence $x_0 \le x_1 \le \dots \le x_m$ of permissible decompositions of $W$.
-Such sequences (for all $m$) form a simplicial set in $\cJ(W)$.
+Such sequences (for all $m$) form a simplicial set in $\cell(W)$.
 Define $V$ as a vector space via
 \[
 	V = \bigoplus_{(x_i)} \psi_{\cC;W}(x_0)[m] ,
@@ -1074,14 +1057,14 @@ with $M_{ib}\cap Y_i$ being the marking.
 whose boundary components are labeled by $\cC$ modules $\{\cN_i\}$. Marked balls are shown shaded, plain balls are unshaded.}\label{mblabel}\end{figure}
 Given permissible decompositions $x$ and $y$, we say that $x$ is a refinement
 of $y$, or write $x \le y$, if each ball of $y$ is a union of balls of $x$.
-This defines a partial ordering $\cJ(W)$, which we will think of as a category.
-(The objects of $\cJ(D)$ are permissible decompositions of $W$, and there is a unique
+This defines a partial ordering $\cell(W)$, which we will think of as a category.
+(The objects of $\cell(D)$ are permissible decompositions of $W$, and there is a unique
 morphism from $x$ to $y$ if and only if $x$ is a refinement of $y$.)
 
 The collection of modules $\cN$ determines 
-a functor $\psi_\cN$ from $\cJ(W)$ to the category of sets 
+a functor $\psi_\cN$ from $\cell(W)$ to the category of sets 
 (possibly with additional structure if $k=n$).
-For a decomposition $x = (X_a, M_{ib})$ in $\cJ(W)$, define $\psi_\cN(x)$ to be the subset
+For a decomposition $x = (X_a, M_{ib})$ in $\cell(W)$, define $\psi_\cN(x)$ to be the subset
 \[
 	\psi_\cN(x) \sub \left(\prod_a \cC(X_a)\right) \times \left(\prod_{ib} \cN_i(M_{ib})\right)
 \]
