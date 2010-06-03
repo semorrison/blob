@@ -1343,17 +1343,17 @@ to postpone writing it up, in the hopes that I'll think of a better way to organ
 \label{ssec:spherecat}
 
 In this subsection we define an $n{+}1$-category $\cS$ of ``sphere modules" 
-whose objects correspond to $n$-categories.
+whose objects are $n$-categories.
 When $n=2$
-this is a version of the familiar algebras-bimodules-intertwiners 2-category.
-(Terminology: It is clearly appropriate to call an $S^0$ module a bimodule,
+this is a version of the familiar algebras-bimodules-intertwiners $2$-category.
+While it is clearly appropriate to call an $S^0$ module a bimodule,
 but this is much less true for higher dimensional spheres, 
-so we prefer the term ``sphere module" for the general case.)
+so we prefer the term ``sphere module" for the general case.
 
 The $0$- through $n$-dimensional parts of $\cC$ are various sorts of modules, and we describe
 these first.
 The $n{+}1$-dimensional part of $\cS$ consists of intertwiners
-(of garden-variety $1$-category modules associated to decorated $n$-balls).
+of (garden-variety) $1$-category modules associated to decorated $n$-balls.
 We will see below that in order for these $n{+}1$-morphisms to satisfy all of
 the duality requirements of an $n{+}1$-category, we will have to assume
 that our $n$-categories and modules have non-degenerate inner products.
@@ -1367,10 +1367,10 @@ to the definition of $n$-category modules above.
 (This, in turn, is very similar to our definition of $n$-category.)
 Because of this similarity, we only sketch the definitions below.
 
-We start with 0-sphere modules, which also could reasonably be called (categorified) bimodules.
+We start with $0$-sphere modules, which also could reasonably be called (categorified) bimodules.
 (For $n=1$ they are precisely bimodules in the usual, uncategorified sense.)
-Define a 0-marked $k$-ball $(X, M)$, $1\le k \le n$, to be a pair homeomorphic to the standard
-$(B^k, B^{k-1})$, where $B^{k-1}$ is properly embedded in $B^k$.
+Define a $0$-marked $k$-ball $(X, M)$, $1\le k \le n$, to be a pair homeomorphic to the standard
+$(B^k, B^{k-1})$.
 See Figure \ref{feb21a}.
 Another way to say this is that $(X, M)$ is homeomorphic to $B^{k-1}\times([-1,1], \{0\})$.
 
@@ -1382,20 +1382,20 @@ Another way to say this is that $(X, M)$ is homeomorphic to $B^{k-1}\times([-1,1
 \label{feb21a}
 \end{figure}
 
-0-marked balls can be cut into smaller balls in various ways.
-These smaller balls could be 0-marked or plain.
-We can also take the boundary of a 0-marked ball, which is 0-marked sphere.
+The $0$-marked balls can be cut into smaller balls in various ways. We only consider those decompositions in which the smaller balls are either
+ $0$-marked (i.e. intersect the $0$-marking of the large ball in a disc) or plain (don't intersect the $0$-marking of the large ball).
+We can also take the boundary of a $0$-marked ball, which is $0$-marked sphere.
 
 Fix $n$-categories $\cA$ and $\cB$.
-These will label the two halves of a 0-marked $k$-ball.
-The 0-sphere module we define next will depend on $\cA$ and $\cB$ 
+These will label the two halves of a $0$-marked $k$-ball.
+The $0$-sphere module we define next will depend on $\cA$ and $\cB$ 
 (it's an $\cA$-$\cB$ bimodule), but we will suppress that from the notation.
 
-An $n$-category 0-sphere module $\cM$ is a collection of functors $\cM_k$ from the category
-of 0-marked $k$-balls, $1\le k \le n$,
+An $n$-category $0$-sphere module $\cM$ is a collection of functors $\cM_k$ from the category
+of $0$-marked $k$-balls, $1\le k \le n$,
 (with the two halves labeled by $\cA$ and $\cB$) to the category of sets.
 If $k=n$ these sets should be enriched to the extent $\cA$ and $\cB$ are.
-Given a decomposition of a 0-marked $k$-ball $X$ into smaller balls $X_i$, we have
+Given a decomposition of a $0$-marked $k$-ball $X$ into smaller balls $X_i$, we have
 morphism sets $\cA_k(X_i)$ (if $X_i$ lies on the $\cA$-labeled side)
 or $\cB_k(X_i)$ (if $X_i$ lies on the $\cB$-labeled side)
 or $\cM_k(X_i)$ (if $X_i$ intersects the marking and is therefore a smaller 0-marked ball).
@@ -1404,7 +1404,7 @@ from the product of these various sets into $\cM(X)$.
 
 \medskip
 
-Part of the structure of an $n$-category 0-sphere module is captured by saying it is
+Part of the structure of an $n$-category 0-sphere module $\cM$  is captured by saying it is
 a collection $\cD^{ab}$ of $n{-}1$-categories, indexed by pairs $(a, b)$ of objects (0-morphisms)
 of $\cA$ and $\cB$.
 Let $J$ be some standard 0-marked 1-ball (i.e.\ an interval with a marked point in its interior).
@@ -1413,7 +1413,7 @@ Given a $j$-ball $X$, $0\le j\le n-1$, we define
 	\cD(X) \deq \cM(X\times J) .
 \]
 The product is pinched over the boundary of $J$.
-$\cD$ breaks into ``blocks" according to the restrictions to the pinched points of $X\times J$
+The set $\cD$ breaks into ``blocks" according to the restrictions to the pinched points of $X\times J$
 (see Figure \ref{feb21b}).
 These restrictions are 0-morphisms $(a, b)$ of $\cA$ and $\cB$.
 
@@ -1429,9 +1429,9 @@ More generally, consider an interval with interior marked points, and with the c
 of these points labeled by $n$-categories $\cA_i$ ($0\le i\le l$) and the marked points labeled
 by $\cA_i$-$\cA_{i+1}$ bimodules $\cM_i$.
 (See Figure \ref{feb21c}.)
-To this data we can apply to coend construction as in Subsection \ref{moddecss} above
-to obtain an $\cA_0$-$\cA_l$ bimodule and, forgetfully, an $n{-}1$-category.
-This amounts to a definition of taking tensor products of bimodules over $n$-categories.
+To this data we can apply the coend construction as in Subsection \ref{moddecss} above
+to obtain an $\cA_0$-$\cA_l$ $0$-sphere module and, forgetfully, an $n{-}1$-category.
+This amounts to a definition of taking tensor products of $0$-sphere module over $n$-categories.
 
 \begin{figure}[!ht]
 \begin{equation*}
@@ -1445,7 +1445,7 @@ We could also similarly mark and label a circle, obtaining an $n{-}1$-category
 associated to the marked and labeled circle.
 (See Figure \ref{feb21c}.)
 If the circle is divided into two intervals, we can think of this $n{-}1$-category
-as the 2-ended tensor product of the two bimodules associated to the two intervals.
+as the 2-sided tensor product of the two bimodules associated to the two intervals.
 
 \medskip
 
@@ -1558,18 +1558,4 @@ a separate paper):
 \item functors
 \end{itemize}
 
-\bigskip
 
-\hrule
-\nn{Some salvaged paragraphs that we might want to work back in:}
-\bigskip
-
-Appendix \ref{sec:comparing-A-infty} explains the translation between this definition of an $A_\infty$ $1$-category and the usual one expressed in terms of `associativity up to higher homotopy', as in \cite{MR1854636}. (In this version of the paper, that appendix is incomplete, however.)
-
-The motivating example is `chains of maps to $M$' for some fixed target space $M$. This is a topological $A_\infty$ category $\Xi_M$ with $\Xi_M(J) = C_*(\Maps(J \to M))$. The gluing maps $\Xi_M(J) \tensor \Xi_M(J') \to \Xi_M(J \cup J')$  takes the product of singular chains, then glues maps to $M$ together; the associativity condition is automatically satisfied. The evaluation map $\ev_{J,J'} : \CD{J \to J'} \tensor \Xi_M(J) \to \Xi_M(J')$ is the composition
-\begin{align*}
-\CD{J \to J'} \tensor C_*(\Maps(J \to M)) & \to C_*(\Diff(J \to J') \times \Maps(J \to M)) \\ & \to C_*(\Maps(J' \to M)),
-\end{align*}
-where the first map is the product of singular chains, and the second is precomposition by the inverse of a diffeomorphism.
-
-\hrule
