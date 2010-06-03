@@ -92,7 +92,7 @@
         </exec>
     </target>
     
-    <target name="scott-copy-pdf" depends="direct-pdf">
+    <target name="copy-pdf" depends="direct-pdf">
         <copy file="blob1.pdf" tofile="../../Sites/tqft.net/papers/blobs.pdf"/>
         <exec executable="svn" dir="../../Sites/tqft.net/papers/">
             <arg value="commit"/>
