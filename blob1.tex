@@ -1,10 +1,14 @@
 \documentclass[11pt,leqno]{article}
 
+%\usepackage{amsthm}
+
 \newcommand{\pathtotrunk}{./}
 \input{text/article_preamble}
 \input{text/top_matter}
 \input{text/kw_macros}
 
+
+%\title{Blob Homology}
 \title{The Blob Complex}
 
 \begin{document}
@@ -16,9 +20,11 @@
 
 \maketitle
 
-[revision $\ge$ 320;  $\ge$ 2 June 2010]
+
+[revision $\ge$ 276;  $\ge$ 30 May 2010]
 
 \textbf{Draft version, read with caution.}
+
 
 \nn{maybe to do: add appendix on various versions of acyclic models}
 
@@ -54,6 +60,7 @@ check the argument about maps
 
 \input{text/intro}
 
+%\input{text/definitions}
 \input{text/tqftreview}
 
 \input{text/blobdef}
@@ -68,8 +75,6 @@ check the argument about maps
 
 \input{text/a_inf_blob}
 
-\input{text/comm_alg}
-
 \input{text/deligne}
 
 \appendix
@@ -80,9 +85,15 @@ check the argument about maps
 
 \input{text/appendixes/comparing_defs}
 
+\input{text/comm_alg}
+
+%\input{text/obsolete}
+
 % ----------------------------------------------------------------
 %\newcommand{\urlprefix}{}
 \bibliographystyle{plain}
+%Included for winedt:
+%input "bibliography/bibliography.bib"
 \bibliography{bibliography/bibliography}
 % ----------------------------------------------------------------
 
@@ -90,6 +101,8 @@ This paper is available online at \arxiv{?????}, and at
 \url{http://tqft.net/blobs},
 and at \url{http://canyon23.net/math/}.
 
+% A GTART necessity:
+% \Addresses
 % ----------------------------------------------------------------
 \end{document}
 % ----------------------------------------------------------------
