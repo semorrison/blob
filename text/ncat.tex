@@ -90,12 +90,12 @@ all the axioms in the subsection for $0$ through $k-1$ we can use a colimit
 construction, as described in Subsection \ref{ss:ncat-coend} below, to extend $\cC_{k-1}$
 to spheres (and any other manifolds):
 
-\begin{prop}
-\label{axiom:spheres}
+\begin{lem}
+\label{lem:spheres}
 For each $1 \le k \le n$, we have a functor $\cl{\cC}_{k-1}$ from 
 the category of $k{-}1$-spheres and 
 homeomorphisms to the category of sets and bijections.
-\end{prop}
+\end{lem}
 
 We postpone the proof \todo{} of this result until after we've actually given all the axioms. Note that defining this functor for some $k$ only requires the data described in Axiom \ref{axiom:morphisms} at level $k$, along with the data described in the other Axioms at lower levels. 
 
@@ -142,10 +142,11 @@ We have just argued that the boundary of a morphism has no preferred splitting i
 domain and range, but the converse meets with our approval.
 That is, given compatible domain and range, we should be able to combine them into
 the full boundary of a morphism.
-The following proposition follows from the colimit construction used to define $\cl{\cC}_{k-1}$
+The following lemma follows from the colimit construction used to define $\cl{\cC}_{k-1}$
 on spheres.
 
-\begin{prop}[Boundary from domain and range]
+\begin{lem}[Boundary from domain and range]
+\label{lem:domain-and-range}
 Let $S = B_1 \cup_E B_2$, where $S$ is a $k{-}1$-sphere $(1\le k\le n)$,
 $B_i$ is a $k{-}1$-ball, and $E = B_1\cap B_2$ is a $k{-}2$-sphere (Figure \ref{blah3}).
 Let $\cC(B_1) \times_{\cl{\cC}(E)} \cC(B_2)$ denote the fibered product of the 
@@ -157,7 +158,7 @@ Then we have an injective map
 which is natural with respect to the actions of homeomorphisms.
 (When $k=1$ we stipulate that $\cl{\cC}(E)$ is a point, so that the above fibered product
 becomes a normal product.)
-\end{prop}
+\end{lem}
 
 \begin{figure}[!ht]
 $$
@@ -787,10 +788,11 @@ We call $B$ the ball and $N$ the marking.
 A homeomorphism between marked $k$-balls is a homeomorphism of balls which
 restricts to a homeomorphism of markings.
 
-\mmpar{Module axiom 1}{Module morphisms}
+\begin{module-axiom}[Module morphisms]
 {For each $0 \le k \le n$, we have a functor $\cM_k$ from 
 the category of marked $k$-balls and 
 homeomorphisms to the category of sets and bijections.}
+\end{module-axiom}
 
 (As with $n$-categories, we will usually omit the subscript $k$.)
 
@@ -810,16 +812,20 @@ $$\mathfig{.8}{ncat/boundary-collar}$$
 Define the boundary of a marked $k$-ball $(B, N)$ to be the pair $(\bd B \setmin N, \bd N)$.
 Call such a thing a {marked $k{-}1$-hemisphere}.
 
-\mmpar{Module axiom 2}{Module boundaries (hemispheres)}
+\begin{lem}
+\label{lem:hemispheres}
 {For each $0 \le k \le n-1$, we have a functor $\cM_k$ from 
 the category of marked $k$-hemispheres and 
 homeomorphisms to the category of sets and bijections.}
+\end{lem}
+The proof is exactly analogous to that of Lemma \ref{lem:spheres}, and we omit the details. We use the same type of colimit construction.
 
 In our example, let $\cM(H) \deq \cD(H\times\bd W \cup \bd H\times W)$.
 
-\mmpar{Module axiom 3}{Module boundaries (maps)}
+\begin{module-axiom}[Module boundaries (maps)]
 {For each marked $k$-ball $M$ we have a map of sets $\bd: \cM(M)\to \cM(\bd M)$.
 These maps, for various $M$, comprise a natural transformation of functors.}
+\end{module-axiom}
 
 Given $c\in\cM(\bd M)$, let $\cM(M; c) \deq \bd^{-1}(c)$.
 
@@ -827,7 +833,7 @@ If the $n$-category $\cC$ is enriched over some other category (e.g.\ vector spa
 then $\cM(M; c)$ should be an object in that category for each marked $n$-ball $M$
 and $c\in \cC(\bd M)$.
 
-\mmpar{Module axiom 4}{Boundary from domain and range}
+\begin{lem}[Boundary from domain and range]
 {Let $H = M_1 \cup_E M_2$, where $H$ is a marked $k$-hemisphere ($0\le k\le n-1$),
 $M_i$ is a marked $k$-ball, and $E = M_1\cap M_2$ is a marked $k{-}1$-hemisphere.
 Let $\cM(M_1) \times_{\cM(E)} \cM(M_2)$ denote the fibered product of the 
@@ -837,16 +843,19 @@ Then (axiom) we have an injective map
 	\gl_E : \cM(M_1) \times_{\cM(E)} \cM(M_2) \hookrightarrow \cM(H)
 \]
 which is natural with respect to the actions of homeomorphisms.}
+\end{lem}
+Again, this is in exact analogy with Lemma \ref{lem:domain-and-range}.
 
 Let $\cM(H)_E$ denote the image of $\gl_E$.
 We will refer to elements of $\cM(H)_E$ as ``splittable along $E$" or ``transverse to $E$". 
 
 
-\mmpar{Module axiom 5}{Module to category restrictions}
+\begin{module-axiom}[Module to category restrictions]
 {For each marked $k$-hemisphere $H$ there is a restriction map
 $\cM(H)\to \cC(H)$.  
 ($\cC(H)$ means apply $\cC$ to the underlying $k$-ball of $H$.)
 These maps comprise a natural transformation of functors.}
+\end{module-axiom}
 
 Note that combining the various boundary and restriction maps above
 (for both modules and $n$-categories)
@@ -873,7 +882,7 @@ of splitting a marked $k$-ball into two (marked or plain) $k$-balls.
 
 First, we can compose two module morphisms to get another module morphism.
 
-\mmpar{Module axiom 6}{Module composition}
+\begin{module-axiom}[Module composition]
 {Let $M = M_1 \cup_Y M_2$, where $M$, $M_1$ and $M_2$ are marked $k$-balls (with $0\le k\le n$)
 and $Y = M_1\cap M_2$ is a marked $k{-}1$-ball.
 Let $E = \bd Y$, which is a marked $k{-}2$-hemisphere.
@@ -888,14 +897,14 @@ which is natural with respect to the actions of homeomorphisms, and also compati
 to the intersection of the boundaries of $M$ and $M_i$.
 If $k < n$ we require that $\gl_Y$ is injective.
 (For $k=n$, see below.)}
-
+\end{module-axiom}
 
 
 Second, we can compose an $n$-category morphism with a module morphism to get another
 module morphism.
 We'll call this the action map to distinguish it from the other kind of composition.
 
-\mmpar{Module axiom 7}{$n$-category action}
+\begin{module-axiom}[$n$-category action]
 {Let $M = X \cup_Y M'$, where $M$ and $M'$ are marked $k$-balls ($0\le k\le n$),
 $X$ is a plain $k$-ball,
 and $Y = X\cap M'$ is a $k{-}1$-ball.
@@ -910,9 +919,11 @@ which is natural with respect to the actions of homeomorphisms, and also compati
 to the intersection of the boundaries of $X$ and $M'$.
 If $k < n$ we require that $\gl_Y$ is injective.
 (For $k=n$, see below.)}
+\end{module-axiom}
 
-\mmpar{Module axiom 8}{Strict associativity}
+\begin{module-axiom}[Strict associativity]
 {The composition and action maps above are strictly associative.}
+\end{module-axiom}
 
 Note that the above associativity axiom applies to mixtures of module composition,
 action maps and $n$-category composition.
@@ -951,7 +962,7 @@ operad-type strict associativity condition.}
 \cite{MR1718089}.)
 %\nn{need to double-check that this is true.}
 
-\mmpar{Module axiom 9}{Product/identity morphisms}
+\begin{module-axiom}[Product/identity morphisms]
 {Let $M$ be a marked $k$-ball and $D$ be a plain $m$-ball, with $k+m \le n$.
 Then we have a map $\cM(M)\to \cM(M\times D)$, usually denoted $a\mapsto a\times D$ for $a\in \cM(M)$.
 If $f:M\to M'$ and $\tilde{f}:M\times D \to M'\times D'$ are maps such that the diagram
@@ -960,6 +971,7 @@ If $f:M\to M'$ and $\tilde{f}:M\times D \to M'\times D'$ are maps such that the 
 	M \ar[r]^{f} & M'
 } \]
 commutes, then we have $\tilde{f}(a\times D) = f(a)\times D'$.}
+\end{module-axiom}
 
 \nn{Need to add compatibility with various things, as in the n-cat version of this axiom above.}
 
@@ -969,10 +981,11 @@ There are two alternatives for the next axiom, according whether we are defining
 modules for plain $n$-categories or $A_\infty$ $n$-categories.
 In the plain case we require
 
-\mmpar{Module axiom 10a}{Extended isotopy invariance in dimension $n$}
+\begin{module-axiom}[\textup{\textbf{[topological version]}} Extended isotopy invariance in dimension $n$]
 {Let $M$ be a marked $n$-ball and $f: M\to M$ be a homeomorphism which restricts
 to the identity on $\bd M$ and is extended isotopic (rel boundary) to the identity.
 Then $f$ acts trivially on $\cM(M)$.}
+\end{module-axiom}
 
 \nn{need to rephrase this, since extended isotopies don't correspond to homeomorphisms.}
 
@@ -982,7 +995,8 @@ on $\bd B \setmin N$.
 
 For $A_\infty$ modules we require
 
-\mmpar{Module axiom 10b}{Families of homeomorphisms act}
+\addtocounter{module-axiom}{-1}
+\begin{module-axiom}[\textup{\textbf{[$A_\infty$ version]}} Families of homeomorphisms act]
 {For each marked $n$-ball $M$ and each $c\in \cM(\bd M)$ we have a map of chain complexes
 \[
 	C_*(\Homeo_\bd(M))\ot \cM(M; c) \to \cM(M; c) .
@@ -994,6 +1008,7 @@ These action maps are required to be associative up to homotopy
 a diagram like the one in Proposition \ref{CHprop} commutes.
 \nn{repeat diagram here?}
 \nn{restate this with $\Homeo(M\to M')$?  what about boundary fixing property?}}
+\end{module-axiom}
 
 \medskip
 
