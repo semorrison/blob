@@ -217,6 +217,7 @@ H_0(\bc_*^{\cC}(X)) \iso A^{\cC}(X)
 \end{equation*}
 \end{property}
 
+\todo{Somehow, the Hochschild homology thing isn't a "property". Let's move it and call it a theorem? -S}
 \begin{property}[Hochschild homology when $X=S^1$]
 \label{property:hochschild}%
 The blob complex for a $1$-category $\cC$ on the circle is
@@ -270,63 +271,60 @@ In \S \ref{sec:ncats} we introduce the notion of topological $n$-categories, fro
 \begin{property}[Blob complexes of (products with) balls form an $A_\infty$ $n$-category]
 \label{property:blobs-ainfty}
 Let $\cC$ be  a topological $n$-category.  Let $Y$ be an $n{-}k$-manifold. 
-There is an $A_\infty$ $k$-category $A_*(Y, \cC)$, defined on each $m$-ball $D$, for $0 \leq m < k$, to be the set $$A_*(Y,\cC)(D) = A^\cC(Y \times D)$$ and on $k$-balls $D$ to be the set $$A_*(Y, \cC)(D) = \bc_*(Y \times D, \cC).$$ (When $m=k$ the subsets with fixed boundary conditions form a chain complex.) These sets have the structure of an $A_\infty$ $k$-category, with compositions coming from the gluing map in Property \ref{property:gluing-map} and with the action of families of homeomorphisms given in Property \ref{property:evaluation}.
+There is an $A_\infty$ $k$-category $\bc_*(Y;\cC)$, defined on each $m$-ball $D$, for $0 \leq m < k$, to be the set $$\bc_*(Y;\cC)(D) = \cC(Y \times D)$$ and on $k$-balls $D$ to be the set $$\bc_*(Y;\cC)(D) = \bc_*(Y \times D; \cC).$$ (When $m=k$ the subsets with fixed boundary conditions form a chain complex.) These sets have the structure of an $A_\infty$ $k$-category, with compositions coming from the gluing map in Property \ref{property:gluing-map} and with the action of families of homeomorphisms given in Property \ref{property:evaluation}.
 \end{property}
 \begin{rem}
 Perhaps the most interesting case is when $Y$ is just a point; then we have a way of building an $A_\infty$ $n$-category from a topological $n$-category. We think of this $A_\infty$ $n$-category as a free resolution.
 \end{rem}
 
 There is a version of the blob complex for $\cC$ an $A_\infty$ $n$-category
-instead of a topological $n$-category; this is described in \S \ref{sec:ainfblob}.
+instead of a topological $n$-category; this is described in \S \ref{sec:ainfblob}. The definition is in fact simpler, almost tautological, and we use a different notation, $\cl{\cC}(M)$.
 
 \begin{property}[Product formula]
 \label{property:product}
 Let $W$ be a $k$-manifold and $Y$ be an $n-k$ manifold. Let $\cC$ be an $n$-category.
-Let $A_*(Y,\cC)$ be the $A_\infty$ $k$-category associated to $Y$ via blob homology (see Property \ref{property:blobs-ainfty}).
+Let $\bc_*(Y;\cC)$ be the $A_\infty$ $k$-category associated to $Y$ via blob homology (see Property \ref{property:blobs-ainfty}).
 Then
 \[
-	\bc_*(Y\times W, \cC) \simeq \bc_*(W, A_*(Y,\cC)) .
+	\bc_*(Y\times W; \cC) \simeq \cl{\bc_*(Y;\cC)}(W).
 \]
-Note on the right hand side we have the version of the blob complex for $A_\infty$ $n$-categories.
 \end{property}
-It seems reasonable to expect a generalization describing an arbitrary fibre bundle. See in particular \S \ref{moddecss} for the framework for such a statement.
+We also give a generalization of this statement for arbitrary fibre bundles, in \S \ref{moddecss}, and a sketch of a statement for arbitrary maps.
+
+Fix a topological $n$-category $\cC$, which we'll omit from the notation. Recall that for any $(n-1)$-manifold $Y$, the blob complex $\bc_*(Y)$ is naturally an $A_\infty$ category. (See Appendix \ref{sec:comparing-A-infty} for the translation between topological $A_\infty$ $1$-categories and the usual algebraic notion of an $A_\infty$ category.)
 
 \begin{property}[Gluing formula]
 \label{property:gluing}%
 \mbox{}% <-- gets the indenting right
 \begin{itemize}
-\item For any $(n-1)$-manifold $Y$, the blob complex of $Y \times I$ is
-naturally an $A_\infty$ category. % We'll write $\bc_*(Y)$ for $\bc_*(Y \times I)$ below.
-
 \item For any $n$-manifold $X$, with $Y$ a codimension $0$-submanifold of its boundary, the blob complex of $X$ is naturally an
-$A_\infty$ module for $\bc_*(Y \times I)$.
+$A_\infty$ module for $\bc_*(Y)$.
 
 \item For any $n$-manifold $X_\text{glued} = X_\text{cut} \bigcup_Y \selfarrow$, the blob complex $\bc_*(X_\text{glued})$ is the $A_\infty$ self-tensor product of
-$\bc_*(X_\text{cut})$ as an $\bc_*(Y \times I)$-bimodule:
+$\bc_*(X_\text{cut})$ as an $\bc_*(Y)$-bimodule:
 \begin{equation*}
-\bc_*(X_\text{glued}) \simeq \bc_*(X_\text{cut}) \Tensor^{A_\infty}_{\mathclap{\bc_*(Y \times I)}} \selfarrow
+\bc_*(X_\text{glued}) \simeq \bc_*(X_\text{cut}) \Tensor^{A_\infty}_{\mathclap{\bc_*(Y)}} \selfarrow
 \end{equation*}
 \end{itemize}
 \end{property}
 
-Finally, we state two more properties, which we will not prove in this paper.
-\nn{revise this; expect that we will prove these in the paper}
+Finally, we prove two theorems which we consider as applications.
 
-\begin{property}[Mapping spaces]
+\begin{thm}[Mapping spaces]
 Let $\pi^\infty_{\le n}(T)$ denote the $A_\infty$ $n$-category based on maps 
 $B^n \to T$.
 (The case $n=1$ is the usual $A_\infty$-category of paths in $T$.)
 Then 
 $$\bc_*(X, \pi^\infty_{\le n}(T)) \simeq \CM{X}{T}.$$
-\end{property}
+\end{thm}
 
 This says that we can recover the (homotopic) space of maps to $T$ via blob homology from local data.
 
-\begin{property}[Higher dimensional Deligne conjecture]
-\label{property:deligne}
+\begin{thm}[Higher dimensional Deligne conjecture]
+\label{thm:deligne}
 The singular chains of the $n$-dimensional fat graph operad act on blob cochains.
-\end{property}
-See \S \ref{sec:deligne} for an explanation of the terms appearing here. The proof will appear elsewhere.
+\end{thm}
+See \S \ref{sec:deligne} for a full explanation of the statement, and an outline of the proof.
 
 Properties \ref{property:functoriality} and \ref{property:skein-modules} will be immediate from the definition given in
 \S \ref{sec:blob-definition}, and we'll recall them at the appropriate points there.
@@ -351,12 +349,4 @@ Most importantly, however, \nn{applications!} \nn{cyclic homology, $n=2$ cases, 
 We'd like to thank David Ben-Zvi, Kevin Costello, Chris Douglas,
 Michael Freedman, Vaughan Jones, Justin Roberts, Chris Schommer-Pries, Peter Teichner \nn{and who else?} for many interesting and useful conversations. 
 During this work, Kevin Walker has been at Microsoft Station Q, and Scott Morrison has been at Microsoft Station Q and the Miller Institute for Basic Research at UC Berkeley.
-
-
-\medskip\hrule\medskip
-
-Still to do:
-\begin{itemize}
-\item say something about starting with semisimple n-cat (trivial?? not trivial?)
-\end{itemize}
 
