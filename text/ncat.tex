@@ -260,7 +260,7 @@ We  say that elements of $\cC(X)_\alpha$ are morphisms which are `splittable alo
 In situations where the subdivision is notationally anonymous, we will write
 $\cC(X)\spl$ for the morphisms which are splittable along (a.k.a.\ transverse to)
 the unnamed subdivision.
-If $\beta$ is a subdivision of $\bd X$, we define $\cC(X)_\beta \deq \bd\inv(\cC(\bd X)_\beta)$;
+If $\beta$ is a subdivision of $\bd X$, we define $\cC(X)_\beta \deq \bd\inv(\cl{\cC}(\bd X)_\beta)$;
 this can also be denoted $\cC(X)\spl$ if the context contains an anonymous
 subdivision of $\bd X$ and no competing subdivision of $X$.
 
@@ -438,7 +438,7 @@ For the moment, assume that our $n$-morphisms are enriched over chain complexes.
 
 \addtocounter{axiom}{-1}
 \begin{axiom}{\textup{\textbf{[$A_\infty$ version]}} Families of homeomorphisms act in dimension $n$}
-For each $n$-ball $X$ and each $c\in \cC(\bd X)$ we have a map of chain complexes
+For each $n$-ball $X$ and each $c\in \cl{\cC}(\bd X)$ we have a map of chain complexes
 \[
 	C_*(\Homeo_\bd(X))\ot \cC(X; c) \to \cC(X; c) .
 \]
@@ -535,7 +535,7 @@ The next example is only intended to be illustrative, as we don't specify which 
 Given a `traditional $n$-category with strong duality' $C$
 define $\cC(X)$, for $X$ a $k$-ball with $k < n$,
 to be the set of all $C$-labeled sub cell complexes of $X$ (c.f. \S \ref{sec:fields}).
-For $X$ an $n$-ball and $c\in \cC(\bd X)$, define $\cC(X)$ to finite linear
+For $X$ an $n$-ball and $c\in \cl{\cC}(\bd X)$, define $\cC(X)$ to finite linear
 combinations of $C$-labeled sub cell complexes of $X$
 modulo the kernel of the evaluation map.
 Define a product morphism $a\times D$, for $D$ an $m$-ball, to be the product of the cell complex of $a$ with $D$,
@@ -548,7 +548,7 @@ to be the dual Hilbert space $A(X\times F; c)$.
 \nn{refer elsewhere for details?}
 
 
-Recall we described a system of fields and local relations based on a `traditional $n$-category' $C$ in Example \ref{ex:traditional-n-categories(fields)} above. Constructing a system of fields from $\cC$ recovers that example.
+Recall we described a system of fields and local relations based on a `traditional $n$-category' $C$ in Example \ref{ex:traditional-n-categories(fields)} above. Constructing a system of fields from $\cC$ recovers that example. \todo{Except that it doesn't: pasting diagrams v.s. string diagrams.}
 \end{example}
 
 Finally, we describe a version of the bordism $n$-category suitable to our definitions.
@@ -639,8 +639,8 @@ We will define an $A_\infty$ $n$-category $\cC^A$.
 \label{ss:ncat_fields} \label{ss:ncat-coend}
 In this section we describe how to extend an $n$-category $\cC$ as described above (of either the plain or $A_\infty$ variety) to an invariant of manifolds, which we denote by $\cl{\cC}$. This extension is a certain colimit, and we've chosen the notation to remind you of this.
 That is, we show that functors $\cC_k$ satisfying the axioms above have a canonical extension 
-from $k$-balls to arbitrary $k$-manifolds.
-In the case of plain $n$-categories, this construction factors into a construction of a system of fields and local relations, followed by the usual TQFT definition of a vector space invariant of manifolds of Definition \ref{defn:TQFT-invariant}.
+from $k$-balls to arbitrary $k$-manifolds. Recall that we've already anticipated this construction in the previous section, inductively defining $\cl{\cC}$ on $k$-spheres in terms of $\cC$ on $k$-balls, so that we can state the boundary axiom for $\cC$ on $k+1$-balls.
+In the case of plain $n$-categories, this construction factors into a construction of a system of fields and local relations, followed by the usual TQFT definition of a vector space invariant of manifolds given as Definition \ref{defn:TQFT-invariant}.
 For an $A_\infty$ $n$-category, $\cl{\cC}$ is defined using a homotopy colimit instead. Recall that we can take a plain $n$-category $\cC$ and pass to the `free resolution', an $A_\infty$ $n$-category $\bc_*(\cC)$, by computing the blob complex of balls (recall Example \ref{ex:blob-complexes-of-balls} above). We will show in Corollary \ref{cor:new-old} below that the homotopy colimit invariant for a manifold $M$ associated to this $A_\infty$ $n$-category is actually the same as the original blob complex  for $M$ with coefficients in $\cC$.
 
 We will first define the `cell-decomposition' poset $\cell(W)$ for any $k$-manifold $W$, for $1 \leq k \leq n$. 
