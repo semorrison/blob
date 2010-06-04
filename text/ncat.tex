@@ -86,13 +86,13 @@ Morphisms are modeled on balls, so their boundaries are modeled on spheres.
 In other words, we need to extend the functors $\cC_{k-1}$ from balls to spheres, for 
 $1\le k \le n$.
 At first it might seem that we need another axiom for this, but in fact once we have
-all the axioms in the subsection for $0$ through $k-1$ we can use a coend
+all the axioms in the subsection for $0$ through $k-1$ we can use a colimit
 construction, as described in Subsection \ref{ss:ncat-coend} below, to extend $\cC_{k-1}$
 to spheres (and any other manifolds):
 
 \begin{prop}
 \label{axiom:spheres}
-For each $1 \le k \le n$, we have a functor $\cC_{k-1}$ from 
+For each $1 \le k \le n$, we have a functor $\cl{\cC}_{k-1}$ from 
 the category of $k{-}1$-spheres and 
 homeomorphisms to the category of sets and bijections.
 \end{prop}
@@ -102,18 +102,18 @@ We postpone the proof \todo{} of this result until after we've actually given al
 %In fact, the functors for spheres are entirely determined by the functors for balls and the subsequent axioms. (In particular, $\cC(S^k)$ is the colimit of $\cC$ applied to decompositions of $S^k$ into balls.) However, it is easiest to think of it as additional data at this point.
 
 \begin{axiom}[Boundaries]\label{nca-boundary}
-For each $k$-ball $X$, we have a map of sets $\bd: \cC_k(X)\to \cC_{k-1}(\bd X)$.
+For each $k$-ball $X$, we have a map of sets $\bd: \cC_k(X)\to \cl{\cC}_{k-1}(\bd X)$.
 These maps, for various $X$, comprise a natural transformation of functors.
 \end{axiom}
 
 (Note that the first ``$\bd$" above is part of the data for the category, 
 while the second is the ordinary boundary of manifolds.)
 
-Given $c\in\cC(\bd(X))$, we will write $\cC(X; c)$ for $\bd^{-1}(c)$, those morphisms with specified boundary $c$.
+Given $c\in\cl{\cC}(\bd(X))$, we will write $\cC(X; c)$ for $\bd^{-1}(c)$, those morphisms with specified boundary $c$.
 
 Most of the examples of $n$-categories we are interested in are enriched in the following sense.
 The various sets of $n$-morphisms $\cC(X; c)$, for all $n$-balls $X$ and
-all $c\in \cC(\bd X)$, have the structure of an object in some auxiliary symmetric monoidal category
+all $c\in \cl{\cC}(\bd X)$, have the structure of an object in some auxiliary symmetric monoidal category
 (e.g.\ vector spaces, or modules over some ring, or chain complexes),
 and all the structure maps of the $n$-category should be compatible with the auxiliary
 category structure.
@@ -142,27 +142,27 @@ We have just argued that the boundary of a morphism has no preferred splitting i
 domain and range, but the converse meets with our approval.
 That is, given compatible domain and range, we should be able to combine them into
 the full boundary of a morphism.
-The following proposition follows from the coend construction used to define $\cC_{k-1}$
+The following proposition follows from the colimit construction used to define $\cl{\cC}_{k-1}$
 on spheres.
 
 \begin{prop}[Boundary from domain and range]
 Let $S = B_1 \cup_E B_2$, where $S$ is a $k{-}1$-sphere $(1\le k\le n)$,
 $B_i$ is a $k{-}1$-ball, and $E = B_1\cap B_2$ is a $k{-}2$-sphere (Figure \ref{blah3}).
-Let $\cC(B_1) \times_{\cC(E)} \cC(B_2)$ denote the fibered product of the 
-two maps $\bd: \cC(B_i)\to \cC(E)$.
+Let $\cC(B_1) \times_{\cl{\cC}(E)} \cC(B_2)$ denote the fibered product of the 
+two maps $\bd: \cC(B_i)\to \cl{\cC}(E)$.
 Then we have an injective map
 \[
-	\gl_E : \cC(B_1) \times_{\cC(E)} \cC(B_2) \into \cC(S)
+	\gl_E : \cC(B_1) \times_{\\cl{cC}(E)} \cC(B_2) \into \cl{\cC}(S)
 \]
 which is natural with respect to the actions of homeomorphisms.
-(When $k=1$ we stipulate that $\cC(E)$ is a point, so that the above fibered product
+(When $k=1$ we stipulate that $\cl{\cC}(E)$ is a point, so that the above fibered product
 becomes a normal product.)
 \end{prop}
 
 \begin{figure}[!ht]
 $$
 \begin{tikzpicture}[%every label/.style={green}
-					]
+]
 \node[fill=black, circle, label=below:$E$, inner sep=2pt](S) at (0,0) {};
 \node[fill=black, circle, label=above:$E$, inner sep=2pt](N) at (0,2) {};
 \draw (S) arc  (-90:90:1);
@@ -175,15 +175,15 @@ $$
 
 Note that we insist on injectivity above.
 
-Let $\cC(S)_E$ denote the image of $\gl_E$.
-We will refer to elements of $\cC(S)_E$ as ``splittable along $E$" or ``transverse to $E$". 
+Let $\cl{\cC}(S)_E$ denote the image of $\gl_E$.
+We will refer to elements of $\\cl{cC}(S)_E$ as ``splittable along $E$" or ``transverse to $E$". 
 
 If $X$ is a $k$-ball and $E \sub \bd X$ splits $\bd X$ into two $k{-}1$-balls $B_1$ and $B_2$
-as above, then we define $\cC(X)_E = \bd^{-1}(\cC(\bd X)_E)$.
+as above, then we define $\cC(X)_E = \bd^{-1}(\cl{\cC}(\bd X)_E)$.
 
-We will call the projection $\cC(S)_E \to \cC(B_i)$
+We will call the projection $\cl{\cC}(S)_E \to \cC(B_i)$
 a {\it restriction} map and write $\res_{B_i}(a)$
-(or simply $\res(a)$ when there is no ambiguity), for $a\in \cC(S)_E$.
+(or simply $\res(a)$ when there is no ambiguity), for $a\in \cl{\cC}(S)_E$.
 More generally, we also include under the rubric ``restriction map" the
 the boundary maps of Axiom \ref{nca-boundary} above,
 another class of maps introduced after Axiom \ref{nca-assoc} below, as well as any composition
