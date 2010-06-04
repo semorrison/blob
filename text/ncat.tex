@@ -1269,10 +1269,11 @@ Translating from the boundary map for $(\cM_\cC\ot {_\cC\cN})^*$  appearing in E
 we have
 \begin{eqnarray*}
 	(\bd g)(\olD\ot x \ot \cbar) &=& \bd(g(\olD\ot x \ot \cbar)) + g(\olD\ot\bd(x\ot\cbar)) + \\
-	& & \;\; g((\bd_+\olD)\ot x\ot\cbar) + \gl(g((\bd_0\olD)\ot x\ot\cbar')\ot\cbar'') .
+	& & \;\; g((\bd_+\olD)\ot x\ot\cbar) + \gl''(g((\bd_0\olD)\ot \gl'(x\ot\cbar'))\ot\cbar'') .
 \end{eqnarray*}
 \nn{put in signs, rearrange terms to match order in previous formulas}
-Here $\gl$ denotes the module action in $\cY_\cC$.
+Here $\gl''$ denotes the module action in $\cY_\cC$
+and $\gl'$ denotes the module action in $\cX_\cC$.
 This completes the definition of $\hom_\cC(\cX_\cC \to \cY_\cC)$.
 
 Note that if $\bd g = 0$, then each 
@@ -1309,14 +1310,24 @@ If $\deg(\olD) = 1$, $(\bd g) = 0$ is equivalent to the fact that $h$ commutes w
 If $\deg(\olD) = 0$, $(\bd g) = 0$ is equivalent to the fact 
 that each $h_K$ is a chain map.
 
+We can think of a general closed element $g\in \hom_\cC(\cX_\cC \to \cY_\cC)$
+as a collection of chain maps which commute with the module action (gluing) up to coherent homotopy.
+\nn{ideally should give explicit examples of this in low degrees, 
+but skip that for now.}
+\nn{should also say something about composition of morphisms; well-defined up to homotopy, or maybe
+should make some arbitrary choice}
 \medskip
 
 Given $_\cC\cZ$ and  $g: \cX_\cC \to \cY_\cC$ with $\bd g = 0$ as above, we next define a chain map
 \[
 	g\ot\id : \cX_\cC \ot {}_\cC\cZ \to \cY_\cC \ot {}_\cC\cZ .
 \]
-\nn{this is fairly straightforward, but the details are messy enough that I'm inclined
-to postpone writing it up, in the hopes that I'll think of a better way to organize things.}
+
+\nn{not sure whether to do low degree examples or try to state the general case; ideally both,
+but maybe just low degrees for now.}
+
+
+\nn{...}
 
 
 
@@ -1324,13 +1335,10 @@ to postpone writing it up, in the hopes that I'll think of a better way to organ
 \medskip
 
 
-\nn{do we need to say anything about composing morphisms of modules?}
-
-\nn{should we define functors between $n$-cats in a similar way?}
-
-
-\nn{...}
-
+\nn{should we define functors between $n$-cats in a similar way?  i.e.\ natural transformations
+of the $\cC$ functors which commute with gluing only up to higher morphisms?
+perhaps worth having both definitions available.
+certainly the simple kind (strictly commute with gluing) arise in nature.}
 
 
 
