@@ -335,22 +335,23 @@ for $E\sub \bd D$ and $a\in \cC(X)$.
 We will need to strengthen the above preliminary version of the axiom to allow
 for products which are ``pinched" in various ways along their boundary.
 (See Figure xxxx.)
-(The need for a strengthened version will become apparent in appendix \ref{sec:comparing-defs}.)
+(The need for a strengthened version will become apparent in appendix \ref{sec:comparing-defs}
+where we construct a traditional category from a topological category.)
 Define a {\it pinched product} to be a map
 \[
 	\pi: E\to X
 \]
-such that $E$ is an $m$-ball, $X$ is a $k$-ball ($k<m$), and $\pi$ is locally modeled
+such that $E$ is a $k{+}m$-ball, $X$ is a $k$-ball ($m\ge 1$), and $\pi$ is locally modeled
 on a standard iterated degeneracy map
 \[
-	d: \Delta^m\to\Delta^k .
+	d: \Delta^{k+m}\to\Delta^k .
 \]
 In other words, \nn{each point has a neighborhood blah blah...}
 (We thank Kevin Costello for suggesting this approach.)
 
-Note that for each interior point $x\in X$, $\pi\inv(x)$ is an $m{-}k$-ball,
+Note that for each interior point $x\in X$, $\pi\inv(x)$ is an $m$-ball,
 and for for each boundary point $x\in\bd X$, $\pi\inv(x)$ is a ball of dimension
-$l \le m-k$.
+$l \le m$, with $l$ depending on $x$.
 
 It is easy to see that a composition of pinched products is again a pinched product.
 
@@ -362,61 +363,59 @@ such that each $E_i\sub E$ is a sub pinched product.
 
 The product axiom will give a map $\pi^*:\cC(X)\to \cC(E)$ for each pinched product
 $\pi:E\to X$.
+Morphisms in the image of $\pi^*$ will be called product morphisms.
 Before stating the axiom, we illustrate it in our two motivating examples of $n$-categories.
 In the case where $\cC(X) = \{f: X\to T\}$, we define $\pi^*(f) = f\circ\pi$.
-In the case where $\cC(X)$ is the set of all labeled embedded cell complexes in $X$, 
-taking inverse images under $\pi$ gives a cell decomposition of $E$ in which corresponding cells have the same codimension, and therefore accept the same labels.
+In the case where $\cC(X)$ is the set of all labeled embedded cell complexes $K$ in $X$, 
+define $\pi^*(K) = \pi\inv(K)$, with each codimension $i$ cell $\pi\inv(c)$ labeled by the
+same (traditional) $i$-morphism as the corresponding codimension $i$ cell $c$.
 
-\nn{resume revising here; need to rewrite the following pasted axiom}
 
 \addtocounter{axiom}{-1}
 \begin{axiom}[Product (identity) morphisms]
-For each $k$-ball $X$ and $m$-ball $D$, with $k+m \le n$, there is a map $\cC(X)\to \cC(X\times D)$, 
-usually denoted $a\mapsto a\times D$ for $a\in \cC(X)$.
+For each pinched product $\pi:E\to X$, with $X$ a $k$-ball and $E$ a $k{+}m$-ball ($m\ge 1$),
+there is a map $\pi^*:\cC(X)\to \cC(E)$.
 These maps must satisfy the following conditions.
 \begin{enumerate}
 \item
-If $f:X\to X'$ and $\tilde{f}:X\times D \to X'\times D'$ are maps such that the diagram
+If $\pi:E\to X$ and $\pi':E'\to X'$ are pinched products, and
+if $f:X\to X'$ and $\tilde{f}:E \to E'$ are maps such that the diagram
 \[ \xymatrix{
-	X\times D \ar[r]^{\tilde{f}} \ar[d]_{\pi} & X'\times D' \ar[d]^{\pi} \\
+	E \ar[r]^{\tilde{f}} \ar[d]_{\pi} & E' \ar[d]^{\pi'} \\
 	X \ar[r]^{f} & X'
 } \]
 commutes, then we have 
 \[
-	\tilde{f}(a\times D) = f(a)\times D' .
+	\pi'^*\circ f = \tilde{f}\circ \pi^*.
 \]
 \item
-Product morphisms are compatible with gluing (composition) in both factors:
+Product morphisms are compatible with gluing (composition).
+Let $\pi:E\to X$, $\pi_1:E_1\to X_1$, and $\pi_2:E_2\to X_2$ 
+be pinched products with $E = E_1\cup E_2$.
+Let $a\in \cC(X)$, and let $a_i$ denote the restriction of $a$ to $X_i\sub X$.
+Then 
 \[
-	(a'\times D)\bullet(a''\times D) = (a'\bullet a'')\times D
-\]
-and
-\[
-	(a\times D')\bullet(a\times D'') = a\times (D'\bullet D'') .
+	\pi^*(a) = \pi_1^*(a_1)\bullet \pi_2^*(a_2) .
 \]
 \item
-Product morphisms are associative:
+Product morphisms are associative.
+If $\pi:E\to X$ and $\rho:D\to E$ and pinched products then
 \[
-	(a\times D)\times D' = a\times (D\times D') .
+	\rho^*\circ\pi^* = (\pi\circ\rho)^* .
 \]
-(Here we are implicitly using functoriality and the obvious homeomorphism
-$(X\times D)\times D' \to X\times(D\times D')$.)
 \item
-Product morphisms are compatible with restriction:
+Product morphisms are compatible with restriction.
+If we have a commutative diagram
+\[ \xymatrix{
+	D \ar@{^(->}[r] \ar[d]_{\rho} & E \ar[d]^{\pi} \\
+	Y \ar@{^(->}[r] & X
+} \]
+such that $\rho$ and $\pi$ are pinched products, then
 \[
-	\res_{X\times E}(a\times D) = a\times E
+	\res_D\circ\pi^* = \rho^*\circ\res_Y .
 \]
-for $E\sub \bd D$ and $a\in \cC(X)$.
 \end{enumerate}
 \end{axiom}
-
-
-
-
-
-
-
-
 
 
 \medskip
