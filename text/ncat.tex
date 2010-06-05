@@ -27,7 +27,7 @@ results that we have avoided here.
 There are many existing definitions of $n$-categories, with various intended uses.
 In any such definition, there are sets of $k$-morphisms for each $0 \leq k \leq n$.
 Generally, these sets are indexed by instances of a certain typical shape. 
-Some $n$-category definitions model $k$-morphisms on the standard bihedrons (interval, bigon, and so on).
+Some $n$-category definitions model $k$-morphisms on the standard bihedron (interval, bigon, and so on).
 Other definitions have a separate set of 1-morphisms for each interval $[0,l] \sub \r$, 
 a separate set of 2-morphisms for each rectangle $[0,l_1]\times [0,l_2] \sub \r^2$,
 and so on.
@@ -749,12 +749,22 @@ since $\cE\cB_n$ contains a copy of $\Diff(B^n)$.
 We will define an $A_\infty$ $n$-category $\cC^A$.
 If $X$ is a ball of dimension $k<n$, define $\cC^A(X)$ to be a point.
 In other words, the $k$-morphisms are trivial for $k<n$.
-%If $X$ is an $n$-ball, we define $\cC^A(X)$ via a colimit construction.
-%(Plain colimit, not homotopy colimit.)
-%Let $J$ be the category whose objects are embeddings of a disjoint union of copies of 
-%the standard ball $B^n$ into $X$, and who morphisms are given by engu
+If $X$ is an $n$-ball, we define $\cC^A(X)$ via a colimit construction.
+(Plain colimit, not homotopy colimit.)
+Let $J$ be the category whose objects are embeddings of a disjoint union of copies of 
+the standard ball $B^n$ into $X$, and who morphisms are given by engulfing some of the 
+embedded balls into a single larger embedded ball.
+To each object of $J$ we associate $A^{\times m}$ (where $m$ is the number of balls), and
+to each morphism of $J$ we associate a morphism coming from the $\cE\cB_n$ action on $A$.
+Alternatively and more simply, we could define $\cC^A(X)$ to be 
+$\Diff(B^n\to X)\times A$ modulo the diagonal action of $\Diff(B^n)$.
+The remaining data for the $A_\infty$ $n$-category 
+--- composition and $\Diff(X\to X')$ action ---
+also comes from the $\cE\cB_n$ action on $A$.
+\nn{should we spell this out?}
 
-\nn{...}
+\nn{Should remark that this is just Lurie's topological chiral homology construction
+applied to $n$-balls (check this).}
 \end{example}
 
 
