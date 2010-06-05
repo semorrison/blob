@@ -48,9 +48,9 @@ from $X$ to $T$.
 \begin{example}
 \label{ex:traditional-n-categories(fields)}
 Fix an $n$-category $C$, and let $\cC(X)$ be 
-the set of sub-cell-complexes of $X$ with codimension-$j$ cells labeled by
+the set of embedded cell complexes in $X$ with codimension-$j$ cells labeled by
 $j$-morphisms of $C$.
-One can think of such sub-cell-complexes as dual to pasting diagrams for $C$.
+One can think of such embedded cell complexes as dual to pasting diagrams for $C$.
 This is described in more detail in \S \ref{sec:example:traditional-n-categories(fields)}.
 \end{example}
 
@@ -199,7 +199,7 @@ above tensor products.
 \subsection{Systems of fields from $n$-categories}
 \label{sec:example:traditional-n-categories(fields)}
 We now describe in more detail Example \ref{ex:traditional-n-categories(fields)}, 
-systems of fields coming from sub-cell-complexes labeled
+systems of fields coming from embedded cell complexes labeled
 by $n$-category morphisms.
 
 Given an $n$-category $C$ with the right sort of duality
@@ -308,12 +308,12 @@ for all $n$-manifolds $B$ which are
 homeomorphic to the standard $n$-ball and all $c \in \cC(\bd B)$, 
 satisfying the following properties.
 \begin{enumerate}
-\item functoriality: 
+\item Functoriality: 
 $f(U(B; c)) = U(B', f(c))$ for all homeomorphisms $f: B \to B'$
-\item local relations imply extended isotopy: 
+\item Local relations imply extended isotopy: 
 if $x, y \in \cC(B; c)$ and $x$ is extended isotopic 
 to $y$, then $x-y \in U(B; c)$.
-\item ideal with respect to gluing:
+\item Ideal with respect to gluing:
 if $B = B' \cup B''$, $x\in U(B')$, and $c\in \cC(B'')$, then $x\bullet r \in U(B)$
 \end{enumerate}
 \end{defn}
