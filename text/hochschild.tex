@@ -7,7 +7,11 @@ So far we have provided no evidence that blob homology is interesting in degrees
 greater than zero.
 In this section we analyze the blob complex in dimension $n=1$.
 We find that $\bc_*(S^1, \cC)$ is homotopy equivalent to the 
-Hochschild complex of the 1-category $\cC$. (Recall from \S \ref{sec:example:traditional-n-categories(fields)} that a $1$-category gives rise to a $1$-dimensional system of fields; as usual, talking about the blob complex with coefficients in a $n$-category means first passing to the corresponding $n$ dimensional system of fields.)
+Hochschild complex of the 1-category $\cC$.
+(Recall from \S \ref{sec:example:traditional-n-categories(fields)} that a 
+$1$-category gives rise to a $1$-dimensional system of fields; as usual, 
+talking about the blob complex with coefficients in a $n$-category means 
+first passing to the corresponding $n$ dimensional system of fields.)
 Thus the blob complex is a natural generalization of something already
 known to be interesting in higher homological degrees.
 
@@ -67,12 +71,14 @@ The blob complex $\bc_*(S^1; C)$ on the circle is homotopy equivalent to the
 usual Hochschild complex for $C$.
 \end{thm}
 
-This follows from two results. First, we see that
+This follows from two results.
+First, we see that
 \begin{lem}
 \label{lem:module-blob}%
 The complex $K_*(C)$ (here $C$ is being thought of as a
 $C$-$C$-bimodule, not a category) is homotopy equivalent to the blob complex
-$\bc_*(S^1; C)$. (Proof later.)
+$\bc_*(S^1; C)$.
+(Proof later.)
 \end{lem}
 
 Next, we show that for any $C$-$C$-bimodule $M$,
@@ -114,17 +120,19 @@ is a quasi-isomorphism
 $$\cP_*(M) \iso \coinv(F_*).$$
 %
 Observe that there's a quotient map $\pi: F_0 \onto M$, and by
-construction the cone of the chain map $\pi: F_* \to M$ is acyclic. Now
-construct the total complex $\cP_i(F_j)$, with $i,j \geq 0$, graded by
-$i+j$. We have two chain maps
+construction the cone of the chain map $\pi: F_* \to M$ is acyclic. 
+Now construct the total complex $\cP_i(F_j)$, with $i,j \geq 0$, graded by $i+j$. 
+We have two chain maps
 \begin{align*}
 \cP_i(F_*) & \xrightarrow{\cP_i(\pi)} \cP_i(M) \\
 \intertext{and}
 \cP_*(F_j) & \xrightarrow{\cP_0(F_j) \onto H_0(\cP_*(F_j))} \coinv(F_j).
 \end{align*}
-The cone of each chain map is acyclic. In the first case, this is because the `rows' indexed by $i$ are acyclic since $\HC_i$ is exact.
+The cone of each chain map is acyclic.
+In the first case, this is because the `rows' indexed by $i$ are acyclic since $\HC_i$ is exact.
 In the second case, this is because the `columns' indexed by $j$ are acyclic, since $F_j$ is free.
-Because the cones are acyclic, the chain maps are quasi-isomorphisms. Composing one with the inverse of the other, we obtain the desired quasi-isomorphism
+Because the cones are acyclic, the chain maps are quasi-isomorphisms.
+Composing one with the inverse of the other, we obtain the desired quasi-isomorphism
 $$\cP_*(M) \quismto \coinv(F_*).$$
 
 %If $M$ is free, that is, a direct sum of copies of
@@ -150,7 +158,8 @@ $$\cP_*(M) \quismto \coinv(F_*).$$
 %and higher homology groups are determined by lower ones in $\HC_*(K)$, and
 %hence recursively as coinvariants of some other bimodule.
 
-Proposition \ref{prop:hoch} then follows from the following lemmas, establishing that $K_*$ has precisely these required properties.
+Proposition \ref{prop:hoch} then follows from the following lemmas, 
+establishing that $K_*$ has precisely these required properties.
 \begin{lem}
 \label{lem:hochschild-additive}%
 Directly from the definition, $K_*(M_1 \oplus M_2) \cong K_*(M_1) \oplus K_*(M_2)$.
@@ -185,7 +194,8 @@ In particular, there is an inclusion map $i: K_*(C) \to \bc_*(S^1)$.
 We want to define a homotopy inverse to the above inclusion, but before doing so
 we must replace $\bc_*(S^1)$ with a homotopy equivalent subcomplex.
 Let $J_* \sub \bc_*(S^1)$ be the subcomplex where * does not lie on the boundary
-of any blob.  Note that the image of $i$ is contained in $J_*$.
+of any blob.
+Note that the image of $i$ is contained in $J_*$.
 Note also that in $\bc_*(S^1)$ (away from $J_*$) 
 a blob diagram could have multiple (nested) blobs whose
 boundaries contain *, on both the right and left of *.
@@ -219,10 +229,13 @@ in $N_\ep$, except perhaps $*$, and $N_\ep$ is either disjoint from or contained
 every blob in the diagram.
 Note that for any chain $x \in \bc_*(S^1)$, $x \in L_*^\ep$ for sufficiently small $\ep$.
 
-We define a degree $1$ map $j_\ep: L_*^\ep \to L_*^\ep$ as follows. Let $x \in L_*^\ep$ be a blob diagram.
+We define a degree $1$ map $j_\ep: L_*^\ep \to L_*^\ep$ as follows.
+Let $x \in L_*^\ep$ be a blob diagram.
 \nn{maybe add figures illustrating $j_\ep$?}
-If $*$ is not contained in any twig blob, we define $j_\ep(x)$ by adding $N_\ep$ as a new twig blob, with label $y - s(y)$ where $y$ is the restriction
-of $x$ to $N_\ep$. If $*$ is contained in a twig blob $B$ with label $u=\sum z_i$,
+If $*$ is not contained in any twig blob, we define $j_\ep(x)$ by adding 
+$N_\ep$ as a new twig blob, with label $y - s(y)$ where $y$ is the restriction
+of $x$ to $N_\ep$.
+If $*$ is contained in a twig blob $B$ with label $u=\sum z_i$,
 write $y_i$ for the restriction of $z_i$ to $N_\ep$, and let
 $x_i$ be equal to $x$ on $S^1 \setmin B$, equal to $z_i$ on $B \setmin N_\ep$,
 and have an additional blob $N_\ep$ with label $y_i - s(y_i)$.
@@ -256,14 +269,24 @@ We'll write $\hat{f}$ and $\hat{g}$ for the image of $f$ and $g$ under the funct
 \]
 and similarly for $\hat{g}$.
 Most of what we need to check is easy.
-Suppose we have $\sum_i (a_i \tensor k_i \tensor b_i) \in \ker(C \tensor K \tensor C \to K)$, assuming without loss of generality that $\{a_i \tensor b_i\}_i$ is linearly independent in $C \tensor C$, and $\hat{f}(a \tensor k \tensor b) = 0 \in \ker(C \tensor E \tensor C \to E)$. We must then have $f(k_i) = 0 \in E$ for each $i$, which implies $k_i=0$ itself. 
-If $\sum_i (a_i \tensor e_i \tensor b_i) \in \ker(C \tensor E \tensor C \to E)$ is in the image of $\ker(C \tensor K \tensor C \to K)$ under $\hat{f}$, again by assuming the set  $\{a_i \tensor b_i\}_i$ is linearly independent we can deduce that each
-$e_i$ is in the image of the original $f$, and so is in the kernel of the original $g$, and so $\hat{g}(\sum_i a_i \tensor e_i \tensor b_i) = 0$.
-If $\hat{g}(\sum_i a_i \tensor e_i \tensor b_i) = 0$, then each $g(e_i) = 0$, so $e_i = f(\widetilde{e_i})$ for some $\widetilde{e_i} \in K$, and $\sum_i a_i \tensor e_i \tensor b_i = \hat{f}(\sum_i a_i \tensor \widetilde{e_i} \tensor b_i)$.
-Finally, the interesting step is in checking that any $q = \sum_i a_i \tensor q_i \tensor b_i$ such that $\sum_i a_i q_i b_i = 0$ is in the image of $\ker(C \tensor E \tensor C \to C)$ under $\hat{g}$.
-For each $i$, we can find $\widetilde{q_i}$ so $g(\widetilde{q_i}) = q_i$. However $\sum_i a_i \widetilde{q_i} b_i$ need not be zero.
+Suppose we have $\sum_i (a_i \tensor k_i \tensor b_i) \in \ker(C \tensor K \tensor C \to K)$, 
+assuming without loss of generality that $\{a_i \tensor b_i\}_i$ is linearly independent in $C \tensor C$, 
+and $\hat{f}(a \tensor k \tensor b) = 0 \in \ker(C \tensor E \tensor C \to E)$.
+We must then have $f(k_i) = 0 \in E$ for each $i$, which implies $k_i=0$ itself. 
+If $\sum_i (a_i \tensor e_i \tensor b_i) \in \ker(C \tensor E \tensor C \to E)$ 
+is in the image of $\ker(C \tensor K \tensor C \to K)$ under $\hat{f}$, 
+again by assuming the set  $\{a_i \tensor b_i\}_i$ is linearly independent we can deduce that each
+$e_i$ is in the image of the original $f$, and so is in the kernel of the original $g$, 
+and so $\hat{g}(\sum_i a_i \tensor e_i \tensor b_i) = 0$.
+If $\hat{g}(\sum_i a_i \tensor e_i \tensor b_i) = 0$, then each $g(e_i) = 0$, so $e_i = f(\widetilde{e_i})$ 
+for some $\widetilde{e_i} \in K$, and $\sum_i a_i \tensor e_i \tensor b_i = \hat{f}(\sum_i a_i \tensor \widetilde{e_i} \tensor b_i)$.
+Finally, the interesting step is in checking that any $q = \sum_i a_i \tensor q_i \tensor b_i$ 
+such that $\sum_i a_i q_i b_i = 0$ is in the image of $\ker(C \tensor E \tensor C \to C)$ under $\hat{g}$.
+For each $i$, we can find $\widetilde{q_i}$ so $g(\widetilde{q_i}) = q_i$.
+However $\sum_i a_i \widetilde{q_i} b_i$ need not be zero.
 Consider then $$\widetilde{q} = \sum_i (a_i \tensor \widetilde{q_i} \tensor b_i) - 1 \tensor (\sum_i a_i \widetilde{q_i} b_i) \tensor 1.$$ Certainly
-$\widetilde{q} \in \ker(C \tensor E \tensor C \to E)$. Further,
+$\widetilde{q} \in \ker(C \tensor E \tensor C \to E)$.
+Further,
 \begin{align*}
 \hat{g}(\widetilde{q}) & = \sum_i (a_i \tensor g(\widetilde{q_i}) \tensor b_i) - 1 \tensor (\sum_i a_i g(\widetilde{q_i}) b_i) \tensor 1 \\
                        & = q - 0
@@ -275,32 +298,44 @@ Similar arguments show that the functors
 \label{eq:ker-functor}%
 M \mapsto \ker(C^{\tensor k} \tensor M \tensor C^{\tensor l} \to M)
 \end{equation}
-are all exact too. Moreover, tensor products of such functors with each
+are all exact too.
+Moreover, tensor products of such functors with each
 other and with $C$ or $\ker(C^{\tensor k} \to C)$ (e.g., producing the functor $M \mapsto \ker(M \tensor C \to M)
 \tensor C \tensor \ker(C \tensor C \to M)$) are all still exact.
 
 Finally, then we see that the functor $K_*$ is simply an (infinite)
-direct sum of copies of this sort of functor. The direct sum is indexed by
-configurations of nested blobs and of labels; for each such configuration, we have one of the above tensor product functors,
-with the labels of twig blobs corresponding to tensor factors as in \eqref{eq:ker-functor} or $\ker(C^{\tensor k} \to C)$ (depending on whether they contain a marked point $p_i$), and all other labelled points corresponding
+direct sum of copies of this sort of functor.
+The direct sum is indexed by
+configurations of nested blobs and of labels; for each such configuration, we have one of 
+the above tensor product functors,
+with the labels of twig blobs corresponding to tensor factors as in \eqref{eq:ker-functor} 
+or $\ker(C^{\tensor k} \to C)$ (depending on whether they contain a marked point $p_i$), and all other labelled points corresponding
 to tensor factors of $C$ and $M$.
 \end{proof}
 \begin{proof}[Proof of Lemma \ref{lem:hochschild-coinvariants}]
 We show that $H_0(K_*(M))$ is isomorphic to the coinvariants of $M$.
 
-We define a map $\ev: K_0(M) \to M$. If $x \in K_0(M)$ has the label $m \in M$ at $*$, and labels $c_i \in C$ at the other labeled points of $S^1$, reading clockwise from $*$,
-we set $\ev(x) = m c_1 \cdots c_k$. We can think of this as $\ev : M \tensor C^{\tensor k} \to M$, for each direct summand of $K_0(M)$ indexed by a configuration of labeled points.
+We define a map $\ev: K_0(M) \to M$.
+If $x \in K_0(M)$ has the label $m \in M$ at $*$, and labels $c_i \in C$ at the other 
+labeled points of $S^1$, reading clockwise from $*$,
+we set $\ev(x) = m c_1 \cdots c_k$.
+We can think of this as $\ev : M \tensor C^{\tensor k} \to M$, for each direct summand of 
+$K_0(M)$ indexed by a configuration of labeled points.
 
 There is a quotient map $\pi: M \to \coinv{M}$.
 We claim that the composition $\pi \compose \ev$ is well-defined on the quotient $H_0(K_*(M))$; 
 i.e.\ that $\pi(\ev(\bd y)) = 0$ for all $y \in K_1(M)$.
 There are two cases, depending on whether the blob of $y$ contains the point *.
 If it doesn't, then
-suppose $y$ has label $m$ at $*$, labels $c_i$ at other labeled points outside the blob, and the field inside the blob is a sum, with the $j$-th term having
-labeled points $d_{j,i}$. Then $\sum_j d_{j,1} \tensor \cdots \tensor d_{j,k_j} \in \ker(\DirectSum_k C^{\tensor k} \to C)$, and so
+suppose $y$ has label $m$ at $*$, labels $c_i$ at other labeled points outside the blob, 
+and the field inside the blob is a sum, with the $j$-th term having
+labeled points $d_{j,i}$.
+Then $\sum_j d_{j,1} \tensor \cdots \tensor d_{j,k_j} \in \ker(\DirectSum_k C^{\tensor k} \to C)$, and so
 $\ev(\bdy y) = 0$, because $$C^{\tensor \ell_1} \tensor \ker(\DirectSum_k C^{\tensor k} \to C) \tensor C^{\tensor \ell_2} \subset \ker(\DirectSum_k C^{\tensor k} \to C).$$
-Similarly, if $*$ is contained in the blob, then the blob label is a sum, with the $j$-th term have labelled points $d_{j,i}$ to the left of $*$, $m_j$ at $*$, and $d_{j,i}'$ to the right of $*$,
-and there are labels $c_i$ at the labeled points outside the blob. We know that
+Similarly, if $*$ is contained in the blob, then the blob label is a sum, with the 
+$j$-th term have labelled points $d_{j,i}$ to the left of $*$, $m_j$ at $*$, and $d_{j,i}'$ to the right of $*$,
+and there are labels $c_i$ at the labeled points outside the blob.
+We know that
 $$\sum_j d_{j,1} \tensor \cdots \tensor d_{j,k_j} \tensor m_j \tensor d_{j,1}' \tensor \cdots \tensor d_{j,k'_j}' \in \ker(\DirectSum_{k,k'} C^{\tensor k} \tensor M \tensor C^{\tensor k'} \tensor \to M),$$
 and so
 \begin{align*}
@@ -310,7 +345,8 @@ and so
 \end{align*}
 where this time we use the fact that we're mapping to $\coinv{M}$, not just $M$.
 
-The map $\pi \compose \ev: H_0(K_*(M)) \to \coinv{M}$ is clearly surjective ($\ev$ surjects onto $M$); we now show that it's injective.
+The map $\pi \compose \ev: H_0(K_*(M)) \to \coinv{M}$ is clearly 
+surjective ($\ev$ surjects onto $M$); we now show that it's injective.
 This is equivalent to showing that 
 \[
 	\ev\inv(\ker(\pi)) \sub \bd K_1(M) .
@@ -340,7 +376,8 @@ As shown in Figure \ref{fig:hochschild-1-chains}, $cm - mc$ lies in $\ev(\bd K_1
 
 \begin{proof}[Proof of Lemma \ref{lem:hochschild-free}]
 We show that $K_*(C\otimes C)$ is
-quasi-isomorphic to the 0-step complex $C$. We'll do this in steps, establishing quasi-isomorphisms and homotopy equivalences
+quasi-isomorphic to the 0-step complex $C$.
+We'll do this in steps, establishing quasi-isomorphisms and homotopy equivalences
 $$K_*(C \tensor C) \quismto K'_* \htpyto K''_* \quismto C.$$
 
 Let $K'_* \sub K_*(C\otimes C)$ be the subcomplex where the label of
@@ -355,7 +392,8 @@ or contained in each blob of $b$, and the only labeled point inside $N_\ep$ is $
 %and the two boundary points of $N_\ep$ are not labeled points of $b$.
 For a field $y$ on $N_\ep$, let $s_\ep(y)$ be the equivalent picture with~$*$
 labeled by $1\otimes 1$ and the only other labeled points at distance $\pm\ep/2$ from $*$.
-(See Figure \ref{fig:sy}.) Note that $y - s_\ep(y) \in U(N_\ep)$. 
+(See Figure \ref{fig:sy}.)
+Note that $y - s_\ep(y) \in U(N_\ep)$. 
 Let $\sigma_\ep: K_*^\ep \to K_*^\ep$ be the chain map
 given by replacing the restriction $y$ to $N_\ep$ of each field
 appearing in an element of  $K_*^\ep$ with $s_\ep(y)$.
@@ -512,7 +550,8 @@ u_1 & = \mathfig{0.05}{hochschild/u_1-1} - \mathfig{0.05}{hochschild/u_1-2} & u_
 \begin{equation*}
 \mathfig{0.4}{hochschild/2-chains-1} \qquad \mathfig{0.4}{hochschild/2-chains-2}
 \end{equation*}
-\caption{The 0-, 1- and 2-chains in the image of $m \tensor a \tensor b$. Only the supports of the 1- and 2-blobs are shown.}
+\caption{The 0-, 1- and 2-chains in the image of $m \tensor a \tensor b$.
+Only the supports of the 1- and 2-blobs are shown.}
 \label{fig:hochschild-2-chains}
 \end{figure}
 
@@ -529,7 +568,8 @@ v_3 & = \mathfig{0.05}{hochschild/v_3-1} -  \mathfig{0.05}{hochschild/v_3-2} &  
 \end{figure}
 
 In degree 2, we send $m\ot a \ot b$ to the sum of 24 ($=6\cdot4$) 2-blob diagrams as shown in
-Figure \ref{fig:hochschild-2-chains}. In Figure \ref{fig:hochschild-2-chains} the 1- and 2-blob diagrams are indicated only by their support.
+Figure \ref{fig:hochschild-2-chains}.
+In Figure \ref{fig:hochschild-2-chains} the 1- and 2-blob diagrams are indicated only by their support.
 We leave it to the reader to determine the labels of the 1-blob diagrams.
 Each 2-cell in the figure is labeled by a ball $V$ in $S^1$ which contains the support of all
 1-blob diagrams in its boundary.

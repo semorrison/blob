@@ -3,9 +3,15 @@
 \section{Basic properties of the blob complex}
 \label{sec:basic-properties}
 
-In this section we complete the proofs of Properties 2-4. Throughout the paper, where possible, we prove results using Properties 1-4, rather than the actual definition of blob homology. This allows the possibility of future improvements to or alternatives on our definition. In fact, we hope that there may be a characterisation of blob homology in terms of Properties 1-4, but at this point we are unaware of one.
+In this section we complete the proofs of Properties 2-4.
+Throughout the paper, where possible, we prove results using Properties 1-4, 
+rather than the actual definition of blob homology.
+This allows the possibility of future improvements to or alternatives on our definition.
+In fact, we hope that there may be a characterisation of blob homology in 
+terms of Properties 1-4, but at this point we are unaware of one.
 
-Recall Property \ref{property:disjoint-union}, that there is a natural isomorphism $\bc_*(X \du Y) \cong \bc_*(X) \otimes \bc_*(Y)$.
+Recall Property \ref{property:disjoint-union}, 
+that there is a natural isomorphism $\bc_*(X \du Y) \cong \bc_*(X) \otimes \bc_*(Y)$.
 
 \begin{proof}[Proof of Property \ref{property:disjoint-union}]
 Given blob diagrams $b_1$ on $X$ and $b_2$ on $Y$, we can combine them
@@ -15,7 +21,9 @@ Because of the blob reordering relations, all blob diagrams on $X \du Y$ arise t
 In the other direction, any blob diagram on $X\du Y$ is equal (up to sign)
 to one that puts $X$ blobs before $Y$ blobs in the ordering, and so determines
 a pair of blob diagrams on $X$ and $Y$.
-These two maps are compatible with our sign conventions.  (We follow the usual convention for tensors products of complexes, as in e.g. \cite{MR1438306}: $d(a \tensor b) = da \tensor b + (-1)^{\deg(a)} a \tensor db$.)
+These two maps are compatible with our sign conventions.
+(We follow the usual convention for tensors products of complexes, 
+as in e.g. \cite{MR1438306}: $d(a \tensor b) = da \tensor b + (-1)^{\deg(a)} a \tensor db$.)
 The two maps are inverses of each other.
 \end{proof}
 
@@ -43,7 +51,8 @@ In other words, add a new outermost blob which encloses all of the others.
 Define $h_0 : \bc_0(B^n; c) \to \bc_1(B^n; c)$ by setting $h_0(x)$ equal to
 the 1-blob with blob $B^n$ and label $x - s(p(x)) \in U(B^n; c)$.
 \end{proof}
-This proves Property \ref{property:contractibility} (the second half of the statement of this Property was immediate from the definitions).
+This proves Property \ref{property:contractibility} (the second half of the 
+statement of this Property was immediate from the definitions).
 Note that even when there is no splitting $s$, we can let $h_0 = 0$ and get a homotopy
 equivalence to the 2-step complex $U(B^n; c) \to \cC(B^n; c)$.
 
@@ -92,7 +101,8 @@ with boundary $Z\sgl$.
 Given compatible fields (boundary conditions) $a$, $b$ and $c$ on $Y$, $-Y$ and $Z$,
 we have the blob complex $\bc_*(X; a, b, c)$.
 If $b = -a$ (the orientation reversal of $a$), then we can glue up blob diagrams on
-$X$ to get blob diagrams on $X\sgl$. This proves Property \ref{property:gluing-map}, which we restate here in more detail.
+$X$ to get blob diagrams on $X\sgl$.
+This proves Property \ref{property:gluing-map}, which we restate here in more detail.
 
 \textbf{Property \ref{property:gluing-map}.}\emph{
 There is a natural chain map

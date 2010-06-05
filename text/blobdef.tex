@@ -57,9 +57,12 @@ just erasing the blob from the picture
 (but keeping the blob label $u$).
 
 Note that the skein space $A(X)$
-is naturally isomorphic to $\bc_0(X)/\bd(\bc_1(X))) = H_0(\bc_*(X))$. This is Property \ref{property:skein-modules}, and also used in the second half of Property \ref{property:contractibility}.
+is naturally isomorphic to $\bc_0(X)/\bd(\bc_1(X))) = H_0(\bc_*(X))$.
+This is Property \ref{property:skein-modules}, and also used in the second 
+half of Property \ref{property:contractibility}.
 
-Next, we want the vector space $\bc_2(X)$ to capture `the space of all relations (redundancies, syzygies) among the 
+Next, we want the vector space $\bc_2(X)$ to capture `the space of all relations 
+(redundancies, syzygies) among the 
 local relations encoded in $\bc_1(X)$'.
 More specifically, a $2$-blob diagram, comes in one of two types, disjoint and nested.
 A disjoint 2-blob diagram consists of
@@ -85,7 +88,8 @@ It's easy to check that $\bd^2 = 0$.
 A nested 2-blob diagram consists of
 \begin{itemize}
 \item A pair of nested balls (blobs) $B_1 \sub B_2 \sub X$.
-\item A field $r' \in \cC(B_2 \setminus B_1; c_1, c_2)$ (for some $c_1 \in \cC(\bdy B_1)$ and $c_2 \in \cC(\bdy B_2)$).
+\item A field $r' \in \cC(B_2 \setminus B_1; c_1, c_2)$ 
+(for some $c_1 \in \cC(\bdy B_1)$ and $c_2 \in \cC(\bdy B_2)$).
 \item A field $r \in \cC(X \setminus B_2; c_2)$.
 \item A local relation field $u \in U(B_1; c_1)$.
 \end{itemize}
@@ -114,7 +118,10 @@ As with the $1$-blob diagrams, in order to get the linear structure correct the 
 	\right) .
 \end{eqnarray*}
 For the disjoint blobs, reversing the ordering of $B_0$ and $B_1$ introduces a minus sign
-(rather than a new, linearly independent 2-blob diagram). \nn{Hmm, I think we should be doing this for nested blobs too -- we shouldn't force the linear indexing of the blobs to have anything to do with the partial ordering by inclusion -- this is what happens below}
+(rather than a new, linearly independent 2-blob diagram). 
+\nn{Hmm, I think we should be doing this for nested blobs too -- 
+we shouldn't force the linear indexing of the blobs to have anything to do with 
+the partial ordering by inclusion -- this is what happens below}
 
 Now for the general case.
 A $k$-blob diagram consists of
@@ -158,7 +165,8 @@ of tensor products:
 		\left( \otimes_j U(B_j; c_j)\right) \otimes \lf(X \setmin B^t; c^t) .
 \]
 Here $\overline{B}$ runs over all configurations of blobs, satisfying the conditions above.
-The index $\overline{c}$ runs over all boundary conditions, again as described above and $j$ runs over all indices of twig blobs. The final $\lf(X \setmin B^t; c^t)$ must be interpreted as fields which are splittable along all of the blobs in $\overline{B}$.
+The index $\overline{c}$ runs over all boundary conditions, again as described above and $j$ runs over all indices of twig blobs.
+The final $\lf(X \setmin B^t; c^t)$ must be interpreted as fields which are splittable along all of the blobs in $\overline{B}$.
 
 The boundary map 
 \[
@@ -180,7 +188,8 @@ Finally, define
 The $(-1)^{j+1}$ factors imply that the terms of $\bd^2(b)$ all cancel.
 Thus we have a chain complex.
 
-Note that Property \ref{property:functoriality}, that the blob complex is functorial with respect to homeomorphisms, is immediately obvious from the definition. A homeomorphism acts in an obvious on blobs and on fields.
+Note that Property \ref{property:functoriality}, that the blob complex is functorial with respect to homeomorphisms, is immediately obvious from the definition.
+A homeomorphism acts in an obvious on blobs and on fields.
 
 We define the {\it support} of a blob diagram $b$, $\supp(b) \sub X$, 
 to be the union of the blobs of $b$.
@@ -195,8 +204,10 @@ We can associate an element $p(b)$ of $P$ to each blob diagram $b$
 (equivalently, to each rooted tree) according to the following rules:
 \begin{itemize}
 \item $p(\emptyset) = pt$, where $\emptyset$ denotes a 0-blob diagram or empty tree;
-\item $p(a \du b) = p(a) \times p(b)$, where $a \du b$ denotes the distant (non-overlapping) union of two blob diagrams (equivalently, join two trees at the roots); and
-\item $p(\bar{b}) = \kone(p(b))$, where $\bar{b}$ is obtained from $b$ by adding an outer blob which encloses all the others (equivalently, add a new edge to the root, with the new vertex becoming the root).
+\item $p(a \du b) = p(a) \times p(b)$, where $a \du b$ denotes the distant (non-overlapping) union 
+of two blob diagrams (equivalently, join two trees at the roots); and
+\item $p(\bar{b}) = \kone(p(b))$, where $\bar{b}$ is obtained from $b$ by adding an outer blob which 
+encloses all the others (equivalently, add a new edge to the root, with the new vertex becoming the root).
 \end{itemize}
 For example, a diagram of $k$ strictly nested blobs corresponds to a $k$-simplex, while
 a diagram of $k$ disjoint blobs corresponds to a $k$-cube.
