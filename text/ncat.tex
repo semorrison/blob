@@ -621,24 +621,29 @@ Further, most of these definitions don't even have an agreed-upon notion of `str
 \label{ex:traditional-n-categories}
 Given a `traditional $n$-category with strong duality' $C$
 define $\cC(X)$, for $X$ a $k$-ball with $k < n$,
-to be the set of all $C$-labeled sub cell complexes of $X$ (c.f. \S \ref{sec:fields}).
+to be the set of all $C$-labeled embedded cell complexes of $X$ (c.f. \S \ref{sec:fields}).
 For $X$ an $n$-ball and $c\in \cl{\cC}(\bd X)$, define $\cC(X; c)$ to be finite linear
-combinations of $C$-labeled sub cell complexes of $X$
+combinations of $C$-labeled embedded cell complexes of $X$
 modulo the kernel of the evaluation map.
 Define a product morphism $a\times D$, for $D$ an $m$-ball, to be the product of the cell complex of $a$ with $D$,
-with each cell labelled by the $m$-th iterated identity morphism of the corresponding cell for $a$.
+with each cell labelled according to the corresponding cell for $a$.
+(These two cells have the same codimension.)
 More generally, start with an $n{+}m$-category $C$ and a closed $m$-manifold $F$.
 Define $\cC(X)$, for $\dim(X) < n$,
-to be the set of all $C$-labeled sub cell complexes of $X\times F$.
+to be the set of all $C$-labeled embedded cell complexes of $X\times F$.
 Define $\cC(X; c)$, for $X$ an $n$-ball,
 to be the dual Hilbert space $A(X\times F; c)$.
 \nn{refer elsewhere for details?}
 
-
 Recall we described a system of fields and local relations based on a `traditional $n$-category' 
 $C$ in Example \ref{ex:traditional-n-categories(fields)} above.
+\nn{KW: We already refer to \S \ref{sec:fields} above}
 Constructing a system of fields from $\cC$ recovers that example. 
 \todo{Except that it doesn't: pasting diagrams v.s. string diagrams.}
+\nn{KW: but the above example is all about string diagrams.  the only difference is at the top level,
+where the quotient is built in.
+but (string diagrams)/(relations) is isomorphic to 
+(pasting diagrams composed of smaller string diagrams)/(relations)}
 \end{example}
 
 Finally, we describe a version of the bordism $n$-category suitable to our definitions.
@@ -698,7 +703,9 @@ where $\bc^\cE_*$ denotes the blob complex based on $\cE$.
 This example will be essential for Theorem \ref{product_thm} below, which allows us to compute the blob complex of a product.
 Notice that with $F$ a point, the above example is a construction turning a topological 
 $n$-category $\cC$ into an $A_\infty$ $n$-category which we'll denote by $\bc_*(\cC)$.
-We think of this as providing a `free resolution' of the topological $n$-category. 
+We think of this as providing a `free resolution' 
+\nn{`cofibrant replacement'?}
+of the topological $n$-category. 
 \todo{Say more here!} 
 In fact, there is also a trivial, but mostly uninteresting, way to do this: 
 we can think of each vector space associated to an $n$-ball as a chain complex concentrated in degree $0$, 
@@ -716,17 +723,37 @@ blah blah \nn{to do...}
 \end{example}
 
 
+
+Let $\cE\cB_n$ be the operad of smooth embeddings of $k$ (little)
+copies of the standard $n$-ball $B^n$ into another (big) copy of $B^n$.
+(We require that the interiors of the little balls be disjoint, but their 
+boundaries are allowed to meet.
+Note in particular that the space for $k=1$ contains a copy of $\Diff(B^n)$, namely
+the embeddings of a ``little" ball with image all of the big ball $B^n$.
+\nn{should we warn that the inclusion of this copy of $\Diff(B^n)$ is not a homotopy equivalence?})
+The operad $\cE\cB_n$ is homotopy equivalent to the standard framed little $n$-ball operad.
+(By shrinking the little balls (precomposing them with dilations), 
+we see that both operads are homotopic to the space of $k$ framed points
+in $B^n$.)
+It is easy to see that $n$-fold loop spaces $\Omega^n(T)$ have the structure have
+an action of $\cE\cB_n$.
+\nn{add citation for this operad if we can find one}
+
 \begin{example}[$E_n$ algebras]
 \rm
 \label{ex:e-n-alg}
-Let $\cE\cB_n$ be the operad of smooth embeddings of $k$ (little)
-copies of the standard $n$-ball $B^n$ into another (big) copy of $B^n$.
-The operad $\cE\cB_n$ is homotopy equivalent to the standard framed little $n$-ball operad.
-(By peeling the little balls, we see that both are homotopic to the space of $k$ framed points
-in $B^n$.)
 
 Let $A$ be an $\cE\cB_n$-algebra.
+Note that this implies a $\Diff(B^n)$ action on $A$, 
+since $\cE\cB_n$ contains a copy of $\Diff(B^n)$.
 We will define an $A_\infty$ $n$-category $\cC^A$.
+If $X$ is a ball of dimension $k<n$, define $\cC^A(X)$ to be a point.
+In other words, the $k$-morphisms are trivial for $k<n$.
+%If $X$ is an $n$-ball, we define $\cC^A(X)$ via a colimit construction.
+%(Plain colimit, not homotopy colimit.)
+%Let $J$ be the category whose objects are embeddings of a disjoint union of copies of 
+%the standard ball $B^n$ into $X$, and who morphisms are given by engu
+
 \nn{...}
 \end{example}
 
@@ -1143,7 +1170,7 @@ a diagram like the one in Proposition \ref{CHprop} commutes.
 Note that the above axioms imply that an $n$-category module has the structure
 of an $n{-}1$-category.
 More specifically, let $J$ be a marked 1-ball, and define $\cE(X)\deq \cM(X\times J)$,
-where $X$ is a $k$-ball or $k{-}1$-sphere and in the product $X\times J$ we pinch 
+where $X$ is a $k$-ball and in the product $X\times J$ we pinch 
 above the non-marked boundary component of $J$.
 (More specifically, we collapse $X\times P$ to a single point, where
 $P$ is the non-marked boundary component of $J$.)
