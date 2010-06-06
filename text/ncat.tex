@@ -652,6 +652,7 @@ Finally, we describe a version of the bordism $n$-category suitable to our defin
 
 \newcommand{\Bord}{\operatorname{Bord}}
 \begin{example}[The bordism $n$-category, plain version]
+\label{ex:bord-cat}
 \rm
 \label{ex:bordism-category}
 For a $k$-ball $X$, $k<n$, define $\Bord^n(X)$ to be the set of all $k$-dimensional
@@ -719,7 +720,18 @@ There's no way for the blob complex to magically recover all the data of $\pi^\i
 \begin{example}[The bordism $n$-category, $A_\infty$ version]
 \rm
 \label{ex:bordism-category-ainf}
-blah blah \nn{to do...}
+As in Example \ref{ex:bord-cat}, for $X$ a $k$-ball, $k<n$, we define $\Bord^{n,\infty}(X)$
+to be the set of all $k$-dimensional
+submanifolds $W$ of $X\times \Real^\infty$ such that the projection $W \to X$ is transverse
+to $\bd X$.
+For an $n$-ball $X$ with boundary condition $c$ 
+define $\Bord^{n,\infty}(X; c)$ to be the space of all $k$-dimensional
+submanifolds $W$ of $X\times \Real^\infty$ such that 
+$W$ coincides with $c$ at $\bd X \times \Real^\infty$.
+(The topology on this space is induced by ambient isotopy rel boundary.
+This is homotopy equivalent to a disjoint union of copies $\mathrm{B}\!\Homeo(W')$, where
+$W'$ runs though representatives of homeomorphism types of such manifolds.)
+\nn{check this}
 \end{example}
 
 
@@ -764,7 +776,8 @@ also comes from the $\cE\cB_n$ action on $A$.
 \nn{should we spell this out?}
 
 \nn{Should remark that this is just Lurie's topological chiral homology construction
-applied to $n$-balls (check this).}
+applied to $n$-balls (check this).
+Hmmm... Does Lurie do both framed and unframed cases?}
 \end{example}
 
 
