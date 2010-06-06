@@ -152,15 +152,15 @@ We will denote the typical element of $FG^n_{\ol{M}\ol{N}}$ by $\ol{f} = (f_0,\l
 \medskip
 
 %The little $n{+}1$-ball operad injects into the $n$-FG operad.
-The $n$-FG operad contains the little $n{+}1$-ball operad.
+The $n$-FG operad contains the little $n{+}1$-balls operad.
 Roughly speaking, given a configuration of $k$ little $n{+}1$-balls in the standard
 $n{+}1$-ball, we fiber the complement of the balls by vertical intervals
 and let $M_i$ [$N_i$] be the southern [northern] hemisphere of the $i$-th ball.
-More precisely, let $x_0,\ldots,x_n$ be the coordinates of $\r^{n+1}$.
+More precisely, let $x_1,\ldots,x_{n+1}$ be the coordinates of $\r^{n+1}$.
 Let $z$ be a point of the $k$-th space of the little $n{+}1$-ball operad, with
 little balls $D_1,\ldots,D_k$ inside the standard $n{+}1$-ball.
-We assume the $D_i$'s are ordered according to the $x_n$ coordinate of their centers.
-Let $\pi:\r^{n+1}\to \r^n$ be the projection corresponding to $x_n$.
+We assume the $D_i$'s are ordered according to the $x_{n+1}$ coordinate of their centers.
+Let $\pi:\r^{n+1}\to \r^n$ be the projection corresponding to $x_{n+1}$.
 Let $B\sub\r^n$ be the standard $n$-ball.
 Let $M_i$ and $N_i$ be $B$ for all $i$.
 Identify $\pi(D_i)$ with $B$ (a.k.a.\ $M_i$ or $N_i$) via translations and dilations (no rotations).
@@ -168,7 +168,8 @@ Let $R_i = B\setmin \pi(D_i)$.
 Let $f_i = \rm{id}$ for all $i$.
 We have now defined a map from the little $n{+}1$-ball operad to the $n$-FG operad,
 with contractible fibers.
-(The fibers correspond to moving the $D_i$'s in the $x_n$ direction without changing their ordering.)
+(The fibers correspond to moving the $D_i$'s in the $x_{n+1}$ 
+direction without changing their ordering.)
 \nn{issue: we've described this by varying the $R_i$'s, but above we emphasize varying the $f_i$'s.
 does this need more explanation?}
 
@@ -194,6 +195,7 @@ Given $\alpha_i\in\hom(\bc_*(M_i), \bc_*(N_i))$, we define $p(\ol{f}$) to be the
 				 \stackrel{f_k}{\to} \bc_*(N_0)
 \]
 (Recall that the maps $\id\ot\alpha_i$ were defined in \nn{need ref}.)
+\nn{issue: haven't we only defined $\id\ot\alpha_i$ when $\alpha_i$ is closed?}
 It is easy to check that the above definition is compatible with the equivalence relations
 and also the operad structure.
 We can reinterpret the above as a chain map
@@ -222,6 +224,10 @@ blob cochains.
 As noted above, the $n$-FG operad contains the little $n{+}1$-ball operad, so this constitutes
 a higher dimensional version of the Deligne conjecture for Hochschild cochains and the little 2-disk operad.
 
+\begin{proof}
+
+
 \nn{...}
+\end{proof}
 
 \nn{maybe point out that even for $n=1$ there's something new here.}
