@@ -11,7 +11,8 @@ The first several paragraphs lead up to a precise statement of the result
 (Proposition \ref{prop:deligne} below).
 Then we sketch the proof.
 
-\nn{Does this generalisation encompass Kontsevich's proposed generalisation from \cite[\S2.5]{MR1718044}, that (I think...) the Hochschild homology of an $E_n$ algebra is an $E_{n+1}$ algebra? -S}
+\nn{Does this generalisation encompass Kontsevich's proposed generalisation from \cite[\S2.5]{MR1718044}, 
+that (I think...) the Hochschild homology of an $E_n$ algebra is an $E_{n+1}$ algebra? -S}
 
 %from http://www.ams.org/mathscinet-getitem?mr=1805894
 %Different versions of the geometric counterpart of Deligne's conjecture have been proven by Tamarkin [``Formality of chain operad of small squares'', preprint, http://arXiv.org/abs/math.QA/9809164], the reviewer [in Conférence Moshé Flato 1999, Vol. II (Dijon), 307--331, Kluwer Acad. Publ., Dordrecht, 2000; MR1805923 (2002d:55009)], and J. E. McClure and J. H. Smith [``A solution of Deligne's conjecture'', preprint, http://arXiv.org/abs/math.QA/9910126] (see also a later simplified version [J. E. McClure and J. H. Smith, ``Multivariable cochain operations and little $n$-cubes'', preprint, http://arXiv.org/abs/math.QA/0106024]). The paper under review gives another proof of Deligne's conjecture, which, as the authors indicate, may be generalized to a proof of a higher-dimensional generalization of Deligne's conjecture, suggested in [M. Kontsevich, Lett. Math. Phys. 48 (1999), no. 1, 35--72; MR1718044 (2000j:53119)]. 
@@ -151,15 +152,15 @@ We will denote the typical element of $FG^n_{\ol{M}\ol{N}}$ by $\ol{f} = (f_0,\l
 \medskip
 
 %The little $n{+}1$-ball operad injects into the $n$-FG operad.
-The $n$-FG operad contains the little $n{+}1$-ball operad.
+The $n$-FG operad contains the little $n{+}1$-balls operad.
 Roughly speaking, given a configuration of $k$ little $n{+}1$-balls in the standard
 $n{+}1$-ball, we fiber the complement of the balls by vertical intervals
 and let $M_i$ [$N_i$] be the southern [northern] hemisphere of the $i$-th ball.
-More precisely, let $x_0,\ldots,x_n$ be the coordinates of $\r^{n+1}$.
+More precisely, let $x_1,\ldots,x_{n+1}$ be the coordinates of $\r^{n+1}$.
 Let $z$ be a point of the $k$-th space of the little $n{+}1$-ball operad, with
 little balls $D_1,\ldots,D_k$ inside the standard $n{+}1$-ball.
-We assume the $D_i$'s are ordered according to the $x_n$ coordinate of their centers.
-Let $\pi:\r^{n+1}\to \r^n$ be the projection corresponding to $x_n$.
+We assume the $D_i$'s are ordered according to the $x_{n+1}$ coordinate of their centers.
+Let $\pi:\r^{n+1}\to \r^n$ be the projection corresponding to $x_{n+1}$.
 Let $B\sub\r^n$ be the standard $n$-ball.
 Let $M_i$ and $N_i$ be $B$ for all $i$.
 Identify $\pi(D_i)$ with $B$ (a.k.a.\ $M_i$ or $N_i$) via translations and dilations (no rotations).
@@ -167,7 +168,8 @@ Let $R_i = B\setmin \pi(D_i)$.
 Let $f_i = \rm{id}$ for all $i$.
 We have now defined a map from the little $n{+}1$-ball operad to the $n$-FG operad,
 with contractible fibers.
-(The fibers correspond to moving the $D_i$'s in the $x_n$ direction without changing their ordering.)
+(The fibers correspond to moving the $D_i$'s in the $x_{n+1}$ 
+direction without changing their ordering.)
 \nn{issue: we've described this by varying the $R_i$'s, but above we emphasize varying the $f_i$'s.
 does this need more explanation?}
 
@@ -193,6 +195,7 @@ Given $\alpha_i\in\hom(\bc_*(M_i), \bc_*(N_i))$, we define $p(\ol{f}$) to be the
 				 \stackrel{f_k}{\to} \bc_*(N_0)
 \]
 (Recall that the maps $\id\ot\alpha_i$ were defined in \nn{need ref}.)
+\nn{issue: haven't we only defined $\id\ot\alpha_i$ when $\alpha_i$ is closed?}
 It is easy to check that the above definition is compatible with the equivalence relations
 and also the operad structure.
 We can reinterpret the above as a chain map
@@ -221,6 +224,10 @@ blob cochains.
 As noted above, the $n$-FG operad contains the little $n{+}1$-ball operad, so this constitutes
 a higher dimensional version of the Deligne conjecture for Hochschild cochains and the little 2-disk operad.
 
+\begin{proof}
+
+
 \nn{...}
+\end{proof}
 
 \nn{maybe point out that even for $n=1$ there's something new here.}

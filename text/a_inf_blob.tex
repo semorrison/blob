@@ -16,7 +16,8 @@ new-fangled and old-fashioned blob complex.
 \medskip
 
 An important technical tool in the proofs of this section is provided by the idea of `small blobs'.
-Fix $\cU$, an open cover of $M$. Define the `small blob complex' $\bc^{\cU}_*(M)$ to be the subcomplex of $\bc_*(M)$ of all blob diagrams in which every blob is contained in some open set of $\cU$. 
+Fix $\cU$, an open cover of $M$.
+Define the `small blob complex' $\bc^{\cU}_*(M)$ to be the subcomplex of $\bc_*(M)$ of all blob diagrams in which every blob is contained in some open set of $\cU$. 
 \nn{KW: We need something a little stronger: Every blob diagram (even a 0-blob diagram) is splittable into pieces which are small w.r.t.\ $\cU$.
 If field have potentially large coupons/boxes, then this is a non-trivial constraint.
 On the other hand, we could probably get away with ignoring this point.
@@ -46,11 +47,14 @@ for $X$ an $m$-ball with $m\le k$.
 \nn{need to settle on notation; proof and statement are inconsistent}
 
 \begin{thm} \label{product_thm}
-Given a topological $n$-category $C$ and a $n{-}k$-manifold $F$, recall from Example \ref{ex:blob-complexes-of-balls} that there is an  $A_\infty$ $k$-category $C^{\times F}$ defined by
+Given a topological $n$-category $C$ and a $n{-}k$-manifold $F$, recall from 
+Example \ref{ex:blob-complexes-of-balls} that there is an  $A_\infty$ $k$-category $C^{\times F}$ defined by
 \begin{equation*}
 C^{\times F}(B) = \cB_*(B \times F, C).
 \end{equation*}
-Now, given a $k$-manifold $Y$, there is a homotopy equivalence between the `old-fashioned' blob complex for $Y \times F$ with coefficients in $C$ and the `new-fangled' (i.e.\ homotopy colimit) blob complex for $Y$ with coefficients in $C^{\times F}$:
+Now, given a $k$-manifold $Y$, there is a homotopy equivalence between the `old-fashioned' 
+blob complex for $Y \times F$ with coefficients in $C$ and the `new-fangled' 
+(i.e.\ homotopy colimit) blob complex for $Y$ with coefficients in $C^{\times F}$:
 \begin{align*}
 \cB_*(Y \times F, C) & \htpy \cB_*(Y, C^{\times F})
 \end{align*}
@@ -305,7 +309,8 @@ the proof of Theorem \ref{product_thm}.
 Let $\cT$ denote the chain complex $\bc(X_1) \otimes_{\bc(Y), J} \bc(X_2)$.
 Recall that this is a homotopy colimit based on decompositions of the interval $J$.
 
-We define a map $\psi:\cT\to \bc_*(X)$.  On filtration degree zero summands it is given
+We define a map $\psi:\cT\to \bc_*(X)$.
+On filtration degree zero summands it is given
 by gluing the pieces together to get a blob diagram on $X$.
 On filtration degree 1 and greater $\psi$ is zero.
 
@@ -353,13 +358,18 @@ want to know about spaces of maps of $k$-balls into $T$ ($k\le n$).
 To simplify notation, let $\cT = \pi^\infty_{\leq n}(T)$.
 
 \begin{thm} \label{thm:map-recon}
-The blob complex for $M$ with coefficients in the fundamental $A_\infty$ $n$-category for $T$ is quasi-isomorphic to singular chains on maps from $M$ to $T$.
+The blob complex for $M$ with coefficients in the fundamental $A_\infty$ $n$-category for $T$ 
+is quasi-isomorphic to singular chains on maps from $M$ to $T$.
 $$\cB^\cT(M) \simeq C_*(\Maps(M\to T)).$$
 \end{thm}
 \begin{rem}
-\nn{This just isn't true, Lurie doesn't do this! I just heard this from Ricardo...}
-\nn{KW: Are you sure about that?}
-Lurie has shown in \cite{0911.0018} that the topological chiral homology of an $n$-manifold $M$ with coefficients in \nn{a certain $E_n$ algebra constructed from $T$} recovers  the same space of singular chains on maps from $M$ to $T$, with the additional hypothesis that $T$ is $n-1$-connected. This extra hypothesis is not surprising, in view of the idea that an $E_n$ algebra is roughly equivalent data as an $A_\infty$ $n$-category which is trivial at all but the topmost level.
+Lurie has shown in \cite[Theorem 3.8.6]{0911.0018} that the topological chiral homology 
+of an $n$-manifold $M$ with coefficients in a certain $E_n$ algebra constructed from $T$ recovers 
+the same space of singular chains on maps from $M$ to $T$, with the additional hypothesis that $T$ is $n-1$-connected.
+This extra hypothesis is not surprising, in view of the idea described in Example \ref{ex:e-n-alg} 
+that an $E_n$ algebra is roughly equivalent data to an $A_\infty$ $n$-category which 
+is trivial at all but the topmost level.
+Ricardo Andrade also told us about a similar result.
 \end{rem}
 
 \nn{proof is again similar to that of Theorem \ref{product_thm}.  should probably say that explicitly}
