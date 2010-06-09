@@ -35,12 +35,6 @@ Up to (iterated) homotopy, there is a unique family $\{e_{XY}\}$ of chain maps
 satisfying the above two conditions.
 \end{prop}
 
-
-\nn{Also need to say something about associativity.
-Put it in the above prop or make it a separate prop?
-I lean toward the latter.}
-\medskip
-
 Before giving the proof, we state the essential technical tool of Lemma \ref{extension_lemma}, 
 and then give an outline of the method of proof.
 
@@ -592,11 +586,7 @@ but we have come very close}
 \nn{better: change statement of thm}
 
 
-
 \nn{...}
-
-
-
 
 
 \medskip\hrule\medskip\hrule\medskip
@@ -610,14 +600,46 @@ and $\hat{N}_{i,l}$ the alternate neighborhoods.
 Main idea is that for all $i$ there exists sufficiently large $k$ such that
 $\hat{N}_{k,l} \sub N_{i,l}$, and similarly with the roles of $N$ and $\hat{N}$ reversed.
 \item prove gluing compatibility, as in statement of main thm (this is relatively easy)
-\item Also need to prove associativity.
 \end{itemize}
-
-
-\end{proof}
 
 \nn{to be continued....}
 
+\end{proof}
 
 
 
+\begin{prop}
+The $CH_*(X, Y)$ actions defined above are associative.
+That is, the following diagram commutes up to homotopy:
+\[ \xymatrix{
+& CH_*(Y, Z) \ot \bc_*(Y) \ar[dr]^{e_{YZ}} & \\
+CH_*(X, Y) \ot CH_*(Y, Z) \ot \bc_*(X) \ar[ur]^{e_{XY}\ot\id} \ar[dr]_{\mu\ot\id} & & \bc_*(Z) \\
+& CH_*(X, Z) \ot \bc_*(X) \ar[ur]_{e_{XZ}} &
+} \]
+Here $\mu:CH_*(X, Y) \ot CH_*(Y, Z)\to CH_*(X, Z)$ is the map induced by composition
+of homeomorphisms.
+\end{prop}
+
+\begin{proof}
+The strategy of the proof is similar to that of Proposition \ref{CHprop}.
+We will identify a subcomplex 
+\[
+	G_* \sub CH_*(X, Y) \ot CH_*(Y, Z) \ot \bc_*(X)
+\]
+where it is easy to see that the two sides of the diagram are homotopic, then 
+show that there is a deformation retraction of $CH_*(X, Y) \ot CH_*(Y, Z) \ot \bc_*(X)$ into $G_*$.
+
+Let $p\ot q\ot b$ be a generator of $CH_*(X, Y) \ot CH_*(Y, Z) \ot \bc_*(X)$.
+By definition, $p\ot q\ot b\in G_*$ if there is a disjoint union of balls in $X$ which
+contains $|p| \cup p\inv(|q|) \cup |b|$.
+(If $p:P\times X\to Y$, then $p\inv(|q|)$ means the union over all $x\in P$ of 
+$p(x, \cdot)\inv(|q|)$.)
+
+As in the proof of Proposition \ref{CHprop}, we can construct a homotopy 
+between the upper and lower maps restricted to $G_*$.
+This uses the facts that the maps agree on $CH_0(X, Y) \ot CH_0(Y, Z) \ot \bc_*(X)$,
+that they are compatible with gluing, and the contractibility of $\bc_*(X)$.
+
+We can now apply Lemma \ref{extension_lemma_c}, using a series of increasingly fine covers, 
+to construct a deformation retraction of $CH_*(X, Y) \ot CH_*(Y, Z) \ot \bc_*(X)$ into $G_*$.
+\end{proof}
