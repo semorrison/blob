@@ -503,6 +503,7 @@ where $t = \phi_{k-1}(2\phi_{k-1}+2)r + \phi_{k-1} r$.
 
 Let $R_*$ be the chain complex with a generating 0-chain for each non-negative
 integer and a generating 1-chain connecting each adjacent pair $(j, j+1)$.
+(So $R_*$ is a simplicial version of the non-negative reals.)
 Denote the 0-chains by $j$ (for $j$ a non-negative integer) and the 1-chain connecting $j$ and $j+1$
 by $\iota_j$.
 Define a map (homotopy equivalence)
@@ -585,6 +586,22 @@ $e_{m+1}$ candidates is contained in the corresponding subcomplex for $e_m$.
 but we have come very close}
 \nn{better: change statement of thm}
 
+\medskip
+
+Next we show that the action maps are compatible with gluing.
+Let $G^m_*$ and $\ol{G}^m_*$ be the complexes, as above, used for defining
+the action maps $e_{X\sgl}$ and $e_X$.
+The gluing map $X\sgl\to X$ induces a map
+\[
+	\gl: R_*\ot CH_*(X\sgl, X \sgl) \otimes \bc_*(X \sgl) \to R_*\ot CH_*(X, X) \otimes \bc_*(X) ,
+\]
+and it is easy to see that $\gl(G^m_*)\sub \ol{G}^m_*$.
+From this it follows that the diagram in the statement of Proposition \ref{CHprop} commutes.
+
+\medskip
+
+Finally we show that the action maps defined above are independent of
+the choice of metric (up to iterated homotopy).
 
 \nn{...}
 
@@ -599,7 +616,6 @@ For a different metric etc. let $\hat{G}^{i,m}$ denote the alternate subcomplexe
 and $\hat{N}_{i,l}$ the alternate neighborhoods.
 Main idea is that for all $i$ there exists sufficiently large $k$ such that
 $\hat{N}_{k,l} \sub N_{i,l}$, and similarly with the roles of $N$ and $\hat{N}$ reversed.
-\item prove gluing compatibility, as in statement of main thm (this is relatively easy)
 \end{itemize}
 
 \nn{to be continued....}
