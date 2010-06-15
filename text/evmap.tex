@@ -35,12 +35,6 @@ Up to (iterated) homotopy, there is a unique family $\{e_{XY}\}$ of chain maps
 satisfying the above two conditions.
 \end{prop}
 
-
-\nn{Also need to say something about associativity.
-Put it in the above prop or make it a separate prop?
-I lean toward the latter.}
-\medskip
-
 Before giving the proof, we state the essential technical tool of Lemma \ref{extension_lemma}, 
 and then give an outline of the method of proof.
 
@@ -509,6 +503,7 @@ where $t = \phi_{k-1}(2\phi_{k-1}+2)r + \phi_{k-1} r$.
 
 Let $R_*$ be the chain complex with a generating 0-chain for each non-negative
 integer and a generating 1-chain connecting each adjacent pair $(j, j+1)$.
+(So $R_*$ is a simplicial version of the non-negative reals.)
 Denote the 0-chains by $j$ (for $j$ a non-negative integer) and the 1-chain connecting $j$ and $j+1$
 by $\iota_j$.
 Define a map (homotopy equivalence)
@@ -591,33 +586,71 @@ $e_{m+1}$ candidates is contained in the corresponding subcomplex for $e_m$.
 but we have come very close}
 \nn{better: change statement of thm}
 
+\medskip
 
+Next we show that the action maps are compatible with gluing.
+Let $G^m_*$ and $\ol{G}^m_*$ be the complexes, as above, used for defining
+the action maps $e_{X\sgl}$ and $e_X$.
+The gluing map $X\sgl\to X$ induces a map
+\[
+	\gl: R_*\ot CH_*(X\sgl, X \sgl) \otimes \bc_*(X \sgl) \to R_*\ot CH_*(X, X) \otimes \bc_*(X) ,
+\]
+and it is easy to see that $\gl(G^m_*)\sub \ol{G}^m_*$.
+From this it follows that the diagram in the statement of Proposition \ref{CHprop} commutes.
 
-\nn{...}
+\medskip
 
-
-
-
-
-\medskip\hrule\medskip\hrule\medskip
-
-\nn{outline of what remains to be done:}
-
-\begin{itemize}
-\item Independence of metric, $\ep_i$, $\delta_i$:
-For a different metric etc. let $\hat{G}^{i,m}$ denote the alternate subcomplexes
-and $\hat{N}_{i,l}$ the alternate neighborhoods.
-Main idea is that for all $i$ there exists sufficiently large $k$ such that
-$\hat{N}_{k,l} \sub N_{i,l}$, and similarly with the roles of $N$ and $\hat{N}$ reversed.
-\item prove gluing compatibility, as in statement of main thm (this is relatively easy)
-\item Also need to prove associativity.
-\end{itemize}
-
-
+Finally we show that the action maps defined above are independent of
+the choice of metric (up to iterated homotopy).
+The arguments are very similar to ones given above, so we only sketch them.
+Let $g$ and $g'$ be two metrics on $X$, and let $e$ and $e'$ be the corresponding
+actions $CH_*(X, X) \ot \bc_*(X)\to\bc_*(X)$.
+We must show that $e$ and $e'$ are homotopic.
+As outlined in the discussion preceding this proof,
+this follows from the facts that both $e$ and $e'$ are compatible
+with gluing and that $\bc_*(B^n)$ is contractible.
+As above, we define a subcomplex $F_*\sub  CH_*(X, X) \ot \bc_*(X)$ generated
+by $p\ot b$ such that $|p|\cup|b|$ is contained in a disjoint union of balls.
+Using acyclic models, we can construct a homotopy from $e$ to $e'$ on $F_*$.
+We now observe that $CH_*(X, X) \ot \bc_*(X)$ retracts to $F_*$.
+Similar arguments show that this homotopy from $e$ to $e'$ is well-defined
+up to second order homotopy, and so on.
 \end{proof}
 
-\nn{to be continued....}
 
 
+\begin{prop}
+The $CH_*(X, Y)$ actions defined above are associative.
+That is, the following diagram commutes up to homotopy:
+\[ \xymatrix{
+& CH_*(Y, Z) \ot \bc_*(Y) \ar[dr]^{e_{YZ}} & \\
+CH_*(X, Y) \ot CH_*(Y, Z) \ot \bc_*(X) \ar[ur]^{e_{XY}\ot\id} \ar[dr]_{\mu\ot\id} & & \bc_*(Z) \\
+& CH_*(X, Z) \ot \bc_*(X) \ar[ur]_{e_{XZ}} &
+} \]
+Here $\mu:CH_*(X, Y) \ot CH_*(Y, Z)\to CH_*(X, Z)$ is the map induced by composition
+of homeomorphisms.
+\end{prop}
 
+\begin{proof}
+The strategy of the proof is similar to that of Proposition \ref{CHprop}.
+We will identify a subcomplex 
+\[
+	G_* \sub CH_*(X, Y) \ot CH_*(Y, Z) \ot \bc_*(X)
+\]
+where it is easy to see that the two sides of the diagram are homotopic, then 
+show that there is a deformation retraction of $CH_*(X, Y) \ot CH_*(Y, Z) \ot \bc_*(X)$ into $G_*$.
 
+Let $p\ot q\ot b$ be a generator of $CH_*(X, Y) \ot CH_*(Y, Z) \ot \bc_*(X)$.
+By definition, $p\ot q\ot b\in G_*$ if there is a disjoint union of balls in $X$ which
+contains $|p| \cup p\inv(|q|) \cup |b|$.
+(If $p:P\times X\to Y$, then $p\inv(|q|)$ means the union over all $x\in P$ of 
+$p(x, \cdot)\inv(|q|)$.)
+
+As in the proof of Proposition \ref{CHprop}, we can construct a homotopy 
+between the upper and lower maps restricted to $G_*$.
+This uses the facts that the maps agree on $CH_0(X, Y) \ot CH_0(Y, Z) \ot \bc_*(X)$,
+that they are compatible with gluing, and the contractibility of $\bc_*(X)$.
+
+We can now apply Lemma \ref{extension_lemma_c}, using a series of increasingly fine covers, 
+to construct a deformation retraction of $CH_*(X, Y) \ot CH_*(Y, Z) \ot \bc_*(X)$ into $G_*$.
+\end{proof}
