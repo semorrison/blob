@@ -1520,9 +1520,47 @@ omitted.
 More specifically, $D\to D'$ is an antirefinement if $D'$ is obtained from $D$ by 
 gluing subintervals together and/or omitting some of the rightmost subintervals.
 (See Figure \ref{fig:lmar}.)
-\begin{figure}[t]\begin{equation*}
-\mathfig{.6}{tempkw/left-marked-antirefinements}
-\end{equation*}\caption{Antirefinements of left-marked intervals}\label{fig:lmar}\end{figure}
+\begin{figure}[t]$$
+\begin{tikzpicture}
+\fill (0,0) circle (.1);
+\draw (0,0) -- (2,0);
+\draw (1,0.1) -- (1,-0.1);
+
+\draw [->,red] (1,0.25) -- (1,0.75);
+
+\fill (0,1) circle (.1);
+\draw (0,1) -- (2,1);
+\end{tikzpicture}
+\qquad
+\begin{tikzpicture}
+\fill (0,0) circle (.1);
+\draw (0,0) -- (2,0);
+\draw (1,0.1) -- (1,-0.1);
+
+\draw [->,red] (1,0.25) -- (1,0.75);
+
+\fill (0,1) circle (.1);
+\draw (0,1) -- (1,1);
+\end{tikzpicture}
+\qquad
+\begin{tikzpicture}
+\fill (0,0) circle (.1);
+\draw (0,0) -- (3,0);
+\foreach \x in {0.5, 1.0, 1.25, 1.5, 2.0, 2.5} {
+	\draw (\x,0.1) -- (\x,-0.1);
+}
+
+\draw [->,red] (1,0.25) -- (1,0.75);
+
+\fill (0,1) circle (.1);
+\draw (0,1) -- (2,1);
+\foreach \x in {1.0, 1.5} {
+	\draw (\x,1.1) -- (\x,0.9);
+}
+
+\end{tikzpicture}
+$$
+\caption{Antirefinements of left-marked intervals}\label{fig:lmar}\end{figure}
 
 Now we define the chain complex $\hom_\cC(\cX_\cC \to \cY_\cC)$.
 The underlying vector space is 
