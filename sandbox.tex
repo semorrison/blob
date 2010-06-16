@@ -11,6 +11,20 @@
 \title{Sandbox}
 
 \begin{document}
+\begin{equation*}
+\mathfig{.4}{tempkw/feb21d}
+\end{equation*}
 
-
+$$
+\begin{tikzpicture}[baseline,line width = 2pt]
+\draw[blue] (0,0) circle (2);
+\fill[red] (0,0) circle (0.1);
+\foreach \qm/\qa/\n in {70/-30/0, 120/95/1, -120/180/2} {
+	\draw[red] (0,0) -- (\qm:2);
+	\path (\qa:1) node {\color{green!50!brown} $\cA_\n$};
+	\path (\qm+20:2.5) node(M\n) {\color{green!50!brown} $\cM_\n$};
+	\draw[line width=1pt, green!50!brown, ->] (M\n.\qm+135) to[out=\qm+135,in=\qm+90] (\qm+5:1.3);
+}
+\end{tikzpicture}
+$$
 \end{document}
