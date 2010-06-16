@@ -336,7 +336,31 @@ We will need to strengthen the above preliminary version of the axiom to allow
 for products which are ``pinched" in various ways along their boundary.
 (See Figure \ref{pinched_prods}.)
 \begin{figure}[t]
-$$\mathfig{.8}{tempkw/pinched_prods}$$
+$$
+\begin{tikzpicture}[baseline=0]
+\begin{scope}
+\path[clip] (0,0) arc (135:45:4) arc (-45:-135:4);
+\draw[blue,line width=2pt] (0,0) arc (135:45:4) arc (-45:-135:4);
+\foreach \x in {0, 0.5, ..., 6} {
+	\draw[green!50!brown] (\x,-2) -- (\x,2);
+}
+\end{scope}
+\draw[blue,line width=1.5pt] (0,-3) -- (5.66,-3);
+\draw[->,red,line width=2pt] (2.83,-1.5) -- (2.83,-2.5);
+\end{tikzpicture}
+\qquad \qquad
+\begin{tikzpicture}[baseline=-0.15cm]
+\begin{scope}
+\path[clip] (0,1) arc (90:135:8 and 4)  arc (-135:-90:8 and 4) -- cycle;
+\draw[blue,line width=2pt] (0,1) arc (90:135:8 and 4)  arc (-135:-90:8 and 4) -- cycle;
+\foreach \x in {-6, -5.5, ..., 0} {
+	\draw[green!50!brown] (\x,-2) -- (\x,2);
+}
+\end{scope}
+\draw[blue,line width=1.5pt] (-5.66,-3.15) -- (0,-3.15);
+\draw[->,red,line width=2pt] (-2.83,-1.5) -- (-2.83,-2.5);
+\end{tikzpicture}
+$$
 \caption{Examples of pinched products}\label{pinched_prods}
 \end{figure}
 (The need for a strengthened version will become apparent in appendix \ref{sec:comparing-defs}
@@ -365,8 +389,64 @@ A {union} of pinched products is a decomposition $E = \cup_i E_i$
 such that each $E_i\sub E$ is a sub pinched product.
 (See Figure \ref{pinched_prod_unions}.)
 \begin{figure}[t]
-$$\mathfig{.8}{tempkw/pinched_prod_unions}$$
-\caption{Unions of pinched products}\label{pinched_prod_unions}
+$$
+\begin{tikzpicture}[baseline=0]
+\begin{scope}
+\path[clip] (0,0) arc (135:45:4) arc (-45:-135:4);
+\draw[blue,line width=2pt] (0,0) arc (135:45:4) arc (-45:-135:4);
+\draw[blue] (0,0) -- (5.66,0);
+\foreach \x in {0, 0.5, ..., 6} {
+	\draw[green!50!brown] (\x,-2) -- (\x,2);
+}
+\end{scope}
+\end{tikzpicture}
+\qquad
+\begin{tikzpicture}[baseline=0]
+\begin{scope}
+\path[clip] (0,-1) rectangle (4,1);
+\draw[blue,line width=2pt] (0,-1) rectangle (4,1);
+\draw[blue] (0,0) -- (5,0);
+\foreach \x in {0, 0.5, ..., 6} {
+	\draw[green!50!brown] (\x,-2) -- (\x,2);
+}
+\end{scope}
+\end{tikzpicture}
+\qquad
+\begin{tikzpicture}[baseline=0]
+\begin{scope}
+\path[clip] (0,0) arc (135:45:4) arc (-45:-135:4);
+\draw[blue,line width=2pt] (0,0) arc (135:45:4) arc (-45:-135:4);
+\draw[blue] (2.83,3) circle (3);
+\foreach \x in {0, 0.5, ..., 6} {
+	\draw[green!50!brown] (\x,-2) -- (\x,2);
+}
+\end{scope}
+\end{tikzpicture}
+$$
+$$
+\begin{tikzpicture}[baseline=0]
+\begin{scope}
+\path[clip] (0,-1) rectangle (4,1);
+\draw[blue,line width=2pt] (0,-1) rectangle (4,1);
+\draw[blue] (0,-1) -- (4,1);
+\foreach \x in {0, 0.5, ..., 6} {
+	\draw[green!50!brown] (\x,-2) -- (\x,2);
+}
+\end{scope}
+\end{tikzpicture}
+\qquad
+\begin{tikzpicture}[baseline=0]
+\begin{scope}
+\path[clip] (0,-1) rectangle (5,1);
+\draw[blue,line width=2pt] (0,-1) rectangle (5,1);
+\draw[blue] (1,-1) .. controls  (2,-1) and (3,1) .. (4,1);
+\foreach \x in {0, 0.5, ..., 6} {
+	\draw[green!50!brown] (\x,-2) -- (\x,2);
+}
+\end{scope}
+\end{tikzpicture}
+$$
+\caption{Five examples of unions of pinched products}\label{pinched_prod_unions}
 \end{figure}
 
 The product axiom will give a map $\pi^*:\cC(X)\to \cC(E)$ for each pinched product
