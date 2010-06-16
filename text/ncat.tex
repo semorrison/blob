@@ -284,11 +284,11 @@ into small $k$-balls, there is a
 map from an appropriate subset (like a fibered product) 
 of $\cC(B_1)\spl\times\cdots\times\cC(B_m)\spl$ to $\cC(B)\spl$,
 and these various $m$-fold composition maps satisfy an
-operad-type strict associativity condition (Figure \ref{blah7}).}
+operad-type strict associativity condition (Figure \ref{fig:operad-composition}).}
 
 \begin{figure}[!ht]
-$$\mathfig{.8}{tempkw/blah7}$$
-\caption{Operad composition and associativity}\label{blah7}\end{figure}
+$$\mathfig{.8}{ncat/operad-composition}$$
+\caption{Operad composition and associativity}\label{fig:operad-composition}\end{figure}
 
 The next axiom is related to identity morphisms, though that might not be immediately obvious.
 
@@ -336,7 +336,31 @@ We will need to strengthen the above preliminary version of the axiom to allow
 for products which are ``pinched" in various ways along their boundary.
 (See Figure \ref{pinched_prods}.)
 \begin{figure}[t]
-$$\mathfig{.8}{tempkw/pinched_prods}$$
+$$
+\begin{tikzpicture}[baseline=0]
+\begin{scope}
+\path[clip] (0,0) arc (135:45:4) arc (-45:-135:4);
+\draw[blue,line width=2pt] (0,0) arc (135:45:4) arc (-45:-135:4);
+\foreach \x in {0, 0.5, ..., 6} {
+	\draw[green!50!brown] (\x,-2) -- (\x,2);
+}
+\end{scope}
+\draw[blue,line width=1.5pt] (0,-3) -- (5.66,-3);
+\draw[->,red,line width=2pt] (2.83,-1.5) -- (2.83,-2.5);
+\end{tikzpicture}
+\qquad \qquad
+\begin{tikzpicture}[baseline=-0.15cm]
+\begin{scope}
+\path[clip] (0,1) arc (90:135:8 and 4)  arc (-135:-90:8 and 4) -- cycle;
+\draw[blue,line width=2pt] (0,1) arc (90:135:8 and 4)  arc (-135:-90:8 and 4) -- cycle;
+\foreach \x in {-6, -5.5, ..., 0} {
+	\draw[green!50!brown] (\x,-2) -- (\x,2);
+}
+\end{scope}
+\draw[blue,line width=1.5pt] (-5.66,-3.15) -- (0,-3.15);
+\draw[->,red,line width=2pt] (-2.83,-1.5) -- (-2.83,-2.5);
+\end{tikzpicture}
+$$
 \caption{Examples of pinched products}\label{pinched_prods}
 \end{figure}
 (The need for a strengthened version will become apparent in appendix \ref{sec:comparing-defs}
@@ -365,8 +389,64 @@ A {union} of pinched products is a decomposition $E = \cup_i E_i$
 such that each $E_i\sub E$ is a sub pinched product.
 (See Figure \ref{pinched_prod_unions}.)
 \begin{figure}[t]
-$$\mathfig{.8}{tempkw/pinched_prod_unions}$$
-\caption{Unions of pinched products}\label{pinched_prod_unions}
+$$
+\begin{tikzpicture}[baseline=0]
+\begin{scope}
+\path[clip] (0,0) arc (135:45:4) arc (-45:-135:4);
+\draw[blue,line width=2pt] (0,0) arc (135:45:4) arc (-45:-135:4);
+\draw[blue] (0,0) -- (5.66,0);
+\foreach \x in {0, 0.5, ..., 6} {
+	\draw[green!50!brown] (\x,-2) -- (\x,2);
+}
+\end{scope}
+\end{tikzpicture}
+\qquad
+\begin{tikzpicture}[baseline=0]
+\begin{scope}
+\path[clip] (0,-1) rectangle (4,1);
+\draw[blue,line width=2pt] (0,-1) rectangle (4,1);
+\draw[blue] (0,0) -- (5,0);
+\foreach \x in {0, 0.5, ..., 6} {
+	\draw[green!50!brown] (\x,-2) -- (\x,2);
+}
+\end{scope}
+\end{tikzpicture}
+\qquad
+\begin{tikzpicture}[baseline=0]
+\begin{scope}
+\path[clip] (0,0) arc (135:45:4) arc (-45:-135:4);
+\draw[blue,line width=2pt] (0,0) arc (135:45:4) arc (-45:-135:4);
+\draw[blue] (2.83,3) circle (3);
+\foreach \x in {0, 0.5, ..., 6} {
+	\draw[green!50!brown] (\x,-2) -- (\x,2);
+}
+\end{scope}
+\end{tikzpicture}
+$$
+$$
+\begin{tikzpicture}[baseline=0]
+\begin{scope}
+\path[clip] (0,-1) rectangle (4,1);
+\draw[blue,line width=2pt] (0,-1) rectangle (4,1);
+\draw[blue] (0,-1) -- (4,1);
+\foreach \x in {0, 0.5, ..., 6} {
+	\draw[green!50!brown] (\x,-2) -- (\x,2);
+}
+\end{scope}
+\end{tikzpicture}
+\qquad
+\begin{tikzpicture}[baseline=0]
+\begin{scope}
+\path[clip] (0,-1) rectangle (5,1);
+\draw[blue,line width=2pt] (0,-1) rectangle (5,1);
+\draw[blue] (1,-1) .. controls  (2,-1) and (3,1) .. (4,1);
+\foreach \x in {0, 0.5, ..., 6} {
+	\draw[green!50!brown] (\x,-2) -- (\x,2);
+}
+\end{scope}
+\end{tikzpicture}
+$$
+\caption{Five examples of unions of pinched products}\label{pinched_prod_unions}
 \end{figure}
 
 The product axiom will give a map $\pi^*:\cC(X)\to \cC(E)$ for each pinched product
@@ -1440,9 +1520,47 @@ omitted.
 More specifically, $D\to D'$ is an antirefinement if $D'$ is obtained from $D$ by 
 gluing subintervals together and/or omitting some of the rightmost subintervals.
 (See Figure \ref{fig:lmar}.)
-\begin{figure}[t]\begin{equation*}
-\mathfig{.6}{tempkw/left-marked-antirefinements}
-\end{equation*}\caption{Antirefinements of left-marked intervals}\label{fig:lmar}\end{figure}
+\begin{figure}[t]$$
+\begin{tikzpicture}
+\fill (0,0) circle (.1);
+\draw (0,0) -- (2,0);
+\draw (1,0.1) -- (1,-0.1);
+
+\draw [->,red] (1,0.25) -- (1,0.75);
+
+\fill (0,1) circle (.1);
+\draw (0,1) -- (2,1);
+\end{tikzpicture}
+\qquad
+\begin{tikzpicture}
+\fill (0,0) circle (.1);
+\draw (0,0) -- (2,0);
+\draw (1,0.1) -- (1,-0.1);
+
+\draw [->,red] (1,0.25) -- (1,0.75);
+
+\fill (0,1) circle (.1);
+\draw (0,1) -- (1,1);
+\end{tikzpicture}
+\qquad
+\begin{tikzpicture}
+\fill (0,0) circle (.1);
+\draw (0,0) -- (3,0);
+\foreach \x in {0.5, 1.0, 1.25, 1.5, 2.0, 2.5} {
+	\draw (\x,0.1) -- (\x,-0.1);
+}
+
+\draw [->,red] (1,0.25) -- (1,0.75);
+
+\fill (0,1) circle (.1);
+\draw (0,1) -- (2,1);
+\foreach \x in {1.0, 1.5} {
+	\draw (\x,1.1) -- (\x,0.9);
+}
+
+\end{tikzpicture}
+$$
+\caption{Antirefinements of left-marked intervals}\label{fig:lmar}\end{figure}
 
 Now we define the chain complex $\hom_\cC(\cX_\cC \to \cY_\cC)$.
 The underlying vector space is 
@@ -1588,9 +1706,7 @@ See Figure \ref{feb21a}.
 Another way to say this is that $(X, M)$ is homeomorphic to $B^{k-1}\times([-1,1], \{0\})$.
 
 \begin{figure}[!ht]
-\begin{equation*}
-\mathfig{.85}{tempkw/feb21a}
-\end{equation*}
+$$\tikz[baseline,line width=2pt]{\draw[blue] (-2,0)--(2,0); \fill[red] (0,0) circle (0.1);} \qquad \qquad \tikz[baseline,line width=2pt]{\draw[blue] (0,0) circle (2 and 1); \draw[red] (0,1)--(0,-1);}$$
 \caption{0-marked 1-ball and 0-marked 2-ball}
 \label{feb21a}
 \end{figure}
@@ -1633,9 +1749,22 @@ The set $\cD$ breaks into ``blocks" according to the restrictions to the pinched
 These restrictions are 0-morphisms $(a, b)$ of $\cA$ and $\cB$.
 
 \begin{figure}[!ht]
-\begin{equation*}
-\mathfig{1}{tempkw/feb21b}
-\end{equation*}
+$$
+\begin{tikzpicture}[blue,line width=2pt]
+\draw (0,1) -- (0,-1) node[below] {$X$};
+
+\draw (2,0) -- (4,0) node[below] {$J$};
+\fill[red] (3,0) circle (0.1);
+
+\draw (6,0) node(a) {} arc (135:90:4) node(top) {} arc (90:45:4) node(b) {} arc (-45:-90:4) node(bottom) {} arc(-90:-135:4);
+\draw[red] (top.center) -- (bottom.center);
+\fill (a) circle (0.1) node[left] {\color{green!50!brown} $a$};
+\fill (b) circle (0.1) node[right] {\color{green!50!brown} $b$};
+
+\path (bottom) node[below]{$X \times J$};
+
+\end{tikzpicture}
+$$
 \caption{The pinched product $X\times J$}
 \label{feb21b}
 \end{figure}
@@ -1649,9 +1778,29 @@ to obtain an $\cA_0$-$\cA_l$ $0$-sphere module and, forgetfully, an $n{-}1$-cate
 This amounts to a definition of taking tensor products of $0$-sphere module over $n$-categories.
 
 \begin{figure}[!ht]
-\begin{equation*}
-\mathfig{1}{tempkw/feb21c}
-\end{equation*}
+$$
+\begin{tikzpicture}[baseline,line width = 2pt]
+\draw[blue] (0,0) -- (6,0);
+\foreach \x/\n in {0.5/0,1.5/1,3/2,4.5/3,5.5/4} {
+	\path (\x,0)  node[below] {\color{green!50!brown}$\cA_{\n}$};
+}
+\foreach \x/\n in {1/0,2/1,4/2,5/3} {
+	\fill[red] (\x,0) circle (0.1) node[above] {\color{green!50!brown}$\cM_{\n}$};
+}
+\end{tikzpicture}
+\qquad
+\qquad
+\begin{tikzpicture}[baseline,line width = 2pt]
+\draw[blue] (0,0) circle (2);
+\foreach \q/\n in {-45/0,90/1,180/2} {
+	\path (\q:2.4)  node {\color{green!50!brown}$\cA_{\n}$};
+}
+\foreach \q/\n in {60/0,120/1,-120/2} {
+	\fill[red] (\q:2) circle (0.1);
+	\path (\q:2.4) node {\color{green!50!brown}$\cM_{\n}$};
+}
+\end{tikzpicture}
+$$
 \caption{Marked and labeled 1-manifolds}
 \label{feb21c}
 \end{figure}
@@ -1680,9 +1829,18 @@ smaller 1-marked $k$-balls or the product of an unmarked ball with a marked inte
 We now proceed as in the above module definitions.
 
 \begin{figure}[!ht]
-\begin{equation*}
-\mathfig{.4}{tempkw/feb21d}
-\end{equation*}
+$$
+\begin{tikzpicture}[baseline,line width = 2pt]
+\draw[blue] (0,0) circle (2);
+\fill[red] (0,0) circle (0.1);
+\foreach \qm/\qa/\n in {70/-30/0, 120/95/1, -120/180/2} {
+	\draw[red] (0,0) -- (\qm:2);
+	\path (\qa:1) node {\color{green!50!brown} $\cA_\n$};
+	\path (\qm+20:2.5) node(M\n) {\color{green!50!brown} $\cM_\n$};
+	\draw[line width=1pt, green!50!brown, ->] (M\n.\qm+135) to[out=\qm+135,in=\qm+90] (\qm+5:1.3);
+}
+\end{tikzpicture}
+$$
 \caption{Cone on a marked circle}
 \label{feb21d}
 \end{figure}
