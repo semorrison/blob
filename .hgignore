@@ -8,8 +8,11 @@ syntax: glob
 *.toc
 *.synctex.gz
 
-# the article PDF
+# artifacts
 blob1.pdf
+sandbox.pdf
+blob1.dvi
+blob.tar.gz
 
 # bibliograph stuff
 *.bbl

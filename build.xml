@@ -48,7 +48,7 @@
     </target>
 
     <target name="bbl" depends="init">
-        <exec executable="latex">
+        <exec executable="pdflatex">
             <arg value="blob1"/>
         </exec>
         <exec executable="bibtex">
@@ -56,43 +56,13 @@
         </exec>
     </target>
      
-    <target name="dvi" depends="bbl">
-        <exec executable="latex">
-            <arg value="blob1"/>
-        </exec>
-        <exec executable="latex">
-            <arg value="blob1"/>
-        </exec>
-    </target>
-
-    <target name="ps" depends="dvi">
-        <exec executable="dvips">
-            <arg value="blob1"/>
-        </exec>
-    </target>
-
-    <target name="pdf" depends="ps">
-        <exec executable="ps2pdf">
-            <arg value="blob1.ps"/>
-        </exec>
-    </target>
-    
-    <target name="eps-diagrams">
-        <exec executable="bash" dir="diagrams/scripts/">
-            <arg value="find_all_diagrams.sh"/>
-        </exec>
-        <exec executable="bash" dir="diagrams/scripts/">
-            <arg value="stripall.sh"/>
-        </exec>
-    </target>
-
-    <target name="direct-pdf" depends="bbl">
+    <target name="pdf" depends="bbl">
         <exec executable="pdflatex">
             <arg value="blob1"/>
         </exec>
     </target>
     
-    <target name="copy-pdf" depends="direct-pdf">
+    <target name="copy-pdf" depends="pdf">
         <copy file="blob1.pdf" tofile="../../Sites/tqft.net/papers/blobs.pdf"/>
         <exec executable="svn" dir="../../Sites/tqft.net/papers/">
             <arg value="commit"/>
