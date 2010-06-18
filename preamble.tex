@@ -27,12 +27,7 @@
 
 % diagrams -------------------------------------------------------
 % figures ---------------------------------------------------------
-%%% borrowed from Dror's cobordisms paper, use this to include eps or pdf graphics.
-\ifpdf
-\newcommand{\pathtodiagrams}{\pathtotrunk diagrams/pdf/}
-\else
-\newcommand{\pathtodiagrams}{\pathtotrunk diagrams/eps/}
-\fi
+\newcommand{\pathtodiagrams}{\pathtotrunk diagrams/}
 
 \newcommand{\mathfig}[2]{\ensuremath{\hspace{-3pt}\begin{array}{c}%
   \raisebox{-2.5pt}{\includegraphics[width=#1\textwidth]{\pathtodiagrams #2}}%
