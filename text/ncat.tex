@@ -1521,12 +1521,13 @@ More specifically, $D\to D'$ is an antirefinement if $D'$ is obtained from $D$ b
 gluing subintervals together and/or omitting some of the rightmost subintervals.
 (See Figure \ref{fig:lmar}.)
 \begin{figure}[t]$$
+\definecolor{arcolor}{rgb}{.75,.4,.1}
 \begin{tikzpicture}
 \fill (0,0) circle (.1);
 \draw (0,0) -- (2,0);
 \draw (1,0.1) -- (1,-0.1);
 
-\draw [->,red] (1,0.25) -- (1,0.75);
+\draw [->, arcolor] (1,0.25) -- (1,0.75);
 
 \fill (0,1) circle (.1);
 \draw (0,1) -- (2,1);
@@ -1537,7 +1538,7 @@ gluing subintervals together and/or omitting some of the rightmost subintervals.
 \draw (0,0) -- (2,0);
 \draw (1,0.1) -- (1,-0.1);
 
-\draw [->,red] (1,0.25) -- (1,0.75);
+\draw [->, arcolor] (1,0.25) -- (1,0.75);
 
 \fill (0,1) circle (.1);
 \draw (0,1) -- (1,1);
@@ -1550,7 +1551,7 @@ gluing subintervals together and/or omitting some of the rightmost subintervals.
 	\draw (\x,0.1) -- (\x,-0.1);
 }
 
-\draw [->,red] (1,0.25) -- (1,0.75);
+\draw [->, arcolor] (1,0.25) -- (1,0.75);
 
 \fill (0,1) circle (.1);
 \draw (0,1) -- (2,1);
