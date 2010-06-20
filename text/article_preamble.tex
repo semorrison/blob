@@ -7,19 +7,11 @@
 
 \newtheorem{lemma}[prop]{Lemma}
 
-\ifpdf
 \usepackage[pdftex,plainpages=false,hypertexnames=false,pdfpagelabels]{hyperref}
-\else
-\usepackage[dvips,plainpages=false,hypertexnames=false]{hyperref}
-\fi
 
 \usepackage{breakurl}
 
-\ifpdf
 \usepackage[pdftex]{graphicx}
-\else
-\usepackage[dvips]{graphicx}
-\fi
 
 %must load tikz after graphicx
 \usepackage{tikz}
@@ -27,6 +19,8 @@
 \usetikzlibrary{backgrounds}
 \usetikzlibrary{decorations,decorations.pathreplacing}
 \usetikzlibrary{fit,calc,through}
+
+\newtheorem{example}[prop]{Example}
 
 \usepackage{color}
 
