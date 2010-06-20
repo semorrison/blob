@@ -12,14 +12,17 @@
 
 \author[Scott Morrison]{Scott Morrison \\ \texttt{http://tqft.net/} \\ joint work with Kevin Walker}
 \institute{UC Berkeley / Miller Institute for Basic Research}
-\title{Blob homology, part $\mathbb{I}$}
-\date{Homotopy Theory and Higher Algebraic Structures, UC Riverside, November 10 2009 \\ \begin{description}\item[slides, part $\mathbb{I}$:]\url{http://tqft.net/UCR-blobs1} \item[slides, part $\mathbb{II}$:]\url{http://tqft.net/UCR-blobs2} \item[draft:]\url{http://tqft.net/blobs}\end{description}}
+\title{The blob complex}
+\date{Low-Dimensional Topology and Categorification, \\Stony Brook University, June 21-25 2010 \\ \begin{description}\item[slides:]\url{http://tqft.net/sunysb-blobs} \item[paper:]\url{http://tqft.net/blobs}\end{description}}
 
 \begin{document}
 
 \frame{\titlepage}
 
 \beamertemplatetransparentcovered 
+
+\setbeamertemplate{navigation symbols}{}  % no navigation symbols, please
+
 
 \mode<beamer>{\setbeamercolor{block title}{bg=green!40!black}}
 
@@ -32,7 +35,7 @@
 \section{Overview}
 
    \begin{frame}<beamer>
-       \frametitle{Blob homology}
+       \frametitle{The blob complex}
        \begin{quote}
       ... homotopical topology and TQFT have grown so close that I have started thinking that they are turning into the language of new foundations. 
         \end{quote}
@@ -40,7 +43,7 @@
       \tableofcontents
 \end{frame}
 
-\begin{frame}{What is \emph{blob homology}?}
+\begin{frame}{What is \emph{the blob complex}?}
 \begin{block}{}
 The blob complex takes an $n$-manifold $\cM$ and an `$n$-category with strong duality' $\cC$ and produces a chain complex, $\bc_*(\cM; \cC)$.
 \end{block}
@@ -53,19 +56,19 @@ The blob complex takes an $n$-manifold $\cM$ and an `$n$-category with strong du
 }
 
 \node[red] (blobs) at (0,0) {$H(\bc_*(\cM; \cC))$};
-\uncover<1>{
+\uncover<2>{
 \node[blue] (skein) at (4,0) {$\cA(\cM; \cC)$};
 \node[below=5pt, description] (skein-label) at (skein) {(the usual TQFT Hilbert space)};
 \path[->](blobs) edge node[above] {$*= 0$} (skein);
 }
 
-\uncover<2>{
+\uncover<3>{
   \node[blue] (hoch) at (0,3) {$HH_*(\cC)$};
   \node[right=20pt, description] (hoch-label) at (hoch) {(the Hochschild homology)};
   \path[->](blobs) edge node[right] {$\cM = S^1$} (hoch);
 }
 
-\uncover<3>{
+\uncover<4>{
   \node[blue] (comm) at (-2.4, -1.8) {$H_*(\Delta^\infty(\cM), k)$};
   \node[description, below=5pt] (comm-label) at (comm) {(singular homology of the infinite configuration space)};
   \path[->](blobs) edge node[right=5pt] {$\cC = k[t]$} (comm);
@@ -74,12 +77,83 @@ The blob complex takes an $n$-manifold $\cM$ and an `$n$-category with strong du
 \end{tikzpicture}
 \end{frame}
 
+\begin{frame}{Motivation: Khovanov homology as a $4$d TQFT}
+\begin{thm}
+Khovanov homology gives a $4$-category:
+\begin{description}
+\item[3-morphisms] tangles, with the usual $3$ operations,
+\item[4-morphisms] $\Hom{Kh}{T_1}{T_2} = Kh(T_1 \cup \bar{T_2})$, composition defined by saddle cobordisms
+\end{description}
+\end{thm}
+\begin{block}{}
+There is a corresponding $4$-manifold invariant. Given $L \subset \bdy W^4$, it associates a doubly-graded vector space $\cA(W, L; Kh)$.
+$$\cA(B^4, L; Kh) \iso Kh(L)$$
+\end{block}
+\end{frame}
+
+\begin{frame}{Computations are hard}
+\begin{block}{}
+The corresponding $4$-manifold invariant is hard to compute, because the TQFT skein module construction breaks the exact triangle for resolving a crossing.
+\vspace{-0.3cm}
+\begin{align*}
+\begin{tikzpicture}
+\node(a) at (0,0) {$Kh\left(\begin{tikzpicture}[baseline=-2.5pt, scale=0.5, line width=1.5pt]
+\node[outer sep=-1pt] (x) at (0,0){};
+    \draw (x.45)-- (.5,.5);
+    \draw (x.135) -- (-.5,.5);
+    \draw (x.315) -- (.5,-.5);
+    \draw (x.45) -- (-.5,-.5);
+\end{tikzpicture}\right)$};
+\node(b) at (-1.2,-1.5) {$Kh\left(\begin{tikzpicture}[baseline=-2.5pt, scale=0.5, line width=1.5pt]
+    \draw (1.5,.5) .. controls (2,0) .. (1.5,-.5);
+    \draw (2.5,.5) .. controls (2,0) .. (2.5,-.5);
+\end{tikzpicture}\right)$};
+\node(c) at (1.2,-1.5) {$Kh\left(\begin{tikzpicture}[baseline=-2.5pt, scale=0.5, line width=1.5pt]
+    \draw (3.5,.5) .. controls (4,0) .. (4.5,.5);
+    \draw (3.5,-.5) .. controls (4,0) .. (4.5,-.5);
+\end{tikzpicture}\right)$};
+\draw[->] (a) -- (b);
+\draw[->] (b) -- (c);
+\draw[->] (c) -- (a);
+\end{tikzpicture}
+\qquad \qquad
+\begin{tikzpicture}
+\node(a) at (0,0) {$\cA\left(M, \begin{tikzpicture}[baseline=-2.5pt, scale=0.5, line width=1.5pt]
+\node[outer sep=-1pt] (x) at (0,0){};
+    \draw (x.45)-- (.5,.5);
+    \draw (x.135) -- (-.5,.5);
+    \draw (x.315) -- (.5,-.5);
+    \draw (x.45) -- (-.5,-.5);
+\end{tikzpicture}\right)$};
+\node(b) at (-1.4,-1.5) {$\cA\left(M, \begin{tikzpicture}[baseline=-2.5pt, scale=0.5, line width=1.5pt]
+    \draw (1.5,.5) .. controls (2,0) .. (1.5,-.5);
+    \draw (2.5,.5) .. controls (2,0) .. (2.5,-.5);
+\end{tikzpicture}\right)$};
+\node(c) at (1.4,-1.5) {$\cA\left(M,\begin{tikzpicture}[baseline=-2.5pt, scale=0.5, line width=1.5pt]
+    \draw (3.5,.5) .. controls (4,0) .. (4.5,.5);
+    \draw (3.5,-.5) .. controls (4,0) .. (4.5,-.5);
+\end{tikzpicture}\right)$};
+\node at (0,-0.75) {\Large \color{red} ?};
+\draw[dashed] (a) -- (b);
+\draw[dashed] (b) -- (c);
+\draw[dashed] (c) -- (a);
+\end{tikzpicture}
+\end{align*}\vspace{-1cm}
+\end{block}
+There is a spectral sequence converging to $0$ relating the blob homologies for the triangle of resolutions. 
+\begin{conj}
+It may be possible to compute the skein module
+%$$\cA(W, L; Kh) = H_0(\bc_*(W, L; Kh))$$
+by first computing the entire blob homology.
+\end{conj}
+\end{frame}
+
 \begin{frame}{$n$-categories}
 \begin{block}{Defining $n$-categories is fraught with difficulties}
-I'm not going to go into details; I'll draw $2$-dimensional pictures, and rely on your intuition for pivotal $2$-categories.
+For now, I'm not going to go into details; I'll draw $2$-dimensional pictures, and rely on your intuition for pivotal $2$-categories.
 \end{block}
 \begin{block}{}
-Kevin's talk (part $\mathbb{II}$) will explain the notions of `topological $n$-categories' and `$A_\infty$ $n$-categories'.
+Later, I'll explain the notions of `topological $n$-categories' and `$A_\infty$ $n$-categories'.
 \end{block}
 
 \begin{block}{}
@@ -102,7 +176,7 @@ We allow all shapes! A vector space for every ball.
 Fix an $n$-category with strong duality $\cC$. A \emph{field} on $\cM$ is a pasting diagram drawn on $\cM$, with cells labelled by morphisms from $\cC$.
 \end{block}
 \begin{example}[$\cC = \text{TL}_d$ the Temperley-Lieb category]
-$$\roundframe{\mathfig{0.35}{definition/example-pasting-diagram}} \in \cF^{\text{TL}_d}\left(T^2\right)$$
+$$\roundframe{\mathfig{0.35}{definition/example-pasting-diagram}} \in \cF\left(T^2\right)$$
 \end{example}
 \begin{block}{}
 Given a pasting diagram on a ball, we can evaluate it to a morphism. We call the kernel the \emph{null fields}.
@@ -140,6 +214,7 @@ fields modulo fields which evaluate to zero inside some ball.
 A \emph{local} construction, such that when $\cM$ is a ball, $\bc_*(\cM; \cC)$ is a resolution of $\cA(\cM,; \cC)$.
 \end{block}
 
+\mode<handout>{\vspace{-5mm}}
 \begin{block}{}
 \center
 $\bc_0(\cM; \cC) = \cF(\cM)$, arbitrary pasting diagrams on $\cM$.
@@ -153,6 +228,7 @@ $$\bc_1(\cM; \cC) = \Complex\setcr{(B, u, r)}{\begin{array}{c}\text{$B$ an embed
 $$\mathfig{.5}{definition/single-blob}$$
 \vspace{-3mm}
 \begin{block}{}
+\mode<handout>{\vspace{-5mm}}
 \vspace{-6mm}
 \begin{align*}
 d_1 : (B, u, r) & \mapsto u \circ r & \bc_0 / \im(d_1) \iso A(\cM; \cC)
@@ -163,9 +239,11 @@ d_1 : (B, u, r) & \mapsto u \circ r & \bc_0 / \im(d_1) \iso A(\cM; \cC)
 \begin{frame}{Definition, $k=2$}
 \begin{block}{}
 \vspace{-1mm}
+\mode<handout>{\vspace{-5mm}}
 $$\bc_2 = \bc_2^{\text{disjoint}} \oplus \bc_2^{\text{nested}}$$
 \end{block}
 \begin{block}{}
+\mode<handout>{\vspace{-5mm}}
 \vspace{-5mm}
 \begin{align*}
 \bc_2^{\text{disjoint}} & =  \Complex\setcl{\roundframe{\mathfig{0.5}{definition/disjoint-blobs}}}{\text{ev}_{B_i}(u_i) = 0}
@@ -200,6 +278,7 @@ $$d_k : \bc_k \to \bc_{k-1} = {\textstyle \sum_i} (-1)^i (\text{erase blob $i$})
 \vspace{-3mm}
 $$\cA(S^1, A) = \Complex\set{\roundframe{\mathfig{0.1}{hochschild/m-a-b}}}\scalebox{2}{$/$}\set{\roundframe{\mathfig{0.065}{hochschild/ma}} - \roundframe{\mathfig{0.12}{hochschild/m-a}}} = A/(ab-ba)$$
 \end{block}
+\mode<handout>{\vspace{-3mm}}
 \begin{block}{}
 The Hochschild complex is `coinvariants of the bar resolution'
 \vspace{-2mm}
@@ -227,22 +306,6 @@ Taking $H_0$, this is the mapping class group acting on a TQFT skein module.
 \end{block}
 \end{frame}
 
-\begin{frame}{Higher Deligne conjecture}
-\begin{block}{Deligne conjecture}
-Chains on the little discs operad acts on Hochschild cohomology.
-\end{block}
-
-\begin{block}{}
-Call $\Hom{A_\infty}{\bc_*(\cM)}{\bc_*(\cM)}$ `blob cochains on $\cM$'.
-\end{block}
-
-\begin{block}{Theorem* (Higher Deligne conjecture)}
-\scalebox{0.96}{Chains on the $n$-dimensional fat graph operad acts on blob cochains.}
-\vspace{-3mm}
-$$\mathfig{.85}{deligne/manifolds}$$
-\end{block}
-\end{frame}
-
 \begin{frame}{Gluing}
 \begin{block}{$\bc_*(Y \times [0,1])$ is naturally an $A_\infty$ category}
 \begin{itemize}
@@ -262,6 +325,35 @@ When $Y \sqcup Y^{\text{op}} \subset \bdy X$,
 \end{thm}
 In principle, we can compute blob homology from a handle decomposition, by iterated Hochschild homology.
 \end{frame}
+
+\begin{frame}{Higher Deligne conjecture}
+\begin{block}{Deligne conjecture}
+Chains on the little discs operad acts on Hochschild cohomology.
+\end{block}
+
+\begin{block}{}
+Call $\Hom{\bc_*(\bdy M)}{\bc_*(\cM)}{\bc_*(\cM)}$ `blob cochains on $\cM$'.
+\end{block}
+
+\begin{block}{Theorem (Higher Deligne conjecture)}
+\scalebox{0.96}{Chains on the $n$-dimensional fat graph operad acts on blob cochains.}
+\vspace{-3mm}
+$$\mathfig{.85}{deligne/manifolds}$$
+\end{block}
+\end{frame}
+
+\begin{frame}{Maps to a space}
+\begin{block}{}
+Fix a target space $T$. There is an $A_\infty$ $n$-category $\pi_{\leq n}^\infty(T)$ defined by
+$$\pi_{\leq n}^\infty(T)(B) = C_*(\Maps(B\to T)).$$
+\end{block}
+\begin{thm}
+The blob complex recovers mapping spaces:
+$$\bc_*(M; \pi_{\leq n}^\infty(T)) \iso C_*(\Maps(M \to T))$$
+\end{thm}
+This generalizes  a result of Lurie: if $T$ is $n-1$ connected, $\pi_{\leq n}^\infty(T)$ is an $E_n$-algebra and the blob complex is the same as his topological chiral homology.
+\end{frame}
+
 \end{document}
 % ----------------------------------------------------------------
 
