@@ -77,6 +77,86 @@ The blob complex takes an $n$-manifold $\cM$ and an `$n$-category with strong du
 \end{tikzpicture}
 \end{frame}
 
+\begin{frame}{$n$-categories}
+\begin{block}{There are many definitions of $n$-categories!}
+For most of what follows, I'll draw $2$-dimensional pictures and rely on your intuition for pivotal $2$-categories. 
+\end{block}
+\begin{block}{We have another definition!}
+\emph{Many axioms}; geometric examples are easy, algebraic ones hard.
+\begin{itemize}
+%\item A set $\cC(B^k)$ for every $k$-ball, $0 \leq k < n$.
+\item A vector space $\cC(B^n)$ for every $n$-ball $B$.
+%\item From these, inductively
+%\begin{itemize}
+%\item define a set $\cC(S^k)$ for each $k$-sphere, $0 \leq k < n$,
+%\item require a map $\cC(B^k) \to \cC(S^{k-1})$.
+%\end{itemize}
+\item An associative gluing map: with $B = \bigcup_i B_i$, balls glued together to form a ball,
+$$\bigotimes \cC(B_i) \to \cC(B)$$
+(the $\tensor$ is fibered over `boundary restriction' maps).
+\item ...
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}{Cellulations of manifolds}
+\begin{block}{}
+Consider $\cell(M)$, the category of cellulations of a manifold $M$, with morphisms `antirefinements'.
+\end{block}
+\vspace{-4mm}
+$$\mathfig{.35}{ncat/zz2}$$
+\vspace{-4mm}
+\begin{block}{}
+An $n$-category $\cC$ gives a functor from $\cell(M)$ to vector spaces.
+\begin{description}
+\item[objects] send a cellulation to the product of $\cC$ on each top-cell, restricting to the subset where boundaries agree
+\item[morphisms] send an antirefinement to the appropriate gluing map.
+\end{description}
+\end{block}
+\end{frame}
+
+\newcommand{\roundframe}[1]{\begin{tikzpicture}[baseline=-2pt]\node[rectangle,inner sep=1pt,rounded corners,fill=white] {#1};\end{tikzpicture}}
+
+\section{Definition}
+\begin{frame}{Fields}
+\begin{block}{}
+A field on $\cM^n$ is a choice of cellulation and a choice of $n$-morphism for each top-cell.
+%$$\cF(\cM) = \bigoplus_{\cX \in \cell(M)} \bigotimes_{B \in \cX} \cC(B)$$
+\end{block}
+\begin{example}[$\cC = \text{TL}_d$ the Temperley-Lieb category]
+$$\roundframe{\mathfig{0.35}{definition/example-pasting-diagram}} \in \cF\left(T^2\right)$$
+\end{example}
+\begin{block}{}
+Given a field on a ball, we can evaluate it to a morphism using the gluing map. We call the kernel the \emph{null fields}.
+\vspace{-3mm}
+$$\text{ev}\Bigg(\roundframe{\mathfig{0.12}{definition/evaluation1}} - \frac{1}{d}\roundframe{\mathfig{0.12}{definition/evaluation2}}\Bigg) = 0$$
+\end{block}
+\end{frame}
+
+\begin{frame}{Background: TQFT invariants}
+\begin{defn}
+We associate to an $n$-manifold $\cM$ the skein module
+\vspace{-1mm}
+$$\cA(\cM) = \cF(\cM) / \ker{ev},\vspace{-1mm}$$
+fields modulo fields which evaluate to zero inside some ball.
+\end{defn}
+Equivalently, $\cA(\cM)$ is the colimit of $\cC$ along $\cell(M)$.
+
+\vspace{4mm}
+%\begin{itemize}
+%\item We can also associate a $k$-category to an $n-k$-manifold.
+%\item We don't assign a number to an $n+1$-manifold (a `decapitated' extended TQFT).
+%\end{itemize}
+$\cA(Y \times [0,1])$ is a $1$-category, and when $Y \subset \bdy X$, $\cA(X)$ is a module over $\cA(Y \times [0,1])$.
+\begin{thm}[Gluing formula]
+When $Y \sqcup Y^{\text{op}} \subset \bdy X$,
+\vspace{-1mm}
+\[
+	\cA(X \bigcup_Y \selfarrow) \iso \cA(X) \bigotimes_{\cA(Y \times [0,1])} \selfarrow.
+\]
+\end{thm}
+\end{frame}
+
 \begin{frame}{Motivation: Khovanov homology as a $4$d TQFT}
 \begin{thm}
 Khovanov homology gives a $4$-category:
@@ -93,7 +173,7 @@ $$\cA(B^4, L; Kh) \iso Kh(L)$$
 
 \begin{frame}{Computations are hard}
 \begin{block}{}
-The corresponding $4$-manifold invariant is hard to compute, because the TQFT skein module construction breaks the exact triangle for resolving a crossing.
+This invariant is hard to compute, because the TQFT skein module construction breaks the exact triangle for resolving a crossing.
 \vspace{-0.3cm}
 \begin{align*}
 \begin{tikzpicture}
@@ -148,76 +228,16 @@ by first computing the entire blob homology.
 \end{conj}
 \end{frame}
 
-\begin{frame}{$n$-categories}
-\begin{block}{Defining $n$-categories is fraught with difficulties}
-For now, I'm not going to go into details; I'll draw $2$-dimensional pictures, and rely on your intuition for pivotal $2$-categories.
-\end{block}
-\begin{block}{}
-Later, I'll explain the notions of `topological $n$-categories' and `$A_\infty$ $n$-categories'.
-\end{block}
-
-\begin{block}{}
-\begin{itemize}
-\item
-Defining $n$-categories: a choice of `shape' for morphisms.
-\item
-We allow all shapes! A vector space for every ball.
-\item
-`Strong duality' is integral in our definition.
-\end{itemize}
-\end{block}
-\end{frame}
-
-\newcommand{\roundframe}[1]{\begin{tikzpicture}[baseline=-2pt]\node[rectangle,inner sep=1pt,rounded corners,fill=white] {#1};\end{tikzpicture}}
-
-\section{Definition}
-\begin{frame}{Fields and pasting diagrams}
-\begin{block}{Pasting diagrams}
-Fix an $n$-category with strong duality $\cC$. A \emph{field} on $\cM$ is a pasting diagram drawn on $\cM$, with cells labelled by morphisms from $\cC$.
-\end{block}
-\begin{example}[$\cC = \text{TL}_d$ the Temperley-Lieb category]
-$$\roundframe{\mathfig{0.35}{definition/example-pasting-diagram}} \in \cF\left(T^2\right)$$
-\end{example}
-\begin{block}{}
-Given a pasting diagram on a ball, we can evaluate it to a morphism. We call the kernel the \emph{null fields}.
-\vspace{-3mm}
-$$\text{ev}\Bigg(\roundframe{\mathfig{0.12}{definition/evaluation1}} - \frac{1}{d}\roundframe{\mathfig{0.12}{definition/evaluation2}}\Bigg) = 0$$
-\end{block}
-\end{frame}
-
-\begin{frame}{Background: TQFT invariants}
-\begin{defn}
-A decapitated $n+1$-dimensional TQFT associates a vector space $\cA(\cM)$ to each $n$-manifold $\cM$.
-\end{defn}
-(`decapitated': no numerical invariants of $n+1$-manifolds.)
-
-\begin{block}{}
-If the manifold has boundary, we get a category. Objects are boundary data, $\Hom{\cA(\cM)}{x}{y} = \cA(\cM; x,y)$.
-\end{block}
-
-\begin{block}{}
-We want to extend `all the way down'. The $k$-category associated to the $n-k$-manifold $\cY$ is $\cA(\cY \times B^k)$.
-\end{block}
-
-\begin{defn}
-Given an $n$-category $\cC$, the associated TQFT is 
-\vspace{-3mm}
-$$\cA(\cM) = \cF(M) / \ker{ev},$$
-
-\vspace{-3mm}
-fields modulo fields which evaluate to zero inside some ball.
-\end{defn}
-\end{frame}
 
 \begin{frame}{\emph{Definition} of the blob complex, $k=0,1$}
 \begin{block}{Motivation}
-A \emph{local} construction, such that when $\cM$ is a ball, $\bc_*(\cM; \cC)$ is a resolution of $\cA(\cM,; \cC)$.
+A \emph{local} construction, such that when $\cM$ is a ball, $\bc_*(\cM; \cC)$ is a resolution of $\cA(\cM; \cC)$.
 \end{block}
 
 \mode<handout>{\vspace{-5mm}}
 \begin{block}{}
 \center
-$\bc_0(\cM; \cC) = \cF(\cM)$, arbitrary pasting diagrams on $\cM$.
+$\bc_0(\cM; \cC) = \cF(\cM)$, arbitrary fields on $\cM$.
 \end{block}
 
 \begin{block}{}
@@ -264,7 +284,7 @@ $$d_2 : (B_1, B_2, u, r', r) \mapsto (B_2, u \circ r', r) - (B_1, u, r \circ r')
 \begin{frame}{Definition, general case}
 \begin{block}{}
 $$\bc_k = \Complex\set{\roundframe{\mathfig{0.7}{definition/k-blobs}}}$$
-$k$ blobs, properly nested or disjoint, with ``innermost'' blobs labelled by pasting diagrams that evaluate to zero.
+$k$ blobs, properly nested or disjoint, with ``innermost'' blobs labelled by fields that evaluate to zero.
 \end{block}
 \begin{block}{}
 \vspace{-2mm}
@@ -306,12 +326,23 @@ Taking $H_0$, this is the mapping class group acting on a TQFT skein module.
 \end{block}
 \end{frame}
 
+\mode<beamer>{
+\begin{frame}{An action of $\CH{\cM}$}
+\begin{proof}
+\begin{description}
+\item[Step 1] If $\cM=B^n$ or a union of balls, there's a unique chain map, since $\bc_*(B^n; \cC) \htpy \cC$ is concentrated in homological degree $0$.
+\item[Step 2] Fix an open cover $\cU$ of balls. \\ A family of homeomorphisms $P^k \to \Homeo(\cM)$ can be broken up in into pieces, each of which is supported in at most $k$ open sets from $\cU$. \qedhere
+\end{description}
+\end{proof}
+\end{frame}
+}
+
 \begin{frame}{Gluing}
 \begin{block}{$\bc_*(Y \times [0,1])$ is naturally an $A_\infty$ category}
-\begin{itemize}
-\item[$m_2$:] gluing $[0,1] \simeq [0,1] \cup [0,1]$
-\item[$m_k$:] reparametrising $[0,1]$
-\end{itemize}
+\begin{description}
+\item[multiplication ($m_2$):] gluing $[0,1] \simeq [0,1] \cup [0,1]$
+\item[associativity up to homotopy ($m_k$):] reparametrising $[0,1]$ using the action of $\CH{[0,1]}$.
+\end{description}
 \end{block}
 \begin{block}{}
 If $Y \subset \bdy X$ then $\bc_*(X)$ is an $A_\infty$ module over $\bc_*(Y)$.
@@ -344,14 +375,14 @@ $$\mathfig{.85}{deligne/manifolds}$$
 
 \begin{frame}{Maps to a space}
 \begin{block}{}
-Fix a target space $T$. There is an $A_\infty$ $n$-category $\pi_{\leq n}^\infty(T)$ defined by
-$$\pi_{\leq n}^\infty(T)(B) = C_*(\Maps(B\to T)).$$
+Fix a target space $\cT$. There is an $A_\infty$ $n$-category $\pi_{\leq n}^\infty(\cT)$ defined by
+$$\pi_{\leq n}^\infty(\cT)(B) = C_*(\Maps(B\to \cT)).$$
 \end{block}
 \begin{thm}
 The blob complex recovers mapping spaces:
-$$\bc_*(M; \pi_{\leq n}^\infty(T)) \iso C_*(\Maps(M \to T))$$
+$$\bc_*(\cM; \pi_{\leq n}^\infty(\cT)) \iso C_*(\Maps(\cM \to \cT))$$
 \end{thm}
-This generalizes  a result of Lurie: if $T$ is $n-1$ connected, $\pi_{\leq n}^\infty(T)$ is an $E_n$-algebra and the blob complex is the same as his topological chiral homology.
+This generalizes  a result of Lurie: if $\cT$ is $n-1$ connected, $\pi_{\leq n}^\infty(\cT)$ is an $E_n$-algebra and the blob complex is the same as his topological chiral homology.
 \end{frame}
 
 \end{document}
