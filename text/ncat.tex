@@ -1928,6 +1928,7 @@ non-degenerate inner products, then there is a coherent family of isomorphisms
 $\cS(X; c; E) \cong \cS(X; c; E')$ for all pairs of choices $E$ and $E'$.
 This will allow us to define $\cS(X; e)$ independently of the choice of $E$.
 
+First we must define ``inner product", ``non-degenerate" and ``compatible".
 Let $Y$ be a decorated $n$-ball, and $\ol{Y}$ it's mirror image.
 (We assume we are working in the unoriented category.)
 Let $Y\cup\ol{Y}$ denote the decorated $n$-sphere obtained by gluing $Y$ and $\ol{Y}$
@@ -1940,7 +1941,51 @@ We will also use the notation
 \[
 	\langle a, b\rangle \deq z_Y(a\bullet \ol{b}) \in \c .
 \]
-An inner product is {\it non-degenerate} if 
+An inner product induces a linear map
+\begin{eqnarray*}
+	\varphi: \cS(Y) &\to& \cS(Y)^* \\
+	a &\mapsto& \langle a, \cdot \rangle
+\end{eqnarray*}
+which satisfies, for all morphisms $e$ of $\cS(\bd Y)$,
+\[
+	\varphi(ae)(b) = \langle ae, b \rangle = z_Y(a\bullet e\bullet b) = 
+			\langle a, eb \rangle = \varphi(a)(eb) .
+\]
+In other words, $\varphi$ is a map of $\cS(\bd Y)$ modules.
+An inner product is {\it non-degenerate} if $\varphi$ is an isomorphism.
+This implies that $\cS(Y; c)$ is finite dimensional for all boundary conditions $c$.
+(One can think of these inner products as giving some duality in dimension $n{+}1$;
+heretofore we have only assumed duality in dimensions 0 through $n$.)
+
+Next we define compatibility.
+Let $Y = Y_1\cup Y_2$ with $D = Y_1\cap Y_2$.
+Let $X_1$ and $X_2$ be the two components of $Y\times I$ (pinched) cut along
+$D\times I$.
+(Here we are overloading notation and letting $D$ denote both a decorated and an undecorated
+manifold.)
+We have $\bd X_i = Y_i \cup \ol{Y}_i \cup (D\times I)$
+(see Figure xxxx).
+Given $a_i\in \cS(Y_i)$, $b_i\in \cS(\ol{Y}_i)$ and $v\in\cS(D\times I)$
+which agree on their boundaries, we can evaluate
+\[
+	z_{Y_i}(a_i\bullet b_i\bullet v) \in \c .
+\]
+(This requires a choice of homeomorphism $Y_i \cup \ol{Y}_i \cup (D\times I) \cong
+Y_i \cup \ol{Y}_i$, but the value of $z_{Y_i}$ is independent of this choice.)
+We can think of $z_{Y_i}$ as giving a function
+\[
+	\psi_i : \cS(Y_i) \ot \cS(\ol{Y}_i) \to \cS(D\times I)^* 
+					\stackrel{\varphi\inv}{\longrightarrow} \cS(D\times I) .
+\]
+We can now finally define a family of inner products to be {\it compatible} if
+for all decompositions $Y = Y_1\cup Y_2$ as above and all $a_i\in \cS(Y_i)$, $b_i\in \cS(\ol{Y}_i)$
+we have
+\[
+	z_Y(a_1\bullet a_2\bullet b_1\bullet b_2) = 
+				z_{D\times I}(\psi_1(a_1\ot b_1)\bullet \psi_2(a_2\ot b_2)) .
+\]
+In other words, the inner product on $Y$ is determined by the inner products on
+$Y_1$, $Y_2$ and $D\times I$.
 
 \nn{...}
 
