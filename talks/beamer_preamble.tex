@@ -9,8 +9,34 @@
 
 % beamer mode
 \mode<beamer>{
-\usetheme{Warsaw}
+\useinnertheme[shadow=true]{rounded}
+\useoutertheme{shadow}
+\usecolortheme{orchid}
+\usecolortheme{whale}
+\setbeamerfont{block title}{size={}}
+
+\setbeamertemplate{headline}
+{%
 }
+
+\setbeamertemplate{footline}
+{%
+  \leavevmode%
+  \hbox{\begin{beamercolorbox}[wd=.25\paperwidth,ht=2.5ex,dp=1.125ex,leftskip=.3cm,rightskip=.3cm]{author in head/foot}%
+    \usebeamerfont{author in head/foot}\insertshortauthor
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.25\paperwidth,ht=2.5ex,dp=1.125ex,leftskip=.3cm,rightskip=.3cm]{title in head/foot}%
+    \usebeamerfont{title in head/foot}\insertshorttitle
+  \end{beamercolorbox}}%
+    \begin{beamercolorbox}[wd=.5\paperwidth,ht=2.5ex,dp=1.125ex]{section in head/foot}%
+    \insertsectionnavigationhorizontal{.5\paperwidth}{}{\hskip0pt plus1filll}%
+  \end{beamercolorbox}%
+  \vskip0pt%
+}
+
+}
+
+
 
 % transparency mode
 \mode<trans>{
@@ -27,3 +53,10 @@
 \newcommand{\return}[2]{\hyperlink{#1}{\beamerreturnbutton{#2}}}
 \newcommand{\goto}[2]{\hyperlink{#1}{\beamergotobutton{#2}}}
 \newcommand{\skipto}[2]{\hyperlink{#1}{\beamerskipbutton{#2}}}
+
+\beamertemplatetransparentcovered 
+\setbeamertemplate{navigation symbols}{}  % no navigation symbols, please
+\mode<beamer>{\setbeamercolor{block title}{bg=green!40!black}}
+\beamersetuncovermixins 
+{\opaqueness<1->{60}} 
+{} 

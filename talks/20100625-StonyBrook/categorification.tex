@@ -13,23 +13,21 @@
 \author[Scott Morrison]{Scott Morrison \\ \texttt{http://tqft.net/} \\ joint work with Kevin Walker}
 \institute{UC Berkeley / Miller Institute for Basic Research}
 \title{The blob complex}
-\date{Low-Dimensional Topology and Categorification, \\Stony Brook University, June 21-25 2010 \\ \begin{description}\item[slides:]\url{http://tqft.net/sunysb-blobs} \item[paper:]\url{http://tqft.net/blobs}\end{description}}
+\date{
+Low-Dimensional Topology and Categorification, \\
+Stony Brook University, June 21-25 2010 \\
+\begin{description}
+	\item[slides:]\url{http://tqft.net/talks}
+	\item[paper:]\url{http://tqft.net/blobs}
+%	\item[shameless plug:]\url{http://mathoverflow.net}
+\end{description}
+}
+
+\listfiles
 
 \begin{document}
 
 \frame{\titlepage}
-
-\beamertemplatetransparentcovered 
-
-\setbeamertemplate{navigation symbols}{}  % no navigation symbols, please
-
-
-\mode<beamer>{\setbeamercolor{block title}{bg=green!40!black}}
-
-\beamersetuncovermixins 
-{\opaqueness<1->{60}} 
-{} 
-
 
 
 \section{Overview}
@@ -77,12 +75,13 @@ The blob complex takes an $n$-manifold $\cM$ and an `$n$-category with strong du
 \end{tikzpicture}
 \end{frame}
 
+\section{TQFTs}
+
 \begin{frame}{$n$-categories}
 \begin{block}{There are many definitions of $n$-categories!}
 For most of what follows, I'll draw $2$-dimensional pictures and rely on your intuition for pivotal $2$-categories. 
 \end{block}
-\begin{block}{We have another definition!}
-\emph{Many axioms}; geometric examples are easy, algebraic ones hard.
+\begin{block}{We have another definition: \emph{topological $n$-categories}}
 \begin{itemize}
 %\item A set $\cC(B^k)$ for every $k$-ball, $0 \leq k < n$.
 \item A vector space $\cC(B^n)$ for every $n$-ball $B$.
@@ -97,6 +96,7 @@ $$\bigotimes \cC(B_i) \to \cC(B)$$
 \item ...
 \end{itemize}
 \end{block}
+These are easy to check for geometric examples, hard to check for algebraic examples.
 \end{frame}
 
 \begin{frame}{Cellulations of manifolds}
@@ -117,10 +117,9 @@ An $n$-category $\cC$ gives a functor from $\cell(M)$ to vector spaces.
 
 \newcommand{\roundframe}[1]{\begin{tikzpicture}[baseline=-2pt]\node[rectangle,inner sep=1pt,rounded corners,fill=white] {#1};\end{tikzpicture}}
 
-\section{Definition}
 \begin{frame}{Fields}
 \begin{block}{}
-A field on $\cM^n$ is a choice of cellulation and a choice of $n$-morphism for each top-cell.
+A field on $\cM^n$ is a choice of cellulation and a choice of $n$-morphism for each top-cell (with matching boundaries).
 %$$\cF(\cM) = \bigoplus_{\cX \in \cell(M)} \bigotimes_{B \in \cX} \cC(B)$$
 \end{block}
 \begin{example}[$\cC = \text{TL}_d$ the Temperley-Lieb category]
@@ -228,7 +227,7 @@ by first computing the entire blob homology.
 \end{conj}
 \end{frame}
 
-
+\section{Definition}
 \begin{frame}{\emph{Definition} of the blob complex, $k=0,1$}
 \begin{block}{Motivation}
 A \emph{local} construction, such that when $\cM$ is a ball, $\bc_*(\cM; \cC)$ is a resolution of $\cA(\cM; \cC)$.
@@ -296,15 +295,21 @@ $$d_k : \bc_k \to \bc_{k-1} = {\textstyle \sum_i} (-1)^i (\text{erase blob $i$})
 \begin{frame}{Hochschild homology}
 \begin{block}{TQFT on $S^1$ is `coinvariants'}
 \vspace{-3mm}
-$$\cA(S^1, A) = \Complex\set{\roundframe{\mathfig{0.1}{hochschild/m-a-b}}}\scalebox{2}{$/$}\set{\roundframe{\mathfig{0.065}{hochschild/ma}} - \roundframe{\mathfig{0.12}{hochschild/m-a}}} = A/(ab-ba)$$
+$$\cA(S^1, A) = \Complex\set{\roundframe{
+\tikz{\draw (0,0) circle (0.4); \foreach \q/\l in {90/a, 210/b, 330/c} {\draw[fill=red] (\q:0.4) circle (0.075); \node at (\q:0.6) {\l};}}
+}}
+\scalebox{2}{$/$}
+\set{\roundframe{\tikz{\draw (-30:0.4) arc (-30:210:0.4); \draw[fill=red] (90:0.4) circle (0.075); \node at (90:0.65) {$ab$};}} - \roundframe{
+\tikz{\draw (-30:0.4) arc (-30:210:0.4); \foreach \q/\l in {120/a, 60/b} {\draw[fill=red] (\q:0.4) circle (0.075); \node at (\q:0.65) {\l};}}}} = A/(ab-ba)$$
 \end{block}
 \mode<handout>{\vspace{-3mm}}
-\begin{block}{}
+\begin{block}{Blob homology on $S^1$ is Hochschild homology}
 The Hochschild complex is `coinvariants of the bar resolution'
 \vspace{-2mm}
 $$ \cdots \to A \tensor A \tensor A \to A \tensor A \xrightarrow{m \tensor a \mapsto ma-am} A$$
-\end{block}
-\begin{thm}[$ \HC_*(A) \iso \bc_*(S^1; A)$]
+
+We check universal properties, as it's hard to directly construct an isomorphism.
+\noop{
 $$m \tensor a \mapsto
 \roundframe{\mathfig{0.35}{hochschild/1-chains}}
 $$
@@ -312,7 +317,8 @@ $$
 \begin{align*}
 u_1 & = \mathfig{0.05}{hochschild/u_1-1} - \mathfig{0.05}{hochschild/u_1-2} & u_2  &= \mathfig{0.05}{hochschild/u_2-1} - \mathfig{0.05}{hochschild/u_2-2} 
 \end{align*}
-\end{thm}
+}
+\end{block}
 \end{frame}
 
 \begin{frame}{An action of $\CH{\cM}$}
@@ -323,6 +329,7 @@ which is associative up to homotopy, and compatible with gluing.
 \end{thm}
 \begin{block}{}
 Taking $H_0$, this is the mapping class group acting on a TQFT skein module.
+$$H_0(\Homeo(\cM)) \tensor \cA(\cM) \to \cA(\cM).$$
 \end{block}
 \end{frame}
 
@@ -377,12 +384,13 @@ $$\mathfig{.85}{deligne/manifolds}$$
 \begin{block}{}
 Fix a target space $\cT$. There is an $A_\infty$ $n$-category $\pi_{\leq n}^\infty(\cT)$ defined by
 $$\pi_{\leq n}^\infty(\cT)(B) = C_*(\Maps(B\to \cT)).$$
+(Here $B$ is an $n$-ball.)
 \end{block}
 \begin{thm}
 The blob complex recovers mapping spaces:
 $$\bc_*(\cM; \pi_{\leq n}^\infty(\cT)) \iso C_*(\Maps(\cM \to \cT))$$
 \end{thm}
-This generalizes  a result of Lurie: if $\cT$ is $n-1$ connected, $\pi_{\leq n}^\infty(\cT)$ is an $E_n$-algebra and the blob complex is the same as his topological chiral homology.
+This generalizes  a result of Lurie: if $\cT$ is $n-1$ connected, $\pi_{\leq n}^\infty(\cT)$ is an $E_n$-algebra and in this special case the blob complex is presumably the same as his topological chiral homology.
 \end{frame}
 
 \end{document}
