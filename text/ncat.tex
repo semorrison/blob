@@ -64,7 +64,7 @@ They could be unoriented or oriented or Spin or $\mbox{Pin}_\pm$.
 They could be topological or PL or smooth.
 %\nn{need to check whether this makes much difference}
 (If smooth, ``homeomorphism" should be read ``diffeomorphism", and we would need
-to be fussier about corners.)
+to be fussier about corners and boundaries.)
 For each flavor of manifold there is a corresponding flavor of $n$-category.
 We will concentrate on the case of PL unoriented manifolds.
 
@@ -1522,8 +1522,7 @@ gluing subintervals together and/or omitting some of the rightmost subintervals.
 (See Figure \ref{fig:lmar}.)
 \begin{figure}[t]$$
 \definecolor{arcolor}{rgb}{.75,.4,.1}
-\begin{tikzpicture}
-\pgfsetlinewidth{1pt}
+\begin{tikzpicture}[line width=1pt]
 \fill (0,0) circle (.1);
 \draw (0,0) -- (2,0);
 \draw (1,0.1) -- (1,-0.1);
@@ -1534,8 +1533,7 @@ gluing subintervals together and/or omitting some of the rightmost subintervals.
 \draw (0,1) -- (2,1);
 \end{tikzpicture}
 \qquad
-\begin{tikzpicture}
-\pgfsetlinewidth{1pt}
+\begin{tikzpicture}[line width=1pt]
 \fill (0,0) circle (.1);
 \draw (0,0) -- (2,0);
 \draw (1,0.1) -- (1,-0.1);
@@ -1546,8 +1544,7 @@ gluing subintervals together and/or omitting some of the rightmost subintervals.
 \draw (0,1) -- (1,1);
 \end{tikzpicture}
 \qquad
-\begin{tikzpicture}
-\pgfsetlinewidth{1pt}
+\begin{tikzpicture}[line width=1pt]
 \fill (0,0) circle (.1);
 \draw (0,0) -- (3,0);
 \foreach \x in {0.5, 1.0, 1.25, 1.5, 2.0, 2.5} {
@@ -1590,8 +1587,7 @@ For fixed $D_0$ and $D_1$, let $\cbar = \cbar'\ot\cbar''$,
 where $\cbar'$ corresponds to the subintervals of $D_0$ which map to $D_1$ and 
 $\cbar''$ corresponds to the subintervals
 which are dropped off the right side.
-(Either $\cbar'$ or $\cbar''$ might be empty.)
-\nn{surely $\cbar'$ can't be empy: we don't allow $D_1$ to be empty.}
+(If no such subintervals are dropped, then $\cbar''$ is empty.)
 Translating from the boundary map for $(\cM_\cC\ot {_\cC\cN})^*$  appearing in Equation \eqref{eq:tensor-product-boundary},
 we have
 \begin{eqnarray*}
@@ -1648,6 +1644,11 @@ should make some arbitrary choice}
 Given $_\cC\cZ$ and  $g: \cX_\cC \to \cY_\cC$ with $\bd g = 0$ as above, we next define a chain map
 \[
 	g\ot\id : \cX_\cC \ot {}_\cC\cZ \to \cY_\cC \ot {}_\cC\cZ .
+\]
+\nn{...}
+More generally, we have a chain map
+\[
+	\hom_\cC(\cX_\cC \to \cY_\cC) \ot \cX_\cC \ot {}_\cC\cZ \to \cY_\cC \ot {}_\cC\cZ .
 \]
 
 \nn{not sure whether to do low degree examples or try to state the general case; ideally both,
