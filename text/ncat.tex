@@ -1682,9 +1682,11 @@ In this subsection we define an $n{+}1$-category $\cS$ of ``sphere modules"
 whose objects are $n$-categories.
 When $n=2$
 this is a version of the familiar algebras-bimodules-intertwiners $2$-category.
-While it is clearly appropriate to call an $S^0$ module a bimodule,
+It is clearly appropriate to call an $S^0$ module a bimodule,
 but this is much less true for higher dimensional spheres, 
 so we prefer the term ``sphere module" for the general case.
+
+For simplicity, we will assume that $n$-categories are enriched over $\c$-vector spaces.
 
 The $0$- through $n$-dimensional parts of $\cC$ are various sorts of modules, and we describe
 these first.
@@ -1711,7 +1713,7 @@ See Figure \ref{feb21a}.
 Another way to say this is that $(X, M)$ is homeomorphic to $B^{k-1}\times([-1,1], \{0\})$.
 
 \begin{figure}[!ht]
-$$\tikz[baseline,line width=2pt]{\draw[blue] (-2,0)--(2,0); \fill[red] (0,0) circle (0.1);} \qquad \qquad \tikz[baseline,line width=2pt]{\draw[blue] (0,0) circle (2 and 1); \draw[red] (0,1)--(0,-1);}$$
+$$\tikz[baseline,line width=2pt]{\draw[blue] (-2,0)--(2,0); \fill[red] (0,0) circle (0.1);} \qquad \qquad \tikz[baseline,line width=2pt]{\draw[blue][fill=blue!30!white] (0,0) circle (2 and 1); \draw[red] (0,1)--(0,-1);}$$
 \caption{0-marked 1-ball and 0-marked 2-ball}
 \label{feb21a}
 \end{figure}
@@ -1736,7 +1738,7 @@ morphism sets $\cA_k(X_i)$ (if $X_i$ lies on the $\cA$-labeled side)
 or $\cB_k(X_i)$ (if $X_i$ lies on the $\cB$-labeled side)
 or $\cM_k(X_i)$ (if $X_i$ intersects the marking and is therefore a smaller 0-marked ball).
 Corresponding to this decomposition we have an action and/or composition map
-from the product of these various sets into $\cM(X)$.
+from the product of these various sets into $\cM_k(X)$.
 
 \medskip
 
@@ -1761,7 +1763,7 @@ $$
 \draw (2,0) -- (4,0) node[below] {$J$};
 \fill[red] (3,0) circle (0.1);
 
-\draw (6,0) node(a) {} arc (135:90:4) node(top) {} arc (90:45:4) node(b) {} arc (-45:-90:4) node(bottom) {} arc(-90:-135:4);
+\draw[fill=blue!30!white] (6,0) node(a) {} arc (135:90:4) node(top) {} arc (90:45:4) node(b) {} arc (-45:-90:4) node(bottom) {} arc(-90:-135:4);
 \draw[red] (top.center) -- (bottom.center);
 \fill (a) circle (0.1) node[left] {\color{green!50!brown} $a$};
 \fill (b) circle (0.1) node[right] {\color{green!50!brown} $b$};
@@ -1836,7 +1838,7 @@ We now proceed as in the above module definitions.
 \begin{figure}[!ht]
 $$
 \begin{tikzpicture}[baseline,line width = 2pt]
-\draw[blue] (0,0) circle (2);
+\draw[blue][fill=blue!15!white] (0,0) circle (2);
 \fill[red] (0,0) circle (0.1);
 \foreach \qm/\qa/\n in {70/-30/0, 120/95/1, -120/180/2} {
 	\draw[red] (0,0) -- (\qm:2);
@@ -1876,7 +1878,7 @@ and a 2-sphere module is a representation of such an $n{-}2$-category.
 
 \medskip
 
-We can now define the $n$- or less dimensional part of our $n{+}1$-category $\cS$.
+We can now define the $n$-or-less-dimensional part of our $n{+}1$-category $\cS$.
 Choose some collection of $n$-categories, then choose some collections of bimodules for
 these $n$-categories, then choose some collection of 1-sphere modules for the various
 possible marked 1-spheres labeled by the $n$-categories and bimodules, and so on.
@@ -1897,7 +1899,7 @@ for the $n{-}k{+}1$-category associated to its decorated boundary.
 Thus the $k$-morphisms of $\cS$ (for $k\le n$) can be thought 
 of as $n$-category $k{-}1$-sphere modules 
 (generalizations of bimodules).
-On the other hand, we can equally think of the $k$-morphisms as decorations on $k$-balls, 
+On the other hand, we can equally well think of the $k$-morphisms as decorations on $k$-balls, 
 and from this (official) point of view it is clear that they satisfy all of the axioms of an
 $n{+}1$-category.
 (All of the axioms for the less-than-$n{+}1$-dimensional part of an $n{+}1$-category, that is.)
@@ -1905,12 +1907,40 @@ $n{+}1$-category.
 \medskip
 
 Next we define the $n{+}1$-morphisms of $\cS$.
+The construction of the 0- through $n$-morphisms was easy and tautological, but the 
+$n{+}1$-morphisms will require a bit of combinatorial topology effort, as well as addition
+duality assumptions on the lower morphisms.
 
+Let $X$ be an $n{+}1$-ball, and let $c$ be a decoration of its boundary
+by a cell complex labeled by 0- through $n$-morphisms, as above.
+Choose an $n{-}1$-sphere $E\sub \bd X$ which divides
+$\bd X$ into ``incoming" and ``outgoing" boundary $\bd_-X$ and $\bd_+X$.
+Let $E_c$ denote $E$ decorated by the restriction of $c$ to $E$.
+Recall from above the associated 1-category $\cS(E_c)$.
+We can also have $\cS(E_c)$ modules $\cS(\bd_-X_c)$ and $\cS(\bd_+X_c)$.
+Define
+\[
+	\cS(X; c; E) \deq \hom_{\cS(E_c)}(\cS(\bd_-X_c), \cS(\bd_+X_c)) .
+\]
 
+We will show that if the sphere modules are equipped with a compatible family of 
+non-degenerate inner products, then there is a coherent family of isomorphisms
+$\cS(X; c; E) \cong \cS(X; c; E')$ for all pairs of choices $E$ and $E'$.
+This will allow us to define $\cS(X; e)$ independently of the choice of $E$.
 
-
-
-
+Let $Y$ be a decorated $n$-ball, and $\ol{Y}$ it's mirror image.
+(We assume we are working in the unoriented category.)
+Let $Y\cup\ol{Y}$ denote the decorated $n$-sphere obtained by gluing $Y$ and $\ol{Y}$
+along their common boundary.
+An {\it inner product} on $\cS(Y)$ is a dual vector
+\[
+	z_Y : \cS(Y\cup\ol{Y}) \to \c.
+\]
+We will also use the notation
+\[
+	\langle a, b\rangle \deq z_Y(a\bullet \ol{b}) \in \c .
+\]
+An inner product is {\it non-degenerate} if 
 
 \nn{...}
 
@@ -1929,10 +1959,7 @@ Next we define the $n{+}1$-morphisms of $\cS$.
 Stuff that remains to be done (either below or in an appendix or in a separate section or in
 a separate paper):
 \begin{itemize}
-\item spell out what difference (if any) Top vs PL vs Smooth makes
 \item discuss Morita equivalence
-\item morphisms of modules; show that it's adjoint to tensor product
-(need to define dual module for this)
 \item functors
 \end{itemize}
 
