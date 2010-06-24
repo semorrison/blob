@@ -1686,9 +1686,12 @@ It is clearly appropriate to call an $S^0$ module a bimodule,
 but this is much less true for higher dimensional spheres, 
 so we prefer the term ``sphere module" for the general case.
 
+The results of this subsection are not needed for the rest of the paper,
+so we will skimp on details in a couple of places.
+
 For simplicity, we will assume that $n$-categories are enriched over $\c$-vector spaces.
 
-The $0$- through $n$-dimensional parts of $\cC$ are various sorts of modules, and we describe
+The $0$- through $n$-dimensional parts of $\cS$ are various sorts of modules, and we describe
 these first.
 The $n{+}1$-dimensional part of $\cS$ consists of intertwiners
 of (garden-variety) $1$-category modules associated to decorated $n$-balls.
@@ -1928,6 +1931,7 @@ non-degenerate inner products, then there is a coherent family of isomorphisms
 $\cS(X; c; E) \cong \cS(X; c; E')$ for all pairs of choices $E$ and $E'$.
 This will allow us to define $\cS(X; e)$ independently of the choice of $E$.
 
+First we must define ``inner product", ``non-degenerate" and ``compatible".
 Let $Y$ be a decorated $n$-ball, and $\ol{Y}$ it's mirror image.
 (We assume we are working in the unoriented category.)
 Let $Y\cup\ol{Y}$ denote the decorated $n$-sphere obtained by gluing $Y$ and $\ol{Y}$
@@ -1940,7 +1944,169 @@ We will also use the notation
 \[
 	\langle a, b\rangle \deq z_Y(a\bullet \ol{b}) \in \c .
 \]
-An inner product is {\it non-degenerate} if 
+An inner product induces a linear map
+\begin{eqnarray*}
+	\varphi: \cS(Y) &\to& \cS(Y)^* \\
+	a &\mapsto& \langle a, \cdot \rangle
+\end{eqnarray*}
+which satisfies, for all morphisms $e$ of $\cS(\bd Y)$,
+\[
+	\varphi(ae)(b) = \langle ae, b \rangle = z_Y(a\bullet e\bullet b) = 
+			\langle a, eb \rangle = \varphi(a)(eb) .
+\]
+In other words, $\varphi$ is a map of $\cS(\bd Y)$ modules.
+An inner product is {\it non-degenerate} if $\varphi$ is an isomorphism.
+This implies that $\cS(Y; c)$ is finite dimensional for all boundary conditions $c$.
+(One can think of these inner products as giving some duality in dimension $n{+}1$;
+heretofore we have only assumed duality in dimensions 0 through $n$.)
+
+Next we define compatibility.
+Let $Y = Y_1\cup Y_2$ with $D = Y_1\cap Y_2$.
+Let $X_1$ and $X_2$ be the two components of $Y\times I$ (pinched) cut along
+$D\times I$.
+(Here we are overloading notation and letting $D$ denote both a decorated and an undecorated
+manifold.)
+We have $\bd X_i = Y_i \cup \ol{Y}_i \cup (D\times I)$
+(see Figure \ref{jun23a}).
+\begin{figure}[t]
+\begin{equation*}
+\mathfig{.6}{tempkw/jun23a}
+\end{equation*}
+\caption{$Y\times I$ sliced open}
+\label{jun23a}
+\end{figure}
+Given $a_i\in \cS(Y_i)$, $b_i\in \cS(\ol{Y}_i)$ and $v\in\cS(D\times I)$
+which agree on their boundaries, we can evaluate
+\[
+	z_{Y_i}(a_i\bullet b_i\bullet v) \in \c .
+\]
+(This requires a choice of homeomorphism $Y_i \cup \ol{Y}_i \cup (D\times I) \cong
+Y_i \cup \ol{Y}_i$, but the value of $z_{Y_i}$ is independent of this choice.)
+We can think of $z_{Y_i}$ as giving a function
+\[
+	\psi_i : \cS(Y_i) \ot \cS(\ol{Y}_i) \to \cS(D\times I)^* 
+					\stackrel{\varphi\inv}{\longrightarrow} \cS(D\times I) .
+\]
+We can now finally define a family of inner products to be {\it compatible} if
+for all decompositions $Y = Y_1\cup Y_2$ as above and all $a_i\in \cS(Y_i)$, $b_i\in \cS(\ol{Y}_i)$
+we have
+\[
+	z_Y(a_1\bullet a_2\bullet b_1\bullet b_2) = 
+				z_{D\times I}(\psi_1(a_1\ot b_1)\bullet \psi_2(a_2\ot b_2)) .
+\]
+In other words, the inner product on $Y$ is determined by the inner products on
+$Y_1$, $Y_2$ and $D\times I$.
+
+Now we show how to unambiguously identify $\cS(X; c; E)$ and $\cS(X; c; E')$ for any
+two choices of $E$ and $E'$.
+Consider first the case where $\bd X$ is decomposed as three $n$-balls $A$, $B$ and $C$,
+with $E = \bd(A\cup B)$ and $E' = \bd A$.
+We must provide an isomorphism between $\cS(X; c; E) = \hom(\cS(C), \cS(A\cup B))$
+and $\cS(X; c; E') = \hom(\cS(C\cup \ol{B}), \cS(A))$.
+Let $D = B\cap A$.
+Then as above we can construct a map
+\[
+	\psi: \cS(B)\ot\cS(\ol{B}) \to \cS(D\times I) .
+\]
+Given $f\in \hom(\cS(C), \cS(A\cup B))$ we define $f'\in \hom(\cS(C\cup \ol{B}), \cS(A))$
+to be the composition
+\[
+	\cS(C\cup \ol{B}) \stackrel{f\ot\id}{\longrightarrow}
+		\cS(A\cup B\cup \ol{B})  \stackrel{\id\ot\psi}{\longrightarrow}
+			\cS(A\cup(D\times I)) \stackrel{\cong}{\longrightarrow} \cS(A) .
+\]
+(See Figure \ref{jun23b}.)
+\begin{figure}[t]
+\begin{equation*}
+\mathfig{.5}{tempkw/jun23b}
+\end{equation*}
+\caption{Moving $B$ from top to bottom}
+\label{jun23b}
+\end{figure}
+Let $D' = B\cap C$.
+Using the inner products there is an adjoint map
+\[
+	\psi^\dagger: \cS(D'\times I) \to \cS(\ol{B})\ot\cS(B) .
+\]
+Given $f'\in \hom(\cS(C\cup \ol{B}), \cS(A))$ we define $f\in \hom(\cS(C), \cS(A\cup B))$
+to be the composition
+\[
+	\cS(C) \stackrel{\cong}{\longrightarrow}
+		\cS(C\cup(D'\times I)) \stackrel{\id\ot\psi^\dagger}{\longrightarrow}
+			\cS(C\cup \ol{B}\cup B)   \stackrel{f'\ot\id}{\longrightarrow}
+				\cS(A\cup B) .
+\]
+(See Figure \ref{jun23c}.)
+\begin{figure}[t]
+\begin{equation*}
+\mathfig{.5}{tempkw/jun23c}
+\end{equation*}
+\caption{Moving $B$ from bottom to top}
+\label{jun23c}
+\end{figure}
+Let $D' = B\cap C$.
+It is not hard too show that the above two maps are mutually inverse.
+
+\begin{lem}
+Any two choices of $E$ and $E'$ are related by a series of modifications as above.
+\end{lem}
+
+\begin{proof}
+(Sketch)
+$E$ and $E'$ are isotopic, and any isotopy is 
+homotopic to a composition of small isotopies which are either
+(a) supported away from $E$, or (b) modify $E$ in the simple manner described above.
+\end{proof}
+
+It follows from the lemma that we can construct an isomorphism
+between $\cS(X; c; E)$ and $\cS(X; c; E')$ for any pair $E$, $E'$.
+This construction involves on a choice of simple ``moves" (as above) to transform
+$E$ to $E'$.
+We must now show that the isomorphism does not depend on this choice.
+We will show below that it suffice to check two ``movie moves".
+
+The first movie move is to push $E$ across an $n$-ball $B$ as above, then push it back.
+The result is equivalent to doing nothing.
+As we remarked above, the isomorphisms corresponding to these two pushes are mutually
+inverse, so we have invariance under this movie move.
+
+The second movie move replaces to successive pushes in the same direction,
+across $B_1$ and $B_2$, say, with a single push across $B_1\cup B_2$.
+(See Figure \ref{jun23d}.)
+\begin{figure}[t]
+\begin{equation*}
+\mathfig{.9}{tempkw/jun23d}
+\end{equation*}
+\caption{A movie move}
+\label{jun23d}
+\end{figure}
+Invariance under this movie move follows from the compatibility of the inner
+product for $B_1\cup B_2$ with the inner products for $B_1$ and $B_2$.
+
+If $n\ge 2$, these two movie move suffice:
+
+\begin{lem}
+Assume $n\ge 2$ and fix $E$ and $E'$ as above.
+The any two sequences of elementary moves connecting $E$ to $E'$
+are related by a sequence of the two movie moves defined above.
+\end{lem}
+
+\begin{proof}
+(Sketch)
+Consider a two parameter family of diffeomorphisms (one parameter family of isotopies) 
+of $\bd X$.
+Up to homotopy,
+such a family is homotopic to a family which can be decomposed 
+into small families which are either
+(a) supported away from $E$, 
+(b) have boundaries corresponding to the two movie moves above.
+Finally, observe that the space of $E$'s is simply connected.
+(This fails for $n=1$.)
+\end{proof}
+
+For $n=1$ we have to check an additional ``global" relations corresponding to 
+rotating the 0-sphere $E$ around the 1-sphere $\bd X$.
+\nn{should check this global move, or maybe cite Frobenius reciprocity result}
 
 \nn{...}
 
