@@ -1681,22 +1681,22 @@ certainly the simple kind (strictly commute with gluing) arise in nature.}
 In this subsection we define an $n{+}1$-category $\cS$ of ``sphere modules" 
 whose objects are $n$-categories.
 When $n=2$
-this is a version of the familiar algebras-bimodules-intertwiners $2$-category.
-It is clearly appropriate to call an $S^0$ module a bimodule,
-but this is much less true for higher dimensional spheres, 
+this is closely related to the familiar $2$-category of algebras, bimodules and intertwiners.
+While it is appropriate to call an $S^0$ module a bimodule,
+this is much less true for higher dimensional spheres, 
 so we prefer the term ``sphere module" for the general case.
 
 The results of this subsection are not needed for the rest of the paper,
-so we will skimp on details in a couple of places.
+so we will skimp on details in a couple of places. We have included this mostly for the sake of comparing our notion of a topological $n$-category to other definitions.
 
 For simplicity, we will assume that $n$-categories are enriched over $\c$-vector spaces.
 
 The $0$- through $n$-dimensional parts of $\cS$ are various sorts of modules, and we describe
 these first.
 The $n{+}1$-dimensional part of $\cS$ consists of intertwiners
-of (garden-variety) $1$-category modules associated to decorated $n$-balls.
+of  $1$-category modules associated to decorated $n$-balls.
 We will see below that in order for these $n{+}1$-morphisms to satisfy all of
-the duality requirements of an $n{+}1$-category, we will have to assume
+the axioms of an $n{+}1$-category (in particular, duality requirements), we will have to assume
 that our $n$-categories and modules have non-degenerate inner products.
 (In other words, we need to assume some extra duality on the $n$-categories and modules.)
 
@@ -1710,7 +1710,7 @@ Because of this similarity, we only sketch the definitions below.
 
 We start with $0$-sphere modules, which also could reasonably be called (categorified) bimodules.
 (For $n=1$ they are precisely bimodules in the usual, uncategorified sense.)
-Define a $0$-marked $k$-ball $(X, M)$, $1\le k \le n$, to be a pair homeomorphic to the standard
+Define a $0$-marked $k$-ball, $1\le k \le n$, to be a pair  $(X, M)$ homeomorphic to the standard
 $(B^k, B^{k-1})$.
 See Figure \ref{feb21a}.
 Another way to say this is that $(X, M)$ is homeomorphic to $B^{k-1}\times([-1,1], \{0\})$.
@@ -1729,10 +1729,8 @@ We can also take the boundary of a $0$-marked ball, which is $0$-marked sphere.
 
 Fix $n$-categories $\cA$ and $\cB$.
 These will label the two halves of a $0$-marked $k$-ball.
-The $0$-sphere module we define next will depend on $\cA$ and $\cB$ 
-(it's an $\cA$-$\cB$ bimodule), but we will suppress that from the notation.
 
-An $n$-category $0$-sphere module $\cM$ is a collection of functors $\cM_k$ from the category
+An $n$-category $0$-sphere module $\cM$ over the $n$-categories $\cA$ and $\cB$ is a collection of functors $\cM_k$ from the category
 of $0$-marked $k$-balls, $1\le k \le n$,
 (with the two halves labeled by $\cA$ and $\cB$) to the category of sets.
 If $k=n$ these sets should be enriched to the extent $\cA$ and $\cB$ are.
@@ -1740,8 +1738,8 @@ Given a decomposition of a $0$-marked $k$-ball $X$ into smaller balls $X_i$, we 
 morphism sets $\cA_k(X_i)$ (if $X_i$ lies on the $\cA$-labeled side)
 or $\cB_k(X_i)$ (if $X_i$ lies on the $\cB$-labeled side)
 or $\cM_k(X_i)$ (if $X_i$ intersects the marking and is therefore a smaller 0-marked ball).
-Corresponding to this decomposition we have an action and/or composition map
-from the product of these various sets into $\cM_k(X)$.
+Corresponding to this decomposition we have a composition (or `gluing') map
+from the product (fibered over the boundary data) of these various sets into $\cM_k(X)$.
 
 \medskip
 
@@ -1834,8 +1832,8 @@ Let $C(S)$ denote the cone of $S$, a marked 2-ball (Figure \ref{feb21d}).
 For the time being, let's say they are.}
 A 1-marked $k$-ball is anything homeomorphic to $B^j \times C(S)$, $0\le j\le n-2$, 
 where $B^j$ is the standard $j$-ball.
-1-marked $k$-balls can be decomposed in various ways into smaller balls, which are either 
-smaller 1-marked $k$-balls or the product of an unmarked ball with a marked interval.
+A 1-marked $k$-balls can be decomposed in various ways into smaller balls, which are either 
+smaller 1-marked $k$-balls or the product of an unmarked ball with a marked interval. \todo{I'm confused by this last sentence. By `the product of an unmarked ball with a marked internal', you mean a 0-marked $k$-ball, right? If so, we should say it that way. Further, there are also just some entirely unmarked balls. -S}
 We now proceed as in the above module definitions.
 
 \begin{figure}[!ht]
@@ -1869,7 +1867,7 @@ The components of $Y\setminus K$ are labeled by $n$-categories,
 the edges of $K$ are labeled by 0-sphere modules, 
 and the 0-cells of $K$ are labeled by 1-sphere modules.
 We can now apply the coend construction and obtain an $n{-}2$-category.
-If $Y$ has boundary then this $n{-}2$-category is a module for the $n{-}1$-manifold
+If $Y$ has boundary then this $n{-}2$-category is a module for the $n{-}1$-category
 associated to the (marked, labeled) boundary of $Y$.
 In particular, if $\bd Y$ is a 1-sphere then we get a 1-sphere module as defined above.
 
@@ -1882,19 +1880,19 @@ and a 2-sphere module is a representation of such an $n{-}2$-category.
 \medskip
 
 We can now define the $n$-or-less-dimensional part of our $n{+}1$-category $\cS$.
-Choose some collection of $n$-categories, then choose some collections of bimodules for
+Choose some collection of $n$-categories, then choose some collections of bimodules between
 these $n$-categories, then choose some collection of 1-sphere modules for the various
 possible marked 1-spheres labeled by the $n$-categories and bimodules, and so on.
 Let $L_i$ denote the collection of $i{-}1$-sphere modules we have chosen.
 (For convenience, we declare a $(-1)$-sphere module to be an $n$-category.)
 There is a wide range of possibilities.
-$L_0$ could contain infinitely many $n$-categories or just one.
+The set $L_0$ could contain infinitely many $n$-categories or just one.
 For each pair of $n$-categories in $L_0$, $L_1$ could contain no bimodules at all or 
 it could contain several.
 The only requirement is that each $k$-sphere module be a module for a $k$-sphere $n{-}k$-category
 constructed out of labels taken from $L_j$ for $j<k$.
 
-We now define $\cS(X)$, for $X$ of dimension at most $n$, to be the set of all 
+We now define $\cS(X)$, for $X$ a ball of dimension at most $n$, to be the set of all 
 cell-complexes $K$ embedded in $X$, with the codimension-$j$ parts of $(X, K)$ labeled
 by elements of $L_j$.
 As described above, we can think of each decorated $k$-ball as defining a $k{-}1$-sphere module
@@ -1903,7 +1901,7 @@ Thus the $k$-morphisms of $\cS$ (for $k\le n$) can be thought
 of as $n$-category $k{-}1$-sphere modules 
 (generalizations of bimodules).
 On the other hand, we can equally well think of the $k$-morphisms as decorations on $k$-balls, 
-and from this (official) point of view it is clear that they satisfy all of the axioms of an
+and from this point of view it is clear that they satisfy all of the axioms of an
 $n{+}1$-category.
 (All of the axioms for the less-than-$n{+}1$-dimensional part of an $n{+}1$-category, that is.)
 
@@ -1911,8 +1909,8 @@ $n{+}1$-category.
 
 Next we define the $n{+}1$-morphisms of $\cS$.
 The construction of the 0- through $n$-morphisms was easy and tautological, but the 
-$n{+}1$-morphisms will require a bit of combinatorial topology effort, as well as addition
-duality assumptions on the lower morphisms.
+$n{+}1$-morphisms will require some effort and combinatorial topology, as well as additional
+duality assumptions on the lower morphisms. These are required because we define the spaces of $n{+}1$-morphisms by making arbitrary choices of incoming and outgoing boundaries for each $n$-ball. The additional duality assumptions are needed to prove independence of our definition form these choices.
 
 Let $X$ be an $n{+}1$-ball, and let $c$ be a decoration of its boundary
 by a cell complex labeled by 0- through $n$-morphisms, as above.
@@ -1926,8 +1924,8 @@ Define
 	\cS(X; c; E) \deq \hom_{\cS(E_c)}(\cS(\bd_-X_c), \cS(\bd_+X_c)) .
 \]
 
-We will show that if the sphere modules are equipped with a compatible family of 
-non-degenerate inner products, then there is a coherent family of isomorphisms
+We will show that if the sphere modules are equipped with a `compatible family of 
+non-degenerate inner products', then there is a coherent family of isomorphisms
 $\cS(X; c; E) \cong \cS(X; c; E')$ for all pairs of choices $E$ and $E'$.
 This will allow us to define $\cS(X; e)$ independently of the choice of $E$.
 
@@ -1962,8 +1960,8 @@ heretofore we have only assumed duality in dimensions 0 through $n$.)
 
 Next we define compatibility.
 Let $Y = Y_1\cup Y_2$ with $D = Y_1\cap Y_2$.
-Let $X_1$ and $X_2$ be the two components of $Y\times I$ (pinched) cut along
-$D\times I$.
+Let $X_1$ and $X_2$ be the two components of $Y\times I$ cut along
+$D\times I$, in both cases using the pinched product.
 (Here we are overloading notation and letting $D$ denote both a decorated and an undecorated
 manifold.)
 We have $\bd X_i = Y_i \cup \ol{Y}_i \cup (D\times I)$
