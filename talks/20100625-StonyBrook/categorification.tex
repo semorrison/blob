@@ -53,8 +53,8 @@ The blob complex takes an $n$-manifold $\cM$ and an `$n$-category with strong du
  again covered={\opaqueness<1->{50}}
 }
 
-\node[red] (blobs) at (0,0) {$H(\bc_*(\cM; \cC))$};
 \uncover<2>{
+\node[red] (blobs) at (0,0) {$H(\bc_*(\cM; \cC))$};
 \node[blue] (skein) at (4,0) {$\cA(\cM; \cC)$};
 \node[below=5pt, description] (skein-label) at (skein) {(the usual TQFT Hilbert space)};
 \path[->](blobs) edge node[above] {$*= 0$} (skein);
@@ -79,9 +79,9 @@ The blob complex takes an $n$-manifold $\cM$ and an `$n$-category with strong du
 
 \begin{frame}{$n$-categories}
 \begin{block}{There are many definitions of $n$-categories!}
-For most of what follows, I'll draw $2$-dimensional pictures and rely on your intuition for pivotal $2$-categories. 
+For most of what follows, I'll draw $2$-dimensional pictures and rely on your intuition for pivotal categories. 
 \end{block}
-\begin{block}{We have another definition: \emph{topological $n$-categories}}
+\begin{block}{We have yet another definition: \emph{topological $n$-categories}}
 \begin{itemize}
 %\item A set $\cC(B^k)$ for every $k$-ball, $0 \leq k < n$.
 \item A vector space $\cC(B^n)$ for every $n$-ball $B$.
@@ -146,7 +146,7 @@ Equivalently, $\cA(\cM)$ is the colimit of $\cC$ along $\cell(M)$.
 %\item We can also associate a $k$-category to an $n-k$-manifold.
 %\item We don't assign a number to an $n+1$-manifold (a `decapitated' extended TQFT).
 %\end{itemize}
-$\cA(Y \times [0,1])$ is a $1$-category, and when $Y \subset \bdy X$, $\cA(X)$ is a module over $\cA(Y \times [0,1])$.
+$\cA(Y^{n-1} \times [0,1])$ is a $1$-category, and when $Y \subset \bdy X$, $\cA(X)$ is a module over $\cA(Y \times [0,1])$.
 \begin{thm}[Gluing formula]
 When $Y \sqcup Y^{\text{op}} \subset \bdy X$,
 \vspace{-1mm}
@@ -336,9 +336,13 @@ $$H_0(\Homeo(\cM)) \tensor \cA(\cM) \to \cA(\cM).$$
 \mode<beamer>{
 \begin{frame}{An action of $\CH{\cM}$}
 \begin{proof}
+Uniqueness:
 \begin{description}
-\item[Step 1] If $\cM=B^n$ or a union of balls, there's a unique chain map, since $\bc_*(B^n; \cC) \htpy \cC$ is concentrated in homological degree $0$.
-\item[Step 2] Fix an open cover $\cU$ of balls. \\ A family of homeomorphisms $P^k \to \Homeo(\cM)$ can be broken up in into pieces, each of which is supported in at most $k$ open sets from $\cU$. \qedhere
+\item[Step 1] If $\cM=B^n$ or a union of balls, there's a unique (up to homotopy) chain map, since $\bc_*(B^n; \cC) \htpy \cC$ is concentrated in homological degree $0$.
+\item[Step 2] Fix an open cover $\cU$ of balls. \\ A family of homeomorphisms $P^k \to \Homeo(\cM)$ can be broken up in into pieces, each of which is supported in at most $k$ open sets from $\cU$. \end{description}
+Existence:
+\begin{description}
+\item[Step 3] Show that all of the choices available above can be made consistently, using the method of acyclic models. \qedhere
 \end{description}
 \end{proof}
 \end{frame}
