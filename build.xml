@@ -63,6 +63,11 @@
     </target>
     
     <target name="copy-pdf" depends="pdf">
+        <exec executable="svn" dir="../../Sites/tqft.net/papers/">
+            <arg value="up"/>
+	    <arg value="--accept"/>
+	    <arg value="theirs-full"/>
+        </exec>
         <copy file="blob1.pdf" tofile="../../Sites/tqft.net/papers/blobs.pdf"/>
         <exec executable="svn" dir="../../Sites/tqft.net/papers/">
             <arg value="commit"/>
