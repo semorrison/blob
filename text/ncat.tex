@@ -105,7 +105,7 @@ the category of $k{-}1$-spheres and
 homeomorphisms to the category of sets and bijections.
 \end{lem}
 
-We postpone the proof \todo{} of this result until after we've actually given all the axioms.
+We postpone the proof of this result until after we've actually given all the axioms.
 Note that defining this functor for some $k$ only requires the data described in Axiom \ref{axiom:morphisms} at level $k$, 
 along with the data described in the other Axioms at lower levels. 
 
@@ -152,7 +152,7 @@ We have just argued that the boundary of a morphism has no preferred splitting i
 domain and range, but the converse meets with our approval.
 That is, given compatible domain and range, we should be able to combine them into
 the full boundary of a morphism.
-The following lemma follows from the colimit construction used to define $\cl{\cC}_{k-1}$
+The following lemma will follow from the colimit construction used to define $\cl{\cC}_{k-1}$
 on spheres.
 
 \begin{lem}[Boundary from domain and range]
@@ -163,7 +163,7 @@ Let $\cC(B_1) \times_{\cl{\cC}(E)} \cC(B_2)$ denote the fibered product of the
 two maps $\bd: \cC(B_i)\to \cl{\cC}(E)$.
 Then we have an injective map
 \[
-	\gl_E : \cC(B_1) \times_{\\cl{cC}(E)} \cC(B_2) \into \cl{\cC}(S)
+	\gl_E : \cC(B_1) \times_{\cl{\cC}(E)} \cC(B_2) \into \cl{\cC}(S)
 \]
 which is natural with respect to the actions of homeomorphisms.
 (When $k=1$ we stipulate that $\cl{\cC}(E)$ is a point, so that the above fibered product
@@ -184,10 +184,10 @@ $$
 $$
 \caption{Combining two balls to get a full boundary.}\label{blah3}\end{figure}
 
-Note that we insist on injectivity above.
+Note that we insist on injectivity above. \todo{Make sure we prove this, as a consequence of the next axiom, later.}
 
 Let $\cl{\cC}(S)_E$ denote the image of $\gl_E$.
-We will refer to elements of $\\cl{cC}(S)_E$ as ``splittable along $E$" or ``transverse to $E$". 
+We will refer to elements of $\cl{\cC}(S)_E$ as ``splittable along $E$" or ``transverse to $E$". 
 
 If $X$ is a $k$-ball and $E \sub \bd X$ splits $\bd X$ into two $k{-}1$-balls $B_1$ and $B_2$
 as above, then we define $\cC(X)_E = \bd^{-1}(\cl{\cC}(\bd X)_E)$.
@@ -884,7 +884,7 @@ an $\cE\cB_n$-algebra.
 In this section we describe how to extend an $n$-category $\cC$ as described above 
 (of either the plain or $A_\infty$ variety) to an invariant of manifolds, which we denote by $\cl{\cC}$.
 This extension is a certain colimit, and we've chosen the notation to remind you of this.
-That is, we show that functors $\cC_k$ satisfying the axioms above have a canonical extension 
+Thus we show that functors $\cC_k$ satisfying the axioms above have a canonical extension 
 from $k$-balls to arbitrary $k$-manifolds.
 Recall that we've already anticipated this construction in the previous section, 
 inductively defining $\cl{\cC}$ on $k$-spheres in terms of $\cC$ on $k$-balls, 
@@ -912,7 +912,6 @@ Say that a `permissible decomposition' of $W$ is a cell decomposition
 	W = \bigcup_a X_a ,
 \]
 where each closed top-dimensional cell $X_a$ is an embedded $k$-ball.
-
 Given permissible decompositions $x$ and $y$, we say that $x$ is a refinement
 of $y$, or write $x \le y$, if each $k$-ball of $y$ is a union of $k$-balls of $x$.
 
@@ -962,26 +961,26 @@ fix a field on $\bd W$
 Finally, we construct $\cC(W)$ as the appropriate colimit of $\psi_{\cC;W}$.
 
 \begin{defn}[System of fields functor]
-If $\cC$ is an $n$-category enriched in sets or vector spaces, $\cC(W)$ is the usual colimit of the functor $\psi_{\cC;W}$.
+If $\cC$ is an $n$-category enriched in sets or vector spaces, $\cl{\cC}(W)$ is the usual colimit of the functor $\psi_{\cC;W}$.
 That is, for each decomposition $x$ there is a map
-$\psi_{\cC;W}(x)\to \cC(W)$, these maps are compatible with the refinement maps
-above, and $\cC(W)$ is universal with respect to these properties.
+$\psi_{\cC;W}(x)\to \cl{\cC}(W)$, these maps are compatible with the refinement maps
+above, and $\cl{\cC}(W)$ is universal with respect to these properties.
 \end{defn}
 
 \begin{defn}[System of fields functor, $A_\infty$ case]
-When $\cC$ is an $A_\infty$ $n$-category, $\cC(W)$ for $W$ a $k$-manifold with $k < n$ 
+When $\cC$ is an $A_\infty$ $n$-category, $\cl{\cC}(W)$ for $W$ a $k$-manifold with $k < n$ 
 is defined as above, as the colimit of $\psi_{\cC;W}$.
-When $W$ is an $n$-manifold, the chain complex $\cC(W)$ is the homotopy colimit of the functor $\psi_{\cC;W}$.
+When $W$ is an $n$-manifold, the chain complex $\cl{\cC}(W)$ is the homotopy colimit of the functor $\psi_{\cC;W}$.
 \end{defn}
 
-We can specify boundary data $c \in \cC(\bdy W)$, and define functors $\psi_{\cC;W,c}$ 
+We can specify boundary data $c \in \cl{\cC}(\bdy W)$, and define functors $\psi_{\cC;W,c}$ 
 with values the subsets of those of $\psi_{\cC;W}$ which agree with $c$ on the boundary of $W$.
 
 We now give a more concrete description of the colimit in each case.
 If $\cC$ is enriched over vector spaces, and $W$ is an $n$-manifold, 
-we can take the vector space $\cC(W,c)$ to be the direct sum over all permissible decompositions of $W$
+we can take the vector space $\cl{\cC}(W,c)$ to be the direct sum over all permissible decompositions of $W$
 \begin{equation*}
-	\cC(W,c) = \left( \bigoplus_x \psi_{\cC;W,c}(x)\right) \big/ K
+	\cl{\cC}(W,c) = \left( \bigoplus_x \psi_{\cC;W,c}(x)\right) \big/ K
 \end{equation*}
 where $K$ is the vector space spanned by elements $a - g(a)$, with
 $a\in \psi_{\cC;W,c}(x)$ for some decomposition $x$, and $g: \psi_{\cC;W,c}(x)
@@ -992,17 +991,17 @@ is more involved.
 %\nn{should probably rewrite this to be compatible with some standard reference}
 Define an $m$-sequence in $W$ to be a sequence $x_0 \le x_1 \le \dots \le x_m$ of permissible decompositions of $W$.
 Such sequences (for all $m$) form a simplicial set in $\cell(W)$.
-Define $V$ as a vector space via
+Define $\cl{\cC}(W)$ as a vector space via
 \[
-	V = \bigoplus_{(x_i)} \psi_{\cC;W}(x_0)[m] ,
+	\cl{\cC}(W) = \bigoplus_{(x_i)} \psi_{\cC;W}(x_0)[m] ,
 \]
 where the sum is over all $m$-sequences $(x_i)$ and all $m$, and each summand is degree shifted by $m$. 
 (Our homological conventions are non-standard: if a complex $U$ is concentrated in degree $0$, 
 the complex $U[m]$ is concentrated in degree $m$.)
-We endow $V$ with a differential which is the sum of the differential of the $\psi_{\cC;W}(x_0)$
+We endow $\cl{\cC}(W)$ with a differential which is the sum of the differential of the $\psi_{\cC;W}(x_0)$
 summands plus another term using the differential of the simplicial set of $m$-sequences.
 More specifically, if $(a, \bar{x})$ denotes an element in the $\bar{x}$
-summand of $V$ (with $\bar{x} = (x_0,\dots,x_k)$), define
+summand of $\cl{\cC}(W)$ (with $\bar{x} = (x_0,\dots,x_k)$), define
 \[
 	\bd (a, \bar{x}) = (\bd a, \bar{x}) + (-1)^{\deg{a}} (g(a), d_0(\bar{x})) + (-1)^{\deg{a}} \sum_{j=1}^k (-1)^{j} (a, d_j(\bar{x})) ,
 \]
@@ -1021,11 +1020,13 @@ Then we glue these together with mapping cylinders coming from gluing maps
 Then we kill the extra homology we just introduced with mapping 
 cylinders between the mapping cylinders (filtration degree 2), and so on.
 
-$\cC(W)$ is functorial with respect to homeomorphisms of $k$-manifolds.
+$\cC(W)$ is functorial with respect to homeomorphisms of $k$-manifolds. Restricting the $k$-spheres, we have now proved Lemma \ref{lem:spheres}.
 
-It is easy to see that
+\todo{This next sentence is circular: these maps are an axiom, not a consequence of anything. -S} It is easy to see that
 there are well-defined maps $\cC(W)\to\cC(\bd W)$, and that these maps
 comprise a natural transformation of functors.
+
+\todo{Explicitly say somewhere: `this proves Lemma \ref{lem:domain-and-range}'}
 
 \nn{need to finish explaining why we have a system of fields;
 need to say more about ``homological" fields? 
