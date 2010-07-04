@@ -605,15 +605,16 @@ In addition, collar maps act trivially on $\cC(X)$.
 For $A_\infty$ $n$-categories, we replace
 isotopy invariance with the requirement that families of homeomorphisms act.
 For the moment, assume that our $n$-morphisms are enriched over chain complexes.
+Let $\Homeo_\bd(X)$ denote homeomorphisms of $X$ which fix $\bd X$ and
+$C_*(\Homeo_\bd(X))$ denote the singular chains on this space.
+
 
 \addtocounter{axiom}{-1}
-\begin{axiom}{\textup{\textbf{[$A_\infty$ version]}} Families of homeomorphisms act in dimension $n$}
+\begin{axiom}{\textup{\textbf{[$A_\infty$ version]}} Families of homeomorphisms act in dimension $n$.}
 For each $n$-ball $X$ and each $c\in \cl{\cC}(\bd X)$ we have a map of chain complexes
 \[
 	C_*(\Homeo_\bd(X))\ot \cC(X; c) \to \cC(X; c) .
 \]
-Here $C_*$ means singular chains and $\Homeo_\bd(X)$ is the space of homeomorphisms of $X$
-which fix $\bd X$.
 These action maps are required to be associative up to homotopy
 \nn{iterated homotopy?}, and also compatible with composition (gluing) in the sense that
 a diagram like the one in Proposition \ref{CHprop} commutes.
@@ -621,16 +622,16 @@ a diagram like the one in Proposition \ref{CHprop} commutes.
 \nn{restate this with $\Homeo(X\to X')$?  what about boundary fixing property?}
 \end{axiom}
 
-We should strengthen the above axiom to apply to families of extended homeomorphisms.
-To do this we need to explain how extended homeomorphisms form a topological space.
-Roughly, the set of $n{-}1$-balls in the boundary of an $n$-ball has a natural topology,
+We should strengthen the above axiom to apply to families of collar maps.
+To do this we need to explain how collar maps form a topological space.
+Roughly, the set of collared $n{-}1$-balls in the boundary of an $n$-ball has a natural topology,
 and we can replace the class of all intervals $J$ with intervals contained in $\r$.
-\nn{need to also say something about collaring homeomorphisms.}
-\nn{this paragraph needs work.}
+Having chains on the space of collar maps act gives rise to coherence maps involving
+weak identities.
+We will not pursue this in this draft of the paper.
 
 Note that if we take homology of chain complexes, we turn an $A_\infty$ $n$-category
 into a plain $n$-category (enriched over graded groups).
-\nn{say more here?}
 In a different direction, if we enrich over topological spaces instead of chain complexes,
 we get a space version of an $A_\infty$ $n$-category, with $\Homeo_\bd(X)$ acting 
 instead of  $C_*(\Homeo_\bd(X))$.
@@ -640,13 +641,13 @@ type $A_\infty$ $n$-category.
 \medskip
 
 The alert reader will have already noticed that our definition of a (plain) $n$-category
-is extremely similar to our definition of a topological system of fields.
-There are two essential differences.
+is extremely similar to our definition of a system of fields.
+There are two differences.
 First, for the $n$-category definition we restrict our attention to balls
 (and their boundaries), while for fields we consider all manifolds.
 Second,  in category definition we directly impose isotopy
-invariance in dimension $n$, while in the fields definition we have do not expect isotopy invariance on fields
-but instead remember a subspace of local relations which contain differences of isotopic fields. 
+invariance in dimension $n$, while in the fields definition we 
+instead remember a subspace of local relations which contain differences of isotopic fields. 
 (Recall that the compensation for this complication is that we can demand that the gluing map for fields is injective.)
 Thus a system of fields and local relations $(\cF,\cU)$ determines an $n$-category $\cC_ {\cF,\cU}$ simply by restricting our attention to
 balls and, at level $n$, quotienting out by the local relations:
