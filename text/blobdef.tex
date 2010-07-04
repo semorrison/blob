@@ -87,7 +87,7 @@ It's easy to check that $\bd^2 = 0$.
 
 A nested 2-blob diagram consists of
 \begin{itemize}
-\item A pair of nested balls (blobs) $B_1 \sub B_2 \sub X$.
+\item A pair of nested balls (blobs) $B_1 \subseteq B_2 \subseteq X$.
 \item A field $r' \in \cC(B_2 \setminus B_1; c_1, c_2)$ 
 (for some $c_1 \in \cC(\bdy B_1)$ and $c_2 \in \cC(\bdy B_2)$).
 \item A field $r \in \cC(X \setminus B_2; c_2)$.
@@ -109,19 +109,35 @@ As with the $1$-blob diagrams, in order to get the linear structure correct the 
 \begin{eqnarray*}
 	\bc_2(X) & \deq &
 	\left( 
-		\bigoplus_{B_1, B_2 \text{disjoint}} \bigoplus_{c_1, c_2}
+		\bigoplus_{B_1, B_2\; \text{disjoint}} \bigoplus_{c_1, c_2}
 			U(B_1; c_1) \otimes U(B_2; c_2) \otimes \lf(X\setmin (B_1\cup B_2); c_1, c_2)
-	\right) \\
-	&& \bigoplus \left( 
+	\right)  \bigoplus \\
+	&& \quad\quad  \left( 
 		\bigoplus_{B_1 \subset B_2} \bigoplus_{c_1, c_2}
 			U(B_1; c_1) \otimes \lf(B_2 \setmin B_1; c_1) \tensor \cC(X \setminus B_2; c_2)
 	\right) .
 \end{eqnarray*}
 For the disjoint blobs, reversing the ordering of $B_0$ and $B_1$ introduces a minus sign
 (rather than a new, linearly independent 2-blob diagram). 
+\noop{
 \nn{Hmm, I think we should be doing this for nested blobs too -- 
 we shouldn't force the linear indexing of the blobs to have anything to do with 
 the partial ordering by inclusion -- this is what happens below}
+\nn{KW: I think adding that detail would only add distracting clutter, and the statement is true as written (in the sense that it yields a vector space isomorphic to the general def below}
+}
+
+Before describing the general case we should say more precisely what we mean by 
+disjoint and nested blobs.
+Disjoint will mean disjoint interiors.
+Nested blobs are allowed to coincide, or to have overlapping boundaries.
+Blob are allowed to intersect $\bd X$.
+However, we require of any collection of blobs $B_1,\ldots,B_k \subseteq X$ that
+$X$ is decomposable along the union of the boundaries of the blobs.
+\nn{need to say more here.  we want to be able to glue blob diagrams, but avoid pathological
+behavior}
+\nn{need to allow the case where $B\to X$ is not an embedding
+on $\bd B$.  this is because any blob diagram on $X_{cut}$ should give rise to one on $X_{gl}$
+and blobs are allowed to meet $\bd X$.}
 
 Now for the general case.
 A $k$-blob diagram consists of
@@ -132,9 +148,6 @@ $B_i \sub B_j$ or $B_j \sub B_i$.
 (The case $B_i = B_j$ is allowed.
 If $B_i \sub B_j$ the boundaries of $B_i$ and $B_j$ are allowed to intersect.)
 If a blob has no other blobs strictly contained in it, we call it a twig blob.
-\nn{need to allow the case where $B\to X$ is not an embedding
-on $\bd B$.  this is because any blob diagram on $X_{cut}$ should give rise to one on $X_{gl}$
-and blobs are allowed to meet $\bd X$.}
 \item Fields (boundary conditions) $c_i \in \cC(\bd B_i)$.
 (These are implied by the data in the next bullets, so we usually
 suppress them from the notation.)
