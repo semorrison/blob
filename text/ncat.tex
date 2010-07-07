@@ -379,7 +379,6 @@ on a standard iterated degeneracy map
 \[
 	d: \Delta^{k+m}\to\Delta^k .
 \]
-In other words, \nn{each point has a neighborhood blah blah...}
 (We thank Kevin Costello for suggesting this approach.)
 
 Note that for each interior point $x\in X$, $\pi\inv(x)$ is an $m$-ball,
@@ -519,7 +518,7 @@ homeomorphisms in the top dimension $n$, distinguishes the two cases.
 
 We start with the plain $n$-category case.
 
-\begin{axiom}[Isotopy invariance in dimension $n$]{\textup{\textbf{[preliminary]}}}
+\begin{axiom}[\textup{\textbf{[preliminary]}} Isotopy invariance in dimension $n$]
 Let $X$ be an $n$-ball and $f: X\to X$ be a homeomorphism which restricts
 to the identity on $\bd X$ and is isotopic (rel boundary) to the identity.
 Then $f$ acts trivially on $\cC(X)$; $f(a) = a$ for all $a\in \cC(X)$.
@@ -593,7 +592,7 @@ isotopic (rel boundary) to the identity {\it extended isotopy}.
 The revised axiom is
 
 \addtocounter{axiom}{-1}
-\begin{axiom}{\textup{\textbf{[topological  version]}} Extended isotopy invariance in dimension $n$.}
+\begin{axiom}[\textup{\textbf{[topological  version]}} Extended isotopy invariance in dimension $n$.]
 \label{axiom:extended-isotopies}
 Let $X$ be an $n$-ball and $f: X\to X$ be a homeomorphism which restricts
 to the identity on $\bd X$ and isotopic (rel boundary) to the identity.
@@ -611,7 +610,7 @@ $C_*(\Homeo_\bd(X))$ denote the singular chains on this space.
 
 
 \addtocounter{axiom}{-1}
-\begin{axiom}{\textup{\textbf{[$A_\infty$ version]}} Families of homeomorphisms act in dimension $n$.}
+\begin{axiom}[\textup{\textbf{[$A_\infty$ version]}} Families of homeomorphisms act in dimension $n$.]
 For each $n$-ball $X$ and each $c\in \cl{\cC}(\bd X)$ we have a map of chain complexes
 \[
 	C_*(\Homeo_\bd(X))\ot \cC(X; c) \to \cC(X; c) .
@@ -629,7 +628,7 @@ Roughly, the set of collared $n{-}1$-balls in the boundary of an $n$-ball has a 
 and we can replace the class of all intervals $J$ with intervals contained in $\r$.
 Having chains on the space of collar maps act gives rise to coherence maps involving
 weak identities.
-We will not pursue this in this draft of the paper.
+We will not pursue this in detail here.
 
 Note that if we take homology of chain complexes, we turn an $A_\infty$ $n$-category
 into a plain $n$-category (enriched over graded groups).
@@ -917,7 +916,7 @@ An $n$-category $\cC$ provides a functor from this poset to the category of sets
 and we  will define $\cl{\cC}(W)$ as a suitable colimit 
 (or homotopy colimit in the $A_\infty$ case) of this functor. 
 We'll later give a more explicit description of this colimit.
-In the case that the $n$-category $\cC$ is enriched (e.g. associates vector spaces or chain complexes to $n$-manifolds with boundary data), 
+In the case that the $n$-category $\cC$ is enriched (e.g. associates vector spaces or chain complexes to $n$-balls with boundary data), 
 then the resulting colimit is also enriched, that is, the set associated to $W$ splits into subsets according to boundary data, and each of these subsets has the appropriate structure (e.g. a vector space or chain complex).
 
 Define a {\it permissible decomposition} of $W$ to be a cell decomposition
@@ -975,7 +974,7 @@ If we are enriching over $\cS$ and $k=n$, then $\cC(X_a; \beta)$ is an object in
 $\cS$ and the coproduct and product in Equation \ref{eq:psi-CC} should be replaced by the approriate
 operations in $\cS$ (e.g. direct sum and tensor product if $\cS$ is Vect).
 
-Finally, we construct $\cC(W)$ as the appropriate colimit of $\psi_{\cC;W}$.
+Finally, we construct $\cl{\cC}(W)$ as the appropriate colimit of $\psi_{\cC;W}$.
 
 \begin{defn}[System of fields functor]
 \label{def:colim-fields}
@@ -1040,7 +1039,7 @@ cylinders between the mapping cylinders (filtration degree 2), and so on.
 
 $\cC(W)$ is functorial with respect to homeomorphisms of $k$-manifolds. Restricting the $k$-spheres, we have now proved Lemma \ref{lem:spheres}.
 
-\todo{This next sentence is circular: these maps are an axiom, not a consequence of anything. -S} It is easy to see that
+It is easy to see that
 there are well-defined maps $\cC(W)\to\cC(\bd W)$, and that these maps
 comprise a natural transformation of functors.
 
@@ -1342,10 +1341,10 @@ for $k<n$ the set $\pi_{\leq n}(S,T)(B,N)$ consists of all continuous maps of pa
 $(B,N) \to (S,T)$ and on each marked $n$-ball $(B,N)$ it consists of all 
 such maps modulo homotopies fixed on $\bdy B \setminus N$.
 This is a module over the fundamental $n$-category $\pi_{\leq n}(S)$ of $S$, from Example \ref{ex:maps-to-a-space}.
+\end{example}
 Modifications corresponding to Examples \ref{ex:maps-to-a-space-with-a-fiber} and 
 \ref{ex:linearized-maps-to-a-space} are also possible, and there is an $A_\infty$ version analogous to 
 Example \ref{ex:chains-of-maps-to-a-space} given by taking singular chains.
-\end{example}
 
 \subsection{Modules as boundary labels (colimits for decorated manifolds)}
 \label{moddecss}
