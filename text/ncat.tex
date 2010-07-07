@@ -127,6 +127,7 @@ Most of the examples of $n$-categories we are interested in are enriched in the 
 The various sets of $n$-morphisms $\cC(X; c)$, for all $n$-balls $X$ and
 all $c\in \cl{\cC}(\bd X)$, have the structure of an object in some auxiliary symmetric monoidal category
 (e.g.\ vector spaces, or modules over some ring, or chain complexes),
+\nn{actually, need both disj-union/sub and product/tensor-product; what's the name for this sort of cat?}
 and all the structure maps of the $n$-category should be compatible with the auxiliary
 category structure.
 Note that this auxiliary structure is only in dimension $n$;
@@ -844,8 +845,8 @@ boundaries are allowed to meet.
 Note in particular that the space for $k=1$ contains a copy of $\Diff(B^n)$, namely
 the embeddings of a ``little" ball with image all of the big ball $B^n$.
 \nn{should we warn that the inclusion of this copy of $\Diff(B^n)$ is not a homotopy equivalence?})
-The operad $\cE\cB_n$ is homotopy equivalent to the standard framed little $n$-ball operad.
-By shrinking the little balls (precomposing them with dilations), 
+The operad $\cE\cB_n$ is homotopy equivalent to the standard framed little $n$-ball operad:
+by shrinking the little balls (precomposing them with dilations), 
 we see that both operads are homotopic to the space of $k$ framed points
 in $B^n$.
 It is easy to see that $n$-fold loop spaces $\Omega^n(T)$  have
@@ -913,22 +914,23 @@ for a manifold $M$ associated to this $A_\infty$ $n$-category is actually the sa
 
 We will first define the ``cell-decomposition" poset $\cell(W)$ for any $k$-manifold $W$, for $1 \leq k \leq n$. 
 An $n$-category $\cC$ provides a functor from this poset to the category of sets, 
-and we  will define $\cC(W)$ as a suitable colimit 
+and we  will define $\cl{\cC}(W)$ as a suitable colimit 
 (or homotopy colimit in the $A_\infty$ case) of this functor. 
 We'll later give a more explicit description of this colimit.
 In the case that the $n$-category $\cC$ is enriched (e.g. associates vector spaces or chain complexes to $n$-manifolds with boundary data), 
 then the resulting colimit is also enriched, that is, the set associated to $W$ splits into subsets according to boundary data, and each of these subsets has the appropriate structure (e.g. a vector space or chain complex).
 
-\begin{defn}
-Say that a ``permissible decomposition" of $W$ is a cell decomposition
+Define a {\it permissible decomposition} of $W$ to be a cell decomposition
 \[
 	W = \bigcup_a X_a ,
 \]
 where each closed top-dimensional cell $X_a$ is an embedded $k$-ball.
+\nn{need to define this more carefully}
 Given permissible decompositions $x$ and $y$, we say that $x$ is a refinement
 of $y$, or write $x \le y$, if each $k$-ball of $y$ is a union of $k$-balls of $x$.
 
-The category $\cell(W)$ has objects the permissible decompositions of $W$, 
+\begin{defn}
+The category (poset) $\cell(W)$ has objects the permissible decompositions of $W$, 
 and a unique morphism from $x$ to $y$ if and only if $x$ is a refinement of $y$.
 See Figure \ref{partofJfig} for an example.
 \end{defn}
@@ -941,15 +943,12 @@ See Figure \ref{partofJfig} for an example.
 \label{partofJfig}
 \end{figure}
 
-
-
 An $n$-category $\cC$ determines 
 a functor $\psi_{\cC;W}$ from $\cell(W)$ to the category of sets 
 (possibly with additional structure if $k=n$).
 Each $k$-ball $X$ of a decomposition $y$ of $W$ has its boundary decomposed into $k{-}1$-balls,
 and, as described above, we have a subset $\cC(X)\spl \sub \cC(X)$ of morphisms whose boundaries
 are splittable along this decomposition.
-%For a $k$-cell $X$ in a cell composition of $W$, we can consider the ``splittable fields" $\cC(X)_{\bdy X}$, the subset of $\cC(X)$ consisting of fields which are splittable with respect to each boundary $k-1$-cell.
 
 \begin{defn}
 Define the functor $\psi_{\cC;W} : \cell(W) \to \Set$ as follows.
@@ -963,13 +962,18 @@ $X_a$ all agree (this is a fibered product of all the labels of $n$-cells over t
 If $x$ is a refinement of $y$, the map $\psi_{\cC;W}(x) \to \psi_{\cC;W}(y)$ is given by the composition maps of $\cC$.
 \end{defn}
 
-When the $n$-category $\cC$ is enriched in some symmetric monoidal category $(A,\boxtimes)$, and $W$ is a
-closed $n$-manifold, the functor $\psi_{\cC;W}$ has target $A$ and
-we replace the cartesian product of sets appearing in Equation \eqref{eq:psi-C} with the monoidal product $\boxtimes$. 
-(Moreover, $\psi_{\cC;W}(x)$ might be a subobject, rather than a subset, of the product.)
-Similar things are true if $W$ is an $n$-manifold with non-empty boundary and we
-fix a field on $\bd W$
-(i.e. fix an element of the colimit associated to $\bd W$).
+If $k=n$ in the above definition and we are enriching in some auxiliary category, 
+we need to say a bit more.
+We can rewrite Equation \ref{eq:psi-C} as
+\begin{equation} \label{eq:psi-CC}
+	\psi_{\cC;W}(x) \deq \coprod_\beta \prod_a \cC(X_a; \beta) ,
+\end{equation}
+where $\beta$ runs through labelings of the $k{-}1$-skeleton of the decomposition
+(which are compatible when restricted to the $k{-}2$-skeleton), and $\cC(X_a; \beta)$
+means the subset of $\cC(X_a)$ whose restriction to $\bd X_a$ agress with $\beta$.
+If we are enriching over $\cS$ and $k=n$, then $\cC(X_a; \beta)$ is an object in 
+$\cS$ and the coproduct and product in Equation \ref{eq:psi-CC} should be replaced by the approriate
+operations in $\cS$ (e.g. direct sum and tensor product if $\cS$ is Vect).
 
 Finally, we construct $\cC(W)$ as the appropriate colimit of $\psi_{\cC;W}$.
 
