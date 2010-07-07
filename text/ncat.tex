@@ -993,11 +993,19 @@ When $W$ is an $n$-manifold, the chain complex $\cl{\cC}(W)$ is the homotopy col
 We can specify boundary data $c \in \cl{\cC}(\bdy W)$, and define functors $\psi_{\cC;W,c}$ 
 with values the subsets of those of $\psi_{\cC;W}$ which agree with $c$ on the boundary of $W$.
 
-We now give a more concrete description of the colimit in each case.
-If $\cC$ is enriched over vector spaces, and $W$ is an $n$-manifold, 
-we can take the vector space $\cl{\cC}(W,c)$ to be the direct sum over all permissible decompositions of $W$
+We now give more concrete descriptions of the above colimits.
+
+In the non-enriched case (e.g.\ $k<n$), where each $\cC(X_a; \beta)$ is just a set,
+the colimit is
+\[
+	\cl{\cC}(W,c) = \left( \coprod_x \coprod_\beta \prod_a \cC(X_a; \beta) \right) / \sim ,
+\]
+where $x$ runs through decomposition of $W$, and $\sim$ is the obvious equivalence relation 
+induced by refinement and gluing.
+If $\cC$ is enriched over vector spaces and $W$ is an $n$-manifold, 
+we can take
 \begin{equation*}
-	\cl{\cC}(W,c) = \left( \bigoplus_x \psi_{\cC;W,c}(x)\right) \big/ K
+	\cl{\cC}(W,c) = \left( \bigoplus_x \bigoplus_\beta \bigotimes_a \cC(X_a; \beta) \right) / K
 \end{equation*}
 where $K$ is the vector space spanned by elements $a - g(a)$, with
 $a\in \psi_{\cC;W,c}(x)$ for some decomposition $x$, and $g: \psi_{\cC;W,c}(x)
@@ -1015,6 +1023,7 @@ Define $\cl{\cC}(W)$ as a vector space via
 where the sum is over all $m$-sequences $(x_i)$ and all $m$, and each summand is degree shifted by $m$. 
 (Our homological conventions are non-standard: if a complex $U$ is concentrated in degree $0$, 
 the complex $U[m]$ is concentrated in degree $m$.)
+\nn{if there is a std convention, should we use it?  or are we deliberately bucking tradition?}
 We endow $\cl{\cC}(W)$ with a differential which is the sum of the differential of the $\psi_{\cC;W}(x_0)$
 summands plus another term using the differential of the simplicial set of $m$-sequences.
 More specifically, if $(a, \bar{x})$ denotes an element in the $\bar{x}$
@@ -1024,12 +1033,13 @@ summand of $\cl{\cC}(W)$ (with $\bar{x} = (x_0,\dots,x_k)$), define
 \]
 where $d_j(\bar{x}) = (x_0,\dots,x_{j-1},x_{j+1},\dots,x_k)$ and $g: \psi_\cC(x_0)\to \psi_\cC(x_1)$
 is the usual gluing map coming from the antirefinement $x_0 \le x_1$.
-\nn{need to say this better}
-\nn{maybe mention that there is a version that emphasizes minimal gluings (antirefinements) which
-combine only two balls at a time; for $n=1$ this version will lead to usual definition
-of $A_\infty$ category}
+%\nn{need to say this better}
+%\nn{maybe mention that there is a version that emphasizes minimal gluings (antirefinements) which
+%combine only two balls at a time; for $n=1$ this version will lead to usual definition
+%of $A_\infty$ category}
 
 We will call $m$ the filtration degree of the complex.
+\nn{is there a more standard term for this?}
 We can think of this construction as starting with a disjoint copy of a complex for each
 permissible decomposition (filtration degree 0).
 Then we glue these together with mapping cylinders coming from gluing maps
@@ -1037,10 +1047,10 @@ Then we glue these together with mapping cylinders coming from gluing maps
 Then we kill the extra homology we just introduced with mapping 
 cylinders between the mapping cylinders (filtration degree 2), and so on.
 
-$\cC(W)$ is functorial with respect to homeomorphisms of $k$-manifolds. Restricting the $k$-spheres, we have now proved Lemma \ref{lem:spheres}.
+$\cl{\cC}(W)$ is functorial with respect to homeomorphisms of $k$-manifolds. Restricting the $k$-spheres, we have now proved Lemma \ref{lem:spheres}.
 
 It is easy to see that
-there are well-defined maps $\cC(W)\to\cC(\bd W)$, and that these maps
+there are well-defined maps $\cl{\cC}(W)\to\cl{\cC}(\bd W)$, and that these maps
 comprise a natural transformation of functors.
 
 \begin{lem}
