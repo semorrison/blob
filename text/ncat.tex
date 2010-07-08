@@ -253,6 +253,8 @@ $$
 The composition (gluing) maps above are strictly associative.
 \end{axiom}
 
+\nn{should say this means $N$ at a time, not just 3 at a time}
+
 \begin{figure}[!ht]
 $$\mathfig{.65}{ncat/strict-associativity}$$
 \caption{An example of strict associativity.}\label{blah6}\end{figure}
@@ -491,7 +493,7 @@ Then
 \]
 \item
 Product morphisms are associative.
-If $\pi:E\to X$ and $\rho:D\to E$ and pinched products then
+If $\pi:E\to X$ and $\rho:D\to E$ are pinched products then
 \[
 	\rho^*\circ\pi^* = (\pi\circ\rho)^* .
 \]
@@ -687,7 +689,7 @@ Constructing a system of fields from $\pi_{\leq n}(T)$ recovers that example.
 an n-cat}
 }
 
-\begin{example}[Maps to a space, with a fiber]
+\begin{example}[Maps to a space, with a fiber] \label{ex:maps-with-fiber}
 \rm
 \label{ex:maps-to-a-space-with-a-fiber}%
 We can modify the example above, by fixing a
@@ -877,8 +879,7 @@ also comes from the $\cE\cB_n$ action on $A$.
 \nn{should we spell this out?}
 
 \nn{Should remark that this is just Lurie's topological chiral homology construction
-applied to $n$-balls (check this).
-Hmmm... Does Lurie do both framed and unframed cases?}
+applied to $n$-balls (need to check that colims agree).}
 
 Conversely, one can show that a topological $A_\infty$ $n$-category $\cC$, where the $k$-morphisms
 $\cC(X)$ are trivial (single point) for $k<n$, gives rise to 
@@ -1063,8 +1064,6 @@ decomposition $x$ of $W$ the natural map $\psi_{\cC;W}(x)\to \cl{\cC}(W)$ is inj
 \end{proof}
 
 \nn{need to finish explaining why we have a system of fields;
-need to say more about ``homological" fields? 
-(actions of homeomorphisms);
 define $k$-cat $\cC(\cdot\times W)$}
 
 \subsection{Modules}
@@ -1072,16 +1071,11 @@ define $k$-cat $\cC(\cdot\times W)$}
 Next we define plain and $A_\infty$ $n$-category modules.
 The definition will be very similar to that of $n$-categories,
 but with $k$-balls replaced by {\it marked $k$-balls,} defined below.
-\nn{** need to make sure all revisions of $n$-cat def are also made to module def.}
-\nn{in particular, need to to get rid of the ``hemisphere axiom"}
-%\nn{should they be called $n$-modules instead of just modules?  probably not, but worth considering.}
 
 Our motivating example comes from an $(m{-}n{+}1)$-dimensional manifold $W$ with boundary
 in the context of an $m{+}1$-dimensional TQFT.
 Such a $W$ gives rise to a module for the $n$-category associated to $\bd W$.
 This will be explained in more detail as we present the axioms.
-
-\nn{should also develop $\pi_{\le n}(T, S)$ as a module for $\pi_{\le n}(T)$, where $S\sub T$.}
 
 Throughout, we fix an $n$-category $\cC$.
 For all but one axiom, it doesn't matter whether $\cC$ is a topological $n$-category or an $A_\infty$ $n$-category.
@@ -1101,14 +1095,15 @@ homeomorphisms to the category of sets and bijections.}
 
 (As with $n$-categories, we will usually omit the subscript $k$.)
 
-For example, let $\cD$ be the $m{+}1$-dimensional TQFT which assigns to a $k$-manifold $N$ the set 
-of maps from $N$ to $T$, modulo homotopy (and possibly linearized) if $k=m$.
+For example, let $\cD$ be the TQFT which assigns to a $k$-manifold $N$ the set 
+of maps from $N$ to $T$ (for $k\le m$), modulo homotopy (and possibly linearized) if $k=m$.
 Let $W$ be an $(m{-}n{+}1)$-dimensional manifold with boundary.
 Let $\cC$ be the $n$-category with $\cC(X) \deq \cD(X\times \bd W)$.
-Let $\cM(B, N) \deq \cD((B\times \bd W)\cup (N\times W))$.
+Let $\cM(B, N) \deq \cD((B\times \bd W)\cup (N\times W))$
+(see Example \ref{ex:maps-with-fiber}).
 (The union is along $N\times \bd W$.)
-(If $\cD$ were a general TQFT, we would define $\cM(B, N)$ to be
-the subset of $\cD((B\times \bd W)\cup (N\times W))$ which is splittable along $N\times \bd W$.)
+%(If $\cD$ were a general TQFT, we would define $\cM(B, N)$ to be
+%the subset of $\cD((B\times \bd W)\cup (N\times W))$ which is splittable along $N\times \bd W$.)
 
 \begin{figure}[!ht]
 $$\mathfig{.8}{ncat/boundary-collar}$$
@@ -1140,11 +1135,11 @@ then $\cM(M; c)$ should be an object in that category for each marked $n$-ball $
 and $c\in \cC(\bd M)$.
 
 \begin{lem}[Boundary from domain and range]
-{Let $H = M_1 \cup_E M_2$, where $H$ is a marked $k$-hemisphere ($0\le k\le n-1$),
-$M_i$ is a marked $k$-ball, and $E = M_1\cap M_2$ is a marked $k{-}1$-hemisphere.
+{Let $H = M_1 \cup_E M_2$, where $H$ is a marked $k{-}1$-hemisphere ($1\le k\le n$),
+$M_i$ is a marked $k{-}1$-ball, and $E = M_1\cap M_2$ is a marked $k{-}2$-hemisphere.
 Let $\cM(M_1) \times_{\cM(E)} \cM(M_2)$ denote the fibered product of the 
 two maps $\bd: \cM(M_i)\to \cM(E)$.
-Then (axiom) we have an injective map
+Then we have an injective map
 \[
 	\gl_E : \cM(M_1) \times_{\cM(E)} \cM(M_2) \hookrightarrow \cM(H)
 \]
@@ -1228,8 +1223,10 @@ If $k < n$ we require that $\gl_Y$ is injective.
 \end{module-axiom}
 
 \begin{module-axiom}[Strict associativity]
-{The composition and action maps above are strictly associative.}
+The composition and action maps above are strictly associative.
 \end{module-axiom}
+
+\nn{should say that this is multifold, not just 3-fold}
 
 Note that the above associativity axiom applies to mixtures of module composition,
 action maps and $n$-category composition.
@@ -1264,24 +1261,70 @@ to $\cM(M)$,
 and these various multifold composition maps satisfy an
 operad-type strict associativity condition.}
 
-(The above operad-like structure is analogous to the swiss cheese operad
-\cite{MR1718089}.)
-%\nn{need to double-check that this is true.}
+The above operad-like structure is analogous to the swiss cheese operad
+\cite{MR1718089}.
 
-\begin{module-axiom}[Product/identity morphisms]
-{Let $M$ be a marked $k$-ball and $D$ be a plain $m$-ball, with $k+m \le n$.
-Then we have a map $\cM(M)\to \cM(M\times D)$, usually denoted $a\mapsto a\times D$ for $a\in \cM(M)$.
-If $f:M\to M'$ and $\tilde{f}:M\times D \to M'\times D'$ are maps such that the diagram
+\medskip
+
+We can define marked pinched products $\pi:E\to M$ of marked balls analogously to the 
+plain ball case.
+Note that a marked pinched product can be decomposed into either
+two marked pinched products or a plain pinched product and a marked pinched product.
+\nn{should give figure}
+
+\begin{module-axiom}[Product (identity) morphisms]
+For each pinched product $\pi:E\to M$, with $M$ a marked $k$-ball and $E$ a marked
+$k{+}m$-ball ($m\ge 1$),
+there is a map $\pi^*:\cC(M)\to \cC(E)$.
+These maps must satisfy the following conditions.
+\begin{enumerate}
+\item
+If $\pi:E\to M$ and $\pi':E'\to M'$ are marked pinched products, and
+if $f:M\to M'$ and $\tilde{f}:E \to E'$ are maps such that the diagram
 \[ \xymatrix{
-	M\times D \ar[r]^{\tilde{f}} \ar[d]_{\pi} & M'\times D' \ar[d]^{\pi} \\
+	E \ar[r]^{\tilde{f}} \ar[d]_{\pi} & E' \ar[d]^{\pi'} \\
 	M \ar[r]^{f} & M'
 } \]
-commutes, then we have $\tilde{f}(a\times D) = f(a)\times D'$.}
+commutes, then we have 
+\[
+	\pi'^*\circ f = \tilde{f}\circ \pi^*.
+\]
+\item
+Product morphisms are compatible with module composition and module action.
+Let $\pi:E\to M$, $\pi_1:E_1\to M_1$, and $\pi_2:E_2\to M_2$ 
+be pinched products with $E = E_1\cup E_2$.
+Let $a\in \cM(M)$, and let $a_i$ denote the restriction of $a$ to $M_i\sub M$.
+Then 
+\[
+	\pi^*(a) = \pi_1^*(a_1)\bullet \pi_2^*(a_2) .
+\]
+Similarly, if $\rho:D\to X$ is a pinched product of plain balls and
+$E = D\cup E_1$, then
+\[
+	\pi^*(a) = \rho^*(a')\bullet \pi_1^*(a_1),
+\]
+where $a'$ is the restriction of $a$ to $D$.
+\item
+Product morphisms are associative.
+If $\pi:E\to M$ and $\rho:D\to E$ are marked pinched products then
+\[
+	\rho^*\circ\pi^* = (\pi\circ\rho)^* .
+\]
+\item
+Product morphisms are compatible with restriction.
+If we have a commutative diagram
+\[ \xymatrix{
+	D \ar@{^(->}[r] \ar[d]_{\rho} & E \ar[d]^{\pi} \\
+	Y \ar@{^(->}[r] & M
+} \]
+such that $\rho$ and $\pi$ are pinched products, then
+\[
+	\res_D\circ\pi^* = \rho^*\circ\res_Y .
+\]
+($Y$ could be either a marked or plain ball.)
+\end{enumerate}
 \end{module-axiom}
 
-\nn{Need to add compatibility with various things, as in the n-cat version of this axiom above.}
-
-\nn{postpone finalizing the above axiom until the n-cat version is finalized}
 
 There are two alternatives for the next axiom, according whether we are defining
 modules for plain $n$-categories or $A_\infty$ $n$-categories.
