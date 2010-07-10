@@ -594,7 +594,7 @@ isotopic (rel boundary) to the identity {\it extended isotopy}.
 The revised axiom is
 
 \addtocounter{axiom}{-1}
-\begin{axiom}[\textup{\textbf{[topological  version]}} Extended isotopy invariance in dimension $n$.]
+\begin{axiom}[\textup{\textbf{[plain  version]}} Extended isotopy invariance in dimension $n$.]
 \label{axiom:extended-isotopies}
 Let $X$ be an $n$-ball and $f: X\to X$ be a homeomorphism which restricts
 to the identity on $\bd X$ and isotopic (rel boundary) to the identity.
@@ -878,8 +878,9 @@ The remaining data for the $A_\infty$ $n$-category
 also comes from the $\cE\cB_n$ action on $A$.
 \nn{should we spell this out?}
 
-\nn{Should remark that this is just Lurie's topological chiral homology construction
-applied to $n$-balls (need to check that colims agree).}
+\nn{Should remark that the associated hocolim for manifolds
+is agrees with Lurie's topological chiral homology construction; maybe wait
+until next subsection to say that?}
 
 Conversely, one can show that a topological $A_\infty$ $n$-category $\cC$, where the $k$-morphisms
 $\cC(X)$ are trivial (single point) for $k<n$, gives rise to 
@@ -888,11 +889,6 @@ an $\cE\cB_n$-algebra.
 \end{example}
 
 
-
-
-
-
-%\subsection{From $n$-categories to systems of fields}
 \subsection{From balls to manifolds}
 \label{ss:ncat_fields} \label{ss:ncat-coend}
 In this section we describe how to extend an $n$-category $\cC$ as described above 
@@ -1114,21 +1110,21 @@ Call such a thing a {marked $k{-}1$-hemisphere}.
 
 \begin{lem}
 \label{lem:hemispheres}
-{For each $0 \le k \le n-1$, we have a functor $\cM_k$ from 
+{For each $0 \le k \le n-1$, we have a functor $\cl\cM_k$ from 
 the category of marked $k$-hemispheres and 
 homeomorphisms to the category of sets and bijections.}
 \end{lem}
 The proof is exactly analogous to that of Lemma \ref{lem:spheres}, and we omit the details.
 We use the same type of colimit construction.
 
-In our example, let $\cM(H) \deq \cD(H\times\bd W \cup \bd H\times W)$.
+In our example, $\cl\cM(H) = \cD(H\times\bd W \cup \bd H\times W)$.
 
 \begin{module-axiom}[Module boundaries (maps)]
-{For each marked $k$-ball $M$ we have a map of sets $\bd: \cM(M)\to \cM(\bd M)$.
+{For each marked $k$-ball $M$ we have a map of sets $\bd: \cM(M)\to \cl\cM(\bd M)$.
 These maps, for various $M$, comprise a natural transformation of functors.}
 \end{module-axiom}
 
-Given $c\in\cM(\bd M)$, let $\cM(M; c) \deq \bd^{-1}(c)$.
+Given $c\in\cl\cM(\bd M)$, let $\cM(M; c) \deq \bd^{-1}(c)$.
 
 If the $n$-category $\cC$ is enriched over some other category (e.g.\ vector spaces),
 then $\cM(M; c)$ should be an object in that category for each marked $n$-ball $M$
@@ -1138,25 +1134,24 @@ and $c\in \cC(\bd M)$.
 {Let $H = M_1 \cup_E M_2$, where $H$ is a marked $k{-}1$-hemisphere ($1\le k\le n$),
 $M_i$ is a marked $k{-}1$-ball, and $E = M_1\cap M_2$ is a marked $k{-}2$-hemisphere.
 Let $\cM(M_1) \times_{\cM(E)} \cM(M_2)$ denote the fibered product of the 
-two maps $\bd: \cM(M_i)\to \cM(E)$.
+two maps $\bd: \cM(M_i)\to \cl\cM(E)$.
 Then we have an injective map
 \[
-	\gl_E : \cM(M_1) \times_{\cM(E)} \cM(M_2) \hookrightarrow \cM(H)
+	\gl_E : \cM(M_1) \times_{\cl\cM(E)} \cM(M_2) \hookrightarrow \cl\cM(H)
 \]
 which is natural with respect to the actions of homeomorphisms.}
 \end{lem}
 Again, this is in exact analogy with Lemma \ref{lem:domain-and-range}.
 
-Let $\cM(H)_E$ denote the image of $\gl_E$.
-We will refer to elements of $\cM(H)_E$ as ``splittable along $E$" or ``transverse to $E$". 
+Let $\cl\cM(H)_E$ denote the image of $\gl_E$.
+We will refer to elements of $\cl\cM(H)_E$ as ``splittable along $E$" or ``transverse to $E$". 
 
-
-\begin{module-axiom}[Module to category restrictions]
+\begin{lem}[Module to category restrictions]
 {For each marked $k$-hemisphere $H$ there is a restriction map
-$\cM(H)\to \cC(H)$.  
+$\cl\cM(H)\to \cC(H)$.  
 ($\cC(H)$ means apply $\cC$ to the underlying $k$-ball of $H$.)
 These maps comprise a natural transformation of functors.}
-\end{module-axiom}
+\end{lem}
 
 Note that combining the various boundary and restriction maps above
 (for both modules and $n$-categories)
@@ -1275,7 +1270,7 @@ two marked pinched products or a plain pinched product and a marked pinched prod
 \begin{module-axiom}[Product (identity) morphisms]
 For each pinched product $\pi:E\to M$, with $M$ a marked $k$-ball and $E$ a marked
 $k{+}m$-ball ($m\ge 1$),
-there is a map $\pi^*:\cC(M)\to \cC(E)$.
+there is a map $\pi^*:\cM(M)\to \cM(E)$.
 These maps must satisfy the following conditions.
 \begin{enumerate}
 \item
@@ -1325,18 +1320,28 @@ such that $\rho$ and $\pi$ are pinched products, then
 \end{enumerate}
 \end{module-axiom}
 
+As in the $n$-category definition, once we have product morphisms we can define
+collar maps $\cM(M)\to \cM(M)$.
+Note that there are two cases:
+the collar could intersect the marking of the marked ball $M$, in which case
+we use a product on a morphism of $\cM$; or the collar could be disjoint from the marking,
+in which case we use a product on a morphism of $\cC$.
+
+In our example, elements $a$ of $\cM(M)$ maps to $T$, and $\pi^*(a)$ is the pullback of
+$a$ along a map associated to $\pi$.
+
+\medskip
 
 There are two alternatives for the next axiom, according whether we are defining
 modules for plain $n$-categories or $A_\infty$ $n$-categories.
 In the plain case we require
 
-\begin{module-axiom}[\textup{\textbf{[topological version]}} Extended isotopy invariance in dimension $n$]
+\begin{module-axiom}[\textup{\textbf{[plain version]}} Extended isotopy invariance in dimension $n$]
 {Let $M$ be a marked $n$-ball and $f: M\to M$ be a homeomorphism which restricts
-to the identity on $\bd M$ and is extended isotopic (rel boundary) to the identity.
+to the identity on $\bd M$ and is isotopic (rel boundary) to the identity.
 Then $f$ acts trivially on $\cM(M)$.}
+In addition, collar maps act trivially on $\cM(M)$.
 \end{module-axiom}
-
-\nn{need to rephrase this, since extended isotopies don't correspond to homeomorphisms.}
 
 We emphasize that the $\bd M$ above means boundary in the marked $k$-ball sense.
 In other words, if $M = (B, N)$ then we require only that isotopies are fixed 
@@ -1346,18 +1351,18 @@ For $A_\infty$ modules we require
 
 \addtocounter{module-axiom}{-1}
 \begin{module-axiom}[\textup{\textbf{[$A_\infty$ version]}} Families of homeomorphisms act]
-{For each marked $n$-ball $M$ and each $c\in \cM(\bd M)$ we have a map of chain complexes
+For each marked $n$-ball $M$ and each $c\in \cM(\bd M)$ we have a map of chain complexes
 \[
 	C_*(\Homeo_\bd(M))\ot \cM(M; c) \to \cM(M; c) .
 \]
 Here $C_*$ means singular chains and $\Homeo_\bd(M)$ is the space of homeomorphisms of $M$
 which fix $\bd M$.
-These action maps are required to be associative up to homotopy
-\nn{iterated homotopy?}, and also compatible with composition (gluing) in the sense that
+These action maps are required to be associative up to homotopy, 
+and also compatible with composition (gluing) in the sense that
 a diagram like the one in Proposition \ref{CHprop} commutes.
-\nn{repeat diagram here?}
-\nn{restate this with $\Homeo(M\to M')$?  what about boundary fixing property?}}
 \end{module-axiom}
+
+As with the $n$-category version of the above axiom, we should also have families of collar maps act.
 
 \medskip
 
@@ -1368,7 +1373,6 @@ where $X$ is a $k$-ball and in the product $X\times J$ we pinch
 above the non-marked boundary component of $J$.
 (More specifically, we collapse $X\times P$ to a single point, where
 $P$ is the non-marked boundary component of $J$.)
-\nn{give figure for this?}
 Then $\cE$ has the structure of an $n{-}1$-category.
 
 All marked $k$-balls are homeomorphic, unless $k = 1$ and our manifolds
@@ -1384,7 +1388,7 @@ there is no left/right module distinction.
 We now give some examples of modules over topological and $A_\infty$ $n$-categories.
 
 \begin{example}[Examples from TQFTs]
-\todo{}
+\nn{need to add corresponding ncat example}
 \end{example}
 
 \begin{example}
