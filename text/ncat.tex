@@ -671,7 +671,7 @@ We typically specify only the morphisms; the rest of the data for the category
 \begin{example}[Maps to a space]
 \rm
 \label{ex:maps-to-a-space}%
-Let $T$be a topological space.
+Let $T$ be a topological space.
 We define $\pi_{\leq n}(T)$, the fundamental $n$-category of $T$, as follows.
 For $X$ a $k$-ball with $k < n$, define $\pi_{\leq n}(T)(X)$ to be the set of 
 all continuous maps from $X$ to $T$.
@@ -713,8 +713,22 @@ $h: X\times F\times I \to T$, then $a = \alpha(h)b$.
 Alternatively, we could equip the balls with fundamental classes.)
 \end{example}
 
-The next example is only intended to be illustrative, as we don't specify which definition of a ``traditional $n$-category" we intend.
-Further, most of these definitions don't even have an agreed-upon notion of ``strong duality", which we assume here.
+\begin{example}[$n$-categories from TQFTs]
+\rm
+\label{ex:ncats-from-tqfts}%
+Let $\cF$ be a TQFT in the sense of \S\ref{sec:fields}: an $n$-dimensional 
+system of fields (also denoted $\cF$) and local relations.
+Let $W$ be an $n{-}j$-manifold.
+Define the $j$-category $\cF(W)$ as follows.
+If $X$ is a $k$-ball with $k<j$, let $\cF(W)(X) \deq \cF(W\times X)$.
+If $X$ is a $j$-ball and $c\in \cl{\cF(W)}(\bd X)$, 
+let $\cF(W)(X; c) \deq A_\cF(W\times X; c)$.
+\end{example}
+
+The next example is only intended to be illustrative, as we don't specify 
+which definition of a ``traditional $n$-category" we intend.
+Further, most of these definitions don't even have an agreed-upon notion of 
+``strong duality", which we assume here.
 \begin{example}[Traditional $n$-categories]
 \rm
 \label{ex:traditional-n-categories}
@@ -1388,10 +1402,19 @@ there is no left/right module distinction.
 We now give some examples of modules over topological and $A_\infty$ $n$-categories.
 
 \begin{example}[Examples from TQFTs]
-\nn{need to add corresponding ncat example}
+\rm
+Continuing Example \ref{ex:ncats-from-tqfts}, with $\cF$ a TQFT, $W$ an $n{-}j$-manifold,
+and $\cF(W)$ the $j$-category associated to $W$.
+Let $Y$ be an $(n{-}j{+}1)$-manifold with $\bd Y = W$.
+Define a $\cF(W)$ module $\cF(Y)$ as follows.
+If $M = (B, N)$ is a marked $k$-ball with $k<j$ let 
+$\cF(Y)(M)\deq \cF((B\times W) \cup (N\times Y))$.
+If $M = (B, N)$ is a marked $j$-ball and $c\in \cl{\cF(Y)}(\bd M)$ let
+$\cF(Y)(M)\deq A_\cF((B\times W) \cup (N\times Y); c)$.
 \end{example}
 
 \begin{example}
+\rm
 Suppose $S$ is a topological space, with a subspace $T$.
 We can define a module $\pi_{\leq n}(S,T)$ so that on each marked $k$-ball $(B,N)$ 
 for $k<n$ the set $\pi_{\leq n}(S,T)(B,N)$ consists of all continuous maps of pairs 
