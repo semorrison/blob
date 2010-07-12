@@ -7,7 +7,7 @@
 
 Let $CH_*(X, Y)$ denote $C_*(\Homeo(X \to Y))$, the singular chain complex of
 the space of homeomorphisms
-between the $n$-manifolds $X$ and $Y$ (extending a fixed homeomorphism $\bd X \to \bd Y$).
+between the $n$-manifolds $X$ and $Y$ (any given singular chain extends a fixed homeomorphism $\bd X \to \bd Y$).
 We also will use the abbreviated notation $CH_*(X) \deq CH_*(X, X)$.
 (For convenience, we will permit the singular cells generating $CH_*(X, Y)$ to be more general
 than simplices --- they can be based on any linear polyhedron.
@@ -24,12 +24,14 @@ such that
 $\Homeo(X, Y)$ on $\bc_*(X)$ (Property (\ref{property:functoriality})), and
 \item for any compatible splittings $X\to X\sgl$ and $Y\to Y\sgl$, 
 the following diagram commutes up to homotopy
-\eq{ \xymatrix{
-     CH_*(X\sgl, Y\sgl) \otimes \bc_*(X\sgl) \ar[r]^(.7){e_{X\sgl Y\sgl}}  \ar[d]^{\gl \otimes \gl}   & \bc_*(Y\sgl)  \ar[d]_{\gl} \\
+\begin{equation*}
+\xymatrix@C+2cm{
       CH_*(X, Y) \otimes \bc_*(X)
-        \ar@/_4ex/[r]_{e_{XY}}   &
-            \bc_*(Y)
-} }
+        \ar[r]_(.6){e_{XY}}  \ar[d]^{\gl \otimes \gl}   &
+            \bc_*(Y)\ar[d]^{\gl} \\
+     CH_*(X\sgl, Y\sgl) \otimes \bc_*(X\sgl) \ar[r]_(.6){e_{X\sgl Y\sgl}}   & 	\bc_*(Y\sgl)  
+}
+\end{equation*}
 \end{enumerate}
 Up to (iterated) homotopy, there is a unique family $\{e_{XY}\}$ of chain maps
 satisfying the above two conditions.
@@ -74,8 +76,6 @@ The proof will be given in \S\ref{sec:localising}.
 \medskip
 
 Before diving into the details, we outline our strategy for the proof of Proposition \ref{CHprop}.
-
-%Suppose for the moment that evaluation maps with the advertised properties exist.
 Let $p$ be a singular cell in $CH_k(X)$ and $b$ be a blob diagram in $\bc_*(X)$.
 We say that $p\ot b$ is {\it localizable} if there exists $V \sub X$ such that
 \begin{itemize}
@@ -97,7 +97,7 @@ According to the commutative diagram of the proposition, we must have
 	e_X(p\otimes b) = e_X(\gl(q\otimes b_V, r\otimes b_W)) = 
 				gl(e_{VV'}(q\otimes b_V), e_{WW'}(r\otimes b_W)) .
 \]
-Since $r$ is a plain, 0-parameter family of homeomorphisms, we must have
+Since $r$ is a  0-parameter family of homeomorphisms, we must have
 \[
 	e_{WW'}(r\otimes b_W) = r(b_W),
 \]
@@ -122,7 +122,7 @@ evaluation maps in this way affect the final answer only by a homotopy.
 
 Now for a little more detail.
 (But we're still just motivating the full, gory details, which will follow.)
-Choose a metric on $X$, and let $\cU_\gamma$ be the open cover of by balls of radius $\gamma$.
+Choose a metric on $X$, and let $\cU_\gamma$ be the open cover of balls of radius $\gamma$.
 By Lemma \ref{extension_lemma} we can restrict our attention to $k$-parameter families 
 $p$ of homeomorphisms such that $\supp(p)$ is contained in the union of $k$ $\gamma$-balls.
 For fixed blob diagram $b$ and fixed $k$, it's not hard to show that for $\gamma$ small enough
@@ -135,7 +135,7 @@ The construction of $e_X$, as outlined above, depends on various choices, one of
 is the choice, for each localizable generator $p\ot b$, 
 of disjoint balls $V$ containing $\supp(p)\cup\supp(b)$.
 Let $V'$ be another disjoint union of balls containing $\supp(p)\cup\supp(b)$,
-and assume that there exists yet another disjoint union of balls $W$ with $W$ containing 
+and assume that there exists yet another disjoint union of balls $W$ containing 
 $V\cup V'$.
 Then we can use $W$ to construct a homotopy between the two versions of $e_X$ 
 associated to $V$ and $V'$.
@@ -150,15 +150,15 @@ $\supp(p)\cup\supp(b)$, and so on.
 \medskip
 
 \begin{proof}[Proof of Proposition \ref{CHprop}.]
-Notation: Let $|b| = \supp(b)$, $|p| = \supp(p)$.
+We'll use the notation $|b| = \supp(b)$ and $|p| = \supp(p)$.
 
 Choose a metric on $X$.
-Choose a monotone decreasing sequence of positive real numbers $\ep_i$ converging to zero
+Choose a monotone decreasing sequence of positive real numbers $\ep_i$ converging monotonically to zero
 (e.g.\ $\ep_i = 2^{-i}$).
 Choose another sequence of positive real numbers $\delta_i$ such that $\delta_i/\ep_i$
 converges monotonically to zero (e.g.\ $\delta_i = \ep_i^2$).
 Let $\phi_l$ be an increasing sequence of positive numbers
-satisfying the inequalities of Lemma \ref{xx2phi}.
+satisfying the inequalities of Lemma \ref{xx2phi} below.
 Given a generator $p\otimes b$ of $CH_*(X)\otimes \bc_*(X)$ and non-negative integers $i$ and $l$
 define
 \[
@@ -172,14 +172,14 @@ the size of the buffers around $|p|$.
 Next we define subcomplexes $G_*^{i,m} \sub CH_*(X)\otimes \bc_*(X)$.
 Let $p\ot b$ be a generator of $CH_*(X)\otimes \bc_*(X)$ and let $k = \deg(p\ot b)
 = \deg(p) + \deg(b)$.
-$p\ot b$ is (by definition) in $G_*^{i,m}$ if either (a) $\deg(p) = 0$ or (b)
+We say $p\ot b$ is in $G_*^{i,m}$ exactly when either (a) $\deg(p) = 0$ or (b)
 there exist codimension-zero submanifolds $V_0,\ldots,V_m \sub X$ such that each $V_j$
 is homeomorphic to a disjoint union of balls and
 \[
 	N_{i,k}(p\ot b) \subeq V_0 \subeq N_{i,k+1}(p\ot b)
 			\subeq V_1 \subeq \cdots \subeq V_m \subeq N_{i,k+m+1}(p\ot b) .
 \]
-Further, we require (inductively) that $\bd(p\ot b) \in G_*^{i,m}$.
+and further $\bd(p\ot b) \in G_*^{i,m}$.
 We also require that $b$ is splitable (transverse) along the boundary of each $V_l$.
 
 Note that $G_*^{i,m+1} \subeq G_*^{i,m}$.
@@ -265,13 +265,12 @@ Let $\tilde{e} :  G_*^{i,m} \to \bc_*(X)$ be a chain map constructed like $e$ ab
 different choices of $V$ (and hence also different choices of $x'$) at each step.
 If $m \ge 1$ then $e$ and $\tilde{e}$ are homotopic.
 If $m \ge 2$ then any two choices of this first-order homotopy are second-order homotopic.
-And so on.
-In other words,  $e :  G_*^{i,m} \to \bc_*(X)$ is well-defined up to $m$-th order homotopy.
+Continuing, $e :  G_*^{i,m} \to \bc_*(X)$ is well-defined up to $m$-th order homotopy.
 \end{lemma}
 
 \begin{proof}
 We construct $h: G_*^{i,m} \to \bc_*(X)$ such that $\bd h + h\bd = e - \tilde{e}$.
-$e$ and $\tilde{e}$ coincide on bidegrees $(0, j)$, so define $h$
+The chain maps $e$ and $\tilde{e}$ coincide on bidegrees $(0, j)$, so define $h$
 to be zero there.
 Assume inductively that $h$ has been defined for degrees less than $k$.
 Let $p\ot b$ be a generator of degree $k$.
@@ -344,11 +343,9 @@ for all $l\ge m$ and all $q\ot a$ which appear in the boundary of $p\ot b$.
 
 
 \begin{proof}
-Let $c$ be a subset of the blobs of $b$.
-There exists $\lambda > 0$ such that $\Nbd_u(c)$ is homeomorphic to $|c|$ for all $u < \lambda$ 
-and all such $c$.
-(Here we are using a piecewise smoothness assumption for $\bd c$, and also
-the fact that $\bd c$ is collared.
+
+There exists $\lambda > 0$ such that for every  subset $c$ of the blobs of $b$ $\Nbd_u(c)$ is homeomorphic to $|c|$ for all $u < \lambda$ .
+(Here we are using the fact that the blobs are piecewise-linear and thatthat $\bd c$ is collared.)
 We need to consider all such $c$ because all generators appearing in
 iterated boundaries of $p\ot b$ must be in $G_*^{i,m}$.)
 
@@ -414,7 +411,7 @@ The same argument shows that each generator involved in iterated boundaries of $
 is in $G_*^{i,m}$.
 \end{proof}
 
-In the next few lemmas we have made no effort to optimize the various bounds.
+In the next three lemmas, which provide the estimates needed above, we have made no effort to optimize the various bounds.
 (The bounds are, however, optimal in the sense of minimizing the amount of work
 we do.  Equivalently, they are the first bounds we thought of.)
 
@@ -431,7 +428,7 @@ Let $S$ be contained in $B_r(y)$, $y \in \ebb^n$.
 Note that if $a \ge 2r$ then $\Nbd_a(S) \sup B_r(y)$.
 Let $z\in \Nbd_a(S) \setmin B_r(y)$.
 Consider the triangle
-\nn{give figure?} with vertices $z$, $y$ and $s$ with $s\in S$.
+with vertices $z$, $y$ and $s$ with $s\in S$.
 The length of the edge $yz$ is greater than $r$ which is greater
 than the length of the edge $ys$.
 It follows that the angle at $z$ is less than $\pi/2$ (less than $\pi/3$, in fact),
@@ -442,7 +439,7 @@ Hence $\Nbd_a(S)$ is star-shaped with respect to $y$.
 
 If we replace $\ebb^n$ above with an arbitrary compact Riemannian manifold $M$,
 the same result holds, so long as $a$ is not too large:
-\nn{what about PL? TOP?}
+\nn{replace this with a PL version}
 
 \begin{lemma} \label{xxzz11}
 Let $M$ be a compact Riemannian manifold.
@@ -498,7 +495,9 @@ of balls, and such that
 where $t = \phi_{k-1}(2\phi_{k-1}+2)r + \phi_{k-1} r$.
 \end{proof}
 
-\medskip
+
+We now return to defining the chain maps $e_X$.
+
 
 Let $R_*$ be the chain complex with a generating 0-chain for each non-negative
 integer and a generating 1-chain connecting each adjacent pair $(j, j+1)$.
@@ -592,13 +591,12 @@ Let $G^m_*$ and $\ol{G}^m_*$ be the complexes, as above, used for defining
 the action maps $e_{X\sgl}$ and $e_X$.
 The gluing map $X\sgl\to X$ induces a map
 \[
-	\gl: R_*\ot CH_*(X\sgl, X \sgl) \otimes \bc_*(X \sgl) \to R_*\ot CH_*(X, X) \otimes \bc_*(X) ,
+	\gl:  R_*\ot CH_*(X, X) \otimes \bc_*(X)  \to R_*\ot CH_*(X\sgl, X \sgl) \otimes \bc_*(X \sgl) ,
 \]
 and it is easy to see that $\gl(G^m_*)\sub \ol{G}^m_*$.
 From this it follows that the diagram in the statement of Proposition \ref{CHprop} commutes.
 
-\medskip
-
+\todo{this paragraph isn't very convincing, or at least I don't see what's going on}
 Finally we show that the action maps defined above are independent of
 the choice of metric (up to iterated homotopy).
 The arguments are very similar to ones given above, so we only sketch them.
@@ -614,6 +612,8 @@ Using acyclic models, we can construct a homotopy from $e$ to $e'$ on $F_*$.
 We now observe that $CH_*(X, X) \ot \bc_*(X)$ retracts to $F_*$.
 Similar arguments show that this homotopy from $e$ to $e'$ is well-defined
 up to second order homotopy, and so on.
+
+This completes the proof of Proposition \ref{CHprop}.
 \end{proof}
 
 
@@ -623,8 +623,8 @@ For the proof of Lemma \ref{lem:CH-small-blobs} below we will need the following
 Let $b$ be a blob diagram and $p:P\times X\to X$ be a family of homeomorphisms.
 Then we may choose $e$ such that $e(p\ot b)$ is a sum of generators, each
 of which has support close to $p(t,|b|)$ for some $t\in P$.
-More precisely, the support of the generators is contained in a small neighborhood
-of $p(t,|b|)$ union some small balls.
+More precisely, the support of the generators is contained in the union of a small neighborhood
+of $p(t,|b|)$ with some small balls.
 (Here ``small" is in terms of the metric on $X$ that we chose to construct $e$.)
 \end{rem*}
 
