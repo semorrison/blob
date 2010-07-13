@@ -200,11 +200,10 @@ choice made in the definition, and that it is associative.
 
 \subsection{$A_\infty$ $1$-categories}
 \label{sec:comparing-A-infty}
-In this section, we make contact between the usual definition of an $A_\infty$ algebra 
-and our definition of a topological $A_\infty$ algebra, from Definition \ref{defn:topological-Ainfty-category}.
+In this section, we make contact between the usual definition of an $A_\infty$ category 
+and our definition of a topological $A_\infty$ $1$-category, from \S \ref{???}.
 
-We begin be restricting the data of a topological $A_\infty$ algebra to the standard interval $[0,1]$, 
-which we can alternatively characterise as:
+That definition associates a chain complex to every interval, and we begin by giving an alternative definition that is entirely in terms of the chain complex associated to the standard interval $[0,1]$. 
 \begin{defn}
 A \emph{topological $A_\infty$ category on $[0,1]$} $\cC$ has a set of objects $\Obj(\cC)$, 
 and for each $a,b \in \Obj(\cC)$, a chain complex $\cC_{a,b}$, along with
@@ -222,7 +221,7 @@ of $\cJ^{(2)}$ linearly into the $m$-th interval of $\cJ^{(1)}$.
 In the $X$-labeled case, we insist that the appropriate labels match up.
 Saying we have an action of this operad means that for each labeled cell decomposition 
 $0 < x_1< \cdots < x_k < 1$, $a_0, \ldots, a_{k+1} \subset \Obj(\cC)$, there is a chain 
-map $$\cC_{a_0,a_1} \tensor \cdots \tensor \cC_{a_k,a_{k+1}} \to \cC(a_0,a_{k+1})$$ and these 
+map $$\cC_{a_0,a_1} \tensor \cdots \tensor \cC_{a_k,a_{k+1}} \to \cC_{a_0,a_{k+1}}$$ and these 
 chain maps compose exactly as the cell decompositions.
 An action of $\CD{[0,1]}$ is compatible with an action of the cell decomposition operad 
 if given a decomposition $\pi$, and a family of diffeomorphisms $f \in \CD{[0,1]}$ which 
