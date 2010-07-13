@@ -122,7 +122,7 @@ evaluation maps in this way affect the final answer only by a homotopy.
 
 Now for a little more detail.
 (But we're still just motivating the full, gory details, which will follow.)
-Choose a metric on $X$, and let $\cU_\gamma$ be the open cover of balls of radius $\gamma$.
+Choose a metric on $X$, and let $\cU_\gamma$ be the open cover of $X$ by balls of radius $\gamma$.
 By Lemma \ref{extension_lemma} we can restrict our attention to $k$-parameter families 
 $p$ of homeomorphisms such that $\supp(p)$ is contained in the union of $k$ $\gamma$-balls.
 For fixed blob diagram $b$ and fixed $k$, it's not hard to show that for $\gamma$ small enough
@@ -153,7 +153,7 @@ $\supp(p)\cup\supp(b)$, and so on.
 We'll use the notation $|b| = \supp(b)$ and $|p| = \supp(p)$.
 
 Choose a metric on $X$.
-Choose a monotone decreasing sequence of positive real numbers $\ep_i$ converging monotonically to zero
+Choose a monotone decreasing sequence of positive real numbers $\ep_i$ converging to zero
 (e.g.\ $\ep_i = 2^{-i}$).
 Choose another sequence of positive real numbers $\delta_i$ such that $\delta_i/\ep_i$
 converges monotonically to zero (e.g.\ $\delta_i = \ep_i^2$).
@@ -177,7 +177,7 @@ there exist codimension-zero submanifolds $V_0,\ldots,V_m \sub X$ such that each
 is homeomorphic to a disjoint union of balls and
 \[
 	N_{i,k}(p\ot b) \subeq V_0 \subeq N_{i,k+1}(p\ot b)
-			\subeq V_1 \subeq \cdots \subeq V_m \subeq N_{i,k+m+1}(p\ot b) .
+			\subeq V_1 \subeq \cdots \subeq V_m \subeq N_{i,k+m+1}(p\ot b) ,
 \]
 and further $\bd(p\ot b) \in G_*^{i,m}$.
 We also require that $b$ is splitable (transverse) along the boundary of each $V_l$.
@@ -345,7 +345,8 @@ for all $l\ge m$ and all $q\ot a$ which appear in the boundary of $p\ot b$.
 \begin{proof}
 
 There exists $\lambda > 0$ such that for every  subset $c$ of the blobs of $b$ $\Nbd_u(c)$ is homeomorphic to $|c|$ for all $u < \lambda$ .
-(Here we are using the fact that the blobs are piecewise-linear and thatthat $\bd c$ is collared.)
+(Here we are using the fact that the blobs are 
+piecewise smooth or piecewise-linear and that $\bd c$ is collared.)
 We need to consider all such $c$ because all generators appearing in
 iterated boundaries of $p\ot b$ must be in $G_*^{i,m}$.)
 
