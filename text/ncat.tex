@@ -1434,11 +1434,6 @@ Let $W$ be a $k$-manifold ($k\le n$),
 let $\{Y_i\}$ be a collection of disjoint codimension 0 submanifolds of $\bd W$,
 and let $\cN = (\cN_i)$ be an assignment of a $\cC$ module $\cN_i$ to $Y_i$.
 
-%Let $\cC$ be an [$A_\infty$] $n$-category, let $W$ be a $k$-manifold ($k\le n$),
-%and let $\cN = (\cN_i)$ be an assignment of a $\cC$ module $\cN_i$ to each boundary 
-%component $\bd_i W$ of $W$.
-%(More generally, each $\cN_i$ could label some codimension zero submanifold of $\bd W$.)
-
 We will define a set $\cC(W, \cN)$ using a colimit construction similar to 
 the one appearing in \S \ref{ss:ncat_fields} above.
 (If $k = n$ and our $n$-categories are enriched, then
@@ -1448,15 +1443,18 @@ Define a permissible decomposition of $W$ to be a decomposition
 \[
 	W = \left(\bigcup_a X_a\right) \cup \left(\bigcup_{i,b} M_{ib}\right) ,
 \]
-where each $X_a$ is a plain $k$-ball (disjoint from $\bd W$) and
-each $M_{ib}$ is a marked $k$-ball intersecting $\bd_i W$,
+where each $X_a$ is a plain $k$-ball (disjoint from $\cup Y_i$) and
+each $M_{ib}$ is a marked $k$-ball intersecting $Y_i$,
 with $M_{ib}\cap Y_i$ being the marking.
 (See Figure \ref{mblabel}.)
-\begin{figure}[!ht]\begin{equation*}
+\begin{figure}[t]
+\begin{equation*}
 \mathfig{.4}{ncat/mblabel}
-\end{equation*}\caption{A permissible decomposition of a manifold
+\end{equation*}
+\caption{A permissible decomposition of a manifold
 whose boundary components are labeled by $\cC$ modules $\{\cN_i\}$.
-Marked balls are shown shaded, plain balls are unshaded.}\label{mblabel}\end{figure}
+Marked balls are shown shaded, plain balls are unshaded.}\label{mblabel}
+\end{figure}
 Given permissible decompositions $x$ and $y$, we say that $x$ is a refinement
 of $y$, or write $x \le y$, if each ball of $y$ is a union of balls of $x$.
 This defines a partial ordering $\cell(W)$, which we will think of as a category.
@@ -1472,22 +1470,24 @@ For a decomposition $x = (X_a, M_{ib})$ in $\cell(W)$, define $\psi_\cN(x)$ to b
 \]
 such that the restrictions to the various pieces of shared boundaries amongst the
 $X_a$ and $M_{ib}$ all agree.
-(That is, the fibered product over the boundary maps.)
+(That is, the fibered product over the boundary restriction maps.)
 If $x$ is a refinement of $y$, define a map $\psi_\cN(x)\to\psi_\cN(y)$
 via the gluing (composition or action) maps from $\cC$ and the $\cN_i$.
 
 We now define the set $\cC(W, \cN)$ to be the colimit of the functor $\psi_\cN$.
-(As usual, if $k=n$ and we are in the $A_\infty$ case, then ``colimit" means
-homotopy colimit.)
+(As in \S\ref{ss:ncat-coend}, if $k=n$ we take a colimit in whatever
+category we are enriching over, and if additionally we are in the $A_\infty$ case, 
+then we use a homotopy colimit.)
+
+\medskip
 
 If $D$ is an $m$-ball, $0\le m \le n-k$, then we can similarly define
 $\cC(D\times W, \cN)$, where in this case $\cN_i$ labels the submanifold 
 $D\times Y_i \sub \bd(D\times W)$.
 It is not hard to see that the assignment $D \mapsto \cC(D\times W, \cN)$
-has the structure of an $n{-}k$-category, which we call $\cT(W, \cN)(D)$.
+has the structure of an $n{-}k$-category.
 
 \medskip
-
 
 We will use a simple special case of the above 
 construction to define tensor products 
@@ -1497,7 +1497,7 @@ Let $\cM_1$ and $\cM_2$ be modules for an $n$-category $\cC$.
 a left module and the other a right module.)
 Choose a 1-ball $J$, and label the two boundary points of $J$ by $\cM_1$ and $\cM_2$.
 Define the tensor product $\cM_1 \tensor \cM_2$ to be the 
-$n{-}1$-category $\cT(J, \{\cM_1, \cM_2\})$.
+$n{-}1$-category associated as above to $J$ with its boundary labeled by $\cM_1$ and $\cM_2$.
 This of course depends (functorially)
 on the choice of 1-ball $J$.
 
