@@ -19,7 +19,7 @@ It is also worth noting that the original idea for the blob complex came from tr
 to find a more ``local" description of the Hochschild complex.
 
 Let $C$ be a *-1-category.
-Then specializing the definitions from above to the case $n=1$ we have:
+Then specializing the definition of the associated system of fields from \S \ref{sec:example:traditional-n-categories(fields)} above to the case $n=1$ we have:
 \begin{itemize}
 \item $\cC(pt) = \ob(C)$ .
 \item Let $R$ be a 1-manifold and $c \in \cC(\bd R)$.
@@ -44,8 +44,7 @@ Hochschild complex of $C$.
 In order to prove this we will need to extend the 
 definition of the blob complex to allow points to also
 be labeled by elements of $C$-$C$-bimodules.
-(See Subsections \ref{moddecss} and \ref{ssec:spherecat} for a more general (i.e.\ $n>1$)
-version of this construction.)
+(See Subsections \ref{moddecss} and \ref{ssec:spherecat} for a more general version of this construction that applies in all dimensions.)
 
 Fix points $p_1, \ldots, p_k \in S^1$ and $C$-$C$-bimodules $M_1, \ldots M_k$.
 We define a blob-like complex $K_*(S^1, (p_i), (M_i))$.
@@ -79,8 +78,8 @@ First, we see that
 The complex $K_*(C)$ (here $C$ is being thought of as a
 $C$-$C$-bimodule, not a category) is homotopy equivalent to the blob complex
 $\bc_*(S^1; C)$.
-(Proof later.)
 \end{lem}
+The proof appears below.
 
 Next, we show that for any $C$-$C$-bimodule $M$,
 \begin{prop} \label{prop:hoch}
@@ -249,7 +248,7 @@ It is not hard to show that on $L_*^\ep$
 \[
 	\bd j_\ep  + j_\ep \bd = \id - i \circ s .
 \]
-\nn{need to check signs coming from blob complex differential}
+(To get the signs correct here, we add $N_\ep$ as the first blob.)
 Since for $\ep$ small enough $L_*^\ep$ captures all of the
 homology of $\bc_*(S^1)$, 
 it follows that the mapping cone of $i \circ s$ is acyclic and therefore (using the fact that
@@ -288,11 +287,11 @@ Finally, the interesting step is in checking that any $q = \sum_i a_i \tensor q_
 such that $\sum_i a_i q_i b_i = 0$ is in the image of $\ker(C \tensor E \tensor C \to C)$ under $\hat{g}$.
 For each $i$, we can find $\widetilde{q_i}$ so $g(\widetilde{q_i}) = q_i$.
 However $\sum_i a_i \widetilde{q_i} b_i$ need not be zero.
-Consider then $$\widetilde{q} = \sum_i (a_i \tensor \widetilde{q_i} \tensor b_i) - 1 \tensor (\sum_i a_i \widetilde{q_i} b_i) \tensor 1.$$ Certainly
+Consider then $$\widetilde{q} = \sum_i \left(a_i \tensor \widetilde{q_i} \tensor b_i\right) - 1 \tensor \left(\sum_i a_i \widetilde{q_i} b_i\right) \tensor 1.$$ Certainly
 $\widetilde{q} \in \ker(C \tensor E \tensor C \to E)$.
 Further,
 \begin{align*}
-\hat{g}(\widetilde{q}) & = \sum_i (a_i \tensor g(\widetilde{q_i}) \tensor b_i) - 1 \tensor (\sum_i a_i g(\widetilde{q_i}) b_i) \tensor 1 \\
+\hat{g}(\widetilde{q}) & = \sum_i \left(a_i \tensor g(\widetilde{q_i}) \tensor b_i\right) - 1 \tensor \left(\sum_i a_i g(\widetilde{q_i}\right) b_i) \tensor 1 \\
                        & = q - 0
 \end{align*}
 (here we used that $g$ is a map of $C$-$C$ bimodules, and that $\sum_i a_i q_i b_i = 0$).
@@ -420,13 +419,13 @@ Let $y_i$ be the restriction of $z_i$ to $N_\ep$.
 Let $x_i$ be equal to $x$ outside of $B$, equal to $z_i$ on $B \setmin N_\ep$,
 and have an additional blob $N_\ep$ with label $y_i - s_\ep(y_i)$.
 Define $j_\ep(x) = \sum x_i$.
-\nn{need to check signs coming from blob complex differential}
 Note that if $x \in K'_* \cap K_*^\ep$ then $j_\ep(x) \in K'_*$ also.
 
 The key property of $j_\ep$ is
 \eq{
     \bd j_\ep + j_\ep \bd = \id - \sigma_\ep.
 }
+(Again, to get the correct signs, $N_\ep$ must be added as the first blob.)
 If $j_\ep$ were defined on all of $K_*(C\otimes C)$, this would show that $\sigma_\ep$
 is a homotopy inverse to the inclusion $K'_* \to K_*(C\otimes C)$.
 One strategy would be to try to stitch together various $j_\ep$ for progressively smaller
@@ -531,12 +530,12 @@ with
 	\bd(m\otimes a)  & = & ma - am \\
 	\bd(m\otimes a \otimes b) & = & ma\otimes b - m\otimes ab + bm \otimes a .
 }
-In degree 0, we send $m\in M$ to the 0-blob diagram $\mathfig{0.05}{hochschild/0-chains}$; the base point
+In degree 0, we send $m\in M$ to the 0-blob diagram $\mathfig{0.04}{hochschild/0-chains}$; the base point
 in $S^1$ is labeled by $m$ and there are no other labeled points.
 In degree 1, we send $m\ot a$ to the sum of two 1-blob diagrams
 as shown in Figure \ref{fig:hochschild-1-chains}.
 
-\begin{figure}[t]
+\begin{figure}[ht]
 \begin{equation*}
 \mathfig{0.4}{hochschild/1-chains}
 \end{equation*}
@@ -547,19 +546,23 @@ u_1 & = \mathfig{0.05}{hochschild/u_1-1} - \mathfig{0.05}{hochschild/u_1-2} & u_
 \label{fig:hochschild-1-chains}
 \end{figure}
 
-\begin{figure}[t]
+\begin{figure}[ht]
 \begin{equation*}
 \mathfig{0.6}{hochschild/2-chains-0}
 \end{equation*}
+\caption{The 0-chains in the image of $m \tensor a \tensor b$.}
+\label{fig:hochschild-2-chains-0}
+\end{figure}
+\begin{figure}[ht]
 \begin{equation*}
 \mathfig{0.4}{hochschild/2-chains-1} \qquad \mathfig{0.4}{hochschild/2-chains-2}
 \end{equation*}
-\caption{The 0-, 1- and 2-chains in the image of $m \tensor a \tensor b$.
-Only the supports of the 1- and 2-blobs are shown.}
-\label{fig:hochschild-2-chains}
+\caption{The 1- and 2-chains in the image of $m \tensor a \tensor b$.
+Only the supports of the blobs are shown, but see Figure \ref{fig:hochschild-example-2-cell} for an example of a $2$-cell label.}
+\label{fig:hochschild-2-chains-12}
 \end{figure}
 
-\begin{figure}[t]
+\begin{figure}[ht]
 \begin{equation*}
 A = \mathfig{0.1}{hochschild/v_1} + \mathfig{0.1}{hochschild/v_2} + \mathfig{0.1}{hochschild/v_3} + \mathfig{0.1}{hochschild/v_4}
 \end{equation*}
@@ -567,20 +570,20 @@ A = \mathfig{0.1}{hochschild/v_1} + \mathfig{0.1}{hochschild/v_2} + \mathfig{0.1
 v_1 & = \mathfig{0.05}{hochschild/v_1-1} -  \mathfig{0.05}{hochschild/v_1-2} &  v_2 & = \mathfig{0.05}{hochschild/v_2-1} -  \mathfig{0.05}{hochschild/v_2-2} \\ 
 v_3 & = \mathfig{0.05}{hochschild/v_3-1} -  \mathfig{0.05}{hochschild/v_3-2} &  v_4 & = \mathfig{0.05}{hochschild/v_4-1} -  \mathfig{0.05}{hochschild/v_4-2}
 \end{align*}
-\caption{One of the 2-cells from Figure \ref{fig:hochschild-2-chains}.}
+\caption{One of the 2-cells from Figure \ref{fig:hochschild-2-chains-12}.}
 \label{fig:hochschild-example-2-cell}
 \end{figure}
 
 In degree 2, we send $m\ot a \ot b$ to the sum of 24 ($=6\cdot4$) 2-blob diagrams as shown in
-Figure \ref{fig:hochschild-2-chains}.
-In Figure \ref{fig:hochschild-2-chains} the 1- and 2-blob diagrams are indicated only by their support.
+Figures \ref{fig:hochschild-2-chains-0} and \ref{fig:hochschild-2-chains-12}.
+In Figure \ref{fig:hochschild-2-chains-12} the 1- and 2-blob diagrams are indicated only by their support.
 We leave it to the reader to determine the labels of the 1-blob diagrams.
 Each 2-cell in the figure is labeled by a ball $V$ in $S^1$ which contains the support of all
 1-blob diagrams in its boundary.
 Such a 2-cell corresponds to a sum of the 2-blob diagrams obtained by adding $V$
 as an outer (non-twig) blob to each of the 1-blob diagrams in the boundary of the 2-cell.
 Figure \ref{fig:hochschild-example-2-cell} shows this explicitly for the 2-cell
-labeled $A$ in Figure \ref{fig:hochschild-2-chains}.
+labeled $A$ in Figure \ref{fig:hochschild-2-chains-12}.
 Note that the (blob complex) boundary of this sum of 2-blob diagrams is
 precisely the sum of the 1-blob diagrams corresponding to the boundary of the 2-cell.
 (Compare with the proof of \ref{bcontract}.)
