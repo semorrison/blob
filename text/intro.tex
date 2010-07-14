@@ -10,9 +10,9 @@ This blob complex provides a simultaneous generalization of several well-underst
 \item When $n=1$ and $\cC$ is just a 1-category (e.g.\ an associative algebra), 
 the blob complex $\bc_*(S^1; \cC)$ is quasi-isomorphic to the Hochschild complex $\HC_*(\cC)$.
 (See Theorem \ref{thm:hochschild} and \S \ref{sec:hochschild}.)
-\item When $\cC$ is the polynomial algebra $k[t]$, thought of as an n-category (see \S \ref{sec:comm_alg}), we have 
+\item When $\cC$ is the polynomial algebra $k[t]$, thought of as an n-category, we have 
 that $\bc_*(M; k[t])$ is homotopy equivalent to $C_*(\Sigma^\infty(M), k)$, the singular chains
-on the configuration space of unlabeled points in $M$.
+on the configuration space of unlabeled points in $M$. (See \S \ref{sec:comm_alg}.)
 %$$H_*(\bc_*(M; k[t])) = H^{\text{sing}}_*(\Delta^\infty(M), k).$$ 
 \end{itemize}
 The blob complex definition is motivated by the desire for a derived analogue of the usual TQFT Hilbert space 
@@ -111,13 +111,12 @@ The relationship between all these ideas is sketched in Figure \ref{fig:outline}
 \end{figure}
 
 Finally, later sections address other topics.
-Section \S \ref{sec:comm_alg} describes the blob complex when $\cC$ is a commutative algebra, 
-thought of as a topological $n$-category, in terms of the topology of $M$.
-Section \S \ref{sec:deligne} states (and in a later edition of this paper, hopefully proves) 
+Section \S \ref{sec:deligne} gives
 a higher dimensional generalization of the Deligne conjecture (that the little discs operad acts on Hochschild cohomology) in terms of the blob complex.
 The appendixes prove technical results about $\CH{M}$ and the ``small blob complex", 
 and make connections between our definitions of $n$-categories and familiar definitions for $n=1$ and $n=2$, 
-as well as relating the $n=1$ case of our $A_\infty$ $n$-categories with usual $A_\infty$ algebras.
+as well as relating the $n=1$ case of our $A_\infty$ $n$-categories with usual $A_\infty$ algebras. Section \S \ref{sec:comm_alg} describes the blob complex when $\cC$ is a commutative algebra, 
+thought of as a topological $n$-category, in terms of the topology of $M$.
 
 
 \nn{some more things to cover in the intro}
@@ -150,13 +149,14 @@ is the (decapitated) $4{+}1$-dimensional TQFT associated to Khovanov homology.
 It associates a bigraded vector space $A_{Kh}(W^4, L)$ to a 4-manifold $W$ together
 with a link $L \subset \bd W$.
 The original Khovanov homology of a link in $S^3$ is recovered as $A_{Kh}(B^4, L)$.
+\todo{I'm tempted to replace $A_{Kh}$ with $\cl{Kh}$ throughout this page -S}
 
 How would we go about computing $A_{Kh}(W^4, L)$?
-For $A_{Kh}(B^4, L)$, the main tool is the exact triangle (long exact sequence)
+For the Khovanov homology of a link in $S^3$ the main tool is the exact triangle (long exact sequence)
 relating resolutions of a crossing.
 Unfortunately, the exactness breaks if we glue $B^4$ to itself and attempt
 to compute $A_{Kh}(S^1\times B^3, L)$.
-According to the gluing theorem for TQFTs-via-fields, gluing along $B^3 \subset \bd B^4$
+According to the gluing theorem for TQFTs, gluing along $B^3 \subset \bd B^4$
 corresponds to taking a coend (self tensor product) over the cylinder category
 associated to $B^3$ (with appropriate boundary conditions).
 The coend is not an exact functor, so the exactness of the triangle breaks.
@@ -201,7 +201,7 @@ to later papers.
 
 \subsection{Formal properties}
 \label{sec:properties}
-We now summarize the results of the paper in the following list of formal properties.
+The blob complex enjoys the following list of formal properties.
 
 \begin{property}[Functoriality]
 \label{property:functoriality}%
@@ -228,8 +228,8 @@ The blob complex of a disjoint union is naturally the tensor product of the blob
 \end{equation*}
 \end{property}
 
-If an $n$-manifold $X_\text{cut}$ contains $Y \sqcup Y^\text{op}$ as a codimension $0$ submanifold of its boundary, 
-write $X_\text{glued} = X_\text{cut} \bigcup_{Y}\selfarrow$ for the manifold obtained by gluing together $Y$ and $Y^\text{op}$.
+If an $n$-manifold $X$ contains $Y \sqcup Y^\text{op}$ as a codimension $0$ submanifold of its boundary, 
+write $X_\text{gl} = X \bigcup_{Y}\selfarrow$ for the manifold obtained by gluing together $Y$ and $Y^\text{op}$.
 Note that this includes the case of gluing two disjoint manifolds together.
 \begin{property}[Gluing map]
 \label{property:gluing-map}%
@@ -237,10 +237,10 @@ Note that this includes the case of gluing two disjoint manifolds together.
 %\begin{equation*}
 %\gl_Y: \bc_*(X_1) \tensor \bc_*(X_2) \to \bc_*(X_1 \cup_Y X_2).
 %\end{equation*}
-Given a gluing $X_\mathrm{cut} \to X_\mathrm{glued}$, there is
+Given a gluing $X \to X_\mathrm{gl}$, there is
 a natural map
 \[
-	\bc_*(X_\mathrm{cut}) \to \bc_*(X_\mathrm{glued}) 
+	\bc_*(X) \to \bc_*(X_\mathrm{gl}) 
 \]
 (natural with respect to homeomorphisms, and also associative with respect to iterated gluings).
 \end{property}
@@ -249,9 +249,9 @@ a natural map
 \label{property:contractibility}%
 With field coefficients, the blob complex on an $n$-ball is contractible in the sense that it is homotopic to its $0$-th homology.
 Moreover, the $0$-th homology of balls can be canonically identified with the vector spaces associated by the system of fields $\cC$ to balls.
-\begin{equation}
+\begin{equation*}
 \xymatrix{\bc_*^{\cC}(B^n) \ar[r]^(0.4){\iso}_(0.4){\text{qi}} & H_0(\bc_*^{\cC}(B^n)) \ar[r]^(0.6)\iso & \cC(B^n)}
-\end{equation}
+\end{equation*}
 \end{property}
 
 Properties \ref{property:functoriality} will be immediate from the definition given in
@@ -263,8 +263,9 @@ Properties \ref{property:disjoint-union}, \ref{property:gluing-map} and \ref{pro
 
 The blob complex is a simultaneous generalization of the TQFT skein module construction and of Hochschild homology.
 
-\begin{thm}[Skein modules]
-\label{thm:skein-modules}%
+\newtheorem*{thm:skein-modules}{Theorem \ref{thm:skein-modules}}
+
+\begin{thm:skein-modules}[Skein modules]
 The $0$-th blob homology of $X$ is the usual 
 (dual) TQFT Hilbert space (a.k.a.\ skein module) associated to $X$
 by $\cC$.
@@ -272,7 +273,7 @@ by $\cC$.
 \begin{equation*}
 H_0(\bc_*^{\cC}(X)) \iso A^{\cC}(X)
 \end{equation*}
-\end{thm}
+\end{thm:skein-modules}
 
 \newtheorem*{thm:hochschild}{Theorem \ref{thm:hochschild}}
 
@@ -286,22 +287,25 @@ quasi-isomorphic to the Hochschild complex.
 
 Theorem \ref{thm:skein-modules} is immediate from the definition, and
 Theorem \ref{thm:hochschild} is established in \S \ref{sec:hochschild}.
-We also note Appendix \ref{sec:comm_alg} which describes the blob complex when $\cC$ is a one of certain commutative algebras thought of as an $n$-category.
+We also note \S \ref{sec:comm_alg} which describes the blob complex when $\cC$ is a one of certain commutative algebras thought of as an $n$-category.
 
 
 \subsection{Structure of the blob complex}
 \label{sec:structure}
 
 In the following $\CH{X}$ is the singular chain complex of the space of homeomorphisms of $X$, fixed on $\bdy X$.
-\begin{thm}[$C_*(\Homeo(-))$ action]\mbox{}\\
+
+\newtheorem*{thm:CH}{Theorem \ref{thm:CH}}
+
+\begin{thm:CH}[$C_*(\Homeo(-))$ action]\mbox{}\\
 \vspace{-0.5cm}
 \label{thm:evaluation}%
-\begin{enumerate}
-\item There is a chain map
+There is a chain map
 \begin{equation*}
 \ev_X: \CH{X} \tensor \bc_*(X) \to \bc_*(X).
 \end{equation*}
-
+such that
+\begin{enumerate}
 \item Restricted to $C_0(\Homeo(X))$ this is the action of homeomorphisms described in Property \ref{property:functoriality}. 
 
 \item For
@@ -315,17 +319,24 @@ any codimension $0$-submanifold $Y \sqcup Y^\text{op} \subset \bdy X$ the follow
             \bc_*(X) \ar[u]_{\gl_Y}
 }
 \end{equation*}
-\item Any such chain map satisfying points 2. and 3. above is unique, up to an iterated homotopy.
+\end{enumerate}
+Moreover any such chain map is unique, up to an iterated homotopy.
 (That is, any pair of homotopies have a homotopy between them, and so on.)
-\item This map is associative, in the sense that the following diagram commutes (up to homotopy).
+\end{thm:CH}
+
+\newtheorem*{thm:CH-associativity}{Theorem \ref{thm:CH-associativity}}
+
+
+Further,
+\begin{thm:CH-associativity}
+\item The chain map of Theorem \ref{thm:CH} is associative, in the sense that the following diagram commutes (up to homotopy).
 \begin{equation*}
 \xymatrix{
 \CH{X} \tensor \CH{X} \tensor \bc_*(X) \ar[r]^<<<<<{\id \tensor \ev_X} \ar[d]^{\compose \tensor \id} & \CH{X} \tensor \bc_*(X) \ar[d]^{\ev_X} \\
 \CH{X} \tensor \bc_*(X) \ar[r]^{\ev_X} & \bc_*(X)
 }
 \end{equation*}
-\end{enumerate}
-\end{thm}
+\end{thm:CH-associativity}
 
 Since the blob complex is functorial in the manifold $X$, this is equivalent to having chain maps
 $$ev_{X \to Y} : \CH{X \to Y} \tensor \bc_*(X) \to \bc_*(Y)$$
@@ -336,7 +347,8 @@ In \S \ref{sec:ncats} we introduce the notion of topological $n$-categories, fro
 Below, we talk about the blob complex associated to a topological $n$-category, implicitly passing first to the system of fields.
 Further, in \S \ref{sec:ncats} we also have the notion of an $A_\infty$ $n$-category.
 
-\begin{thm}[Blob complexes of (products with) balls form an $A_\infty$ $n$-category]
+\todo{Give this a number inside the text}
+\begin{thm}[Blob complexes of products with balls form an $A_\infty$ $n$-category]
 \label{thm:blobs-ainfty}
 Let $\cC$ be  a topological $n$-category.
 Let $Y$ be an $n{-}k$-manifold. 
@@ -351,10 +363,11 @@ Property \ref{property:gluing-map} and with the action of families of homeomorph
 Perhaps the most interesting case is when $Y$ is just a point; then we have a way of building an $A_\infty$ $n$-category from a topological $n$-category.
 We think of this $A_\infty$ $n$-category as a free resolution.
 \end{rem}
+Theorem \ref{thm:blobs-ainfty} appears as Example \ref{ex:blob-complexes-of-balls} in \S \ref{sec:ncats}
 
 There is a version of the blob complex for $\cC$ an $A_\infty$ $n$-category
 instead of a topological $n$-category; this is described in \S \ref{sec:ainfblob}.
-The definition is in fact simpler, almost tautological, and we use a different notation, $\cl{\cC}(M)$.
+The definition is in fact simpler, almost tautological, and we use a different notation, $\cl{\cC}(M)$. The notation is intended to reflect the close parallel with the definition of the TQFT skein module via a colimit.
 
 \newtheorem*{thm:product}{Theorem \ref{thm:product}}
 
@@ -381,17 +394,15 @@ Recall that for any $(n-1)$-manifold $Y$, the blob complex $\bc_*(Y)$ is natural
 \item For any $n$-manifold $X$, with $Y$ a codimension $0$-submanifold of its boundary, the blob complex of $X$ is naturally an
 $A_\infty$ module for $\bc_*(Y)$.
 
-\item For any $n$-manifold $X_\text{glued} = X_\text{cut} \bigcup_Y \selfarrow$, the blob complex $\bc_*(X_\text{glued})$ is the $A_\infty$ self-tensor product of
-$\bc_*(X_\text{cut})$ as an $\bc_*(Y)$-bimodule:
+\item For any $n$-manifold $X_\text{gl} = X\bigcup_Y \selfarrow$, the blob complex $\bc_*(X_\text{gl})$ is the $A_\infty$ self-tensor product of
+$\bc_*(X)$ as an $\bc_*(Y)$-bimodule:
 \begin{equation*}
-\bc_*(X_\text{glued}) \simeq \bc_*(X_\text{cut}) \Tensor^{A_\infty}_{\mathclap{\bc_*(Y)}} \selfarrow
+\bc_*(X_\text{gl}) \simeq \bc_*(X) \Tensor^{A_\infty}_{\mathclap{\bc_*(Y)}} \selfarrow
 \end{equation*}
 \end{itemize}
 \end{thm:gluing}
 
-Theorem \ref{thm:evaluation} is proved in
-in \S \ref{sec:evaluation}, Theorem \ref{thm:blobs-ainfty} appears as Example \ref{ex:blob-complexes-of-balls} in \S \ref{sec:ncats},
-and Theorem \ref{thm:product} is proved in \S \ref{ss:product-formula}, with Theorem \ref{thm:gluing} then a relatively straightforward consequence of the proof, explained in \S \ref{sec:gluing}.
+Theorem \ref{thm:product} is proved in \S \ref{ss:product-formula}, with Theorem \ref{thm:gluing} then a relatively straightforward consequence of the proof, explained in \S \ref{sec:gluing}.
 
 \subsection{Applications}
 \label{sec:applications}
@@ -426,7 +437,7 @@ In most of the places where we say ``set" or ``vector space", any symmetric mono
 We could presumably also replace many of our chain complexes with topological spaces (or indeed, work at the generality of model categories), 
 and likely it will prove useful to think about the connections between what we do here and $(\infty,k)$-categories.
 More could be said about finite characteristic 
-(there appears in be $2$-torsion in $\bc_1(S^2, \cC)$ for any spherical $2$-category $\cC$, for example).
+(there appears in be $2$-torsion in $\bc_1(S^2; \cC)$ for any spherical $2$-category $\cC$, for example).
 Much more could be said about other types of manifolds, in particular oriented, 
 $\operatorname{Spin}$ and $\operatorname{Pin}^{\pm}$ manifolds, where boundary issues become more complicated.
 (We'd recommend thinking about boundaries as germs, rather than just codimension $1$ manifolds.) 
@@ -438,10 +449,10 @@ interesting to investigate if there is a connection with the material here.
 
 Many results in Hochschild homology can be understood ``topologically" via the blob complex.
 For example, we expect that the shuffle product on the Hochschild homology of a commutative algebra $A$ 
-(see \cite[\S 4.2]{MR1600246}) simply corresponds to the gluing operation on $\bc_*(S^1 \times [0,1], A)$, 
+(see \cite[\S 4.2]{MR1600246}) simply corresponds to the gluing operation on $\bc_*(S^1 \times [0,1]; A)$, 
 but haven't investigated the details.
 
-Most importantly, however, \nn{applications!} \nn{cyclic homology, $n=2$ cases, contact, Kh}
+Most importantly, however, \nn{applications!} \nn{cyclic homology, $n=2$ cases, contact, Kh} \nn{stabilization} \nn{stable categories, generalized cohomology theories}
 
 
 \subsection{Thanks and acknowledgements}
