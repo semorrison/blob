@@ -1754,8 +1754,6 @@ but maybe just low degrees for now.}
 \nn{...}
 
 
-
-
 \medskip
 
 
@@ -1767,23 +1765,23 @@ certainly the simple kind (strictly commute with gluing) arise in nature.}
 
 
 
-
-
-
-
 \subsection{The $n{+}1$-category of sphere modules}
 \label{ssec:spherecat}
 
-In this subsection we define an $n{+}1$-category $\cS$ of ``sphere modules" 
+In this subsection we define $n{+}1$-categories $\cS$ of ``sphere modules" 
 whose objects are $n$-categories.
-When $n=2$
-this is closely related to the familiar $2$-category of algebras, bimodules and intertwiners.
+With future applications in mind, we treat simultaneously the big category
+of all $n$-categories and all sphere modules and also subcategories thereof.
+When $n=1$ this is closely related to familiar $2$-categories consisting of 
+algebras, bimodules and intertwiners (or a subcategory of that).
+
 While it is appropriate to call an $S^0$ module a bimodule,
 this is much less true for higher dimensional spheres, 
 so we prefer the term ``sphere module" for the general case.
 
-The results of this subsection are not needed for the rest of the paper,
-so we will skimp on details in a couple of places. We have included this mostly for the sake of comparing our notion of a topological $n$-category to other definitions.
+%The results of this subsection are not needed for the rest of the paper,
+%so we will skimp on details in a couple of places. We have included this mostly 
+%for the sake of comparing our notion of a topological $n$-category to other definitions.
 
 For simplicity, we will assume that $n$-categories are enriched over $\c$-vector spaces.
 
@@ -1806,12 +1804,15 @@ Because of this similarity, we only sketch the definitions below.
 
 We start with $0$-sphere modules, which also could reasonably be called (categorified) bimodules.
 (For $n=1$ they are precisely bimodules in the usual, uncategorified sense.)
+We prefer the more awkward term ``0-sphere module" to emphasize the analogy
+with the higher sphere modules defined below.
+
 Define a $0$-marked $k$-ball, $1\le k \le n$, to be a pair  $(X, M)$ homeomorphic to the standard
 $(B^k, B^{k-1})$.
 See Figure \ref{feb21a}.
 Another way to say this is that $(X, M)$ is homeomorphic to $B^{k-1}\times([-1,1], \{0\})$.
 
-\begin{figure}[!ht]
+\begin{figure}[t]
 $$\tikz[baseline,line width=2pt]{\draw[blue] (-2,0)--(2,0); \fill[red] (0,0) circle (0.1);} \qquad \qquad \tikz[baseline,line width=2pt]{\draw[blue][fill=blue!30!white] (0,0) circle (2 and 1); \draw[red] (0,1)--(0,-1);}$$
 \caption{0-marked 1-ball and 0-marked 2-ball}
 \label{feb21a}
@@ -1852,7 +1853,7 @@ The set $\cD$ breaks into ``blocks" according to the restrictions to the pinched
 (see Figure \ref{feb21b}).
 These restrictions are 0-morphisms $(a, b)$ of $\cA$ and $\cB$.
 
-\begin{figure}[!ht]
+\begin{figure}[t]
 $$
 \begin{tikzpicture}[blue,line width=2pt]
 \draw (0,1) -- (0,-1) node[below] {$X$};
@@ -1875,13 +1876,13 @@ $$
 
 More generally, consider an interval with interior marked points, and with the complements
 of these points labeled by $n$-categories $\cA_i$ ($0\le i\le l$) and the marked points labeled
-by $\cA_i$-$\cA_{i+1}$ bimodules $\cM_i$.
+by $\cA_i$-$\cA_{i+1}$ 0-sphere modules $\cM_i$.
 (See Figure \ref{feb21c}.)
 To this data we can apply the coend construction as in \S\ref{moddecss} above
 to obtain an $\cA_0$-$\cA_l$ $0$-sphere module and, forgetfully, an $n{-}1$-category.
-This amounts to a definition of taking tensor products of $0$-sphere module over $n$-categories.
+This amounts to a definition of taking tensor products of $0$-sphere modules over $n$-categories.
 
-\begin{figure}[!ht]
+\begin{figure}[t]
 $$
 \begin{tikzpicture}[baseline,line width = 2pt]
 \draw[blue] (0,0) -- (6,0);
@@ -1913,7 +1914,7 @@ We could also similarly mark and label a circle, obtaining an $n{-}1$-category
 associated to the marked and labeled circle.
 (See Figure \ref{feb21c}.)
 If the circle is divided into two intervals, we can think of this $n{-}1$-category
-as the 2-sided tensor product of the two bimodules associated to the two intervals.
+as the 2-sided tensor product of the two 0-sphere modules associated to the two intervals.
 
 \medskip
 
@@ -1924,13 +1925,13 @@ circles (1-spheres) which we just introduced.
 Equivalently, we can define 1-sphere modules in terms of 1-marked $k$-balls, $2\le k\le n$.
 Fix a marked (and labeled) circle $S$.
 Let $C(S)$ denote the cone of $S$, a marked 2-ball (Figure \ref{feb21d}).
-\nn{I need to make up my mind whether marked things are always labeled too.
-For the time being, let's say they are.}
+%\nn{I need to make up my mind whether marked things are always labeled too.
+%For the time being, let's say they are.}
 A 1-marked $k$-ball is anything homeomorphic to $B^j \times C(S)$, $0\le j\le n-2$, 
 where $B^j$ is the standard $j$-ball.
 A 1-marked $k$-ball can be decomposed in various ways into smaller balls, which are either 
 (a) smaller 1-marked $k$-balls, (b) 0-marked $k$-balls, or (c) plain $k$-balls.
-(See Figure xxxx.)
+(See Figure \nn{need figure}.)
 We now proceed as in the above module definitions.
 
 \begin{figure}[!ht]
@@ -1977,14 +1978,14 @@ and a 2-sphere module is a representation of such an $n{-}2$-category.
 \medskip
 
 We can now define the $n$-or-less-dimensional part of our $n{+}1$-category $\cS$.
-Choose some collection of $n$-categories, then choose some collections of bimodules between
+Choose some collection of $n$-categories, then choose some collections of 0-sphere modules between
 these $n$-categories, then choose some collection of 1-sphere modules for the various
-possible marked 1-spheres labeled by the $n$-categories and bimodules, and so on.
+possible marked 1-spheres labeled by the $n$-categories and 0-sphere modules, and so on.
 Let $L_i$ denote the collection of $i{-}1$-sphere modules we have chosen.
 (For convenience, we declare a $(-1)$-sphere module to be an $n$-category.)
 There is a wide range of possibilities.
 The set $L_0$ could contain infinitely many $n$-categories or just one.
-For each pair of $n$-categories in $L_0$, $L_1$ could contain no bimodules at all or 
+For each pair of $n$-categories in $L_0$, $L_1$ could contain no 0-sphere modules at all or 
 it could contain several.
 The only requirement is that each $k$-sphere module be a module for a $k$-sphere $n{-}k$-category
 constructed out of labels taken from $L_j$ for $j<k$.
@@ -2021,10 +2022,11 @@ Define
 	\cS(X; c; E) \deq \hom_{\cS(E_c)}(\cS(\bd_-X_c), \cS(\bd_+X_c)) .
 \]
 
-We will show that if the sphere modules are equipped with a `compatible family of 
-non-degenerate inner products', then there is a coherent family of isomorphisms
+We will show that if the sphere modules are equipped with a ``compatible family of 
+non-degenerate inner products", then there is a coherent family of isomorphisms
 $\cS(X; c; E) \cong \cS(X; c; E')$ for all pairs of choices $E$ and $E'$.
-This will allow us to define $\cS(X; e)$ independently of the choice of $E$.
+This will allow us to define $\cS(X; c)$ independently of the choice of $E$.
+\nn{also need to (simultaneously) show compatibility with action of homeos of boundary}
 
 First we must define ``inner product", ``non-degenerate" and ``compatible".
 Let $Y$ be a decorated $n$-ball, and $\ol{Y}$ it's mirror image.
@@ -2158,14 +2160,14 @@ between $\cS(X; c; E)$ and $\cS(X; c; E')$ for any pair $E$, $E'$.
 This construction involves on a choice of simple ``moves" (as above) to transform
 $E$ to $E'$.
 We must now show that the isomorphism does not depend on this choice.
-We will show below that it suffice to check two ``movie moves".
+We will show below that it suffice to check three ``movie moves".
 
 The first movie move is to push $E$ across an $n$-ball $B$ as above, then push it back.
 The result is equivalent to doing nothing.
 As we remarked above, the isomorphisms corresponding to these two pushes are mutually
 inverse, so we have invariance under this movie move.
 
-The second movie move replaces to successive pushes in the same direction,
+The second movie move replaces two successive pushes in the same direction,
 across $B_1$ and $B_2$, say, with a single push across $B_1\cup B_2$.
 (See Figure \ref{jun23d}.)
 \begin{figure}[t]
@@ -2177,14 +2179,16 @@ across $B_1$ and $B_2$, say, with a single push across $B_1\cup B_2$.
 \end{figure}
 Invariance under this movie move follows from the compatibility of the inner
 product for $B_1\cup B_2$ with the inner products for $B_1$ and $B_2$.
-\nn{should also say something about locality/distant-commutativity}
 
-If $n\ge 2$, these two movie move suffice:
+The third movie move could be called ``locality" or ``disjoint commutativity".
+\nn{...}
+
+If $n\ge 2$, these three movie move suffice:
 
 \begin{lem}
 Assume $n\ge 2$ and fix $E$ and $E'$ as above.
 The any two sequences of elementary moves connecting $E$ to $E'$
-are related by a sequence of the two movie moves defined above.
+are related by a sequence of the three movie moves defined above.
 \end{lem}
 
 \begin{proof}
@@ -2195,7 +2199,7 @@ Up to homotopy,
 such a family is homotopic to a family which can be decomposed 
 into small families which are either
 (a) supported away from $E$, 
-(b) have boundaries corresponding to the two movie moves above.
+(b) have boundaries corresponding to the three movie moves above.
 Finally, observe that the space of $E$'s is simply connected.
 (This fails for $n=1$.)
 \end{proof}
