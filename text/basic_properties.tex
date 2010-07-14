@@ -6,8 +6,8 @@
 In this section we complete the proofs of Properties 2-4.
 Throughout the paper, where possible, we prove results using Properties 1-4, 
 rather than the actual definition of blob homology.
-This allows the possibility of future improvements to or alternatives on our definition.
-In fact, we hope that there may be a characterisation of blob homology in 
+This allows the possibility of future improvements on or alternatives to our definition.
+In fact, we hope that there may be a characterization of the blob complex in 
 terms of Properties 1-4, but at this point we are unaware of one.
 
 Recall Property \ref{property:disjoint-union}, 
@@ -67,10 +67,8 @@ If $X$ is a disjoint union of $n$-balls, then $\bc_*(X; c)$ is contractible.
 This follows from Properties \ref{property:disjoint-union} and \ref{property:contractibility}.
 \end{proof}
 
-Define the {\it support} of a blob diagram to be the union of all the 
+Recall the definition of the support of a blob diagram as the union of all the 
 blobs of the diagram.
-Define the support of a linear combination of blob diagrams to be the union of the 
-supports of the constituent diagrams.
 For future use we prove the following lemma.
 
 \begin{lemma} \label{support-shrink}
@@ -93,9 +91,7 @@ so $f$ and the identity map are homotopic. \nn{We should actually have a section
 \end{proof}
 
 For the next proposition we will temporarily restore $n$-manifold boundary
-conditions to the notation.
-
-Let $X$ be an $n$-manifold, $\bd X = Y \cup Y \cup Z$.
+conditions to the notation. Let $X$ be an $n$-manifold, with $\bd X = Y \cup Y \cup Z$.
 Gluing the two copies of $Y$ together yields an $n$-manifold $X\sgl$
 with boundary $Z\sgl$.
 Given compatible fields (boundary conditions) $a$, $b$ and $c$ on $Y$, $Y$ and $Z$,
@@ -103,6 +99,7 @@ we have the blob complex $\bc_*(X; a, b, c)$.
 If $b = a$, then we can glue up blob diagrams on
 $X$ to get blob diagrams on $X\sgl$.
 This proves Property \ref{property:gluing-map}, which we restate here in more detail.
+\todo{This needs more detail, because this is false without careful attention to non-manifold components, etc.}
 
 \textbf{Property \ref{property:gluing-map}.}\emph{
 There is a natural chain map

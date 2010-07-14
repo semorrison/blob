@@ -13,7 +13,7 @@ We also will use the abbreviated notation $CH_*(X) \deq CH_*(X, X)$.
 than simplices --- they can be based on any linear polyhedron.
 \nn{be more restrictive here?  does more need to be said?})
 
-\begin{prop}  \label{CHprop}
+\begin{thm}  \label{thm:CH}
 For $n$-manifolds $X$ and $Y$ there is a chain map
 \eq{
     e_{XY} : CH_*(X, Y) \otimes \bc_*(X) \to \bc_*(Y)
@@ -21,7 +21,7 @@ For $n$-manifolds $X$ and $Y$ there is a chain map
 such that
 \begin{enumerate}
 \item on $CH_0(X, Y) \otimes \bc_*(X)$ it agrees with the obvious action of 
-$\Homeo(X, Y)$ on $\bc_*(X)$ (Property (\ref{property:functoriality})), and
+$\Homeo(X, Y)$ on $\bc_*(X)$  described in Property (\ref{property:functoriality}), and
 \item for any compatible splittings $X\to X\sgl$ and $Y\to Y\sgl$, 
 the following diagram commutes up to homotopy
 \begin{equation*}
@@ -35,7 +35,7 @@ the following diagram commutes up to homotopy
 \end{enumerate}
 Up to (iterated) homotopy, there is a unique family $\{e_{XY}\}$ of chain maps
 satisfying the above two conditions.
-\end{prop}
+\end{thm}
 
 Before giving the proof, we state the essential technical tool of Lemma \ref{extension_lemma}, 
 and then give an outline of the method of proof.
@@ -75,7 +75,7 @@ The proof will be given in \S\ref{sec:localising}.
 
 \medskip
 
-Before diving into the details, we outline our strategy for the proof of Proposition \ref{CHprop}.
+Before diving into the details, we outline our strategy for the proof of Theorem \ref{thm:CH}.
 Let $p$ be a singular cell in $CH_k(X)$ and $b$ be a blob diagram in $\bc_*(X)$.
 We say that $p\ot b$ is {\it localizable} if there exists $V \sub X$ such that
 \begin{itemize}
@@ -147,9 +147,7 @@ we will similarly require that $W$ be contained in a slightly larger metric neig
 $\supp(p)\cup\supp(b)$, and so on.
 
 
-\medskip
-
-\begin{proof}[Proof of Proposition \ref{CHprop}.]
+\begin{proof}[Proof of Theorem \ref{thm:CH}.]
 We'll use the notation $|b| = \supp(b)$ and $|p| = \supp(p)$.
 
 Choose a metric on $X$.
@@ -595,7 +593,7 @@ The gluing map $X\sgl\to X$ induces a map
 	\gl:  R_*\ot CH_*(X, X) \otimes \bc_*(X)  \to R_*\ot CH_*(X\sgl, X \sgl) \otimes \bc_*(X \sgl) ,
 \]
 and it is easy to see that $\gl(G^m_*)\sub \ol{G}^m_*$.
-From this it follows that the diagram in the statement of Proposition \ref{CHprop} commutes.
+From this it follows that the diagram in the statement of Theorem \ref{thm:CH} commutes.
 
 \todo{this paragraph isn't very convincing, or at least I don't see what's going on}
 Finally we show that the action maps defined above are independent of
@@ -614,7 +612,7 @@ We now observe that $CH_*(X, X) \ot \bc_*(X)$ retracts to $F_*$.
 Similar arguments show that this homotopy from $e$ to $e'$ is well-defined
 up to second order homotopy, and so on.
 
-This completes the proof of Proposition \ref{CHprop}.
+This completes the proof of Theorem \ref{thm:CH}.
 \end{proof}
 
 
@@ -630,7 +628,8 @@ of $p(t,|b|)$ with some small balls.
 \end{rem*}
 
 
-\begin{prop}
+\begin{thm}
+\label{thm:CH-associativity}
 The $CH_*(X, Y)$ actions defined above are associative.
 That is, the following diagram commutes up to homotopy:
 \[ \xymatrix{
@@ -640,10 +639,10 @@ CH_*(X, Y) \ot CH_*(Y, Z) \ot \bc_*(X) \ar[ur]^{e_{XY}\ot\id} \ar[dr]_{\mu\ot\id
 } \]
 Here $\mu:CH_*(X, Y) \ot CH_*(Y, Z)\to CH_*(X, Z)$ is the map induced by composition
 of homeomorphisms.
-\end{prop}
+\end{thm}
 
 \begin{proof}
-The strategy of the proof is similar to that of Proposition \ref{CHprop}.
+The strategy of the proof is similar to that of Theorem \ref{thm:CH}.
 We will identify a subcomplex 
 \[
 	G_* \sub CH_*(X, Y) \ot CH_*(Y, Z) \ot \bc_*(X)
@@ -657,7 +656,7 @@ contains $|p| \cup p\inv(|q|) \cup |b|$.
 (If $p:P\times X\to Y$, then $p\inv(|q|)$ means the union over all $x\in P$ of 
 $p(x, \cdot)\inv(|q|)$.)
 
-As in the proof of Proposition \ref{CHprop}, we can construct a homotopy 
+As in the proof of Theorem \ref{thm:CH}, we can construct a homotopy 
 between the upper and lower maps restricted to $G_*$.
 This uses the facts that the maps agree on $CH_0(X, Y) \ot CH_0(Y, Z) \ot \bc_*(X)$,
 that they are compatible with gluing, and the contractibility of $\bc_*(X)$.
