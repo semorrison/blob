@@ -2114,9 +2114,28 @@ to be the composition
 \]
 (See Figure \ref{jun23b}.)
 \begin{figure}[t]
-\begin{equation*}
-\mathfig{.5}{tempkw/jun23b}
-\end{equation*}
+$$
+\begin{tikzpicture}[baseline,line width = 1pt,x=1.5cm,y=1.5cm]
+\draw (0,0) node(R) {}
+	-- (0.75,0) node[below] {$\bar{B}$}
+	--(1.5,0)  node[circle,fill=black,inner sep=2pt] {}
+	arc (0:80:1.5) node[above] {$D \times I$}
+	arc (80:180:1.5);
+\foreach \r in {0.3, 0.6, 0.9, 1.2} {
+	\draw[blue!50, line width = 0.5pt] (\r,0) arc (0:180:\r);
+}
+\draw[fill=white]
+	(R) node[circle,fill=black,inner sep=2pt] {}
+	arc (45:65:3) node[below] {$B$}
+	arc (65:90:3) node[below] {$A$}
+	arc (90:135:3) node[circle,fill=black,inner sep=2pt] {}
+	arc (-135:-90:3) node[below] {$C$}
+	arc (-90:-45:3);
+\draw[fill]  (150:1.5) circle (2pt) node[above=4pt] {$D$};
+\node[green!50!brown] at (-2,0) {\scalebox{2.0}{$\uparrow f$}};
+\node[green!50!brown] at (0.2,0.8) {\scalebox{2.0}{$\uparrow \psi$}};
+\end{tikzpicture}
+$$
 \caption{Moving $B$ from top to bottom}
 \label{jun23b}
 \end{figure}
@@ -2136,7 +2155,26 @@ to be the composition
 (See Figure \ref{jun23c}.)
 \begin{figure}[t]
 \begin{equation*}
-\mathfig{.5}{tempkw/jun23c}
+\begin{tikzpicture}[baseline,line width = 1pt,x=1.5cm,y=-1.5cm]
+\draw (0,0) node(R) {}
+	-- (0.75,0) node[above] {$B$}
+	--(1.5,0)  node[circle,fill=black,inner sep=2pt] {}
+	arc (0:80:1.5) node[below] {$D' \times I$}
+	arc (80:180:1.5);
+\foreach \r in {0.3, 0.6, 0.9, 1.2} {
+	\draw[blue!50, line width = 0.5pt] (\r,0) arc (0:180:\r);
+}
+\draw[fill=white]
+	(R) node[circle,fill=black,inner sep=2pt] {}
+	arc (45:65:3) node[above] {$\bar{B}$}
+	arc (65:90:3) node[below] {$C$}
+	arc (90:135:3) node[circle,fill=black,inner sep=2pt] {}
+	arc (-135:-90:3) node[below] {$A$}
+	arc (-90:-45:3);
+\draw[fill]  (150:1.5) circle (2pt) node[below=4pt] {$D'$};
+\node[green!50!brown] at (-2,0) {\scalebox{2.0}{$f'\uparrow $}};
+\node[green!50!brown] at (0.2,0.8) {\scalebox{2.0}{$\psi^+\uparrow $}};
+\end{tikzpicture}
 \end{equation*}
 \caption{Moving $B$ from bottom to top}
 \label{jun23c}
