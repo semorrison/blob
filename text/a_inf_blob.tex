@@ -16,7 +16,10 @@ our original definition of the blob complex $\bc_*^\cD(M)$.
 
 An important technical tool in the proofs of this section is provided by the idea of ``small blobs".
 Fix $\cU$, an open cover of $M$.
-Define the ``small blob complex" $\bc^{\cU}_*(M)$ to be the subcomplex of $\bc_*(M)$ of all blob diagrams in which every blob is contained in some open set of $\cU$, and moreover each field labeling a region cut out by the blobs is splittable into fields on smaller regions, each of which is contained in some open set of $\cU$.
+Define the ``small blob complex" $\bc^{\cU}_*(M)$ to be the subcomplex of $\bc_*(M)$ 
+of all blob diagrams in which every blob is contained in some open set of $\cU$, 
+and moreover each field labeling a region cut out by the blobs is splittable 
+into fields on smaller regions, each of which is contained in some open set of $\cU$.
 
 \begin{thm}[Small blobs] \label{thm:small-blobs}
 The inclusion $i: \bc^{\cU}_*(M) \into \bc_*(M)$ is a homotopy equivalence.
@@ -48,10 +51,11 @@ First we define a map
 \[
 	\psi: \cl{\cC_F}(Y) \to \bc_*(Y\times F;C) .
 \]
-In filtration degree 0 we just glue together the various blob diagrams on $X_i\times F$
+On 0-simplices of the hocolimit 
+we just glue together the various blob diagrams on $X_i\times F$
 (where $X_i$ is a component of a permissible decomposition of $Y$) to get a blob diagram on
 $Y\times F$.
-In filtration degrees 1 and higher we define the map to be zero.
+For simplices of dimension 1 and higher we define the map to be zero.
 It is easy to check that this is a chain map.
 
 In the other direction, we will define a subcomplex $G_*\sub \bc_*(Y\times F;C)$
@@ -80,10 +84,10 @@ see \S\ref{ss:ncat_fields}.)
 By $(b, \ol{K})$ we really mean $(b^\sharp, \ol{K})$, where $b^\sharp$ is 
 $b$ split according to $K_0\times F$.
 To simplify notation we will just write plain $b$ instead of $b^\sharp$.
-Roughly speaking, $D(a)$ consists of filtration degree 0 stuff which glues up to give
-$a$ (or one of its iterated boundaries), filtration degree 1 stuff which makes all of the filtration degree 0 stuff homologous, 
-filtration degree 2 stuff which kills the homology created by the 
-filtration degree 1 stuff, and so on.
+Roughly speaking, $D(a)$ consists of 0-simplices which glue up to give
+$a$ (or one of its iterated boundaries), 1-simplices which connect all the 0-simplices, 
+2-simplices which kill the homology created by the 
+1-simplices, and so on.
 More formally,
  
 \begin{lemma} \label{lem:d-a-acyclic}
@@ -94,16 +98,15 @@ $D(a)$ is acyclic.
 We will prove acyclicity in the first couple of degrees, and \nn{in this draft, at least}
 leave the general case to the reader.
 
-Let $K$ and $K'$ be two decompositions of $Y$ compatible with $a$.
-We want to show that $(a, K)$ and $(a, K')$ are homologous via filtration degree 1 stuff.
-\nn{need to say this better; these two chains don't have the same boundary.}
+Let $K$ and $K'$ be two decompositions (0-simplices) of $Y$ compatible with $a$.
+We want to find 1-simplices which connect $K$ and $K'$.
 We might hope that $K$ and $K'$ have a common refinement, but this is not necessarily
 the case.
 (Consider the $x$-axis and the graph of $y = x^2\sin(1/x)$ in $\r^2$.)
 However, we {\it can} find another decomposition $L$ such that $L$ shares common
 refinements with both $K$ and $K'$.
 Let $KL$ and $K'L$ denote these two refinements.
-Then filtration degree 1 chains associated to the four anti-refinements
+Then 1-simplices associated to the four anti-refinements
 $KL\to K$, $KL\to L$, $K'L\to L$ and $K'L\to K'$
 give the desired chain connecting $(a, K)$ and $(a, K')$
 (see Figure \ref{zzz4}).
@@ -126,13 +129,13 @@ give the desired chain connecting $(a, K)$ and $(a, K')$
 \end{figure}
 
 Consider a different choice of decomposition $L'$ in place of $L$ above.
-This leads to a cycle consisting of filtration degree 1 stuff.
-We want to show that this cycle bounds a chain of filtration degree 2 stuff.
+This leads to a cycle of 1-simplices.
+We want to find 2-simplices which fill in this cycle.
 Choose a decomposition $M$ which has common refinements with each of 
 $K$, $KL$, $L$, $K'L$, $K'$, $K'L'$, $L'$ and $KL'$.
 (We also also require that $KLM$ antirefines to $KM$, etc.)
-Then we have a filtration degree 2 chain, as shown in Figure \ref{zzz5}, which does the trick.
-(Each small triangle in Figure \ref{zzz5} can be filled with a filtration degree 2 chain.)
+Then we have 2-simplices, as shown in Figure \ref{zzz5}, which do the trick.
+(Each small triangle in Figure \ref{zzz5} can be filled with a 2-simplex.)
 
 \begin{figure}[!ht]
 %\begin{equation*}
@@ -179,8 +182,8 @@ Continuing in this way we see that $D(a)$ is acyclic.
 
 We are now in a position to apply the method of acyclic models to get a map
 $\phi:G_* \to \cl{\cC_F}(Y)$.
-We may assume that $\phi(a)$ has the form $(a, K) + r$, where $(a, K)$ is in filtration degree zero
-and $r$ has filtration degree greater than zero.
+We may assume that $\phi(a)$ has the form $(a, K) + r$, where $(a, K)$ is a 0-simplex
+and $r$ is a sum of simplices of dimension 1 or higher.
 
 We now show that $\phi\circ\psi$ and $\psi\circ\phi$ are homotopic to the identity.
 
@@ -190,7 +193,7 @@ First, $\psi\circ\phi$ is the identity on the nose:
 \]
 Roughly speaking, $(a, K)$ is just $a$ chopped up into little pieces, and 
 $\psi$ glues those pieces back together, yielding $a$.
-We have $\psi(r) = 0$ since $\psi$ is zero in positive filtration degrees.
+We have $\psi(r) = 0$ since $\psi$ is zero on $(\ge 1)$-simplices.
  
 Second, $\phi\circ\psi$ is the identity up to homotopy by another argument based on the method of acyclic models.
 To each generator $(b, \ol{K})$ of $G_*$ we associate the acyclic subcomplex $D(b)$ defined above.
