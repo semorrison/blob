@@ -16,7 +16,7 @@ We can't quite do the same with all $\cV_k$ just equal to $\cU$, but we can get 
 \end{rem}
 \begin{proof}
 This follows from Remark \ref{rem:for-small-blobs} following the proof of 
-Proposition \ref{CHprop}.
+Theorem \ref{thm:CH}.
 \end{proof}
 
 \begin{proof}[Proof of Theorem \ref{thm:small-blobs}]
@@ -24,10 +24,10 @@ We begin by describing the homotopy inverse in small degrees, to illustrate the 
 We will construct a chain map $s:  \bc_*(M) \to \bc^{\cU}_*(M)$ and a homotopy $h:\bc_*(M) \to \bc_{*+1}(M)$ so that $\bdy h+h \bdy=i\circ s - \id$. The composition $s \circ i$ will just be the identity.
 
 On $0$-blobs, $s$ is just the identity; a blob diagram without any blobs is compatible with any open cover. 
-\nn{KW: For some systems of fields this is not true.
-For example, consider a planar algebra with boxes of size greater than zero.
-So I think we should do the homotopy even in degree zero.
-But as noted above, maybe it's best to ignore this.}
+%\nn{KW: For some systems of fields this is not true.
+%For example, consider a planar algebra with boxes of size greater than zero.
+%So I think we should do the homotopy even in degree zero.
+%But as noted above, maybe it's best to ignore this.}
 Nevertheless, we'll begin introducing nomenclature at this point: for configuration $\beta$ of disjoint embedded balls in $M$ we'll associate a one parameter family of homeomorphisms $\phi_\beta : \Delta^1 \to \Homeo(M)$ (here $\Delta^m$ is the standard simplex $\setc{\mathbf{x} \in \Real^{m+1}}{\sum_{i=0}^m x_i = 1}$). For $0$-blobs, where $\beta = \eset$, all these homeomorphisms are just the identity.
 
 When $\beta$ is a collection of disjoint embedded balls in $M$, we say that a homeomorphism of $M$ ``makes $\beta$ small" if the image of each ball in $\beta$ under the homeomorphism is contained in some open set of $\cU$. Further, we'll say a homeomorphism ``makes $\beta$ $\epsilon$-small" if the image of each ball is contained in some open ball of radius $\epsilon$.
@@ -119,7 +119,7 @@ As in the $k=1$ case, the first term, corresponding to $i(b) = \eset$, makes the
 It may be useful to look at Figure \ref{fig:erectly-a-tent-badly} to help understand the arrangement. The red, blue and orange $2$-cells there correspond to the $m=0$, $m=1$ and $m=2$ terms respectively, while the $3$-cells (only one of each type is shown) correspond to the terms in the homotopy $h$.
 \begin{figure}[!ht]
 $$\mathfig{0.5}{smallblobs/tent}$$
-\caption{``Erecting a tent badly.'' We know where we want to send a simplex, and each of the iterated boundary components. However, these do not agree, and we need to stitch the pieces together. Note that these diagrams don't exactly match the situation in the text: a $k$-simplex has $k+1$ boundary components, while a $k$-blob has $k$ boundary terms. \nn{turn upside?}}
+\caption{``Erecting a tent badly.'' We know where we want to send a simplex, and each of the iterated boundary components. However, these do not agree, and we need to stitch the pieces together. Note that these diagrams don't exactly match the situation in the text: a $k$-simplex has $k+1$ boundary components, while a $k$-blob has $k$ boundary terms.}
 \label{fig:erectly-a-tent-badly}
 \end{figure}
 
