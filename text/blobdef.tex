@@ -127,6 +127,14 @@ the partial ordering by inclusion -- this is what happens below}
 \nn{KW: I think adding that detail would only add distracting clutter, and the statement is true as written (in the sense that it yields a vector space isomorphic to the general def below}
 }
 
+\begin{defn}
+An \emph{$n$-ball decomposition} of a topological space $X$ is 
+finite collection of triples $\{(B_i, X_i, Y_i)\}_{i=1,\ldots, k}$ where $B_i$ is an $n$-ball, $X_i$ is some topological space, and $Y_i$ is pair of disjoint homeomorphic $n-1$-manifolds in the boundary of $X_{i-1}$ (for convenience, $X_0 = Y_1 = \eset$), such that $X_{i+1} = X_i \cup_{Y_i} B_i$ and $X = X_k \cup_{Y_k} B_k$.
+
+Equivalently, we can define a ball decomposition inductively. A ball decomposition of $X$ is a topological space $X'$ along with a pair of disjoint homeomorphic $n-1$-manifolds $Y \subset \bdy X$, so $X = X' \bigcup_Y \selfarrow$, and $X'$ is either a disjoint union of balls, or a topological space equipped with a ball decomposition.
+\end{defn}
+
+
 Before describing the general case we should say more precisely what we mean by 
 disjoint and nested blobs.
 Disjoint will mean disjoint interiors.
