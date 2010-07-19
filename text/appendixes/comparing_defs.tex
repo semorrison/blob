@@ -3,11 +3,25 @@
 \section{Comparing $n$-category definitions}
 \label{sec:comparing-defs}
 
-In this appendix we relate the ``topological" category definitions of \S\ref{sec:ncats}
-to more traditional definitions, for $n=1$ and 2.
+In \S\ref{sec:example:traditional-n-categories(fields)} we showed how to construct
+a topological $n$-category from a traditional $n$-category; the morphisms of the 
+topological $n$-category are string diagrams labeled by the traditional $n$-category.
+In this appendix we sketch how to go the other direction, for $n=1$ and 2.
+The basic recipe, given a topological $n$-category $\cC$, is to define the $k$-morphisms
+of the corresponding traditional $n$-category to be $\cC(B^k)$, where
+$B^k$ is the {\it standard} $k$-ball.
+One must then show that the axioms of \S\ref{ss:n-cat-def} imply the traditional $n$-category axioms.
+One should also show that composing the two arrows (between traditional and topological $n$-categories)
+yields the appropriate sort of equivalence on each side.
+Since we haven't given a definition for functors between topological $n$-categories
+(the paper is already too long!), we do not pursue this here.
+\nn{say something about modules and tensor products?}
 
-\nn{cases to cover: (a) plain $n$-cats for $n=1,2$; (b) $n$-cat modules for $n=1$, also 2?;
-(c) $A_\infty$ 1-cat; (b) $A_\infty$ 1-cat module?; (e) tensor products?}
+We emphasize that we are just sketching some of the main ideas in this appendix ---
+it falls well short of proving the definitions are equivalent.
+
+%\nn{cases to cover: (a) plain $n$-cats for $n=1,2$; (b) $n$-cat modules for $n=1$, also 2?;
+%(c) $A_\infty$ 1-cat; (b) $A_\infty$ 1-cat module?; (e) tensor products?}
 
 \subsection{$1$-categories over $\Set$ or $\Vect$}
 \label{ssec:1-cats}
@@ -34,8 +48,7 @@ By extended isotopy invariance in $\cX$, this has the expected properties of an 
 If the underlying manifolds for $\cX$ have further geometric structure, then we obtain certain functors.
 The base case is for oriented manifolds, where we obtain no extra algebraic data.
 
-For 1-categories based on unoriented manifolds (somewhat confusingly, we're thinking of being 
-unoriented as requiring extra data beyond being oriented, namely the identification between the orientations), 
+For 1-categories based on unoriented manifolds, 
 there is a map $*:c(\cX)^1\to c(\cX)^1$
 coming from $\cX$ applied to an orientation-reversing homeomorphism (unique up to isotopy) 
 from $B^1$ to itself.
@@ -52,8 +65,9 @@ we have an order 4 antiautomorphism of $c(\cX)^1$.
 For 1-categories based on $\text{Pin}_+$ manifolds,
 we have an order 2 antiautomorphism and also an order 2 automorphism of $c(\cX)^1$,
 and these two maps commute with each other.
-\nn{need to also consider automorphisms of $B^0$ / objects}
+%\nn{need to also consider automorphisms of $B^0$ / objects}
 
+\noop{
 \medskip
 
 In the other direction, given a $1$-category $C$
@@ -83,11 +97,13 @@ and $$C\to t(C)\to c(t(C)),$$ give back
 more or less exactly the same thing we started with.  
 
 As we will see below, for $n>1$ the compositions yield a weaker sort of equivalence.
+} %end \noop
 
 \medskip
 
 Similar arguments show that modules for topological 1-categories are essentially
 the same thing as traditional modules for traditional 1-categories.
+
 
 \subsection{Plain 2-categories}
 \label{ssec:2-cats}
