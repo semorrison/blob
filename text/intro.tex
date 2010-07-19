@@ -209,12 +209,12 @@ The blob complex is functorial with respect to homeomorphisms.
 That is, 
 for a fixed $n$-dimensional system of fields $\cC$, the association
 \begin{equation*}
-X \mapsto \bc_*^{\cC}(X)
+X \mapsto \bc_*(X; \cC)
 \end{equation*}
 is a functor from $n$-manifolds and homeomorphisms between them to chain 
 complexes and isomorphisms between them.
 \end{property}
-As a consequence, there is an action of $\Homeo(X)$ on the chain complex $\bc_*^\cC(X)$; 
+As a consequence, there is an action of $\Homeo(X)$ on the chain complex $\bc_*(X; \cC)$; 
 this action is extended to all of $C_*(\Homeo(X))$ in Theorem \ref{thm:evaluation} below.
 
 The blob complex is also functorial (indeed, exact) with respect to $\cC$, 
@@ -250,7 +250,7 @@ a natural map
 With field coefficients, the blob complex on an $n$-ball is contractible in the sense that it is homotopic to its $0$-th homology.
 Moreover, the $0$-th homology of balls can be canonically identified with the vector spaces associated by the system of fields $\cC$ to balls.
 \begin{equation*}
-\xymatrix{\bc_*^{\cC}(B^n) \ar[r]^(0.4){\iso}_(0.4){\text{qi}} & H_0(\bc_*^{\cC}(B^n)) \ar[r]^(0.6)\iso & \cC(B^n)}
+\xymatrix{\bc_*(B^n;\cC) \ar[r]^(0.4){\iso}_(0.4){\text{qi}} & H_0(\bc_*(B^n;\cC)) \ar[r]^(0.6)\iso & \cC(B^n)}
 \end{equation*}
 \end{property}
 
@@ -271,7 +271,7 @@ The $0$-th blob homology of $X$ is the usual
 by $\cC$.
 (See \S \ref{sec:local-relations}.)
 \begin{equation*}
-H_0(\bc_*^{\cC}(X)) \iso A^{\cC}(X)
+H_0(\bc_*(X;\cC)) \iso A_{\cC}(X)
 \end{equation*}
 \end{thm:skein-modules}
 
@@ -281,7 +281,7 @@ H_0(\bc_*^{\cC}(X)) \iso A^{\cC}(X)
 The blob complex for a $1$-category $\cC$ on the circle is
 quasi-isomorphic to the Hochschild complex.
 \begin{equation*}
-\xymatrix{\bc_*^{\cC}(S^1) \ar[r]^(0.4){\iso}_(0.4){\text{qi}} & \HC_*(\cC).}
+\xymatrix{\bc_*(S^1;\cC) \ar[r]^(0.4){\iso}_(0.4){\text{qi}} & \HC_*(\cC).}
 \end{equation*}
 \end{thm:hochschild}
 
@@ -297,8 +297,7 @@ In the following $\CH{X}$ is the singular chain complex of the space of homeomor
 
 \newtheorem*{thm:CH}{Theorem \ref{thm:CH}}
 
-\begin{thm:CH}[$C_*(\Homeo(-))$ action]\mbox{}\\
-\vspace{-0.5cm}
+\begin{thm:CH}[$C_*(\Homeo(-))$ action]
 \label{thm:evaluation}%
 There is a chain map
 \begin{equation*}
@@ -313,10 +312,10 @@ any codimension $0$-submanifold $Y \sqcup Y^\text{op} \subset \bdy X$ the follow
 (using the gluing maps described in Property \ref{property:gluing-map}) commutes (up to homotopy).
 \begin{equation*}
 \xymatrix@C+2cm{
-     \CH{X \bigcup_Y \selfarrow} \otimes \bc_*(X \bigcup_Y \selfarrow) \ar[r]^<<<<<<<<<<<<{\ev_{(X \bigcup_Y \scalebox{0.5}{\selfarrow})}}    & \bc_*(X \bigcup_Y \selfarrow) \\
      \CH{X} \otimes \bc_*(X)
-        \ar[r]_{\ev_{X}}  \ar[u]^{\gl^{\Homeo}_Y \otimes \gl_Y}  &
-            \bc_*(X) \ar[u]_{\gl_Y}
+        \ar[r]_{\ev_{X}}  \ar[d]^{\gl^{\Homeo}_Y \otimes \gl_Y}  &
+            \bc_*(X) \ar[d]_{\gl_Y} \\
+     \CH{X \bigcup_Y \selfarrow} \otimes \bc_*(X \bigcup_Y \selfarrow) \ar[r]^<<<<<<<<<<<<{\ev_{(X \bigcup_Y \scalebox{0.5}{\selfarrow})}}    & \bc_*(X \bigcup_Y \selfarrow)
 }
 \end{equation*}
 \end{enumerate}
@@ -329,7 +328,7 @@ Moreover any such chain map is unique, up to an iterated homotopy.
 
 Further,
 \begin{thm:CH-associativity}
-\item The chain map of Theorem \ref{thm:CH} is associative, in the sense that the following diagram commutes (up to homotopy).
+The chain map of Theorem \ref{thm:CH} is associative, in the sense that the following diagram commutes (up to homotopy).
 \begin{equation*}
 \xymatrix{
 \CH{X} \tensor \CH{X} \tensor \bc_*(X) \ar[r]^<<<<<{\id \tensor \ev_X} \ar[d]^{\compose \tensor \id} & \CH{X} \tensor \bc_*(X) \ar[d]^{\ev_X} \\
