@@ -11,26 +11,6 @@
 \title{Sandbox}
 
 \begin{document}
-$$
-\begin{tikzpicture}[baseline,line width = 1pt,x=1.5cm,y=1.5cm]
-\draw (0,0) node(R) {}
-	-- (0.75,0) node[below] {$\bar{B}$}
-	--(1.5,0)  node[circle,fill=black,inner sep=2pt] {}
-	arc (0:80:1.5) node[above] {$D \times I$}
-	arc (80:180:1.5);
-\foreach \r in {0.3, 0.6, 0.9, 1.2} {
-	\draw[blue!50, line width = 0.5pt] (\r,0) arc (0:180:\r);
-}
-\draw[fill=white]
-	(R) node[circle,fill=black,inner sep=2pt] {}
-	arc (45:65:3) node[below] {$B$}
-	arc (65:90:3) node[below] {$A$}
-	arc (90:135:3) node[circle,fill=black,inner sep=2pt] {}
-	arc (-135:-90:3) node[below] {$C$}
-	arc (-90:-45:3);
-\draw[fill]  (150:1.5) circle (2pt) node[above=4pt] {$D$};
-\node at (-2,0) {\scalebox{2.0}{$\uparrow f$}};
-\node at (0.2,0.8) {\scalebox{2.0}{$\uparrow \psi$}};
-\end{tikzpicture}
-$$
+
+
 \end{document}
