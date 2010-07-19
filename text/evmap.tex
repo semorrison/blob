@@ -36,9 +36,13 @@ the following diagram commutes up to homotopy
 }
 \end{equation*}
 \end{enumerate}
-Up to (iterated) homotopy, there is a unique family $\{e_{XY}\}$ of chain maps
-satisfying the above two conditions.
+Moreover, for any $m \geq 0$, we can find a family of chain maps $\{e_{XY}\}$ 
+satisfying the above two conditions which is $m$-connected. In particular, this means that the choice of chain map above is unique up to homotopy.
 \end{thm}
+\begin{rem}
+Note that the statement doesn't quite give uniqueness up to iterated homotopy. We fully expect that this should actually be the case, but haven't been able to prove this.
+\end{rem}
+
 
 Before giving the proof, we state the essential technical tool of Lemma \ref{extension_lemma}, 
 and then give an outline of the method of proof.
@@ -345,7 +349,7 @@ for all $l\ge m$ and all $q\ot a$ which appear in the boundary of $p\ot b$.
 
 \begin{proof}
 
-There exists $\lambda > 0$ such that for every  subset $c$ of the blobs of $b$ $\Nbd_u(c)$ is homeomorphic to $|c|$ for all $u < \lambda$ .
+There exists $\lambda > 0$ such that for every  subset $c$ of the blobs of $b$ the set $\Nbd_u(c)$ is homeomorphic to $|c|$ for all $u < \lambda$ .
 (Here we are using the fact that the blobs are 
 piecewise smooth or piecewise-linear and that $\bd c$ is collared.)
 We need to consider all such $c$ because all generators appearing in
@@ -582,9 +586,6 @@ One can similarly (to the proof of Lemma \ref{m_order_hty}) show that
 these two maps agree up to $m$-th order homotopy.
 More precisely, one can show that the subcomplex of maps containing the various
 $e_{m+1}$ candidates is contained in the corresponding subcomplex for $e_m$.
-\nn{now should remark that we have not, in fact, produced a contractible set of maps,
-but we have come very close}
-\nn{better: change statement of thm}
 
 \medskip
 
