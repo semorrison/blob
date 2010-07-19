@@ -2,14 +2,11 @@
 
 \section{Higher-dimensional Deligne conjecture}
 \label{sec:deligne}
-In this section we 
-sketch
-\nn{revisit ``sketch" after proof is done} 
-the proof of a higher dimensional version of the Deligne conjecture
-about the action of the little disks operad on Hochschild cohomology.
+In this section we prove a higher dimensional version of the Deligne conjecture
+about the action of the little disks operad on Hochschild cochains.
 The first several paragraphs lead up to a precise statement of the result
 (Theorem \ref{thm:deligne} below).
-Then we sketch the proof.
+Then we give the proof.
 
 \nn{Does this generalization encompass Kontsevich's proposed generalization from \cite[\S2.5]{MR1718044}, 
 that (I think...) the Hochschild homology of an $E_n$ algebra is an $E_{n+1}$ algebra? -S}
@@ -23,14 +20,14 @@ The usual Deligne conjecture (proved variously in \cite{MR1805894, MR2064592, he
 	C_*(LD_k)\otimes \overbrace{Hoch^*(C, C)\otimes\cdots\otimes Hoch^*(C, C)}^{\text{$k$ copies}}
 			\to  Hoch^*(C, C) .
 \]
-Here $LD_k$ is the $k$-th space of the little disks operad, and $Hoch^*(C, C)$ denotes Hochschild
+Here $LD_k$ is the $k$-th space of the little disks operad and $Hoch^*(C, C)$ denotes Hochschild
 cochains.
 The little disks operad is homotopy equivalent to the 
-(transversely orient) fat graph operad
-\nn{need ref, or say more precisely what we mean}, 
+(transversely oriented) fat graph operad
+(see below), 
 and Hochschild cochains are homotopy equivalent to $A_\infty$ endomorphisms
 of the blob complex of the interval, thought of as a bimodule for itself.
-\nn{need to make sure we prove this above}.
+(see \S\ref{ss:module-morphisms}).
 So the 1-dimensional Deligne conjecture can be restated as
 \[
 	C_*(FG_k)\otimes \hom(\bc^C_*(I), \bc^C_*(I))\otimes\cdots
@@ -73,7 +70,7 @@ $$\mathfig{.9}{deligne/manifolds}$$
 
 More specifically, an $n$-dimensional fat graph ($n$-FG for short) consists of:
 \begin{itemize}
-\item ``Upper" $n$-manifolds $M_0,\ldots,M_k$ and ``lower" $n$-manifolds $N_0,\ldots,N_k$,
+\item ``Lower" $n$-manifolds $M_0,\ldots,M_k$ and ``upper" $n$-manifolds $N_0,\ldots,N_k$,
 with $\bd M_i = \bd N_i = E_i$ for all $i$.
 We call $M_0$ and $N_0$ the outer boundary and the remaining $M_i$'s and $N_i$'s the inner
 boundaries.
@@ -110,7 +107,8 @@ leaving the $M_i$ and $N_i$ fixed.
 (See Figure \ref{xdfig3}.)
 \begin{figure}[t]
 $$\mathfig{.4}{deligne/dfig3a} \to \mathfig{.4}{deligne/dfig3b} $$
-\caption{Conjugating by a homeomorphism}\label{xdfig3}
+\caption{Conjugating by a homeomorphism
+\nn{change right $R_i$ to $R'_i$}}\label{xdfig3}
 \end{figure}
 \item If $M_i = M'_i \du M''_i$ and $N_i = N'_i \du N''_i$ (and there is a
 compatible disjoint union of $\bd M = \bd N$), we can replace
@@ -170,10 +168,10 @@ We have now defined a map from the little $n{+}1$-ball operad to the $n$-FG oper
 with contractible fibers.
 (The fibers correspond to moving the $D_i$'s in the $x_{n+1}$ 
 direction without changing their ordering.)
-\nn{issue: we've described this by varying the $R_i$'s, but above we emphasize varying the $f_i$'s.
-does this need more explanation?}
+%\nn{issue: we've described this by varying the $R_i$'s, but above we emphasize varying the $f_i$'s.
+%does this need more explanation?}
 
-Another familiar subspace of the $n$-FG operad is $\Homeo(M\to N)$, which corresponds to 
+Another familiar subspace of the $n$-FG operad is $\Homeo(M_0\to N_0)$, which corresponds to 
 case $k=0$ (no holes).
 
 \medskip
@@ -194,7 +192,7 @@ Given $\alpha_i\in\hom(\bc_*(M_i), \bc_*(N_i))$, we define $p(\ol{f}$) to be the
 				 \cdots  \stackrel{\id\ot\alpha_k}{\to} \bc_*(R_k\cup N_k)
 				 \stackrel{f_k}{\to} \bc_*(N_0)
 \]
-(Recall that the maps $\id\ot\alpha_i$ were defined in \nn{need ref}.)
+(Recall that the maps $\id\ot\alpha_i$ were defined in \S\ref{ss:module-morphisms}s.)
 \nn{need to double check case where $\alpha_i$'s are not closed.}
 It is easy to check that the above definition is compatible with the equivalence relations
 and also the operad structure.
@@ -237,8 +235,10 @@ It suffices to show that the above maps are compatible with the relations whereb
 $FG^n_{\overline{M}, \overline{N}}$ is constructed from the various $P$'s.
 This in turn follows easily from the fact that
 the actions of $C_*(\Homeo(\cdot\to\cdot))$ are local (compatible with gluing) and associative.
-
-\nn{should add some detail to above}
+%\nn{should add some detail to above}
 \end{proof}
 
-\nn{maybe point out that even for $n=1$ there's something new here.}
+We note that even when $n=1$, the above theorem goes beyond an action of the little disks operad.
+$M_i$ could be a disjoint union of intervals, and $N_i$ could connect the end points of the intervals
+in a different pattern from $M_i$.
+The genus of the fat graph could be greater than zero.
