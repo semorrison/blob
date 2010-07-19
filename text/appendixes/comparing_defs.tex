@@ -108,20 +108,20 @@ the same thing as traditional modules for traditional 1-categories.
 \subsection{Plain 2-categories}
 \label{ssec:2-cats}
 Let $\cC$ be a topological 2-category.
-We will construct a traditional pivotal 2-category.
+We will construct from $\cC$ a traditional pivotal 2-category.
 (The ``pivotal" corresponds to our assumption of strong duality for $\cC$.)
 
 We will try to describe the construction in such a way the the generalization to $n>2$ is clear,
 though this will make the $n=2$ case a little more complicated than necessary.
 
-\nn{Note: We have to decide whether our 2-morphsism are shaped like rectangles or bigons.
+Before proceeding, we must decide whether the 2-morphisms of our
+pivotal 2-category are shaped like rectangles or bigons.
 Each approach has advantages and disadvantages.
-For better or worse, we choose bigons here.}
-
-\nn{maybe we should do both rectangles and bigons?}
+For better or worse, we choose bigons here.
 
 Define the $k$-morphisms $C^k$ of $C$ to be $\cC(B^k)_E$, where $B^k$ denotes the standard
-$k$-ball, which we also think of as the standard bihedron.
+$k$-ball, which we also think of as the standard bihedron (a.k.a.\ globe).
+(For $k=1$ this is an interval, and for $k=2$ it is a bigon.)
 Since we are thinking of $B^k$ as a bihedron, we have a standard decomposition of the $\bd B^k$
 into two copies of $B^{k-1}$ which intersect along the ``equator" $E \cong S^{k-2}$.
 Recall that the subscript in $\cC(B^k)_E$ means that we consider the subset of $\cC(B^k)$
@@ -136,7 +136,6 @@ Choosing a homeomorphism $B^2\cup B^2 \to B^2$ defines a ``vertical" composition
 on $C^2$ (Figure \ref{fzo1}).
 Isotopy invariance implies that this is associative.
 We will define a ``horizontal" composition later.
-\nn{maybe no need to postpone?}
 
 \begin{figure}[t]
 \begin{equation*}
@@ -146,15 +145,20 @@ We will define a ``horizontal" composition later.
 \label{fzo1}
 \end{figure}
 
-Given $a\in C^1$, define $\id_a = a\times I \in C^1$ (pinched boundary).
+Given $a\in C^1$, define $\id_a = a\times I \in C^2$ (pinched boundary).
 Extended isotopy invariance for $\cC$ shows that this morphism is an identity for 
 vertical composition.
 
 Given $x\in C^0$, define $\id_x = x\times B^1 \in C^1$.
 We will show that this 1-morphism is a weak identity.
 This would be easier if our 2-morphisms were shaped like rectangles rather than bigons.
+
+In showing that identity 1-morphisms have the desired properties, we will
+rely heavily on the extended isotopy invariance of 2-morphisms in $\cC$.
+This means we are free to add or delete product regions from 2-morphisms.
+
 Let $a: y\to x$ be a 1-morphism.
-Define maps $a \to a\bullet \id_x$ and $a\bullet \id_x \to a$
+Define 2-morphsims $a \to a\bullet \id_x$ and $a\bullet \id_x \to a$
 as shown in Figure \ref{fzo2}.
 \begin{figure}[t]
 \begin{equation*}
@@ -163,10 +167,8 @@ as shown in Figure \ref{fzo2}.
 \caption{blah blah}
 \label{fzo2}
 \end{figure}
-In that figure, the red cross-hatched areas are the product of $x$ and a smaller bigon,
-while the remainder is a half-pinched version of $a\times I$.
-\nn{the red region is unnecessary; remove it?  or does it help?
-(because it's what you get if you bigonify the natural rectangular picture)}
+As suggested by the figure, these are two different reparameterizations
+of a half-pinched version of $a\times I$.
 We must show that the two compositions of these two maps give the identity 2-morphisms
 on $a$ and $a\bullet \id_x$, as defined above.
 Figure \ref{fzo3} shows one case.
@@ -177,11 +179,7 @@ Figure \ref{fzo3} shows one case.
 \caption{blah blah}
 \label{fzo3}
 \end{figure}
-In the first step we have inserted a copy of $id(id(x))$ \nn{need better notation for this}.
-\nn{also need to talk about (somewhere above) 
-how this sort of insertion is allowed by extended isotopy invariance and gluing.
-Also: maybe half-pinched and unpinched products can be derived from fully pinched
-products after all (?)}
+In the first step we have inserted a copy of $(x\times I)\times I$.
 Figure \ref{fzo4} shows the other case.
 \begin{figure}[t]
 \begin{equation*}
@@ -190,7 +188,7 @@ Figure \ref{fzo4} shows the other case.
 \caption{blah blah}
 \label{fzo4}
 \end{figure}
-We first collapse the red region, then remove a product morphism from the boundary,
+We identify a product region and remove it.
 
 We define horizontal composition of 2-morphisms as shown in Figure \ref{fzo5}.
 It is not hard to show that this is independent of the arbitrary (left/right) 
@@ -203,16 +201,8 @@ choice made in the definition, and that it is associative.
 \label{fzo5}
 \end{figure}
 
-\nn{need to find a list of axioms for pivotal 2-cats to check}
+%\nn{need to find a list of axioms for pivotal 2-cats to check}
 
-\nn{...}
-
-\medskip
-\hrule
-\medskip
-
-\nn{to be continued...}
-\medskip
 
 \subsection{$A_\infty$ $1$-categories}
 \label{sec:comparing-A-infty}
