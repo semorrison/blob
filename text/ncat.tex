@@ -1031,6 +1031,7 @@ Define $\cl{\cC}(W)$ as a vector space via
 	\cl{\cC}(W) = \bigoplus_{(x_i)} \psi_{\cC;W}(x_0)[m] ,
 \]
 where the sum is over all $m$-sequences $(x_i)$ and all $m$, and each summand is degree shifted by $m$. 
+Elements of a summand indexed by an $m$-sequences will be call $m$-simplices.
 We endow $\cl{\cC}(W)$ with a differential which is the sum of the differential of the $\psi_{\cC;W}(x_0)$
 summands plus another term using the differential of the simplicial set of $m$-sequences.
 More specifically, if $(a, \bar{x})$ denotes an element in the $\bar{x}$
@@ -1045,13 +1046,12 @@ is the usual gluing map coming from the antirefinement $x_0 \le x_1$.
 %combine only two balls at a time; for $n=1$ this version will lead to usual definition
 %of $A_\infty$ category}
 
-We will call $m$ the simplex degree of the complex.
 We can think of this construction as starting with a disjoint copy of a complex for each
-permissible decomposition (simplex degree 0).
+permissible decomposition (the 0-simplices).
 Then we glue these together with mapping cylinders coming from gluing maps
-(simplex degree 1).
+(the 1-simplices).
 Then we kill the extra homology we just introduced with mapping 
-cylinders between the mapping cylinders (simplex degree 2), and so on.
+cylinders between the mapping cylinders (the 2-simplices), and so on.
 
 $\cl{\cC}(W)$ is functorial with respect to homeomorphisms of $k$-manifolds. Restricting the $k$-spheres, we have now proved Lemma \ref{lem:spheres}.
 
