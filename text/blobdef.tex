@@ -134,12 +134,18 @@ finite collection of triples $\{(B_i, X_i, Y_i)\}_{i=1,\ldots, k}$ where $B_i$ i
 Equivalently, we can define a ball decomposition inductively. A ball decomposition of $X$ is a topological space $X'$ along with a pair of disjoint homeomorphic $n-1$-manifolds $Y \subset \bdy X$, so $X = X' \bigcup_Y \selfarrow$, and $X'$ is either a disjoint union of balls, or a topological space equipped with a ball decomposition.
 \end{defn}
 
+Even though our definition of a system of fields only associates vector spaces to $n$-manifolds, we can easily extend this to any topological space admitting a ball decomposition.
+\begin{defn}
+Given an $n$-dimensional system of fields $\cF$, its extension to a topological space $X$ admitting an $n$-ball decomposition is \todo{}
+\end{defn}
+\todo{This is well defined}
 
 Before describing the general case we should say more precisely what we mean by 
 disjoint and nested blobs.
-Disjoint will mean disjoint interiors.
-Nested blobs are allowed to coincide, or to have overlapping boundaries.
-Blob are allowed to intersect $\bd X$.
+Two blobs are disjoint if they have disjoint interiors.
+Nested blobs are allowed to have overlapping boundaries, or indeed to coincide.
+Blob are allowed to meet $\bd X$.
+
 However, we require of any collection of blobs $B_1,\ldots,B_k \subseteq X$ that
 $X$ is decomposable along the union of the boundaries of the blobs.
 \nn{need to say more here.  we want to be able to glue blob diagrams, but avoid pathological
