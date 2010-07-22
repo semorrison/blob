@@ -1538,7 +1538,7 @@ If $A$ and $Z_A$ are both the ground field $\k$, this simplifies to
 \[
 	(X_B\ot {_BY})^* \cong  \hom_B(X_B \to (_BY)^*) .
 \]
-We will establish the analogous isomorphism for a topological $A_\infty$ 1-cat $\cC$
+We would like to have the analogous isomorphism for a topological $A_\infty$ 1-cat $\cC$
 and modules $\cM_\cC$ and $_\cC\cN$,
 \[
 	(\cM_\cC\ot {_\cC\cN})^* \cong  \hom_\cC(\cM_\cC \to (_\cC\cN)^*) .
@@ -1547,7 +1547,8 @@ and modules $\cM_\cC$ and $_\cC\cN$,
 In the next few paragraphs we define the objects appearing in the above equation:
 $\cM_\cC\ot {_\cC\cN}$, $(\cM_\cC\ot {_\cC\cN})^*$, $(_\cC\cN)^*$ and finally
 $\hom_\cC$.
-
+(Actually, we give only an incomplete definition of $(_\cC\cN)^*$, but since we are only trying to motivate the 
+definition of $\hom_\cC$, this will suffice for our purposes.)
 
 \def\olD{{\overline D}}
 \def\cbar{{\bar c}}
@@ -1597,7 +1598,7 @@ The boundary is given by
 			& \qquad	 + (-1)^{l + \deg m + \deg \cbar} f(\olD\ot m\ot\cbar\ot \bd n). \notag
 \end{align}
 
-Next we define the dual module $(_\cC\cN)^*$.
+Next we partially define the dual module $(_\cC\cN)^*$.
 This will depend on a choice of interval $J$, just as the tensor product did.
 Recall that $_\cC\cN$ is, among other things, a functor from right-marked intervals
 to chain complexes.
@@ -1607,9 +1608,17 @@ Given $J$, we define for each $K\sub J$ which contains the {\it left} endpoint o
 \]
 where $({_\cC\cN}(J\setmin K))^*$ denotes the (linear) dual of the chain complex associated
 to the right-marked interval $J\setmin K$.
-This extends to a functor from all left-marked intervals (not just those contained in $J$).
-\nn{need to say more here; not obvious how homeomorphisms act}
-It's easy to verify the remaining module axioms.
+We define the action map
+\[
+	(_\cC\cN)^*(K) \ot \cC(I) \to (_\cC\cN)^*(K\cup I)
+\]
+to be the (partial) adjoint of the map
+\[
+	\cC(I)\ot {_\cC\cN}(J\setmin (K\cup I)) \to  {_\cC\cN}(J\setmin K) .
+\]
+This falls short of fully defining the module $(_\cC\cN)^*$ (in particular,
+we have no action of homeomorphisms of left-marked intervals), but it will be enough to motivate
+the definition of $\hom_\cC$ below.
 
 Now we reinterpret $(\cM_\cC\ot {_\cC\cN})^*$
 as some sort of morphism $\cM_\cC \to (_\cC\cN)^*$.
@@ -1772,10 +1781,10 @@ but maybe just low degrees for now.}
 \medskip
 
 
-\nn{should we define functors between $n$-cats in a similar way?  i.e.\ natural transformations
-of the $\cC$ functors which commute with gluing only up to higher morphisms?
-perhaps worth having both definitions available.
-certainly the simple kind (strictly commute with gluing) arise in nature.}
+%\nn{should we define functors between $n$-cats in a similar way?  i.e.\ natural transformations
+%of the $\cC$ functors which commute with gluing only up to higher morphisms?
+%perhaps worth having both definitions available.
+%certainly the simple kind (strictly commute with gluing) arise in nature.}
 
 
 
