@@ -99,9 +99,8 @@ we have the blob complex $\bc_*(X; a, b, c)$.
 If $b = a$, then we can glue up blob diagrams on
 $X$ to get blob diagrams on $X\sgl$.
 This proves Property \ref{property:gluing-map}, which we restate here in more detail.
-\todo{This needs more detail, because this is false without careful attention to non-manifold components, etc.}
 
-\textbf{Property \ref{property:gluing-map}.}\emph{
+\begin{prop} \label{blob-gluing}
 There is a natural chain map
 \eq{
     \gl: \bigoplus_a \bc_*(X; a, a, c) \to \bc_*(X\sgl; c\sgl).
@@ -109,7 +108,7 @@ There is a natural chain map
 The sum is over all fields $a$ on $Y$ compatible at their
 ($n{-}2$-dimensional) boundaries with $c$.
 ``Natural" means natural with respect to the actions of diffeomorphisms.
-}
+\end{prop}
 
 This map is very far from being an isomorphism, even on homology.
 We fix this deficit in \S\ref{sec:gluing} below.
