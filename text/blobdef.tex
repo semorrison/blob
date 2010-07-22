@@ -127,33 +127,27 @@ the partial ordering by inclusion -- this is what happens below}
 \nn{KW: I think adding that detail would only add distracting clutter, and the statement is true as written (in the sense that it yields a vector space isomorphic to the general def below}
 }
 
+In order to precisely state the general definition, we'll need a suitable notion of cutting up a manifold into balls.
 \begin{defn}
-An \emph{$n$-ball decomposition} of a topological space $X$ is 
-finite collection of triples $\{(B_i, X_i, Y_i)\}_{i=1,\ldots, k}$ where $B_i$ is an $n$-ball, $X_i$ is some topological space, and $Y_i$ is pair of disjoint homeomorphic $n-1$-manifolds in the boundary of $X_{i-1}$ (for convenience, $X_0 = Y_1 = \eset$), such that $X_{i+1} = X_i \cup_{Y_i} B_i$ and $X = X_k \cup_{Y_k} B_k$.
-
-Equivalently, we can define a ball decomposition inductively. A ball decomposition of $X$ is a topological space $X'$ along with a pair of disjoint homeomorphic $n-1$-manifolds $Y \subset \bdy X$, so $X = X' \bigcup_Y \selfarrow$, and $X'$ is either a disjoint union of balls, or a topological space equipped with a ball decomposition.
+A \emph{gluing decomposition} of an $n$-manifold $X$ is a sequence of manifolds $M_0 \to M_1 \to \cdots \to M_m = X$ such that $M_0$ is a disjoint union of balls, and each $M_k$ is obtained from $M_{k-1}$ by gluing together some disjoint pair of homeomorphic $n{-}1$-manifolds in the boundary of $M_{k-1}$.
 \end{defn}
 
-Even though our definition of a system of fields only associates vector spaces to $n$-manifolds, we can easily extend this to any topological space admitting a ball decomposition.
+By `a ball in $X$' we don't literally mean a submanifold homeomorphic to a ball, but rather the image of a map from the pair $(B^n, S^{n-1})$ into $X$, which is an embedding on the interior. The boundary of a ball in $X$ is the image of a locally embedded $n{-}1$-sphere. \todo{examples, e.g. balls which actually look like an annulus, but we remember the boundary} 
+
 \begin{defn}
-Given an $n$-dimensional system of fields $\cF$, its extension to a topological space $X$ admitting an $n$-ball decomposition is \todo{}
+A \emph{ball decomposition} of an $n$-manifold $X$ is a collection of balls in $X$, such that there exists some gluing decomposition $M_0  \to \cdots \to M_m = X$ so that the balls are the images of the components of $M_0$ in $X$. 
 \end{defn}
-\todo{This is well defined}
+In particular, the union of all the balls in a ball decomposition comprises all of $X$. \todo{example}
 
-Before describing the general case we should say more precisely what we mean by 
-disjoint and nested blobs.
-Two blobs are disjoint if they have disjoint interiors.
-Nested blobs are allowed to have overlapping boundaries, or indeed to coincide.
-Blob are allowed to meet $\bd X$.
+We'll now slightly restrict the possible configurations of blobs.
+\begin{defn}
+A configuration of $k$ blobs in $X$ is a collection of $k$ balls in $X$ such that there is some gluing decomposition $M_0  \to \cdots \to M_m = X$ of $X$ and each of the balls is the image of some connected component of one of the $M_k$. Such a gluing decomposition is \emph{compatible} with the configuration.
+\end{defn}
+In particular, this means that for any two blobs in a configuration of blobs in $X$, they either have disjoint interiors, or one blob is strictly contained in the other. We describe these as disjoint blobs and nested blobs. Note that nested blobs may have boundaries that overlap, or indeed coincide. Blobs may meet the boundary of $X$.
 
-However, we require of any collection of blobs $B_1,\ldots,B_k \subseteq X$ that
-$X$ is decomposable along the union of the boundaries of the blobs.
-\nn{need to say more here.  we want to be able to glue blob diagrams, but avoid pathological
-behavior}
-\nn{need to allow the case where $B\to X$ is not an embedding
-on $\bd B$.  this is because any blob diagram on $X_{cut}$ should give rise to one on $X_{gl}$
-and blobs are allowed to meet $\bd X$.
-Also, the complement of the blobs (and regions between nested blobs) might not be manifolds.}
+Note that the boundaries of a configuration of $k$-blobs may cut up in manifold $X$ into components which are not themselves manifolds. \todo{example: the components between the boundaries of the balls may be pathological}
+
+\todo{this notion of configuration of blobs is the minimal one that allows gluing and engulfing}
 
 Now for the general case.
 A $k$-blob diagram consists of
