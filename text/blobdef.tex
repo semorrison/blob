@@ -5,7 +5,8 @@
 
 Let $X$ be an $n$-manifold.
 Let $\cC$ be a fixed system of fields and local relations.
-We'll assume it is enriched over \textbf{Vect}, and if it is not we can make it so by allowing finite
+We'll assume it is enriched over \textbf{Vect}; 
+if it is not we can make it so by allowing finite
 linear combinations of elements of $\cC(X; c)$, for fixed $c\in \cC(\bd X)$.
 
 %In this section we will usually suppress boundary conditions on $X$ from the notation, e.g. by writing $\lf(X)$ instead of $\lf(X; c)$.
@@ -20,14 +21,24 @@ of Definition \ref{defn:TQFT-invariant} with a resolution
 \]
 
 We will define $\bc_0(X)$, $\bc_1(X)$ and $\bc_2(X)$, then give the general case $\bc_k(X)$. 
-In fact, on the first pass we will intentionally describe the definition in a misleadingly simple way, then explain the technical difficulties, and finally give a cumbersome but complete definition in Definition \ref{defn:blobs}. If (we don't recommend it) you want to keep track of the ways in which this initial description is misleading, or you're reading through a second time to understand the technical difficulties, keep note that later we will give precise meanings to ``a ball in $X$'', ``nested'' and ``disjoint'', that are not quite the intuitive ones. Moreover some of the pieces into which we cut manifolds below are not themselves manifolds, and it requires special attention to define fields on these pieces.
+In fact, on the first pass we will intentionally describe the definition in a misleadingly simple way, 
+then explain the technical difficulties, and finally give a cumbersome but complete definition in 
+Definition \ref{defn:blobs}. 
+If (we don't recommend it) you want to keep track of the ways in which 
+this initial description is misleading, or you're reading through a second time to understand the 
+technical difficulties, keep note that later we will give precise meanings to ``a ball in $X$'', 
+``nested'' and ``disjoint'', that are not quite the intuitive ones. 
+Moreover some of the pieces 
+into which we cut manifolds below are not themselves manifolds, and it requires special attention 
+to define fields on these pieces.
 
 We of course define $\bc_0(X) = \lf(X)$.
-(If $X$ has nonempty boundary, instead define $\bc_0(X; c) = \lf(X; c)$ for each $c \in \lf{\bdy X}$.
-We'll omit this sort of detail in the rest of this section.)
+(If $X$ has nonempty boundary, instead define $\bc_0(X; c) = \lf(X; c)$ for each $c \in \lf(\bdy X)$.
+We'll omit such boundary conditions from the notation in the rest of this section.)
 In other words, $\bc_0(X)$ is just the vector space of all fields on $X$.
 
-We want the vector space $\bc_1(X)$ to capture `the space of all local relations that can be imposed on $\bc_0(X)$'.
+We want the vector space $\bc_1(X)$ to capture 
+``the space of all local relations that can be imposed on $\bc_0(X)$".
 Thus we say  a $1$-blob diagram consists of:
 \begin{itemize}
 \item An closed ball in $X$ (``blob") $B \sub X$.
@@ -56,6 +67,7 @@ In other words $\bd : \bc_1(X) \to \bc_0(X)$ is given by
 just erasing the blob from the picture
 (but keeping the blob label $u$).
 
+\nn{it seems rather strange to make this a theorem}
 Note that directly from the definition we have
 \begin{thm}
 \label{thm:skein-modules}
@@ -64,9 +76,9 @@ The skein module $A(X)$ is naturally isomorphic to $\bc_0(X)/\bd(\bc_1(X))) = H_
 This also establishes the second 
 half of Property \ref{property:contractibility}.
 
-Next, we want the vector space $\bc_2(X)$ to capture `the space of all relations 
+Next, we want the vector space $\bc_2(X)$ to capture ``the space of all relations 
 (redundancies, syzygies) among the 
-local relations encoded in $\bc_1(X)$'.
+local relations encoded in $\bc_1(X)$''.
 A $2$-blob diagram, comes in one of two types, disjoint and nested.
 A disjoint 2-blob diagram consists of
 \begin{itemize}
@@ -116,11 +128,15 @@ As with the $1$-blob diagrams, in order to get the linear structure correct the 
 	\right)  \bigoplus \\
 	&& \quad\quad  \left( 
 		\bigoplus_{B_1 \subset B_2} \bigoplus_{c_1, c_2}
-			U(B_1; c_1) \otimes \lf(B_2 \setmin B_1; c_1) \tensor \cC(X \setminus B_2; c_2)
+			U(B_1; c_1) \otimes \lf(B_2 \setmin B_1; c_1, c_2) \tensor \cC(X \setminus B_2; c_2)
 	\right) .
 \end{eqnarray*}
-For the disjoint blobs, reversing the ordering of $B_1$ and $B_2$ introduces a minus sign
-(rather than a new, linearly independent, 2-blob diagram). 
+% __ (already said this above)
+%For the disjoint blobs, reversing the ordering of $B_1$ and $B_2$ introduces a minus sign
+%(rather than a new, linearly independent, 2-blob diagram). 
+
+
+
 
 Before describing the general case, note that when we say blobs are disjoint, we will only mean that their interiors are disjoint. Nested blobs may have boundaries that overlap, or indeed may coincide.
 A $k$-blob diagram consists of
