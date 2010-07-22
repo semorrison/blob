@@ -8,7 +8,7 @@ Let $\cC$ be a fixed system of fields and local relations.
 We'll assume it is enriched over \textbf{Vect}, and if it is not we can make it so by allowing finite
 linear combinations of elements of $\cC(X; c)$, for fixed $c\in \cC(\bd X)$.
 
-In this section we will usually suppress boundary conditions on $X$ from the notation, e.g. by writing $\lf(X)$ instead of $\lf(X; c)$.
+%In this section we will usually suppress boundary conditions on $X$ from the notation, e.g. by writing $\lf(X)$ instead of $\lf(X; c)$.
 
 We want to replace the quotient
 \[
@@ -19,17 +19,18 @@ of Definition \ref{defn:TQFT-invariant} with a resolution
 	\cdots \to \bc_2(X) \to \bc_1(X) \to \bc_0(X) .
 \]
 
-We will define $\bc_0(X)$, $\bc_1(X)$ and $\bc_2(X)$, then give the general case $\bc_k(X)$.   \todo{create a numbered definition for the general case}
+We will define $\bc_0(X)$, $\bc_1(X)$ and $\bc_2(X)$, then give the general case $\bc_k(X)$. 
+In fact, on the first pass we will intentionally describe the definition in a misleadingly simple way, then explain the technical difficulties, and finally give a cumbersome but complete definition in Definition \ref{defn:blob-definition}. If (we don't recommend it) you want to keep track of the ways in which this initial description is misleading, or you're reading through a second time to understand the technical difficulties, keep note that later we will give precise meanings to ``a ball in $X$'', ``nested'' and ``disjoint'', that are not quite the intuitive ones. Moreover some of the pieces into which we cut manifolds below are not themselves manifolds, and it requires special attention to define fields on these pieces.
 
 We of course define $\bc_0(X) = \lf(X)$.
-(If $X$ has nonempty boundary, instead define $\bc_0(X; c) = \lf(X; c)$.
+(If $X$ has nonempty boundary, instead define $\bc_0(X; c) = \lf(X; c)$ for each $c \in \lf{\bdy X}$.
 We'll omit this sort of detail in the rest of this section.)
 In other words, $\bc_0(X)$ is just the vector space of all fields on $X$.
 
 We want the vector space $\bc_1(X)$ to capture `the space of all local relations that can be imposed on $\bc_0(X)$'.
 Thus we say  a $1$-blob diagram consists of:
 \begin{itemize}
-\item An embedded closed ball (``blob") $B \sub X$.
+\item An closed ball in $X$ (``blob") $B \sub X$.
 \item A boundary condition $c \in \cC(\bdy B) = \cC(\bd(X \setmin B))$.
 \item A field $r \in \cC(X \setmin B; c)$.
 \item A local relation field $u \in U(B; c)$.
@@ -120,49 +121,13 @@ As with the $1$-blob diagrams, in order to get the linear structure correct the 
 \end{eqnarray*}
 For the disjoint blobs, reversing the ordering of $B_1$ and $B_2$ introduces a minus sign
 (rather than a new, linearly independent, 2-blob diagram). 
-\noop{
-\nn{Hmm, I think we should be doing this for nested blobs too -- 
-we shouldn't force the linear indexing of the blobs to have anything to do with 
-the partial ordering by inclusion -- this is what happens below}
-\nn{KW: I think adding that detail would only add distracting clutter, and the statement is true as written (in the sense that it yields a vector space isomorphic to the general def below}
-}
 
-\begin{defn}
-An \emph{$n$-ball decomposition} of a topological space $X$ is 
-finite collection of triples $\{(B_i, X_i, Y_i)\}_{i=1,\ldots, k}$ where $B_i$ is an $n$-ball, $X_i$ is some topological space, and $Y_i$ is pair of disjoint homeomorphic $n-1$-manifolds in the boundary of $X_{i-1}$ (for convenience, $X_0 = Y_1 = \eset$), such that $X_{i+1} = X_i \cup_{Y_i} B_i$ and $X = X_k \cup_{Y_k} B_k$.
-
-Equivalently, we can define a ball decomposition inductively. A ball decomposition of $X$ is a topological space $X'$ along with a pair of disjoint homeomorphic $n-1$-manifolds $Y \subset \bdy X$, so $X = X' \bigcup_Y \selfarrow$, and $X'$ is either a disjoint union of balls, or a topological space equipped with a ball decomposition.
-\end{defn}
-
-Even though our definition of a system of fields only associates vector spaces to $n$-manifolds, we can easily extend this to any topological space admitting a ball decomposition.
-\begin{defn}
-Given an $n$-dimensional system of fields $\cF$, its extension to a topological space $X$ admitting an $n$-ball decomposition is \todo{}
-\end{defn}
-\todo{This is well defined}
-
-Before describing the general case we should say more precisely what we mean by 
-disjoint and nested blobs.
-Two blobs are disjoint if they have disjoint interiors.
-Nested blobs are allowed to have overlapping boundaries, or indeed to coincide.
-Blob are allowed to meet $\bd X$.
-
-However, we require of any collection of blobs $B_1,\ldots,B_k \subseteq X$ that
-$X$ is decomposable along the union of the boundaries of the blobs.
-\nn{need to say more here.  we want to be able to glue blob diagrams, but avoid pathological
-behavior}
-\nn{need to allow the case where $B\to X$ is not an embedding
-on $\bd B$.  this is because any blob diagram on $X_{cut}$ should give rise to one on $X_{gl}$
-and blobs are allowed to meet $\bd X$.
-Also, the complement of the blobs (and regions between nested blobs) might not be manifolds.}
-
-Now for the general case.
+Before describing the general case, note that when we say blobs are disjoint, we will only mean that their interiors are disjoint. Nested blobs may have boundaries that overlap, or indeed may coincide.
 A $k$-blob diagram consists of
 \begin{itemize}
 \item A collection of blobs $B_i \sub X$, $i = 1, \ldots, k$.
 For each $i$ and $j$, we require that either $B_i$ and $B_j$ have disjoint interiors or
 $B_i \sub B_j$ or $B_j \sub B_i$.
-(The case $B_i = B_j$ is allowed.
-If $B_i \sub B_j$ the boundaries of $B_i$ and $B_j$ are allowed to intersect.)
 If a blob has no other blobs strictly contained in it, we call it a twig blob.
 \item Fields (boundary conditions) $c_i \in \cC(\bd B_i)$.
 (These are implied by the data in the next bullets, so we usually
@@ -219,6 +184,54 @@ Thus we have a chain complex.
 
 Note that Property \ref{property:functoriality}, that the blob complex is functorial with respect to homeomorphisms, is immediately obvious from the definition.
 A homeomorphism acts in an obvious way on blobs and on fields.
+
+At this point, it is time to pay back our debt and define certain notions more carefully.
+
+In order to precisely state the general definition, we'll need a suitable notion of cutting up a manifold into balls.
+\begin{defn}
+\label{defn:gluing-decomposition}
+A \emph{gluing decomposition} of an $n$-manifold $X$ is a sequence of manifolds $M_0 \to M_1 \to \cdots \to M_m = X$ such that $M_0$ is a disjoint union of balls, and each $M_k$ is obtained from $M_{k-1}$ by gluing together some disjoint pair of homeomorphic $n{-}1$-manifolds in the boundary of $M_{k-1}$.
+\end{defn}
+Given a gluing decomposition $M_0 \to M_1 \to \cdots \to M_m = X$, we say that a field is splittable along it if it is the image of a field on $M_0$.
+
+By `a ball in $X$' we don't literally mean a submanifold homeomorphic to a ball, but rather the image of a map from the pair $(B^n, S^{n-1})$ into $X$, which is an embedding on the interior. The boundary of a ball in $X$ is the image of a locally embedded $n{-}1$-sphere. \todo{examples, e.g. balls which actually look like an annulus, but we remember the boundary} 
+
+\begin{defn}
+\label{defn:ball-decomposition}
+A \emph{ball decomposition} of an $n$-manifold $X$ is a collection of balls in $X$, such that there exists some gluing decomposition $M_0  \to \cdots \to M_m = X$ so that the balls are the images of the components of $M_0$ in $X$. 
+\end{defn}
+In particular, the union of all the balls in a ball decomposition comprises all of $X$. \todo{example}
+
+We'll now slightly restrict the possible configurations of blobs.
+\begin{defn}
+\label{defn:configuration}
+A configuration of $k$ blobs in $X$ is an ordered collection of $k$ balls in $X$ such that there is some gluing decomposition $M_0  \to \cdots \to M_m = X$ of $X$ and each of the balls is the image of some connected component of one of the $M_k$. Such a gluing decomposition is \emph{compatible} with the configuration.
+\end{defn}
+In particular, this implies what we said about blobs above: that for any two blobs in a configuration of blobs in $X$, they either have disjoint interiors, or one blob is strictly contained in the other. We describe these as disjoint blobs and nested blobs. Note that nested blobs may have boundaries that overlap, or indeed coincide. Blobs may meet the boundary of $X$.
+
+Note that the boundaries of a configuration of $k$ blobs may cut up the manifold $X$ into components which are not themselves manifolds. \todo{example: the components between the boundaries of the balls may be pathological}
+
+In the informal description above, in the definition of a $k$-blob diagram we asked for any collection of $k$ balls which were pairwise disjoint or nested. We now further insist that the balls are a configuration in the sense of Definition \ref{defn:configuration}. Also, we asked for a local relation on each twig blob, and a field on the complement of the twig blobs; this is unsatisfactory because that complement need not be a manifold. Thus, the official definition is
+\begin{defn}
+A $k$-blob diagram on $X$ consists of
+\begin{itemize}
+\item a configuration of $k$ blobs in $X$,
+\item and a field $r \in \cC(X)$ which is splittable along some gluing decomposition compatible with that configuration,
+\end{itemize}
+such that
+the restriction of $r$ to each twig blob $B_i$ lies in the subspace $U(B_i) \subset \cC(B_i)$.
+\end{defn}
+and
+\begin{defn}
+The $k$-th vector space $\bc_k(X)$ of the \emph{blob complex} of $X$ is the direct sum of all configurations of $k$ blobs in $X$ of the vector space of $k$-blob diagrams with that configuration, modulo identifying the vector spaces for configurations that only differ by a permutation of the balls by the sign of that permutation. The differential $bc_k(X) \to bc_{k-1}(X)$ is, as above, the signed sum of ways of forgetting one ball from the configuration, preserving the field $r$.
+\end{defn}
+We readily see that if a gluing decomposition is compatible with some configuration of blobs, then it is also compatible with any configuration obtained by forgetting some blobs, ensuring that the differential in fact lands in the space of $k{-}1$-blob diagrams.
+A slight compensation to the complication of the official definition arising from attention to splitting is that the differential now just preserves the entire field $r$ without having to say anything about gluing together fields on smaller components.
+
+\todo{this notion of configuration of blobs is the minimal one that allows gluing and engulfing}
+
+
+
 
 We define the {\it support} of a blob diagram $b$, $\supp(b) \sub X$, 
 to be the union of the blobs of $b$.
