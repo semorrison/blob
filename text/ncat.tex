@@ -251,9 +251,9 @@ $$
 
 \begin{axiom}[Strict associativity] \label{nca-assoc}
 The composition (gluing) maps above are strictly associative.
+Given any splitting of a ball $B$ into smaller balls $B_1,\ldots,B_m$, 
+any sequence of gluings of the smaller balls yields the same result.
 \end{axiom}
-
-\nn{should say this means $N$ at a time, not just 3 at a time}
 
 \begin{figure}[!ht]
 $$\mathfig{.65}{ncat/strict-associativity}$$
@@ -617,11 +617,12 @@ For each $n$-ball $X$ and each $c\in \cl{\cC}(\bd X)$ we have a map of chain com
 \[
 	C_*(\Homeo_\bd(X))\ot \cC(X; c) \to \cC(X; c) .
 \]
-These action maps are required to be associative up to homotopy
-\nn{iterated homotopy?}, and also compatible with composition (gluing) in the sense that
+These action maps are required to be associative up to homotopy,
+%\nn{iterated homotopy?}
+and also compatible with composition (gluing) in the sense that
 a diagram like the one in Theorem \ref{thm:CH} commutes.
-\nn{repeat diagram here?}
-\nn{restate this with $\Homeo(X\to X')$?  what about boundary fixing property?}
+%\nn{repeat diagram here?}
+%\nn{restate this with $\Homeo(X\to X')$?  what about boundary fixing property?}
 \end{axiom}
 
 We should strengthen the above axiom to apply to families of collar maps.
@@ -824,7 +825,7 @@ Notice that with $F$ a point, the above example is a construction turning a topo
 $n$-category $\cC$ into an $A_\infty$ $n$-category.
 We think of this as providing a ``free resolution" 
 of the topological $n$-category. 
-\nn{say something about cofibrant replacements?}
+%\nn{say something about cofibrant replacements?}
 In fact, there is also a trivial, but mostly uninteresting, way to do this: 
 we can think of each vector space associated to an $n$-ball as a chain complex concentrated in degree $0$, 
 and take $\CD{B}$ to act trivially. 
@@ -848,7 +849,6 @@ $W$ coincides with $c$ at $\bd X \times \Real^\infty$.
 (The topology on this space is induced by ambient isotopy rel boundary.
 This is homotopy equivalent to a disjoint union of copies $\mathrm{B}\!\Homeo(W')$, where
 $W'$ runs though representatives of homeomorphism types of such manifolds.)
-\nn{check this}
 \end{example}
 
 
@@ -859,14 +859,15 @@ copies of the standard $n$-ball $B^n$ into another (big) copy of $B^n$.
 boundaries are allowed to meet.
 Note in particular that the space for $k=1$ contains a copy of $\Diff(B^n)$, namely
 the embeddings of a ``little" ball with image all of the big ball $B^n$.
-\nn{should we warn that the inclusion of this copy of $\Diff(B^n)$ is not a homotopy equivalence?})
+(But note also that this inclusion is not
+necessarily a homotopy equivalence.)
 The operad $\cE\cB_n$ is homotopy equivalent to the standard framed little $n$-ball operad:
 by shrinking the little balls (precomposing them with dilations), 
 we see that both operads are homotopic to the space of $k$ framed points
 in $B^n$.
 It is easy to see that $n$-fold loop spaces $\Omega^n(T)$  have
 an action of $\cE\cB_n$.
-\nn{add citation for this operad if we can find one}
+%\nn{add citation for this operad if we can find one}
 
 \begin{example}[$E_n$ algebras]
 \rm
@@ -893,7 +894,7 @@ also comes from the $\cE\cB_n$ action on $A$.
 \nn{should we spell this out?}
 
 \nn{Should remark that the associated hocolim for manifolds
-is agrees with Lurie's topological chiral homology construction; maybe wait
+agrees with Lurie's topological chiral homology construction; maybe wait
 until next subsection to say that?}
 
 Conversely, one can show that a topological $A_\infty$ $n$-category $\cC$, where the $k$-morphisms
@@ -918,11 +919,13 @@ system of fields and local relations, followed by the usual TQFT definition of a
 vector space invariant of manifolds given as Definition \ref{defn:TQFT-invariant}.
 For an $A_\infty$ $n$-category, $\cl{\cC}$ is defined using a homotopy colimit instead.
 Recall that we can take a plain $n$-category $\cC$ and pass to the ``free resolution", 
-an $A_\infty$ $n$-category $\bc_*(\cC)$, by computing the blob complex of balls (recall Example \ref{ex:blob-complexes-of-balls} above).
+an $A_\infty$ $n$-category $\bc_*(\cC)$, by computing the blob complex of balls 
+(recall Example \ref{ex:blob-complexes-of-balls} above).
 We will show in Corollary \ref{cor:new-old} below that the homotopy colimit invariant 
-for a manifold $M$ associated to this $A_\infty$ $n$-category is actually the same as the original blob complex  for $M$ with coefficients in $\cC$.
+for a manifold $M$ associated to this $A_\infty$ $n$-category is actually the 
+same as the original blob complex  for $M$ with coefficients in $\cC$.
 
-We will first define the ``cell-decomposition" poset $\cell(W)$ for any $k$-manifold $W$, for $1 \leq k \leq n$. 
+We will first define the ``decomposition" poset $\cell(W)$ for any $k$-manifold $W$, for $1 \leq k \leq n$. 
 An $n$-category $\cC$ provides a functor from this poset to the category of sets, 
 and we  will define $\cl{\cC}(W)$ as a suitable colimit 
 (or homotopy colimit in the $A_\infty$ case) of this functor. 
@@ -930,14 +933,22 @@ We'll later give a more explicit description of this colimit.
 In the case that the $n$-category $\cC$ is enriched (e.g. associates vector spaces or chain complexes to $n$-balls with boundary data), 
 then the resulting colimit is also enriched, that is, the set associated to $W$ splits into subsets according to boundary data, and each of these subsets has the appropriate structure (e.g. a vector space or chain complex).
 
-Define a {\it permissible decomposition} of $W$ to be a cell decomposition
+Recall (Definition \ref{defn:gluing-decomposition}) that a {\it ball decomposition} of $W$ is a 
+sequence of gluings $M_0\to M_1\to\cdots\to M_m = W$ such that $M_0$ is a disjoint union of balls
+$\du_a X_a$.
+Abusing notation, we let $X_a$ denote both the ball (component of $M_0$) and
+its image in $W$ (which is not necessarily a ball --- parts of $\bd X_a$ may have been glued together).
+Define a {\it permissible decomposition} of $W$ to be a map
 \[
-	W = \bigcup_a X_a ,
+	\coprod_a X_a \to W,
 \]
-where each closed top-dimensional cell $X_a$ is an embedded $k$-ball.
-\nn{need to define this more carefully}
-Given permissible decompositions $x$ and $y$, we say that $x$ is a refinement
-of $y$, or write $x \le y$, if each $k$-ball of $y$ is a union of $k$-balls of $x$.
+which can be completed to a ball decomposition $\du_a X_a = M_0\to\cdots\to M_m = W$.
+Roughly, a permissible decomposition is like a ball decomposition where we don't care in which order the balls
+are glued up to yield $W$, so long as there is some (non-pathological) way to glue them.
+
+Given permissible decompositions $x = \{X_a\}$ and $y = \{Y_b\}$ or $W$, we say that $x$ is a refinement
+of $y$, or write $x \le y$, if there is a ball decomposition $\du_a X_a = M_0\to\cdots\to M_m = W$
+with $\du_b Y_b = M_i$ for some $i$.
 
 \begin{defn}
 The category (poset) $\cell(W)$ has objects the permissible decompositions of $W$, 
@@ -1228,9 +1239,9 @@ If $k < n$ we require that $\gl_Y$ is injective.
 
 \begin{module-axiom}[Strict associativity]
 The composition and action maps above are strictly associative.
+Given any decomposition of a large marked ball into smaller marked and unmarked balls
+any sequence of pairwise gluings yields (via composition and action maps) the same result.
 \end{module-axiom}
-
-\nn{should say that this is multifold, not just 3-fold}
 
 Note that the above associativity axiom applies to mixtures of module composition,
 action maps and $n$-category composition.
