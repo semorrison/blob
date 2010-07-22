@@ -20,7 +20,7 @@ of Definition \ref{defn:TQFT-invariant} with a resolution
 \]
 
 We will define $\bc_0(X)$, $\bc_1(X)$ and $\bc_2(X)$, then give the general case $\bc_k(X)$. 
-In fact, on the first pass we will intentionally describe the definition in a misleadingly simple way, then explain the technical difficulties, and finally give a cumbersome but complete definition in Definition \ref{defn:blob-definition}. If (we don't recommend it) you want to keep track of the ways in which this initial description is misleading, or you're reading through a second time to understand the technical difficulties, keep note that later we will give precise meanings to ``a ball in $X$'', ``nested'' and ``disjoint'', that are not quite the intuitive ones. Moreover some of the pieces into which we cut manifolds below are not themselves manifolds, and it requires special attention to define fields on these pieces.
+In fact, on the first pass we will intentionally describe the definition in a misleadingly simple way, then explain the technical difficulties, and finally give a cumbersome but complete definition in Definition \ref{defn:blobs}. If (we don't recommend it) you want to keep track of the ways in which this initial description is misleading, or you're reading through a second time to understand the technical difficulties, keep note that later we will give precise meanings to ``a ball in $X$'', ``nested'' and ``disjoint'', that are not quite the intuitive ones. Moreover some of the pieces into which we cut manifolds below are not themselves manifolds, and it requires special attention to define fields on these pieces.
 
 We of course define $\bc_0(X) = \lf(X)$.
 (If $X$ has nonempty boundary, instead define $\bc_0(X; c) = \lf(X; c)$ for each $c \in \lf{\bdy X}$.
@@ -39,7 +39,7 @@ Thus we say  a $1$-blob diagram consists of:
 \begin{figure}[t]\begin{equation*}
 \mathfig{.6}{definition/single-blob}
 \end{equation*}\caption{A 1-blob diagram.}\label{blob1diagram}\end{figure}
-In order to get the linear structure correct, the actual definition is
+In order to get the linear structure correct, we define
 \[
 	\bc_1(X) \deq \bigoplus_B \bigoplus_c U(B; c) \otimes \lf(X \setmin B; c) .
 \]
@@ -137,9 +137,8 @@ if the latter space is not empty.
 \item A field $r \in \cC(X \setmin B^t; c^t)$,
 where $B^t$ is the union of all the twig blobs and $c^t \in \cC(\bd B^t)$
 is determined by the $c_i$'s.
-$r$ is required to be splittable along the boundaries of all blobs, twigs or not. (This is equivalent to asking for a field on of the components of $X \setmin B^t$.)
-\item For each twig blob $B_j$ a local relation field $u_j \in U(B_j; c_j)$,
-where $c_j$ is the restriction of $c^t$ to $\bd B_j$.
+The field $r$ is required to be splittable along the boundaries of all blobs, twigs or not. (This is equivalent to asking for a field on of the components of $X \setmin B^t$.)
+\item For each twig blob $B_j$ a local relation field $u_j \in U(B_j; c_j)$.
 If $B_i = B_j$ then $u_i = u_j$.
 \end{itemize}
 (See Figure \ref{blobkdiagram}.)
@@ -213,6 +212,7 @@ Note that the boundaries of a configuration of $k$ blobs may cut up the manifold
 
 In the informal description above, in the definition of a $k$-blob diagram we asked for any collection of $k$ balls which were pairwise disjoint or nested. We now further insist that the balls are a configuration in the sense of Definition \ref{defn:configuration}. Also, we asked for a local relation on each twig blob, and a field on the complement of the twig blobs; this is unsatisfactory because that complement need not be a manifold. Thus, the official definition is
 \begin{defn}
+\label{defn:blob-diagram}
 A $k$-blob diagram on $X$ consists of
 \begin{itemize}
 \item a configuration of $k$ blobs in $X$,
@@ -223,6 +223,7 @@ the restriction of $r$ to each twig blob $B_i$ lies in the subspace $U(B_i) \sub
 \end{defn}
 and
 \begin{defn}
+\label{defn:blobs}
 The $k$-th vector space $\bc_k(X)$ of the \emph{blob complex} of $X$ is the direct sum of all configurations of $k$ blobs in $X$ of the vector space of $k$-blob diagrams with that configuration, modulo identifying the vector spaces for configurations that only differ by a permutation of the balls by the sign of that permutation. The differential $bc_k(X) \to bc_{k-1}(X)$ is, as above, the signed sum of ways of forgetting one ball from the configuration, preserving the field $r$.
 \end{defn}
 We readily see that if a gluing decomposition is compatible with some configuration of blobs, then it is also compatible with any configuration obtained by forgetting some blobs, ensuring that the differential in fact lands in the space of $k{-}1$-blob diagrams.
