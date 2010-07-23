@@ -207,7 +207,59 @@ choice made in the definition, and that it is associative.
 \subsection{$A_\infty$ $1$-categories}
 \label{sec:comparing-A-infty}
 In this section, we make contact between the usual definition of an $A_\infty$ category 
-and our definition of a topological $A_\infty$ $1$-category, from \S \ref{???}.
+and our definition of a topological $A_\infty$ $1$-category, from \S \ref{ss:n-cat-def}.
+
+\medskip
+
+Given a topological $A_\infty$ $1$-category $\cC$, we define an ``$m_k$-style 
+$A_\infty$ $1$-category $A$ as follows.
+The objects of $A$ are $\cC(pt)$.
+The morphisms of $A$, from $x$ to $y$, are $\cC(I; x, y)$
+($\cC$ applied to the standard interval with boundary labeled by $x$ and $y$).
+For simplicity we will now assume there is only one object and suppress it from the notation.
+
+A choice of homeomorphism $I\cup I \to I$ induces a chain map $m_2: A\times A\to A$.
+We now have two different homeomorphisms $I\cup I\cup I \to I$, but they are isotopic.
+Choose a specific 1-parameter family of homeomorphisms connecting them; this induces
+a degree 1 chain homotopy $m_3:A\ot A\ot A\to A$.
+Proceeding in this way we define the rest of the $m_i$'s.
+It is straightforward to verify that they satisfy the necessary identities.
+
+\medskip
+
+In the other direction, we start with an alternative conventional definition of an $A_\infty$ algebra:
+an algebra $A$ for the $A_\infty$ operad.
+(For simplicity, we are assuming our $A_\infty$ 1-category has only one object.)
+We are free to choose any operad with contractible spaces, so we choose the operad
+whose $k$-th space is the space of decompositions of the standard interval $I$ into $k$
+parameterized copies of $I$.
+Note in particular that when $k=1$ this implies a $\Homeo(I)$ action on $A$.
+(Compare with Example \ref{ex:e-n-alg} and preceding discussion.)
+Given a non-standard interval $J$, we define $\cC(J)$ to be
+$(\Homeo(I\to J) \times A)/\Homeo(I\to I)$,
+where $\beta \in \Homeo(I\to I)$ acts via $(f, a) \mapsto (f\circ \beta\inv, \beta_*(a))$.
+\nn{check this}
+We define a $\Homeo(J)$ action on $\cC(J)$ via $g_*(f, a) = (g\circ f, a)$.
+The $C_*(\Homeo(J))$ action is defined similarly.
+
+Let $J_1$ and $J_2$ be intervals.
+We must define a map $\cC(J_1)\ot\cC(J_2)\to\cC(J_1\cup J_2)$.
+Choose a homeomorphism $g:I\to J_1\cup J_2$.
+Let $(f_i, a_i)\in \cC(J_i)$.
+We have a parameterized decomposition of $I$ into two intervals given by
+$g\inv \circ f_i$, $i=1,2$.
+Corresponding to this decomposition the operad action gives a map $\mu: A\ot A\to A$.
+Define the gluing map to send $(f_1, a_1)\ot (f_2, a_2)$ to $(g, \mu(a_1\ot a_2))$.
+
+It is straightforward to verify the remaining axioms for a topological $A_\infty$ 1-category.
+
+
+
+
+
+
+
+\noop { %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 That definition associates a chain complex to every interval, and we begin by giving an alternative definition that is entirely in terms of the chain complex associated to the standard interval $[0,1]$. 
 \begin{defn}
@@ -300,3 +352,5 @@ as required (c.f. \cite[p. 6]{MR1854636}).
 \todo{then the general case.}
 We won't describe a reverse construction (producing a topological $A_\infty$ category 
 from a ``conventional" $A_\infty$ category), but we presume that this will be easy for the experts.
+
+} %%%%% end \noop %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
