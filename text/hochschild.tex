@@ -219,26 +219,26 @@ We now define a homotopy inverse $s: J_* \to K_*(C)$ to the inclusion $i$.
 If $y$ is a field defined on a neighborhood of *, define $s(y) = y$ if
 * is a labeled point in $y$.
 Otherwise, define $s(y)$ to be the result of adding a label 1 (identity morphism) at *.
-Extending linearly, we get the desired map $s: \bc_*(S^1) \to K_*(C)$.
+Extending linearly, we get the desired map $s: J_* \to K_*(C)$.
 It is easy to check that $s$ is a chain map and $s \circ i = \id$.
 
 Let $N_\ep$ denote the ball of radius $\ep$ around *.
-Let $L_*^\ep \sub \bc_*(S^1)$ be the subcomplex 
+Let $L_*^\ep \sub J_*$ be the subcomplex 
 spanned by blob diagrams
 where there are no labeled points
 in $N_\ep$, except perhaps $*$, and $N_\ep$ is either disjoint from or contained in 
 every blob in the diagram.
-Note that for any chain $x \in \bc_*(S^1)$, $x \in L_*^\ep$ for sufficiently small $\ep$.
+Note that for any chain $x \in J_*$, $x \in L_*^\ep$ for sufficiently small $\ep$.
 
 We define a degree $1$ map $j_\ep: L_*^\ep \to L_*^\ep$ as follows.
 Let $x \in L_*^\ep$ be a blob diagram.
-\nn{maybe add figures illustrating $j_\ep$?}
+%\nn{maybe add figures illustrating $j_\ep$?}
 If $*$ is not contained in any twig blob, we define $j_\ep(x)$ by adding 
 $N_\ep$ as a new twig blob, with label $y - s(y)$ where $y$ is the restriction
 of $x$ to $N_\ep$.
 If $*$ is contained in a twig blob $B$ with label $u=\sum z_i$, 
-\nn{SM: I don't think we need to consider sums here}
-\nn{KW: It depends on whether we allow linear combinations of fields outside of twig blobs}
+%\nn{SM: I don't think we need to consider sums here}
+%\nn{KW: It depends on whether we allow linear combinations of fields outside of twig blobs}
 write $y_i$ for the restriction of $z_i$ to $N_\ep$, and let
 $x_i$ be equal to $x$ on $S^1 \setmin B$, equal to $z_i$ on $B \setmin N_\ep$,
 and have an additional blob $N_\ep$ with label $y_i - s(y_i)$.
@@ -250,7 +250,7 @@ It is not hard to show that on $L_*^\ep$
 \]
 (To get the signs correct here, we add $N_\ep$ as the first blob.)
 Since for $\ep$ small enough $L_*^\ep$ captures all of the
-homology of $\bc_*(S^1)$, 
+homology of $J_*$, 
 it follows that the mapping cone of $i \circ s$ is acyclic and therefore (using the fact that
 these complexes are free) $i \circ s$ is homotopic to the identity.
 \end{proof}
@@ -471,7 +471,7 @@ for all $x \in K'_*$ we have
 Since $K'_0 = K''_0$, we can take $h_0 = 0$.
 Let $x \in K'_1$, with single blob $B \sub S^1$.
 If $* \notin B$, then $x \in K''_1$ and we define $h_1(x) = 0$.
-If $* \in B$, then we work in the image of $G'_*$ and $G''_*$ (with respect to $B$).
+If $* \in B$, then we work in the image of $G'_*$ and $G''_*$ (with $B$ playing the role of $N$ above).
 Choose $x'' \in G''_1$ such that $\bd x'' = \bd x$.
 Since $G'_*$ is contractible, there exists $y \in G'_2$ such that $\bd y = x - x''$.
 Define $h_1(x) = y$.
@@ -486,7 +486,7 @@ Choose $x'' \in G''_l$ such that $\bd x'' = \bd (x' - h_{l-1}\bd x')$.
 Choose $y \in G'_{l+1}$ such that $\bd y = x' - x'' - h_{l-1}\bd x'$.
 Define $h_k(x) = y \bullet p$.
 This completes the proof that $i: K''_* \to K'_*$ is a homotopy equivalence.
-\nn{need to say above more clearly and settle on notation/terminology}
+%\nn{need to say above more clearly and settle on notation/terminology}
 
 Finally, we show that $K''_*$ is contractible with $H_0\cong C$.
 This is similar to the proof of Proposition \ref{bcontract}, but a bit more
