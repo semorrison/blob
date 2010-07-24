@@ -211,7 +211,7 @@ and our definition of a topological $A_\infty$ $1$-category, from \S \ref{ss:n-c
 
 \medskip
 
-Given a topological $A_\infty$ $1$-category $\cC$, we define an ``$m_k$-style 
+Given a topological $A_\infty$ $1$-category $\cC$, we define an ``$m_k$-style" 
 $A_\infty$ $1$-category $A$ as follows.
 The objects of $A$ are $\cC(pt)$.
 The morphisms of $A$, from $x$ to $y$, are $\cC(I; x, y)$
@@ -233,12 +233,13 @@ an algebra $A$ for the $A_\infty$ operad.
 We are free to choose any operad with contractible spaces, so we choose the operad
 whose $k$-th space is the space of decompositions of the standard interval $I$ into $k$
 parameterized copies of $I$.
-Note in particular that when $k=1$ this implies a $\Homeo(I)$ action on $A$.
-(Compare with Example \ref{ex:e-n-alg} and preceding discussion.)
+Note in particular that when $k=1$ this implies a $C_*(\Homeo(I))$ action on $A$.
+(Compare with Example \ref{ex:e-n-alg} and the discussion which precedes it.)
 Given a non-standard interval $J$, we define $\cC(J)$ to be
 $(\Homeo(I\to J) \times A)/\Homeo(I\to I)$,
 where $\beta \in \Homeo(I\to I)$ acts via $(f, a) \mapsto (f\circ \beta\inv, \beta_*(a))$.
 \nn{check this}
+Note that $\cC(J) \cong A$ (non-canonically) for all intervals $J$.
 We define a $\Homeo(J)$ action on $\cC(J)$ via $g_*(f, a) = (g\circ f, a)$.
 The $C_*(\Homeo(J))$ action is defined similarly.
 
@@ -250,6 +251,8 @@ We have a parameterized decomposition of $I$ into two intervals given by
 $g\inv \circ f_i$, $i=1,2$.
 Corresponding to this decomposition the operad action gives a map $\mu: A\ot A\to A$.
 Define the gluing map to send $(f_1, a_1)\ot (f_2, a_2)$ to $(g, \mu(a_1\ot a_2))$.
+Operad associativity for $A$ implies that this gluing map is independent of the choice of
+$g$ and the choice of representative $(f_i, a_i)$.
 
 It is straightforward to verify the remaining axioms for a topological $A_\infty$ 1-category.
 
