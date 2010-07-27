@@ -358,6 +358,10 @@ $$ev_{X \to Y} : \CH{X \to Y} \tensor \bc_*(X) \to \bc_*(Y)$$
 for any homeomorphic pair $X$ and $Y$, 
 satisfying corresponding conditions.
 
+\nn{KW: the next paragraph seems awkward to me}
+
+\nn{KW: also, I'm not convinced that all of these (above and below) should be called theorems}
+
 In \S \ref{sec:ncats} we introduce the notion of topological $n$-categories, from which we can construct systems of fields.
 Below, we talk about the blob complex associated to a topological $n$-category, implicitly passing first to the system of fields.
 Further, in \S \ref{sec:ncats} we also have the notion of an $A_\infty$ $n$-category.
@@ -378,11 +382,13 @@ Property \ref{property:gluing-map} and with the action of families of homeomorph
 Perhaps the most interesting case is when $Y$ is just a point; then we have a way of building an $A_\infty$ $n$-category from a topological $n$-category.
 We think of this $A_\infty$ $n$-category as a free resolution.
 \end{rem}
-Theorem \ref{thm:blobs-ainfty} appears as Example \ref{ex:blob-complexes-of-balls} in \S \ref{sec:ncats}
+
+Theorem \ref{thm:blobs-ainfty} appears as Example \ref{ex:blob-complexes-of-balls} in \S \ref{sec:ncats}.
 
 There is a version of the blob complex for $\cC$ an $A_\infty$ $n$-category
 instead of a topological $n$-category; this is described in \S \ref{sec:ainfblob}.
-The definition is in fact simpler, almost tautological, and we use a different notation, $\cl{\cC}(M)$. The notation is intended to reflect the close parallel with the definition of the TQFT skein module via a colimit.
+The definition is in fact simpler, almost tautological, and we use a different notation, $\cl{\cC}(M)$. 
+%The notation is intended to reflect the close parallel with the definition of the TQFT skein module via a colimit.
 
 \newtheorem*{thm:product}{Theorem \ref{thm:product}}
 
@@ -395,7 +401,8 @@ Then
 	\bc_*(Y\times W; \cC) \simeq \cl{\bc_*(Y;\cC)}(W).
 \]
 \end{thm:product}
-We also give a generalization of this statement for arbitrary fibre bundles, in \S \ref{moddecss}, and a sketch of a statement for arbitrary maps.
+The statement can be generalized to arbitrary fibre bundles, and indeed to arbitrary maps
+(see \S \ref{moddecss}).
 
 Fix a topological $n$-category $\cC$, which we'll omit from the notation.
 Recall that for any $(n-1)$-manifold $Y$, the blob complex $\bc_*(Y)$ is naturally an $A_\infty$ category.
@@ -417,11 +424,11 @@ $\bc_*(X)$ as an $\bc_*(Y)$-bimodule:
 \end{itemize}
 \end{thm:gluing}
 
-Theorem \ref{thm:product} is proved in \S \ref{ss:product-formula}, with Theorem \ref{thm:gluing} then a relatively straightforward consequence of the proof, explained in \S \ref{sec:gluing}.
+Theorem \ref{thm:product} is proved in \S \ref{ss:product-formula}, and Theorem \ref{thm:gluing} in \S \ref{sec:gluing}.
 
 \subsection{Applications}
 \label{sec:applications}
-Finally, we give two theorems which we consider as applications.
+Finally, we give two theorems which we consider applications. % or "think of as"
 
 \newtheorem*{thm:map-recon}{Theorem \ref{thm:map-recon}}
 
@@ -430,27 +437,31 @@ Let $\pi^\infty_{\le n}(T)$ denote the $A_\infty$ $n$-category based on maps
 $B^n \to T$.
 (The case $n=1$ is the usual $A_\infty$-category of paths in $T$.)
 Then 
-$$\bc_*(X, \pi^\infty_{\le n}(T)) \simeq \CM{X}{T}.$$
+$$\bc_*(X; \pi^\infty_{\le n}(T)) \simeq \CM{X}{T}.$$
 \end{thm:map-recon}
 
-This says that we can recover the (homotopic) space of maps to $T$ via blob homology from local data. The proof appears in \S \ref{sec:map-recon}.
+This says that we can recover (up to homotopy) the space of maps to $T$ via blob homology from local data. 
+The proof appears in \S \ref{sec:map-recon}.
 
 \newtheorem*{thm:deligne}{Theorem \ref{thm:deligne}}
 
 \begin{thm:deligne}[Higher dimensional Deligne conjecture]
 The singular chains of the $n$-dimensional fat graph operad act on blob cochains.
 \end{thm:deligne}
-See \S \ref{sec:deligne} for a full explanation of the statement, and an outline of the proof.
+See \S \ref{sec:deligne} for a full explanation of the statement, and the proof.
 
 
 
 
 \subsection{Future directions}
 \label{sec:future}
-Throughout, we have resisted the temptation to work in the greatest generality possible (don't worry, it wasn't that hard). 
+\nn{KW: Perhaps we should delete this subsection and salvage only the first few sentences.}
+Throughout, we have resisted the temptation to work in the greatest generality possible.
+(Don't worry, it wasn't that hard.)
 In most of the places where we say ``set" or ``vector space", any symmetric monoidal category would do.
-We could presumably also replace many of our chain complexes with topological spaces (or indeed, work at the generality of model categories), 
-and likely it will prove useful to think about the connections between what we do here and $(\infty,k)$-categories.
+We could also replace many of our chain complexes with topological spaces (or indeed, work at the generality of model categories).
+%%%%%%
+And likely it will prove useful to think about the connections between what we do here and $(\infty,k)$-categories.
 More could be said about finite characteristic 
 (there appears in be $2$-torsion in $\bc_1(S^2; \cC)$ for any spherical $2$-category $\cC$, for example).
 Much more could be said about other types of manifolds, in particular oriented, 
