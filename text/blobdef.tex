@@ -154,8 +154,17 @@ Combining these two operations can give rise to configurations of blobs whose co
 a manifold. \todo{example}
 Thus will need to be more careful when speaking of a field $r$ on the complement of the blobs.
 
+\begin{example}
+Consider the four subsets of $\Real^3$,
+\begin{align*}
+A & = [0,1] \times [0,1] \times [-1,1] \\
+B & = [0,1] \times [-1,0] \times [-1,1] \\
+C & = [-1,0] \times \setc{(y,z)}{z \sin(1/z) \leq y \leq 1, z \in [-1,1]} \\
+D & = [-1,0] \times \setc{(y,z)}{-1 \leq y \leq z \sin(1/z), z \in [-1,1]}.
+\end{align*}
+Here $A \cup B = [0,1] \times [-1,1] \times [-1,1]$ and $C \cup D = [-1,0] \times [-1,1] \times [-1,1]$. Now, $\{A\}$ is a valid configuration of blobs in $A \cup B$, and $\{C\}$ is a valid configuration of blobs in $C \cup D$, so we must allow $\{A, C\}$ as a configuration of blobs in $[-1,1]^3$. Note however that the complement is not a manifold.
+\end{example}
 
-%In order to precisely state the general definition, we'll need a suitable notion of cutting up a manifold into balls.
 \begin{defn}
 \label{defn:gluing-decomposition}
 A \emph{gluing decomposition} of an $n$-manifold $X$ is a sequence of manifolds 
@@ -164,6 +173,8 @@ by gluing together some disjoint pair of homeomorphic $n{-}1$-manifolds in the b
 If, in addition, $M_0$ is a disjoint union of balls, we call it a \emph{ball decomposition}.
 \end{defn}
 Given a gluing decomposition $M_0 \to M_1 \to \cdots \to M_m = X$, we say that a field is splittable along it if it is the image of a field on $M_0$.
+
+In the example above, note that $$A \sqcup B \sqcup C \sqcup D \to (A \cup B) \sqcup (C \cup D) \to [-1,1]^3$$ is a  ball decomposition of $[-1,1]^3$, but other sequences of gluings from $A \sqcup B \sqcup C \sqcup D$ to $[-1,1]^3$ have intermediate steps which are not manifolds.
 
 We'll now slightly restrict the possible configurations of blobs.
 \begin{defn}
@@ -178,7 +189,7 @@ Note that nested blobs may have boundaries that overlap, or indeed coincide.
 Blobs may meet the boundary of $X$.
 Further, note that blobs need not actually be embedded balls in $X$, since parts of the boundary of the ball $M_r'$ may have been glued together.
 
-\todo{Say something reassuring: that 'most of the time' all the regions are manifolds anyway, and you can take the `trivial' gluing decomposition}
+Note that often the gluing decomposition for a configuration of blobs may just be the trivial one: if the boundaries of all the blobs cut $X$ into pieces which are all manifolds, we can just take $M_0$ to be these pieces, and $M_1 = X$.
 
 In the informal description above, in the definition of a $k$-blob diagram we asked for any collection of $k$ balls which were pairwise disjoint or nested. We now further insist that the balls are a configuration in the sense of Definition \ref{defn:configuration}. Also, we asked for a local relation on each twig blob, and a field on the complement of the twig blobs; this is unsatisfactory because that complement need not be a manifold. Thus, the official definition is
 \begin{defn}
@@ -189,17 +200,17 @@ A $k$-blob diagram on $X$ consists of
 \item and a field $r \in \cC(X)$ which is splittable along some gluing decomposition compatible with that configuration,
 \end{itemize}
 such that
-the restriction of $r$ to each twig blob $B_i$ lies in the subspace $U(B_i) \subset \cC(B_i)$.
+the restriction $u_i$ of $r$ to each twig blob $B_i$ lies in the subspace $U(B_i) \subset \cC(B_i)$.
 \end{defn}
 \todo{Careful here: twig blobs aren't necessarily balls?}
-(See Figure \ref{blobkdiagram}. \todo{update diagram})
+(See Figure \ref{blobkdiagram}.)
 \begin{figure}[t]\begin{equation*}
 \mathfig{.7}{definition/k-blobs}
 \end{equation*}\caption{A $k$-blob diagram.}\label{blobkdiagram}\end{figure}
 and
 \begin{defn}
 \label{defn:blobs}
-The $k$-th vector space $\bc_k(X)$ of the \emph{blob complex} of $X$ is the direct sum of all configurations of $k$ blobs in $X$ of the vector space of $k$-blob diagrams with that configuration, modulo identifying the vector spaces for configurations that only differ by a permutation of the balls by the sign of that permutation. The differential $\bc_k(X) \to \bc_{k-1}(X)$ is, as above, the signed sum of ways of forgetting one blob from the configuration, preserving the field $r$:
+The $k$-th vector space $\bc_k(X)$ of the \emph{blob complex} of $X$ is the direct sum over all configurations of $k$ blobs in $X$ of the vector space of $k$-blob diagrams with that configuration, modulo identifying the vector spaces for configurations that only differ by a permutation of the balls by the sign of that permutation. The differential $\bc_k(X) \to \bc_{k-1}(X)$ is, as above, the signed sum of ways of forgetting one blob from the configuration, preserving the field $r$:
 \begin{equation*}
 \bdy(\{B_1, \ldots B_k\}, r) = \sum_{i=1}^{k} (-1)^{i+1} (\{B_1, \ldots, \widehat{B_i}, \ldots, B_k\}, r)
 \end{equation*}
