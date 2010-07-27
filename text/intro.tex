@@ -89,11 +89,12 @@ The relationship between all these ideas is sketched in Figure \ref{fig:outline}
 
 \begin{tikzpicture}[align=center,line width = 1.5pt]
 \newcommand{\xa}{2}
-\newcommand{\xb}{10}
+\newcommand{\xb}{8}
 \newcommand{\ya}{14}
 \newcommand{\yb}{10}
 \newcommand{\yc}{6}
 
+\node[box] at (-4,\yb) (tC) {$C$ \\ a `traditional' \\ weak $n$-category};
 \node[box] at (\xa,\ya) (C) {$\cC$ \\ a topological \\ $n$-category};
 \node[box] at (\xb,\ya) (A) {$\underrightarrow{\cC}(M)$ \\ the (dual) TQFT \\ Hilbert space};
 \node[box] at (\xa,\yb) (FU) {$(\cF, \cU)$ \\ fields and\\ local relations};
@@ -109,10 +110,14 @@ The relationship between all these ideas is sketched in Figure \ref{fig:outline}
 
 \draw[->] (FU) -- node[right=10pt] {$\cF(M)/\cU$} (A);
 
-\draw[->] (C) -- node[left=10pt] {
-	Example \ref{ex:traditional-n-categories(fields)} \\ and \S \ref{ss:ncat_fields}
+\draw[->] (tC) -- node[above] {Example \ref{ex:traditional-n-categories(fields)}} (FU);
+
+\draw[->] (C.-100) -- node[left] {
+	\S \ref{ss:ncat_fields}
 	%$\displaystyle \cF(M) = \DirectSum_{c \in\cell(M)} \cC(c)$ \\ $\displaystyle \cU(B) = \DirectSum_{c \in \cell(B)} \ker \ev: \cC(c) \to \cC(B)$
-   } (FU);
+   } (FU.100);
+\draw[->] (C) -- node[above left=3pt] {restrict to \\ standard balls} (tC);
+\draw[->] (FU.80) -- node[right] {restrict \\ to balls} (C.-80);
 \draw[->] (BC) -- node[left] {$H_0$} node[right] {c.f. Theorem \ref{thm:skein-modules}} (A);
 
 \draw[->] (FU) -- node[left] {blob complex \\ for balls} (Cs);
@@ -205,7 +210,7 @@ with an appropriately free resolution (the blob complex)
 Here $\bc_0$ is linear combinations of fields on $W$,
 $\bc_1$ is linear combinations of local relations on $W$,
 $\bc_2$ is linear combinations of relations amongst relations on $W$,
-and so on.
+and so on. We now have a short exact sequence of chain complexes relating resolutions of the link $L$ (c.f. Lemma \ref{lem:hochschild-exact} which shows exactness with respect to boundary conditions in the context of Hochschild homology).
 
 
 \subsection{Formal properties}
@@ -226,10 +231,8 @@ complexes and isomorphisms between them.
 As a consequence, there is an action of $\Homeo(X)$ on the chain complex $\bc_*(X; \cF)$; 
 this action is extended to all of $C_*(\Homeo(X))$ in Theorem \ref{thm:evaluation} below.
 
-The blob complex is also functorial (indeed, exact) with respect to $\cF$, 
+The blob complex is also functorial with respect to $\cF$, 
 although we will not address this in detail here.
-\nn{KW: what exactly does ``exact in $\cF$" mean?
-Do we mean a similar statement for module labels?}
 
 \begin{property}[Disjoint union]
 \label{property:disjoint-union}
