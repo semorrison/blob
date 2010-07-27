@@ -2,10 +2,12 @@
 
 \section{Introduction}
 
-We construct the ``blob complex'' $\bc_*(M; \cC)$ associated to an $n$-manifold $M$ and a ``linear $n$-category with strong duality'' $\cC$.
-This blob complex provides a simultaneous generalization of several well-understood constructions:
+We construct a chain complex $\bc_*(M; \cC)$ --- the ``blob complex'' --- 
+associated to an $n$-manifold $M$ and a linear $n$-category with strong duality $\cC$.
+This blob complex provides a simultaneous generalization of several well known constructions:
 \begin{itemize}
-\item The vector space $H_0(\bc_*(M; \cC))$ is isomorphic to the usual topological quantum field theory invariant of $M$ associated to $\cC$.
+\item The 0-th homology $H_0(\bc_*(M; \cC))$ is isomorphic to the usual 
+topological quantum field theory invariant of $M$ associated to $\cC$.
 (See Theorem \ref{thm:skein-modules} later in the introduction and \S \ref{sec:constructing-a-tqft}.)
 \item When $n=1$ and $\cC$ is just a 1-category (e.g.\ an associative algebra), 
 the blob complex $\bc_*(S^1; \cC)$ is quasi-isomorphic to the Hochschild complex $\HC_*(\cC)$.
@@ -13,40 +15,48 @@ the blob complex $\bc_*(S^1; \cC)$ is quasi-isomorphic to the Hochschild complex
 \item When $\cC$ is the polynomial algebra $k[t]$, thought of as an n-category, we have 
 that $\bc_*(M; k[t])$ is homotopy equivalent to $C_*(\Sigma^\infty(M), k)$, the singular chains
 on the configuration space of unlabeled points in $M$. (See \S \ref{sec:comm_alg}.)
-%$$H_*(\bc_*(M; k[t])) = H^{\text{sing}}_*(\Delta^\infty(M), k).$$ 
+\item When $\cC$ is $\pi^\infty_{\leq n}(T)$, the $A_\infty$ version of the fundamental $n$-groupoid of
+the space $T$ (Example \ref{ex:chains-of-maps-to-a-space}), 
+$\bc_*(M; \cC)$ is homotopy equivalent to $C_*(\Maps(M\to T))$,
+the singular chains on the space of maps from $M$ to $T$.
+(See Theorem \ref{thm:map-recon}.)
 \end{itemize}
+
 The blob complex definition is motivated by the desire for a derived analogue of the usual TQFT Hilbert space 
-(replacing quotient of fields by local relations with some sort of resolution), 
+(replacing the quotient of fields by local relations with some sort of resolution), 
 and for a generalization of Hochschild homology to higher $n$-categories.
-We would also like to be able to talk about $\CM{M}{T}$ when $T$ is an $n$-category rather than a manifold.
-The blob complex gives us all of these! More detailed motivations are described in \S \ref{sec:motivations}.
+One can think of it as the push-out of these two familiar constructions.
+More detailed motivations are described in \S \ref{sec:motivations}.
 
 The blob complex has good formal properties, summarized in \S \ref{sec:properties}.
 These include an action of $\CH{M}$, 
-extending the usual $\Homeo(M)$ action on the TQFT space $H_0$ (see Theorem \ref{thm:evaluation}) and a gluing 
-formula allowing calculations by cutting manifolds into smaller parts (see Theorem \ref{thm:gluing}).
+extending the usual $\Homeo(M)$ action on the TQFT space $H_0$ (Theorem \ref{thm:evaluation}) and a gluing 
+formula allowing calculations by cutting manifolds into smaller parts (Theorem \ref{thm:gluing}).
 
-We expect applications of the blob complex to contact topology and Khovanov homology but do not address these in this paper.
+We expect applications of the blob complex to contact topology and Khovanov homology 
+but do not address these in this paper.
 See \S \ref{sec:future} for slightly more detail.
+
 
 \subsection{Structure of the paper}
 The subsections of the introduction explain our motivations in defining the blob complex (see \S \ref{sec:motivations}), 
-summarise the formal properties of the blob complex (see \S \ref{sec:properties}), describe known specializations (see \S \ref{sec:specializations}), outline the major results of the paper (see \S \ref{sec:structure} and \S \ref{sec:applications})
+summarize the formal properties of the blob complex (see \S \ref{sec:properties}), describe known specializations (see \S \ref{sec:specializations}), outline the major results of the paper (see \S \ref{sec:structure} and \S \ref{sec:applications})
 and outline anticipated future directions (see \S \ref{sec:future}).
+\nn{recheck this list after done editing intro}
 
 The first part of the paper (sections \S \ref{sec:fields}---\S \ref{sec:evaluation}) gives the definition of the blob complex, 
 and establishes some of its properties.
-There are many alternative definitions of $n$-categories, and part of our difficulty defining the blob complex is 
+There are many alternative definitions of $n$-categories, and part of the challenge of defining the blob complex is 
 simply explaining what we mean by an ``$n$-category with strong duality'' as one of the inputs.
 At first we entirely avoid this problem by introducing the notion of a ``system of fields", and define the blob complex 
 associated to an $n$-manifold and an $n$-dimensional system of fields.
-We sketch the construction of a system of fields from a $1$-category or from a pivotal $2$-category.
+We sketch the construction of a system of fields from a *-$1$-category and from a pivotal $2$-category.
 
 Nevertheless, when we attempt to establish all of the observed properties of the blob complex, 
 we find this situation unsatisfactory.
 Thus, in the second part of the paper (\S\S \ref{sec:ncats}-\ref{sec:ainfblob}) we give yet another 
 definition of an $n$-category, or rather a definition of an $n$-category with strong duality.
-(It appears that removing the duality conditions from our definition would make it more complicated rather than less.) 
+(Removing the duality conditions from our definition would make it more complicated rather than less.) 
 We call these ``topological $n$-categories'', to differentiate them from previous versions.
 Moreover, we find that we need analogous $A_\infty$ $n$-categories, and we define these as well following very similar axioms.
 
@@ -59,7 +69,11 @@ The axioms for an $A_\infty$ $n$-category are designed to capture two main examp
 topological $n$-category, and the complex $\CM{-}{T}$ of maps to a fixed target space $T$.
 
 In \S \ref{ss:ncat_fields}  we explain how to construct a system of fields from a topological $n$-category 
-(using a colimit along certain decompositions of a manifold into balls). With this in hand, we freely write $\bc_*(M; \cC)$ to indicate the blob complex of a manifold $M$ with the system of fields constructed from the $n$-category $\cC$. In \S \ref{sec:ainfblob} we give an alternative definition 
+(using a colimit along certain decompositions of a manifold into balls). 
+With this in hand, we freely write $\bc_*(M; \cC)$ to indicate the blob complex of a manifold $M$ 
+with the system of fields constructed from the $n$-category $\cC$. 
+\nn{KW: I don't think we use this notational convention any more, right?}
+In \S \ref{sec:ainfblob} we give an alternative definition 
 of the blob complex for an $A_\infty$ $n$-category on an $n$-manifold (analogously, using a homotopy colimit).
 Using these definitions, we show how to use the blob complex to ``resolve" any topological $n$-category as an 
 $A_\infty$ $n$-category, and relate the first and second definitions of the blob complex.
@@ -112,23 +126,26 @@ The relationship between all these ideas is sketched in Figure \ref{fig:outline}
 
 Finally, later sections address other topics.
 Section \S \ref{sec:deligne} gives
-a higher dimensional generalization of the Deligne conjecture (that the little discs operad acts on Hochschild cohomology) in terms of the blob complex.
+a higher dimensional generalization of the Deligne conjecture 
+(that the little discs operad acts on Hochschild cochains) in terms of the blob complex.
 The appendixes prove technical results about $\CH{M}$ and the ``small blob complex", 
 and make connections between our definitions of $n$-categories and familiar definitions for $n=1$ and $n=2$, 
-as well as relating the $n=1$ case of our $A_\infty$ $n$-categories with usual $A_\infty$ algebras. Section \S \ref{sec:comm_alg} describes the blob complex when $\cC$ is a commutative algebra, 
+as well as relating the $n=1$ case of our $A_\infty$ $n$-categories with usual $A_\infty$ algebras. 
+Appendix \ref{sec:comm_alg} describes the blob complex when $\cC$ is a commutative algebra, 
 thought of as a topological $n$-category, in terms of the topology of $M$.
 
+Throughout the paper we typically prefer concrete categories (vector spaces, chain complexes)
+\nn{...}
 
-\nn{some more things to cover in the intro}
-\begin{itemize}
-\item related: we are being unsophisticated from a homotopy theory point of
-view and using chain complexes in many places where we could get by with spaces
-\item ? one of the points we make (far) below is that there is not really much
-difference between (a) systems of fields and local relations and (b) $n$-cats;
-thus we tend to switch between talking in terms of one or the other
-\end{itemize}
 
-\medskip\hrule\medskip
+%\item related: we are being unsophisticated from a homotopy theory point of
+%view and using chain complexes in many places where we could get by with spaces
+
+%\item ? one of the points we make (far) below is that there is not really much
+%difference between (a) systems of fields and local relations and (b) $n$-cats;
+%thus we tend to switch between talking in terms of one or the other
+
+
 
 \subsection{Motivations}
 \label{sec:motivations}
