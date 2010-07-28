@@ -157,12 +157,12 @@ Thus will need to be more careful when speaking of a field $r$ on the complement
 \begin{example}
 Consider the four subsets of $\Real^3$,
 \begin{align*}
-A & = [0,1] \times [0,1] \times [-1,1] \\
-B & = [0,1] \times [-1,0] \times [-1,1] \\
-C & = [-1,0] \times \setc{(y,z)}{z^2 \sin(1/z) \leq y \leq 1, z \in [-1,1]} \\
-D & = [-1,0] \times \setc{(y,z)}{-1 \leq y \leq z^2 \sin(1/z), z \in [-1,1]}.
+A & = [0,1] \times [0,1] \times [0,1] \\
+B & = [0,1] \times [-1,0] \times [0,1] \\
+C & = [-1,0] \times \setc{(y,z)}{z \sin(1/z) \leq y \leq 1, z \in [0,1]} \\
+D & = [-1,0] \times \setc{(y,z)}{-1 \leq y \leq z \sin(1/z), z \in [0,1]}.
 \end{align*}
-Here $A \cup B = [0,1] \times [-1,1] \times [-1,1]$ and $C \cup D = [-1,0] \times [-1,1] \times [-1,1]$. Now, $\{A\}$ is a valid configuration of blobs in $A \cup B$, and $\{C\}$ is a valid configuration of blobs in $C \cup D$, so we must allow $\{A, C\}$ as a configuration of blobs in $[-1,1]^3$. Note however that the complement is not a manifold.
+Here $A \cup B = [0,1] \times [-1,1] \times [0,1]$ and $C \cup D = [-1,0] \times [-1,1] \times [0,1]$. Now, $\{A\}$ is a valid configuration of blobs in $A \cup B$, and $\{C\}$ is a valid configuration of blobs in $C \cup D$, so we must allow $\{A, C\}$ as a configuration of blobs in $[-1,1]^2 \times [0,1]$. Note however that the complement is not a manifold.
 \end{example}
 
 \begin{defn}
@@ -174,7 +174,7 @@ If, in addition, $M_0$ is a disjoint union of balls, we call it a \emph{ball dec
 \end{defn}
 Given a gluing decomposition $M_0 \to M_1 \to \cdots \to M_m = X$, we say that a field is splittable along it if it is the image of a field on $M_0$.
 
-In the example above, note that $$A \sqcup B \sqcup C \sqcup D \to (A \cup B) \sqcup (C \cup D) \to [-1,1]^3$$ is a  ball decomposition of $[-1,1]^3$, but other sequences of gluings from $A \sqcup B \sqcup C \sqcup D$ to $[-1,1]^3$ have intermediate steps which are not manifolds.
+In the example above, note that $$A \sqcup B \sqcup C \sqcup D \to (A \cup B) \sqcup (C \cup D) \to A \cup B \cup C \cup D$$ is a  ball decomposition, but other sequences of gluings starting from $A \sqcup B \sqcup C \sqcup D$have intermediate steps which are not manifolds.
 
 We'll now slightly restrict the possible configurations of blobs.
 \begin{defn}
@@ -191,7 +191,7 @@ Further, note that blobs need not actually be embedded balls in $X$, since parts
 
 Note that often the gluing decomposition for a configuration of blobs may just be the trivial one: if the boundaries of all the blobs cut $X$ into pieces which are all manifolds, we can just take $M_0$ to be these pieces, and $M_1 = X$.
 
-In the informal description above, in the definition of a $k$-blob diagram we asked for any collection of $k$ balls which were pairwise disjoint or nested. We now further insist that the balls are a configuration in the sense of Definition \ref{defn:configuration}. Also, we asked for a local relation on each twig blob, and a field on the complement of the twig blobs; this is unsatisfactory because that complement need not be a manifold. Thus, the official definition is
+In the informal description above, in the definition of a $k$-blob diagram we asked for any collection of $k$ balls which were pairwise disjoint or nested. We now further insist that the balls are a configuration in the sense of Definition \ref{defn:configuration}. Also, we asked for a local relation on each twig blob, and a field on the complement of the twig blobs; this is unsatisfactory because that complement need not be a manifold. Thus, the official definitions are
 \begin{defn}
 \label{defn:blob-diagram}
 A $k$-blob diagram on $X$ consists of
@@ -200,10 +200,8 @@ A $k$-blob diagram on $X$ consists of
 \item and a field $r \in \cC(X)$ which is splittable along some gluing decomposition compatible with that configuration,
 \end{itemize}
 such that
-the restriction $u_i$ of $r$ to each twig blob $B_i$ lies in the subspace $U(B_i) \subset \cC(B_i)$.
+the restriction $u_i$ of $r$ to each twig blob $B_i$ lies in the subspace $U(B_i) \subset \cC(B_i)$. (See Figure \ref{blobkdiagram}.) More precisely, each twig blob $B_i$ is the image of some ball $M_r'$ as above, and it is really the restriction to $M_r'$ that must lie in the subspace $U(M_r')$.
 \end{defn}
-\todo{Careful here: twig blobs aren't necessarily balls?}
-(See Figure \ref{blobkdiagram}.)
 \begin{figure}[t]\begin{equation*}
 \mathfig{.7}{definition/k-blobs}
 \end{equation*}\caption{A $k$-blob diagram.}\label{blobkdiagram}\end{figure}
