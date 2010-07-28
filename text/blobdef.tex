@@ -4,16 +4,16 @@
 \label{sec:blob-definition}
 
 Let $X$ be an $n$-manifold.
-Let $\cC$ be a fixed system of fields and local relations.
+Let $(\cF,U)$ be a fixed system of fields and local relations.
 We'll assume it is enriched over \textbf{Vect}; 
 if it is not we can make it so by allowing finite
-linear combinations of elements of $\cC(X; c)$, for fixed $c\in \cC(\bd X)$.
+linear combinations of elements of $\cF(X; c)$, for fixed $c\in \cF(\bd X)$.
 
-%In this section we will usually suppress boundary conditions on $X$ from the notation, e.g. by writing $\lf(X)$ instead of $\lf(X; c)$.
+%In this section we will usually suppress boundary conditions on $X$ from the notation, e.g. by writing $\cF(X)$ instead of $\cF(X; c)$.
 
 We want to replace the quotient
 \[
-	A(X) \deq \lf(X) / U(X)
+	A(X) \deq \cF(X) / U(X)
 \]
 of Definition \ref{defn:TQFT-invariant} with a resolution
 \[
@@ -32,8 +32,8 @@ Moreover some of the pieces
 into which we cut manifolds below are not themselves manifolds, and it requires special attention 
 to define fields on these pieces.
 
-We of course define $\bc_0(X) = \lf(X)$.
-(If $X$ has nonempty boundary, instead define $\bc_0(X; c) = \lf(X; c)$ for each $c \in \lf(\bdy X)$.
+We of course define $\bc_0(X) = \cF(X)$.
+(If $X$ has nonempty boundary, instead define $\bc_0(X; c) = \cF(X; c)$ for each $c \in \cF(\bdy X)$.
 We'll omit such boundary conditions from the notation in the rest of this section.)
 In other words, $\bc_0(X)$ is just the vector space of all fields on $X$.
 
@@ -42,8 +42,8 @@ We want the vector space $\bc_1(X)$ to capture
 Thus we say  a $1$-blob diagram consists of:
 \begin{itemize}
 \item An closed ball in $X$ (``blob") $B \sub X$.
-\item A boundary condition $c \in \cC(\bdy B) = \cC(\bd(X \setmin B))$.
-\item A field $r \in \cC(X \setmin B; c)$.
+\item A boundary condition $c \in \cF(\bdy B) = \cF(\bd(X \setmin B))$.
+\item A field $r \in \cF(X \setmin B; c)$.
 \item A local relation field $u \in U(B; c)$.
 \end{itemize}
 (See Figure \ref{blob1diagram}.) Since $c$ is implicitly determined by $u$ or $r$, we usually omit it from the notation.
@@ -52,10 +52,10 @@ Thus we say  a $1$-blob diagram consists of:
 \end{equation*}\caption{A 1-blob diagram.}\label{blob1diagram}\end{figure}
 In order to get the linear structure correct, we define
 \[
-	\bc_1(X) \deq \bigoplus_B \bigoplus_c U(B; c) \otimes \lf(X \setmin B; c) .
+	\bc_1(X) \deq \bigoplus_B \bigoplus_c U(B; c) \otimes \cF(X \setmin B; c) .
 \]
 The first direct sum is indexed by all blobs $B\subset X$, and the second
-by all boundary conditions $c \in \cC(\bd B)$.
+by all boundary conditions $c \in \cF(\bd B)$.
 Note that $\bc_1(X)$ is spanned by 1-blob diagrams $(B, u, r)$.
 
 Define the boundary map $\bd : \bc_1(X) \to \bc_0(X)$ by 
@@ -83,8 +83,8 @@ A $2$-blob diagram, comes in one of two types, disjoint and nested.
 A disjoint 2-blob diagram consists of
 \begin{itemize}
 \item A pair of closed balls (blobs) $B_1, B_2 \sub X$ with disjoint interiors.
-\item A field $r \in \cC(X \setmin (B_1 \cup B_2); c_1, c_2)$
-(where $c_i \in \cC(\bd B_i)$).
+\item A field $r \in \cF(X \setmin (B_1 \cup B_2); c_1, c_2)$
+(where $c_i \in \cF(\bd B_i)$).
 \item Local relation fields $u_i \in U(B_i; c_i)$, $i=1,2$.
 \end{itemize}
 (See Figure \ref{blob2ddiagram}.)
@@ -103,9 +103,9 @@ It's easy to check that $\bd^2 = 0$.
 A nested 2-blob diagram consists of
 \begin{itemize}
 \item A pair of nested balls (blobs) $B_1 \subseteq B_2 \subseteq X$.
-\item A field $r' \in \cC(B_2 \setminus B_1; c_1, c_2)$ 
-(for some $c_1 \in \cC(\bdy B_1)$ and $c_2 \in \cC(\bdy B_2)$).
-\item A field $r \in \cC(X \setminus B_2; c_2)$.
+\item A field $r' \in \cF(B_2 \setminus B_1; c_1, c_2)$ 
+(for some $c_1 \in \cF(\bdy B_1)$ and $c_2 \in \cF(\bdy B_2)$).
+\item A field $r \in \cF(X \setminus B_2; c_2)$.
 \item A local relation field $u \in U(B_1; c_1)$.
 \end{itemize}
 (See Figure \ref{blob2ndiagram}.)
@@ -124,11 +124,11 @@ As with the $1$-blob diagrams, in order to get the linear structure correct the 
 	\bc_2(X) & \deq &
 	\left( 
 		\bigoplus_{B_1, B_2\; \text{disjoint}} \bigoplus_{c_1, c_2}
-			U(B_1; c_1) \otimes U(B_2; c_2) \otimes \lf(X\setmin (B_1\cup B_2); c_1, c_2)
+			U(B_1; c_1) \otimes U(B_2; c_2) \otimes \cF(X\setmin (B_1\cup B_2); c_1, c_2)
 	\right)  \bigoplus \\
 	&& \quad\quad  \left( 
 		\bigoplus_{B_1 \subset B_2} \bigoplus_{c_1, c_2}
-			U(B_1; c_1) \otimes \lf(B_2 \setmin B_1; c_1, c_2) \tensor \cC(X \setminus B_2; c_2)
+			U(B_1; c_1) \otimes \cF(B_2 \setmin B_1; c_1, c_2) \tensor \cF(X \setminus B_2; c_2)
 	\right) .
 \end{eqnarray*}
 % __ (already said this above)
@@ -197,10 +197,10 @@ In the informal description above, in the definition of a $k$-blob diagram we as
 A $k$-blob diagram on $X$ consists of
 \begin{itemize}
 \item a configuration $\{B_1, \ldots B_k\}$ of $k$ blobs in $X$,
-\item and a field $r \in \cC(X)$ which is splittable along some gluing decomposition compatible with that configuration,
+\item and a field $r \in \cF(X)$ which is splittable along some gluing decomposition compatible with that configuration,
 \end{itemize}
 such that
-the restriction $u_i$ of $r$ to each twig blob $B_i$ lies in the subspace $U(B_i) \subset \cC(B_i)$. (See Figure \ref{blobkdiagram}.) More precisely, each twig blob $B_i$ is the image of some ball $M_r'$ as above, and it is really the restriction to $M_r'$ that must lie in the subspace $U(M_r')$.
+the restriction $u_i$ of $r$ to each twig blob $B_i$ lies in the subspace $U(B_i) \subset \cF(B_i)$. (See Figure \ref{blobkdiagram}.) More precisely, each twig blob $B_i$ is the image of some ball $M_r'$ as above, and it is really the restriction to $M_r'$ that must lie in the subspace $U(M_r')$.
 \end{defn}
 \begin{figure}[t]\begin{equation*}
 \mathfig{.7}{definition/k-blobs}
@@ -241,7 +241,7 @@ encloses all the others (equivalently, add a new edge to the root, with the new 
 For example, a diagram of $k$ strictly nested blobs corresponds to a $k$-simplex, while
 a diagram of $k$ disjoint blobs corresponds to a $k$-cube.
 (This correspondence works best if we think of each twig label $u_i$ as having the form
-$x - s(e(x))$, where $x$ is an arbitrary field on $B_i$, $e: \cC(B_i) \to C$ is the evaluation map, 
-and $s:C \to \cC(B_i)$ is some fixed section of $e$. \todo{This parenthetical remark mysteriously specialises to the category case})
+$x - s(e(x))$, where $x$ is an arbitrary field on $B_i$, $e: \cF(B_i) \to C$ is the evaluation map, 
+and $s:C \to \cF(B_i)$ is some fixed section of $e$. \todo{This parenthetical remark mysteriously specialises to the category case})
 
 
