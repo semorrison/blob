@@ -12,6 +12,9 @@
 \usepackage{stmaryrd} % additional math symbols, e.g. \mapsfrom
 \usepackage{microtype}
 
+\let\stdsection\section
+\renewcommand\section{\newpage\stdsection}
+
 \SelectTips{cm}{}
 % This may speed up compilation of complex documents with many xymatrices.
 %\CompileMatrices
