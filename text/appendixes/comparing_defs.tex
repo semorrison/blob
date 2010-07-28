@@ -15,7 +15,6 @@ One should also show that composing the two arrows (between traditional and topo
 yields the appropriate sort of equivalence on each side.
 Since we haven't given a definition for functors between topological $n$-categories
 (the paper is already too long!), we do not pursue this here.
-\nn{say something about modules and tensor products?}
 
 We emphasize that we are just sketching some of the main ideas in this appendix ---
 it falls well short of proving the definitions are equivalent.
@@ -161,10 +160,67 @@ Let $a: y\to x$ be a 1-morphism.
 Define 2-morphsims $a \to a\bullet \id_x$ and $a\bullet \id_x \to a$
 as shown in Figure \ref{fzo2}.
 \begin{figure}[t]
-\begin{equation*}
-\mathfig{.73}{tempkw/zo2}
-\end{equation*}
-\caption{blah blah}
+\begin{tikzpicture}
+\newcommand{\rr}{6}
+\newcommand{\vertex}{node[circle,fill=black,inner sep=1pt] {}}
+
+\node(A) at (0,0) {
+\begin{tikzpicture}
+\node[red,left] at (0,0)  {$y$};
+\draw (0,0) \vertex arc (-120:-105:\rr) node[red,below] {$a$} arc(-105:-90:\rr) \vertex node[red,below](x2) {$x$};
+\draw (0,0) \vertex arc (120:105:\rr) node[red,above] {$a$} arc (105:90:\rr) \vertex node[red,above](x1) {$x$} -- (x2);
+\begin{scope}
+	\path[clip] (0,0) arc (-120:-60:\rr) arc (60:120:\rr);
+	\foreach \x in {0,0.24,...,3} {
+		\draw[green!50!brown] (\x,1) -- (\x,-1);
+	}
+\end{scope}
+\draw[red, decorate,decoration={brace,amplitude=5pt}] ($(x1)+(0.2,-0.2)$) -- ($(x2)+(0.2,0.2)$) node[midway, xshift=0.7cm] {$x \times I$};
+\end{tikzpicture}
+};
+
+\node(B) at (-4,-4) {
+\begin{tikzpicture}
+\node[red,left] at (0,0) {$y$};
+\draw (0,0) \vertex 
+	arc (120:105:\rr) node[red,above] {$a$}
+	arc (105:90:\rr) node[red,above] {$x$} \vertex
+	arc (90:75:\rr) node[red,above] {$x \times I$}
+	arc (75:60:\rr) \vertex node[red,right] {$x$}
+	arc (-60:-90:\rr) node[red,below] {$a$}
+	arc (-90:-120:\rr);
+\begin{scope}
+	\path[clip] (0,0) arc (-120:-60:\rr) arc (60:120:\rr);
+	\foreach \x in {0,0.48,...,9} {
+		\draw[green!50!brown] (\x/4,1) -- (\x,-1);
+	}
+\end{scope}
+\end{tikzpicture}
+};
+
+\node(C) at (4,-4) {
+\begin{tikzpicture}[y=-1cm]
+\node[red,left] at (0,0) {$y$};
+\draw (0,0) \vertex 
+	arc (120:105:\rr) node[red,below] {$a$}
+	arc (105:90:\rr) node[red,below] {$x$} \vertex
+	arc (90:75:\rr) node[red,below] {$x \times I$}
+	arc (75:60:\rr) \vertex node[red,right] {$x$}
+	arc (-60:-90:\rr) node[red,above] {$a$}
+	arc (-90:-120:\rr);
+\begin{scope}
+	\path[clip] (0,0) arc (-120:-60:\rr) arc (60:120:\rr);
+	\foreach \x in {0,0.48,...,9} {
+		\draw[green!50!brown] (\x/4,1) -- (\x,-1);
+	}
+\end{scope}
+\end{tikzpicture}
+};
+
+\draw[->] (A) -- (B);
+\draw[->] (A) -- (C);
+\end{tikzpicture}
+\caption{Producing weak identities from half pinched products}
 \label{fzo2}
 \end{figure}
 As suggested by the figure, these are two different reparameterizations
@@ -176,7 +232,7 @@ Figure \ref{fzo3} shows one case.
 \begin{equation*}
 \mathfig{.83}{tempkw/zo3}
 \end{equation*}
-\caption{blah blah}
+\caption{Composition of weak identities, 1}
 \label{fzo3}
 \end{figure}
 In the first step we have inserted a copy of $(x\times I)\times I$.
@@ -185,7 +241,7 @@ Figure \ref{fzo4} shows the other case.
 \begin{equation*}
 \mathfig{.83}{tempkw/zo4}
 \end{equation*}
-\caption{blah blah}
+\caption{Composition of weak identities, 2}
 \label{fzo4}
 \end{figure}
 We identify a product region and remove it.
