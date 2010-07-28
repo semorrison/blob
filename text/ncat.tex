@@ -10,7 +10,7 @@
 \label{ss:n-cat-def}
 
 Before proceeding, we need more appropriate definitions of $n$-categories, 
-$A_\infty$ $n$-categories, modules for these, and tensor products of these modules.
+$A_\infty$ $n$-categories, as well as modules for these, and tensor products of these modules.
 (As is the case throughout this paper, by ``$n$-category" we mean some notion of
 a ``weak" $n$-category with ``strong duality".)
 
@@ -23,6 +23,8 @@ it is easy to show that they
 satisfy our axioms.
 For examples of a more purely algebraic origin, one would typically need the combinatorial
 results that we have avoided here.
+
+\nn{Say something explicit about Lurie's work here? It seems like this was something that Dan Freed wanted explaining when we talked to him in Aspen}
 
 \medskip
 
@@ -58,7 +60,7 @@ homeomorphisms to the category of sets and bijections.
 \end{axiom}
 
 
-(Note: We usually omit the subscript $k$.)
+(Note: We often omit the subscript $k$.)
 
 We are being deliberately vague about what flavor of $k$-balls
 we are considering.
@@ -70,14 +72,14 @@ to be fussier about corners and boundaries.)
 For each flavor of manifold there is a corresponding flavor of $n$-category.
 For simplicity, we will concentrate on the case of PL unoriented manifolds.
 
-(The ambitious reader may want to keep in mind two other classes of balls.
+An ambitious reader may want to keep in mind two other classes of balls.
 The first is balls equipped with a map to some other space $Y$ (c.f. \cite{MR2079378}). 
-This will be used below to describe the blob complex of a fiber bundle with
+This will be used below (see the end of \S \ref{ss:product-formula}) to describe the blob complex of a fiber bundle with
 base space $Y$.
 The second is balls equipped with a section of the tangent bundle, or the frame
-bundle (i.e.\ framed balls), or more generally some flag bundle associated to the tangent bundle.
+bundle (i.e.\ framed balls), or more generally some partial flag bundle associated to the tangent bundle.
 These can be used to define categories with less than the ``strong" duality we assume here,
-though we will not develop that idea fully in this paper.)
+though we will not develop that idea fully in this paper.
 
 Next we consider domains and ranges of morphisms (or, as we prefer to say, boundaries
 of morphisms).
@@ -88,7 +90,7 @@ by {\it oriented} 1-balls.)
 For $k>1$ and in the presence of strong duality the division into domain and range makes less sense.
 For example, in a pivotal tensor category, there are natural isomorphisms $\Hom{}{A}{B \tensor C} \isoto \Hom{}{B^* \tensor A}{C}$, etc. 
 (sometimes called ``Frobenius reciprocity''), which canonically identify all the morphism spaces which have the same boundary.
-We prefer to not make the distinction in the first place.
+We prefer not to make the distinction in the first place.
 
 Instead, we will combine the domain and range into a single entity which we call the 
 boundary of a morphism.
@@ -118,9 +120,8 @@ For each $k$-ball $X$, we have a map of sets $\bd: \cC_k(X)\to \cl{\cC}_{k-1}(\b
 These maps, for various $X$, comprise a natural transformation of functors.
 \end{axiom}
 
-(Note that the first ``$\bd$" above is part of the data for the category, 
-while the second is the ordinary boundary of manifolds.)
-
+Note that the first ``$\bd$" above is part of the data for the category, 
+while the second is the ordinary boundary of manifolds.
 Given $c\in\cl{\cC}(\bd(X))$, we will write $\cC(X; c)$ for $\bd^{-1}(c)$, those morphisms with specified boundary $c$.
 
 Most of the examples of $n$-categories we are interested in are enriched in the following sense.
@@ -130,14 +131,14 @@ all $c\in \cl{\cC}(\bd X)$, have the structure of an object in some auxiliary sy
 \nn{actually, need both disj-union/sub and product/tensor-product; what's the name for this sort of cat?}
 and all the structure maps of the $n$-category should be compatible with the auxiliary
 category structure.
-Note that this auxiliary structure is only in dimension $n$;
-$\cC(Y; c)$ is just a plain set if $\dim(Y) < n$.
+Note that this auxiliary structure is only in dimension $n$; if $\dim(Y) < n$ then 
+$\cC(Y; c)$ is just a plain set.
 
 \medskip
 
-(In order to simplify the exposition we have concentrated on the case of 
+In order to simplify the exposition we have concentrated on the case of 
 unoriented PL manifolds and avoided the question of what exactly we mean by 
-the boundary a manifold with extra structure, such as an oriented manifold.
+the boundary of a manifold with extra structure, such as an oriented manifold.
 In general, all manifolds of dimension less than $n$ should be equipped with the germ
 of a thickening to dimension $n$, and this germ should carry whatever structure we have 
 on $n$-manifolds.
@@ -147,7 +148,7 @@ side (iterated) bounded manifolds lie on.
 For example, the boundary of an oriented $n$-ball
 should be an $n{-}1$-sphere equipped with an orientation of its once stabilized tangent
 bundle and a choice of direction in this bundle indicating
-which side the $n$-ball lies on.)
+which side the $n$-ball lies on.
 
 \medskip
 
@@ -188,7 +189,7 @@ $$
 \caption{Combining two balls to get a full boundary.}\label{blah3}\end{figure}
 
 Note that we insist on injectivity above. 
-The lemma follows from Definition \ref{def:colim-fields} and Lemma \ref{lem:colim-injective}.
+The lemma follows from Definition \ref{def:colim-fields} and Lemma \ref{lem:colim-injective}. \nn{we might want a more official looking proof...}
 
 Let $\cl{\cC}(S)_E$ denote the image of $\gl_E$.
 We will refer to elements of $\cl{\cC}(S)_E$ as ``splittable along $E$" or ``transverse to $E$". 
@@ -199,7 +200,7 @@ as above, then we define $\cC(X)_E = \bd^{-1}(\cl{\cC}(\bd X)_E)$.
 We will call the projection $\cl{\cC}(S)_E \to \cC(B_i)$
 a {\it restriction} map and write $\res_{B_i}(a)$
 (or simply $\res(a)$ when there is no ambiguity), for $a\in \cl{\cC}(S)_E$.
-More generally, we also include under the rubric ``restriction map" the
+More generally, we also include under the rubric ``restriction map"
 the boundary maps of Axiom \ref{nca-boundary} above,
 another class of maps introduced after Axiom \ref{nca-assoc} below, as well as any composition
 of restriction maps.
@@ -251,15 +252,16 @@ $$
 
 \begin{axiom}[Strict associativity] \label{nca-assoc}
 The composition (gluing) maps above are strictly associative.
-Given any splitting of a ball $B$ into smaller balls $B_1,\ldots,B_m$, 
-any sequence of gluings of the smaller balls yields the same result.
+Given any splitting of a ball $B$ into smaller balls
+$$\bigsqcup B_i \to B,$$ 
+any sequence of gluings (in the sense of Definition \ref{defn:gluing-decomposition}, where all the intermediate steps are also disjoint unions of balls) yields the same result.
 \end{axiom}
 
 \begin{figure}[!ht]
 $$\mathfig{.65}{ncat/strict-associativity}$$
 \caption{An example of strict associativity.}\label{blah6}\end{figure}
 
-We'll use the notations  $a\bullet b$ as well as $a \cup b$ for the glued together field $\gl_Y(a, b)$.
+We'll use the notation  $a\bullet b$ for the glued together field $\gl_Y(a, b)$.
 In the other direction, we will call the projection from $\cC(B)_E$ to $\cC(B_i)_E$ 
 a restriction map (one of many types of map so called) and write $\res_{B_i}(a)$ for $a\in \cC(B)_E$.
 %Compositions of boundary and restriction maps will also be called restriction maps.
@@ -271,22 +273,22 @@ We will call elements of $\cC(B)_Y$ morphisms which are
 ``splittable along $Y$'' or ``transverse to $Y$''.
 We have $\cC(B)_Y \sub \cC(B)_E \sub \cC(B)$.
 
-More generally, let $\alpha$ be a subdivision of a ball $X$ into smaller balls.
+More generally, let $\alpha$ be a splitting of $X$ into smaller balls.
 Let $\cC(X)_\alpha \sub \cC(X)$ denote the image of the iterated gluing maps from 
 the smaller balls to $X$.
 We  say that elements of $\cC(X)_\alpha$ are morphisms which are ``splittable along $\alpha$".
-In situations where the subdivision is notationally anonymous, we will write
+In situations where the splitting is notationally anonymous, we will write
 $\cC(X)\spl$ for the morphisms which are splittable along (a.k.a.\ transverse to)
-the unnamed subdivision.
-If $\beta$ is a subdivision of $\bd X$, we define $\cC(X)_\beta \deq \bd\inv(\cl{\cC}(\bd X)_\beta)$;
+the unnamed splitting.
+If $\beta$ is a ball decomposition of $\bd X$, we define $\cC(X)_\beta \deq \bd\inv(\cl{\cC}(\bd X)_\beta)$;
 this can also be denoted $\cC(X)\spl$ if the context contains an anonymous
-subdivision of $\bd X$ and no competing subdivision of $X$.
+decomposition of $\bd X$ and no competing splitting of $X$.
 
 The above two composition axioms are equivalent to the following one,
 which we state in slightly vague form.
 
 \xxpar{Multi-composition:}
-{Given any decomposition $B = B_1\cup\cdots\cup B_m$ of a $k$-ball
+{Given any splitting $B_1 \sqcup \cdots \sqcup B_m \to B$ of a $k$-ball
 into small $k$-balls, there is a 
 map from an appropriate subset (like a fibered product) 
 of $\cC(B_1)\spl\times\cdots\times\cC(B_m)\spl$ to $\cC(B)\spl$,
@@ -384,11 +386,9 @@ on a standard iterated degeneracy map
 (We thank Kevin Costello for suggesting this approach.)
 
 Note that for each interior point $x\in X$, $\pi\inv(x)$ is an $m$-ball,
-and for for each boundary point $x\in\bd X$, $\pi\inv(x)$ is a ball of dimension
+and for each boundary point $x\in\bd X$, $\pi\inv(x)$ is a ball of dimension
 $l \le m$, with $l$ depending on $x$.
-
 It is easy to see that a composition of pinched products is again a pinched product.
-
 A {\it sub pinched product} is a sub-$m$-ball $E'\sub E$ such that the restriction
 $\pi:E'\to \pi(E')$ is again a pinched product.
 A {union} of pinched products is a decomposition $E = \cup_i E_i$
@@ -523,15 +523,14 @@ We start with the plain $n$-category case.
 \begin{axiom}[\textup{\textbf{[preliminary]}} Isotopy invariance in dimension $n$]
 Let $X$ be an $n$-ball and $f: X\to X$ be a homeomorphism which restricts
 to the identity on $\bd X$ and is isotopic (rel boundary) to the identity.
-Then $f$ acts trivially on $\cC(X)$; $f(a) = a$ for all $a\in \cC(X)$.
+Then $f$ acts trivially on $\cC(X)$; that is $f(a) = a$ for all $a\in \cC(X)$.
 \end{axiom}
 
 This axiom needs to be strengthened to force product morphisms to act as the identity.
 Let $X$ be an $n$-ball and $Y\sub\bd X$ be an $n{-}1$-ball.
 Let $J$ be a 1-ball (interval).
 We have a collaring homeomorphism $s_{Y,J}: X\cup_Y (Y\times J) \to X$.
-(Here we use the ``pinched" version of $Y\times J$.
-\nn{do we need notation for this?})
+(Here we use $Y\times J$ with boundary entirely pinched.)
 We define a map
 \begin{eqnarray*}
 	\psi_{Y,J}: \cC(X) &\to& \cC(X) \\
@@ -625,7 +624,7 @@ a diagram like the one in Theorem \ref{thm:CH} commutes.
 %\nn{restate this with $\Homeo(X\to X')$?  what about boundary fixing property?}
 \end{axiom}
 
-We should strengthen the above axiom to apply to families of collar maps.
+We should strengthen the above $A_\infty$ axiom to apply to families of collar maps.
 To do this we need to explain how collar maps form a topological space.
 Roughly, the set of collared $n{-}1$-balls in the boundary of an $n$-ball has a natural topology,
 and we can replace the class of all intervals $J$ with intervals contained in $\r$.
@@ -652,10 +651,10 @@ Second,  in category definition we directly impose isotopy
 invariance in dimension $n$, while in the fields definition we 
 instead remember a subspace of local relations which contain differences of isotopic fields. 
 (Recall that the compensation for this complication is that we can demand that the gluing map for fields is injective.)
-Thus a system of fields and local relations $(\cF,\cU)$ determines an $n$-category $\cC_ {\cF,\cU}$ simply by restricting our attention to
+Thus a system of fields and local relations $(\cF,U)$ determines an $n$-category $\cC_ {\cF,U}$ simply by restricting our attention to
 balls and, at level $n$, quotienting out by the local relations:
 \begin{align*}
-\cC_{\cF,\cU}(B^k) & = \begin{cases}\cF(B) & \text{when $k<n$,} \\ \cF(B) / \cU(B) & \text{when $k=n$.}\end{cases}
+\cC_{\cF,U}(B^k) & = \begin{cases}\cF(B) & \text{when $k<n$,} \\ \cF(B) / U(B) & \text{when $k=n$.}\end{cases}
 \end{align*}
 This $n$-category can be thought of as the local part of the fields.
 Conversely, given a topological $n$-category we can construct a system of fields via 
@@ -807,7 +806,7 @@ we get an $A_\infty$ $n$-category enriched over spaces.
 \end{example}
 
 See also Theorem \ref{thm:map-recon} below, recovering $C_*(\Maps(M \to T))$ up to 
-homotopy the blob complex of $M$ with coefficients in $\pi^\infty_{\le n}(T)$.
+homotopy as the blob complex of $M$ with coefficients in $\pi^\infty_{\le n}(T)$.
 
 \begin{example}[Blob complexes of balls (with a fiber)]
 \rm
@@ -973,7 +972,7 @@ are splittable along this decomposition.
 
 \begin{defn}
 Define the functor $\psi_{\cC;W} : \cell(W) \to \Set$ as follows.
-For a decomposition $x = \bigcup_a X_a$ in $\cell(W)$, $\psi_{\cC;W}(x)$ is the subset
+For a decomposition $x = \bigsqcup_a X_a$ in $\cell(W)$, $\psi_{\cC;W}(x)$ is the subset
 \begin{equation}
 \label{eq:psi-C}
 	\psi_{\cC;W}(x) \sub \prod_a \cC(X_a)\spl
@@ -996,7 +995,7 @@ If we are enriching over $\cS$ and $k=n$, then $\cC(X_a; \beta)$ is an object in
 $\cS$ and the coproduct and product in Equation \ref{eq:psi-CC} should be replaced by the approriate
 operations in $\cS$ (e.g. direct sum and tensor product if $\cS$ is Vect).
 
-Finally, we construct $\cl{\cC}(W)$ as the appropriate colimit of $\psi_{\cC;W}$.
+Finally, we construct $\cl{\cC}(W)$ as the appropriate colimit of $\psi_{\cC;W}$:
 
 \begin{defn}[System of fields functor]
 \label{def:colim-fields}
@@ -1020,14 +1019,14 @@ We now give more concrete descriptions of the above colimits.
 In the non-enriched case (e.g.\ $k<n$), where each $\cC(X_a; \beta)$ is just a set,
 the colimit is
 \[
-	\cl{\cC}(W,c) = \left( \coprod_x \coprod_\beta \prod_a \cC(X_a; \beta) \right) / \sim ,
+	\cl{\cC}(W,c) = \left( \coprod_x \coprod_\beta \prod_a \cC(X_a; \beta) \right) \Bigg/ \sim ,
 \]
 where $x$ runs through decomposition of $W$, and $\sim$ is the obvious equivalence relation 
 induced by refinement and gluing.
 If $\cC$ is enriched over vector spaces and $W$ is an $n$-manifold, 
 we can take
 \begin{equation*}
-	\cl{\cC}(W,c) = \left( \bigoplus_x \bigoplus_\beta \bigotimes_a \cC(X_a; \beta) \right) / K
+	\cl{\cC}(W,c) = \left( \bigoplus_x \bigoplus_\beta \bigotimes_a \cC(X_a; \beta) \right) \Bigg/ K,
 \end{equation*}
 where $K$ is the vector space spanned by elements $a - g(a)$, with
 $a\in \psi_{\cC;W,c}(x)$ for some decomposition $x$, and $g: \psi_{\cC;W,c}(x)
@@ -1041,7 +1040,7 @@ Define $\cl{\cC}(W)$ as a vector space via
 \[
 	\cl{\cC}(W) = \bigoplus_{(x_i)} \psi_{\cC;W}(x_0)[m] ,
 \]
-where the sum is over all $m$-sequences $(x_i)$ and all $m$, and each summand is degree shifted by $m$. 
+where the sum is over all $m$ and all $m$-sequences $(x_i)$, and each summand is degree shifted by $m$. 
 Elements of a summand indexed by an $m$-sequence will be call $m$-simplices.
 We endow $\cl{\cC}(W)$ with a differential which is the sum of the differential of the $\psi_{\cC;W}(x_0)$
 summands plus another term using the differential of the simplicial set of $m$-sequences.
@@ -1095,7 +1094,7 @@ This will be explained in more detail as we present the axioms.
 
 Throughout, we fix an $n$-category $\cC$.
 For all but one axiom, it doesn't matter whether $\cC$ is a topological $n$-category or an $A_\infty$ $n$-category.
-We state the final axiom, on actions of homeomorphisms, differently in the two cases.
+We state the final axiom, regarding actions of homeomorphisms, differently in the two cases.
 
 Define a {\it marked $k$-ball} to be a pair $(B, N)$ homeomorphic to the pair
 $$(\text{standard $k$-ball}, \text{northern hemisphere in boundary of standard $k$-ball}).$$
@@ -1122,7 +1121,7 @@ Let $\cM(B, N) \deq \cD((B\times \bd W)\cup (N\times W))$
 %the subset of $\cD((B\times \bd W)\cup (N\times W))$ which is splittable along $N\times \bd W$.)
 
 \begin{figure}[!ht]
-$$\mathfig{.8}{ncat/boundary-collar}$$
+$$\mathfig{.55}{ncat/boundary-collar}$$
 \caption{From manifold with boundary collar to marked ball}\label{blah15}\end{figure}
 
 Define the boundary of a marked $k$-ball $(B, N)$ to be the pair $(\bd B \setmin N, \bd N)$.
@@ -1258,12 +1257,11 @@ See Figure \ref{zzz1b}.
 
 The above three axioms are equivalent to the following axiom,
 which we state in slightly vague form.
-\nn{need figure for this}
 
 \xxpar{Module multi-composition:}
-{Given any decomposition 
+{Given any splitting 
 \[
-	M =  X_1 \cup\cdots\cup X_p \cup M_1\cup\cdots\cup M_q
+	X_1 \sqcup\cdots\sqcup X_p \sqcup M_1\sqcup\cdots\sqcup M_q \to M
 \]
 of a marked $k$-ball $M$
 into small (marked and plain) $k$-balls $M_i$ and $X_j$, there is a 
@@ -1422,7 +1420,7 @@ $\cF(Y)(M)\deq A_\cF((B\times W) \cup (N\times Y); c)$.
 \begin{example}[Examples from the blob complex] \label{bc-module-example}
 \rm
 In the previous example, we can instead define
-$\cF(Y)(M)\deq \bc_*^\cF((B\times W) \cup (N\times Y); c)$ (when $\dim(M) = n$)
+$\cF(Y)(M)\deq \bc_*((B\times W) \cup (N\times Y), c; \cF)$ (when $\dim(M) = n$)
 and get a module for the $A_\infty$ $n$-category associated to $\cF$ as in 
 Example \ref{ex:blob-complexes-of-balls}.
 \end{example}
@@ -1449,18 +1447,18 @@ Let $W$ be a $k$-manifold ($k\le n$),
 let $\{Y_i\}$ be a collection of disjoint codimension 0 submanifolds of $\bd W$,
 and let $\cN = (\cN_i)$ be an assignment of a $\cC$ module $\cN_i$ to $Y_i$.
 
-We will define a set $\cC(W, \cN)$ using a colimit construction similar to 
+We will define a set $\cC(W, \cN)$ using a colimit construction very similar to 
 the one appearing in \S \ref{ss:ncat_fields} above.
 (If $k = n$ and our $n$-categories are enriched, then
 $\cC(W, \cN)$ will have additional structure; see below.)
 
-Define a permissible decomposition of $W$ to be a decomposition
+Define a permissible decomposition of $W$ to be a map
 \[
-	W = \left(\bigcup_a X_a\right) \cup \left(\bigcup_{i,b} M_{ib}\right) ,
+	\left(\bigsqcup_a X_a\right) \sqcup \left(\bigsqcup_{i,b} M_{ib}\right)  \to W,
 \]
-where each $X_a$ is a plain $k$-ball (disjoint from $\cup Y_i$) and
-each $M_{ib}$ is a marked $k$-ball intersecting $Y_i$,
-with $M_{ib}\cap Y_i$ being the marking.
+where each $X_a$ is a plain $k$-ball disjoint, in $W$, from $\cup Y_i$, and
+each $M_{ib}$ is a marked $k$-ball intersecting $Y_i$  (once mapped into $W$),
+with $M_{ib}\cap Y_i$ being the marking, which extends to a ball decomposition in the sense of Definition \ref{defn:gluing-decomposition}.
 (See Figure \ref{mblabel}.)
 \begin{figure}[t]
 \begin{equation*}
