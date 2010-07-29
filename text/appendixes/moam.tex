@@ -1,4 +1,40 @@
 %!TEX root = ../../blob1.tex
 
 \section{The method of acyclic models}  \label{sec:moam}
-\todo{...}
+
+Let $F_*$ and $G_*$ be chain complexes.
+Assume $F_k$ has a basis $\{x_{kj}\}$
+(that is, $F_*$ is free and we have specified a basis).
+(In our applications, $\{x_{kj}\}$ will typically be singular $k$-simplices or 
+$k$-blob diagrams.)
+For each basis element $x_{kj}$ assume we have specified a ``target" $D^{kj}_*\sub G_*$.
+
+We say that a chain map $f:F_*\to G_*$ is {\it compatible} with the above data (basis and targets)
+if $f(x_{kj})\in D^{kj}_*$ for all $k$ and $j$.
+Let $\Compat(D^\bullet_*)$ denote the subcomplex of maps from $F_*$ to $G_*$
+such that the image of each higher homotopy applied to $x_{kj}$ lies in $D^{kj}_*$.
+
+\begin{thm}[Acyclic models]
+Suppose 
+\begin{itemize}
+\item $D^{k-1,l}_* \sub D^{kj}_*$ whenever $x_{k-1,l}$ occurs in $\bd x_{kj}$
+with non-zero coefficient;
+\item $D^{0j}_0$ is non-empty for all $j$; and
+\item $D^{kj}_*$ is $(k{-}1)$-acyclic (i.e.\ $H_{k-1}(D^{kj}_*) = 0$) for all $k,j$ .
+\end{itemize}
+Then $\Compat(D^\bullet_*)$ is non-empty.
+If, in addition,
+\begin{itemize}
+\item $D^{kj}_*$ is $m$-acyclic for $k\le m \le k+i$ and for all $k,j$,
+\end{itemize}
+then $\Compat(D^\bullet_*)$ is $i$-connected.
+\end{thm}
+
+\begin{proof}
+(Sketch)
+This is a standard result; see, for example, \nn{need citations}.
+
+We will build a chain map $f\in \Compat(D^\bullet_*)$ inductively.
+Choose $f(x_{0j})\in D^{0j}_0$ for all $j$.
+\nn{...}
+\end{proof}
