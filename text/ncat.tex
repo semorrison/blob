@@ -2048,7 +2048,6 @@ We will show that if the sphere modules are equipped with a ``compatible family 
 non-degenerate inner products", then there is a coherent family of isomorphisms
 $\cS(X; c; E) \cong \cS(X; c; E')$ for all pairs of choices $E$ and $E'$.
 This will allow us to define $\cS(X; c)$ independently of the choice of $E$.
-\nn{also need to (simultaneously) show compatibility with action of homeos of boundary}
 
 First we must define ``inner product", ``non-degenerate" and ``compatible".
 Let $Y$ be a decorated $n$-ball, and $\ol{Y}$ it's mirror image.
@@ -2220,7 +2219,7 @@ between $\cS(X; c; E)$ and $\cS(X; c; E')$ for any pair $E$, $E'$.
 This construction involves on a choice of simple ``moves" (as above) to transform
 $E$ to $E'$.
 We must now show that the isomorphism does not depend on this choice.
-We will show below that it suffice to check three ``movie moves".
+We will show below that it suffice to check two ``movie moves".
 
 The first movie move is to push $E$ across an $n$-ball $B$ as above, then push it back.
 The result is equivalent to doing nothing.
@@ -2311,15 +2310,15 @@ across $B_1$ and $B_2$, say, with a single push across $B_1\cup B_2$.
 Invariance under this movie move follows from the compatibility of the inner
 product for $B_1\cup B_2$ with the inner products for $B_1$ and $B_2$.
 
-The third movie move could be called ``locality" or ``disjoint commutativity".
-\nn{...}
+%The third movie move could be called ``locality" or ``disjoint commutativity".
+%\nn{...}
 
-If $n\ge 2$, these three movie move suffice:
+If $n\ge 2$, these two movie move suffice:
 
 \begin{lem}
 Assume $n\ge 2$ and fix $E$ and $E'$ as above.
 The any two sequences of elementary moves connecting $E$ to $E'$
-are related by a sequence of the three movie moves defined above.
+are related by a sequence of the two movie moves defined above.
 \end{lem}
 
 \begin{proof}
@@ -2330,7 +2329,7 @@ Up to homotopy,
 such a family is homotopic to a family which can be decomposed 
 into small families which are either
 (a) supported away from $E$, 
-(b) have boundaries corresponding to the three movie moves above.
+(b) have boundaries corresponding to the two movie moves above.
 Finally, observe that the space of $E$'s is simply connected.
 (This fails for $n=1$.)
 \end{proof}
@@ -2339,17 +2338,29 @@ For $n=1$ we have to check an additional ``global" relations corresponding to
 rotating the 0-sphere $E$ around the 1-sphere $\bd X$.
 \nn{should check this global move, or maybe cite Frobenius reciprocity result}
 
-\nn{...}
+\medskip
+
+We have now defined $\cS(X; c)$ for any $n{+}1$-ball $X$ with boundary decoration $c$.
+We must also define, for any homeomorphism $X\to X'$, an action $f: \cS(X; c) \to \cS(X', f(c))$.
+Choosing an equator $E\sub \bd X$ we have 
+\[
+	\cS(X; c) \cong \cS(X; c; E) \deq \hom_{\cS(E_c)}(\cS(\bd_-X_c), \cS(\bd_+X_c)) .
+\]
+We define $f: \cS(X; c) \to \cS(X', f(c))$ to be the tautological map
+\[
+	f: \cS(X; c; E) \to \cS(X'; f(c); f(E)) .
+\]
+It is easy to show that this is independent of the choice of $E$.
+Note also that this map depends only on the restriction of $f$ to $\bd X$.
+In particular, if $F: X\to X$ is the identity on $\bd X$ then $f$ acts trivially, as required by
+Axiom \ref{axiom:extended-isotopies} of \S\ref{ss:n-cat-def}.
+
+
+\nn{still to do: gluing, associativity, collar maps}
 
 \medskip
 \hrule
 \medskip
-
-\nn{to be continued...}
-\medskip
-
-
-
 
 
 
