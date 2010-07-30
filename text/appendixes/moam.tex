@@ -35,6 +35,20 @@ then $\Compat(D^\bullet_*)$ is $i$-connected.
 This is a standard result; see, for example, \nn{need citations}.
 
 We will build a chain map $f\in \Compat(D^\bullet_*)$ inductively.
-Choose $f(x_{0j})\in D^{0j}_0$ for all $j$.
-\nn{...}
+Choose $f(x_{0j})\in D^{0j}_0$ for all $j$
+(possible since $D^{0j}_0$ is non-empty).
+Choose $f(x_{1j})\in D^{1j}_1$ such that $\bd f(x_{1j}) = f(\bd x_{1j})$
+(possible since $D^{0l}_* \sub D^{1j}_*$ for each $x_{0l}$ in $\bd x_{1j}$
+and $D^{1j}_*$ is 0-acyclic).
+Continue in this way, choosing $f(x_{kj})\in D^{kj}_k$ such that $\bd f(x_{kj}) = f(\bd x_{kj})$
+We have now constructed $f\in \Compat(D^\bullet_*)$, proving the first claim of the theorem.
+
+Now suppose that $D^{kj}_*$ is $k$-acyclic for all $k$ and $j$.
+Let $f$ and $f'$ be two chain maps (0-chains) in $\Compat(D^\bullet_*)$.
+Using a technique similar to above we can construct a homotopy (1-chain) in $\Compat(D^\bullet_*)$
+between $f$ and $f'$.
+Thus $\Compat(D^\bullet_*)$ is 0-connected.
+Similarly, if $D^{kj}_*$ is $(k{+}i)$-acyclic then we can show that $\Compat(D^\bullet_*)$ is $i$-connected.
 \end{proof}
+
+\nn{do we also need some version of ``backwards" acyclic models?  probably}
