@@ -163,6 +163,7 @@ as shown in Figure \ref{fzo2}.
 \begin{tikzpicture}
 \newcommand{\rr}{6}
 \newcommand{\vertex}{node[circle,fill=black,inner sep=1pt] {}}
+\newcommand{\namedvertex}[1]{node[circle,fill=black,inner sep=1pt] (#1) {}}
 
 \node(A) at (0,0) {
 \begin{tikzpicture}
@@ -184,11 +185,15 @@ as shown in Figure \ref{fzo2}.
 \node[red,left] at (0,0) {$y$};
 \draw (0,0) \vertex 
 	arc (120:105:\rr) node[red,above] {$a$}
-	arc (105:90:\rr) node[red,above] {$x$} \vertex
-	arc (90:75:\rr) node[red,above] {$x \times I$}
-	arc (75:60:\rr) \vertex node[red,right] {$x$}
-	arc (-60:-90:\rr) node[red,below] {$a$}
-	arc (-90:-120:\rr);
+	arc (105:90:\rr) node[red,above] {$x$} \namedvertex{x1};
+%	arc (90:75:\rr) node[red,above] {$x \times I$};
+%	arc (75:60:\rr) \vertex node[red,right] {$x$}
+%	arc (-60:-90:\rr) node[red,below] {$a$}
+%	arc (-90:-120:\rr);
+\draw (0,0)
+	arc (-120:-90:\rr) node[red,below] {$a$}
+	arc (-90:-61:\rr) \namedvertex{x2} node[red,right] {$x$};
+\draw (x1) -- node[red, above=3pt] {$x \times I$} (x2);
 \begin{scope}
 	\path[clip] (0,0) arc (-120:-60:\rr) arc (60:120:\rr);
 	\foreach \x in {0,0.48,...,9} {
@@ -203,11 +208,15 @@ as shown in Figure \ref{fzo2}.
 \node[red,left] at (0,0) {$y$};
 \draw (0,0) \vertex 
 	arc (120:105:\rr) node[red,below] {$a$}
-	arc (105:90:\rr) node[red,below] {$x$} \vertex
-	arc (90:75:\rr) node[red,below] {$x \times I$}
-	arc (75:60:\rr) \vertex node[red,right] {$x$}
-	arc (-60:-90:\rr) node[red,above] {$a$}
-	arc (-90:-120:\rr);
+	arc (105:90:\rr) node[red,below] {$x$} \namedvertex{x1};
+%	arc (90:75:\rr) node[red,below] {$x \times I$}
+%	arc (75:60:\rr) \vertex node[red,right] {$x$}
+%	arc (-60:-90:\rr) node[red,above] {$a$}
+%	arc (-90:-120:\rr);
+\draw (0,0)
+	arc (-120:-90:\rr) node[red,above] {$a$}
+	arc (-90:-61:\rr) \namedvertex{x2} node[red,right] {$x$};
+\draw (x1) -- node[red, below=3pt] {$x \times I$} (x2);
 \begin{scope}
 	\path[clip] (0,0) arc (-120:-60:\rr) arc (60:120:\rr);
 	\foreach \x in {0,0.48,...,9} {
