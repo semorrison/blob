@@ -31,24 +31,9 @@ $\bc_*(M, k[t])$ is homotopy equivalent to $C_*(\Sigma^\infty(M), k)$.
 \end{prop}
 
 \begin{proof}
-%To define the chain maps between the two complexes we will use the following lemma:
-%
-%\begin{lemma}
-%Let $A_*$ and $B_*$ be chain complexes, and assume $A_*$ is equipped with
-%a basis (e.g.\ blob diagrams or singular simplices).
-%For each basis element $c \in A_*$ assume given a contractible subcomplex $R(c)_* \sub B_*$
-%such that $R(c')_* \sub R(c)_*$ whenever $c'$ is a basis element which is part of $\bd c$.
-%Then the complex of chain maps (and (iterated) homotopies) $f:A_*\to B_*$ such that
-%$f(c) \in R(c)_*$ for all $c$ is contractible (and in particular non-empty).
-%\end{lemma}
-%
-%\begin{proof}
-%\nn{easy, but should probably write the details eventually}
-%\nn{this is just the standard ``method of acyclic models" set up, so we should just give a reference for that}
-%\end{proof}
-We will use acyclic models \nn{need ref}.
+We will use acyclic models (\S \ref{sec:moam}).
 Our first task: For each blob diagram $b$ define a subcomplex $R(b)_* \sub C_*(\Sigma^\infty(M))$
-satisfying the conditions of \nn{need ref}.
+satisfying the conditions of Theorem \ref{moam-thm}.
 If $b$ is a 0-blob diagram, then it is just a $k[t]$ field on $M$, which is a 
 finite unordered collection of points of $M$ with multiplicities, which is
 a point in $\Sigma^\infty(M)$.
@@ -63,12 +48,12 @@ and using this point we can embed $X$ in $\Sigma^\infty(M)$.
 Define $R(B, u, r)_*$ to be the singular chain complex of $X$, thought of as a 
 subspace of $\Sigma^\infty(M)$.
 It is easy to see that $R(\cdot)_*$ satisfies the condition on boundaries from 
-\nn{need ref, or state condition}.
+Theorem \ref{moam-thm}.
 Thus we have defined (up to homotopy) a map from 
-$\bc_*(M^n, k[t])$ to $C_*(\Sigma^\infty(M))$.
+$\bc_*(M, k[t])$ to $C_*(\Sigma^\infty(M))$.
 
 Next we define, for each simplex $c$ of $C_*(\Sigma^\infty(M))$, a contractible subspace
-$R(c)_* \sub \bc_*(M^n, k[t])$.
+$R(c)_* \sub \bc_*(M, k[t])$.
 If $c$ is a 0-simplex we use the identification of the fields $\cC(M)$ and 
 $\Sigma^\infty(M)$ described above.
 Now let $c$ be an $i$-simplex of $\Sigma^j(M)$.
@@ -80,7 +65,7 @@ Let $T\sub M$ be the ``track" of $c$ in $M$.
 \nn{do we need to define this precisely?}
 Choose a neighborhood $D$ of $T$ which is a disjoint union of balls of small diameter.
 \nn{need to say more precisely how small}
-Define $R(c)_*$ to be $\bc_*(D, k[t]) \sub \bc_*(M^n, k[t])$.
+Define $R(c)_*$ to be $\bc_*(D; k[t]) \sub \bc_*(M; k[t])$.
 This is contractible by Proposition \ref{bcontract}.
 We can arrange that the boundary/inclusion condition is satisfied if we start with
 low-dimensional simplices and work our way up.
