@@ -52,11 +52,25 @@ Theorem \ref{moam-thm}.
 Thus we have defined (up to homotopy) a map from 
 $\bc_*(M, k[t])$ to $C_*(\Sigma^\infty(M))$.
 
-Next we define, for each simplex $c$ of $C_*(\Sigma^\infty(M))$, a contractible subspace
+Next we define a map going the other direction.
+First we replace $C_*(\Sigma^\infty(M))$ with a homotopy equivalent 
+subcomplex $S_*$ of small simplices.
+Roughly, we define $c\in C_*(\Sigma^\infty(M))$ to be small if the 
+corresponding track of points in $M$
+is contained in a disjoint union of balls.
+Because there could be different, inequivalent choices of such balls, we must a bit more careful.
+\nn{this runs into the same issues as in defining evmap.
+either refer there for details, or use the simp-space-ish version of the blob complex,
+which makes things easier here.}
+
+\nn{...}
+
+
+We will define, for each simplex $c$ of $S_*$, a contractible subspace
 $R(c)_* \sub \bc_*(M, k[t])$.
 If $c$ is a 0-simplex we use the identification of the fields $\cC(M)$ and 
 $\Sigma^\infty(M)$ described above.
-Now let $c$ be an $i$-simplex of $\Sigma^j(M)$.
+Now let $c$ be an $i$-simplex of $S_*$.
 Choose a metric on $M$, which induces a metric on $\Sigma^j(M)$.
 We may assume that the diameter of $c$ is small --- that is, $C_*(\Sigma^j(M))$
 is homotopy equivalent to the subcomplex of small simplices.
@@ -77,12 +91,13 @@ low-dimensional simplices and work our way up.
 
 
 \begin{prop} \label{ktchprop}
-The above maps are compatible with the evaluation map actions of $C_*(\Diff(M))$.
+The above maps are compatible with the evaluation map actions of $C_*(\Homeo(M))$.
 \end{prop}
 
 \begin{proof}
 The actions agree in degree 0, and both are compatible with gluing.
 (cf. uniqueness statement in Theorem \ref{thm:CH}.)
+\nn{if Theorem \ref{thm:CH} is rewritten/rearranged, make sure uniqueness discussion is properly referenced from here}
 \end{proof}
 
 \medskip
@@ -93,16 +108,16 @@ on $C_*(\Sigma^\infty(S^1), k)$.
 \nn{probably should put a more precise statement about cyclic homology and $S^1$ actions in the Hochschild section}
 Let us check this directly.
 
-The algebra $k[t]$ has Koszul resolution 
+The algebra $k[t]$ has a resolution 
 $k[t] \tensor k[t] \xrightarrow{t\tensor 1 - 1 \tensor t} k[t] \tensor k[t]$, 
 which has coinvariants $k[t] \xrightarrow{0} k[t]$. 
-This is equal to its homology, so we have $HH_i(k[t]) \cong k[t]$ for $i=0,1$ and zero for $i\ge 2$.
+So we have $HH_i(k[t]) \cong k[t]$ for $i=0,1$ and zero for $i\ge 2$.
 (See also  \cite[3.2.2]{MR1600246}.) This computation also tells us the $t$-gradings: 
 $HH_0(k[t]) \iso k[t]$ is in the usual grading, and $HH_1(k[t]) \iso k[t]$ is shifted up by one.
 
 We can define a flow on $\Sigma^j(S^1)$ by having the points repel each other.
 The fixed points of this flow are the equally spaced configurations.
-This defines a map from $\Sigma^j(S^1)$ to $S^1/j$ ($S^1$ modulo a $2\pi/j$ rotation).
+This defines a deformation retraction from $\Sigma^j(S^1)$ to $S^1/j$ ($S^1$ modulo a $2\pi/j$ rotation).
 The fiber of this map is $\Delta^{j-1}$, the $(j-1)$-simplex, 
 and the holonomy of the $\Delta^{j-1}$ bundle
 over $S^1/j$ is induced by the cyclic permutation of its $j$ vertices.
@@ -113,7 +128,7 @@ Thus the singular homology $H_i(\Sigma^\infty(S^1))$ has infinitely many generat
 and is zero for $i\ge 2$.
 Note that the $j$-grading here matches with the $t$-grading on the algebraic side.
 
-By xxxx and Proposition \ref{ktchprop}, 
+By Proposition \ref{ktchprop}, 
 the cyclic homology of $k[t]$ is the $S^1$-equivariant homology of $\Sigma^\infty(S^1)$.
 Up to homotopy, $S^1$ acts by $j$-fold rotation on $\Sigma^j(S^1) \simeq S^1/j$.
 If $k = \z$, $\Sigma^j(S^1)$ contributes the homology of an infinite lens space: $\z$ in degree
@@ -148,7 +163,7 @@ to the torus $(S^1)^l$, where $l$ is the number of non-zero entries in the $m$-t
 corresponding to $X$.
 The homology calculation we desire follows easily from this.
 
-\nn{say something about cyclic homology in this case?  probably not necessary.}
+%\nn{say something about cyclic homology in this case?  probably not necessary.}
 
 \medskip
 
