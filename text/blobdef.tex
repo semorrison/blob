@@ -177,9 +177,20 @@ Given a gluing decomposition $M_0 \to M_1 \to \cdots \to M_m = X$, we say that a
 In the example above, note that $$A \sqcup B \sqcup C \sqcup D \to (A \cup B) \sqcup (C \cup D) \to A \cup B \cup C \cup D$$ is a  ball decomposition, but other sequences of gluings starting from $A \sqcup B \sqcup C \sqcup D$have intermediate steps which are not manifolds.
 
 We'll now slightly restrict the possible configurations of blobs.
+%%%%% oops -- I missed the similar discussion after the definition
+%The basic idea is that each blob in a configuration 
+%is the image a ball, with embedded interior and possibly glued-up boundary;
+%distinct blobs should either have disjoint interiors or be nested;
+%and the entire configuration should be compatible with some gluing decomposition of $X$.
 \begin{defn}
 \label{defn:configuration}
-A configuration of $k$ blobs in $X$ is an ordered collection of $k$ subsets $\{B_1, \ldots B_k\}$ of $X$ such that there exists a gluing decomposition $M_0  \to \cdots \to M_m = X$ of $X$ and for each subset $B_i$ there is some $0 \leq r \leq m$ and some connected component $M_r'$ of $M_r$ which is a ball, so $B_i$ is the image of $M_r'$ in $X$. Such a gluing decomposition is \emph{compatible} with the configuration. A blob $B_i$ is a twig blob if no other blob $B_j$ maps into the appropriate $M_r'$. \nn{that's a really clumsy way to say it, but I struggled to say it nicely and still allow boundaries to intersect -S}
+A configuration of $k$ blobs in $X$ is an ordered collection of $k$ subsets $\{B_1, \ldots B_k\}$ 
+of $X$ such that there exists a gluing decomposition $M_0  \to \cdots \to M_m = X$ of $X$ and 
+for each subset $B_i$ there is some $0 \leq r \leq m$ and some connected component $M_r'$ of 
+$M_r$ which is a ball, so $B_i$ is the image of $M_r'$ in $X$. 
+We say that such a gluing decomposition 
+is \emph{compatible} with the configuration. 
+A blob $B_i$ is a twig blob if no other blob $B_j$ is a strict subset of it. 
 \end{defn}
 In particular, this implies what we said about blobs above: 
 that for any two blobs in a configuration of blobs in $X$, 
