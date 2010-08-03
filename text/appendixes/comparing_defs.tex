@@ -246,6 +246,8 @@ Figure \ref{fzo3} shows one case.
 \newcommand{\vertex}{node[circle,fill=black,inner sep=1pt] {}}
 \newcommand{\nsep}{1.8}
 
+\clip (-1,-1.5)--(12,-1.5)--(12,1.5)--(-1,1.5)--cycle;
+
 \node(A) at (0,0) {
 \begin{tikzpicture}
 
@@ -363,9 +365,99 @@ Figure \ref{fzo3} shows one case.
 In the first step we have inserted a copy of $(x\times I)\times I$.
 Figure \ref{fzo4} shows the other case.
 \begin{figure}[t]
-\begin{equation*}
-\mathfig{.83}{tempkw/zo4}
-\end{equation*}
+\begin{center}
+\begin{tikzpicture}
+
+\newcommand{\vertex}{node[circle,fill=black,inner sep=1pt] {}}
+\newcommand{\nsep}{1.8}
+
+\node[outer sep=\nsep](A) at (0,0) {
+\begin{tikzpicture}
+	\draw (0,0) coordinate (p1);
+	\draw (4,0) coordinate (p2);
+	\draw (2.4,0) coordinate (p2a);
+	\draw (2,1.2) coordinate (pu);
+	\draw (2,-1.2) coordinate (pd);
+
+	\begin{scope}
+		\clip (p1) .. controls (pu) .. (p2) .. controls (pd) .. (p1);
+		\foreach \t in {0,.065,...,1} {
+			\draw[green!50!brown] ($(p1)!\t!(p2a)$) -- +(90 - \t*90 + \t*6 : 4);
+			\draw[green!50!brown] ($(p1)!\t!(p2a)$) -- +(-90 + \t*90 - \t*6 : 4);
+		}
+		\draw[dashed] ($(p2a) + (-.6,3)$)--(p2a)--($(p2a) + (-.6,-3)$);
+	\end{scope}
+
+	\draw (p1) .. controls (pu) .. (p2) .. controls (pd) .. (p1);
+	\draw (p1)--(p2);
+
+	\draw (p1) \vertex;
+	\draw (p2) \vertex;
+	\draw (p2a) \vertex;
+\end{tikzpicture}
+};
+
+\node[outer sep=\nsep](B) at (5,0) {
+\begin{tikzpicture}
+	\draw (0,0) coordinate (p1);
+	\draw (4,0) coordinate (p2);
+	\draw (2.4,0) coordinate (p2a);
+	\draw (2,1.2) coordinate (pu);
+	\draw (2,-1.2) coordinate (pd);
+
+	\begin{scope}
+	\clip (-.1,3)--($(p2a) + (-.6,3)$)--(p2a)--($(p2a) + (-.6,-3)$)--(-.1,-3)--cycle;
+
+	\begin{scope}
+		\clip (p1) .. controls (pu) .. (p2) .. controls (pd) .. (p1);
+		\foreach \t in {0,.065,...,1} {
+			\draw[green!50!brown] ($(p1)!\t!(p2a)$) -- +(90 - \t*90 + \t*6 : 4);
+			\draw[green!50!brown] ($(p1)!\t!(p2a)$) -- +(-90 + \t*90 - \t*6 : 4);
+		}
+		\draw ($(p2a) + (-.6,3)$)--(p2a)--($(p2a) + (-.6,-3)$);
+	\end{scope}
+
+
+	\draw (p1) .. controls (pu) .. (p2) .. controls (pd) .. (p1);
+	%\draw (p1)--(p2);
+	\end{scope}
+
+	\begin{scope}
+		\clip (p1) .. controls (pu) .. (p2) .. controls (pd) .. (p1);
+		\draw ($(p2a) + (-.6,3)$)--(p2a)--($(p2a) + (-.6,-3)$);
+	\end{scope}
+
+	\draw (p1) \vertex;
+	\draw (p2a) \vertex;
+\end{tikzpicture}
+};
+
+\node[outer sep=\nsep](C) at (9,0) {
+\begin{tikzpicture}
+	\draw (0,0) coordinate (p1);
+	\draw (4,0) coordinate (p2);
+	\draw (2,1.2) coordinate (pu);
+	\draw (2,-1.2) coordinate (pd);
+
+	\begin{scope}
+		\clip (p1) .. controls (pu) .. (p2) .. controls (pd) .. (p1);
+		\foreach \t in {0,.045,...,1} {
+			\draw[green!50!brown] ($(p1)!\t!(p2) + (0,2)$) -- +(0,-4);
+		}
+	\end{scope}
+
+	\draw (p1) .. controls (pu) .. (p2) .. controls (pd) .. (p1);
+
+	\draw (p1) \vertex;
+	\draw (p2) \vertex;
+\end{tikzpicture}
+};
+
+\draw[->, thick, blue!50!green] (A) -- (B);
+\draw[->, thick, blue!50!green] ($(B) + (1,0)$) -- node[black, above] {$=$} (C);
+
+\end{tikzpicture}
+\end{center}
 \caption{Composition of weak identities, 2}
 \label{fzo4}
 \end{figure}
