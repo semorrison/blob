@@ -160,6 +160,7 @@ Let $a: y\to x$ be a 1-morphism.
 Define 2-morphsims $a \to a\bullet \id_x$ and $a\bullet \id_x \to a$
 as shown in Figure \ref{fzo2}.
 \begin{figure}[t]
+\begin{center}
 \begin{tikzpicture}
 \newcommand{\rr}{6}
 \newcommand{\vertex}{node[circle,fill=black,inner sep=1pt] {}}
@@ -229,6 +230,7 @@ as shown in Figure \ref{fzo2}.
 \draw[->] (A) -- (B);
 \draw[->] (A) -- (C);
 \end{tikzpicture}
+\end{center}
 \caption{Producing weak identities from half pinched products}
 \label{fzo2}
 \end{figure}
@@ -238,9 +240,123 @@ We must show that the two compositions of these two maps give the identity 2-mor
 on $a$ and $a\bullet \id_x$, as defined above.
 Figure \ref{fzo3} shows one case.
 \begin{figure}[t]
-\begin{equation*}
-\mathfig{.83}{tempkw/zo3}
-\end{equation*}
+\begin{center}
+\begin{tikzpicture}
+
+\newcommand{\vertex}{node[circle,fill=black,inner sep=1pt] {}}
+\newcommand{\nsep}{1.8}
+
+\node(A) at (0,0) {
+\begin{tikzpicture}
+
+	\draw (0,0) coordinate (p1);
+	\draw (3.6,0) coordinate (p2);
+	\draw (2.3,1) coordinate (p3);
+	\draw (2.3,-1) coordinate (p4);
+	
+	\begin{scope}
+		\clip (p1) 	.. controls +(.5,-.5) and +(-.8,0)  .. (p4) -- 
+				(p2) -- (p3) .. controls +(-.8,0) and +(.5,.5) .. (p1);
+		\foreach \x in {0,0.26,...,4} {
+			\draw[green!50!brown] (\x,0) -- (intersection cs: first line={(p2)--(p3)}, second line={(0,0)--(0,1)});
+			\draw[green!50!brown] (\x,0) -- (intersection cs: first line={(p2)--(p4)}, second line={(0,0)--(0,1)});
+		}
+	\end{scope}
+	
+	\draw (p1) .. controls ($(p1) + (.5,.5)$) and ($(p3) + (-.8,0)$) .. node[red, above=3pt] {$a$} (p3);
+	\draw (p1) .. controls ($(p1) + (.5,-.5)$) and ($(p4) + (-.8,0)$) .. node[red, below=3pt] {$a$} (p4);
+	\draw (p3) -- node[red, above=7pt, right=1pt] {$x \times I$} (p2);
+	\draw (p4) -- node[red, below=7pt, right=1pt] {$x \times I$} (p2);
+	\draw (p1) -- (p2);
+	
+	\draw (p1) \vertex;
+	\draw (p2) \vertex;
+	\draw (p3) \vertex;
+	\draw (p4) \vertex;
+
+\end{tikzpicture}
+};
+
+\node[outer sep=\nsep](B) at (5.5,0) {
+\begin{tikzpicture}
+
+	\draw (0,0) coordinate (p1);
+	\draw (3.6,0) coordinate (p2);
+	\draw (2.3,1) coordinate (p3);
+	\draw (2.3,-1) coordinate (p4);
+	\draw (4.6,0) coordinate (p2b);
+	
+	\begin{scope}
+		\clip (p1) 	.. controls +(.5,-.5) and +(-.8,0)  .. (p4) -- 
+				(p2) -- (p3) .. controls +(-.8,0) and +(.5,.5) .. (p1);
+		\foreach \x in {0,0.26,...,4} {
+			\draw[green!50!brown] (\x,0) -- (intersection cs: first line={(p2)--(p3)}, second line={(0,0)--(0,1)});
+			\draw[green!50!brown] (\x,0) -- (intersection cs: first line={(p2)--(p4)}, second line={(0,0)--(0,1)});
+		}
+	\end{scope}
+	
+	\begin{scope}
+		\clip (p3)--(p2)--(p4)--(p2b)--cycle;
+		\draw[blue!50!brown, step=.23] ($(p4)+(0,-1)$) grid +(3,3);
+	\end{scope}
+	
+	\draw (p1) .. controls ($(p1) + (.5,.5)$) and ($(p3) + (-.8,0)$) .. node[red, above=3pt] {$a$} (p3);
+	\draw (p1) .. controls ($(p1) + (.5,-.5)$) and ($(p4) + (-.8,0)$) .. node[red, below=3pt] {$a$} (p4);
+	\draw (p3) -- (p2);
+	\draw (p4) -- (p2);
+	\draw (p3) -- node[red, above=7pt, right=1pt] {$x \times I$} (p2b);
+	\draw (p4) -- node[red, below=7pt, right=1pt] {$x \times I$} (p2b);
+	
+	\draw (p1) \vertex;
+	\draw (p2) \vertex;
+	\draw (p3) \vertex;
+	\draw (p4) \vertex;
+	\draw (p2b) \vertex;
+
+\end{tikzpicture}
+};
+
+\node[outer sep=\nsep](C) at (11,0) {
+\begin{tikzpicture}
+
+	\draw (0,0) coordinate (p1);
+	\draw (2.3,0) coordinate (p2);
+	\draw (2.3,1) coordinate (p3);
+	\draw (2.3,-1) coordinate (p4);
+	\draw (3.6,0) coordinate (p2b);
+	
+	\begin{scope}
+		\clip (p1) 	.. controls +(.5,-.5) and +(-.8,0)  .. (p4) -- 
+				(p2) -- (p3) .. controls +(-.8,0) and +(.5,.5) .. (p1);
+		\foreach \x in {0,0.26,...,4} {
+			\draw[green!50!brown] (\x,-1) -- (\x,1);
+		}
+	\end{scope}
+	
+	\begin{scope}
+		\clip (p3)--(p2)--(p4)--(p2b)--cycle;
+		\draw[blue!50!brown, step=.23] ($(p4)+(0,-1)$) grid +(3,3);
+	\end{scope}
+	
+	\draw (p1) .. controls ($(p1) + (.5,.5)$) and ($(p3) + (-.8,0)$) .. node[red, above=3pt] {$a$} (p3);
+	\draw (p1) .. controls ($(p1) + (.5,-.5)$) and ($(p4) + (-.8,0)$) .. node[red, below=3pt] {$a$} (p4);
+	\draw[green!50!brown] (p3) -- (p4);
+	\draw (p3) -- node[red, above=7pt, right=1pt] {$x \times I$} (p2b);
+	\draw (p4) -- node[red, below=7pt, right=1pt] {$x \times I$} (p2b);
+	
+	\draw (p1) \vertex;
+	\draw (p3) \vertex;
+	\draw (p4) \vertex;
+	\draw (p2b) \vertex;
+
+\end{tikzpicture}
+};
+
+\draw[->, thick, blue!50!green] (A) -- (B);
+\draw[->, thick, blue!50!green] (B) -- node[black, above] {$=$} (C);
+
+\end{tikzpicture}
+\end{center}
 \caption{Composition of weak identities, 1}
 \label{fzo3}
 \end{figure}
