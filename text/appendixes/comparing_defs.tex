@@ -137,9 +137,53 @@ Isotopy invariance implies that this is associative.
 We will define a ``horizontal" composition later.
 
 \begin{figure}[t]
-\begin{equation*}
-\mathfig{.73}{tempkw/zo1}
-\end{equation*}
+\begin{center}
+\begin{tikzpicture}
+
+\newcommand{\vertex}{node[circle,fill=black,inner sep=1pt] {}}
+\newcommand{\nsep}{1.8}
+
+\node[outer sep=\nsep](A) at (0,0) {
+\begin{tikzpicture}
+	\draw (0,0) coordinate (p1);
+	\draw (4,0) coordinate (p2);
+	\draw (2,1.2) coordinate (pu);
+	\draw (2,-1.2) coordinate (pd);
+
+	\draw (p1) .. controls (pu) .. (p2) .. controls (pd) .. (p1);
+	\draw (p1)--(p2);
+
+	\draw (p1) \vertex;
+	\draw (p2) \vertex;
+	
+	\node at (2.1, .44) {$B^2$};
+	\node at (2.1, -.44) {$B^2$};
+	
+\end{tikzpicture}
+};
+
+\node[outer sep=\nsep](B) at (6,0) {
+\begin{tikzpicture}
+	\draw (0,0) coordinate (p1);
+	\draw (4,0) coordinate (p2);
+	\draw (2,.6) coordinate (pu);
+	\draw (2,-.6) coordinate (pd);
+
+	\draw (p1) .. controls (pu) .. (p2) .. controls (pd) .. (p1);
+	\draw[help lines, dashed] (p1)--(p2);
+
+	\draw (p1) \vertex;
+	\draw (p2) \vertex;
+	
+	\node at (2.1,0) {$B^2$};
+	
+\end{tikzpicture}
+};
+
+\draw[->, thick, blue!50!green] (A) -- node[black, above] {$\cong$} (B);
+
+\end{tikzpicture}
+\end{center}
 \caption{Vertical composition of 2-morphisms}
 \label{fzo1}
 \end{figure}
@@ -245,8 +289,6 @@ Figure \ref{fzo3} shows one case.
 
 \newcommand{\vertex}{node[circle,fill=black,inner sep=1pt] {}}
 \newcommand{\nsep}{1.8}
-
-\clip (-1,-1.5)--(12,-1.5)--(12,1.5)--(-1,1.5)--cycle;
 
 \node(A) at (0,0) {
 \begin{tikzpicture}
@@ -371,6 +413,9 @@ Figure \ref{fzo4} shows the other case.
 \newcommand{\vertex}{node[circle,fill=black,inner sep=1pt] {}}
 \newcommand{\nsep}{1.8}
 
+\clip (-4,-1.25)--(12,-1.25)--(16,1.25)--(-1,1.25)--cycle;
+
+
 \node[outer sep=\nsep](A) at (0,0) {
 \begin{tikzpicture}
 	\draw (0,0) coordinate (p1);
@@ -463,12 +508,50 @@ Figure \ref{fzo4} shows the other case.
 \end{figure}
 We identify a product region and remove it.
 
-We define horizontal composition of 2-morphisms as shown in Figure \ref{fzo5}.
+We define horizontal composition $f *_h g$ of 2-morphisms $f$ and $g$ as shown in Figure \ref{fzo5}.
 It is not hard to show that this is independent of the arbitrary (left/right) 
 choice made in the definition, and that it is associative.
 \begin{figure}[t]
 \begin{equation*}
-\mathfig{.83}{tempkw/zo5}
+\raisebox{-.9cm}{
+\begin{tikzpicture}
+	\draw (0,0) .. controls +(1,.8) and +(-1,.8) .. node[above] {$b$} (2.9,0)
+				.. controls +(-1,-.8) and +(1,-.8) .. node[below] {$a$} (0,0);
+	\draw[->, thick, orange!50!brown] (1.45,-.4)--  node[left, black] {$f$} +(0,.8);
+\end{tikzpicture}}
+\;\;\;*_h\;\;
+\raisebox{-.9cm}{
+\begin{tikzpicture}
+	\draw (0,0) .. controls +(1,.8) and +(-1,.8) .. node[above] {$d$} (2.9,0)
+				.. controls +(-1,-.8) and +(1,-.8) .. node[below] {$c$} (0,0);
+	\draw[->, thick, orange!50!brown] (1.45,-.4)--  node[left, black] {$g$} +(0,.8);
+\end{tikzpicture}}
+\;=\;
+\raisebox{-1.9cm}{
+\begin{tikzpicture}
+	\draw (0,0) coordinate (p1);
+	\draw (5.8,0) coordinate (p2);
+	\draw (2.9,.3) coordinate (pu);
+	\draw (2.9,-.3) coordinate (pd);
+	\begin{scope}
+		\clip (p1) .. controls +(.6,.3) and +(-.5,0) .. (pu)
+					.. controls +(.5,0) and +(-.6,.3) .. (p2)
+					.. controls +(-.6,-.3) and +(.5,0) .. (pd)
+					.. controls +(-.5,0) and +(.6,-.3) .. (p1);
+		\foreach \t in {0,.03,...,1} {
+			\draw[green!50!brown] ($(p1)!\t!(p2) + (0,2)$) -- +(0,-4);
+		}
+	\end{scope}
+	\draw (p1) .. controls +(.6,.3) and +(-.5,0) .. (pu)
+				.. controls +(.5,0) and +(-.6,.3) .. (p2)
+				.. controls +(-.6,-.3) and +(.5,0) .. (pd)
+				.. controls +(-.5,0) and +(.6,-.3) .. (p1);
+	\draw (p1) .. controls +(1,-2) and +(-1,-1) .. (pd);
+	\draw (p2) .. controls +(-1,2) and +(1,1) .. (pu);
+	\draw[->, thick, orange!50!brown] (1.45,-1.1)--  node[left, black] {$f$} +(0,.7);
+	\draw[->, thick, orange!50!brown] (4.35,.4)--  node[left, black] {$g$} +(0,.7);
+	\draw[->, thick, blue!75!yellow] (1.5,.78) node[black, above] {$(b\cdot c)\times I$} -- (2.5,0);
+\end{tikzpicture}}
 \end{equation*}
 \caption{Horizontal composition of 2-morphisms}
 \label{fzo5}
