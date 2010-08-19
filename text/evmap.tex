@@ -11,16 +11,48 @@ $CH*$ acts.
 maybe salvage some of the original version of this section as a subsection outlining
 how one might proceed directly.}
 
+In this section we extend the action of homeomorphisms on $\bc_*(X)$
+to an action of {\it families} of homeomorphisms.
+That is, for each pair of homeomorphic manifolds $X$ and $Y$
+we define a chain map
+\[
+    e_{XY} : CH_*(X, Y) \otimes \bc_*(X) \to \bc_*(Y) ,
+\]
+where $CH_*(X, Y) = C_*(\Homeo(X, Y))$, the singular chains on the space
+of homeomorphisms from $X$ to $Y$.
+(If $X$ and $Y$ have non-empty boundary, these families of homeomorphisms
+are required to be fixed on the boundaries.)
+See \S \ref{ss:emap-def} for a more precise statement.
+
+The most convenient way to prove that maps $e_{XY}$ with the desired properties exist is to 
+introduce a homotopy equivalent alternate version of the blob complex $\btc_*(X)$
+which is more amenable to this sort of action.
+Recall from Remark \ref{blobsset-remark} that blob diagrams
+have the structure of a sort-of-simplicial set.
+Blob diagrams can also be equipped with a natural topology, which converts this
+sort-of-simplicial set into a sort-of-simplicial space.
+Taking singular chains of this space we get $\btc_*(X)$.
+The details are in \S \ref{ss:alt-def}.
+For technical reasons we also show that requiring the blobs to be
+embedded yields a homotopy equivalent complex.
+
+Since $\bc_*(X)$ and $\btc_*(X)$ are homotopy equivalent one could try to construct
+the $CH_*$ actions directly in terms of $\bc_*(X)$.
+This was our original approach, but working out the details created a nearly unreadable mess.
+We have salvaged a sketch of that approach in \S \ref{ss:old-evmap-remnants}.
+
 
 \subsection{Alternative definitions of the blob complex}
+\label{ss:alt-def}
 
 
 \subsection{Action of \texorpdfstring{$\CH{X}$}{C_*(Homeo(M))}}
-
+\label{ss:emap-def}
 
 
 
 \subsection{[older version still hanging around]}
+\label{ss:old-evmap-remnants}
 
 \nn{should comment at the start about any assumptions about smooth, PL etc.}
 
