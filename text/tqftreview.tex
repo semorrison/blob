@@ -47,7 +47,8 @@ will stick with unoriented PL.)
 Fix a symmetric monoidal category $\cS$.
 Fields on $n$-manifolds will be enriched over $\cS$.
 Good examples to keep in mind are $\cS = \Set$ or $\cS = \Vect$.
-The presentation here requires that the objects of $\cS$ have an underlying set, but this could probably be avoided if desired.
+The presentation here requires that the objects of $\cS$ have an underlying set, 
+but this could probably be avoided if desired.
 
 A $n$-dimensional {\it system of fields} in $\cS$
 is a collection of functors $\cC_k : \cM_k \to \Set$ for $0 \leq k \leq n$
@@ -226,7 +227,7 @@ above tensor products.
 } % end \noop
 
 
-\subsection{Systems of fields from $n$-categories}
+\subsection{Systems of fields from \texorpdfstring{$n$}{n}-categories}
 \label{sec:example:traditional-n-categories(fields)}
 We now describe in more detail Example \ref{ex:traditional-n-categories(fields)}, 
 systems of fields coming from embedded cell complexes labeled
@@ -245,7 +246,8 @@ It can be thought of as (geometrically) dual to a pasting diagram.
 One of the advantages of string diagrams over pasting diagrams is that one has more
 flexibility in slicing them up in various ways.
 In addition, string diagrams are traditional in quantum topology.
-The diagrams predate by many years the terms ``string diagram" and ``quantum topology", e.g. \cite{MR0281657,MR776784} % both penrose
+The diagrams predate by many years the terms ``string diagram" and 
+``quantum topology", e.g. \cite{MR0281657,MR776784} % both penrose
 
 If $X$ has boundary, we require that the cell decompositions are in general
 position with respect to the boundary --- the boundary intersects each cell
@@ -377,7 +379,8 @@ See \cite{kw:tqft} for further details.
 In this subsection we briefly review the construction of a TQFT from a system of fields and local relations.
 As usual, see \cite{kw:tqft} for more details.
 
-We can think of a path integral $Z(W)$ of an $n+1$-manifold (which we're not defining in this context; this is just motivation) as assigning to each
+We can think of a path integral $Z(W)$ of an $n+1$-manifold 
+(which we're not defining in this context; this is just motivation) as assigning to each
 boundary condition $x\in \cC(\bd W)$ a complex number $Z(W)(x)$.
 In other words, $Z(W)$ lies in $\c^{\lf(\bd W)}$, the vector space of linear
 maps $\lf(\bd W)\to \c$.
@@ -414,7 +417,10 @@ The construction of the $n{+}1$-dimensional part of the theory (the path integra
 requires that the starting data (fields and local relations) satisfy additional
 conditions.
 We do not assume these conditions here, so when we say ``TQFT" we mean a decapitated TQFT
-that lacks its $n{+}1$-dimensional part. Such a ``decapitated'' TQFT is sometimes also called an $n+\epsilon$ or $n+\frac{1}{2}$ dimensional TQFT, referring to the fact that it assigns maps to mapping cylinders between $n$-manifolds, but nothing to arbitrary $n{+}1$-manifolds.
+that lacks its $n{+}1$-dimensional part. 
+Such a ``decapitated'' TQFT is sometimes also called an $n+\epsilon$ or 
+$n+\frac{1}{2}$ dimensional TQFT, referring to the fact that it assigns maps to 
+mapping cylinders between $n$-manifolds, but nothing to arbitrary $n{+}1$-manifolds.
 
 Let $Y$ be an $n{-}1$-manifold.
 Define a linear 1-category $A(Y)$ as follows.
@@ -434,4 +440,5 @@ The gluing theorem for $n$-manifolds states that there is a natural isomorphism
 \[
 	A(X) \cong A(X_1; -) \otimes_{A(Y)} A(X_2; -) .
 \]
-A proof of this gluing formula appears in \cite{kw:tqft}, but it also becomes a special case of Theorem \ref{thm:gluing} by taking $0$-th homology.
+A proof of this gluing formula appears in \cite{kw:tqft}, but it also becomes a 
+special case of Theorem \ref{thm:gluing} by taking $0$-th homology.
