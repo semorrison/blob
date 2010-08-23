@@ -41,9 +41,71 @@ the $CH_*$ actions directly in terms of $\bc_*(X)$.
 This was our original approach, but working out the details created a nearly unreadable mess.
 We have salvaged a sketch of that approach in \S \ref{ss:old-evmap-remnants}.
 
+\nn{should revisit above intro after this section is done}
+
 
 \subsection{Alternative definitions of the blob complex}
 \label{ss:alt-def}
+
+\newcommand\sbc{\bc^{\cU}}
+
+In this subsection we define a subcomplex (small blobs) and supercomplex (families of blobs)
+of the blob complex, and show that they are both homotopy equivalent to $\bc_*(X)$.
+
+\medskip
+
+If $b$ is a blob diagram in $\bc_*(X)$, define the {\it support} of $b$, denoted
+$\supp(b)$ or $|b|$, to be the union of the blobs of $b$.
+
+If $f: P\times X\to X$ is a family of homeomorphisms and $Y\sub X$, we say that $f$ is 
+{\it supported on $Y$} if $f(p, x) = f(p', x)$ for all $x\in X\setmin Y$ and all $p,p'\in P$.
+We will sometimes abuse language and talk about ``the" support of $f$,
+again denoted $\supp(f)$ or $|f|$, to mean some particular choice of $Y$ such that
+$f$ is supported on $Y$.
+
+Fix $\cU$, an open cover of $X$.
+Define the ``small blob complex" $\bc^{\cU}_*(M)$ to be the subcomplex of $\bc_*(X)$ 
+of all blob diagrams in which every blob is contained in some open set of $\cU$, 
+and moreover each field labeling a region cut out by the blobs is splittable 
+into fields on smaller regions, each of which is contained in some open set of $\cU$.
+
+\begin{thm}[Small blobs] \label{thm:small-blobs-xx}
+The inclusion $i: \bc^{\cU}_*(M) \into \bc_*(M)$ is a homotopy equivalence.
+\end{thm}
+
+\begin{proof}
+It suffices to show that for any finitely generated pair of subcomplexes 
+$(C_*, D_*) \sub (\bc_*(X), \sbc_*(X))$
+we can find a homotopy $h:C_*\to \bc_*(X)$ such that $h(D_*) \sub \sbc_*(X)$
+and $x + h\bd(x) + \bd h(X) \in \sbc_*(X)_*(X)$ for all $x\in C_*$.
+
+For simplicity we will assume that all fields are splittable into small pieces, so that
+$\sbc_0(X) = \bc_0$.
+Accordingly, we define $h_0 = 0$.
+
+Let $b\in C_1$ be a 1-blob diagram.
+Let $\cV_1$ be an auxiliary open cover of $X$, satisfying conditions specified below.
+Let $B$ be the blob of $b$.
+
+
+\nn{...}
+
+
+
+
+
+
+%Let $k$ be the top dimension of $C_*$.
+%The construction of $h$ will involve choosing various
+
+
+
+
+\end{proof}
+
+
+
+
 
 
 \subsection{Action of \texorpdfstring{$\CH{X}$}{C_*(Homeo(M))}}
