@@ -56,12 +56,18 @@ of the blob complex, and show that they are both homotopy equivalent to $\bc_*(X
 
 If $b$ is a blob diagram in $\bc_*(X)$, define the {\it support} of $b$, denoted
 $\supp(b)$ or $|b|$, to be the union of the blobs of $b$.
+For a general $k-chain$ $a\in \bc_k(X)$, define the support of $a$ to be the union
+of the supports of the blob diagrams which appear in it.
 
 If $f: P\times X\to X$ is a family of homeomorphisms and $Y\sub X$, we say that $f$ is 
 {\it supported on $Y$} if $f(p, x) = f(p', x)$ for all $x\in X\setmin Y$ and all $p,p'\in P$.
 We will sometimes abuse language and talk about ``the" support of $f$,
 again denoted $\supp(f)$ or $|f|$, to mean some particular choice of $Y$ such that
 $f$ is supported on $Y$.
+
+If $f: M \cup (Y\times I) \to M$ is a collaring homeomorphism
+(cf. end of \S \ref{ss:syst-o-fields}),
+we say that $f$ is supported on $S\sub M$ if $f(x) = x$ for all $x\in M\setmin S$.
 
 Fix $\cU$, an open cover of $X$.
 Define the ``small blob complex" $\bc^{\cU}_*(M)$ to be the subcomplex of $\bc_*(X)$ 
@@ -81,22 +87,48 @@ and $x + h\bd(x) + \bd h(X) \in \sbc_*(X)_*(X)$ for all $x\in C_*$.
 
 For simplicity we will assume that all fields are splittable into small pieces, so that
 $\sbc_0(X) = \bc_0$.
+(This is true for all of the examples presented in this paper.)
 Accordingly, we define $h_0 = 0$.
 
+Next we define $h_1$.
 Let $b\in C_1$ be a 1-blob diagram.
-Let $\cV_1$ be an auxiliary open cover of $X$, satisfying conditions specified below.
 Let $B$ be the blob of $b$.
+We will construct a 1-chain $s(b)\in \sbc_1$ such that $\bd(s(b)) = \bd b$
+and the support of $s(b)$ is contained in $B$.
+(If $B$ is not embedded in $X$, then we implicitly work in some term of a decomposition
+of $X$ where $B$ is embedded.
+See \ref{defn:configuration} and preceding discussion.)
+It then follows from \ref{disj-union-contract} that we can choose
+$h_1(b) \in \bc_1(X)$ such that $\bd(h_1(b)) = s(b) - b$.
+
+Roughly speaking, $s(b)$ consists of a series of 1-blob diagrams implementing a series
+of small collar maps, plus a shrunken version of $b$.
+The composition of all the collar maps shrinks $B$ to a sufficiently small ball.
+
+Let $\cV_1$ be an auxiliary open cover of $X$, satisfying conditions specified below.
+Let $b = (B, u, r)$, $u = \sum a_i$ be the label of $B$, $a_i\in \bc_0(B)$.
+Choose a series of collar maps $f_j:\bc_0(B)\to\bc_0(B)$ such that each has support
+contained in an open set of $\cV_1$ and the composition of the corresponding collar homeomorphisms
+yields an embedding $g:B\to B$ such that $g(B)$ is contained in an open set of $\cV_1$.
+\nn{need to say this better; maybe give fig}
+Let $g_j:B\to B$ be the embedding at the $j$-th stage.
+There are 1-blob diagrams $c_{ij} \in \bc_1(B)$ such that $c_{ij}$ is compatible with $\cV_1$
+and $\bd c_{ij} = g_j(a_i) = g_{j-1}(a_i)$.
+Define
+\[
+	s(b) = \sum_{i,j} c_{ij} + g(b)
+\]
+and choose $h_1(b) \in \bc_1(X)$ such that 
+\[
+	\bd(h_1(b)) = s(b) - b .
+\]
+
+Next we define $h_2$.
+	
 
 
 \nn{...}
 
-
-
-
-
-
-%Let $k$ be the top dimension of $C_*$.
-%The construction of $h$ will involve choosing various
 
 
 
