@@ -107,7 +107,7 @@ The composition of all the collar maps shrinks $B$ to a sufficiently small ball.
 
 Let $\cV_1$ be an auxiliary open cover of $X$, satisfying conditions specified below.
 Let $b = (B, u, r)$, $u = \sum a_i$ be the label of $B$, $a_i\in \bc_0(B)$.
-Choose a series of collar maps $f_j:\bc_0(B)\to\bc_0(B)$ such that each has support
+Choose a sequence of collar maps $f_j:\bc_0(B)\to\bc_0(B)$ such that each has support
 contained in an open set of $\cV_1$ and the composition of the corresponding collar homeomorphisms
 yields an embedding $g:B\to B$ such that $g(B)$ is contained in an open set of $\cV_1$.
 \nn{need to say this better; maybe give fig}
@@ -143,6 +143,25 @@ The composition of all the collar maps shrinks $B$ to a sufficiently small
 disjoint union of balls.
 
 Let $\cV_2$ be an auxiliary open cover of $X$, satisfying conditions specified below.
+As before, choose a sequence of collar maps $f_j$ 
+such that each has support
+contained in an open set of $\cV_1$ and the composition of the corresponding collar homeomorphisms
+yields an embedding $g:B\to B$ such that $g(B)$ is contained in an open set of $\cV_1$.
+Let $g_j:B\to B$ be the embedding at the $j$-th stage.
+Fix $j$.
+We will construct a 2-chain $d_j$ such that $\bd(d_j) = g_j(s(\bd b)) - g_{j-1}(s(\bd b))$.
+Let $g_{j-1}(s(\bd b)) = \sum e_k$, and let $\{p_m\}$ be the 0-blob diagrams
+appearing in the boundaries of the $e_k$.
+As in the construction of $h_1$, we can choose 1-blob diagrams $q_m$ such that
+$\bd q_m = g_j(p_m) = g_{j-1}(p_m)$.
+Furthermore, we can arrange that all of the $q_m$ have the same support, and that this support
+is contained in a open set of $\cV_1$.
+(This is possible since there are only finitely many $p_m$.)
+Now consider 
+
+
+
+
 
 \nn{...}
 
@@ -151,7 +170,6 @@ Let $\cV_2$ be an auxiliary open cover of $X$, satisfying conditions specified b
 
 
 \end{proof}
-
 
 
 
