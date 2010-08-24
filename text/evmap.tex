@@ -124,8 +124,25 @@ and choose $h_1(b) \in \bc_1(X)$ such that
 \]
 
 Next we define $h_2$.
-	
+Let $b\in C_2$ be a 2-blob diagram.
+Let $B = |b|$, either a ball or a union of two balls.
+By possibly working in a decomposition of $X$, we may assume that the ball(s)
+of $B$ are disjointly embedded.
+We will construct a 2-chain $s(b)\in \sbc_2$ such that
+\[
+	\bd(s(b)) = \bd(h_1(\bd b) + b) = s(\bd b)
+\]
+and the support of $s(b)$ is contained in $B$.
+It then follows from \ref{disj-union-contract} that we can choose
+$h_2(b) \in \bc_2(X)$ such that $\bd(h_2(b)) = s(b) - b - h_1(\bd b)$.
 
+Similarly to the construction of $h_1$ above, 
+$s(b)$ consists of a series of 2-blob diagrams implementing a series
+of small collar maps, plus a shrunken version of $b$.
+The composition of all the collar maps shrinks $B$ to a sufficiently small 
+disjoint union of balls.
+
+Let $\cV_2$ be an auxiliary open cover of $X$, satisfying conditions specified below.
 
 \nn{...}
 
