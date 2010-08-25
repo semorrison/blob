@@ -1,6 +1,6 @@
 %!TEX root = ../blob1.tex
 
-\section{Action of \texorpdfstring{$\CH{X}$}{C_*(Homeo(M))}}
+\section{Action of \texorpdfstring{$\CH{X}$}{C*(Homeo(M))}}
 \label{sec:evaluation}
 
 
@@ -156,22 +156,26 @@ We will construct a 2-chain $d_j$ such that $\bd(d_j) = g_j(s(\bd b)) - g_{j-1}(
 Let $g_{j-1}(s(\bd b)) = \sum e_k$, and let $\{p_m\}$ be the 0-blob diagrams
 appearing in the boundaries of the $e_k$.
 As in the construction of $h_1$, we can choose 1-blob diagrams $q_m$ such that
-$\bd q_m = f_j(p_m) = p_m$.
-Furthermore, we can arrange that all of the $q_m$ have the same support, and that this support
-is contained in a open set of $\cV_1$.
-(This is possible since there are only finitely many $p_m$.)
+$\bd q_m = f_j(p_m) - p_m$ and $\supp(q_m)$ is contained in an open set of $\cV_1$.
+%%% \nn{better not to do this, to make things more parallel with general case (?)}
+%Furthermore, we can arrange that all of the $q_m$ have the same support, and that this support
+%is contained in a open set of $\cV_1$.
+%(This is possible since there are only finitely many $p_m$.)
 If $x$ is a sum of $p_m$'s, we denote the corresponding sum of $q_m$'s by $q(x)$.
 
 Now consider, for each $k$, $e_k + q(\bd e_k)$.
 This is a 1-chain whose boundary is $f_j(\bd e_k)$.
 The support of $e_k$ is $g_{j-1}(V)$ for some $V\in \cV_1$, and
-the support of $q(\bd e_k)$ is contained in $V'$ for some $V'\in \cV_1$.
+the support of $q(\bd e_k)$ is contained in a union $V'$ of finitely many open sets
+of $\cV_1$, all of which contain the support of $f_j$.
+%the support of $q(\bd e_k)$ is contained in $V'$ for some $V'\in \cV_1$.
 We now reveal the mysterious condition (mentioned above) which $\cV_1$ satisfies:
 the union of $g_{j-1}(V)$ and $V'$, for all of the finitely many instances
 arising in the construction of $h_2$, lies inside a disjoint union of balls $U$
 such that each individual ball lies in an open set of $\cV_2$.
 (In this case there are either one or two balls in the disjoint union.)
-For any fixed open cover $\cV_2$ this condition can be satisfied by choosing $\cV_1$ small enough.
+For any fixed open cover $\cV_2$ this condition can be satisfied by choosing $\cV_1$ 
+to be a sufficiently fine cover.
 It follows from \ref{disj-union-contract}
 that we can choose $x_k \in \bc_2(X)$ with $\bd x_k = f_j(e_k) - e_k - q(\bd e_k)$
 and with $\supp(x_k) = U$.
@@ -194,6 +198,8 @@ When constructing the analogue of $x_k$ above, we will need to find a disjoint u
 which contains finitely many open sets from $\cV_{l-1}$
 such that each ball is contained in some open set of $\cV_l$.
 For sufficiently fine $\cV_{l-1}$ this will be possible.
+Since $C_*$ is finite, the process terminates after finitely many, say $r$, steps.
+We take $\cV_r = \cU$.
 
 \nn{should probably be more specific at the end}
 \end{proof}
@@ -216,10 +222,20 @@ The horizontal boundary of the double complex,
 denoted $\bd_t$, is the singular boundary, and the vertical boundary, denoted $\bd_b$, is
 the blob boundary.
 
+We will regard $\bc_*(X)$ as the subcomplex $\btc_{0*}(X) \sub \btc_{**}(X)$.
+The main result of this subsection is
+
+\begin{lemma} \label{lem:bt-btc}
+The inclusion $\bc_*(X) \sub \btc_*(X)$ is a homotopy equivalence
+\end{lemma}
+
+Before giving the proof we need a few preliminary results.
 
 
 
-\subsection{Action of \texorpdfstring{$\CH{X}$}{C_*(Homeo(M))}}
+
+
+\subsection{Action of \texorpdfstring{$\CH{X}$}{C*(Homeo(M))}}
 \label{ss:emap-def}
 
 
