@@ -105,7 +105,8 @@ Roughly speaking, $s(b)$ consists of a series of 1-blob diagrams implementing a 
 of small collar maps, plus a shrunken version of $b$.
 The composition of all the collar maps shrinks $B$ to a sufficiently small ball.
 
-Let $\cV_1$ be an auxiliary open cover of $X$, satisfying conditions specified below.
+Let $\cV_1$ be an auxiliary open cover of $X$, subordinate to $\cU$ and 
+also satisfying conditions specified below.
 Let $b = (B, u, r)$, $u = \sum a_i$ be the label of $B$, $a_i\in \bc_0(B)$.
 Choose a sequence of collar maps $f_j:\bc_0(B)\to\bc_0(B)$ such that each has support
 contained in an open set of $\cV_1$ and the composition of the corresponding collar homeomorphisms
@@ -142,35 +143,78 @@ of small collar maps, plus a shrunken version of $b$.
 The composition of all the collar maps shrinks $B$ to a sufficiently small 
 disjoint union of balls.
 
-Let $\cV_2$ be an auxiliary open cover of $X$, satisfying conditions specified below.
+Let $\cV_2$ be an auxiliary open cover of $X$, subordinate to $\cU$ and
+also satisfying conditions specified below.
 As before, choose a sequence of collar maps $f_j$ 
 such that each has support
 contained in an open set of $\cV_1$ and the composition of the corresponding collar homeomorphisms
 yields an embedding $g:B\to B$ such that $g(B)$ is contained in an open set of $\cV_1$.
 Let $g_j:B\to B$ be the embedding at the $j$-th stage.
+
 Fix $j$.
 We will construct a 2-chain $d_j$ such that $\bd(d_j) = g_j(s(\bd b)) - g_{j-1}(s(\bd b))$.
 Let $g_{j-1}(s(\bd b)) = \sum e_k$, and let $\{p_m\}$ be the 0-blob diagrams
 appearing in the boundaries of the $e_k$.
 As in the construction of $h_1$, we can choose 1-blob diagrams $q_m$ such that
-$\bd q_m = g_j(p_m) = g_{j-1}(p_m)$.
+$\bd q_m = f_j(p_m) = p_m$.
 Furthermore, we can arrange that all of the $q_m$ have the same support, and that this support
 is contained in a open set of $\cV_1$.
 (This is possible since there are only finitely many $p_m$.)
-Now consider 
+If $x$ is a sum of $p_m$'s, we denote the corresponding sum of $q_m$'s by $q(x)$.
 
+Now consider, for each $k$, $e_k + q(\bd e_k)$.
+This is a 1-chain whose boundary is $f_j(\bd e_k)$.
+The support of $e_k$ is $g_{j-1}(V)$ for some $V\in \cV_1$, and
+the support of $q(\bd e_k)$ is contained in $V'$ for some $V'\in \cV_1$.
+We now reveal the mysterious condition (mentioned above) which $\cV_1$ satisfies:
+the union of $g_{j-1}(V)$ and $V'$, for all of the finitely many instances
+arising in the construction of $h_2$, lies inside a disjoint union of balls $U$
+such that each individual ball lies in an open set of $\cV_2$.
+(In this case there are either one or two balls in the disjoint union.)
+For any fixed open cover $\cV_2$ this condition can be satisfied by choosing $\cV_1$ small enough.
+It follows from \ref{disj-union-contract}
+that we can choose $x_k \in \bc_2(X)$ with $\bd x_k = f_j(e_k) - e_k - q(\bd e_k)$
+and with $\supp(x_k) = U$.
+We can now take $d_j \deq \sum x_k$.
+It is clear that $\bd d_j = \sum (f_j(e_k) - e_k) = g_j(s(\bd b)) - g_{j-1}(s(\bd b))$, as desired.
+\nn{should maybe have figure}
 
+We now define 
+\[
+	s(b) = \sum d_j + g(b),
+\]
+where $g$ is the composition of all the $f_j$'s.
+It is easy to verify that $s(b) \in \sbc_2$, $\supp(s(b)) = \supp(b)$, and 
+$\bd(s(b)) = s(\bd b)$.
+If follows that we can choose $h_2(b)\in \bc_2(X)$ such that $\bd(h_2(b)) = s(b) - b - h_1(\bd b)$.
+This completes the definition of $h_2$.
 
+The general case $h_l$ is similar.
+When constructing the analogue of $x_k$ above, we will need to find a disjoint union of balls $U$
+which contains finitely many open sets from $\cV_{l-1}$
+such that each ball is contained in some open set of $\cV_l$.
+For sufficiently fine $\cV_{l-1}$ this will be possible.
 
-
-\nn{...}
-
-
-
-
-
+\nn{should probably be more specific at the end}
 \end{proof}
 
+
+\medskip
+
+Next we define the sort-of-simplicial space version of the blob complex, $\btc_*(X)$.
+First we must specify a topology on the set of $k$-blob diagrams, $\BD_k$.
+We give $\BD_k$ the finest topology such that
+\begin{itemize}
+\item For any $b\in \BD_k$ the action map $\Homeo(X) \to \BD_k$, $f \mapsto f(b)$ is continuous.
+\item \nn{something about blob labels and vector space structure}
+\item \nn{maybe also something about gluing}
+\end{itemize}
+
+Next we define $\btc_*(X)$ to be the total complex of the double complex (denoted $\btc_{**}$) 
+whose $(i,j)$ entry is $C_i(\BD_j)$, the singular $i$-chains on the space of $j$-blob diagrams.
+The horizontal boundary of the double complex,
+denoted $\bd_t$, is the singular boundary, and the vertical boundary, denoted $\bd_b$, is
+the blob boundary.
 
 
 
