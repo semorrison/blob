@@ -217,12 +217,12 @@ We give $\BD_k$ the finest topology such that
 \end{itemize}
 
 Next we define $\btc_*(X)$ to be the total complex of the double complex (denoted $\btc_{**}$) 
-whose $(i,j)$ entry is $C_i(\BD_j)$, the singular $i$-chains on the space of $j$-blob diagrams.
-The horizontal boundary of the double complex,
-denoted $\bd_t$, is the singular boundary, and the vertical boundary, denoted $\bd_b$, is
+whose $(i,j)$ entry is $C_j(\BD_i)$, the singular $j$-chains on the space of $i$-blob diagrams.
+The vertical boundary of the double complex,
+denoted $\bd_t$, is the singular boundary, and the horizontal boundary, denoted $\bd_b$, is
 the blob boundary.
 
-We will regard $\bc_*(X)$ as the subcomplex $\btc_{0*}(X) \sub \btc_{**}(X)$.
+We will regard $\bc_*(X)$ as the subcomplex $\btc_{*0}(X) \sub \btc_{**}(X)$.
 The main result of this subsection is
 
 \begin{lemma} \label{lem:bt-btc}
@@ -230,6 +230,73 @@ The inclusion $\bc_*(X) \sub \btc_*(X)$ is a homotopy equivalence
 \end{lemma}
 
 Before giving the proof we need a few preliminary results.
+
+\begin{lemma} \label{bt-contract}
+$\btc_*(B^n)$ is contractible (acyclic in positive degrees).
+\end{lemma}
+\begin{proof}
+We will construct a contracting homotopy $h: \btc_*(B^n)\to \btc_*(B^n)$.
+
+We will assume a splitting $s:H_0(\btc_*(B^n))\to \btc_0(B^n)$
+of the quotient map $q:\btc_0(B^n)\to H_0(\btc_*(B^n))$.
+Let $r = s\circ q$.
+
+For $x\in \btc_{ij}$ with $i\ge 1$ define
+\[
+	h(x) = e(x) ,
+\]
+where
+\[
+	e: \btc_{ij}\to\btc_{i+1,j}
+\]
+adds an outermost blob, equal to all of $B^n$, to the $j$-parameter family of blob diagrams.
+
+A generator $y\in \btc_{0j}$ is a map $y:P\to \BD_0$, where $P$ is some $j$-dimensional polyhedron.
+We define $r(y)\in \btc_{0j}$ to be the constant function $r\circ y : P\to \BD_0$.
+Let $c(r(y))\in \btc_{0,j+1}$ be the constant map from the cone of $P$ to $\BD_0$ taking
+the same value (i.e.\ $r(y(p))$ for any $p\in P$).
+Let $e(y - r(y)) \in \btc_{1j}$ denote the $j$-parameter family of 1-blob diagrams
+whose value at $p\in P$ is the blob $B^n$ with label $y(p) - r(y(p))$.
+Now define, for $y\in \btc_{0j}$,
+\[
+	h(y) = e(y - r(y)) + c(r(y)) .
+\]
+\nn{up to sign, at least}
+
+We must now verify that $h$ does the job it was intended to do.
+For $x\in \btc_{ij}$ with $i\ge 2$ we have
+\nn{ignoring signs}
+\begin{align*}
+	\bd h(x) + h(\bd x) &= \bd(e(x)) + e(\bd x) \\
+			&= \bd_b(e(x)) + \bd_t(e(x)) + e(\bd_b x) + e(\bd_t x) \\
+			&= \bd_b(e(x)) + e(\bd_b x) \quad\quad\text{(since $\bd_t(e(x)) = e(\bd_t x)$)} \\
+			&= x .
+\end{align*}
+For $x\in \btc_{1j}$ we have
+\nn{ignoring signs}
+\begin{align*}
+	\bd h(x) + h(\bd x) &= \bd_b(e(x)) + \bd_t(e(x)) + e(\bd_b x - r(\bd_b x)) + c(r(\bd_b x)) + e(\bd_t x) \\
+			&= \bd_b(e(x)) + e(\bd_b x) \quad\quad\text{(since $r(\bd_b x) = 0$)} \\
+			&= x .
+\end{align*}
+For $x\in \btc_{0j}$ with $j\ge 1$ we have
+\nn{ignoring signs}
+\begin{align*}
+	\bd h(x) + h(\bd x) &= \bd_b(e(x - r(x))) + \bd_t(e(x - r(x))) + \bd_t(c(r(x))) + 
+											e(\bd_t x - r(\bd_t x)) + c(r(\bd_t x)) \\
+			&= x - r(x) + \bd_t(c(r(x))) + c(r(\bd_t x)) \\
+			&= x - r(x) + r(x) \\
+			&= x.
+\end{align*}
+For $x\in \btc_{00}$ we have
+\nn{ignoring signs}
+\begin{align*}
+	\bd h(x) + h(\bd x) &= \bd_b(e(x - r(x))) + \bd_t(c(r(x))) \\
+			&= x - r(x) + r(x) - r(x)\\
+			&= x - r(x).
+\end{align*}
+\end{proof}
+
 
 
 
