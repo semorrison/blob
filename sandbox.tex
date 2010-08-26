@@ -12,9 +12,70 @@
 
 \begin{document}
 
-\begin{equation*}
-\mathfig{.73}{tempkw/zo2}
-\end{equation*}
+
+\begin{figure}[t]
+\begin{center}
+\begin{tikzpicture}
+
+\node(A) at (-4,0) {
+\begin{tikzpicture}[scale=.8, fill=blue!15!white]
+\filldraw[line width=1.5pt] (-.4,1) .. controls +(-1,-.1) and +(-1,0) .. (0,-1)
+		.. controls +(1,0) and +(1,-.1) .. (.4,1) -- (.4,3)
+		.. controls +(3,-.4) and +(3,0) .. (0,-3)
+		.. controls +(-3,0) and +(-3,-.1) .. (-.4,3) -- cycle;
+\node at (0,-2) {$X$};
+\node (W) at (-2.7,-2) {$W$};
+\node (Y1) at (-1.2,3.5) {$Y$};
+\node (Y2) at (1.4,3.5) {$Y$};
+\node[outer sep=2.3] (y1e) at (-.4,2) {};
+\node[outer sep=2.3] (y2e) at (.4,2) {};
+\node (we1) at (-2.2,-1.1) {};
+\node (we2) at (-.6,-.7) {};
+\draw[->] (Y1) -- (y1e);
+\draw[->] (Y2) -- (y2e);
+\draw[->] (W) .. controls +(0,.5) and +(-.5,-.2) .. (we1);
+\draw[->] (W) .. controls +(.5,0) and +(-.2,-.5) .. (we2);
+\end{tikzpicture}
+};
+
+\node(B) at (4,0) {
+\begin{tikzpicture}[scale=.8, fill=blue!15!white]
+\fill (0,1) .. controls +(-1,0) and +(-1,0) .. (0,-1)
+		.. controls +(1,0) and +(1,0) .. (0,1) -- (0,3)
+		.. controls +(3,0) and +(3,0) .. (0,-3)
+		.. controls +(-3,0) and +(-3,0) .. (0,3) -- cycle;
+\draw[line width=1.5pt] (0,1) .. controls +(-1,0) and +(-1,0) .. (0,-1)
+		.. controls +(1,0) and +(1,0) .. (0,1);
+\draw[line width=1.5pt] (0,3) .. controls +(3,0) and +(3,0) .. (0,-3)
+		.. controls +(-3,0) and +(-3,0) .. (0,3);
+\draw[line width=.5pt, black!65!white] (0,1) -- (0,3);
+\node at (0,-2) {$X\sgl$};
+\node (W) at (2.7,-2) {$W\sgl$};
+\node (we1) at (2.2,-1.1) {};
+\node (we2) at (.6,-.7) {};
+\draw[->] (W) .. controls +(0,.5) and +(.5,-.2) .. (we1);
+\draw[->] (W) .. controls +(-.5,0) and +(.2,-.5) .. (we2);
+\end{tikzpicture}
+};
+
+
+\draw[->, red!80!green, line width=2pt] (A) -- node[above, black] {glue} (B);
+
+\end{tikzpicture}
+\end{center}
+\caption{Gluing with corners}
+\label{fig:gluing-with-corners}
+\end{figure}
+
+
+
+
+
+blah
+
+\vfill\eject
+
+
 
 \begin{tikzpicture}
 \newcommand{\rr}{6}
