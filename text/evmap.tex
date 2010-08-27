@@ -3,14 +3,6 @@
 \section{Action of \texorpdfstring{$\CH{X}$}{C*(Homeo(M))}}
 \label{sec:evaluation}
 
-
-\nn{new plan: use the sort-of-simplicial space version of
-the blob complex.
-first define it, then show it's hty equivalent to the other def, then observe that
-$CH*$ acts.
-maybe salvage some of the original version of this section as a subsection outlining
-how one might proceed directly.}
-
 In this section we extend the action of homeomorphisms on $\bc_*(X)$
 to an action of {\it families} of homeomorphisms.
 That is, for each pair of homeomorphic manifolds $X$ and $Y$
@@ -36,12 +28,12 @@ The details are in \S \ref{ss:alt-def}.
 For technical reasons we also show that requiring the blobs to be
 embedded yields a homotopy equivalent complex.
 
-Since $\bc_*(X)$ and $\btc_*(X)$ are homotopy equivalent one could try to construct
-the $CH_*$ actions directly in terms of $\bc_*(X)$.
-This was our original approach, but working out the details created a nearly unreadable mess.
-We have salvaged a sketch of that approach in \S \ref{ss:old-evmap-remnants}.
-
-\nn{should revisit above intro after this section is done}
+%Since $\bc_*(X)$ and $\btc_*(X)$ are homotopy equivalent one could try to construct
+%the $CH_*$ actions directly in terms of $\bc_*(X)$.
+%This was our original approach, but working out the details created a nearly unreadable mess.
+%We have salvaged a sketch of that approach in \S \ref{ss:old-evmap-remnants}.
+%
+%\nn{should revisit above intro after this section is done}
 
 
 \subsection{Alternative definitions of the blob complex}
@@ -75,15 +67,21 @@ of all blob diagrams in which every blob is contained in some open set of $\cU$,
 and moreover each field labeling a region cut out by the blobs is splittable 
 into fields on smaller regions, each of which is contained in some open set of $\cU$.
 
-\begin{lemma}[Small blobs] \label{small-blobs-b}
+\begin{lemma}[Small blobs] \label{small-blobs-b}  \label{thm:small-blobs}
 The inclusion $i: \bc^{\cU}_*(M) \into \bc_*(M)$ is a homotopy equivalence.
 \end{lemma}
 
 \begin{proof}
 It suffices to show that for any finitely generated pair of subcomplexes 
-$(C_*, D_*) \sub (\bc_*(X), \sbc_*(X))$
+\[
+	(C_*, D_*) \sub (\bc_*(X), \sbc_*(X))
+\]
 we can find a homotopy $h:C_*\to \bc_*(X)$ such that $h(D_*) \sub \sbc_*(X)$
-and $x + h\bd(x) + \bd h(X) \in \sbc_*(X)$ for all $x\in C_*$.
+and
+\[
+	x + h\bd(x) + \bd h(X) \in \sbc_*(X)
+\]
+for all $x\in C_*$.
 
 For simplicity we will assume that all fields are splittable into small pieces, so that
 $\sbc_0(X) = \bc_0$.
@@ -225,7 +223,7 @@ the blob boundary.
 We will regard $\bc_*(X)$ as the subcomplex $\btc_{*0}(X) \sub \btc_{**}(X)$.
 The main result of this subsection is
 
-\begin{lemma} \label{lem:bt-btc}
+\begin{lemma} \label{lem:bc-btc}
 The inclusion $\bc_*(X) \sub \btc_*(X)$ is a homotopy equivalence
 \end{lemma}
 
@@ -297,7 +295,7 @@ For $x\in \btc_{00}$ we have
 \end{align*}
 \end{proof}
 
-\begin{lemma}
+\begin{lemma} \label{btc-prod}
 For manifolds $X$ and $Y$, we have $\btc_*(X\du Y) \simeq \btc_*(X)\otimes\btc_*(Y)$.
 \end{lemma}
 \begin{proof}
@@ -342,7 +340,7 @@ on balls $D_i$ contained in open sets of $\cU$.
 \end{proof}
 
 
-\begin{proof}[Proof of \ref{lem:bt-btc}]
+\begin{proof}[Proof of \ref{lem:bc-btc}]
 Armed with the above lemmas, we can now proceed similarly to the proof of \ref{small-blobs-b}.
 
 It suffices to show that for any finitely generated pair of subcomplexes 
@@ -357,10 +355,102 @@ We choose $\cU$ fine enough so that each generator of $C_*$ is supported on a di
 
 Since $\bc_0(X) = \btc_0(X)$, we can take $h_0 = 0$.
 
+Let $b \in C_1$ be a generator.
+Since $b$ is supported in a disjoint union of balls,
+we can find $s(b)\in \bc_1$ with $\bd (s(b)) = \bd b$
+(by \ref{disj-union-contract}), and also $h_1(b) \in \btc_2$
+such that $\bd (h_1(b)) = s(b) - b$
+(by \ref{bt-contract} and \ref{btc-prod}).
+
+Now let $b$ be a generator of $C_2$.
+If $\cU$ is fine enough, there is a disjoint union of balls $V$
+on which $b + h_1(\bd b)$ is supported.
+Since $\bd(b + h_1(\bd b)) = s(\bd b) \in \bc_2$, we can find
+$s(b)\in \bc_2$ with $\bd(s(b)) = \bd(b + h_1(\bd b))$ (by \ref{disj-union-contract}).
+By \ref{bt-contract} and \ref{btc-prod}, we can now find
+$h_2(b) \in \btc_3$, also supported on $V$, such that $\bd(h_2(b)) = s(b) - b - h_1(\bd b)$
+
+The general case, $h_k$, is similar.
+\end{proof}
+
+The proof of \ref{lem:bc-btc} constructs a homotopy inverse to the inclusion
+$\bc_*(X)\sub \btc_*(X)$.
+One might ask for more: a contractible set of possible homotopy inverses, or at least an
+$m$-connected set for arbitrarily large $m$.
+The latter can be achieved with finer control over the various
+choices of disjoint unions of balls in the above proofs, but we will not pursue this here.
 
 
 
-\nn{...}
+
+\subsection{Action of \texorpdfstring{$\CH{X}$}{C*(Homeo(M))}}
+\label{ss:emap-def}
+
+Let $CH_*(X, Y)$ denote $C_*(\Homeo(X \to Y))$, the singular chain complex of
+the space of homeomorphisms
+between the $n$-manifolds $X$ and $Y$ 
+(any given singular chain extends a fixed homeomorphism $\bd X \to \bd Y$).
+We also will use the abbreviated notation $CH_*(X) \deq CH_*(X, X)$.
+(For convenience, we will permit the singular cells generating $CH_*(X, Y)$ to be more general
+than simplices --- they can be based on any linear polyhedron.
+\nn{be more restrictive here?  does more need to be said?})
+
+\begin{thm}  \label{thm:CH}
+For $n$-manifolds $X$ and $Y$ there is a chain map
+\eq{
+    e_{XY} : CH_*(X, Y) \otimes \bc_*(X) \to \bc_*(Y) ,
+}
+well-defined up to homotopy,
+such that
+\begin{enumerate}
+\item on $CH_0(X, Y) \otimes \bc_*(X)$ it agrees with the obvious action of 
+$\Homeo(X, Y)$ on $\bc_*(X)$  described in Property (\ref{property:functoriality}), and
+\item for any compatible splittings $X\to X\sgl$ and $Y\to Y\sgl$, 
+the following diagram commutes up to homotopy
+\begin{equation*}
+\xymatrix@C+2cm{
+      CH_*(X, Y) \otimes \bc_*(X)
+        \ar[r]_(.6){e_{XY}}  \ar[d]^{\gl \otimes \gl}   &
+            \bc_*(Y)\ar[d]^{\gl} \\
+     CH_*(X\sgl, Y\sgl) \otimes \bc_*(X\sgl) \ar[r]_(.6){e_{X\sgl Y\sgl}}   & 	\bc_*(Y\sgl)  
+}
+\end{equation*}
+\end{enumerate}
+\end{thm}
+
+\begin{proof}
+In light of Lemma \ref{lem:bc-btc}, it suffices to prove the theorem with 
+$\bc_*$ replaced by $\btc_*$.
+And in fact for $\btc_*$ we get a sharper result: we can omit
+the ``up to homotopy" qualifiers.
+
+Let $f\in CH_k(X, Y)$, $f:P^k\to \Homeo(X \to Y)$ and $a\in \btc_{ij}(X)$, 
+$a:Q^j \to \BD_i(X)$.
+Define $e_{XY}(f\ot a)\in \btc_{i,j+k}(Y)$ by
+\begin{align*}
+	e_{XY}(f\ot a) : P\times Q &\to \BD_i(Y) \\
+	(p,q) &\mapsto f(p)(a(q))  .
+\end{align*}
+It is clear that this agrees with the previously defined $CH_0(X, Y)$ action on $\btc_*$,
+and it is also easy to see that the diagram in item 2 of the statement of the theorem
+commutes on the nose.
+\end{proof}
+
+
+\begin{thm}
+\label{thm:CH-associativity}
+The $CH_*(X, Y)$ actions defined above are associative.
+That is, the following diagram commutes up to homotopy:
+\[ \xymatrix{
+& CH_*(Y, Z) \ot \bc_*(Y) \ar[dr]^{e_{YZ}} & \\
+CH_*(X, Y) \ot CH_*(Y, Z) \ot \bc_*(X) \ar[ur]^{e_{XY}\ot\id} \ar[dr]_{\mu\ot\id} & & \bc_*(Z) \\
+& CH_*(X, Z) \ot \bc_*(X) \ar[ur]_{e_{XZ}} &
+} \]
+Here $\mu:CH_*(X, Y) \ot CH_*(Y, Z)\to CH_*(X, Z)$ is the map induced by composition
+of homeomorphisms.
+\end{thm}
+\begin{proof}
+The corresponding diagram for $\btc_*$ commutes on the nose.
 \end{proof}
 
 
@@ -369,9 +459,7 @@ Since $\bc_0(X) = \btc_0(X)$, we can take $h_0 = 0$.
 
 
 
-\subsection{Action of \texorpdfstring{$\CH{X}$}{C*(Homeo(M))}}
-\label{ss:emap-def}
-
+\noop{
 
 
 \subsection{[older version still hanging around]}
@@ -1042,3 +1130,5 @@ that they are compatible with gluing, and the contractibility of $\bc_*(X)$.
 We can now apply Lemma \ref{extension_lemma_c}, using a series of increasingly fine covers, 
 to construct a deformation retraction of $CH_*(X, Y) \ot CH_*(Y, Z) \ot \bc_*(X)$ into $G_*$.
 \end{proof}
+
+} % end \noop
