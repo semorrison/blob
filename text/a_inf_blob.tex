@@ -227,40 +227,86 @@ homotopy equivalent:
 
 Theorem \ref{thm:product} extends to the case of general fiber bundles
 \[
-	F \to E \to Y .
+	F \to E \to Y ,
 \]
-We outline one approach here and a second in \S \ref{xyxyx}.
+an indeed even to the case of general maps
+\[
+	M\to Y .
+\]
+We outline two approaches to these generalizations.
+The first is somewhat tautological, while the second is more amenable to
+calculation.
 
 We can generalize the definition of a $k$-category by replacing the categories
 of $j$-balls ($j\le k$) with categories of $j$-balls $D$ equipped with a map $p:D\to Y$
 (c.f. \cite{MR2079378}).
 Call this a $k$-category over $Y$.
 A fiber bundle $F\to E\to Y$ gives an example of a $k$-category over $Y$:
-assign to $p:D\to Y$ the blob complex $\bc_*(p^*(E))$.
+assign to $p:D\to Y$ the blob complex $\bc_*(p^*(E))$, if $\dim(D) = k$,
+or the fields $\cE(p^*(E))$, if $\dim(D) < k$.
+($p^*(E)$ denotes the pull-back bundle over $D$.)
 Let $\cF_E$ denote this $k$-category over $Y$.
 We can adapt the homotopy colimit construction (based decompositions of $Y$ into balls) to
 get a chain complex $\cl{\cF_E}(Y)$.
 The proof of Theorem \ref{thm:product} goes through essentially unchanged 
 to show that
+\begin{thm}
+Let $F \to E \to Y$ be a fiber bundle and let $\cF_E$ be the $k$-category over $Y$ defined above.
+Then
 \[
 	\bc_*(E) \simeq \cl{\cF_E}(Y) .
 \]
+\qed
+\end{thm}
 
-\nn{remark further that this still works when the map is not even a fibration?}
+We can generalize this result still further by noting that it is not really necessary
+for the definition of $\cF_E$ that $E\to Y$ be a fiber bundle.
+Let $M\to Y$ be a map, with $\dim(M) = n$ and $\dim(Y) = k$.
+Call a map $D^j\to Y$ ``good" with respect to $M$ if the fibered product
+$D\widetilde{\times} M$ is a manifold of dimension $n-k+j$ with a collar structure along the boundary of $D$.
+(If $D\to Y$ is an embedding then $D\widetilde{\times} M$ is just the part of $M$
+lying above $D$.)
+We can define a $k$-category $\cF_M$ based on maps of balls into $Y$ which a re good with respect to $M$.
+We can again adapt the homotopy colimit construction to
+get a chain complex $\cl{\cF_M}(Y)$.
+The proof of Theorem \ref{thm:product} again goes through essentially unchanged 
+to show that
+\begin{thm}
+Let $M \to Y$ be a map of manifolds and let $\cF_M$ be the $k$-category over $Y$ defined above.
+Then
+\[
+	\bc_*(M) \simeq \cl{\cF_M}(Y) .
+\]
+\qed
+\end{thm}
 
-\nn{put this later}
 
-\nn{The second approach: Choose a decomposition $Y = \cup X_i$
+\medskip
+
+In the second approach we use a decorated colimit (as in \S \ref{ssec:spherecat}) 
+and various sphere modules based on $F \to E \to Y$
+or $M\to Y$, instead of an undecorated colimit with fancier $k$-categories over $Y$.
+Information about the specific map to $Y$ has been taken out of the categories
+and put into sphere modules and decorations.
+
+Let $F \to E \to Y$ be a fiber bundle as above.
+Choose a decomposition $Y = \cup X_i$
 such that the restriction of $E$ to $X_i$ is a product $F\times X_i$.
-Choose the product structure as well.
-To each codim-1 face $D_i\cap D_j$ we have a bimodule ($S^0$-module).
+\nn{resume revising here}
+Choose the product structure (trivialization of the bundle restricted to $X_i$) as well.
+To each codim-1 face $X_i\cap X_j$ we have a bimodule ($S^0$-module).
 And more generally to each codim-$j$ face we have an $S^{j-1}$-module.
 Decorate the decomposition with these modules and do the colimit.
-}
+
 
 \nn{There is a version of this last construction for arbitrary maps $E \to Y$
 (not necessarily a fibration).
 In fact, there is also a version of the first construction for non-fibrations.}
+
+
+
+Note that Theorem \ref{thm:gluing} can be viewed as a special case of this one.
+Let $X_1$ and $X_2$ be $n$-manifolds
 
 
 
@@ -405,13 +451,5 @@ Another acyclic models argument shows that $\phi\circ\psi$ is homotopic to the i
 
 \nn{maybe should also mention version where we enrich over
 spaces rather than chain complexes;}
-
-\medskip
-\hrule
-\medskip
-
-\nn{to be continued...}
-\medskip
-\nn{still to do: general maps}
 
 
