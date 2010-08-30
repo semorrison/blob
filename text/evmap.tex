@@ -13,11 +13,12 @@ we define a chain map
 where $CH_*(X, Y) = C_*(\Homeo(X, Y))$, the singular chains on the space
 of homeomorphisms from $X$ to $Y$.
 (If $X$ and $Y$ have non-empty boundary, these families of homeomorphisms
-are required to be fixed on the boundaries.)
+are required to restrict to a fixed homeomorphism on the boundaries.)
+These actions (for various $X$ and $Y$) are compatible with gluing.
 See \S \ref{ss:emap-def} for a more precise statement.
 
 The most convenient way to prove that maps $e_{XY}$ with the desired properties exist is to 
-introduce a homotopy equivalent alternate version of the blob complex $\btc_*(X)$
+introduce a homotopy equivalent alternate version of the blob complex, $\btc_*(X)$,
 which is more amenable to this sort of action.
 Recall from Remark \ref{blobsset-remark} that blob diagrams
 have the structure of a sort-of-simplicial set.
@@ -25,8 +26,10 @@ Blob diagrams can also be equipped with a natural topology, which converts this
 sort-of-simplicial set into a sort-of-simplicial space.
 Taking singular chains of this space we get $\btc_*(X)$.
 The details are in \S \ref{ss:alt-def}.
-For technical reasons we also show that requiring the blobs to be
-embedded yields a homotopy equivalent complex.
+We also prove a useful lemma (\ref{small-blobs-b}) which says that we can assume that
+blobs are small with respect to any fixed open cover.
+
+
 
 %Since $\bc_*(X)$ and $\btc_*(X)$ are homotopy equivalent one could try to construct
 %the $CH_*$ actions directly in terms of $\bc_*(X)$.
@@ -48,11 +51,14 @@ of the blob complex, and show that they are both homotopy equivalent to $\bc_*(X
 
 If $b$ is a blob diagram in $\bc_*(X)$, define the {\it support} of $b$, denoted
 $\supp(b)$ or $|b|$, to be the union of the blobs of $b$.
-For a general $k$-chain $a\in \bc_k(X)$, define the support of $a$ to be the union
-of the supports of the blob diagrams which appear in it.
+%For a general $k$-chain $a\in \bc_k(X)$, define the support of $a$ to be the union
+%of the supports of the blob diagrams which appear in it.
+More generally, we say that a chain $a\in \bc_k(X)$ is supported on $S$ if
+$a = a'\bullet r$, where $a'\in \bc_k(S)$ and $r\in \bc_0(X\setmin S)$.
 
-If $f: P\times X\to X$ is a family of homeomorphisms and $Y\sub X$, we say that $f$ is 
+Similarly, if $f: P\times X\to X$ is a family of homeomorphisms and $Y\sub X$, we say that $f$ is 
 {\it supported on $Y$} if $f(p, x) = f(p', x)$ for all $x\in X\setmin Y$ and all $p,p'\in P$.
+%Equivalently, $f = f'\bullet r$, where $f'\in CH_k(Y)$ and $r\in CH_0(X\setmin Y)$.
 We will sometimes abuse language and talk about ``the" support of $f$,
 again denoted $\supp(f)$ or $|f|$, to mean some particular choice of $Y$ such that
 $f$ is supported on $Y$.
@@ -60,6 +66,8 @@ $f$ is supported on $Y$.
 If $f: M \cup (Y\times I) \to M$ is a collaring homeomorphism
 (cf. end of \S \ref{ss:syst-o-fields}),
 we say that $f$ is supported on $S\sub M$ if $f(x) = x$ for all $x\in M\setmin S$.
+
+\medskip
 
 Fix $\cU$, an open cover of $X$.
 Define the ``small blob complex" $\bc^{\cU}_*(M)$ to be the subcomplex of $\bc_*(X)$ 
@@ -79,7 +87,7 @@ It suffices to show that for any finitely generated pair of subcomplexes
 we can find a homotopy $h:C_*\to \bc_*(X)$ such that $h(D_*) \sub \sbc_*(X)$
 and
 \[
-	x + h\bd(x) + \bd h(X) \in \sbc_*(X)
+	h\bd(x) + \bd h(x) - x \in \sbc_*(X)
 \]
 for all $x\in C_*$.
 
@@ -101,18 +109,24 @@ $h_1(b) \in \bc_1(X)$ such that $\bd(h_1(b)) = s(b) - b$.
 
 Roughly speaking, $s(b)$ consists of a series of 1-blob diagrams implementing a series
 of small collar maps, plus a shrunken version of $b$.
-The composition of all the collar maps shrinks $B$ to a sufficiently small ball.
+The composition of all the collar maps shrinks $B$ to a ball which is small with respect to $\cU$.
 
 Let $\cV_1$ be an auxiliary open cover of $X$, subordinate to $\cU$ and 
 also satisfying conditions specified below.
 Let $b = (B, u, r)$, $u = \sum a_i$ be the label of $B$, $a_i\in \bc_0(B)$.
-Choose a sequence of collar maps $f_j:\bc_0(B)\to\bc_0(B)$ such that each has support
-contained in an open set of $\cV_1$ and the composition of the corresponding collar homeomorphisms
-yields an embedding $g:B\to B$ such that $g(B)$ is contained in an open set of $\cV_1$.
-\nn{need to say this better; maybe give fig}
-Let $g_j:B\to B$ be the embedding at the $j$-th stage.
+Choose a sequence of collar maps $\bar{f}_j:B\cup\text{collar}\to B$ satisfying conditions which we cannot express
+until introducing more notation.
+Let $f_j:B\to B$ be the restriction of $\bar{f}_j$ to $B$; $f_j$ maps $B$ homeomorphically to 
+a slightly smaller submanifold of $B$.
+Let $g_j = f_1\circ f_2\circ\cdots\circ f_j$.
+Let $g$ be the last of the $g_j$'s.
+Choose the sequence $\bar{f}_j$ so that 
+$g(B)$ is contained is an open set of $\cV_1$ and
+$g_{j-1}(|f_j|)$ is also contained is an open set of $\cV_1$.
+
 There are 1-blob diagrams $c_{ij} \in \bc_1(B)$ such that $c_{ij}$ is compatible with $\cV_1$
-and $\bd c_{ij} = g_j(a_i) = g_{j-1}(a_i)$.
+(more specifically, $|c_{ij}| = g_{j-1}(|f_j|)$)
+and $\bd c_{ij} = g_{j-1}(a_i) - g_{j}(a_i)$.
 Define
 \[
 	s(b) = \sum_{i,j} c_{ij} + g(b)
@@ -150,23 +164,18 @@ yields an embedding $g:B\to B$ such that $g(B)$ is contained in an open set of $
 Let $g_j:B\to B$ be the embedding at the $j$-th stage.
 
 Fix $j$.
-We will construct a 2-chain $d_j$ such that $\bd(d_j) = g_j(s(\bd b)) - g_{j-1}(s(\bd b))$.
-Let $g_{j-1}(s(\bd b)) = \sum e_k$, and let $\{p_m\}$ be the 0-blob diagrams
+We will construct a 2-chain $d_j$ such that $\bd d_j = g_{j-1}(s(\bd b)) - g_{j}(s(\bd b))$.
+Let $s(\bd b) = \sum e_k$, and let $\{p_m\}$ be the 0-blob diagrams
 appearing in the boundaries of the $e_k$.
 As in the construction of $h_1$, we can choose 1-blob diagrams $q_m$ such that
-$\bd q_m = f_j(p_m) - p_m$ and $\supp(q_m)$ is contained in an open set of $\cV_1$.
-%%% \nn{better not to do this, to make things more parallel with general case (?)}
-%Furthermore, we can arrange that all of the $q_m$ have the same support, and that this support
-%is contained in a open set of $\cV_1$.
-%(This is possible since there are only finitely many $p_m$.)
+$\bd q_m = g_{j-1}(p_m) - g_j(p_m)$ and $\supp(q_m)$ is contained in an open set of $\cV_1$.
 If $x$ is a sum of $p_m$'s, we denote the corresponding sum of $q_m$'s by $q(x)$.
 
-Now consider, for each $k$, $e_k + q(\bd e_k)$.
-This is a 1-chain whose boundary is $f_j(\bd e_k)$.
+Now consider, for each $k$, $g_{j-1}(e_k) - q(\bd e_k)$.
+This is a 1-chain whose boundary is $g_j(\bd e_k)$.
 The support of $e_k$ is $g_{j-1}(V)$ for some $V\in \cV_1$, and
 the support of $q(\bd e_k)$ is contained in a union $V'$ of finitely many open sets
 of $\cV_1$, all of which contain the support of $f_j$.
-%the support of $q(\bd e_k)$ is contained in $V'$ for some $V'\in \cV_1$.
 We now reveal the mysterious condition (mentioned above) which $\cV_1$ satisfies:
 the union of $g_{j-1}(V)$ and $V'$, for all of the finitely many instances
 arising in the construction of $h_2$, lies inside a disjoint union of balls $U$
@@ -174,11 +183,11 @@ such that each individual ball lies in an open set of $\cV_2$.
 (In this case there are either one or two balls in the disjoint union.)
 For any fixed open cover $\cV_2$ this condition can be satisfied by choosing $\cV_1$ 
 to be a sufficiently fine cover.
-It follows from \ref{disj-union-contract}
-that we can choose $x_k \in \bc_2(X)$ with $\bd x_k = f_j(e_k) - e_k - q(\bd e_k)$
+It follows from \ref{disj-union-contract} that we can choose 
+$x_k \in \bc_2(X)$ with $\bd x_k = g_{j-1}(e_k) - g_j(e_k) - q(\bd e_k)$
 and with $\supp(x_k) = U$.
 We can now take $d_j \deq \sum x_k$.
-It is clear that $\bd d_j = \sum (f_j(e_k) - e_k) = g_j(s(\bd b)) - g_{j-1}(s(\bd b))$, as desired.
+It is clear that $\bd d_j = \sum (g_{j-1}(e_k) - g_j(e_k)) = g_{j-1}(s(\bd b)) - g_{j}(s(\bd b))$, as desired.
 \nn{should maybe have figure}
 
 We now define 
