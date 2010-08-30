@@ -87,7 +87,7 @@ It suffices to show that for any finitely generated pair of subcomplexes
 we can find a homotopy $h:C_*\to \bc_*(X)$ such that $h(D_*) \sub \sbc_*(X)$
 and
 \[
-	h\bd(x) + \bd h(x) - x \in \sbc_*(X)
+	h\bd(x) + \bd h(x) + x \in \sbc_*(X)
 \]
 for all $x\in C_*$.
 
@@ -219,9 +219,18 @@ First we must specify a topology on the set of $k$-blob diagrams, $\BD_k$.
 We give $\BD_k$ the finest topology such that
 \begin{itemize}
 \item For any $b\in \BD_k$ the action map $\Homeo(X) \to \BD_k$, $f \mapsto f(b)$ is continuous.
-\item \nn{something about blob labels and vector space structure}
-\item \nn{maybe also something about gluing}
+\item The gluing maps $\BD_k(M)\to \BD_k(M\sgl)$ are continuous.
+\item For balls $B$, the map $U(B) \to \BD_1(B)$, $u\mapsto (B, u, \emptyset)$, is continuous,
+where $U(B) \sub \bc_0(B)$ inherits its topology from $\bc_0(B)$ and the topology on
+$\bc_0(B)$ comes from the generating set $\BD_0(B)$.
 \end{itemize}
+
+We can summarize the above by saying that in the typical continuous family
+$P\to \BD_k(M)$, $p\mapsto (B_i(p), u_i(p), r(p)$, $B_i(p)$ and $r(p)$ are induced by a map
+$P\to \Homeo(M)$, with the twig blob labels $u_i(p)$ varying independently.
+We note that while have no need to allow the blobs $B_i(p)$ to vary independently of the field $r(p)$,
+if we did allow this it would not affect the truth of the claims we make below.
+In particular, we would get a homotopy equivalent complex $\btc_*(M)$.
 
 Next we define $\btc_*(X)$ to be the total complex of the double complex (denoted $\btc_{**}$) 
 whose $(i,j)$ entry is $C_j(\BD_i)$, the singular $j$-chains on the space of $i$-blob diagrams.
@@ -261,7 +270,7 @@ adds an outermost blob, equal to all of $B^n$, to the $j$-parameter family of bl
 A generator $y\in \btc_{0j}$ is a map $y:P\to \BD_0$, where $P$ is some $j$-dimensional polyhedron.
 We define $r(y)\in \btc_{0j}$ to be the constant function $r\circ y : P\to \BD_0$.
 Let $c(r(y))\in \btc_{0,j+1}$ be the constant map from the cone of $P$ to $\BD_0$ taking
-the same value (i.e.\ $r(y(p))$ for any $p\in P$).
+the same value (namely $r(y(p))$, for any $p\in P$).
 Let $e(y - r(y)) \in \btc_{1j}$ denote the $j$-parameter family of 1-blob diagrams
 whose value at $p\in P$ is the blob $B^n$ with label $y(p) - r(y(p))$.
 Now define, for $y\in \btc_{0j}$,
@@ -315,8 +324,8 @@ This follows from the Eilenber-Zilber theorem and the fact that
 \end{proof}
 
 For $S\sub X$, we say that $a\in \btc_k(X)$ is {\it supported on $S$}
-if there exists $S' \subeq S$, $a'\in \btc_k(S')$
-and $r\in \btc_0(X\setmin S')$ such that $a = a'\bullet r$.
+if there exists $a'\in \btc_k(S)$
+and $r\in \btc_0(X\setmin S)$ such that $a = a'\bullet r$.
 
 \newcommand\sbtc{\btc^{\cU}}
 Let $\cU$ be an open cover of $X$.
@@ -401,8 +410,9 @@ between the $n$-manifolds $X$ and $Y$
 (any given singular chain extends a fixed homeomorphism $\bd X \to \bd Y$).
 We also will use the abbreviated notation $CH_*(X) \deq CH_*(X, X)$.
 (For convenience, we will permit the singular cells generating $CH_*(X, Y)$ to be more general
-than simplices --- they can be based on any linear polyhedron.
-\nn{be more restrictive here?  does more need to be said?})
+than simplices --- they can be based on any linear polyhedron.)
+\nn{be more restrictive here? (probably yes)  does more need to be said?}
+\nn{this note about our non-standard should probably go earlier in the paper, maybe intro}
 
 \begin{thm}  \label{thm:CH}
 For $n$-manifolds $X$ and $Y$ there is a chain map
