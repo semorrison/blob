@@ -76,9 +76,9 @@ topological $n$-category, and the complex $\CM{-}{T}$ of maps to a fixed target 
 
 In \S \ref{ss:ncat_fields}  we explain how to construct a system of fields from a topological $n$-category 
 (using a colimit along certain decompositions of a manifold into balls). 
-With this in hand, we freely write $\bc_*(M; \cC)$ to indicate the blob complex of a manifold $M$ 
+With this in hand, we write $\bc_*(M; \cC)$ to indicate the blob complex of a manifold $M$ 
 with the system of fields constructed from the $n$-category $\cC$. 
-\nn{KW: I don't think we use this notational convention any more, right?}
+%\nn{KW: I don't think we use this notational convention any more, right?}
 In \S \ref{sec:ainfblob} we give an alternative definition 
 of the blob complex for an $A_\infty$ $n$-category on an $n$-manifold (analogously, using a homotopy colimit).
 Using these definitions, we show how to use the blob complex to ``resolve" any topological $n$-category as an 
@@ -127,7 +127,7 @@ The relationship between all these ideas is sketched in Figure \ref{fig:outline}
 \draw[->] (BC) -- node[left] {$H_0$} node[right] {c.f. Theorem \ref{thm:skein-modules}} (A);
 
 \draw[->] (FU) -- node[left] {blob complex \\ for balls} (Cs);
-\draw (BC) -- node[right] {$\iso$ by \\ Corollary \ref{cor:new-old}} (BCs);
+\draw[<->] (BC) -- node[right] {$\iso$ by \\ Corollary \ref{cor:new-old}} (BCs);
 \end{tikzpicture}
 
 }
@@ -139,8 +139,8 @@ Finally, later sections address other topics.
 Section \S \ref{sec:deligne} gives
 a higher dimensional generalization of the Deligne conjecture 
 (that the little discs operad acts on Hochschild cochains) in terms of the blob complex.
-The appendixes prove technical results about $\CH{M}$ and the ``small blob complex", 
-and make connections between our definitions of $n$-categories and familiar definitions for $n=1$ and $n=2$, 
+The appendices prove technical results about $\CH{M}$ and
+make connections between our definitions of $n$-categories and familiar definitions for $n=1$ and $n=2$, 
 as well as relating the $n=1$ case of our $A_\infty$ $n$-categories with usual $A_\infty$ algebras. 
 Appendix \ref{sec:comm_alg} describes the blob complex when $\cC$ is a commutative algebra, 
 thought of as a topological $n$-category, in terms of the topology of $M$.
@@ -343,9 +343,9 @@ any codimension $0$-submanifold $Y \sqcup Y^\text{op} \subset \bdy X$ the follow
 }
 \end{equation*}
 \end{enumerate}
-Moreover any such chain map is unique, up to an iterated homotopy.
-(That is, any pair of homotopies have a homotopy between them, and so on.)
-\nn{revisit this after proof below has stabilized}
+%Moreover any such chain map is unique, up to an iterated homotopy.
+%(That is, any pair of homotopies have a homotopy between them, and so on.)
+%\nn{revisit this after proof below has stabilized}
 \end{thm:CH}
 
 \newtheorem*{thm:CH-associativity}{Theorem \ref{thm:CH-associativity}}
