@@ -113,8 +113,7 @@ $KL\to K$, $KL\to L$, $K'L\to L$ and $K'L\to K'$
 give the desired chain connecting $(a, K)$ and $(a, K')$
 (see Figure \ref{zzz4}).
 
-\begin{figure}[!ht]
-\begin{equation*}
+\begin{figure}[t] \centering
 \begin{tikzpicture}
 \foreach \x/\label in {-3/K, 0/L, 3/K'} {
 	\node(\label) at (\x,0) {$\label$};
@@ -125,7 +124,6 @@ give the desired chain connecting $(a, K)$ and $(a, K')$
 	\draw[->] (\la \lb) -- (\lb); 
 }
 \end{tikzpicture}
-\end{equation*}
 \caption{Connecting $K$ and $K'$ via $L$}
 \label{zzz4}
 \end{figure}
@@ -139,11 +137,7 @@ $K$, $KL$, $L$, $K'L$, $K'$, $K'L'$, $L'$ and $KL'$.
 Then we have 2-simplices, as shown in Figure \ref{zzz5}, which do the trick.
 (Each small triangle in Figure \ref{zzz5} can be filled with a 2-simplex.)
 
-\begin{figure}[!ht]
-%\begin{equation*}
-%\mathfig{1.0}{tempkw/zz5}
-%\end{equation*}
-\begin{equation*}
+\begin{figure}[t] \centering
 \begin{tikzpicture}
 \node(M) at (0,0) {$M$};
 \foreach \angle/\label in {0/K', 45/K'L, 90/L, 135/KL, 180/K, 225/KL', 270/L', 315/K'L'} {
@@ -174,7 +168,6 @@ Then we have 2-simplices, as shown in Figure \ref{zzz5}, which do the trick.
 \draw[->] (KL) to[bend right=10] (K);
 \draw[->] (KL) to[bend left=10] (L);
 \end{tikzpicture}
-\end{equation*}
 \caption{Filling in $K$-$KL$-$L$-$K'L$-$K'$-$K'L'$-$L'$-$KL'$-$K$}
 \label{zzz5}
 \end{figure}
