@@ -1075,7 +1075,49 @@ Let $W$ be a manifold of dimension less than $n$.  Then for each
 decomposition $x$ of $W$ the natural map $\psi_{\cC;W}(x)\to \cl{\cC}(W)$ is injective.
 \end{lem}
 \begin{proof}
-\nn{...}
+$\cl{\cC}(W)$ is a colimit of a diagram of sets, and each of the arrows in the diagram is
+injective.
+Concretely, the colimit is the disjoint union of the sets (one for each decomposition of $W$),
+modulo the relation which identifies the domain of each of the injective maps
+with it's image.
+
+To save ink and electrons we will simplify notation and write $\psi(x)$ for $\psi_{\cC;W}(x)$.
+
+Suppose $a, \hat{a}\in \psi(x)$ have the same image in $\cl{\cC}(W)$ but $a\ne \hat{a}$.
+Then there exist
+\begin{itemize}
+\item decompositions $x = x_0, x_1, \ldots , x_{k-1}, x_k = x$ and $v_1,\ldots, v_k$ of $W$;
+\item anti-refinements $v_i\to x_i$ and $v_i\to x_{i-1}$; and
+\item elements $a_i\in \psi(x_i)$ and $b_i\in \psi(v_i)$, with $a_0 = a$ and $a_k = \hat{a}$, 
+such that $b_i$ and $b_{i+1}$both map to (glue up to) $a_i$.
+\end{itemize}
+In other words, we have a zig-zag of equivalences starting at $a$ and ending at $\hat{a}$.
+The idea of the proof is to produce a similar zig-zag where everything antirefines to the same
+disjoint union of balls, and then invoke the associativity axiom \ref{nca-assoc}.
+\nn{hmmm... it would be nicer if this were ``7.xx" instead of ``4"}
+
+Let $z$ be a decomposition of $W$ which is in general position with respect to all of the 
+$x_i$'s and $v_i$'s.
+There there decompositions $x'_i$ and $v'_i$ (for all $i$) such that
+\begin{itemize}
+\item $x'_i$ antirefines to $x_i$ and $z$;
+\item $v'_i$ antirefines to $x'_i$, $x'_{i-1}$ and $v_i$;
+\item $b_i$ is the image of some $b'_i\in \psi(v'_i)$; and
+\item $a_i$ is the image of some $a'_i\in \psi(x'_i)$, which in turn is the image
+of $b'_i$ and $b'_{i+1}$.
+\end{itemize}
+Now consider the diagrams
+\[ \xymatrix{
+	& \psi(x'_{i-1}) \ar[rd] & \\
+	\psi(v'_i) \ar[ru] \ar[rd] & & \psi(z) \\
+	& \psi(x'_i) \ar[ru] &
+} \]
+The associativity axiom applied to this diagram implies that $a'_{i-1}$ and $a'_i$
+map to the same element $c\in \psi(z)$.
+Therefore $a'_0$ and $a'_k$ both map to $c$.
+But $a'_0$ and $a'_k$ are both elements of $\psi(x'_0)$ (because $x'_k = x'_0$).
+So by the injectivity clause of the composition axiom, we must have that $a'_0 = a'_k$.
+But this implies that $a = a_0 = a_k = \hat{a}$, contrary to our assumption that $a\ne \hat{a}$.
 \end{proof}
 
 \nn{need to finish explaining why we have a system of fields;
