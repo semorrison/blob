@@ -3,7 +3,7 @@
 \section{Introduction}
 
 We construct a chain complex $\bc_*(M; \cC)$ --- the ``blob complex'' --- 
-associated to an $n$-manifold $M$ and a linear $n$-category with strong duality $\cC$.
+associated to an $n$-manifold $M$ and a linear $n$-category $\cC$ with strong duality.
 This blob complex provides a simultaneous generalization of several well known constructions:
 \begin{itemize}
 \item The 0-th homology $H_0(\bc_*(M; \cC))$ is isomorphic to the usual 
@@ -124,7 +124,7 @@ The relationship between all these ideas is sketched in Figure \ref{fig:outline}
    } (FU.100);
 \draw[->] (C) -- node[above left=3pt] {restrict to \\ standard balls} (tC);
 \draw[->] (FU.80) -- node[right] {restrict \\ to balls} (C.-80);
-\draw[->] (BC) -- node[left] {$H_0$} node[right] {c.f. Theorem \ref{thm:skein-modules}} (A);
+\draw[->] (BC) -- node[right] {$H_0$ \\ c.f. Theorem \ref{thm:skein-modules}} (A);
 
 \draw[->] (FU) -- node[left] {blob complex \\ for balls} (Cs);
 \draw[<->] (BC) -- node[right] {$\iso$ by \\ Corollary \ref{cor:new-old}} (BCs);
@@ -367,17 +367,14 @@ $$ev_{X \to Y} : \CH{X \to Y} \tensor \bc_*(X) \to \bc_*(Y)$$
 for any homeomorphic pair $X$ and $Y$, 
 satisfying corresponding conditions.
 
-\nn{KW: the next paragraph seems awkward to me}
-
-\nn{KW: also, I'm not convinced that all of these (above and below) should be called theorems}
-
 In \S \ref{sec:ncats} we introduce the notion of topological $n$-categories, from which we can construct systems of fields.
-Below, we talk about the blob complex associated to a topological $n$-category, implicitly passing first to the system of fields.
-Further, in \S \ref{sec:ncats} we also have the notion of an $A_\infty$ $n$-category.
+Below, when we talk about the blob complex for a topological $n$-category, we are implicitly passing first to this associated system of fields.
+Further, in \S \ref{sec:ncats} we also have the notion of an $A_\infty$ $n$-category. In that section we describe how to use the blob complex to construct $A_\infty$ $n$-categories from topological $n$-categories:
 
-\todo{Give this a number inside the text}
-\begin{thm}[Blob complexes of products with balls form an $A_\infty$ $n$-category]
-\label{thm:blobs-ainfty}
+\newtheorem*{ex:blob-complexes-of-balls}{Example \ref{ex:blob-complexes-of-balls}}
+
+\begin{ex:blob-complexes-of-balls}[Blob complexes of products with balls form an $A_\infty$ $n$-category]
+%\label{thm:blobs-ainfty}
 Let $\cC$ be  a topological $n$-category.
 Let $Y$ be an $n{-}k$-manifold. 
 There is an $A_\infty$ $k$-category $\bc_*(Y;\cC)$, defined on each $m$-ball $D$, for $0 \leq m < k$, 
@@ -386,17 +383,15 @@ $$\bc_*(Y;\cC)(D) = \bc_*(Y \times D; \cC).$$
 (When $m=k$ the subsets with fixed boundary conditions form a chain complex.) 
 These sets have the structure of an $A_\infty$ $k$-category, with compositions coming from the gluing map in 
 Property \ref{property:gluing-map} and with the action of families of homeomorphisms given in Theorem \ref{thm:evaluation}.
-\end{thm}
+\end{ex:blob-complexes-of-balls}
 \begin{rem}
 Perhaps the most interesting case is when $Y$ is just a point; then we have a way of building an $A_\infty$ $n$-category from a topological $n$-category.
 We think of this $A_\infty$ $n$-category as a free resolution.
 \end{rem}
 
-Theorem \ref{thm:blobs-ainfty} appears as Example \ref{ex:blob-complexes-of-balls} in \S \ref{sec:ncats}.
-
 There is a version of the blob complex for $\cC$ an $A_\infty$ $n$-category
 instead of a topological $n$-category; this is described in \S \ref{sec:ainfblob}.
-The definition is in fact simpler, almost tautological, and we use a different notation, $\cl{\cC}(M)$. 
+The definition is in fact simpler, almost tautological, and we use a different notation, $\cl{\cC}(M)$. The next theorem describes the blob complex for product manifolds, in terms of the $A_\infty$ blob complex of the $A_\infty$ $n$-categories constructed as in the previous example.
 %The notation is intended to reflect the close parallel with the definition of the TQFT skein module via a colimit.
 
 \newtheorem*{thm:product}{Theorem \ref{thm:product}}
@@ -404,7 +399,7 @@ The definition is in fact simpler, almost tautological, and we use a different n
 \begin{thm:product}[Product formula]
 Let $W$ be a $k$-manifold and $Y$ be an $n-k$ manifold.
 Let $\cC$ be an $n$-category.
-Let $\bc_*(Y;\cC)$ be the $A_\infty$ $k$-category associated to $Y$ via blob homology (see Theorem \ref{thm:blobs-ainfty}).
+Let $\bc_*(Y;\cC)$ be the $A_\infty$ $k$-category associated to $Y$ via blob homology (see Example \ref{ex:blob-complexes-of-balls}).
 Then
 \[
 	\bc_*(Y\times W; \cC) \simeq \cl{\bc_*(Y;\cC)}(W).
