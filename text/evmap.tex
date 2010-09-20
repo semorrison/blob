@@ -105,7 +105,7 @@ and the support of $s(b)$ is contained in $B$.
 of $X$ where $B$ is embedded.
 See Definition \ref{defn:configuration} and preceding discussion.)
 It then follows from Corollary \ref{disj-union-contract} that we can choose
-$h_1(b) \in \bc_1(X)$ such that $\bd(h_1(b)) = s(b) - b$.
+$h_1(b) \in \bc_2(X)$ such that $\bd(h_1(b)) = s(b) - b$.
 
 Roughly speaking, $s(b)$ consists of a series of 1-blob diagrams implementing a series
 of small collar maps, plus a shrunken version of $b$.
@@ -131,7 +131,7 @@ Define
 \[
 	s(b) = \sum_{i,j} c_{ij} + g(b)
 \]
-and choose $h_1(b) \in \bc_1(X)$ such that 
+and choose $h_1(b) \in \bc_2(X)$ such that 
 \[
 	\bd(h_1(b)) = s(b) - b .
 \]
@@ -252,7 +252,7 @@ Before giving the proof we need a few preliminary results.
 $\btc_*(B^n)$ is contractible (acyclic in positive degrees).
 \end{lemma}
 \begin{proof}
-We will construct a contracting homotopy $h: \btc_*(B^n)\to \btc_*(B^n)$.
+We will construct a contracting homotopy $h: \btc_*(B^n)\to \btc_{*+1}(B^n)$.
 
 We will assume a splitting $s:H_0(\btc_*(B^n))\to \btc_0(B^n)$
 of the quotient map $q:\btc_0(B^n)\to H_0(\btc_*(B^n))$.
@@ -367,7 +367,7 @@ Armed with the above lemmas, we can now proceed similarly to the proof of Lemma 
 
 It suffices to show that for any finitely generated pair of subcomplexes 
 $(C_*, D_*) \sub (\btc_*(X), \bc_*(X))$
-we can find a homotopy $h:C_*\to \btc_*(X)$ such that $h(D_*) \sub \bc_*(X)$
+we can find a homotopy $h:C_*\to \btc_{*+1}(X)$ such that $h(D_*) \sub \bc_{*+1}(X)$
 and $x + h\bd(x) + \bd h(x) \in \bc_*(X)$ for all $x\in C_*$.
 
 By Lemma \ref{small-top-blobs}, we may assume that $C_* \sub \btc_*^\cU(X)$ for some
