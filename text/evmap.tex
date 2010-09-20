@@ -279,37 +279,32 @@ Now define, for $y\in \btc_{0j}$,
 \[
 	h(y) = e(y - r(y)) + c(r(y)) .
 \]
-\nn{up to sign, at least}
 
 We must now verify that $h$ does the job it was intended to do.
 For $x\in \btc_{ij}$ with $i\ge 2$ we have
-\nn{ignoring signs}
 \begin{align*}
-	\bd h(x) + h(\bd x) &= \bd(e(x)) + e(\bd x) \\
-			&= \bd_b(e(x)) + \bd_t(e(x)) + e(\bd_b x) + e(\bd_t x) \\
-			&= \bd_b(e(x)) + e(\bd_b x) \quad\quad\text{(since $\bd_t(e(x)) = e(\bd_t x)$)} \\
-			&= x .
+	\bd h(x) + h(\bd x) &= \bd(e(x)) + e(\bd x) && \\
+			&= \bd_b(e(x)) + (-1)^{i+1} \bd_t(e(x)) + e(\bd_b x) + (-1)^i e(\bd_t x) && \\
+			&= \bd_b(e(x)) + e(\bd_b x) && \text{(since $\bd_t(e(x)) = e(\bd_t x)$)} \\
+		 	&= x . &&
 \end{align*}
 For $x\in \btc_{1j}$ we have
-\nn{ignoring signs}
 \begin{align*}
-	\bd h(x) + h(\bd x) &= \bd_b(e(x)) + \bd_t(e(x)) + e(\bd_b x - r(\bd_b x)) + c(r(\bd_b x)) + e(\bd_t x) \\
-			&= \bd_b(e(x)) + e(\bd_b x) \quad\quad\text{(since $r(\bd_b x) = 0$)} \\
-			&= x .
+	\bd h(x) + h(\bd x) &= \bd_b(e(x)) + \bd_t(e(x)) + e(\bd_b x - r(\bd_b x)) + c(r(\bd_b x)) - e(\bd_t x) && \\
+			&= \bd_b(e(x)) + e(\bd_b x) && \text{(since $r(\bd_b x) = 0$)} \\
+			&= x . &&
 \end{align*}
 For $x\in \btc_{0j}$ with $j\ge 1$ we have
-\nn{ignoring signs}
 \begin{align*}
-	\bd h(x) + h(\bd x) &= \bd_b(e(x - r(x))) + \bd_t(e(x - r(x))) + \bd_t(c(r(x))) + 
+	\bd h(x) + h(\bd x) &= \bd_b(e(x - r(x))) - \bd_t(e(x - r(x))) - \bd_t(c(r(x))) + 
 											e(\bd_t x - r(\bd_t x)) + c(r(\bd_t x)) \\
-			&= x - r(x) + \bd_t(c(r(x))) + c(r(\bd_t x)) \\
+			&= x - r(x) - \bd_t(c(r(x))) + c(r(\bd_t x)) \\
 			&= x - r(x) + r(x) \\
 			&= x.
 \end{align*}
 Here we have used the fact that $\bd_b(c(r(x))) = 0$ since $c(r(x))$ is a $0$-blob diagram, as well as that $\bd_t(e(r(x))) = e(r(\bd_t x))$ \nn{explain why this is true?} and $c(r(\bd_t x)) - \bd_t(c(r(x))) = r(x)$ \nn{explain?}.
 
 For $x\in \btc_{00}$ we have
-\nn{ignoring signs}
 \begin{align*}
 	\bd h(x) + h(\bd x) &= \bd_b(e(x - r(x))) + \bd_t(c(r(x))) \\
 			&= x - r(x) + r(x) - r(x)\\
