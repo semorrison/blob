@@ -175,8 +175,7 @@ which is natural with respect to the actions of homeomorphisms.
 becomes a normal product.)
 \end{lem}
 
-\begin{figure}[!ht]
-$$
+\begin{figure}[!ht] \centering
 \begin{tikzpicture}[%every label/.style={green}
 ]
 \node[fill=black, circle, label=below:$E$, inner sep=1.5pt](S) at (0,0) {};
@@ -186,7 +185,6 @@ $$
 \node[left] at (-1,1) {$B_1$};
 \node[right] at (1,1) {$B_2$};
 \end{tikzpicture}
-$$
 \caption{Combining two balls to get a full boundary.}\label{blah3}\end{figure}
 
 Note that we insist on injectivity above. 
@@ -232,12 +230,13 @@ We have a map
 \]
 which is natural with respect to the actions of homeomorphisms, and also compatible with restrictions
 to the intersection of the boundaries of $B$ and $B_i$.
-If $k < n$ we require that $\gl_Y$ is injective.
-(For $k=n$, see below.)
+If $k < n$,
+or if $k=n$ and we are in the $A_\infty$ case, 
+we require that $\gl_Y$ is injective.
+(For $k=n$ in the plain (non-$A_\infty$) case, see below.)
 \end{axiom}
 
-\begin{figure}[!ht]
-$$
+\begin{figure}[!ht] \centering
 \begin{tikzpicture}[%every label/.style={green},
 				x=1.5cm,y=1.5cm]
 \node[fill=black, circle, label=below:$E$, inner sep=2pt](S) at (0,0) {};
@@ -249,7 +248,6 @@ $$
 \node[right] at (1/4,1) {$B_2$};
 \node at (1/6,3/2)  {$Y$};
 \end{tikzpicture}
-$$
 \caption{From two balls to one ball.}\label{blah5}\end{figure}
 
 \begin{axiom}[Strict associativity] \label{nca-assoc}
@@ -1168,7 +1166,7 @@ We call $B$ the ball and $N$ the marking.
 A homeomorphism between marked $k$-balls is a homeomorphism of balls which
 restricts to a homeomorphism of markings.
 
-\begin{module-axiom}[Module morphisms]
+\begin{module-axiom}[Module morphisms] \label{module-axiom-funct}
 {For each $0 \le k \le n$, we have a functor $\cM_k$ from 
 the category of marked $k$-balls and 
 homeomorphisms to the category of sets and bijections.}
@@ -1276,8 +1274,10 @@ Then (axiom) we have a map
 \]
 which is natural with respect to the actions of homeomorphisms, and also compatible with restrictions
 to the intersection of the boundaries of $M$ and $M_i$.
-If $k < n$ we require that $\gl_Y$ is injective.
-(For $k=n$, see below.)}
+If $k < n$,
+or if $k=n$ and we are in the $A_\infty$ case, 
+we require that $\gl_Y$ is injective.
+(For $k=n$ in the plain (non-$A_\infty$) case, see below.)}
 \end{module-axiom}
 
 
@@ -1298,8 +1298,10 @@ Then (axiom) we have a map
 \]
 which is natural with respect to the actions of homeomorphisms, and also compatible with restrictions
 to the intersection of the boundaries of $X$ and $M'$.
-If $k < n$ we require that $\gl_Y$ is injective.
-(For $k=n$, see below.)}
+If $k < n$,
+or if $k=n$ and we are in the $A_\infty$ case, 
+we require that $\gl_Y$ is injective.
+(For $k=n$ in the plain (non-$A_\infty$) case, see below.)}
 \end{module-axiom}
 
 \begin{module-axiom}[Strict associativity]
@@ -1505,6 +1507,10 @@ Modifications corresponding to Examples \ref{ex:maps-to-a-space-with-a-fiber} an
 \ref{ex:linearized-maps-to-a-space} are also possible, and there is an $A_\infty$ version analogous to 
 Example \ref{ex:chains-of-maps-to-a-space} given by taking singular chains.
 
+
+
+
+
 \subsection{Modules as boundary labels (colimits for decorated manifolds)}
 \label{moddecss}
 
@@ -1583,271 +1589,79 @@ on the choice of 1-ball $J$.
 We will define a more general self tensor product (categorified coend) below.
 
 
-\subsection{Morphisms of \texorpdfstring{$A_\infty$}{A-infinity} 1-category modules}
+
+
+\subsection{Morphisms of modules}
 \label{ss:module-morphisms}
 
-In order to state and prove our version of the higher dimensional Deligne conjecture
-(\S\ref{sec:deligne}),
-we need to define morphisms of $A_\infty$ $1$-category modules and establish
-some of their elementary properties.
+Modules are collections of functors together with some additional data, so we define morphisms
+of modules to be collections of natural transformations which are compatible with this
+additional data.
 
-To motivate the definitions which follow, consider algebras $A$ and $B$, 
-right modules $X_B$ and $Z_A$ and a bimodule $\leftidx{_B}{Y}{_A}$, and the familiar adjunction
-\begin{eqnarray*}
-	\hom_A(X_B\ot {_BY_A} \to Z_A) &\cong& \hom_B(X_B \to \hom_A( {_BY_A} \to Z_A)) \\
-	f &\mapsto& [x \mapsto f(x\ot -)] \\
-	{}[x\ot y \mapsto g(x)(y)] & \mapsfrom & g .
-\end{eqnarray*}
-If $A$ and $Z_A$ are both the ground field $\k$, this simplifies to
+More specifically, let $\cX$ and $\cY$ be $\cC$ modules, i.e.\ collections of functors
+$\{\cX_k\}$ and $\{\cY_k\}$, for $0\le k\le n$, from marked $k$-balls to sets 
+as in Module Axiom \ref{module-axiom-funct}.
+A morphism $g:\cX\to\cY$ is a collection of natural transformations $g_k:\cX_k\to\cY_k$
+satisfying:
+\begin{itemize}
+\item Each $g_k$ commutes with $\bd$.
+\item Each $g_k$ commutes with gluing (module composition and $\cC$ action).
+\item Each $g_k$ commutes with taking products.
+\item In the top dimension $k=n$, $g_n$ preserves whatever additional structure we are enriching over (e.g.\ vector
+spaces).
+In the $A_\infty$ case (e.g.\ enriching over chain complexes) $g_n$ should live in 
+an appropriate derived hom space, as described below.
+\end{itemize}
+
+We will be mainly interested in the case $n=1$ and enriched over chain complexes,
+since this is the case that's relevant to the generalized Deligne conjecture of \S\ref{sec:deligne}.
+So we treat this case in more detail.
+
+First we explain the remark about derived hom above.
+Let $L$ be a marked 1-ball and let $\cl{\cX}(L)$ denote the local homotopy colimit construction
+associated to $L$ by $\cX$ and $\cC$.
+(See \S \ref{ss:ncat_fields} and \S \ref{moddecss}.)
+Define $\cl{\cY}(L)$ similarly.
+For $K$ an unmarked 1-ball let $\cl{\cC(K)}$ denote the local homotopy colimit
+construction associated to $K$ by $\cC$.
+Then we have an injective gluing map
 \[
-	(X_B\ot {_BY})^* \cong  \hom_B(X_B \to (_BY)^*) .
+	\gl: \cl{\cX}(L) \ot \cl{\cC}(K) \to \cl{\cX}(L\cup K) 
 \]
-We would like to have the analogous isomorphism for a topological $A_\infty$ 1-cat $\cC$
-and modules $\cM_\cC$ and $_\cC\cN$,
-\[
-	(\cM_\cC\ot {_\cC\cN})^* \cong  \hom_\cC(\cM_\cC \to (_\cC\cN)^*) .
-\]
-
-In the next few paragraphs we define the objects appearing in the above equation:
-$\cM_\cC\ot {_\cC\cN}$, $(\cM_\cC\ot {_\cC\cN})^*$, $(_\cC\cN)^*$ and finally
-$\hom_\cC$.
-(Actually, we give only an incomplete definition of $(_\cC\cN)^*$, but since we are only trying to motivate the 
-definition of $\hom_\cC$, this will suffice for our purposes.)
-
-\def\olD{{\overline D}}
-\def\cbar{{\bar c}}
-In the previous subsection we defined a tensor product of $A_\infty$ $n$-category modules
-for general $n$.
-For $n=1$ this definition is a homotopy colimit indexed by subdivisions of a fixed interval $J$
-and their gluings (antirefinements).
-(This tensor product depends functorially on the choice of $J$.)
-To a subdivision $D$
-\[
-	J = I_1\cup \cdots\cup I_p
-\]
-we associate the chain complex
-\[
-	\psi(D) = \cM(I_1)\ot\cC(I_2)\ot\cdots\ot\cC(I_{m-1})\ot\cN(I_m) .
-\]
-To each antirefinement we associate a chain map using the composition law of $\cC$ and the 
-module actions of $\cC$ on $\cM$ and $\cN$.
-The underlying graded vector space of the homotopy colimit is
-\[
-	\bigoplus_l \bigoplus_{\olD} \psi(D_0)[l] ,
-\]
-where $l$ runs through the natural numbers, $\olD = (D_0\to D_1\to\cdots\to D_l)$
-runs through chains of antirefinements of length $l+1$, and $[l]$ denotes a grading shift.
-We will denote an element of the summand indexed by $\olD$ by
-$\olD\ot m\ot\cbar\ot n$, where $m\ot\cbar\ot n \in \psi(D_0)$.
-The boundary map is given by
-\begin{align*}
-	\bd(\olD\ot m\ot\cbar\ot n) &= (\bd_0 \olD)\ot \rho(m\ot\cbar\ot n) + (\bd_+ \olD)\ot m\ot\cbar\ot n \; + \\
-	& \qquad + (-1)^l \olD\ot\bd m\ot\cbar\ot n + (-1)^{l+\deg m}  \olD\ot m\ot\bd \cbar\ot n + \\
-	& \qquad + (-1)^{l+\deg m + \deg \cbar}  \olD\ot m\ot \cbar\ot \bd n
-\end{align*}
-where $\bd_+ \olD = \sum_{i>0} (-1)^i (D_0\to \cdots \to \widehat{D_i} \to \cdots \to D_l)$ (those parts of the simplicial
-boundary which retain $D_0$), $\bd_0 \olD = (D_1 \to \cdots \to D_l)$,
-and $\rho$ is the gluing map associated to the antirefinement $D_0\to D_1$.
-
-$(\cM_\cC\ot {_\cC\cN})^*$ is just the dual chain complex to $\cM_\cC\ot {_\cC\cN}$:
-\[
-	\prod_l \prod_{\olD} (\psi(D_0)[l])^* ,
-\]
-where $(\psi(D_0)[l])^*$ denotes the linear dual.
-The boundary is given by
-\begin{align}
-\label{eq:tensor-product-boundary}
-	 (-1)^{\deg f +1} (\bd f)(\olD\ot m\ot\cbar\ot n) & = f((\bd_0 \olD)\ot \rho(m\ot\cbar\ot n)) +  f((\bd_+ \olD)\ot m\ot\cbar\ot n) + \\
-						     & \qquad + (-1)^{l} f(\olD\ot\bd m\ot\cbar \ot n)  + (-1)^{l + \deg m} f(\olD\ot m\ot\bd \cbar \ot n)  + \notag \\
-			& \qquad	 + (-1)^{l + \deg m + \deg \cbar} f(\olD\ot m\ot\cbar\ot \bd n). \notag
-\end{align}
-
-Next we partially define the dual module $(_\cC\cN)^*$.
-This will depend on a choice of interval $J$, just as the tensor product did.
-Recall that $_\cC\cN$ is, among other things, a functor from right-marked intervals
-to chain complexes.
-Given $J$, we define for each $K\sub J$ which contains the {\it left} endpoint of $J$
-\[
-	(_\cC\cN)^*(K) \deq ({_\cC\cN}(J\setmin K))^* ,
-\]
-where $({_\cC\cN}(J\setmin K))^*$ denotes the (linear) dual of the chain complex associated
-to the right-marked interval $J\setmin K$.
-We define the action map
-\[
-	(_\cC\cN)^*(K) \ot \cC(I) \to (_\cC\cN)^*(K\cup I)
-\]
-to be the (partial) adjoint of the map
-\[
-	\cC(I)\ot {_\cC\cN}(J\setmin (K\cup I)) \to  {_\cC\cN}(J\setmin K) .
-\]
-This falls short of fully defining the module $(_\cC\cN)^*$ (in particular,
-we have no action of homeomorphisms of left-marked intervals), but it will be enough to motivate
-the definition of $\hom_\cC$ below.
-
-Now we reinterpret $(\cM_\cC\ot {_\cC\cN})^*$
-as some sort of morphism $\cM_\cC \to (_\cC\cN)^*$.
-Let $f\in (\cM_\cC\ot {_\cC\cN})^*$.
-Let $\olD = (D_0\cdots D_l)$ be a chain of subdivisions with $D_0 = [J = I_1\cup\cdots\cup I_m]$.
-Recall that for any subdivision $J = I_1\cup\cdots\cup I_p$, $(_\cC\cN)^*(I_1\cup\cdots\cup I_{p-1}) = (_\cC\cN(I_p))^*$.
-Then for each such $\olD$ we have a degree $l$ map
-\begin{eqnarray*}
-	\cM(I_1)\ot\cC(I_2)\ot\cdots\ot\cC(I_{p-1}) &\to& (_\cC\cN)^*(I_1\cup\cdots\cup I_{p-1}) \\
-	m\ot \cbar &\mapsto& [n\mapsto f(\olD\ot m\ot \cbar\ot n)]
-\end{eqnarray*}
-
-We are almost ready to give the definition of morphisms between arbitrary modules
-$\cX_\cC$ and $\cY_\cC$.
-Note that the rightmost interval $I_m$ does not appear above, except implicitly in $\olD$.
-To fix this, we define subdivisions as antirefinements of left-marked intervals.
-Subdivisions are just the obvious thing, but antirefinements are defined to mimic
-the above antirefinements of the fixed interval $J$, but with the rightmost subinterval $I_m$ always
-omitted.
-More specifically, $D\to D'$ is an antirefinement if $D'$ is obtained from $D$ by 
-gluing subintervals together and/or omitting some of the rightmost subintervals.
-(See Figure \ref{fig:lmar}.)
-\begin{figure}[t] \centering
-\definecolor{arcolor}{rgb}{.75,.4,.1}
-\begin{tikzpicture}[line width=1pt]
-\fill (0,0) circle (.1);
-\draw (0,0) -- (2,0);
-\draw (1,0.1) -- (1,-0.1);
-
-\draw [->, arcolor] (1,0.25) -- (1,0.75);
-
-\fill (0,1) circle (.1);
-\draw (0,1) -- (2,1);
-\end{tikzpicture}
-\qquad
-\begin{tikzpicture}[line width=1pt]
-\fill (0,0) circle (.1);
-\draw (0,0) -- (2,0);
-\draw (1,0.1) -- (1,-0.1);
-
-\draw [->, arcolor] (1,0.25) -- (1,0.75);
-
-\fill (0,1) circle (.1);
-\draw (0,1) -- (1,1);
-\end{tikzpicture}
-\qquad
-\begin{tikzpicture}[line width=1pt]
-\fill (0,0) circle (.1);
-\draw (0,0) -- (3,0);
-\foreach \x in {0.5, 1.0, 1.25, 1.5, 2.0, 2.5} {
-	\draw (\x,0.1) -- (\x,-0.1);
-}
-
-\draw [->, arcolor] (1,0.25) -- (1,0.75);
-
-\fill (0,1) circle (.1);
-\draw (0,1) -- (2,1);
-\foreach \x in {1.0, 1.5} {
-	\draw (\x,1.1) -- (\x,0.9);
-}
-
-\end{tikzpicture}
-\caption{Antirefinements of left-marked intervals}\label{fig:lmar}\end{figure}
-
-Now we define the chain complex $\hom_\cC(\cX_\cC \to \cY_\cC)$.
-The underlying vector space is 
-\[
-	\prod_l \prod_{\olD} \hom[l]\left(
-				\cX(I_1)\ot\cC(I_2)\ot\cdots\ot\cC(I_{p-1}) \to 
-							\cY(I_1\cup\cdots\cup I_{p-1}) \rule{0pt}{1.1em}\right) ,
-\]
-where, as usual $\olD = (D_0\cdots D_l)$ is a chain of antirefinements
-(but now of left-marked intervals) and $D_0$ is the subdivision $I_1\cup\cdots\cup I_{p-1}$.
-$\hom[l](- \to -)$ means graded linear maps of degree $l$.
-
-\nn{small issue (pun intended): 
-the above is a vector space only if the class of subdivisions is a set, e.g. only if
-all of our left-marked intervals are contained in some universal interval (like $J$ above).
-perhaps we should give another version of the definition in terms of natural transformations of functors.}
-
-Abusing notation slightly, we will denote elements of the above space by $g$, with
-\[
-	\olD\ot x \ot \cbar \mapsto g(\olD\ot x \ot \cbar) \in \cY(I_1\cup\cdots\cup I_{p-1}) .
-\]
-For fixed $D_0$ and $D_1$, let $\cbar = \cbar'\ot\cbar''$, 
-where $\cbar'$ corresponds to the subintervals of $D_0$ which map to $D_1$ and 
-$\cbar''$ corresponds to the subintervals
-which are dropped off the right side.
-(If no such subintervals are dropped, then $\cbar''$ is empty.)
-Translating from the boundary map for $(\cM_\cC\ot {_\cC\cN})^*$  appearing in Equation \eqref{eq:tensor-product-boundary},
-we have
-\begin{eqnarray*}
-	(\bd g)(\olD\ot x \ot \cbar) &=& \bd(g(\olD\ot x \ot \cbar)) + g(\olD\ot\bd(x\ot\cbar)) + \\
-	& & \;\; g((\bd_+\olD)\ot x\ot\cbar) + \gl''(g((\bd_0\olD)\ot \gl'(x\ot\cbar'))\ot\cbar'') .
-\end{eqnarray*}
-\nn{put in signs, rearrange terms to match order in previous formulas}
-Here $\gl''$ denotes the module action in $\cY_\cC$
-and $\gl'$ denotes the module action in $\cX_\cC$.
-This completes the definition of $\hom_\cC(\cX_\cC \to \cY_\cC)$.
-
-Note that if $\bd g = 0$, then each 
-\[
-	g(\olD\ot -) : \cX(I_1)\ot\cC(I_2)\ot\cdots\ot\cC(I_{p-1}) \to \cY(I_1\cup\cdots\cup I_{p-1})
-\]
-constitutes a null homotopy of
-$g((\bd \olD)\ot -)$ (where the $g((\bd_0 \olD)\ot -)$ part of $g((\bd \olD)\ot -)$
-should be interpreted as above).
-
-Define a {\it strong morphism} 
-of modules to be a collection of {\it chain} maps
-\[
-	h_K : \cX(K)\to \cY(K)
-\]
-for each left-marked interval $K$.
-These are required to commute with gluing;
-for each subdivision $K = I_1\cup\cdots\cup I_q$ the following diagram commutes:
+which is also a chain map.
+(For simplicity we are suppressing mention of boundary conditions on the unmarked 
+boundary components of the 1-balls.)
+We define $\hom_\cC(\cX \to \cY)$ to be a collection of (graded linear) natural transformations
+$g: \cl{\cX}(L)\to \cl{\cY}(L)$ such that the following diagram commutes for all $L$ and $K$:
 \[ \xymatrix{
-	\cX(I_1)\ot\cC(I_2)\ot\cdots\ot\cC(I_q) \ar[r]^{h_{I_1}\ot \id} 
-							\ar[d]_{\gl} & \cY(I_1)\ot\cC(I_2)\ot\cdots\ot\cC(I_q) 
-								\ar[d]^{\gl} \\
-	\cX(K) \ar[r]^{h_{K}} & \cY(K)
+	\cl{\cX}(L) \ot \cl{\cC}(K) \ar[r]^{\gl} \ar[d]_{g\ot \id} & \cl{\cX}(L\cup K) \ar[d]^{g}\\
+	\cl{\cY}(L) \ot \cl{\cC}(K) \ar[r]^{\gl} & \cl{\cY}(L\cup K)
 } \]
-Given such an $h$ we can construct a morphism $g$, with $\bd g = 0$, as follows.
-Define $g(\olD\ot - ) = 0$ if the length/degree of $\olD$ is greater than 0.
-If $\olD$ consists of the single subdivision $K = I_0\cup\cdots\cup I_q$ then define
+
+The usual differential on graded linear maps between chain complexes induces a differential
+on $\hom_\cC(\cX \to \cY)$, giving it the structure of a chain complex.
+
+Let $\cZ$ be another $\cC$ module.
+We define a chain map
 \[
-	g(\olD\ot x\ot \cbar) \deq h_K(\gl(x\ot\cbar)) .
+	a: \hom_\cC(\cX \to \cY) \ot (\cX \ot_\cC \cZ) \to \cY \ot_\cC \cZ
 \]
-Trivially, we have $(\bd g)(\olD\ot x \ot \cbar) = 0$ if $\deg(\olD) > 1$.
-If $\deg(\olD) = 1$, $(\bd g) = 0$ is equivalent to the fact that $h$ commutes with gluing.
-If $\deg(\olD) = 0$, $(\bd g) = 0$ is equivalent to the fact 
-that each $h_K$ is a chain map.
-
-We can think of a general closed element $g\in \hom_\cC(\cX_\cC \to \cY_\cC)$
-as a collection of chain maps which commute with the module action (gluing) up to coherent homotopy.
-\nn{ideally should give explicit examples of this in low degrees, 
-but skip that for now.}
-\nn{should also say something about composition of morphisms; well-defined up to homotopy, or maybe
-should make some arbitrary choice}
-\medskip
-
-Given $_\cC\cZ$ and  $g: \cX_\cC \to \cY_\cC$ with $\bd g = 0$ as above, we next define a chain map
+as follows.
+Recall that the tensor product $\cX \ot_\cC \cZ$  depends on a choice of interval $J$, labeled
+by $\cX$ on one boundary component and $\cZ$ on the other.
+Because we are using the {\it local} homotopy colimit, any generator
+$D\ot x\ot \bar{c}\ot z$ of $\cX \ot_\cC \cZ$ can be written (perhaps non-uniquely) as a gluing
+$(D'\ot x \ot \bar{c}') \bullet (D''\ot \bar{c}''\ot z)$, for some decomposition $J = L'\cup L''$
+and with $D'\ot x \ot \bar{c}'$ a generator of $\cl{\cX}(L')$ and 
+$D''\ot \bar{c}''\ot z$ a generator of $\cl{\cZ}(L'')$.
+(Such a splitting exists because the blob diagram $D$ can be split into left and right halves, 
+since no blob can include both the leftmost and rightmost intervals in the underlying decomposition.
+This step would fail if we were using the usual hocolimit instead of the local hocolimit.)
+We now define
 \[
-	g\ot\id : \cX_\cC \ot {}_\cC\cZ \to \cY_\cC \ot {}_\cC\cZ .
+	a: g\ot (D\ot x\ot \bar{c}\ot z) \mapsto g(D'\ot x \ot \bar{c}')\bullet (D''\ot \bar{c}''\ot z) .
 \]
-\nn{...}
-More generally, we have a chain map
-\[
-	\hom_\cC(\cX_\cC \to \cY_\cC) \ot \cX_\cC \ot {}_\cC\cZ \to \cY_\cC \ot {}_\cC\cZ .
-\]
-
-\nn{not sure whether to do low degree examples or try to state the general case; ideally both,
-but maybe just low degrees for now.}
-
-
-\nn{...}
-
-
-\medskip
-
-
-%\nn{should we define functors between $n$-cats in a similar way?  i.e.\ natural transformations
-%of the $\cC$ functors which commute with gluing only up to higher morphisms?
-%perhaps worth having both definitions available.
-%certainly the simple kind (strictly commute with gluing) arise in nature.}
+This does not depend on the choice of splitting $D = D'\bullet D''$ because $g$ commutes with gluing.
 
 
 
