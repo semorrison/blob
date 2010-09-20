@@ -21,7 +21,7 @@ The most convenient way to prove that maps $e_{XY}$ with the desired properties 
 introduce a homotopy equivalent alternate version of the blob complex, $\btc_*(X)$,
 which is more amenable to this sort of action.
 Recall from Remark \ref{blobsset-remark} that blob diagrams
-have the structure of a sort-of-simplicial set.
+have the structure of a sort-of-simplicial set. \nn{need a more conventional sounding name: `polyhedral set'?}
 Blob diagrams can also be equipped with a natural topology, which converts this
 sort-of-simplicial set into a sort-of-simplicial space.
 Taking singular chains of this space we get $\btc_*(X)$.
@@ -70,17 +70,17 @@ we say that $f$ is supported on $S\sub M$ if $f(x) = x$ for all $x\in M\setmin S
 \medskip
 
 Fix $\cU$, an open cover of $X$.
-Define the ``small blob complex" $\bc^{\cU}_*(M)$ to be the subcomplex of $\bc_*(X)$ 
+Define the ``small blob complex" $\bc^{\cU}_*(X)$ to be the subcomplex of $\bc_*(X)$ 
 of all blob diagrams in which every blob is contained in some open set of $\cU$, 
 and moreover each field labeling a region cut out by the blobs is splittable 
 into fields on smaller regions, each of which is contained in some open set of $\cU$.
 
 \begin{lemma}[Small blobs] \label{small-blobs-b}  \label{thm:small-blobs}
-The inclusion $i: \bc^{\cU}_*(M) \into \bc_*(M)$ is a homotopy equivalence.
+The inclusion $i: \bc^{\cU}_*(X) \into \bc_*(X)$ is a homotopy equivalence.
 \end{lemma}
 
 \begin{proof}
-It suffices to show that for any finitely generated pair of subcomplexes 
+It suffices \nn{why? we should spell this out somewhere} to show that for any finitely generated pair $(C_*, D_*)$, with $D_*$ a subcomplex of $C_*$ such that 
 \[
 	(C_*, D_*) \sub (\bc_*(X), \sbc_*(X))
 \]
@@ -92,19 +92,19 @@ and
 for all $x\in C_*$.
 
 For simplicity we will assume that all fields are splittable into small pieces, so that
-$\sbc_0(X) = \bc_0$.
+$\sbc_0(X) = \bc_0(X)$.
 (This is true for all of the examples presented in this paper.)
 Accordingly, we define $h_0 = 0$.
 
 Next we define $h_1$.
 Let $b\in C_1$ be a 1-blob diagram.
 Let $B$ be the blob of $b$.
-We will construct a 1-chain $s(b)\in \sbc_1$ such that $\bd(s(b)) = \bd b$
+We will construct a 1-chain $s(b)\in \sbc_1(X)$ such that $\bd(s(b)) = \bd b$
 and the support of $s(b)$ is contained in $B$.
-(If $B$ is not embedded in $X$, then we implicitly work in some term of a decomposition
+(If $B$ is not embedded in $X$, then we implicitly work in some stage of a decomposition
 of $X$ where $B$ is embedded.
-See \ref{defn:configuration} and preceding discussion.)
-It then follows from \ref{disj-union-contract} that we can choose
+See Definition \ref{defn:configuration} and preceding discussion.)
+It then follows from Corollary \ref{disj-union-contract} that we can choose
 $h_1(b) \in \bc_1(X)$ such that $\bd(h_1(b)) = s(b) - b$.
 
 Roughly speaking, $s(b)$ consists of a series of 1-blob diagrams implementing a series
@@ -113,9 +113,9 @@ The composition of all the collar maps shrinks $B$ to a ball which is small with
 
 Let $\cV_1$ be an auxiliary open cover of $X$, subordinate to $\cU$ and 
 also satisfying conditions specified below.
-Let $b = (B, u, r)$, $u = \sum a_i$ be the label of $B$, $a_i\in \bc_0(B)$.
+Let $b = (B, u, r)$, with $u = \sum a_i$ the label of $B$, and $a_i\in \bc_0(B)$.
 Choose a sequence of collar maps $\bar{f}_j:B\cup\text{collar}\to B$ satisfying conditions which we cannot express
-until introducing more notation.
+until introducing more notation. \nn{needs some rewriting, I guess}
 Let $f_j:B\to B$ be the restriction of $\bar{f}_j$ to $B$; $f_j$ maps $B$ homeomorphically to 
 a slightly smaller submanifold of $B$.
 Let $g_j = f_1\circ f_2\circ\cdots\circ f_j$.
@@ -125,7 +125,7 @@ $g(B)$ is contained is an open set of $\cV_1$ and
 $g_{j-1}(|f_j|)$ is also contained is an open set of $\cV_1$.
 
 There are 1-blob diagrams $c_{ij} \in \bc_1(B)$ such that $c_{ij}$ is compatible with $\cV_1$
-(more specifically, $|c_{ij}| = g_{j-1}(|f_j|)$)
+(more specifically, $|c_{ij}| = g_{j-1}(|f_j|)$ \nn{doesn't strictly make any sense})
 and $\bd c_{ij} = g_{j-1}(a_i) - g_{j}(a_i)$.
 Define
 \[
@@ -141,12 +141,12 @@ Let $b\in C_2$ be a 2-blob diagram.
 Let $B = |b|$, either a ball or a union of two balls.
 By possibly working in a decomposition of $X$, we may assume that the ball(s)
 of $B$ are disjointly embedded.
-We will construct a 2-chain $s(b)\in \sbc_2$ such that
+We will construct a 2-chain $s(b)\in \sbc_2(X)$ such that
 \[
 	\bd(s(b)) = \bd(h_1(\bd b) + b) = s(\bd b)
 \]
 and the support of $s(b)$ is contained in $B$.
-It then follows from \ref{disj-union-contract} that we can choose
+It then follows from Corollary \ref{disj-union-contract} that we can choose
 $h_2(b) \in \bc_2(X)$ such that $\bd(h_2(b)) = s(b) - b - h_1(\bd b)$.
 
 Similarly to the construction of $h_1$ above, 
@@ -156,7 +156,7 @@ The composition of all the collar maps shrinks $B$ to a sufficiently small
 disjoint union of balls.
 
 Let $\cV_2$ be an auxiliary open cover of $X$, subordinate to $\cU$ and
-also satisfying conditions specified below.
+also satisfying conditions specified below. \nn{This happens sufficiently far below (i.e. not in this paragraph) that we probably should give better warning.}
 As before, choose a sequence of collar maps $f_j$ 
 such that each has support
 contained in an open set of $\cV_1$ and the composition of the corresponding collar homeomorphisms
@@ -168,7 +168,7 @@ We will construct a 2-chain $d_j$ such that $\bd d_j = g_{j-1}(s(\bd b)) - g_{j}
 Let $s(\bd b) = \sum e_k$, and let $\{p_m\}$ be the 0-blob diagrams
 appearing in the boundaries of the $e_k$.
 As in the construction of $h_1$, we can choose 1-blob diagrams $q_m$ such that
-$\bd q_m = g_{j-1}(p_m) - g_j(p_m)$ and $\supp(q_m)$ is contained in an open set of $\cV_1$.
+$\bd q_m = g_{j-1}(p_m) - g_j(p_m)$ and $|q_m|$ is contained in an open set of $\cV_1$.
 If $x$ is a sum of $p_m$'s, we denote the corresponding sum of $q_m$'s by $q(x)$.
 
 Now consider, for each $k$, $g_{j-1}(e_k) - q(\bd e_k)$.
@@ -183,7 +183,7 @@ such that each individual ball lies in an open set of $\cV_2$.
 (In this case there are either one or two balls in the disjoint union.)
 For any fixed open cover $\cV_2$ this condition can be satisfied by choosing $\cV_1$ 
 to be a sufficiently fine cover.
-It follows from \ref{disj-union-contract} that we can choose 
+It follows from Corollary \ref{disj-union-contract} that we can choose 
 $x_k \in \bc_2(X)$ with $\bd x_k = g_{j-1}(e_k) - g_j(e_k) - q(\bd e_k)$
 and with $\supp(x_k) = U$.
 We can now take $d_j \deq \sum x_k$.
@@ -219,24 +219,25 @@ First we must specify a topology on the set of $k$-blob diagrams, $\BD_k$.
 We give $\BD_k$ the finest topology such that
 \begin{itemize}
 \item For any $b\in \BD_k$ the action map $\Homeo(X) \to \BD_k$, $f \mapsto f(b)$ is continuous.
+\item \nn{don't we need something for collaring maps?}
 \item The gluing maps $\BD_k(M)\to \BD_k(M\sgl)$ are continuous.
 \item For balls $B$, the map $U(B) \to \BD_1(B)$, $u\mapsto (B, u, \emptyset)$, is continuous,
 where $U(B) \sub \bc_0(B)$ inherits its topology from $\bc_0(B)$ and the topology on
-$\bc_0(B)$ comes from the generating set $\BD_0(B)$.
+$\bc_0(B)$ comes from the generating set $\BD_0(B)$. \nn{don't we need to say more to specify a topology on an $\infty$-dimensional vector space}
 \end{itemize}
 
 We can summarize the above by saying that in the typical continuous family
-$P\to \BD_k(M)$, $p\mapsto \left(B_i(p), u_i(p), r(p)\right)$, $B_i(p)$ and $r(p)$ are induced by a map
-$P\to \Homeo(M)$, with the twig blob labels $u_i(p)$ varying independently.
+$P\to \BD_k(X)$, $p\mapsto \left(B_i(p), u_i(p), r(p)\right)$, $B_i(p)$ and $r(p)$ are induced by a map
+$P\to \Homeo(X)$, with the twig blob labels $u_i(p)$ varying independently.
 We note that while we've decided not to allow the blobs $B_i(p)$ to vary independently of the field $r(p)$,
 if we did allow this it would not affect the truth of the claims we make below.
-In particular, we would get a homotopy equivalent complex $\btc_*(M)$.
+In particular, such a definition of $\btc_*(X)$ would result in a homotopy equivalent complex.
 
 Next we define $\btc_*(X)$ to be the total complex of the double complex (denoted $\btc_{**}$) 
 whose $(i,j)$ entry is $C_j(\BD_i)$, the singular $j$-chains on the space of $i$-blob diagrams.
 The vertical boundary of the double complex,
 denoted $\bd_t$, is the singular boundary, and the horizontal boundary, denoted $\bd_b$, is
-the blob boundary.
+the blob boundary. Following the usual sign convention, we have $\bd = \bd_b + (-1)^i \bd_t$.
 
 We will regard $\bc_*(X)$ as the subcomplex $\btc_{*0}(X) \sub \btc_{**}(X)$.
 The main result of this subsection is
@@ -266,9 +267,10 @@ where
 	e: \btc_{ij}\to\btc_{i+1,j}
 \]
 adds an outermost blob, equal to all of $B^n$, to the $j$-parameter family of blob diagrams.
+Note that for fixed $i$, $e$ is a chain map, i.e. $\bd_t e = e \bd_t$.
 
 A generator $y\in \btc_{0j}$ is a map $y:P\to \BD_0$, where $P$ is some $j$-dimensional polyhedron.
-We define $r(y)\in \btc_{0j}$ to be the constant function $r\circ y : P\to \BD_0$.
+We define $r(y)\in \btc_{0j}$ to be the constant function $r\circ y : P\to \BD_0$. \nn{I found it pretty confusing to reuse the letter $r$ here.}
 Let $c(r(y))\in \btc_{0,j+1}$ be the constant map from the cone of $P$ to $\BD_0$ taking
 the same value (namely $r(y(p))$, for any $p\in P$).
 Let $e(y - r(y)) \in \btc_{1j}$ denote the $j$-parameter family of 1-blob diagrams
@@ -304,12 +306,14 @@ For $x\in \btc_{0j}$ with $j\ge 1$ we have
 			&= x - r(x) + r(x) \\
 			&= x.
 \end{align*}
+Here we have used the fact that $\bd_b(c(r(x))) = 0$ since $c(r(x))$ is a $0$-blob diagram, as well as that $\bd_t(e(r(x))) = e(r(\bd_t x))$ \nn{explain why this is true?} and $c(r(\bd_t x)) - \bd_t(c(r(x))) = r(x)$ \nn{explain?}.
+
 For $x\in \btc_{00}$ we have
 \nn{ignoring signs}
 \begin{align*}
 	\bd h(x) + h(\bd x) &= \bd_b(e(x - r(x))) + \bd_t(c(r(x))) \\
 			&= x - r(x) + r(x) - r(x)\\
-			&= x - r(x).
+			&= x - r(x). \qedhere
 \end{align*}
 \end{proof}
 
@@ -317,10 +321,10 @@ For $x\in \btc_{00}$ we have
 For manifolds $X$ and $Y$, we have $\btc_*(X\du Y) \simeq \btc_*(X)\otimes\btc_*(Y)$.
 \end{lemma}
 \begin{proof}
-This follows from the Eilenber-Zilber theorem and the fact that
-\[
-	\BD_k(X\du Y) \cong \coprod_{i+j=k} \BD_i(X)\times\BD_j(Y) .
-\]
+This follows from the Eilenberg-Zilber theorem and the fact that
+\begin{align*}
+	\BD_k(X\du Y) & \cong \coprod_{i+j=k} \BD_i(X)\times\BD_j(Y) . \qedhere
+\end{align*}
 \end{proof}
 
 For $S\sub X$, we say that $a\in \btc_k(X)$ is {\it supported on $S$}
@@ -358,13 +362,13 @@ on balls $D_i$ contained in open sets of $\cU$.
 \end{proof}
 
 
-\begin{proof}[Proof of \ref{lem:bc-btc}]
-Armed with the above lemmas, we can now proceed similarly to the proof of \ref{small-blobs-b}.
+\begin{proof}[Proof of Lemma \ref{lem:bc-btc}]
+Armed with the above lemmas, we can now proceed similarly to the proof of Lemma \ref{small-blobs-b}.
 
 It suffices to show that for any finitely generated pair of subcomplexes 
 $(C_*, D_*) \sub (\btc_*(X), \bc_*(X))$
 we can find a homotopy $h:C_*\to \btc_*(X)$ such that $h(D_*) \sub \bc_*(X)$
-and $x + h\bd(x) + \bd h(X) \in \bc_*(X)$ for all $x\in C_*$.
+and $x + h\bd(x) + \bd h(x) \in \bc_*(X)$ for all $x\in C_*$.
 
 By Lemma \ref{small-top-blobs}, we may assume that $C_* \sub \btc_*^\cU(X)$ for some
 cover $\cU$ of our choosing.
@@ -376,22 +380,22 @@ Since $\bc_0(X) = \btc_0(X)$, we can take $h_0 = 0$.
 Let $b \in C_1$ be a generator.
 Since $b$ is supported in a disjoint union of balls,
 we can find $s(b)\in \bc_1$ with $\bd (s(b)) = \bd b$
-(by \ref{disj-union-contract}), and also $h_1(b) \in \btc_2$
+(by Corollary \ref{disj-union-contract}), and also $h_1(b) \in \btc_2(X)$
 such that $\bd (h_1(b)) = s(b) - b$
-(by \ref{bt-contract} and \ref{btc-prod}).
+(by Lemmas \ref{bt-contract} and \ref{btc-prod}).
 
 Now let $b$ be a generator of $C_2$.
 If $\cU$ is fine enough, there is a disjoint union of balls $V$
 on which $b + h_1(\bd b)$ is supported.
-Since $\bd(b + h_1(\bd b)) = s(\bd b) \in \bc_2$, we can find
-$s(b)\in \bc_2$ with $\bd(s(b)) = \bd(b + h_1(\bd b))$ (by \ref{disj-union-contract}).
-By \ref{bt-contract} and \ref{btc-prod}, we can now find
-$h_2(b) \in \btc_3$, also supported on $V$, such that $\bd(h_2(b)) = s(b) - b - h_1(\bd b)$
+Since $\bd(b + h_1(\bd b)) = s(\bd b) \in \bc_2(X)$, we can find
+$s(b)\in \bc_2(X)$ with $\bd(s(b)) = \bd(b + h_1(\bd b))$ (by Corollary \ref{disj-union-contract}).
+By Lemmas \ref{bt-contract} and \ref{btc-prod}, we can now find
+$h_2(b) \in \btc_3(X)$, also supported on $V$, such that $\bd(h_2(b)) = s(b) - b - h_1(\bd b)$
 
 The general case, $h_k$, is similar.
 \end{proof}
 
-The proof of \ref{lem:bc-btc} constructs a homotopy inverse to the inclusion
+The proof of Lemma \ref{lem:bc-btc} constructs a homotopy inverse to the inclusion
 $\bc_*(X)\sub \btc_*(X)$.
 One might ask for more: a contractible set of possible homotopy inverses, or at least an
 $m$-connected set for arbitrarily large $m$.
@@ -440,7 +444,7 @@ the following diagram commutes up to homotopy
 \begin{proof}
 In light of Lemma \ref{lem:bc-btc}, it suffices to prove the theorem with 
 $\bc_*$ replaced by $\btc_*$.
-And in fact for $\btc_*$ we get a sharper result: we can omit
+In fact, for $\btc_*$ we get a sharper result: we can omit
 the ``up to homotopy" qualifiers.
 
 Let $f\in CH_k(X, Y)$, $f:P^k\to \Homeo(X \to Y)$ and $a\in \btc_{ij}(X)$, 
