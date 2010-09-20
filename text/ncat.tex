@@ -1034,6 +1034,14 @@ $a\in \psi_{\cC;W,c}(x)$ for some decomposition $x$, and $g: \psi_{\cC;W,c}(x)
 
 In the $A_\infty$ case, enriched over chain complexes, the concrete description of the homotopy colimit
 is more involved.
+We will describe two different (but homotopy equivalent) versions of the homotopy colimit of $\psi_{\cC;W}$.
+The first is the usual one, which works for any indexing category.
+The second construction, we we call the {\it local} homotopy colimit,
+\nn{give it a different name?}
+is more closely related to the blob complex
+construction of \S \ref{sec:blob-definition} and takes advantage of local (gluing) properties
+of the indexing category $\cell(W)$.
+
 Define an $m$-sequence in $W$ to be a sequence $x_0 \le x_1 \le \dots \le x_m$ of permissible decompositions of $W$.
 Such sequences (for all $m$) form a simplicial set in $\cell(W)$.
 Define $\cl{\cC}(W)$ as a vector space via
@@ -1051,7 +1059,6 @@ summand of $\cl{\cC}(W)$ (with $\bar{x} = (x_0,\dots,x_k)$), define
 \]
 where $d_j(\bar{x}) = (x_0,\dots,x_{j-1},x_{j+1},\dots,x_k)$ and $g: \psi_\cC(x_0)\to \psi_\cC(x_1)$
 is the usual gluing map coming from the antirefinement $x_0 \le x_1$.
-%\nn{need to say this better}
 %\nn{maybe mention that there is a version that emphasizes minimal gluings (antirefinements) which
 %combine only two balls at a time; for $n=1$ this version will lead to usual definition
 %of $A_\infty$ category}
@@ -1062,6 +1069,24 @@ Then we glue these together with mapping cylinders coming from gluing maps
 (the 1-simplices).
 Then we kill the extra homology we just introduced with mapping 
 cylinders between the mapping cylinders (the 2-simplices), and so on.
+
+Next we describe the local homotopy colimit.
+This is similar to the usual homotopy colimit, but using
+a cone-product set (Remark \ref{blobsset-remark}) in place of a simplicial set.
+The cone-product $m$-polyhedra for the set are pairs $(x, E)$, where $x$ is a decomposition of $W$
+and $E$ is an $m$-blob diagram such that each blob is a union of balls of $x$.
+(Recall that this means that the interiors of
+each pair of blobs (i.e.\ balls) of $E$ are either disjoint or nested.)
+To each $(x, E)$ we associate the chain complex $\psi_{\cC;W}(x)$, shifted in degree by $m$.
+The boundary has a term for omitting each blob of $E$.
+If we omit an innermost blob then we replace $x$ by the formal difference $x - \gl(x)$, where
+$\gl(x)$ is obtained from $x$ by gluing together the balls of $x$ contained in the blob we are omitting.
+The gluing maps of $\cC$ give us a maps from $\psi_{\cC;W}(x)$ to $\psi_{\cC;W}(\gl(x))$.
+
+One can show that the usual hocolimit and the local hocolimit are homotopy equivalent using an 
+Eilenberg-Zilber type subdivision argument.
+
+\medskip
 
 $\cl{\cC}(W)$ is functorial with respect to homeomorphisms of $k$-manifolds. Restricting the $k$-spheres, we have now proved Lemma \ref{lem:spheres}.
 
