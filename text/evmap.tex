@@ -261,7 +261,7 @@ We will construct a contracting homotopy $h: \btc_*(B^n)\to \btc_{*+1}(B^n)$.
 
 We will assume a splitting $s:H_0(\btc_*(B^n))\to \btc_0(B^n)$
 of the quotient map $q:\btc_0(B^n)\to H_0(\btc_*(B^n))$.
-Let $r = s\circ q$.
+Let $\rho = s\circ q$.
 
 For $x\in \btc_{ij}$ with $i\ge 1$ define
 \[
@@ -275,8 +275,7 @@ adds an outermost blob, equal to all of $B^n$, to the $j$-parameter family of bl
 Note that for fixed $i$, $e$ is a chain map, i.e. $\bd_t e = e \bd_t$.
 
 A generator $y\in \btc_{0j}$ is a map $y:P\to \BD_0$, where $P$ is some $j$-dimensional polyhedron.
-We define $r(y)\in \btc_{0j}$ to be the constant function $r\circ y : P\to \BD_0$. 
-\nn{I found it pretty confusing to reuse the letter $r$ here.}
+We define $r(y)\in \btc_{0j}$ to be the constant function $\rho\circ y : P\to \BD_0$. 
 Let $c(r(y))\in \btc_{0,j+1}$ be the constant map from the cone of $P$ to $\BD_0$ taking
 the same value (namely $r(y(p))$, for any $p\in P$).
 Let $e(y - r(y)) \in \btc_{1j}$ denote the $j$-parameter family of 1-blob diagrams
@@ -418,8 +417,7 @@ between the $n$-manifolds $X$ and $Y$
 (any given singular chain extends a fixed homeomorphism $\bd X \to \bd Y$).
 We also will use the abbreviated notation $CH_*(X) \deq CH_*(X, X)$.
 (For convenience, we will permit the singular cells generating $CH_*(X, Y)$ to be more general
-than simplices --- they can be based on any linear polyhedron.)
-\nn{be more restrictive here? (probably yes)  does more need to be said?}
+than simplices --- they can be based on any cone-product polyhedron (see Remark \ref{blobsset-remark}).)
 \nn{this note about our non-standard should probably go earlier in the paper, maybe intro}
 
 \begin{thm}  \label{thm:CH}
