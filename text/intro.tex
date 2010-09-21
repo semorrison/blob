@@ -8,7 +8,7 @@ This blob complex provides a simultaneous generalization of several well known c
 \begin{itemize}
 \item The 0-th homology $H_0(\bc_*(M; \cC))$ is isomorphic to the usual 
 topological quantum field theory invariant of $M$ associated to $\cC$.
-(See Theorem \ref{thm:skein-modules} later in the introduction and \S \ref{sec:constructing-a-tqft}.)
+(See Proposition \ref{thm:skein-modules} later in the introduction and \S \ref{sec:constructing-a-tqft}.)
 \item When $n=1$ and $\cC$ is just a 1-category (e.g.\ an associative algebra), 
 the blob complex $\bc_*(S^1; \cC)$ is quasi-isomorphic to the Hochschild complex $\HC_*(\cC)$.
 (See Theorem \ref{thm:hochschild} and \S \ref{sec:hochschild}.)
@@ -124,7 +124,7 @@ The relationship between all these ideas is sketched in Figure \ref{fig:outline}
    } (FU.100);
 \draw[->] (C) -- node[above left=3pt] {restrict to \\ standard balls} (tC);
 \draw[->] (FU.80) -- node[right] {restrict \\ to balls} (C.-80);
-\draw[->] (BC) -- node[right] {$H_0$ \\ c.f. Theorem \ref{thm:skein-modules}} (A);
+\draw[->] (BC) -- node[right] {$H_0$ \\ c.f. Proposition \ref{thm:skein-modules}} (A);
 
 \draw[->] (FU) -- node[left] {blob complex \\ for balls} (Cs);
 \draw[<->] (BC) -- node[right] {$\iso$ by \\ Corollary \ref{cor:new-old}} (BCs);
@@ -286,7 +286,7 @@ Properties \ref{property:disjoint-union}, \ref{property:gluing-map} and
 
 The blob complex is a simultaneous generalization of the TQFT skein module construction and of Hochschild homology.
 
-\newtheorem*{thm:skein-modules}{Theorem \ref{thm:skein-modules}}
+\newtheorem*{thm:skein-modules}{Proposition \ref{thm:skein-modules}}
 
 \begin{thm:skein-modules}[Skein modules]
 The $0$-th blob homology of $X$ is the usual 
@@ -308,7 +308,7 @@ quasi-isomorphic to the Hochschild complex.
 \end{equation*}
 \end{thm:hochschild}
 
-Theorem \ref{thm:skein-modules} is immediate from the definition, and
+Proposition \ref{thm:skein-modules} is immediate from the definition, and
 Theorem \ref{thm:hochschild} is established in \S \ref{sec:hochschild}.
 We also note \S \ref{sec:comm_alg} which describes the blob complex when $\cC$ is a one of 
 certain commutative algebras thought of as $n$-categories.
