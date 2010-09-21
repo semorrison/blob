@@ -80,7 +80,9 @@ The inclusion $i: \bc^{\cU}_*(X) \into \bc_*(X)$ is a homotopy equivalence.
 \end{lemma}
 
 \begin{proof}
-It suffices \nn{why? we should spell this out somewhere} to show that for any finitely generated 
+Since both complexes are free, it suffices to show that the inclusion induces
+an isomorphism of homotopy groups.
+To show that it suffices to show that for any finitely generated 
 pair $(C_*, D_*)$, with $D_*$ a subcomplex of $C_*$ such that 
 \[
 	(C_*, D_*) \sub (\bc_*(X), \sbc_*(X))
@@ -113,10 +115,10 @@ of small collar maps, plus a shrunken version of $b$.
 The composition of all the collar maps shrinks $B$ to a ball which is small with respect to $\cU$.
 
 Let $\cV_1$ be an auxiliary open cover of $X$, subordinate to $\cU$ and 
-also satisfying conditions specified below.
+fine enough that a condition stated later in the proof is satisfied.
 Let $b = (B, u, r)$, with $u = \sum a_i$ the label of $B$, and $a_i\in \bc_0(B)$.
-Choose a sequence of collar maps $\bar{f}_j:B\cup\text{collar}\to B$ satisfying conditions which we cannot express
-until introducing more notation. \nn{needs some rewriting, I guess}
+Choose a sequence of collar maps $\bar{f}_j:B\cup\text{collar}\to B$ satisfying conditions 
+specified at the end of this paragraph.
 Let $f_j:B\to B$ be the restriction of $\bar{f}_j$ to $B$; $f_j$ maps $B$ homeomorphically to 
 a slightly smaller submanifold of $B$.
 Let $g_j = f_1\circ f_2\circ\cdots\circ f_j$.
@@ -126,7 +128,7 @@ $g(B)$ is contained is an open set of $\cV_1$ and
 $g_{j-1}(|f_j|)$ is also contained is an open set of $\cV_1$.
 
 There are 1-blob diagrams $c_{ij} \in \bc_1(B)$ such that $c_{ij}$ is compatible with $\cV_1$
-(more specifically, $|c_{ij}| = g_{j-1}(|f_j|)$ \nn{doesn't strictly make any sense})
+(more specifically, $|c_{ij}| = g_{j-1}(B)$)
 and $\bd c_{ij} = g_{j-1}(a_i) - g_{j}(a_i)$.
 Define
 \[
@@ -156,9 +158,8 @@ of small collar maps, plus a shrunken version of $b$.
 The composition of all the collar maps shrinks $B$ to a sufficiently small 
 disjoint union of balls.
 
-Let $\cV_2$ be an auxiliary open cover of $X$, subordinate to $\cU$ and
-also satisfying conditions specified below. 
-\nn{This happens sufficiently far below (i.e. not in this paragraph) that we probably should give better warning.}
+Let $\cV_2$ be an auxiliary open cover of $X$, subordinate to $\cU$ and 
+fine enough that a condition stated later in the proof is satisfied.
 As before, choose a sequence of collar maps $f_j$ 
 such that each has support
 contained in an open set of $\cV_1$ and the composition of the corresponding collar homeomorphisms
@@ -222,6 +223,7 @@ We give $\BD_k$ the finest topology such that
 \begin{itemize}
 \item For any $b\in \BD_k$ the action map $\Homeo(X) \to \BD_k$, $f \mapsto f(b)$ is continuous.
 \item \nn{don't we need something for collaring maps?}
+\nn{KW: no, I don't think so.  not unless we wanted some extension of $CH_*$ to act}
 \item The gluing maps $\BD_k(M)\to \BD_k(M\sgl)$ are continuous.
 \item For balls $B$, the map $U(B) \to \BD_1(B)$, $u\mapsto (B, u, \emptyset)$, is continuous,
 where $U(B) \sub \bc_0(B)$ inherits its topology from $\bc_0(B)$ and the topology on
