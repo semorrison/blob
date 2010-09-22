@@ -829,7 +829,8 @@ In fact, there is also a trivial, but mostly uninteresting, way to do this:
 we can think of each vector space associated to an $n$-ball as a chain complex concentrated in degree $0$, 
 and take $\CD{B}$ to act trivially. 
 
-Be careful that the ``free resolution" of the topological $n$-category $\pi_{\leq n}(T)$ is not the $A_\infty$ $n$-category $\pi^\infty_{\leq n}(T)$.
+Beware that the ``free resolution" of the topological $n$-category $\pi_{\leq n}(T)$ 
+is not the $A_\infty$ $n$-category $\pi^\infty_{\leq n}(T)$.
 It's easy to see that with $n=0$, the corresponding system of fields is just 
 linear combinations of connected components of $T$, and the local relations are trivial.
 There's no way for the blob complex to magically recover all the data of $\pi^\infty_{\leq 0}(T) \iso C_* T$.
@@ -903,14 +904,10 @@ we get an instance of Lurie's topological chiral homology construction.
 
 \subsection{From balls to manifolds}
 \label{ss:ncat_fields} \label{ss:ncat-coend}
-In this section we describe how to extend an $n$-category $\cC$ as described above 
+In this section we show how to extend an $n$-category $\cC$ as described above 
 (of either the plain or $A_\infty$ variety) to an invariant of manifolds, which we denote by $\cl{\cC}$.
-This extension is a certain colimit, and we've chosen the notation to remind you of this.
-Thus we show that functors $\cC_k$ satisfying the axioms above have a canonical extension 
-from $k$-balls to arbitrary $k$-manifolds.
-Recall that we've already anticipated this construction in the previous section, 
-inductively defining $\cl{\cC}$ on $k$-spheres in terms of $\cC$ on $k$-balls, 
-so that we can state the boundary axiom for $\cC$ on $k+1$-balls.
+This extension is a certain colimit, and the arrow in the notation is intended as a reminder of this.
+
 In the case of plain $n$-categories, this construction factors into a construction of a 
 system of fields and local relations, followed by the usual TQFT definition of a 
 vector space invariant of manifolds given as Definition \ref{defn:TQFT-invariant}.
@@ -920,7 +917,13 @@ an $A_\infty$ $n$-category $\bc_*(\cC)$, by computing the blob complex of balls
 (recall Example \ref{ex:blob-complexes-of-balls} above).
 We will show in Corollary \ref{cor:new-old} below that the homotopy colimit invariant 
 for a manifold $M$ associated to this $A_\infty$ $n$-category is actually the 
-same as the original blob complex  for $M$ with coefficients in $\cC$.
+same as the original blob complex for $M$ with coefficients in $\cC$.
+
+Recall that we've already anticipated this construction in the previous section, 
+inductively defining $\cl{\cC}$ on $k$-spheres in terms of $\cC$ on $k$-balls, 
+so that we can state the boundary axiom for $\cC$ on $k+1$-balls.
+
+\medskip
 
 We will first define the ``decomposition" poset $\cell(W)$ for any $k$-manifold $W$, for $1 \leq k \leq n$. 
 An $n$-category $\cC$ provides a functor from this poset to the category of sets, 
@@ -1085,7 +1088,8 @@ Eilenberg-Zilber type subdivision argument.
 
 \medskip
 
-$\cl{\cC}(W)$ is functorial with respect to homeomorphisms of $k$-manifolds. Restricting the $k$-spheres, we have now proved Lemma \ref{lem:spheres}.
+$\cl{\cC}(W)$ is functorial with respect to homeomorphisms of $k$-manifolds. 
+Restricting the $k$-spheres, we have now proved Lemma \ref{lem:spheres}.
 
 It is easy to see that
 there are well-defined maps $\cl{\cC}(W)\to\cl{\cC}(\bd W)$, and that these maps
@@ -1141,8 +1145,8 @@ So by the injectivity clause of the composition axiom, we must have that $a'_0 =
 But this implies that $a = a_0 = a_k = \hat{a}$, contrary to our assumption that $a\ne \hat{a}$.
 \end{proof}
 
-\nn{need to finish explaining why we have a system of fields;
-define $k$-cat $\cC(\cdot\times W)$}
+%\nn{need to finish explaining why we have a system of fields;
+%define $k$-cat $\cC(\cdot\times W)$}
 
 \subsection{Modules}
 
@@ -2227,7 +2231,7 @@ We define $f: \cS(X; c) \to \cS(X', f(c))$ to be the tautological map
 It is easy to show that this is independent of the choice of $E$.
 Note also that this map depends only on the restriction of $f$ to $\bd X$.
 In particular, if $F: X\to X$ is the identity on $\bd X$ then $f$ acts trivially, as required by
-Axiom \ref{axiom:extended-isotopies} of \S\ref{ss:n-cat-def}.
+Axiom \ref{axiom:extended-isotopies}.
 
 We define product $n{+}1$-morphisms to be identity maps of modules.
 
