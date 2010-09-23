@@ -431,7 +431,7 @@ Theorem \ref{thm:product} is proved in \S \ref{ss:product-formula}, and Theorem 
 
 \subsection{Applications}
 \label{sec:applications}
-Finally, we give two theorems which we consider applications. % or "think of as"
+Finally, we give two applications of the above machinery.
 
 \newtheorem*{thm:map-recon}{Theorem \ref{thm:map-recon}}
 
@@ -444,18 +444,21 @@ $$\bc_*(X; \pi^\infty_{\le n}(T)) \simeq \CM{X}{T}.$$
 \end{thm:map-recon}
 
 This says that we can recover (up to homotopy) the space of maps to $T$ via blob homology from local data. 
+Note that there is no restriction on the connectivity of $T$.
 The proof appears in \S \ref{sec:map-recon}.
 
 \newtheorem*{thm:deligne}{Theorem \ref{thm:deligne}}
 
 \begin{thm:deligne}[Higher dimensional Deligne conjecture]
-The singular chains of the $n$-dimensional fat graph operad act on blob cochains.
+The singular chains of the $n$-dimensional surgery cylinder operad act on blob cochains.
+Since the little $n{+}1$-balls operad is a suboperad of the $n$-dimensional surgery cylinder operad,
+this implies that the little $n{+}1$-balls operad acts on blob cochains of the $n$-ball.
 \end{thm:deligne}
 See \S \ref{sec:deligne} for a full explanation of the statement, and the proof.
 
 
 
-\noop{
+\noop{ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Future directions}
 \label{sec:future}
 \nn{KW: Perhaps we should delete this subsection and salvage only the first few sentences.}
@@ -482,7 +485,7 @@ For example, we expect that the shuffle product on the Hochschild homology of a 
 but haven't investigated the details.
 
 Most importantly, however, \nn{applications!} \nn{cyclic homology, $n=2$ cases, contact, Kh} \nn{stabilization} \nn{stable categories, generalized cohomology theories}
-} %%% end \noop
+} %%% end \noop %%%%%%%%%%%%%%%%%%%%%
 
 \subsection{Thanks and acknowledgements}
 % attempting to make this chronological rather than alphabetical
