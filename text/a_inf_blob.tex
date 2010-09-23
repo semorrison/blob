@@ -31,7 +31,7 @@ our original definition of the blob complex $\bc_*(M;\cD)$.
 \label{ss:product-formula}
 
 
-Given a system of fields $\cE$ and a $n{-}k$-manifold $F$, recall from 
+Given an $n$-dimensional system of fields $\cE$ and a $n{-}k$-manifold $F$, recall from 
 Example \ref{ex:blob-complexes-of-balls} that there is an  $A_\infty$ $k$-category $\cC_F$ 
 defined by $\cC_F(X) = \cE(X\times F)$ if $\dim(X) < k$ and
 $\cC_F(X) = \bc_*(X\times F;\cE)$ if $\dim(X) = k$.
@@ -200,11 +200,21 @@ are homotopic.
 This concludes the proof of Theorem \ref{thm:product}.
 \end{proof}
 
-\nn{need to prove a version where $E$ above has dimension $m<n$; result is an $n{-}m$-category}
+%\nn{need to prove a version where $E$ above has dimension $m<n$; result is an $n{-}m$-category}
+
+If $Y$ has dimension $k-m$, then we have an $m$-category $\cC_{Y\times F}$ whose value at
+a $j$-ball $X$ is either $\cE(X\times Y\times F)$ (if $j<m$) or $\bc_*(X\times Y\times F)$
+(if $j=m$).
+(See Example \ref{ex:blob-complexes-of-balls}.)
+Similarly we have an $m$-category whose value at $X$ is $\cl{\cC_F}(X\times Y)$.
+These two categories are equivalent, but since we do not define functors between
+topological $n$-categories in this paper we are unable to say precisely
+what ``equivalent" means in this context.
+We hope to include this stronger result in a future paper.
 
 \medskip
 
-Taking $F$ above to be a point, we obtain the following corollary.
+Taking $F$ in Theorem \ref{thm:product} to be a point, we obtain the following corollary.
 
 \begin{cor}
 \label{cor:new-old}
@@ -324,18 +334,24 @@ $D$ fields on $D\times X$ (for $m+k < n$) or the blob complex $\bc_*(D\times X; 
 $m$-ball $(D, H)$ either fields on $(D\times Y) \cup (H\times X_i)$ (if $m+k < n$)
 or the blob complex $\bc_*((D\times Y) \cup (H\times X_i))$ (if $m+k = n$).
 (See Example \ref{bc-module-example}.)
+\item The tensor product $\bc(X_1) \otimes_{\bc(Y), J} \bc(X_2)$, which is
+an $A_\infty$ $n{-}k$-category.
+(See \S \ref{moddecss}.)
 \end{itemize}
 
-\nn{statement (and proof) is only for case $k=n$; need to revise either above or below; maybe
-just say that until we define functors we can't do more}
+It is the case that the $n{-}k$-categories $\bc(X)$ and $\bc(X_1) \otimes_{\bc(Y), J} \bc(X_2)$
+are equivalent for all $k$, but since we do not develop a definition of functor between $n$-categories
+in this paper, we cannot state this precisely.
+(It will appear in a future paper.)
+So we content ourselves with
 
 \begin{thm}
 \label{thm:gluing}
-$\bc(X) \simeq \bc(X_1) \otimes_{\bc(Y), J} \bc(X_2)$.
+When $k=n$ above, $\bc(X)$ is homotopy equivalent to $\bc(X_1) \otimes_{\bc(Y), J} \bc(X_2)$.
 \end{thm}
 
 \begin{proof}
-We will assume $k=n$; the other cases are similar.
+%We will assume $k=n$; the other cases are similar.
 The proof is similar to that of Theorem \ref{thm:product}.
 We give a short sketch with emphasis on the differences from 
 the proof of Theorem \ref{thm:product}.
