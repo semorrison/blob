@@ -45,7 +45,11 @@ to the standard $k$-ball.
 By ``a $k$-ball" we mean any $k$-manifold which is homeomorphic to the 
 standard $k$-ball.
 We {\it do not} assume that it is equipped with a 
-preferred homeomorphism to the standard $k$-ball, and the same applies to ``a $k$-sphere" below. \nn{List the axiom numbers here, mentioning alternate versions, and also the same in the module section.}
+preferred homeomorphism to the standard $k$-ball, and the same applies to ``a $k$-sphere" below.
+
+The axioms for an $n$-category are spread throughout this section.
+Collecting these together, an $n$-category is a gadget satisfying Axioms \ref{axiom:morphisms}, \ref{nca-boundary}, \ref{axiom:composition},  \ref{nca-assoc}, \ref{axiom:product} and \ref{axiom:extended-isotopies}; for an $A_\infty$ $n$-category, we replace Axiom \ref{axiom:extended-isotopies} with Axiom \ref{axiom:families}.
+
 
 Given a homeomorphism $f:X\to Y$ between $k$-balls (not necessarily fixed on 
 the boundary), we want a corresponding
@@ -218,6 +222,7 @@ In the presence of strong duality, these $k$ distinct compositions are subsumed 
 one general type of composition which can be in any ``direction".
 
 \begin{axiom}[Composition]
+\label{axiom:composition}
 Let $B = B_1 \cup_Y B_2$, where $B$, $B_1$ and $B_2$ are $k$-balls ($0\le k\le n$)
 and $Y = B_1\cap B_2$ is a $k{-}1$-ball (Figure \ref{blah5}).
 Let $E = \bd Y$, which is a $k{-}2$-sphere.
@@ -467,6 +472,7 @@ same (traditional) $i$-morphism as the corresponding codimension $i$ cell $c$.
 
 %\addtocounter{axiom}{-1}
 \begin{axiom}[Product (identity) morphisms]
+\label{axiom:product}
 For each pinched product $\pi:E\to X$, with $X$ a $k$-ball and $E$ a $k{+}m$-ball ($m\ge 1$),
 there is a map $\pi^*:\cC(X)\to \cC(E)$.
 These maps must satisfy the following conditions.
@@ -612,6 +618,7 @@ $C_*(\Homeo_\bd(X))$ denote the singular chains on this space.
 
 %\addtocounter{axiom}{-1}
 \begin{axiom}[\textup{\textbf{[$A_\infty$ version]}} Families of homeomorphisms act in dimension $n$.]
+\label{axiom:families}
 For each $n$-ball $X$ and each $c\in \cl{\cC}(\bd X)$ we have a map of chain complexes
 \[
 	C_*(\Homeo_\bd(X))\ot \cC(X; c) \to \cC(X; c) .
@@ -1831,7 +1838,7 @@ A 1-marked $k$-ball is anything homeomorphic to $B^j \times C(S)$, $0\le j\le n-
 where $B^j$ is the standard $j$-ball.
 A 1-marked $k$-ball can be decomposed in various ways into smaller balls, which are either 
 (a) smaller 1-marked $k$-balls, (b) 0-marked $k$-balls, or (c) plain $k$-balls.
-(See Figure \nn{need figure, and improve caption on other figure}.)
+(See Figure \ref{subdividing1marked}.)
 We now proceed as in the above module definitions.
 
 \begin{figure}[t] \centering
@@ -1847,6 +1854,41 @@ We now proceed as in the above module definitions.
 \end{tikzpicture}
 \caption{Cone on a marked circle, the prototypical 1-marked ball}
 \label{feb21d}
+\end{figure}
+
+\begin{figure}[t] \centering
+\begin{tikzpicture}[baseline,line width = 2pt]
+\draw[blue][fill=blue!15!white] (0,0) circle (2);
+\fill[red] (0,0) circle (0.1);
+\foreach \qm/\qa/\n in {70/-30/0, 120/95/1, -120/180/2} {
+	\draw[red] (0,0) -- (\qm:2);
+%	\path (\qa:1) node {\color{green!50!brown} $\cA_\n$};
+%	\path (\qm+20:2.5) node(M\n) {\color{green!50!brown} $\cM_\n$};
+%	\draw[line width=1pt, green!50!brown, ->] (M\n.\qm+135) to[out=\qm+135,in=\qm+90] (\qm+5:1.3);
+}
+
+
+\begin{scope}[black, thin]
+\clip (0,0) circle (2);
+\draw (0:1) -- (90:1) -- (180:1) -- (270:1) -- cycle;
+\draw (90:1) -- (90:2.1);
+\draw (180:1) -- (180:2.1);
+\draw (270:1) -- (270:2.1);
+\draw (0:1) -- (15:2.1);
+\draw (0:1) -- (315:1.5) -- (270:1);
+\draw (315:1.5) -- (315:2.1);
+\end{scope}
+
+\node(0marked) at (2.5,2.25) {$0$-marked ball};
+\node(1marked) at (3.5,1) {$1$-marked ball};
+\node(plain) at (3,-1) {plain ball};
+\draw[line width=1pt, green!50!brown, ->] (0marked.270) to[out=270,in=45] (50:1.1);
+\draw[line width=1pt, green!50!brown, ->] (1marked.225) to[out=270,in=45] (0.4,0.1);
+\draw[line width=1pt, green!50!brown, ->] (plain.90) to[out=135,in=45] (-45:1);
+
+\end{tikzpicture}
+\caption{Subdividing a $1$-marked ball into plain, $0$-marked and $1$-marked balls.}
+\label{subdividing1marked}
 \end{figure}
 
 A $n$-category 1-sphere module is, among other things, an $n{-}2$-category $\cD$ with
@@ -2213,8 +2255,7 @@ Finally, observe that the space of $E$'s is simply connected.
 For $n=1$ we have to check an additional ``global" relations corresponding to 
 rotating the 0-sphere $E$ around the 1-sphere $\bd X$.
 But if $n=1$, then we are in the case of ordinary algebroids and bimodules,
-and this is just the well-known ``Frobenius reciprocity" result for bimodules.
-\nn{find citation for this.  Evans and Kawahigashi? Bisch!}
+and this is just the well-known ``Frobenius reciprocity" result for bimodules \cite{MR1424954}.
 
 \medskip
 
