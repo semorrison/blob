@@ -92,7 +92,6 @@ The relationship between all these ideas is sketched in Figure \ref{fig:outline}
 
 \begin{figure}[!ht]
 {\center
-
 \beginpgfgraphicnamed{gadgets-external}%
 \begin{tikzpicture}[align=center,line width = 1.5pt]
 \newcommand{\xa}{2}
@@ -130,8 +129,8 @@ The relationship between all these ideas is sketched in Figure \ref{fig:outline}
 \draw[->] (FU) -- node[left] {blob complex \\ for balls} (Cs);
 \draw[<->] (BC) -- node[right] {$\iso$ by \\ Corollary \ref{cor:new-old}} (BCs);
 \end{tikzpicture}
-\endpgfgraphicnamed{gadgets-external}%
-
+\endpgfgraphicnamed%
+\mbox{} % <-- weird, doesn't compile unless I put something here after the \endpgfgraphicnamed...? -S
 }
 \caption{The main gadgets and constructions of the paper.}
 \label{fig:outline}
