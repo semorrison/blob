@@ -48,6 +48,7 @@
 \newtheorem{property}{Property}
 \newtheorem{prop}{Proposition}
 \newtheorem{thm}[prop]{Theorem}
+\newtheorem{defn}[prop]{Definition}
 
 \newenvironment{rem}{\noindent\textsl{Remark.}}{}
 
@@ -74,6 +75,12 @@
 \newcommand{\mathscinet}[1]{\href{http://www.ams.org/mathscinet-getitem?mr=#1}{\tt #1}}
 \newcommand{\googlebooks}[1]{(preview at \href{http://books.google.com/books?id=#1}{google books})}
 
+
+% figures
+
+\newcommand{\mathfig}[2]{\ensuremath{\hspace{-3pt}\begin{array}{c}%
+  \raisebox{-2.5pt}{\includegraphics[width=#1\textwidth]{diagrams/#2}}%
+\end{array}\hspace{-3pt}}}
 
 
 % packages
