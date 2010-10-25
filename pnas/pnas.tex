@@ -63,7 +63,7 @@
 %% The AMS math files are commonly used to gain access to useful features
 %% like extended math fonts and math commands.
 
-\usepackage{amssymb,amsfonts,amsmath}
+\usepackage{amssymb,amsfonts,amsmath,amsthm}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% OPTIONAL MACRO FILES
@@ -73,6 +73,9 @@
 %\newcommand{\mfrac}[2]{\frac{\displaystyle #1}{\displaystyle #2}}
 %\def\s{\sigma}
 
+\input{preamble}
+%\input{../text/article_preamble}
+\input{../text/kw_macros}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Don't type in anything in the following section:
@@ -80,7 +83,7 @@
 %% For PNAS Only:
 \contributor{Submitted to Proceedings
 of the National Academy of Sciences of the United States of America}
-\url{www.pnas.org/cgi/doi/10.1073/pnas.0709640104}
+%\url{www.pnas.org/cgi/doi/10.1073/pnas.0709640104}
 \copyrightyear{2008}
 \issuedate{Issue Date}
 \volume{Volume}
@@ -157,7 +160,9 @@ of the United States of America}
 %% \subsection{}
 %% \subsubsection{}
 
--- text of paper here --
+
+\input{../text/intro}
+
 
 %% == end of paper:
 

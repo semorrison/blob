@@ -1,0 +1,75 @@
+%auto-ignore
+%!TEX root = pnas.tex
+
+\def\bc{{\mathcal B}}
+\def\btc{{\mathcal{BT}}}
+
+\newcommand{\HC}{\operatorname{Hoch}}
+\newcommand{\HH}{\operatorname{HH}}
+
+\newcommand{\CM}[2]{C_*(\Maps(#1 \to #2))}
+\newcommand{\CD}[1]{C_*(\Diff(#1))}
+\newcommand{\CH}[1]{C_*(\Homeo(#1))}
+
+\newcommand{\cl}[1]{\underrightarrow{#1}}
+
+\newcommand{\Set}{\text{\textbf{Set}}}
+\newcommand{\Vect}{\text{\textbf{Vect}}}
+\newcommand{\Kom}{\text{\textbf{Kom}}}
+\newcommand{\Cat}{\mathcal{C}}
+
+\newcommand{\cell}{\mathfrak{D}}
+
+\newcommand{\into}{\hookrightarrow}
+\newcommand{\onto}{\twoheadrightarrow}
+\newcommand{\iso}{\cong}
+\newcommand{\quism}{\underset{\text{q.i.}}{\simeq}}
+\newcommand{\htpy}{\simeq}
+\newcommand{\actsOn}{\circlearrowright}
+\newcommand{\xto}[1]{\xrightarrow{#1}}
+\newcommand{\isoto}{\xto{\iso}}
+\newcommand{\quismto}{\xrightarrow[\text{q.i.}]{\iso}}
+\newcommand{\diffeoto}{\xrightarrow[\text{diffeo}]{\iso}}
+\newcommand{\htpyto}{\xrightarrow[\text{htpy}]{\htpy}}
+
+\newcommand{\directSum}{\oplus}
+\newcommand{\DirectSum}{\bigoplus}
+\newcommand{\tensor}{\otimes}
+\newcommand{\Tensor}{\bigotimes}
+
+\newcommand{\selfarrow}{\ensuremath{\smash{\tikz[baseline]{\draw[->] (0,0.2) .. controls (0.6,0.8) and (0.6,-0.6) .. (0,0);}}}}
+
+\newcommand{\bdy}{\partial}
+\newcommand{\compose}{\circ}
+\newcommand{\eset}{\emptyset}
+
+\newcommand{\id}{\boldsymbol{1}}
+
+\newtheorem{property}{Property}
+\newenvironment{rem}{\noindent\textsl{Remark.}}{}
+
+% \mathrlap -- a horizontal \smash--------------------------------
+% For comparison, the existing overlap macros:
+% \def\llap#1{\hbox to 0pt{\hss#1}}
+% \def\rlap#1{\hbox to 0pt{#1\hss}}
+\def\clap#1{\hbox to 0pt{\hss#1\hss}}
+\def\mathllap{\mathpalette\mathllapinternal}
+\def\mathrlap{\mathpalette\mathrlapinternal}
+\def\mathclap{\mathpalette\mathclapinternal}
+\def\mathllapinternal#1#2{%
+\llap{$\mathsurround=0pt#1{#2}$}}
+\def\mathrlapinternal#1#2{%
+\rlap{$\mathsurround=0pt#1{#2}$}}
+\def\mathclapinternal#1#2{%
+\clap{$\mathsurround=0pt#1{#2}$}}
+
+% packages
+
+\usepackage{tikz}
+\usetikzlibrary{shapes}
+\usetikzlibrary{backgrounds}
+\usetikzlibrary{decorations,decorations.pathreplacing}
+\usetikzlibrary{fit,calc,through}
+
+\usepackage[all,color]{xy}
+\SelectTips{cm}{}
