@@ -11,6 +11,7 @@ syntax: glob
 *.snm
 
 # artifacts
+pnas.pdf
 blob1.pdf
 sandbox.pdf
 blob1.dvi
