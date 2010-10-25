@@ -187,18 +187,17 @@ Decide if we need a friendlier, skein-module version.
 \subsection{The blob complex}
 \subsubsection{Decompositions of manifolds}
 
-A {\emph ball decomposition} of $W$ is a 
+A \emph{ball decomposition} of $W$ is a 
 sequence of gluings $M_0\to M_1\to\cdots\to M_m = W$ such that $M_0$ is a disjoint union of balls
-$\du_a X_a$.
-
-If $X_a$ is some component of $M_0$, note that its image in $W$ need not be a ball; parts of $\bd X_a$ may have been glued together.
-Define a {\it permissible decomposition} of $W$ to be a map
+$\du_a X_a$ and each $M_i$ is a manifold.
+If $X_a$ is some component of $M_0$, its image in $W$ need not be a ball; $\bd X_a$ may have been glued to itself.
+A {\it permissible decomposition} of $W$ is a map
 \[
 	\coprod_a X_a \to W,
 \]
 which can be completed to a ball decomposition $\du_a X_a = M_0\to\cdots\to M_m = W$.
-Roughly, a permissible decomposition is like a ball decomposition where we don't care in which order the balls
-are glued up to yield $W$, so long as there is some (non-pathological) way to glue them.
+A permissible decomposition is weaker than a ball decomposition; we forget the order in which the balls
+are glued up to yield $W$, and just require that there is some non-pathological way to do this.
 
 Given permissible decompositions $x = \{X_a\}$ and $y = \{Y_b\}$ of $W$, we say that $x$ is a refinement
 of $y$, or write $x \le y$, if there is a ball decomposition $\du_a X_a = M_0\to\cdots\to M_m = W$
@@ -215,16 +214,16 @@ An $n$-category $\cC$ determines
 a functor $\psi_{\cC;W}$ from $\cell(W)$ to the category of sets 
 (possibly with additional structure if $k=n$).
 Each $k$-ball $X$ of a decomposition $y$ of $W$ has its boundary decomposed into $k{-}1$-balls,
-and, as described above, we have a subset $\cC(X)\spl \sub \cC(X)$ of morphisms whose boundaries
+and there is a subset $\cC(X)\spl \sub \cC(X)$ of morphisms whose boundaries
 are splittable along this decomposition.
 
 \begin{defn}
 Define the functor $\psi_{\cC;W} : \cell(W) \to \Set$ as follows.
 For a decomposition $x = \bigsqcup_a X_a$ in $\cell(W)$, $\psi_{\cC;W}(x)$ is the subset
-\begin{equation}
-\label{eq:psi-C}
+\begin{equation*}
+%\label{eq:psi-C}
 	\psi_{\cC;W}(x) \sub \prod_a \cC(X_a)\spl
-\end{equation}
+\end{equation*}
 where the restrictions to the various pieces of shared boundaries amongst the cells
 $X_a$ all agree (this is a fibered product of all the labels of $n$-cells over the labels of $n-1$-cells).
 If $x$ is a refinement of $y$, the map $\psi_{\cC;W}(x) \to \psi_{\cC;W}(y)$ is given by the composition maps of $\cC$.
@@ -246,14 +245,14 @@ The blob complex enjoys the following list of formal properties.
 \label{property:functoriality}%
 The blob complex is functorial with respect to homeomorphisms.
 That is, 
-for a fixed $n$-dimensional system of fields $\cF$, the association
+for a fixed $n$-category $\cC$, the association
 \begin{equation*}
-X \mapsto \bc_*(X; \cF)
+X \mapsto \bc_*(X; \cC)
 \end{equation*}
 is a functor from $n$-manifolds and homeomorphisms between them to chain 
 complexes and isomorphisms between them.
 \end{property}
-As a consequence, there is an action of $\Homeo(X)$ on the chain complex $\bc_*(X; \cF)$; 
+As a consequence, there is an action of $\Homeo(X)$ on the chain complex $\bc_*(X; \cC)$; 
 this action is extended to all of $C_*(\Homeo(X))$ in Theorem \ref{thm:CH} below.
 
 \begin{property}[Disjoint union]
@@ -264,9 +263,8 @@ The blob complex of a disjoint union is naturally isomorphic to the tensor produ
 \end{equation*}
 \end{property}
 
-If an $n$-manifold $X$ contains $Y \sqcup Y^\text{op}$ as a codimension $0$ submanifold of its boundary, 
-write $X_\text{gl} = X \bigcup_{Y}\selfarrow$ for the manifold obtained by gluing together $Y$ and $Y^\text{op}$.
-Note that this includes the case of gluing two disjoint manifolds together.
+If an $n$-manifold $X$ contains $Y \sqcup Y^\text{op}$ (we allow $Y = \eset$) as a codimension $0$ submanifold of its boundary, 
+write $X \bigcup_{Y}\selfarrow$ for the manifold obtained by gluing together $Y$ and $Y^\text{op}$.
 \begin{property}[Gluing map]
 \label{property:gluing-map}%
 %If $X_1$ and $X_2$ are $n$-manifolds, with $Y$ a codimension $0$-submanifold of $\bdy X_1$, and $Y^{\text{op}}$ a codimension $0$-submanifold of $\bdy X_2$, there is a chain map
@@ -274,11 +272,11 @@ Note that this includes the case of gluing two disjoint manifolds together.
 %\gl_Y: \bc_*(X_1) \tensor \bc_*(X_2) \to \bc_*(X_1 \cup_Y X_2).
 %\end{equation*}
 Given a gluing $X \to X_\mathrm{gl}$, there is
-a natural map
+a map
 \[
-	\bc_*(X) \to \bc_*(X_\mathrm{gl}) 
+	\bc_*(X) \to \bc_*(X \bigcup_{Y}\selfarrow),
 \]
-(natural with respect to homeomorphisms, and also associative with respect to iterated gluings).
+natural with respect to homeomorphisms, and associative with respect to iterated gluings.
 \end{property}
 
 \begin{property}[Contractibility]
@@ -300,7 +298,7 @@ Properties \ref{property:disjoint-union}, \ref{property:gluing-map} and
 \subsection{Specializations}
 \label{sec:specializations}
 
-The blob complex is a simultaneous generalization of the TQFT skein module construction and of Hochschild homology.
+The blob complex has two important special cases.
 
 \begin{thm}[Skein modules]
 \label{thm:skein-modules}
@@ -321,7 +319,7 @@ quasi-isomorphic to the Hochschild complex.
 \end{equation*}
 \end{thm}
 
-Proposition \ref{thm:skein-modules} is immediate from the definition, and
+Theorem \ref{thm:skein-modules} is immediate from the definition, and
 Theorem \ref{thm:hochschild} is established by extending the statement to bimodules as well as categories, then verifying that the universal properties of Hochschild homology also hold for $\bc_*(S^1; -)$.
 
 
@@ -384,16 +382,13 @@ We think of this $A_\infty$ $n$-category as a free resolution.
 \end{rem}
 This result is described in more detail as Example 6.2.8 of \cite{1009.5025}
 
-The definition is in fact simpler, almost tautological, and we use a different notation, $\cl{\cC}(M)$. The next theorem describes the blob complex for product manifolds, in terms of the $A_\infty$ blob complex of the $A_\infty$ $n$-categories constructed as in the previous example.
-%The notation is intended to reflect the close parallel with the definition of the TQFT skein module via a colimit.
-
-\newtheorem*{thm:product}{Theorem \ref{thm:product}}
+We next describe the blob complex for product manifolds, in terms of the $A_\infty$ blob complex of the $A_\infty$ $n$-categories constructed as above.
 
 \begin{thm}[Product formula]
 \label{thm:product}
 Let $W$ be a $k$-manifold and $Y$ be an $n-k$ manifold.
 Let $\cC$ be an $n$-category.
-Let $\bc_*(Y;\cC)$ be the $A_\infty$ $k$-category associated to $Y$ via blob homology (see Example \ref{ex:blob-complexes-of-balls}).
+Let $\bc_*(Y;\cC)$ be the $A_\infty$ $k$-category associated to $Y$ via blob homology.
 Then
 \[
 	\bc_*(Y\times W; \cC) \simeq \cl{\bc_*(Y;\cC)}(W).
@@ -436,8 +431,7 @@ $$\bc_*(X; \pi^\infty_{\le n}(T)) \simeq \CM{X}{T}.$$
 \end{thm}
 
 This says that we can recover (up to homotopy) the space of maps to $T$ via blob homology from local data. 
-Note that there is no restriction on the connectivity of $T$ as in \cite[Theorem 3.8.6]{0911.0018}.
-\nn{The proof appears in \S \ref{sec:map-recon}.}
+Note that there is no restriction on the connectivity of $T$ as there is for the corresponding result in topological chiral homology \cite[Theorem 3.8.6]{0911.0018}.
 
 
 \begin{thm}[Higher dimensional Deligne conjecture]
@@ -446,9 +440,7 @@ The singular chains of the $n$-dimensional surgery cylinder operad act on blob c
 Since the little $n{+}1$-balls operad is a suboperad of the $n$-dimensional surgery cylinder operad,
 this implies that the little $n{+}1$-balls operad acts on blob cochains of the $n$-ball.
 \end{thm}
-\nn{See \S \ref{sec:deligne} for a full explanation of the statement, and the proof.}
-
-
+\nn{Explain and sketch}
 
 %% == end of paper:
 
