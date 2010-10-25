@@ -160,7 +160,7 @@
 %\newsavebox{\selfarrowcontents}
 %\savebox{\selfarrowcontents}{\selfarrow}
 %\renewcommand{\selfarrow}{\usebox{\selfarrowcontents}}
-\newcommand{\selfarrow}{\ensuremath{\smash{\tikz[baseline]{\draw[->] (0,0.2) .. controls (0.6,0.8) and (0.6,-0.6) .. (0,0);}}}}
+\newcommand{\selfarrow}{\ensuremath{\smash{\tikz[baseline]{\clip (0,0.36) rectangle (0.48,-0.16); \draw[->] (0,0.2) .. controls (0.6,0.8) and (0.6,-0.6) .. (0,0);}}}}
 
 \newcommand{\CM}[2]{C_*(\Maps(#1 \to #2))}
 \newcommand{\CD}[1]{C_*(\Diff(#1))}
