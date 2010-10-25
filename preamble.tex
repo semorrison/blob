@@ -6,15 +6,15 @@
 \usepackage{ifpdf}
 
 \usepackage[all,color]{xy}
+\SelectTips{cm}{}
+% This may speed up compilation of complex documents with many xymatrices.
+%\CompileMatrices
 
 \usepackage[section]{placeins}
 \usepackage{leftidx}
 \usepackage{stmaryrd} % additional math symbols, e.g. \mapsfrom
 \usepackage{microtype}
 
-\SelectTips{cm}{}
-% This may speed up compilation of complex documents with many xymatrices.
-%\CompileMatrices
 
 % ----------------------------------------------------------------
 \vfuzz2pt % Don't report over-full v-boxes if over-edge is small
@@ -54,7 +54,6 @@
 \newtheorem{thm}[prop]{Theorem}
 \newtheorem{lem}[prop]{Lemma}
 \newtheorem*{lem*}{Lemma}
-\newtheorem{claim}[prop]{Claim}
 \newtheorem{cor}[prop]{Corollary}
 \newtheorem*{cor*}{Corollary}
 \newtheorem*{exc}{Exercise}
@@ -66,9 +65,8 @@
 \newtheorem{module-axiom}[prop]{Module Axiom}
 \newenvironment{rem}{\noindent\textsl{Remark.}}{}  % perhaps looks better than rem above?
 \newtheorem{rem*}[prop]{Remark}
-\newtheorem{remark}[prop]{Remark}
 \numberwithin{equation}{section}
-%% example is defined in article_preamble.tex, for compatibility with beamer.
+%% example, claim and remark are defined in article_preamble.tex, for compatibility with beamer and PNAS
 
 
 % Marginal notes in draft mode -----------------------------------
@@ -117,12 +115,6 @@
 
 \newcommand{\cell}{\mathfrak{D}}
 
-\newcommand{\selfarrow}{\ensuremath{\!\!\!\!\!\!\xymatrix{ \ar@(ru,rd)@<-1ex>[]}\phantom{++.\!\!}}}
-\newsavebox{\selfarrowcontents}
-\savebox{\selfarrowcontents}{\selfarrow}
-\renewcommand{\selfarrow}{\usebox{\selfarrowcontents}}
-
-
 \def\bc{{\mathcal B}}
 \def\btc{{\mathcal{BT}}}
 
@@ -157,29 +149,18 @@
 \newcommand{\compose}{\circ}
 \newcommand{\eset}{\emptyset}
 
-\newcommand{\Set}{\text{\textbf{Set}}}
-\newcommand{\Vect}{\text{\textbf{Vect}}}
-\newcommand{\Kom}{\text{\textbf{Kom}}}
-\newcommand{\Cat}{\mathcal{C}}
-
 \newcommand{\psmallmatrix}[1]{\left(\begin{smallmatrix} #1 \end{smallmatrix}\right)}
-
-\newcommand{\qiq}[2]{[#1]_{#2}}
-\newcommand{\qi}[1]{\qiq{#1}{q}}
-\newcommand{\qdim}{\operatorname{dim_q}}
 
 \newcommand{\directSum}{\oplus}
 \newcommand{\DirectSum}{\bigoplus}
 \newcommand{\tensor}{\otimes}
 \newcommand{\Tensor}{\bigotimes}
 
-\newcommand{\db}[1]{\left(\left(#1\right)\right)}
-
-\newcommand{\Mat}[1]{\mathbf{Mat}\left(#1\right)}
-\newcommand{\Inv}[1]{\operatorname{Inv}\left(#1\right)}
-\newcommand{\Hom}[3]{\operatorname{Hom}_{#1}\left(#2,#3\right)}
-\newcommand{\End}[1]{\operatorname{End}\left(#1\right)}
-\newcommand{\Obj}{\operatorname{Obj}}
+%\newcommand{\selfarrow}{\ensuremath{\!\!\!\!\!\!\xymatrix{ \ar@(ru,rd)@<-1ex>[]}\phantom{++.\!\!}}}
+%\newsavebox{\selfarrowcontents}
+%\savebox{\selfarrowcontents}{\selfarrow}
+%\renewcommand{\selfarrow}{\usebox{\selfarrowcontents}}
+\newcommand{\selfarrow}{\ensuremath{\smash{\tikz[baseline]{\draw[->] (0,0.2) .. controls (0.6,0.8) and (0.6,-0.6) .. (0,0);}}}}
 
 \newcommand{\CM}[2]{C_*(\Maps(#1 \to #2))}
 \newcommand{\CD}[1]{C_*(\Diff(#1))}
@@ -187,11 +168,15 @@
 
 \newcommand{\cl}[1]{\underrightarrow{#1}}
 
-\newcommand{\directSumStack}[2]{{\begin{matrix}#1 \\ \DirectSum \\#2\end{matrix}}}
-\newcommand{\directSumStackThree}[3]{{\begin{matrix}#1 \\ \DirectSum \\#2 \\ \DirectSum \\#3\end{matrix}}}
+\newcommand{\Set}{\text{\textbf{Set}}}
+\newcommand{\Vect}{\text{\textbf{Vect}}}
+\newcommand{\Kom}{\text{\textbf{Kom}}}
+\newcommand{\Cat}{\mathcal{C}}
 
-\newcommand{\grading}[1]{{\color{blue}\{#1\}}}
-\newcommand{\shift}[1]{\left[#1\right]}
+\newcommand{\Inv}[1]{\operatorname{Inv}\left(#1\right)}
+\newcommand{\Hom}[3]{\operatorname{Hom}_{#1}\left(#2,#3\right)}
+\newcommand{\End}[1]{\operatorname{End}\left(#1\right)}
+\newcommand{\Obj}{\operatorname{Obj}}
 
 \newenvironment{narrow}[2]{%
 \vspace{-0.4cm}% horrible hack, by scott % this only seems to be appropriate in beamer mode...
