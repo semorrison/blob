@@ -3,15 +3,13 @@
 
 %!TEX root = ../blob1.tex
 
-\input{\pathtotrunk preamble.tex}
-
-\newtheorem{lemma}[prop]{Lemma}
-
-\usepackage[pdftex,plainpages=false,hypertexnames=false,pdfpagelabels]{hyperref}
-
-\usepackage{breakurl}
-
-\usepackage[pdftex]{graphicx}
+\ifpdf
+	\usepackage[pdftex,plainpages=false,hypertexnames=false,pdfpagelabels]{hyperref}
+	\usepackage[pdftex]{graphicx}
+\else
+	\usepackage[plainpages=false,hypertexnames=false,pdfpagelabels]{hyperref}
+	\usepackage{graphicx}
+\fi
 
 %must load tikz after graphicx
 \usepackage{tikz}
@@ -22,7 +20,20 @@
 
 \pgfrealjobname{blob1}
 
-\newtheorem{example}[prop]{Example}
+\makeatletter
+\@ifclassloaded{beamer}{}{%
+	\newtheorem{example}[prop]{Example}	% for compatibility with beamer
+  }%
+\@ifclassloaded{pnastwo}
+  {}
+  {
+	\newtheorem{claim}[prop]{Claim}
+	\newtheorem{remark}[prop]{Remark}
+	\newtheorem{lemma}[prop]{Lemma}
+  }%
+\makeatother
+
+
 
 \usepackage{color}
 
