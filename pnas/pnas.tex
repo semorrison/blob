@@ -159,8 +159,7 @@ of the United States of America}
 %% \subsection{}
 %% \subsubsection{}
 
-
-\section{}
+\todo{Check font size in an actual PNAS article: this looks a little big}
 
 \nn{
 background: TQFTs are important, historically, semisimple categories well-understood.
@@ -177,13 +176,146 @@ We'll give a manifestly invariant construction,
 and deduce gluing formulas based on derived (actually, $A_\infty$) tensor products.}
 
 \section{Definitions}
-\subsection{$n$-categories}
-\nn{
-Axioms for $n$-categories, examples (maps, string diagrams)
-}
-\nn{
+\subsection{$n$-categories} \mbox{}
+
+\todo{This is just a copy and paste of the statements of the axioms. We need to rewrite this into something that's both compact and comprehensible! The first few at least aren't that terrifying, but we definitely don't want to derail the reader with the actual product axiom, for example.}
+
+\begin{axiom}[Morphisms]
+\label{axiom:morphisms}
+For each $0 \le k \le n$, we have a functor $\cC_k$ from 
+the category of $k$-balls and 
+homeomorphisms to the category of sets and bijections.
+\end{axiom}
+\begin{lem}
+\label{lem:spheres}
+For each $1 \le k \le n$, we have a functor $\cl{\cC}_{k-1}$ from 
+the category of $k{-}1$-spheres and 
+homeomorphisms to the category of sets and bijections.
+\end{lem}
+\begin{axiom}[Boundaries]\label{nca-boundary}
+For each $k$-ball $X$, we have a map of sets $\bd: \cC_k(X)\to \cl{\cC}_{k-1}(\bd X)$.
+These maps, for various $X$, comprise a natural transformation of functors.
+\end{axiom}
+\begin{lem}[Boundary from domain and range]
+\label{lem:domain-and-range}
+Let $S = B_1 \cup_E B_2$, where $S$ is a $k{-}1$-sphere $(1\le k\le n)$,
+$B_i$ is a $k{-}1$-ball, and $E = B_1\cap B_2$ is a $k{-}2$-sphere (Figure \ref{blah3}).
+Let $\cC(B_1) \times_{\cl{\cC}(E)} \cC(B_2)$ denote the fibered product of the 
+two maps $\bd: \cC(B_i)\to \cl{\cC}(E)$.
+Then we have an injective map
+\[
+	\gl_E : \cC(B_1) \times_{\cl{\cC}(E)} \cC(B_2) \into \cl{\cC}(S)
+\]
+which is natural with respect to the actions of homeomorphisms.
+(When $k=1$ we stipulate that $\cl{\cC}(E)$ is a point, so that the above fibered product
+becomes a normal product.)
+\end{lem}
+\begin{axiom}[Composition]
+\label{axiom:composition}
+Let $B = B_1 \cup_Y B_2$, where $B$, $B_1$ and $B_2$ are $k$-balls ($0\le k\le n$)
+and $Y = B_1\cap B_2$ is a $k{-}1$-ball (Figure \ref{blah5}).
+Let $E = \bd Y$, which is a $k{-}2$-sphere.
+Note that each of $B$, $B_1$ and $B_2$ has its boundary split into two $k{-}1$-balls by $E$.
+We have restriction (domain or range) maps $\cC(B_i)_E \to \cC(Y)$.
+Let $\cC(B_1)_E \times_{\cC(Y)} \cC(B_2)_E$ denote the fibered product of these two maps. 
+We have a map
+\[
+	\gl_Y : \cC(B_1)_E \times_{\cC(Y)} \cC(B_2)_E \to \cC(B)_E
+\]
+which is natural with respect to the actions of homeomorphisms, and also compatible with restrictions
+to the intersection of the boundaries of $B$ and $B_i$.
+If $k < n$,
+or if $k=n$ and we are in the $A_\infty$ case, 
+we require that $\gl_Y$ is injective.
+(For $k=n$ in the plain (non-$A_\infty$) case, see below.)
+\end{axiom}
+\begin{axiom}[Strict associativity] \label{nca-assoc}
+The composition (gluing) maps above are strictly associative.
+Given any splitting of a ball $B$ into smaller balls
+$$\bigsqcup B_i \to B,$$ 
+any sequence of gluings (in the sense of Definition \ref{defn:gluing-decomposition}, where all the intermediate steps are also disjoint unions of balls) yields the same result.
+\end{axiom}
+\begin{axiom}[Product (identity) morphisms]
+\label{axiom:product}
+For each pinched product $\pi:E\to X$, with $X$ a $k$-ball and $E$ a $k{+}m$-ball ($m\ge 1$),
+there is a map $\pi^*:\cC(X)\to \cC(E)$.
+These maps must satisfy the following conditions.
+\begin{enumerate}
+\item
+If $\pi:E\to X$ and $\pi':E'\to X'$ are pinched products, and
+if $f:X\to X'$ and $\tilde{f}:E \to E'$ are maps such that the diagram
+\[ \xymatrix{
+	E \ar[r]^{\tilde{f}} \ar[d]_{\pi} & E' \ar[d]^{\pi'} \\
+	X \ar[r]^{f} & X'
+} \]
+commutes, then we have 
+\[
+	\pi'^*\circ f = \tilde{f}\circ \pi^*.
+\]
+\item
+Product morphisms are compatible with gluing (composition).
+Let $\pi:E\to X$, $\pi_1:E_1\to X_1$, and $\pi_2:E_2\to X_2$ 
+be pinched products with $E = E_1\cup E_2$.
+Let $a\in \cC(X)$, and let $a_i$ denote the restriction of $a$ to $X_i\sub X$.
+Then 
+\[
+	\pi^*(a) = \pi_1^*(a_1)\bullet \pi_2^*(a_2) .
+\]
+\item
+Product morphisms are associative.
+If $\pi:E\to X$ and $\rho:D\to E$ are pinched products then
+\[
+	\rho^*\circ\pi^* = (\pi\circ\rho)^* .
+\]
+\item
+Product morphisms are compatible with restriction.
+If we have a commutative diagram
+\[ \xymatrix{
+	D \ar@{^(->}[r] \ar[d]_{\rho} & E \ar[d]^{\pi} \\
+	Y \ar@{^(->}[r] & X
+} \]
+such that $\rho$ and $\pi$ are pinched products, then
+\[
+	\res_D\circ\pi^* = \rho^*\circ\res_Y .
+\]
+\end{enumerate}
+\end{axiom}
+\begin{axiom}[\textup{\textbf{[plain  version]}} Extended isotopy invariance in dimension $n$.]
+\label{axiom:extended-isotopies}
+Let $X$ be an $n$-ball and $f: X\to X$ be a homeomorphism which restricts
+to the identity on $\bd X$ and isotopic (rel boundary) to the identity.
+Then $f$ acts trivially on $\cC(X)$.
+In addition, collar maps act trivially on $\cC(X)$.
+\end{axiom}
+
+\smallskip
+
+For $A_\infty$ $n$-categories, we replace
+isotopy invariance with the requirement that families of homeomorphisms act.
+For the moment, assume that our $n$-morphisms are enriched over chain complexes.
+Let $\Homeo_\bd(X)$ denote homeomorphisms of $X$ which fix $\bd X$ and
+$C_*(\Homeo_\bd(X))$ denote the singular chains on this space.
+
+
+\begin{axiom}[\textup{\textbf{[$A_\infty$ version]}} Families of homeomorphisms act in dimension $n$.]
+\label{axiom:families}
+For each $n$-ball $X$ and each $c\in \cl{\cC}(\bd X)$ we have a map of chain complexes
+\[
+	C_*(\Homeo_\bd(X))\ot \cC(X; c) \to \cC(X; c) .
+\]
+These action maps are required to be associative up to homotopy,
+and also compatible with composition (gluing) in the sense that
+a diagram like the one in Theorem \ref{thm:CH} commutes.
+\end{axiom}
+
+
+\todo{
 Decide if we need a friendlier, skein-module version.
 }
+
+\subsubsection{Examples}
+\todo{maps to a space, string diagrams}
+
 \subsection{The blob complex}
 \subsubsection{Decompositions of manifolds}
 
@@ -225,17 +357,43 @@ For a decomposition $x = \bigsqcup_a X_a$ in $\cell(W)$, $\psi_{\cC;W}(x)$ is th
 	\psi_{\cC;W}(x) \sub \prod_a \cC(X_a)\spl
 \end{equation*}
 where the restrictions to the various pieces of shared boundaries amongst the cells
-$X_a$ all agree (this is a fibered product of all the labels of $n$-cells over the labels of $n-1$-cells).
+$X_a$ all agree (this is a fibered product of all the labels of $n$-cells over the labels of $n-1$-cells). When $k=n$, the `subset' and `product' in the above formula should be interpreted in the appropriate enriching category.
 If $x$ is a refinement of $y$, the map $\psi_{\cC;W}(x) \to \psi_{\cC;W}(y)$ is given by the composition maps of $\cC$.
 \end{defn}
 
+We will use the term `field on $W$' to refer to \nn{a point} of this functor,
+that is, a permissible decomposition $x$ of $W$ together with an element of $\psi_{\cC;W}(x)$.
 
-\nn{Mention that the axioms for $n$-categories can be stated in terms of decompositions of balls}
+\todo{Mention that the axioms for $n$-categories can be stated in terms of decompositions of balls?}
+
 \subsubsection{Homotopy colimits}
-\nn{How can we extend an $n$-category from balls to arbitrary manifolds?}
+\nn{Motivation: How can we extend an $n$-category from balls to arbitrary manifolds?}
 
-\nn{In practice, this gives the old definition}
-\subsubsection{}
+We now define the blob complex $\bc_*(W; \cC)$ of an $n$-manifold $W$
+with coefficients in the $n$-category $\cC$ to be the homotopy colimit
+of the functor $\psi_{\cC; W}$ described above. 
+
+When $\cC$ is a topological $n$-category,
+the flexibility available in the construction of a homotopy colimit allows
+us to give a much more explicit description of the blob complex.
+
+We say a collection of balls $\{B_i\}$ in a manifold $W$ is \emph{permissible}
+if there exists a permissible decomposition $M_0\to\cdots\to M_m = W$ such that
+each $B_i$ appears as a connected component of one of the $M_j$. Note that this allows the balls to be pairwise either disjoint or nested. Such a collection of balls cuts $W$ into pieces, the connected components of $W \setminus \bigcup \bdy B_i$. These pieces need not be manifolds, but they do automatically have permissible decompositions.
+
+The $k$-blob group $\bc_k(W; \cC)$ is generated by the $k$-blob diagrams. A $k$-blob diagram consists of
+\begin{itemize}
+\item a permissible collection of $k$ embedded balls (called `blobs') in $W$,
+\item an ordering of the balls, and
+\item for each resulting piece of $W$, a field,
+\end{itemize}
+such that for any innermost blob $B$, the field on $B$ goes to zero under the composition map from $\cC$.
+
+The differential acts on a $k$-blob diagram by summing over ways to forget one of the $k$ blobs, with signs given by the ordering.
+
+\todo{Say why this really is the homotopy colimit}
+\todo{Spell out $k=0, 1, 2$}
+
 \section{Properties of the blob complex}
 \subsection{Formal properties}
 \label{sec:properties}
@@ -364,6 +522,8 @@ Since the blob complex is functorial in the manifold $X$, this is equivalent to 
 $$ev_{X \to Y} : \CH{X \to Y} \tensor \bc_*(X) \to \bc_*(Y)$$
 for any homeomorphic pair $X$ and $Y$, 
 satisfying corresponding conditions.
+
+
 
 \begin{thm}[Blob complexes of products with balls form an $A_\infty$ $n$-category]
 \label{thm:blobs-ainfty}
