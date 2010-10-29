@@ -439,19 +439,15 @@ natural with respect to homeomorphisms, and associative with respect to iterated
 
 \begin{property}[Contractibility]
 \label{property:contractibility}%
-With field coefficients, the blob complex on an $n$-ball is contractible in the sense 
-that it is homotopic to its $0$-th homology.
-Moreover, the $0$-th homology of balls can be canonically identified with the vector spaces 
-associated by the system of fields $\cF$ to balls.
+The blob complex on an $n$-ball is contractible in the sense 
+that it is homotopic to its $0$-th homology, and this is just the vector space associated to the ball by the $n$-category.
 \begin{equation*}
-\xymatrix{\bc_*(B^n;\cF) \ar[r]^(0.4){\iso}_(0.4){\text{qi}} & H_0(\bc_*(B^n;\cF)) \ar[r]^(0.6)\iso & A_\cF(B^n)}
+\xymatrix{\bc_*(B^n;\cC) \ar[r]^(0.4){\iso}_(0.4){\text{qi}} & H_0(\bc_*(B^n;\cC)) \ar[r]^(0.6)\iso & \cC(B^n)}
 \end{equation*}
 \end{property}
+\nn{maybe should say something about the $A_\infty$ case}
 
-\nn{Properties \ref{property:functoriality} will be immediate from the definition given in
-\S \ref{sec:blob-definition}, and we'll recall it at the appropriate point there.
-Properties \ref{property:disjoint-union}, \ref{property:gluing-map} and 
-\ref{property:contractibility} are established in \S \ref{sec:basic-properties}.}
+Properties \ref{property:functoriality},  \ref{property:disjoint-union} and \ref{property:gluing-map} are  immediate from the definition. Property \ref{property:contractibility} \todo{}
 
 \subsection{Specializations}
 \label{sec:specializations}
@@ -460,13 +456,15 @@ The blob complex has two important special cases.
 
 \begin{thm}[Skein modules]
 \label{thm:skein-modules}
+\nn{Plain n-categories only?}
 The $0$-th blob homology of $X$ is the usual 
 (dual) TQFT Hilbert space (a.k.a.\ skein module) associated to $X$
-by $\cF$.
+by $\cC$.
 \begin{equation*}
-H_0(\bc_*(X;\cF)) \iso A_{\cF}(X)
+H_0(\bc_*(X;\cC)) \iso A_{\cC}(X)
 \end{equation*}
 \end{thm}
+This follows from the fact that the $0$-th homology of a homotopy colimit of \todo{something plain} is the usual colimit, or directly from the explicit description of the blob complex.
 
 \begin{thm}[Hochschild homology when $X=S^1$]
 \label{thm:hochschild}
