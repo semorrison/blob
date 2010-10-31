@@ -176,7 +176,44 @@ and deduce gluing formulas based on derived (actually, $A_\infty$) tensor produc
 \section{Definitions}
 \subsection{$n$-categories} \mbox{}
 
-\todo{This is just a copy and paste of the statements of the axioms. We need to rewrite this into something that's both compact and comprehensible! The first few at least aren't that terrifying, but we definitely don't want to derail the reader with the actual product axiom, for example.}
+\nn{rough draft of n-cat stuff...}
+
+\nn{maybe say something about goals: well-suited to TQFTs; avoid proliferation of coherency axioms;
+non-recursive (n-cats not defined n terms of (n-1)-cats; easy to show that the motivating
+examples satisfy the axioms; strong duality; both plain and infty case;
+(?) easy to see that axioms are correct, in the sense of nothing missing (need
+to say this better if we keep it)}
+
+\nn{maybe: the typical n-cat definition tries to do two things at once: (1) give a list of basic properties
+which are weak enough to include the basic examples and strong enough to support the proofs
+of the main theorems; and (2) specify a minimal set of generators and/or axioms.
+We separate these two tasks, and address only the first, which becomes much easier when not burdened by the second.
+More specifically, life is easier when working with maximal, rather than minimal, collections of axioms.}
+
+\nn{say something about defining plain and infty cases simultaneously}
+
+There are five basic ingredients of an $n$-category definition:
+$k$-morphisms (for $0\le k \le n$), domain and range, composition,
+identity morphisms, and special behavior in dimension $n$ (e.g. enrichment
+in some auxiliary category, or strict associativity instead of weak associativity).
+We will treat each of these it turn.
+
+To motivate our morphism axiom, consider the venerable notion of the Moore loop space
+\nn{need citation}.
+In the standard definition of a loop space, loops are always parameterized by the unit interval $I = [0,1]$,
+so composition of loops requires a reparameterization $I\cup I \cong I$, and this leads to a proliferation
+of higher associativity relations.
+While this proliferation is manageable for 1-categories (and indeed leads to an elegant theory
+of Stasheff polyhedra and $A_\infty$ categories), it becomes undesirably complex for higher categories.
+In a Moore loop space, we have a separate space $\Omega_r$ for each interval $[0,r]$, and a 
+{\it strictly associative} composition $\Omega_r\times \Omega_s\to \Omega_{r+s}$.
+Thus we can have the simplicity of strict associativity in exchange for more morphisms.
+We wish to imitate this strategy in higher categories.
+Because we are mainly interested in the case of strong duality, we replace the intervals $[0,r]$ not with
+a product of $n$ intervals \nn{cf xxxx} but rather with any $n$-ball, that is, any $n$-manifold which is homeomorphic
+to the standard $n$-ball $B^n$.
+
+\nn{...}
 
 \begin{axiom}[Morphisms]
 \label{axiom:morphisms}
