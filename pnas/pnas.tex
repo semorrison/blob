@@ -212,7 +212,9 @@ We wish to imitate this strategy in higher categories.
 Because we are mainly interested in the case of strong duality, we replace the intervals $[0,r]$ not with
 a product of $k$ intervals \nn{cf xxxx} but rather with any $k$-ball, that is, any $k$-manifold which is homeomorphic
 to the standard $k$-ball $B^k$.
-\nn{maybe add that in addition we want funtoriality}
+\nn{maybe add that in addition we want functoriality}
+
+\nn{say something about different flavors of balls; say it here? later?}
 
 \begin{axiom}[Morphisms]
 \label{axiom:morphisms}
@@ -221,14 +223,23 @@ the category of $k$-balls and
 homeomorphisms to the category of sets and bijections.
 \end{axiom}
 
+Note that the functoriality in the above axiom allows us to operate via
 
+Next we consider domains and ranges of $k$-morphisms.
+Because we assume strong duality, it doesn't make much sense to subdivide the boundary of a morphism
+into domain and range --- the duality operations can convert domain to range and vice-versa.
+Instead, we will use a unified domain/range, which we will call a ``boundary".
 
-\begin{lem}
-\label{lem:spheres}
-For each $1 \le k \le n$, we have a functor $\cl{\cC}_{k-1}$ from 
-the category of $k{-}1$-spheres and 
-homeomorphisms to the category of sets and bijections.
-\end{lem}
+In order to state the axiom for boundaries, we need to extend the functors $\cC_k$
+of $k$-balls to functors $\cl{\cC}_{k-1}$ of $k$-spheres.
+This extension is described in xxxx below.
+
+%\begin{lem}
+%\label{lem:spheres}
+%For each $1 \le k \le n$, we have a functor $\cl{\cC}_{k-1}$ from 
+%the category of $k{-}1$-spheres and 
+%homeomorphisms to the category of sets and bijections.
+%\end{lem}
 
 \begin{axiom}[Boundaries]\label{nca-boundary}
 For each $k$-ball $X$, we have a map of sets $\bd: \cC_k(X)\to \cl{\cC}_{k-1}(\bd X)$.
@@ -360,6 +371,10 @@ Decide if we need a friendlier, skein-module version.
 \subsection{The blob complex}
 \subsubsection{Decompositions of manifolds}
 
+\nn{KW: I'm inclined to suppress all discussion of the subtleties of decompositions.
+Maybe just a single remark that we are omitting some details which appear in our
+longer paper.}
+
 A \emph{ball decomposition} of $W$ is a 
 sequence of gluings $M_0\to M_1\to\cdots\to M_m = W$ such that $M_0$ is a disjoint union of balls
 $\du_a X_a$ and each $M_i$ is a manifold.
@@ -443,6 +458,8 @@ For $k=2$, we have a two types of generators; they each consists of a field $f$ 
 \label{sec:properties}
 The blob complex enjoys the following list of formal properties.
 
+The proofs of the first three properties are immediate from the definitions.
+
 \begin{property}[Functoriality]
 \label{property:functoriality}%
 The blob complex is functorial with respect to homeomorphisms.
@@ -491,6 +508,13 @@ associated by the system of fields $\cF$ to balls.
 \xymatrix{\bc_*(B^n;\cF) \ar[r]^(0.4){\iso}_(0.4){\text{qi}} & H_0(\bc_*(B^n;\cF)) \ar[r]^(0.6)\iso & A_\cF(B^n)}
 \end{equation*}
 \end{property}
+
+\begin{proof}(Sketch)
+For $k\ge 1$, the contracting homotopy sends a $k$-blob diagram to the $(k{+}1)$-blob diagram
+obtained by adding an outer $(k{+}1)$-st blob consisting of all $B^n$.
+For $k=0$ we choose a splitting $s: H_0(\bc_*(B^n)) \to \bc_0(B^n)$ and send 
+$x\in \bc_0(B^n)$ to $x - s([x])$, where $[x]$ denotes the image of $x$ in $H_0(\bc_*(B^n))$.
+\end{proof}
 
 \nn{Properties \ref{property:functoriality} will be immediate from the definition given in
 \S \ref{sec:blob-definition}, and we'll recall it at the appropriate point there.
