@@ -196,10 +196,10 @@ There are five basic ingredients of an $n$-category definition:
 $k$-morphisms (for $0\le k \le n$), domain and range, composition,
 identity morphisms, and special behavior in dimension $n$ (e.g. enrichment
 in some auxiliary category, or strict associativity instead of weak associativity).
-We will treat each of these it turn.
+We will treat each of these in turn.
 
 To motivate our morphism axiom, consider the venerable notion of the Moore loop space
-\nn{need citation}.
+\nn{need citation -- \S 2.2 of Adams' ``Infinite Loop Spaces''?}.
 In the standard definition of a loop space, loops are always parameterized by the unit interval $I = [0,1]$,
 so composition of loops requires a reparameterization $I\cup I \cong I$, and this leads to a proliferation
 of higher associativity relations.
@@ -223,7 +223,7 @@ the category of $k$-balls and
 homeomorphisms to the category of sets and bijections.
 \end{axiom}
 
-Note that the functoriality in the above axiom allows us to operate via
+Note that the functoriality in the above axiom allows us to operate via \nn{fragment?}
 
 Next we consider domains and ranges of $k$-morphisms.
 Because we assume strong duality, it doesn't make much sense to subdivide the boundary of a morphism
@@ -283,9 +283,9 @@ we require that $\gl_Y$ is injective.
 
 \begin{axiom}[Strict associativity] \label{nca-assoc}
 The composition (gluing) maps above are strictly associative.
-Given any splitting of a ball $B$ into smaller balls
+Given any decomposition of a ball $B$ into smaller balls
 $$\bigsqcup B_i \to B,$$ 
-any sequence of gluings (in the sense of Definition \ref{defn:gluing-decomposition}, where all the intermediate steps are also disjoint unions of balls) yields the same result.
+any sequence of gluings (where all the intermediate steps are also disjoint unions of balls) yields the same result.
 \end{axiom}
 \begin{axiom}[Product (identity) morphisms]
 \label{axiom:product}
@@ -374,6 +374,7 @@ Decide if we need a friendlier, skein-module version.
 \nn{KW: I'm inclined to suppress all discussion of the subtleties of decompositions.
 Maybe just a single remark that we are omitting some details which appear in our
 longer paper.}
+\nn{SM: for now I disagree: the space expense is pretty minor, and it always us to be "in principle" complete. Let's see how we go for length.}
 
 A \emph{ball decomposition} of $W$ is a 
 sequence of gluings $M_0\to M_1\to\cdots\to M_m = W$ such that $M_0$ is a disjoint union of balls
@@ -456,9 +457,7 @@ For $k=2$, we have a two types of generators; they each consists of a field $f$ 
 \section{Properties of the blob complex}
 \subsection{Formal properties}
 \label{sec:properties}
-The blob complex enjoys the following list of formal properties.
-
-The proofs of the first three properties are immediate from the definitions.
+The blob complex enjoys the following list of formal properties. The first three properties are immediate from the definitions.
 
 \begin{property}[Functoriality]
 \label{property:functoriality}%
@@ -516,10 +515,6 @@ For $k=0$ we choose a splitting $s: H_0(\bc_*(B^n)) \to \bc_0(B^n)$ and send
 $x\in \bc_0(B^n)$ to $x - s([x])$, where $[x]$ denotes the image of $x$ in $H_0(\bc_*(B^n))$.
 \end{proof}
 
-\nn{Properties \ref{property:functoriality} will be immediate from the definition given in
-\S \ref{sec:blob-definition}, and we'll recall it at the appropriate point there.
-Properties \ref{property:disjoint-union}, \ref{property:gluing-map} and 
-\ref{property:contractibility} are established in \S \ref{sec:basic-properties}.}
 
 \subsection{Specializations}
 \label{sec:specializations}
