@@ -210,10 +210,9 @@ In a Moore loop space, we have a separate space $\Omega_r$ for each interval $[0
 Thus we can have the simplicity of strict associativity in exchange for more morphisms.
 We wish to imitate this strategy in higher categories.
 Because we are mainly interested in the case of strong duality, we replace the intervals $[0,r]$ not with
-a product of $n$ intervals \nn{cf xxxx} but rather with any $n$-ball, that is, any $n$-manifold which is homeomorphic
-to the standard $n$-ball $B^n$.
-
-\nn{...}
+a product of $k$ intervals \nn{cf xxxx} but rather with any $k$-ball, that is, any $k$-manifold which is homeomorphic
+to the standard $k$-ball $B^k$.
+\nn{maybe add that in addition we want funtoriality}
 
 \begin{axiom}[Morphisms]
 \label{axiom:morphisms}
@@ -221,16 +220,21 @@ For each $0 \le k \le n$, we have a functor $\cC_k$ from
 the category of $k$-balls and 
 homeomorphisms to the category of sets and bijections.
 \end{axiom}
+
+
+
 \begin{lem}
 \label{lem:spheres}
 For each $1 \le k \le n$, we have a functor $\cl{\cC}_{k-1}$ from 
 the category of $k{-}1$-spheres and 
 homeomorphisms to the category of sets and bijections.
 \end{lem}
+
 \begin{axiom}[Boundaries]\label{nca-boundary}
 For each $k$-ball $X$, we have a map of sets $\bd: \cC_k(X)\to \cl{\cC}_{k-1}(\bd X)$.
 These maps, for various $X$, comprise a natural transformation of functors.
 \end{axiom}
+
 \begin{lem}[Boundary from domain and range]
 \label{lem:domain-and-range}
 Let $S = B_1 \cup_E B_2$, where $S$ is a $k{-}1$-sphere $(1\le k\le n)$,
@@ -245,6 +249,7 @@ which is natural with respect to the actions of homeomorphisms.
 (When $k=1$ we stipulate that $\cl{\cC}(E)$ is a point, so that the above fibered product
 becomes a normal product.)
 \end{lem}
+
 \begin{axiom}[Composition]
 \label{axiom:composition}
 Let $B = B_1 \cup_Y B_2$, where $B$, $B_1$ and $B_2$ are $k$-balls ($0\le k\le n$)
@@ -264,6 +269,7 @@ or if $k=n$ and we are in the $A_\infty$ case,
 we require that $\gl_Y$ is injective.
 (For $k=n$ in the plain (non-$A_\infty$) case, see below.)
 \end{axiom}
+
 \begin{axiom}[Strict associativity] \label{nca-assoc}
 The composition (gluing) maps above are strictly associative.
 Given any splitting of a ball $B$ into smaller balls
