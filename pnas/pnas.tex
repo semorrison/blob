@@ -239,6 +239,15 @@ For each $k$-ball $X$, we have a map of sets $\bd: \cC_k(X)\to \cl{\cC}_{k-1}(\b
 These maps, for various $X$, comprise a natural transformation of functors.
 \end{axiom}
 
+For $c\in \cl{\cC}_{k-1}(\bd X)$ we let $\cC_k(X; c)$ denote the preimage $\bd^{-1}(c)$.
+
+Many of the examples we are interested in are enriched in some auxiliary category $\cS$
+(e.g. $\cS$ is vector spaces or rings, or, in the $A_\infty$ case, chain complex or topological spaces).
+This means (by definition) that in the top dimension $k=n$ the sets $\cC_n(X; c)$ have the structure
+of an object of $\cS$, and all of the structure maps of the category (above and below) are
+compatible with the $\cS$ structure on $\cC_n(X; c)$.
+
+
 Given two hemispheres (a `domain' and `range') that agree on the equator, we need to be able to assemble them into a boundary value of the entire sphere.
 
 \begin{lem}
@@ -373,6 +382,8 @@ Decide if we need a friendlier, skein-module version.
 Maybe just a single remark that we are omitting some details which appear in our
 longer paper.}
 \nn{SM: for now I disagree: the space expense is pretty minor, and it always us to be "in principle" complete. Let's see how we go for length.}
+\nn{KW: It's not the length I'm worried about --- I was worried about distracting the reader
+with an arcane technical issue.  But we can decide later.}
 
 A \emph{ball decomposition} of $W$ is a 
 sequence of gluings $M_0\to M_1\to\cdots\to M_m = W$ such that $M_0$ is a disjoint union of balls
