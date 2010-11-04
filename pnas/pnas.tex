@@ -214,7 +214,7 @@ a product of $k$ intervals \nn{cf xxxx} but rather with any $k$-ball, that is, a
 to the standard $k$-ball $B^k$.
 \nn{maybe add that in addition we want functoriality}
 
-\nn{say something about different flavors of balls; say it here? later?}
+In fact, the axioms here may easily be varied by considering balls with structure (e.g. $m$ independent vector fields, a map to some target space, etc.). Such variations are useful for axiomatizing categories with less duality, and also as technical tools in proofs.
 
 \begin{axiom}[Morphisms]
 \label{axiom:morphisms}
@@ -223,30 +223,34 @@ the category of $k$-balls and
 homeomorphisms to the category of sets and bijections.
 \end{axiom}
 
-Note that the functoriality in the above axiom allows us to operate via \nn{fragment?}
+Note that the functoriality in the above axiom allows us to operate via
+homeomorphisms which are not the identity on the boundary of the $k$-ball.
+The action of these homeomorphisms gives the ``strong duality" structure.
 
 Next we consider domains and ranges of $k$-morphisms.
 Because we assume strong duality, it doesn't make much sense to subdivide the boundary of a morphism
 into domain and range --- the duality operations can convert domain to range and vice-versa.
 Instead, we will use a unified domain/range, which we will call a ``boundary".
 
-In order to state the axiom for boundaries, we need to extend the functors $\cC_k$
-of $k$-balls to functors $\cl{\cC}_{k-1}$ of $k$-spheres.
-This extension is described in xxxx below.
-
-%\begin{lem}
-%\label{lem:spheres}
-%For each $1 \le k \le n$, we have a functor $\cl{\cC}_{k-1}$ from 
-%the category of $k{-}1$-spheres and 
-%homeomorphisms to the category of sets and bijections.
-%\end{lem}
+Later \todo{} we inductively define an extension of the functors $\cC_k$ to functors $\cl{\cC}_k$ from arbitrary manifolds to sets. We need the restriction of these functors to $k$-spheres, for $k<n$, for the next axiom.
 
 \begin{axiom}[Boundaries]\label{nca-boundary}
 For each $k$-ball $X$, we have a map of sets $\bd: \cC_k(X)\to \cl{\cC}_{k-1}(\bd X)$.
 These maps, for various $X$, comprise a natural transformation of functors.
 \end{axiom}
 
-\begin{lem}[Boundary from domain and range]
+For $c\in \cl{\cC}_{k-1}(\bd X)$ we let $\cC_k(X; c)$ denote the preimage $\bd^{-1}(c)$.
+
+Many of the examples we are interested in are enriched in some auxiliary category $\cS$
+(e.g. $\cS$ is vector spaces or rings, or, in the $A_\infty$ case, chain complex or topological spaces).
+This means (by definition) that in the top dimension $k=n$ the sets $\cC_n(X; c)$ have the structure
+of an object of $\cS$, and all of the structure maps of the category (above and below) are
+compatible with the $\cS$ structure on $\cC_n(X; c)$.
+
+
+Given two hemispheres (a `domain' and `range') that agree on the equator, we need to be able to assemble them into a boundary value of the entire sphere.
+
+\begin{lem}
 \label{lem:domain-and-range}
 Let $S = B_1 \cup_E B_2$, where $S$ is a $k{-}1$-sphere $(1\le k\le n)$,
 $B_i$ is a $k{-}1$-ball, and $E = B_1\cap B_2$ is a $k{-}2$-sphere (Figure \ref{blah3}).
@@ -257,17 +261,19 @@ Then we have an injective map
 	\gl_E : \cC(B_1) \times_{\cl{\cC}(E)} \cC(B_2) \into \cl{\cC}(S)
 \]
 which is natural with respect to the actions of homeomorphisms.
-(When $k=1$ we stipulate that $\cl{\cC}(E)$ is a point, so that the above fibered product
-becomes a normal product.)
+%(When $k=1$ we stipulate that $\cl{\cC}(E)$ is a point, so that the above fibered product
+%becomes a normal product.)
 \end{lem}
 
-\begin{axiom}[Composition]
+If $\bdy B = S$, we denote $\bdy^{-1}(\im(\gl_E))$ by $\cC(B)_E$.
+
+\begin{axiom}[Gluing]
 \label{axiom:composition}
 Let $B = B_1 \cup_Y B_2$, where $B$, $B_1$ and $B_2$ are $k$-balls ($0\le k\le n$)
 and $Y = B_1\cap B_2$ is a $k{-}1$-ball (Figure \ref{blah5}).
 Let $E = \bd Y$, which is a $k{-}2$-sphere.
-Note that each of $B$, $B_1$ and $B_2$ has its boundary split into two $k{-}1$-balls by $E$.
-We have restriction (domain or range) maps $\cC(B_i)_E \to \cC(Y)$.
+%Note that each of $B$, $B_1$ and $B_2$ has its boundary split into two $k{-}1$-balls by $E$.
+We have restriction maps $\cC(B_i)_E \to \cC(Y)$.
 Let $\cC(B_1)_E \times_{\cC(Y)} \cC(B_2)_E$ denote the fibered product of these two maps. 
 We have a map
 \[
@@ -282,11 +288,12 @@ we require that $\gl_Y$ is injective.
 \end{axiom}
 
 \begin{axiom}[Strict associativity] \label{nca-assoc}
-The composition (gluing) maps above are strictly associative.
+The gluing maps above are strictly associative.
 Given any decomposition of a ball $B$ into smaller balls
 $$\bigsqcup B_i \to B,$$ 
 any sequence of gluings (where all the intermediate steps are also disjoint unions of balls) yields the same result.
 \end{axiom}
+For the next axiom, a \emph{pinched product} is a map locally modeled on a degeneracy map between simplices.
 \begin{axiom}[Product (identity) morphisms]
 \label{axiom:product}
 For each pinched product $\pi:E\to X$, with $X$ a $k$-ball and $E$ a $k{+}m$-ball ($m\ge 1$),
@@ -305,7 +312,7 @@ commutes, then we have
 	\pi'^*\circ f = \tilde{f}\circ \pi^*.
 \]
 \item
-Product morphisms are compatible with gluing (composition).
+Product morphisms are compatible with gluing.
 Let $\pi:E\to X$, $\pi_1:E_1\to X_1$, and $\pi_2:E_2\to X_2$ 
 be pinched products with $E = E_1\cup E_2$.
 Let $a\in \cC(X)$, and let $a_i$ denote the restriction of $a$ to $X_i\sub X$.
@@ -375,6 +382,8 @@ Decide if we need a friendlier, skein-module version.
 Maybe just a single remark that we are omitting some details which appear in our
 longer paper.}
 \nn{SM: for now I disagree: the space expense is pretty minor, and it always us to be "in principle" complete. Let's see how we go for length.}
+\nn{KW: It's not the length I'm worried about --- I was worried about distracting the reader
+with an arcane technical issue.  But we can decide later.}
 
 A \emph{ball decomposition} of $W$ is a 
 sequence of gluings $M_0\to M_1\to\cdots\to M_m = W$ such that $M_0$ is a disjoint union of balls
@@ -444,7 +453,7 @@ The $k$-blob group $\bc_k(W; \cC)$ is generated by the $k$-blob diagrams. A $k$-
 \item an ordering of the balls, and
 \item for each resulting piece of $W$, a field,
 \end{itemize}
-such that for any innermost blob $B$, the field on $B$ goes to zero under the composition map from $\cC$. We call such a field a `null field on $B$'.
+such that for any innermost blob $B$, the field on $B$ goes to zero under the gluing map from $\cC$. We call such a field a `null field on $B$'.
 
 The differential acts on a $k$-blob diagram by summing over ways to forget one of the $k$ blobs, with signs given by the ordering.
 
@@ -549,11 +558,11 @@ Theorem \ref{thm:hochschild} is established by extending the statement to bimodu
 
 In the following $\CH{X} = C_*(\Homeo(X))$ is the singular chain complex of the space of homeomorphisms of $X$, fixed on $\bdy X$.
 
-\begin{thm}[$C_*(\Homeo(-))$ action]
+\begin{thm}
 \label{thm:CH}\label{thm:evaluation}
 There is a chain map
 \begin{equation*}
-e_X: \CH{X} \tensor \bc_*(X) \to \bc_*(X).
+e_X: \CH{X} \tensor \bc_*(X) \to \bc_*(X)
 \end{equation*}
 such that
 \begin{enumerate}
@@ -588,7 +597,7 @@ satisfying corresponding conditions.
 
 
 
-\begin{thm}[Blob complexes of products with balls form an $A_\infty$ $n$-category]
+\begin{thm}
 \label{thm:blobs-ainfty}
 Let $\cC$ be  a topological $n$-category.
 Let $Y$ be an $n{-}k$-manifold. 
@@ -600,8 +609,7 @@ These sets have the structure of an $A_\infty$ $k$-category, with compositions c
 Property \ref{property:gluing-map} and with the action of families of homeomorphisms given in Theorem \ref{thm:evaluation}.
 \end{thm}
 \begin{rem}
-Perhaps the most interesting case is when $Y$ is just a point; then we have a way of building an $A_\infty$ $n$-category from a topological $n$-category.
-We think of this $A_\infty$ $n$-category as a free resolution.
+When $Y$ is a point this gives $A_\infty$ $n$-category from a topological $n$-category, which can be thought of as a free resolution.
 \end{rem}
 This result is described in more detail as Example 6.2.8 of \cite{1009.5025}
 
@@ -630,10 +638,10 @@ Recall that for any $(n-1)$-manifold $Y$, the blob complex $\bc_*(Y)$ is natural
 \item For any $n$-manifold $X$, with $Y$ a codimension $0$-submanifold of its boundary, the blob complex of $X$ is naturally an
 $A_\infty$ module for $\bc_*(Y)$.
 
-\item For any $n$-manifold $X_\text{gl} = X\bigcup_Y \selfarrow$, the blob complex $\bc_*(X_\text{gl})$ is the $A_\infty$ self-tensor product of
+\item The blob complex of a glued manifold $X\bigcup_Y \selfarrow$ is the $A_\infty$ self-tensor product of
 $\bc_*(X)$ as an $\bc_*(Y)$-bimodule:
 \begin{equation*}
-\bc_*(X_\text{gl}) \simeq \bc_*(X) \Tensor^{A_\infty}_{\mathclap{\bc_*(Y)}} \selfarrow
+\bc_*(X\bigcup_Y \selfarrow) \simeq \bc_*(X) \Tensor^{A_\infty}_{\mathclap{\bc_*(Y)}} \selfarrow
 \end{equation*}
 \end{itemize}
 \end{thm}
