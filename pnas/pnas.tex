@@ -226,11 +226,8 @@ homeomorphisms to the category of sets and bijections.
 Note that the functoriality in the above axiom allows us to operate via
 homeomorphisms which are not the identity on the boundary of the $k$-ball.
 The action of these homeomorphisms gives the ``strong duality" structure.
-
-Next we consider domains and ranges of $k$-morphisms.
-Because we assume strong duality, it doesn't make much sense to subdivide the boundary of a morphism
-into domain and range --- the duality operations can convert domain to range and vice-versa.
-Instead, we will use a unified domain/range, which we will call a ``boundary".
+As such, we don't subdivide the boundary of a morphism
+into domain and range --- the duality operations can convert between domain and range.
 
 Later \todo{} we inductively define an extension of the functors $\cC_k$ to functors $\cl{\cC}_k$ from arbitrary manifolds to sets. We need the restriction of these functors to $k$-spheres, for $k<n$, for the next axiom.
 
@@ -239,11 +236,11 @@ For each $k$-ball $X$, we have a map of sets $\bd: \cC_k(X)\to \cl{\cC}_{k-1}(\b
 These maps, for various $X$, comprise a natural transformation of functors.
 \end{axiom}
 
-For $c\in \cl{\cC}_{k-1}(\bd X)$ we let $\cC_k(X; c)$ denote the preimage $\bd^{-1}(c)$.
+For $c\in \cl{\cC}_{k-1}(\bd X)$ we define $\cC_k(X; c) = \bd^{-1}(c)$.
 
 Many of the examples we are interested in are enriched in some auxiliary category $\cS$
-(e.g. $\cS$ is vector spaces or rings, or, in the $A_\infty$ case, chain complex or topological spaces).
-This means (by definition) that in the top dimension $k=n$ the sets $\cC_n(X; c)$ have the structure
+(e.g. vector spaces or rings, or, in the $A_\infty$ case, chain complex or topological spaces).
+This means that in the top dimension $k=n$ the sets $\cC_n(X; c)$ have the structure
 of an object of $\cS$, and all of the structure maps of the category (above and below) are
 compatible with the $\cS$ structure on $\cC_n(X; c)$.
 
@@ -298,6 +295,16 @@ For the next axiom, a \emph{pinched product} is a map locally modeled on a degen
 \label{axiom:product}
 For each pinched product $\pi:E\to X$, with $X$ a $k$-ball and $E$ a $k{+}m$-ball ($m\ge 1$),
 there is a map $\pi^*:\cC(X)\to \cC(E)$.
+These maps must be
+\begin{enumerate}
+\item natural with respect to maps of pinched products,
+\item functorial with respect to composition of pinched products, 
+\item compatible with gluing and restriction of pinched products.
+\end{enumerate}
+
+%%% begin noop %%%
+% this was the original list of conditions, which I've replaced with the much terser list above -S
+\noop{
 These maps must satisfy the following conditions.
 \begin{enumerate}
 \item
@@ -338,6 +345,7 @@ such that $\rho$ and $\pi$ are pinched products, then
 	\res_D\circ\pi^* = \rho^*\circ\res_Y .
 \]
 \end{enumerate}
+} %%% end \noop %%%
 \end{axiom}
 \begin{axiom}[\textup{\textbf{[plain  version]}} Extended isotopy invariance in dimension $n$.]
 \label{axiom:extended-isotopies}
@@ -676,7 +684,9 @@ An $n$-dimensional surgery cylinder is a sequence of mapping cylinders and surge
 
 By the `blob cochains' of a manifold $X$, we mean the $A_\infty$ maps of $\bc_*(X)$ as a $\bc_*(\bdy X)$ $A_\infty$-module.
 
-\todo{Sketch proof}
+\begin{proof}
+We have already defined the action of mapping cylinders, in Theorem \ref{thm:evaluation}, and the action of surgeries is just composition of maps of $A_\infty$-modules. We only need to check that the relations of the $n$-SC operad are satisfied. This follows immediately from the locality of the action of $\CH{-}$ (i.e., that it is compatible with gluing) and functoriality.
+\end{proof} 
 
 The little disks operad $LD$ is homotopy equivalent to the $n=1$ case of the $n$-SC operad. The blob complex $\bc_*(I, \cC)$ is a bimodule over itself, and the $A_\infty$-bimodule intertwiners are homotopy equivalent to the Hochschild cohains $Hoch^*(C, C)$. The usual Deligne conjecture (proved variously in \cite{hep-th/9403055, MR1805894, MR2064592, MR1805923}) gives a map
 \[
@@ -703,7 +713,7 @@ which we now see to be a specialization of Theorem \ref{thm:deligne}.
 %% \appendix[Appendix Title]
 
 \begin{acknowledgments}
--- text of acknowledgments here, including grant info --
+\nn{say something here}
 \end{acknowledgments}
 
 %% PNAS does not support submission of supporting .tex files such as BibTeX.
@@ -756,16 +766,44 @@ which we now see to be a specialization of Theorem \ref{thm:deligne}.
 
 
 \begin{figure}
+\centering
+\begin{tikzpicture}[%every label/.style={green}
+]
+\node[fill=black, circle, label=below:$E$, inner sep=1.5pt](S) at (0,0) {};
+\node[fill=black, circle, label=above:$E$, inner sep=1.5pt](N) at (0,2) {};
+\draw (S) arc  (-90:90:1);
+\draw (N) arc  (90:270:1);
+\node[left] at (-1,1) {$B_1$};
+\node[right] at (1,1) {$B_2$};
+\end{tikzpicture}
+\caption{Combining two balls to get a full boundary.}\label{blah3}\end{figure}
+
+\begin{figure}
+\centering
+\begin{tikzpicture}[%every label/.style={green},
+				x=1.5cm,y=1.5cm]
+\node[fill=black, circle, label=below:$E$, inner sep=2pt](S) at (0,0) {};
+\node[fill=black, circle, label=above:$E$, inner sep=2pt](N) at (0,2) {};
+\draw (S) arc  (-90:90:1);
+\draw (N) arc  (90:270:1);
+\draw (N) -- (S);
+\node[left] at (-1/4,1) {$B_1$};
+\node[right] at (1/4,1) {$B_2$};
+\node at (1/6,3/2)  {$Y$};
+\end{tikzpicture}
+\caption{From two balls to one ball.}\label{blah5}\end{figure}
+
+\begin{figure}
 \begin{equation*}
 \mathfig{.23}{ncat/zz2}
 \end{equation*}
-\caption{A small part of $\cell(W)$}
+\caption{A small part of $\cell(W)$.}
 \label{partofJfig}
 \end{figure}
 
 \begin{figure}
 $$\mathfig{.4}{deligne/manifolds}$$
-\caption{An $n$-dimensional surgery cylinder}\label{delfig2}
+\caption{An $n$-dimensional surgery cylinder.}\label{delfig2}
 \end{figure}
 
 
