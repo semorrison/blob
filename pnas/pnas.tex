@@ -415,6 +415,7 @@ and a unique morphism from $x$ to $y$ if and only if $x$ is a refinement of $y$.
 See Figure \ref{partofJfig} for an example.
 \end{defn}
 
+This poset in fact has more structure, since we can glue together permissible decompositions of $W_1$ and $W_2$ to obtain a permissible decomposition of $W_1 \sqcup W_2$. 
 
 An $n$-category $\cC$ determines 
 a functor $\psi_{\cC;W}$ from $\cell(W)$ to the category of sets 
@@ -443,13 +444,17 @@ that is, a permissible decomposition $x$ of $W$ together with an element of $\ps
 \subsubsection{Homotopy colimits}
 \nn{Motivation: How can we extend an $n$-category from balls to arbitrary manifolds?}
 
-We now define the blob complex $\bc_*(W; \cC)$ of an $n$-manifold $W$
-with coefficients in the $n$-category $\cC$ to be the homotopy colimit
-of the functor $\psi_{\cC; W}$ described above. 
+We can now give a straightforward but rather abstract definition of the blob complex of an $n$-manifold $W$
+with coefficients in the $n$-category $\cC$ as the homotopy colimit along $\cell(W)$
+of the functor $\psi_{\cC; W}$ described above. We write this as $\clh{\cC}(W)$.
+
+An explicit realization of the homotopy colimit is provided by the simplices of the functor $\psi_{\cC; W}$. That is, $$\clh{\cC}(W) = \DirectSum_{x} \psi_{\cC; W}(x_0)[m],$$ where $x = x_0 \leq \cdots \leq x_m$ is a simplex in $\cell(W)$. The differential acts on \todo{finish this}
+
+Alternatively, we can take advantage of the product structure on $\cell(W)$ to realize the homotopy colimit as the cone-product polyhedra of the functor $\psi_{\cC;W}$. (A cone-product polyhedra is obtained from a point by successively taking the cone or taking the product with another cone-product polyhedron.) A Eilenberg-Zilber subdivision argument shows this is the same as the usual realization.
 
 When $\cC$ is a topological $n$-category,
 the flexibility available in the construction of a homotopy colimit allows
-us to give a much more explicit description of the blob complex.
+us to give a much more explicit description of the blob complex. We'll write $\bc_*(W; \cC)$ for this more explicit version.
 
 We say a collection of balls $\{B_i\}$ in a manifold $W$ is \emph{permissible}
 if there exists a permissible decomposition $M_0\to\cdots\to M_m = W$ such that
@@ -465,9 +470,7 @@ such that for any innermost blob $B$, the field on $B$ goes to zero under the gl
 
 The differential acts on a $k$-blob diagram by summing over ways to forget one of the $k$ blobs, with signs given by the ordering.
 
-\todo{Say why this really is the homotopy colimit}
-
-We now spell this out for some small values of $k$. For $k=0$, the $0$-blob group is simply fields on $W$. For $k=1$, a generator consists of a field on $W$ and a ball, such that the restriction of the field that that ball is a null field. The differential simply forgets the ball. Thus we see that $H_0$ of the blob complex is the quotient of fields by null fields.
+We now spell this out for some small values of $k$. For $k=0$, the $0$-blob group is simply fields on $W$. For $k=1$, a generator consists of a field on $W$ and a ball, such that the restriction of the field to that ball is a null field. The differential simply forgets the ball. Thus we see that $H_0$ of the blob complex is the quotient of fields by fields which are null on some ball.
 
 For $k=2$, we have a two types of generators; they each consists of a field $f$ on $W$, and two balls $B_1$ and $B_2$. In the first case, the balls are disjoint, and $f$ restricted to either of the $B_i$ is a null field. In the second case, the balls are properly nested, say $B_1 \subset B_2$, and $f$ restricted to $B_1$ is null. Note that this implies that $f$ restricted to $B_2$ is also null, by the associativity of the gluing operation. This ensures that the differential is well-defined.
 
@@ -630,7 +633,7 @@ Let $\cC$ be an $n$-category.
 Let $\bc_*(Y;\cC)$ be the $A_\infty$ $k$-category associated to $Y$ via blob homology.
 Then
 \[
-	\bc_*(Y\times W; \cC) \simeq \cl{\bc_*(Y;\cC)}(W).
+	\bc_*(Y\times W; \cC) \simeq \clh{\bc_*(Y;\cC)}(W).
 \]
 \end{thm}
 The statement can be generalized to arbitrary fibre bundles, and indeed to arbitrary maps
