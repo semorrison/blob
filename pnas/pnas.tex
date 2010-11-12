@@ -199,7 +199,7 @@ in some auxiliary category, or strict associativity instead of weak associativit
 We will treat each of these in turn.
 
 To motivate our morphism axiom, consider the venerable notion of the Moore loop space
-\nn{need citation -- \S 2.2 of Adams' ``Infinite Loop Spaces''?}.
+\cite[\S 2.2]{MR505692}.
 In the standard definition of a loop space, loops are always parameterized by the unit interval $I = [0,1]$,
 so composition of loops requires a reparameterization $I\cup I \cong I$, and this leads to a proliferation
 of higher associativity relations.
@@ -448,13 +448,15 @@ We can now give a straightforward but rather abstract definition of the blob com
 with coefficients in the $n$-category $\cC$ as the homotopy colimit along $\cell(W)$
 of the functor $\psi_{\cC; W}$ described above. We write this as $\clh{\cC}(W)$.
 
-An explicit realization of the homotopy colimit is provided by the simplices of the functor $\psi_{\cC; W}$. That is, $$\clh{\cC}(W) = \DirectSum_{x} \psi_{\cC; W}(x_0)[m],$$ where $x = x_0 \leq \cdots \leq x_m$ is a simplex in $\cell(W)$. The differential acts on \todo{finish this}
+An explicit realization of the homotopy colimit is provided by the simplices of the functor $\psi_{\cC; W}$. That is, $$\clh{\cC}(W) = \DirectSum_{\bar{x}} \psi_{\cC; W}(x_0)[m],$$ where $\bar{x} = x_0 \leq \cdots \leq x_m$ is a simplex in $\cell(W)$. The differential acts on $(\bar{x},a)$ (here $a \in \psi_{\cC; W}(x_0)$) as
+$$\bdy (\bar{x},a) = (\bar{x}, \bdy a) + (-1)^{\deg a} \left( (d_0 \bar{x}, g(a)) + \sum_{i=1}^m (-1)^i (d_i \bar{x}, a) \right)$$
+where $g$ is the gluing map from $x_0$ to $x_1$, and $d_i \bar{x}$ denotes the $i$-th face of the simplex $\bar{x}$.
 
-Alternatively, we can take advantage of the product structure on $\cell(W)$ to realize the homotopy colimit as the cone-product polyhedra of the functor $\psi_{\cC;W}$. (A cone-product polyhedra is obtained from a point by successively taking the cone or taking the product with another cone-product polyhedron.) A Eilenberg-Zilber subdivision argument shows this is the same as the usual realization.
+Alternatively, we can take advantage of the product structure on $\cell(W)$ to realize the homotopy colimit as the cone-product polyhedra of the functor $\psi_{\cC;W}$. (A cone-product polyhedra is obtained from a point by successively taking the cone or taking the product with another cone-product polyhedron; just as simplices correspond to linear graphs, cone-product polyheda correspond to directed trees.) A Eilenberg-Zilber subdivision argument shows this is the same as the usual realization.
 
 When $\cC$ is a topological $n$-category,
 the flexibility available in the construction of a homotopy colimit allows
-us to give a much more explicit description of the blob complex. We'll write $\bc_*(W; \cC)$ for this more explicit version.
+us to give a much more explicit description of the blob complex which we'll write as $\bc_*(W; \cC)$.
 
 We say a collection of balls $\{B_i\}$ in a manifold $W$ is \emph{permissible}
 if there exists a permissible decomposition $M_0\to\cdots\to M_m = W$ such that
@@ -549,7 +551,7 @@ by $\cC$.
 H_0(\bc_*(X;\cC)) \iso A_{\cC}(X)
 \end{equation*}
 \end{thm}
-This follows from the fact that the $0$-th homology of a homotopy colimit of \todo{something plain} is the usual colimit, or directly from the explicit description of the blob complex.
+This follows from the fact that the $0$-th homology of a homotopy colimit is the usual colimit, or directly from the explicit description of the blob complex.
 
 \begin{thm}[Hochschild homology when $X=S^1$]
 \label{thm:hochschild}
@@ -630,7 +632,7 @@ We next describe the blob complex for product manifolds, in terms of the $A_\inf
 \label{thm:product}
 Let $W$ be a $k$-manifold and $Y$ be an $n-k$ manifold.
 Let $\cC$ be an $n$-category.
-Let $\bc_*(Y;\cC)$ be the $A_\infty$ $k$-category associated to $Y$ via blob homology.
+Let $\bc_*(Y;\cC)$ be the $A_\infty$ $k$-category associated to $Y$ as above.
 Then
 \[
 	\bc_*(Y\times W; \cC) \simeq \clh{\bc_*(Y;\cC)}(W).
@@ -639,7 +641,7 @@ Then
 The statement can be generalized to arbitrary fibre bundles, and indeed to arbitrary maps
 (see \cite[\S7.1]{1009.5025}).
 
-Fix a topological $n$-category $\cC$, which we'll omit from the notation.
+Fix a topological $n$-category $\cC$, which we'll now omit from notation.
 Recall that for any $(n-1)$-manifold $Y$, the blob complex $\bc_*(Y)$ is naturally an $A_\infty$ category.
 
 \begin{thm}[Gluing formula]
@@ -688,7 +690,7 @@ An $n$-dimensional surgery cylinder is a sequence of mapping cylinders and surge
 By the `blob cochains' of a manifold $X$, we mean the $A_\infty$ maps of $\bc_*(X)$ as a $\bc_*(\bdy X)$ $A_\infty$-module.
 
 \begin{proof}
-We have already defined the action of mapping cylinders, in Theorem \ref{thm:evaluation}, and the action of surgeries is just composition of maps of $A_\infty$-modules. We only need to check that the relations of the $n$-SC operad are satisfied. This follows immediately from the locality of the action of $\CH{-}$ (i.e., that it is compatible with gluing) and functoriality.
+We have already defined the action of mapping cylinders, in Theorem \ref{thm:evaluation}, and the action of surgeries is just composition of maps of $A_\infty$-modules. We only need to check that the relations of the $n$-SC operad are satisfied. This follows immediately from the locality of the action of $\CH{-}$ (i.e., that it is compatible with gluing) and associativity.
 \end{proof} 
 
 The little disks operad $LD$ is homotopy equivalent to the $n=1$ case of the $n$-SC operad. The blob complex $\bc_*(I, \cC)$ is a bimodule over itself, and the $A_\infty$-bimodule intertwiners are homotopy equivalent to the Hochschild cohains $Hoch^*(C, C)$. The usual Deligne conjecture (proved variously in \cite{hep-th/9403055, MR1805894, MR2064592, MR1805923}) gives a map
