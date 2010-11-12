@@ -389,29 +389,22 @@ a diagram like the one in Theorem \ref{thm:CH} commutes.
 Decide if we need a friendlier, skein-module version.
 }
 
-\subsubsection{Examples}
-
-\nn{can't figure out environment stuff; want no italics}
-
-\noindent
-Example. [Fundamental $n$-groupoid of a space]
-Let $T$ be a topological space.
-Define $\pi_{\le n}(T)(X)$, for $X$ a $k$-ball and $k<n$,
+\subsection{Example (the fundamental $n$-groupoid)}
+We will define $\pi_{\le n}(T)$, the fundamental $n$-groupoid of a topological space $T$.
+When $X$ is a $k$-ball with $k<n$, define $\pi_{\le n}(T)(X)$
 to be the set of continuous maps from $X$ to $T$.
-If $X$ is an $n$-ball, define $\pi_{\le n}(T)(X)$ to be homotopy classes (rel boundary) of such maps.
+When $X$ is an $n$-ball, define $\pi_{\le n}(T)(X)$ to be homotopy classes (rel boundary) of such maps.
 Define boundary restrictions and gluing in the obvious way.
 If $\rho:E\to X$ is a pinched product and $f:X\to T$ is a $k$-morphism,
 define the product morphism $\rho^*(f)$ to be $f\circ\rho$.
 
 We can also define an $A_\infty$ version $\pi_{\le n}^\infty(T)$ of the fundamental $n$-groupoid.
-Most of the definition is the same as above.
 For $X$ an $n$-ball define $\pi_{\le n}^\infty(T)(X)$ to be the space of all maps from $X$ to $T$
 (if we are enriching over spaces) or the singular chains on that space (if we are enriching over chain complexes).
 
 
-\noindent
-Example. [String diagrams]
-Fix a traditional $n$-category $C$ with strong duality (e.g.\ a pivotal 2-category).
+\subsection{Example (string diagrams)}
+Fix a `traditional' $n$-category $C$ with strong duality (e.g.\ a pivotal 2-category).
 Let $X$ be a $k$-ball and define $\cS_C(X)$ to be the set of $C$ string diagrams drawn on $X$;
 that is, certain cell complexes embedded in $X$, with the codimension-$j$ cells labeled by $j$-morphisms of $C$.
 If $X$ is an $n$-ball, identify two such string diagrams if they evaluate to the same $n$-morphism of $C$.
@@ -490,7 +483,8 @@ An explicit realization of the homotopy colimit is provided by the simplices of 
 $$\bdy (\bar{x},a) = (\bar{x}, \bdy a) + (-1)^{\deg a} \left( (d_0 \bar{x}, g(a)) + \sum_{i=1}^m (-1)^i (d_i \bar{x}, a) \right)$$
 where $g$ is the gluing map from $x_0$ to $x_1$, and $d_i \bar{x}$ denotes the $i$-th face of the simplex $\bar{x}$.
 
-Alternatively, we can take advantage of the product structure on $\cell(W)$ to realize the homotopy colimit as the cone-product polyhedra of the functor $\psi_{\cC;W}$. (A cone-product polyhedra is obtained from a point by successively taking the cone or taking the product with another cone-product polyhedron; just as simplices correspond to linear graphs, cone-product polyheda correspond to directed trees.) A Eilenberg-Zilber subdivision argument shows this is the same as the usual realization.
+Alternatively, we can take advantage of the product structure on $\cell(W)$ to realize the homotopy colimit via the cone-product polyhedra in $\cell(W)$. A cone-product polyhedra is obtained from a point by successively taking the cone or taking the product with another cone-product polyhedron. Just as simplices correspond to linear graphs, cone-product polyheda correspond to directed trees: taking cone adds a new root before the existing root, and taking product identifies the roots of several trees. The `local homotopy colimit' is then defined according to the same formula as above, but with $x$ a cone-product polyhedron in $\cell(W)$.
+A Eilenberg-Zilber subdivision argument shows this is the same as the usual realization.
 
 When $\cC$ is a topological $n$-category,
 the flexibility available in the construction of a homotopy colimit allows
