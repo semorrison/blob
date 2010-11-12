@@ -147,7 +147,7 @@ of the United States of America}
 %% \abbreviations{SAM, self-assembled monolayer; OTS,
 %% octadecyltrichlorosilane}
 
-% \abbreviations{}
+% \abbreviations{TQFT, topological quantum field theory}
 
 %% The first letter of the article should be drop cap: \dropcap{}
 %\dropcap{I}n this article we study the evolution of ''almost-sharp'' fronts
@@ -159,19 +159,64 @@ of the United States of America}
 %% \subsection{}
 %% \subsubsection{}
 
-\nn{
-background: TQFTs are important, historically, semisimple categories well-understood.
-Many new examples arising recently which do not fit this framework, e.g. SW and OS theory.
-These have more complicated gluing formulas (\cite{1003.0598,1005.1248}, etc); 
-it would be nice to give generalized TQFT axioms that encompass these.
-Triangulated categories are important; often calculations are via exact sequences,
-and the standard TQFT constructions are quotients, which destroy exactness.
-A first attempt to deal with this might be to replace all the tensor products in gluing formulas
-with derived tensor products (cite Kh?).
-However, in this approach it's probably difficult to prove invariance of constructions,
-because they depend on explicit presentations of the manifold.
-We'll give a manifestly invariant construction,
-and deduce gluing formulas based on derived (actually, $A_\infty$) tensor products.}
+\dropcap{T}opological quantum field theories (TQFTs) provide local invariants of manifolds, which are determined by the algebraic data of a higher category.
+
+An $n+1$-dimensional TQFT $\cA$ associates a vector space $\cA(M)$
+(or more generally, some object in a specified symmetric monoidal category)
+to each $n$-dimensional manifold $M$, and a linear map
+$\cA(W): \cA(M_0) \to \cA(M_1)$ to each $n+1$-dimensional manifold $W$
+with incoming boundary $M_0$ and outgoing boundary $M_1$.
+An $n+\epsilon$-dimensional TQFT provides slightly less;
+it only assigns linear maps to mapping cylinders.
+
+There is a standard formalism for constructing an $n+\epsilon$-dimensional
+TQFT from any $n$-category with sufficiently strong duality,
+and with a further finiteness condition this TQFT is in fact $n+1$-dimensional.
+\nn{not so standard, err}
+
+These invariants are local in the following sense.
+The vector space $\cA(Y \times I)$, for $Y$ an $n-1$-manifold,
+naturally has the structure of a category, with composition given by the gluing map
+$I \sqcup I \to I$. Moreover, the vector space $\cA(Y \times I^k)$,
+for $Y$ and $n-k$-manifold, has the structure of a $k$-category.
+The original $n$-category can be recovered as $\cA(I^n)$.
+For the rest of the paragraph, we implicitly drop the factors of $I$.
+(So for example the original $n$-category is associated to the point.)
+If $Y$ contains $Z$ as a codimension $0$ submanifold of its boundary,
+then $\cA(Y)$ is natually a module over $\cA(Z)$. For any $k$-manifold
+$Y = Y_1 \cup_Z Y_2$, where $Z$ is a $k-1$-manifold, the category
+$\cA(Y)$ can be calculated via a gluing formula,
+$$\cA(Y) = \cA(Y_1) \Tensor_{\cA(Z)} \cA(Y_2).$$
+
+In fact, recent work of Lurie on the `cobordism hypothesis' \cite{0905.0465}
+shows that all invariants of $n$-manifolds satisfying a certain related locality property
+are in a sense TQFT invariants, and in particular determined by
+a `fully dualizable object' in some $n+1$-category.
+(The discussion above begins with an object in the $n+1$-category of $n$-categories.
+The `sufficiently strong duality' mentioned above corresponds roughly to `fully dualizable'.)
+
+This formalism successfully captures Turaev-Viro and Reshetikhin-Turaev invariants
+(and indeed invariants based on semisimple categories).
+However new invariants on manifolds, particularly those coming from
+Seiberg-Witten theory and Ozsv\'{a}th-Szab\'{o} theory, do not fit the framework well.
+In particular, they have more complicated gluing formulas, involving derived or
+$A_\infty$ tensor products \cite{1003.0598,1005.1248}.
+It seems worthwhile to find a more general notion of TQFT that explain these.
+While we don't claim to fulfill that goal here, our notions of $n$-category and
+of the blob complex are hopefully a step in the right direction,
+and provide similar gluing formulas.
+
+One approach to such a generalization might be simply to define a
+TQFT invariant via its gluing formulas, replacing tensor products with
+derived tensor products. However, it is probably difficult to prove
+the invariance of such a definition, as the object associated to a manifold
+will a priori depend on the explicit presentation used to apply the gluing formulas.
+We instead give a manifestly invariant construction, and
+deduce gluing formulas based on $A_\infty$ tensor products.
+
+\nn{Triangulated categories are important; often calculations are via exact sequences,
+and the standard TQFT constructions are quotients, which destroy exactness.}
+
 
 \section{Definitions}
 \subsection{$n$-categories} \mbox{}
@@ -384,11 +429,6 @@ and also compatible with composition (gluing) in the sense that
 a diagram like the one in Theorem \ref{thm:CH} commutes.
 \end{axiom}
 
-
-\todo{
-Decide if we need a friendlier, skein-module version.
-}
-
 \subsection{Example (the fundamental $n$-groupoid)}
 We will define $\pi_{\le n}(T)$, the fundamental $n$-groupoid of a topological space $T$.
 When $X$ is a $k$-ball with $k<n$, define $\pi_{\le n}(T)(X)$
@@ -467,7 +507,7 @@ $X_a$ all agree (this is a fibered product of all the labels of $n$-cells over t
 If $x$ is a refinement of $y$, the map $\psi_{\cC;W}(x) \to \psi_{\cC;W}(y)$ is given by the composition maps of $\cC$.
 \end{defn}
 
-We will use the term `field on $W$' to refer to \nn{a point} of this functor,
+We will use the term `field on $W$' to refer to a point of this functor,
 that is, a permissible decomposition $x$ of $W$ together with an element of $\psi_{\cC;W}(x)$.
 
 \todo{Mention that the axioms for $n$-categories can be stated in terms of decompositions of balls?}
@@ -483,12 +523,12 @@ An explicit realization of the homotopy colimit is provided by the simplices of 
 $$\bdy (\bar{x},a) = (\bar{x}, \bdy a) + (-1)^{\deg a} \left( (d_0 \bar{x}, g(a)) + \sum_{i=1}^m (-1)^i (d_i \bar{x}, a) \right)$$
 where $g$ is the gluing map from $x_0$ to $x_1$, and $d_i \bar{x}$ denotes the $i$-th face of the simplex $\bar{x}$.
 
-Alternatively, we can take advantage of the product structure on $\cell(W)$ to realize the homotopy colimit via the cone-product polyhedra in $\cell(W)$. A cone-product polyhedra is obtained from a point by successively taking the cone or taking the product with another cone-product polyhedron. Just as simplices correspond to linear graphs, cone-product polyheda correspond to directed trees: taking cone adds a new root before the existing root, and taking product identifies the roots of several trees. The `local homotopy colimit' is then defined according to the same formula as above, but with $x$ a cone-product polyhedron in $\cell(W)$.
+Alternatively, we can take advantage of the product structure on $\cell(W)$ to realize the homotopy colimit via the cone-product polyhedra in $\cell(W)$. A cone-product polyhedra is obtained from a point by successively taking the cone or taking the product with another cone-product polyhedron. Just as simplices correspond to linear directed graphs, cone-product polyheda correspond to directed trees: taking cone adds a new root before the existing root, and taking product identifies the roots of several trees. The `local homotopy colimit' is then defined according to the same formula as above, but with $x$ a cone-product polyhedron in $\cell(W)$.
 A Eilenberg-Zilber subdivision argument shows this is the same as the usual realization.
 
 When $\cC$ is a topological $n$-category,
 the flexibility available in the construction of a homotopy colimit allows
-us to give a much more explicit description of the blob complex which we'll write as $\bc_*(W; \cC)$.
+us to give a much more explicit description of the blob complex which we'll write as $\bc_*(W; \cC)$. \todo{either need to explain why this is the same, or significantly rewrite this section}
 
 We say a collection of balls $\{B_i\}$ in a manifold $W$ is \emph{permissible}
 if there exists a permissible decomposition $M_0\to\cdots\to M_m = W$ such that
@@ -511,7 +551,7 @@ For $k=2$, we have a two types of generators; they each consists of a field $f$ 
 \section{Properties of the blob complex}
 \subsection{Formal properties}
 \label{sec:properties}
-The blob complex enjoys the following list of formal properties. The first three properties are immediate from the definitions.
+The blob complex enjoys the following list of formal properties. The first three are immediate from the definitions.
 
 \begin{property}[Functoriality]
 \label{property:functoriality}%
