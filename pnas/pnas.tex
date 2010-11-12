@@ -214,7 +214,14 @@ a product of $k$ intervals \nn{cf xxxx} but rather with any $k$-ball, that is, a
 to the standard $k$-ball $B^k$.
 \nn{maybe add that in addition we want functoriality}
 
-In fact, the axioms here may easily be varied by considering balls with structure (e.g. $m$ independent vector fields, a map to some target space, etc.). Such variations are useful for axiomatizing categories with less duality, and also as technical tools in proofs.
+We haven't said precisely what sort of balls we are considering,
+because we prefer to let this detail be a parameter in the definition.
+It is useful to consider unoriented, oriented, Spin and $\mbox{Pin}_\pm$ balls.
+Also useful are more exotic structures, such as balls equipped with a map to some target space,
+or equipped with $m$ independent vector fields.
+(The latter structure would model $n$-categories with less duality than we usually assume.)
+
+%In fact, the axioms here may easily be varied by considering balls with structure (e.g. $m$ independent vector fields, a map to some target space, etc.). Such variations are useful for axiomatizing categories with less duality, and also as technical tools in proofs.
 
 \begin{axiom}[Morphisms]
 \label{axiom:morphisms}
@@ -355,6 +362,8 @@ Then $f$ acts trivially on $\cC(X)$.
 In addition, collar maps act trivially on $\cC(X)$.
 \end{axiom}
 
+\nn{need to define collar maps}
+
 \smallskip
 
 For $A_\infty$ $n$-categories, we replace
@@ -381,7 +390,36 @@ Decide if we need a friendlier, skein-module version.
 }
 
 \subsubsection{Examples}
-\todo{maps to a space, string diagrams}
+
+\nn{can't figure out environment stuff; want no italics}
+
+\noindent
+Example. [Fundamental $n$-groupoid of a space]
+Let $T$ be a topological space.
+Define $\pi_{\le n}(T)(X)$, for $X$ a $k$-ball and $k<n$,
+to be the set of continuous maps from $X$ to $T$.
+If $X$ is an $n$-ball, define $\pi_{\le n}(T)(X)$ to be homotopy classes (rel boundary) of such maps.
+Define boundary restrictions and gluing in the obvious way.
+If $\rho:E\to X$ is a pinched product and $f:X\to T$ is a $k$-morphism,
+define the product morphism $\rho^*(f)$ to be $f\circ\rho$.
+
+We can also define an $A_\infty$ version $\pi_{\le n}^\infty(T)$ of the fundamental $n$-groupoid.
+Most of the definition is the same as above.
+For $X$ an $n$-ball define $\pi_{\le n}^\infty(T)(X)$ to be the space of all maps from $X$ to $T$
+(if we are enriching over spaces) or the singular chains on that space (if we are enriching over chain complexes).
+
+
+\noindent
+Example. [String diagrams]
+Fix a traditional $n$-category $C$ with strong duality (e.g.\ a pivotal 2-category).
+Let $X$ be a $k$-ball and define $\cS_C(X)$ to be the set of $C$ string diagrams drawn on $X$;
+that is, certain cell complexes embedded in $X$, with the codimension-$j$ cells labeled by $j$-morphisms of $C$.
+If $X$ is an $n$-ball, identify two such string diagrams if they evaluate to the same $n$-morphism of $C$.
+Boundary restrictions and gluing are again straightforward to define.
+Define product morphisms via product cell decompositions.
+
+
+\nn{also do bordism category?}
 
 \subsection{The blob complex}
 \subsubsection{Decompositions of manifolds}
@@ -389,7 +427,7 @@ Decide if we need a friendlier, skein-module version.
 \nn{KW: I'm inclined to suppress all discussion of the subtleties of decompositions.
 Maybe just a single remark that we are omitting some details which appear in our
 longer paper.}
-\nn{SM: for now I disagree: the space expense is pretty minor, and it always us to be "in principle" complete. Let's see how we go for length.}
+\nn{SM: for now I disagree: the space expense is pretty minor, and it allows us to be ``in principle" complete. Let's see how we go for length.}
 \nn{KW: It's not the length I'm worried about --- I was worried about distracting the reader
 with an arcane technical issue.  But we can decide later.}
 
