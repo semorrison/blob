@@ -469,13 +469,6 @@ Define product morphisms via product cell decompositions.
 \subsection{The blob complex}
 \subsubsection{Decompositions of manifolds}
 
-\nn{KW: I'm inclined to suppress all discussion of the subtleties of decompositions.
-Maybe just a single remark that we are omitting some details which appear in our
-longer paper.}
-\nn{SM: for now I disagree: the space expense is pretty minor, and it allows us to be ``in principle" complete. Let's see how we go for length.}
-\nn{KW: It's not the length I'm worried about --- I was worried about distracting the reader
-with an arcane technical issue.  But we can decide later.}
-
 A \emph{ball decomposition} of $W$ is a 
 sequence of gluings $M_0\to M_1\to\cdots\to M_m = W$ such that $M_0$ is a disjoint union of balls
 $\du_a X_a$ and each $M_i$ is a manifold.
@@ -538,9 +531,19 @@ where $g$ is the gluing map from $x_0$ to $x_1$, and $d_i \bar{x}$ denotes the $
 Alternatively, we can take advantage of the product structure on $\cell(W)$ to realize the homotopy colimit via the cone-product polyhedra in $\cell(W)$. A cone-product polyhedra is obtained from a point by successively taking the cone or taking the product with another cone-product polyhedron. Just as simplices correspond to linear directed graphs, cone-product polyheda correspond to directed trees: taking cone adds a new root before the existing root, and taking product identifies the roots of several trees. The `local homotopy colimit' is then defined according to the same formula as above, but with $x$ a cone-product polyhedron in $\cell(W)$.
 A Eilenberg-Zilber subdivision argument shows this is the same as the usual realization.
 
-When $\cC$ is a topological $n$-category,
-the flexibility available in the construction of a homotopy colimit allows
-us to give a much more explicit description of the blob complex which we'll write as $\bc_*(W; \cC)$. \todo{either need to explain why this is the same, or significantly rewrite this section}
+%When $\cC$ is a topological $n$-category,
+%the flexibility available in the construction of a homotopy colimit allows
+%us to give a much more explicit description of the blob complex which we'll write as $\bc_*(W; \cC)$.
+%\todo{either need to explain why this is the same, or significantly rewrite this section}
+When $\cC$ is the topological $n$-category based on string diagrams for a traditional
+$n$-category $C$,
+one can show \nn{cite us} that the above two constructions of the homotopy colimit
+are equivalent to the more concrete construction which we describe next, and which we denote $\bc_*(W; C)$.
+Roughly speaking, the generators of $\bc_k(W; C)$ are string diagrams on $W$ together with
+a configuration of $k$ balls (or ``blobs") in $W$ whose interiors are pairwise disjoint or nested.
+The restriction of the string diagram to innermost blobs is required to be ``null" in the sense that
+it evaluates to a zero $n$-morphism of $C$.
+The next few paragraphs describe this in more detail.
 
 We say a collection of balls $\{B_i\}$ in a manifold $W$ is \emph{permissible}
 if there exists a permissible decomposition $M_0\to\cdots\to M_m = W$ such that
