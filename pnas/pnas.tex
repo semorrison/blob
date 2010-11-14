@@ -74,7 +74,6 @@
 %\def\s{\sigma}
 
 \input{preamble}
-\input{../text/kw_macros}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Don't type in anything in the following section:
@@ -374,7 +373,7 @@ commutes, then we have
 Product morphisms are compatible with gluing.
 Let $\pi:E\to X$, $\pi_1:E_1\to X_1$, and $\pi_2:E_2\to X_2$ 
 be pinched products with $E = E_1\cup E_2$.
-Let $a\in \cC(X)$, and let $a_i$ denote the restriction of $a$ to $X_i\sub X$.
+Let $a\in \cC(X)$, and let $a_i$ denote the restriction of $a$ to $X_i\subset X$.
 Then 
 \[
 	\pi^*(a) = \pi_1^*(a_1)\bullet \pi_2^*(a_2) .
@@ -401,7 +400,7 @@ such that $\rho$ and $\pi$ are pinched products, then
 \end{axiom}
 
 To state the next axiom we need the notion of {\it collar maps} on $k$-morphisms.
-Let $X$ be a $k$-ball and $Y\sub\bd X$ be a $(k{-}1)$-ball.
+Let $X$ be a $k$-ball and $Y\subset\bd X$ be a $(k{-}1)$-ball.
 Let $J$ be a 1-ball.
 Let $Y\times_p J$ denote $Y\times J$ pinched along $(\bd Y)\times J$.
 A collar map is an instance of the composition
@@ -434,7 +433,7 @@ $C_*(\Homeo_\bd(X))$ denote the singular chains on this space.
 \label{axiom:families}
 For each $n$-ball $X$ and each $c\in \cl{\cC}(\bd X)$ we have a map of chain complexes
 \[
-	C_*(\Homeo_\bd(X))\ot \cC(X; c) \to \cC(X; c) .
+	C_*(\Homeo_\bd(X))\tensor \cC(X; c) \to \cC(X; c) .
 \]
 These action maps are required to be associative up to homotopy,
 and also compatible with composition (gluing) in the sense that
@@ -464,7 +463,6 @@ Boundary restrictions and gluing are again straightforward to define.
 Define product morphisms via product cell decompositions.
 
 
-\nn{also do bordism category}
 
 \subsection{The blob complex}
 \subsubsection{Decompositions of manifolds}
@@ -497,7 +495,7 @@ An $n$-category $\cC$ determines
 a functor $\psi_{\cC;W}$ from $\cell(W)$ to the category of sets 
 (possibly with additional structure if $k=n$).
 Each $k$-ball $X$ of a decomposition $y$ of $W$ has its boundary decomposed into $k{-}1$-balls,
-and there is a subset $\cC(X)\spl \sub \cC(X)$ of morphisms whose boundaries
+and there is a subset $\cC(X)\spl \subset \cC(X)$ of morphisms whose boundaries
 are splittable along this decomposition.
 
 \begin{defn}
@@ -505,7 +503,7 @@ Define the functor $\psi_{\cC;W} : \cell(W) \to \Set$ as follows.
 For a decomposition $x = \bigsqcup_a X_a$ in $\cell(W)$, $\psi_{\cC;W}(x)$ is the subset
 \begin{equation*}
 %\label{eq:psi-C}
-	\psi_{\cC;W}(x) \sub \prod_a \cC(X_a)\spl
+	\psi_{\cC;W}(x) \subset \prod_a \cC(X_a)\spl
 \end{equation*}
 where the restrictions to the various pieces of shared boundaries amongst the cells
 $X_a$ all agree (this is a fibered product of all the labels of $n$-cells over the labels of $n-1$-cells). When $k=n$, the `subset' and `product' in the above formula should be interpreted in the appropriate enriching category.
@@ -673,10 +671,10 @@ any codimension $0$-submanifold $Y \sqcup Y^\text{op} \subset \bdy X$ the follow
 (using the gluing maps described in Property \ref{property:gluing-map}) commutes (up to homotopy).
 \begin{equation*}
 \xymatrix@C+0.3cm{
-     \CH{X} \otimes \bc_*(X)
-        \ar[r]_{e_{X}}  \ar[d]^{\gl^{\Homeo}_Y \otimes \gl_Y}  &
+     \CH{X} \tensor \bc_*(X)
+        \ar[r]_{e_{X}}  \ar[d]^{\gl^{\Homeo}_Y \tensor \gl_Y}  &
             \bc_*(X) \ar[d]_{\gl_Y} \\
-     \CH{X \bigcup_Y \selfarrow} \otimes \bc_*(X \bigcup_Y \selfarrow) \ar[r]_<<<<<<<{e_{(X \bigcup_Y \scalebox{0.5}{\selfarrow})}}    & \bc_*(X \bigcup_Y \selfarrow)
+     \CH{X \bigcup_Y \selfarrow} \tensor \bc_*(X \bigcup_Y \selfarrow) \ar[r]_<<<<<<<{e_{(X \bigcup_Y \scalebox{0.5}{\selfarrow})}}    & \bc_*(X \bigcup_Y \selfarrow)
 }
 \end{equation*}
 \end{enumerate}
@@ -782,7 +780,7 @@ We have already defined the action of mapping cylinders, in Theorem \ref{thm:eva
 
 The little disks operad $LD$ is homotopy equivalent to the $n=1$ case of the $n$-SC operad. The blob complex $\bc_*(I, \cC)$ is a bimodule over itself, and the $A_\infty$-bimodule intertwiners are homotopy equivalent to the Hochschild cohains $Hoch^*(C, C)$. The usual Deligne conjecture (proved variously in \cite{hep-th/9403055, MR1805894, MR2064592, MR1805923}) gives a map
 \[
-	C_*(LD_k)\otimes \overbrace{Hoch^*(C, C)\otimes\cdots\otimes Hoch^*(C, C)}^{\text{$k$ copies}}
+	C_*(LD_k)\tensor \overbrace{Hoch^*(C, C)\tensor\cdots\tensor Hoch^*(C, C)}^{\text{$k$ copies}}
 			\to  Hoch^*(C, C),
 \]
 which we now see to be a specialization of Theorem \ref{thm:deligne}.

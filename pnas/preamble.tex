@@ -39,11 +39,16 @@
 \newcommand{\tensor}{\otimes}
 \newcommand{\Tensor}{\bigotimes}
 
+\newcommand{\Bord}{\operatorname{Bord}}
+
 \newcommand{\selfarrow}{\ensuremath{\smash{\tikz[baseline]{\clip (0,0.36) rectangle (0.39,-0.16); \draw[->] (0,0.2) .. controls (0.5,0.6) and (0.5,-0.4) .. (0,0);}}}}
 
+\newcommand{\bd}{\partial}
 \newcommand{\bdy}{\partial}
+\newcommand{\du}{\sqcup}
 \newcommand{\compose}{\circ}
 \newcommand{\eset}{\emptyset}
+\def\spl{_\pitchfork}
 
 \newcommand{\id}{\boldsymbol{1}}
 
@@ -71,6 +76,42 @@
 \def\mathclapinternal#1#2{%
 \clap{$\mathsurround=0pt#1{#2}$}}
 
+% tricky way to iterate macros over a list
+\def\semicolon{;}
+\def\applytolist#1{
+    \expandafter\def\csname multi#1\endcsname##1{
+        \def\multiack{##1}\ifx\multiack\semicolon
+            \def\next{\relax}
+        \else
+            \csname #1\endcsname{##1}
+            \def\next{\csname multi#1\endcsname}
+        \fi
+        \next}
+    \csname multi#1\endcsname}
+
+% \def\cA{{\cal A}} for A..Z
+\def\calc#1{\expandafter\def\csname c#1\endcsname{{\mathcal #1}}}
+\applytolist{calc}QWERTYUIOPLKJHGFDSAZXCVBNM;
+
+% \def\bbA{{\mathbb A}} for A..Z
+\def\bbc#1{\expandafter\def\csname bb#1\endcsname{{\mathbb #1}}}
+\applytolist{bbc}QWERTYUIOPLKJHGFDSAZXCVBNM;
+
+% \def\bA{{\mathbf A}} for A..Z
+\def\bc#1{\expandafter\def\csname b#1\endcsname{{\mathbf #1}}}
+\applytolist{bc}QWERTYUIOPLKJHGFDSAZXCVBNM;
+
+% \DeclareMathOperator{\pr}{pr} etc.
+\def\declaremathop#1{\expandafter\DeclareMathOperator\csname #1\endcsname{#1}}
+\applytolist{declaremathop}{im}{gl}{ev}{coinv}{tr}{rot}{Eq}{obj}{mor}{ob}{Rep}{Tet}{cat}{Maps}{Diff}{Homeo}{sign}{supp}{Nbd}{res}{rad}{Compat};
+
+% \todo, \nn and \noop
+\newcommand{\todo}[1]{\textbf{\color[rgb]{.8,.2,.5}\small TODO: #1}}
+\def\nn#1{{{\color[rgb]{.2,.5,.6} \small [[#1]]}}}
+\long\def\noop#1{}
+
+
+
 % references
 
 \newcommand{\arxiv}[1]{\href{http://arxiv.org/abs/#1}{\tt arXiv:\nolinkurl{#1}}}
@@ -79,8 +120,6 @@
 \newcommand{\mathscinet}[1]{\href{http://www.ams.org/mathscinet-getitem?mr=#1}{\tt #1}}
 \newcommand{\googlebooks}[1]{(preview at \href{http://books.google.com/books?id=#1}{google books})}
 
-
-\newcommand{\todo}[1]{\textbf{\color[rgb]{.8,.2,.5}\small TODO: #1}}
 
 
 % figures
