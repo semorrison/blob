@@ -217,6 +217,8 @@ deduce gluing formulas based on $A_\infty$ tensor products.
 \nn{Triangulated categories are important; often calculations are via exact sequences,
 and the standard TQFT constructions are quotients, which destroy exactness.}
 
+\nn{In many places we omit details; they can be found in MW.
+(Blanket statement in order to avoid too many citations to MW.)}
 
 \section{Definitions}
 \subsection{$n$-categories} \mbox{}
@@ -681,7 +683,7 @@ any codimension $0$-submanifold $Y \sqcup Y^\text{op} \subset \bdy X$ the follow
 \end{equation*}
 \end{enumerate}
 
-Futher, this map is associative, in the sense that the following diagram commutes (up to homotopy).
+Further, this map is associative, in the sense that the following diagram commutes (up to homotopy).
 \begin{equation*}
 \xymatrix{
 \CH{X} \tensor \CH{X} \tensor \bc_*(X) \ar[r]^<<<<<{\id \tensor e_X} \ar[d]^{\compose \tensor \id} & \CH{X} \tensor \bc_*(X) \ar[d]^{e_X} \\
@@ -690,12 +692,26 @@ Futher, this map is associative, in the sense that the following diagram commute
 \end{equation*}
 \end{thm}
 
+\nn{if we need to save space, I think this next paragraph could be cut}
 Since the blob complex is functorial in the manifold $X$, this is equivalent to having chain maps
 $$ev_{X \to Y} : \CH{X \to Y} \tensor \bc_*(X) \to \bc_*(Y)$$
 for any homeomorphic pair $X$ and $Y$, 
 satisfying corresponding conditions.
 
-\nn{Say stuff here!}
+\begin{proof}(Sketch.)
+The most convenient way to prove this is to introduce yet another homotopy equivalent version of
+the blob complex, $\cB\cT_*(X)$.
+Blob diagrams have a natural topology, which is ignored by $\bc_*(X)$.
+In $\cB\cT_*(X)$ we take this topology into account, treating the blob diagrams as something
+analogous to a simplicial space (but with cone-product polyhedra replacing simplices).
+More specifically, a generator of $\cB\cT_k(X)$ is an $i$-parameter family of $j$-blob diagrams, with $i+j=k$.
+
+With this alternate version in hand, it is straightforward to prove the theorem.
+The evaluation map $\Homeo(X)\times BD_j(X)\to BD_j(X)$
+induces a chain map $\CH{X}\ot C_*(BD_j(X))\to C_*(BD_j(X))$
+and hence a map $e_X: \CH{X} \ot \cB\cT_*(X) \to \cB\cT_*(X)$.
+It is easy to check that $e_X$ thus defined has the desired properties.
+\end{proof}
 
 \begin{thm}
 \label{thm:blobs-ainfty}
