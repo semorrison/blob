@@ -624,7 +624,7 @@ that it is homotopic to its $0$-th homology, and this is just the vector space a
 \xymatrix{\bc_*(B^n;\cC) \ar[r]^(0.4){\iso}_(0.4){\text{qi}} & H_0(\bc_*(B^n;\cC)) \ar[r]^(0.6)\iso & \cC(B^n)}
 \end{equation*}
 \end{property}
-\nn{maybe should say something about the $A_\infty$ case}
+%\nn{maybe should say something about the $A_\infty$ case}
 
 \begin{proof}(Sketch)
 For $k\ge 1$, the contracting homotopy sends a $k$-blob diagram to the $(k{+}1)$-blob diagram
@@ -632,6 +632,9 @@ obtained by adding an outer $(k{+}1)$-st blob consisting of all $B^n$.
 For $k=0$ we choose a splitting $s: H_0(\bc_*(B^n)) \to \bc_0(B^n)$ and send 
 $x\in \bc_0(B^n)$ to $x - s([x])$, where $[x]$ denotes the image of $x$ in $H_0(\bc_*(B^n))$.
 \end{proof}
+
+If $\cC$ is an $A-\infty$ $n$-category then $\bc_*(B^n;\cC)$ is still homotopy equivalent to $\cC(B^n)$,
+but this is no longer concentrated in degree zero.
 
 \subsection{Specializations}
 \label{sec:specializations}
@@ -825,6 +828,7 @@ We think of this map as being associated to a surgery which cuts $M$ out of $M\c
 replaces it with $N$, yielding $N\cup_E R$.
 (This is a more general notion of surgery that usual --- $M$ and $N$ can be any manifolds
 which share a common boundary.)
+In analogy to Hochschild cochains, we will call elements of $\hom_A(\bc_*(M), \bc_*(N))$ ``blob cochains".
 
 Recall (Theorem \ref{thm:evaluation}) that chains on the space of mapping cylinders also act on the 
 blob complex.
@@ -836,16 +840,21 @@ and the relations we impose correspond to homeomorphisms of the $(n{+}1)$-manifo
 which preserve the foliation.
 
 Surgery cylinders form an operad, by gluing the outer boundary of one cylinder into an inner boundary of another.
-\nn{more to do...}
 
 \begin{thm}[Higher dimensional Deligne conjecture]
 \label{thm:deligne}
 The singular chains of the $n$-dimensional surgery cylinder operad act on blob cochains.
-Since the little $n{+}1$-balls operad is a suboperad of the $n$-SC operad,
-this implies that the little $n{+}1$-balls operad acts on blob cochains of the $n$-ball.
 \end{thm}
 
-By the `blob cochains' of a manifold $X$, we mean the $A_\infty$ maps of $\bc_*(X)$ as a $\bc_*(\bdy X)$ $A_\infty$-module.
+More specifically, let $M_0, N_0, \ldots, M_k, N_k$ be $n$-manifolds and let $SC^n_{\overline{M}, \overline{N}}$
+denote the component of the operad with outer boundary $M_0\cup N_0$ and inner boundaries
+$M_1\cup N_1,\ldots, M_k\cup N_k$.
+Then there is a collection of chain maps
+\begin{multline*}
+	C_*(SC^n_{\overline{M}, \overline{N}})\otimes \hom(\bc_*(M_1), \bc_*(N_1))\otimes\cdots \\
+		\otimes \hom(\bc_*(M_{k}), \bc_*(N_{k})) \to  \hom(\bc_*(M_0), \bc_*(N_0))
+\end{multline*}
+which satisfy the operad compatibility conditions.
 
 \begin{proof}
 We have already defined the action of mapping cylinders, in Theorem \ref{thm:evaluation}, 
@@ -854,18 +863,22 @@ We only need to check that the relations of the $n$-SC operad are satisfied.
 This follows from the locality of the action of $\CH{-}$ (i.e., that it is compatible with gluing) and associativity.
 \end{proof} 
 
-The little disks operad $LD$ is homotopy equivalent to 
-\nn{suboperad of}
-the $n=1$ case of the $n$-SC operad. The blob complex $\bc_*(I, \cC)$ is a bimodule over itself, and the $A_\infty$-bimodule intertwiners are homotopy equivalent to the Hochschild cochains $Hoch^*(C, C)$. 
-The usual Deligne conjecture (proved variously in \cite{hep-th/9403055, MR1805894, MR2064592, MR1805923}) 
+Consider the special case where $n=1$ and all of the $M_i$'s and $N_i$'s are 1-balls.
+We have that $SC^1_{\overline{M}, \overline{N}}$ is homotopy equivalent to the little
+disks operad and $\hom(\bc_*(M_i), \bc_*(N_i))$ is homotopy equivalent to Hochschild cochains.
+This special case is just the usual Deligne conjecture
+(see \cite{hep-th/9403055, MR1805894, MR2064592, MR1805923} 
 \nn{should check that this is the optimal list of references; what about Gerstenhaber-Voronov?;
 if we revise this list, should propagate change back to main paper}
-gives a map
-\[
-	C_*(LD_k)\tensor \overbrace{Hoch^*(C, C)\tensor\cdots\tensor Hoch^*(C, C)}^{\text{$k$ copies}}
-			\to  Hoch^*(C, C),
-\]
-which we now see to be a specialization of Theorem \ref{thm:deligne}.
+).
+
+The general case when $n=1$ goes beyond the original Deligne conjecture, as the $M_i$'s and $N_i$'s
+could be disjoint unions of 1-balls and circles, and the surgery cylinders could be high genus surfaces.
+
+If all of the $M_i$'s and $N_i$'s are $n$-balls, then $SC^n_{\overline{M}, \overline{N}}$
+contains a copy of the little $(n{+}1)$-balls operad.
+Thus the little $(n{+}1)$-balls operad acts on blob cochains of the $n$-ball.
+
 
 
 %% == end of paper:
