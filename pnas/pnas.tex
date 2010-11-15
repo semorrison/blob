@@ -712,12 +712,12 @@ Further, this map is associative, in the sense that the following diagram commut
 \end{thm}
 
 \begin{proof}(Sketch.)
-The most convenient way to prove this is to introduce yet another homotopy equivalent version of
+We introduce yet another homotopy equivalent version of
 the blob complex, $\cB\cT_*(X)$.
 Blob diagrams have a natural topology, which is ignored by $\bc_*(X)$.
 In $\cB\cT_*(X)$ we take this topology into account, treating the blob diagrams as something
 analogous to a simplicial space (but with cone-product polyhedra replacing simplices).
-More specifically, a generator of $\cB\cT_k(X)$ is an $i$-parameter family of $j$-blob diagrams, with $i+j=k$.
+More specifically, a generator of $\cB\cT_k(X)$ is an $i$-parameter family of $j$-blob diagrams, with $i+j=k$. An essential step in the proof of this equivalence is a result to the effect that a $k$-parameter family of homeomorphism can be localized to at most $k$ small sets.
 
 With this alternate version in hand, it is straightforward to prove the theorem.
 The evaluation map $\Homeo(X)\times BD_j(X)\to BD_j(X)$
@@ -766,8 +766,7 @@ The $A_\infty$ action of $\bc_*(Y)$ follows from the naturality of the blob comp
 and the $C_*(\Homeo(-))$ action of Theorem \ref{thm:evaluation}.
 
 Let $T_*$ denote the self tensor product of $\bc_*(X)$, which is a homotopy colimit.
-Let $X_{\mathrm gl}$ denote $X$ glued to itself along $Y$.
-There is a tautological map from the 0-simplices of $T_*$ to $\bc_*(X_{\mathrm gl})$,
+There is a tautological map from the 0-simplices of $T_*$ to $\bc_*(X\bigcup_Y \selfarrow)$,
 and this map can be extended to a chain map on all of $T_*$ by sending the higher simplices to zero.
 Constructing a homotopy inverse to this natural map invloves making various choices, but one can show that the
 choices form contractible subcomplexes and apply the acyclic models theorem.
