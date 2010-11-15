@@ -1,0 +1,82 @@
+<!-- This is an Ant build file; you'll need to install Ant before using it. -->
+<project name="pnas" default="usage">
+    <target name="init">
+      <property name="arxivTarFile" value="pnas.tar"/>
+    </target>
+
+    <!-- USAGE -->
+    <!-- Instructions for using the build file -->
+    <!-- =================================================================== -->
+    <target name = "usage" depends = "init">    
+        <echo message = ""/>
+        <echo message = "blob build instructions"/>
+        <echo message = "-------------------------------------------------------------"/>
+        <echo message = ""/>
+        <echo message = " available targets are:"/>
+        <echo message = ""/>
+        <echo message = "   arxiv --> builds blob.tar.gz, for submission to the arxiv"/>
+        <echo message = "   pdf   --> builds blob.pdf"/>
+        <echo message = ""/>
+        <echo message = "-------------------------------------------------------------"/>
+        <echo message = ""/>  
+    </target>
+    <!-- =================================================================== -->    
+
+    <target name="clean" depends="init">
+        <delete>
+            <fileset dir=".">
+                <include name="*.toc"/>
+                <include name="*.log"/>
+                <include name="*.aux"/>
+                <include name="*.blg"/>
+                <include name="*.xyc"/>
+                <include name="*.out"/>
+            </fileset>
+        </delete>
+    </target>
+
+    <target name="arxiv" depends="clean">
+        <delete file="${arxivTarFile}"/>
+        <delete file="${arxivTarFile}.gz"/>
+        <tar destfile="${arxivTarFile}" basedir="." includes="**"
+            excludes="*.synctex*,*.dvi,*.ps,pnas.pdf,*.png,${arxivTarFile},${arxivTarFile}.gz,sandbox.*,bibliography/**,papers/**,talks/**,diagrams/obsolete/**,diagrams/latex2pdf/**,text/obsolete/**,.hg/**"
+        />
+        <gzip src="${arxivTarFile}" destfile="${arxivTarFile}.gz"/>
+        <delete file="${arxivTarFile}"/>
+    </target>
+
+    <target name="bbl" depends="init">
+        <exec executable="pdflatex">
+            <arg value="pnas"/>
+        </exec>
+        <exec executable="bibtex">
+            <arg value="pnas"/>
+        </exec>
+    </target>
+     
+    <target name="pdf" depends="bbl">
+        <exec executable="pdflatex">
+            <arg value="pnas"/>
+        </exec>
+    </target>
+    
+    <target name="copy-pdf" depends="pdf">
+        <exec executable="svn" dir="../../../Sites/tqft.net/papers/">
+            <arg value="up"/>
+	    <arg value="--accept"/>
+	    <arg value="theirs-full"/>
+        </exec>
+        <copy file="pnas.pdf" tofile="../../../Sites/tqft.net/papers/blobs-pnas.pdf"/>
+        <exec executable="svn" dir="../../../Sites/tqft.net/papers/">
+            <arg value="commit"/>
+            <arg value="-m"/>
+            <arg value="pnas"/>
+        </exec>
+        <exec executable="ssh">
+            <arg value="scottmorrison@tqft.net"/>
+            <arg value="svn"/>
+            <arg value="up"/>      
+            <arg value="tqft.net"/>                  
+        </exec>
+    </target>
+</project>
