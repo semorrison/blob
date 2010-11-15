@@ -823,11 +823,20 @@ There is a chain map
 \]
 We think of this map as being associated to a surgery which cuts $M$ out of $M\cup_E R$ and
 replaces it with $N$, yielding $N\cup_E R$.
+(This is a more general notion of surgery that usual --- $M$ and $N$ can be any manifolds
+which share a common boundary.)
 
-Recall (Theorem \ref{thm:evaluation}) that chains on the space of mapping cylinders also act  on the 
+Recall (Theorem \ref{thm:evaluation}) that chains on the space of mapping cylinders also act on the 
 blob complex.
-\nn{...}
+An $n$-dimensional surgery cylinder is 
+defined to be a sequence of mapping cylinders and surgeries (Figure \ref{delfig2}), 
+modulo changing the order of distant surgeries, and conjugating a submanifold not modified in a surgery by a homeomorphism. 
+One can associated to this data an $(n{+}1)$-manifold with a foliation by intervals,
+and the relations we impose correspond to homeomorphisms of the $(n{+}1)$-manifolds
+which preserve the foliation.
 
+Surgery cylinders form an operad, by gluing the outer boundary of one cylinder into an inner boundary of another.
+\nn{more to do...}
 
 \begin{thm}[Higher dimensional Deligne conjecture]
 \label{thm:deligne}
@@ -835,10 +844,6 @@ The singular chains of the $n$-dimensional surgery cylinder operad act on blob c
 Since the little $n{+}1$-balls operad is a suboperad of the $n$-SC operad,
 this implies that the little $n{+}1$-balls operad acts on blob cochains of the $n$-ball.
 \end{thm}
-
-An $n$-dimensional surgery cylinder is a sequence of mapping cylinders and surgeries (Figure \ref{delfig2}), 
-modulo changing the order of distant surgeries, and conjugating a submanifold not modified in a surgery by a homeomorphism. 
-Surgery cylinders form an operad, by gluing the outer boundary of one cylinder into an inner boundary of another.
 
 By the `blob cochains' of a manifold $X$, we mean the $A_\infty$ maps of $\bc_*(X)$ as a $\bc_*(\bdy X)$ $A_\infty$-module.
 
@@ -976,7 +981,8 @@ environment during the last stages of this project.
 \end{figure}
 
 \begin{figure}
-$$\mathfig{.4}{deligne/manifolds}$$
+%$$\mathfig{.4}{deligne/manifolds}$$
+$$\mathfig{.4}{deligne/mapping-cylinders}$$
 \caption{An $n$-dimensional surgery cylinder.}\label{delfig2}
 \end{figure}
 
