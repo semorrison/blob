@@ -36,7 +36,6 @@
 
 \newcommand{\directSum}{\oplus}
 \newcommand{\DirectSum}{\bigoplus}
-\newcommand{\ot}{\otimes}
 \newcommand{\tensor}{\otimes}
 \newcommand{\Tensor}{\bigotimes}
 
@@ -44,14 +43,66 @@
 
 \newcommand{\selfarrow}{\ensuremath{\smash{\tikz[baseline]{\clip (0,0.36) rectangle (0.39,-0.16); \draw[->] (0,0.2) .. controls (0.5,0.6) and (0.5,-0.4) .. (0,0);}}}}
 
-\newcommand{\bd}{\partial}
 \newcommand{\bdy}{\partial}
-\newcommand{\du}{\sqcup}
 \newcommand{\compose}{\circ}
 \newcommand{\eset}{\emptyset}
-\def\spl{_\pitchfork}
 
 \newcommand{\id}{\boldsymbol{1}}
+
+% kw_macros
+
+%!TEX root = ../blob1.tex
+
+%%%%% excerpts from KW's include file of standard macros
+%%% (with various new ones added)
+
+\def\z{\mathbb{Z}}
+\def\r{\mathbb{R}}
+\def\c{\mathbb{C}}
+\def\t{\mathbb{T}}
+\def\ebb{\mathbb{E}}
+
+\def\k{{\bf k}}
+
+\def\du{\sqcup}
+\def\bd{\partial}
+\def\sub{\subset}
+\def\subeq{\subseteq}
+\def\sup{\supset}
+%\def\setmin{\smallsetminus}
+\def\setmin{\setminus}
+\def\ep{\epsilon}
+\def\sgl{_\mathrm{gl}}
+\def\op{^\mathrm{op}}
+\def\deq{\stackrel{\mathrm{def}}{=}}
+\def\pd#1#2{\frac{\partial #1}{\partial #2}}
+%\def\lf{\overline{\cC}}
+\def\lf{\cC}
+\def\ot{\otimes}
+\def\vphi{\varphi}
+\def\inv{^{-1}}
+\def\ol{\overline}
+\def\BD{BD}
+
+\def\spl{_\pitchfork}
+
+
+% equations
+\newcommand{\eq}[1]{\begin{displaymath}#1\end{displaymath}}
+\newcommand{\eqar}[1]{\begin{eqnarray*}#1\end{eqnarray*}}
+\newcommand{\eqspl}[1]{\begin{displaymath}\begin{split}#1\end{split}\end{displaymath}}
+
+\DeclareMathOperator*{\colim}{colim}
+\DeclareMathOperator*{\hocolim}{hocolim}
+
+\DeclareMathOperator{\most}{most}
+\DeclareMathOperator{\rest}{rest}
+
+
+\DeclareMathOperator{\kone}{cone}
+
+
+% new theorems
 
 \newtheorem{prop}{Proposition}
 \newtheorem{property}[prop]{Property}
