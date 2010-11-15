@@ -811,6 +811,24 @@ A standard acyclic models argument now constructs the homotopy inverse.
 \section{Deligne conjecture for $n$-categories}
 \label{sec:applications}
 
+Let $M$ and $N$ be $n$-manifolds with common boundary $E$.
+Recall (Theorem \ref{thm:gluing}) that the $A_\infty$ category $A = \bc_*(E)$
+acts on $\bc_*(M)$ and $\bc_*(N)$.
+Let $\hom_A(\bc_*(M), \bc_*(N))$ denote the chain complex of $A_\infty$ module maps
+from $\bc_*(M)$ to $\bc_*(N)$.
+Let $R$ be another $n$-manifold with boundary $-E$.
+There is a chain map
+\[
+	\hom_A(\bc_*(M), \bc_*(N)) \ot \bc_*(M) \ot_A \bc_*(R) \to \bc_*(N) \ot_A \bc_*(R) .
+\]
+We think of this map as being associated to a surgery which cuts $M$ out of $M\cup_E R$ and
+replaces it with $N$, yielding $N\cup_E R$.
+
+Recall (Theorem \ref{thm:evaluation}) that chains on the space of mapping cylinders also act  on the 
+blob complex.
+\nn{...}
+
+
 \begin{thm}[Higher dimensional Deligne conjecture]
 \label{thm:deligne}
 The singular chains of the $n$-dimensional surgery cylinder operad act on blob cochains.
@@ -864,7 +882,7 @@ which we now see to be a specialization of Theorem \ref{thm:deligne}.
 \begin{acknowledgments}
 It is a pleasure to acknowledge helpful conversations with 
 Kevin Costello,
-Mike Freedman,
+Michael Freedman,
 Justin Roberts,
 and
 Peter Teichner.
