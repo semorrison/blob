@@ -239,10 +239,7 @@ More specifically, life is easier when working with maximal, rather than minimal
 \nn{say something about defining plain and infty cases simultaneously}
 
 There are five basic ingredients 
-(not two, or four, or seven, but {\bf five} basic ingredients,
-which he shall wield all wretched sinners and that includes on you, sir, there in the front row!
-(cf.\ Monty Python, Life of Brian, http://www.youtube.com/watch?v=fIRb8TigJ28))
-of an $n$-category definition:
+\cite{life-of-brian} of an $n$-category definition:
 $k$-morphisms (for $0\le k \le n$), domain and range, composition,
 identity morphisms, and special behavior in dimension $n$ (e.g. enrichment
 in some auxiliary category, or strict associativity instead of weak associativity).
@@ -636,7 +633,7 @@ $x\in \bc_0(B^n)$ to $x - s([x])$, where $[x]$ denotes the image of $x$ in $H_0(
 \subsection{Specializations}
 \label{sec:specializations}
 
-The blob complex has two important special cases.
+The blob complex has several important special cases.
 
 \begin{thm}[Skein modules]
 \label{thm:skein-modules}
@@ -661,6 +658,20 @@ quasi-isomorphic to the Hochschild complex.
 
 Theorem \ref{thm:skein-modules} is immediate from the definition, and
 Theorem \ref{thm:hochschild} is established by extending the statement to bimodules as well as categories, then verifying that the universal properties of Hochschild homology also hold for $\bc_*(S^1; -)$.
+
+
+\begin{thm}[Mapping spaces]
+\label{thm:map-recon}
+Let $\pi^\infty_{\le n}(T)$ denote the $A_\infty$ $n$-category based on maps 
+$B^n \to T$.
+(The case $n=1$ is the usual $A_\infty$-category of paths in $T$.)
+Then 
+$$\bc_*(X; \pi^\infty_{\le n}(T)) \simeq \CM{X}{T}.$$
+\end{thm}
+
+This says that we can recover (up to homotopy) the space of maps to $T$ via blob homology from local data. 
+Note that there is no restriction on the connectivity of $T$ as there is for the corresponding result in topological chiral homology \cite[Theorem 3.8.6]{0911.0018}.
+\todo{sketch proof}
 
 
 \subsection{Structure of the blob complex}
@@ -699,12 +710,6 @@ Further, this map is associative, in the sense that the following diagram commut
 }
 \end{equation*}
 \end{thm}
-
-\nn{if we need to save space, I think this next paragraph could be cut}
-Since the blob complex is functorial in the manifold $X$, this is equivalent to having chain maps
-$$ev_{X \to Y} : \CH{X \to Y} \tensor \bc_*(X) \to \bc_*(Y)$$
-for any homeomorphic pair $X$ and $Y$, 
-satisfying corresponding conditions.
 
 \begin{proof}(Sketch.)
 The most convenient way to prove this is to introduce yet another homotopy equivalent version of
@@ -777,22 +782,8 @@ The statement can be generalized to arbitrary fibre bundles, and indeed to arbit
 
 \nn{Theorem \ref{thm:product} is proved in \S \ref{ss:product-formula}, and Theorem \ref{thm:gluing} in \S \ref{sec:gluing}.}
 
-\section{Applications}
+\section{Higher Deligne conjecture}
 \label{sec:applications}
-Finally, we give two applications of the above machinery.
-
-\begin{thm}[Mapping spaces]
-\label{thm:map-recon}
-Let $\pi^\infty_{\le n}(T)$ denote the $A_\infty$ $n$-category based on maps 
-$B^n \to T$.
-(The case $n=1$ is the usual $A_\infty$-category of paths in $T$.)
-Then 
-$$\bc_*(X; \pi^\infty_{\le n}(T)) \simeq \CM{X}{T}.$$
-\end{thm}
-
-This says that we can recover (up to homotopy) the space of maps to $T$ via blob homology from local data. 
-Note that there is no restriction on the connectivity of $T$ as there is for the corresponding result in topological chiral homology \cite[Theorem 3.8.6]{0911.0018}.
-\todo{sketch proof}
 
 \begin{thm}[Higher dimensional Deligne conjecture]
 \label{thm:deligne}
@@ -848,7 +839,6 @@ Mike Freedman,
 Justin Roberts,
 and
 Peter Teichner.
-\nn{not full list from big paper, but only most significant names}
 We also thank the Aspen Center for Physics for providing a pleasant and productive
 environment during the last stages of this project.
 \end{acknowledgments}
