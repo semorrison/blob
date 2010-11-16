@@ -286,7 +286,7 @@ The action of these homeomorphisms gives the ``strong duality" structure.
 As such, we don't subdivide the boundary of a morphism
 into domain and range --- the duality operations can convert between domain and range.
 
-Later \todo{} we inductively define an extension of the functors $\cC_k$ to functors $\cl{\cC}_k$ from arbitrary manifolds to sets. We need the restriction of these functors to $k$-spheres, for $k<n$, for the next axiom.
+Later \nn{make sure this actually happens, or reorganise} we inductively define an extension of the functors $\cC_k$ to functors $\cl{\cC}_k$ from arbitrary manifolds to sets. We need the restriction of these functors to $k$-spheres, for $k<n$, for the next axiom.
 
 \begin{axiom}[Boundaries]\label{nca-boundary}
 For each $k$-ball $X$, we have a map of sets $\bd: \cC_k(X)\to \cl{\cC}_{k-1}(\bd X)$.
@@ -528,7 +528,7 @@ that is, a permissible decomposition $x$ of $W$ together with an element of $\ps
 
 \subsubsection{Homotopy colimits}
 \nn{Motivation: How can we extend an $n$-category from balls to arbitrary manifolds?}
-\todo{Mention that the axioms for $n$-categories can be stated in terms of decompositions of balls?}
+\nn{Mention that the axioms for $n$-categories can be stated in terms of decompositions of balls?}
 \nn{Explain codimension colimits here too}
 
 We can now give a straightforward but rather abstract definition of the blob complex of an $n$-manifold $W$
@@ -539,7 +539,7 @@ An explicit realization of the homotopy colimit is provided by the simplices of 
 $$\bdy (\bar{x},a) = (\bar{x}, \bdy a) + (-1)^{\deg a} \left( (d_0 \bar{x}, g(a)) + \sum_{i=1}^m (-1)^i (d_i \bar{x}, a) \right)$$
 where $g$ is the gluing map from $x_0$ to $x_1$, and $d_i \bar{x}$ denotes the $i$-th face of the simplex $\bar{x}$.
 
-Alternatively, we can take advantage of the product structure on $\cell(W)$ to realize the homotopy colimit via the cone-product polyhedra in $\cell(W)$. A cone-product polyhedra is obtained from a point by successively taking the cone or taking the product with another cone-product polyhedron. Just as simplices correspond to linear directed graphs, cone-product polyheda correspond to directed trees: taking cone adds a new root before the existing root, and taking product identifies the roots of several trees. The `local homotopy colimit' is then defined according to the same formula as above, but with $x$ a cone-product polyhedron in $\cell(W)$.
+Alternatively, we can take advantage of the product structure on $\cell(W)$ to realize the homotopy colimit via the cone-product polyhedra in $\cell(W)$. A cone-product polyhedra is obtained from a point by successively taking the cone or taking the product with another cone-product polyhedron. Just as simplices correspond to linear directed graphs, cone-product polyheda correspond to directed trees: taking cone adds a new root before the existing root, and taking product identifies the roots of several trees. The `local homotopy colimit' is then defined according to the same formula as above, but with $\bar{x}$ a cone-product polyhedron in $\cell(W)$. The differential acts on $(\bar{x},a)$ both on $a$ and on $\bar{x}$, applying the appropriate gluing map to $a$ when required.
 A Eilenberg-Zilber subdivision argument shows this is the same as the usual realization.
 
 %When $\cC$ is a topological $n$-category,
@@ -661,10 +661,7 @@ quasi-isomorphic to the Hochschild complex.
 \xymatrix{\bc_*(S^1;\cC) \ar[r]^(0.47){\iso}_(0.47){\text{qi}} & \HC_*(\cC).}
 \end{equation*}
 \end{thm}
-
-Theorem \ref{thm:skein-modules} is immediate from the definition, and
-Theorem \ref{thm:hochschild} is established by extending the statement to bimodules as well as categories, then verifying that the universal properties of Hochschild homology also hold for $\bc_*(S^1; -)$.
-
+This theorem is established by extending the statement to bimodules as well as categories, then verifying that the universal properties of Hochschild homology also hold for $\bc_*(S^1; -)$.
 
 \begin{thm}[Mapping spaces]
 \label{thm:map-recon}
@@ -676,9 +673,7 @@ $$\bc_*(X; \pi^\infty_{\le n}(T)) \simeq \CM{X}{T}.$$
 \end{thm}
 
 This says that we can recover (up to homotopy) the space of maps to $T$ via blob homology from local data. 
-Note that there is no restriction on the connectivity of $T$ as there is for the corresponding result in topological chiral homology \cite[Theorem 3.8.6]{0911.0018}.
-\todo{sketch proof}
-
+Note that there is no restriction on the connectivity of $T$ as there is for the corresponding result in topological chiral homology \cite[Theorem 3.8.6]{0911.0018}. The result was proved in \cite[\S 7.3]{1009.5025}.
 
 \subsection{Structure of the blob complex}
 \label{sec:structure}
@@ -867,10 +862,7 @@ Consider the special case where $n=1$ and all of the $M_i$'s and $N_i$'s are 1-b
 We have that $SC^1_{\overline{M}, \overline{N}}$ is homotopy equivalent to the little
 disks operad and $\hom(\bc_*(M_i), \bc_*(N_i))$ is homotopy equivalent to Hochschild cochains.
 This special case is just the usual Deligne conjecture
-(see \cite{hep-th/9403055, MR1805894, MR2064592, MR1805923} 
-\nn{should check that this is the optimal list of references; what about Gerstenhaber-Voronov?;
-if we revise this list, should propagate change back to main paper}
-).
+(see \cite{hep-th/9403055, MR1328534, MR1805894, MR1805923, MR2064592}).
 
 The general case when $n=1$ goes beyond the original Deligne conjecture, as the $M_i$'s and $N_i$'s
 could be disjoint unions of 1-balls and circles, and the surgery cylinders could be high genus surfaces.
