@@ -194,29 +194,33 @@ These can all be given satisfactory accounts in the framework outlined above.
 (The WRT invariants need to be reinterpreted as $3{+}1$-dimensional theories with only a weak dependence on interiors in order to be
 extended all the way down to dimension 0.)
 
-For other TQFT-like invariants, however, the above framework seems to be inadequate.
+For other non-semisimple TQFT-like invariants, however, the above framework seems to be inadequate.
+For example, the gluing rule for 3-manifolds in Ozsv\'{a}th-Szab\'{o}/Seiberg-Witten theory
+involves a tensor product over an $A_\infty$ 1-category associated to 2-manifolds \cite{1003.0598,1005.1248}.
+Long exact sequences are important computational tools in these theories,
+and also in Khovanov homology, but the colimit construction breaks exactness.
+For these reasons and others, it is desirable to 
+extend to above framework to incorporate ideas from derived categories.
 
-\nn{kevin's rewrite stops here}
-
-However new invariants on manifolds, particularly those coming from
-Seiberg-Witten theory and Ozsv\'{a}th-Szab\'{o} theory, do not fit the framework well.
-In particular, they have more complicated gluing formulas, involving derived or
-$A_\infty$ tensor products \cite{1003.0598,1005.1248}.
-It seems worthwhile to find a more general notion of TQFT that explain these.
-While we don't claim to fulfill that goal here, our notions of $n$-category and
-of the blob complex are hopefully a step in the right direction,
-and provide similar gluing formulas.
-
-One approach to such a generalization might be simply to define a
-TQFT invariant via its gluing formulas, replacing tensor products with
-derived tensor products. However, it is probably difficult to prove
+One approach to such a generalization might be to simply define a
+TQFT via its gluing formulas, replacing tensor products with
+derived tensor products.
+\nn{maybe cite Kh's paper on links in $S^1\times S^2$}
+However, it is probably difficult to prove
 the invariance of such a definition, as the object associated to a manifold
 will a priori depend on the explicit presentation used to apply the gluing formulas.
 We instead give a manifestly invariant construction, and
-deduce gluing formulas based on $A_\infty$ tensor products.
+deduce from it the gluing formulas based on $A_\infty$ tensor products.
 
-\nn{Triangulated categories are important; often calculations are via exact sequences,
-and the standard TQFT constructions are quotients, which destroy exactness.}
+This paper is organized as follows.
+We first give an account of our version of $n$-categories.
+According to our definition, $n$-categories are, among other things,
+functorial invariants of $k$-balls, $0\le k \le n$, which behave well with respect to gluing.
+We then describe how to use [homotopy] colimits to extend $n$-categories
+from balls to arbitrary $k$-manifolds.
+This extension is the desired derived version of a TQFT, which we call the blob complex.
+(The name comes from the ``blobs" which feature prominently
+in a concrete version of the homotopy colimit.)
 
 \nn{In many places we omit details; they can be found in MW.
 (Blanket statement in order to avoid too many citations to MW.)}
