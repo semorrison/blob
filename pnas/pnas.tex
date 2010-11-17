@@ -215,16 +215,16 @@ This paper is organized as follows.
 We first give an account of our version of $n$-categories.
 According to our definition, $n$-categories are, among other things,
 functorial invariants of $k$-balls, $0\le k \le n$, which behave well with respect to gluing.
-We then describe how to use [homotopy] colimits to extend $n$-categories
-from balls to arbitrary $k$-manifolds.
-This extension is the desired derived version of a TQFT, which we call the blob complex.
+We then show how to extend an $n$-category from balls to arbitrary $k$-manifolds,
+using colimits and homotopy colimits.
+This extension, which we call the blob complex, has as $0$-th homology the usual TQFT invariant.
 (The name comes from the ``blobs" which feature prominently
 in a concrete version of the homotopy colimit.)
 We then review some basic properties of the blob complex, and finish by showing how it
 yields a higher categorical and higher dimensional generalization of Deligne's
 conjecture on Hochschild cochains and the little 2-disks operad.
 
-\nn{maybe this is not necessary?}
+\nn{maybe this is not necessary?} \nn{let's move this to somewhere later, if we keep it}
 In an attempt to forestall any confusion that might arise from different definitions of 
 ``$n$-category" and ``TQFT", we note that our $n$-categories are both more and less general
 than the ``fully dualizable" ones which play a prominent role in \cite{0905.0465}.
@@ -233,13 +233,7 @@ Less general in that we impose stronger duality requirements in dimensions 0 thr
 Thus our $n$-categories correspond to $(n{+}\epsilon)$-dimensional unoriented or oriented TQFTs, while
 Lurie's (fully dualizable) $n$-categories correspond to $(n{+}1)$-dimensional framed TQFTs.
 
-Details missing from this paper can usually be found in \cite{1009.5025}.
-
-%\nn{In many places we omit details; they can be found in MW.
-%(Blanket statement in order to avoid too many citations to MW.)}
-%
-%\nn{perhaps say something explicit about the relationship of this paper to big blob paper.
-%like: in this paper we try to give a clear view of the big picture without getting bogged down in details}
+At several points we only sketch an argument briefly; full details can be found in \cite{1009.5025}. In this paper we attempt to give a clear view of the big picture without getting bogged down in technical details.
 
 
 \section{Definitions}
@@ -290,14 +284,12 @@ a product of $k$ intervals (c.f. \cite{0909.2212}) but rather with any $k$-ball,
 to the standard $k$-ball $B^k$.
 \nn{maybe add that in addition we want functoriality}
 
-We haven't said precisely what sort of balls we are considering,
-because we prefer to let this detail be a parameter in the definition.
-It is useful to consider unoriented, oriented, Spin and $\mbox{Pin}_\pm$ balls.
-Also useful are more exotic structures, such as balls equipped with a map to some target space,
+By default our balls are oriented,
+but it is useful at times to vary this,
+for example by considering unoriented or Spin balls.
+We can also consider more exotic structures, such as balls with a map to some target space,
 or equipped with $m$ independent vector fields.
 (The latter structure would model $n$-categories with less duality than we usually assume.)
-
-%In fact, the axioms here may easily be varied by considering balls with structure (e.g. $m$ independent vector fields, a map to some target space, etc.). Such variations are useful for axiomatizing categories with less duality, and also as technical tools in proofs.
 
 \begin{axiom}[Morphisms]
 \label{axiom:morphisms}
