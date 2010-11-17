@@ -158,44 +158,45 @@ of the United States of America}
 %% \subsection{}
 %% \subsubsection{}
 
-\dropcap{T}he aim of this paper is to describe a derived category version of TQFTs.
+\dropcap{T}he aim of this paper is to describe a derived category analogue of topological quantum field theories.
 
 For our purposes, an $n{+}1$-dimensional TQFT is a locally defined system of
-invariants of manifolds of dimensions 0 through $n+1$.
-The TQFT invariant $A(Y)$ of a closed $k$-manifold $Y$ is a linear $(n{-}k)$-category.
+invariants of manifolds of dimensions 0 through $n+1$. In particular,
+the TQFT invariant $A(Y)$ of a closed $k$-manifold $Y$ is a linear $(n{-}k)$-category.
 If $Y$ has boundary then $A(Y)$ is a collection of $(n{-}k)$-categories which afford
 a representation of the $(n{-}k{+}1)$-category $A(\bd Y)$.
 (See \cite{1009.5025} and \cite{kw:tqft};
 for a more homotopy-theoretic point of view see \cite{0905.0465}.)
 
 We now comment on some particular values of $k$ above.
-By convention, a linear 0-category is a vector space, and a representation
+A linear 0-category is a vector space, and a representation
 of a vector space is an element of the dual space.
-So a TQFT assigns to each closed $n$-manifold $Y$ a vector space $A(Y)$,
+Thus a TQFT assigns to each closed $n$-manifold $Y$ a vector space $A(Y)$,
 and to each $(n{+}1)$-manifold $W$ an element of $A(\bd W)^*$.
-In fact we will be mainly be interested in so-called $(n{+}\epsilon)$-dimensional
-TQFTs which have nothing to say about $(n{+}1)$-manifolds.
-For the remainder of this paper we assume this case.
+For the remainder of this paper we will in fact be interested in so-called $(n{+}\epsilon)$-dimensional
+TQFTs, which are slightly weaker structures and do not assign anything to general $(n{+}1)$-manifolds, but only to mapping cylinders.
 
 When $k=n-1$ we have a linear 1-category $A(S)$ for each $(n{-}1)$-manifold $S$,
 and a representation of $A(\bd Y)$ for each $n$-manifold $Y$.
-The gluing rule for the TQFT in dimension $n$ states that
+The TQFT gluing rule in dimension $n$ states that
 $A(Y_1\cup_S Y_2) \cong A(Y_1) \ot_{A(S)} A(Y_2)$,
 where $Y_1$ and $Y_2$ and $n$-manifolds with common boundary $S$.
 
 When $k=0$ we have an $n$-category $A(pt)$.
-This can be thought of as the local part of the TQFT, and the full TQFT can be constructed of $A(pt)$
+This can be thought of as the local part of the TQFT, and the full TQFT can be reconstructed from $A(pt)$
 via colimits (see below).
 
 We call a TQFT semisimple if $A(S)$ is a semisimple 1-category for all $(n{-}1)$-manifolds $S$
 and $A(Y)$ is a finite-dimensional vector space for all $n$-manifolds $Y$.
-Examples of semisimple TQFTS include Witten-Reshetikhin-Turaev theories, 
+Examples of semisimple TQFTs include Witten-Reshetikhin-Turaev theories, 
 Turaev-Viro theories, and Dijkgraaf-Witten theories.
 These can all be given satisfactory accounts in the framework outlined above.
-(The WRT invariants need to be reinterpreted as $3{+}1$-dimensional theories in order to be
-extended all the way down to 0 dimensions.)
+(The WRT invariants need to be reinterpreted as $3{+}1$-dimensional theories with only a weak dependence on interiors in order to be
+extended all the way down to dimension 0.)
 
 For other TQFT-like invariants, however, the above framework seems to be inadequate.
+
+\nn{kevin's rewrite stops here}
 
 However new invariants on manifolds, particularly those coming from
 Seiberg-Witten theory and Ozsv\'{a}th-Szab\'{o} theory, do not fit the framework well.
