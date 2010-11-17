@@ -158,44 +158,45 @@ of the United States of America}
 %% \subsection{}
 %% \subsubsection{}
 
-\dropcap{T}opological quantum field theories (TQFTs) provide local invariants of manifolds, which are determined by the algebraic data of a higher category.
+\dropcap{T}he aim of this paper is to describe a derived category version of TQFTs.
 
-An $n+1$-dimensional TQFT $\cA$ associates a vector space $\cA(M)$
-(or more generally, some object in a specified symmetric monoidal category)
-to each $n$-dimensional manifold $M$, and a linear map
-$\cA(W): \cA(M_0) \to \cA(M_1)$ to each $n+1$-dimensional manifold $W$
-with incoming boundary $M_0$ and outgoing boundary $M_1$.
-An $n+\epsilon$-dimensional TQFT provides slightly less;
-it only assigns linear maps to mapping cylinders.
+For our purposes, an $n{+}1$-dimensional TQFT is a locally defined system of
+invariants of manifolds of dimensions 0 through $n+1$.
+The TQFT invariant $A(Y)$ of a closed $k$-manifold $Y$ is a linear $(n{-}k)$-category.
+If $Y$ has boundary then $A(Y)$ is a collection of $(n{-}k)$-categories which afford
+a representation of the $(n{-}k{+}1)$-category $A(\bd Y)$.
+(See \cite{1009.5025} and \cite{kw:tqft};
+for a more homotopy-theoretic point of view see \cite{0905.0465}.)
 
-There is a standard formalism for constructing an $n+\epsilon$-dimensional
-TQFT from any $n$-category with sufficiently strong duality,
-and with a further finiteness condition this TQFT is in fact $n+1$-dimensional.
-\nn{not so standard, err}
+We now comment on some particular values of $k$ above.
+By convention, a linear 0-category is a vector space, and a representation
+of a vector space is an element of the dual space.
+So a TQFT assigns to each closed $n$-manifold $Y$ a vector space $A(Y)$,
+and to each $(n{+}1)$-manifold $W$ an element of $A(\bd W)^*$.
+In fact we will be mainly be interested in so-called $(n{+}\epsilon)$-dimensional
+TQFTs which have nothing to say about $(n{+}1)$-manifolds.
+For the remainder of this paper we assume this case.
 
-These invariants are local in the following sense.
-The vector space $\cA(Y \times I)$, for $Y$ an $n-1$-manifold,
-naturally has the structure of a category, with composition given by the gluing map
-$I \sqcup I \to I$. Moreover, the vector space $\cA(Y \times I^k)$,
-for $Y$ and $n-k$-manifold, has the structure of a $k$-category.
-The original $n$-category can be recovered as $\cA(I^n)$.
-For the rest of the paragraph, we implicitly drop the factors of $I$.
-(So for example the original $n$-category is associated to the point.)
-If $Y$ contains $Z$ as a codimension $0$ submanifold of its boundary,
-then $\cA(Y)$ is natually a module over $\cA(Z)$. For any $k$-manifold
-$Y = Y_1 \cup_Z Y_2$, where $Z$ is a $k-1$-manifold, the category
-$\cA(Y)$ can be calculated via a gluing formula,
-$$\cA(Y) = \cA(Y_1) \Tensor_{\cA(Z)} \cA(Y_2).$$
+When $k=n-1$ we have a linear 1-category $A(S)$ for each $(n{-}1)$-manifold $S$,
+and a representation of $A(\bd Y)$ for each $n$-manifold $Y$.
+The gluing rule for the TQFT in dimension $n$ states that
+$A(Y_1\cup_S Y_2) \cong A(Y_1) \ot_{A(S)} A(Y_2)$,
+where $Y_1$ and $Y_2$ and $n$-manifolds with common boundary $S$.
 
-In fact, recent work of Lurie on the `cobordism hypothesis' \cite{0905.0465}
-shows that all invariants of $n$-manifolds satisfying a certain related locality property
-are in a sense TQFT invariants, and in particular determined by
-a `fully dualizable object' in some $n+1$-category.
-(The discussion above begins with an object in the $n+1$-category of $n$-categories.
-The `sufficiently strong duality' mentioned above corresponds roughly to `fully dualizable'.)
+When $k=0$ we have an $n$-category $A(pt)$.
+This can be thought of as the local part of the TQFT, and the full TQFT can be constructed of $A(pt)$
+via colimits (see below).
 
-This formalism successfully captures Turaev-Viro and Reshetikhin-Turaev invariants
-(and indeed invariants based on semisimple categories).
+We call a TQFT semisimple if $A(S)$ is a semisimple 1-category for all $(n{-}1)$-manifolds $S$
+and $A(Y)$ is a finite-dimensional vector space for all $n$-manifolds $Y$.
+Examples of semisimple TQFTS include Witten-Reshetikhin-Turaev theories, 
+Turaev-Viro theories, and Dijkgraaf-Witten theories.
+These can all be given satisfactory accounts in the framework outlined above.
+(The WRT invariants need to be reinterpreted as $3{+}1$-dimensional theories in order to be
+extended all the way down to 0 dimensions.)
+
+For other TQFT-like invariants, however, the above framework seems to be inadequate.
+
 However new invariants on manifolds, particularly those coming from
 Seiberg-Witten theory and Ozsv\'{a}th-Szab\'{o} theory, do not fit the framework well.
 In particular, they have more complicated gluing formulas, involving derived or
@@ -221,6 +222,8 @@ and the standard TQFT constructions are quotients, which destroy exactness.}
 
 \nn{perhaps say something explicit about the relationship of this paper to big blob paper.
 like: in this paper we try to give a clear view of the big picture without getting bogged down in details}
+
+\nn{diff w/ lurie}
 
 \section{Definitions}
 \subsection{$n$-categories} \mbox{}
@@ -260,7 +263,7 @@ In a Moore loop space, we have a separate space $\Omega_r$ for each interval $[0
 Thus we can have the simplicity of strict associativity in exchange for more morphisms.
 We wish to imitate this strategy in higher categories.
 Because we are mainly interested in the case of strong duality, we replace the intervals $[0,r]$ not with
-a product of $k$ intervals \nn{cf xxxx} but rather with any $k$-ball, that is, any $k$-manifold which is homeomorphic
+a product of $k$ intervals (c.f. \cite{0909.2212}) but rather with any $k$-ball, that is, any $k$-manifold which is homeomorphic
 to the standard $k$-ball $B^k$.
 \nn{maybe add that in addition we want functoriality}
 
@@ -286,7 +289,7 @@ The action of these homeomorphisms gives the ``strong duality" structure.
 As such, we don't subdivide the boundary of a morphism
 into domain and range --- the duality operations can convert between domain and range.
 
-Later \todo{} we inductively define an extension of the functors $\cC_k$ to functors $\cl{\cC}_k$ from arbitrary manifolds to sets. We need the restriction of these functors to $k$-spheres, for $k<n$, for the next axiom.
+Later \nn{make sure this actually happens, or reorganise} we inductively define an extension of the functors $\cC_k$ to functors $\cl{\cC}_k$ from arbitrary manifolds to sets. We need the restriction of these functors to $k$-spheres, for $k<n$, for the next axiom.
 
 \begin{axiom}[Boundaries]\label{nca-boundary}
 For each $k$-ball $X$, we have a map of sets $\bd: \cC_k(X)\to \cl{\cC}_{k-1}(\bd X)$.
@@ -526,9 +529,9 @@ We will use the term `field on $W$' to refer to a point of this functor,
 that is, a permissible decomposition $x$ of $W$ together with an element of $\psi_{\cC;W}(x)$.
 
 
-\subsubsection{Homotopy colimits}
+\subsubsection{Colimits}
 \nn{Motivation: How can we extend an $n$-category from balls to arbitrary manifolds?}
-\todo{Mention that the axioms for $n$-categories can be stated in terms of decompositions of balls?}
+\nn{Mention that the axioms for $n$-categories can be stated in terms of decompositions of balls?}
 \nn{Explain codimension colimits here too}
 
 We can now give a straightforward but rather abstract definition of the blob complex of an $n$-manifold $W$
@@ -539,7 +542,7 @@ An explicit realization of the homotopy colimit is provided by the simplices of 
 $$\bdy (\bar{x},a) = (\bar{x}, \bdy a) + (-1)^{\deg a} \left( (d_0 \bar{x}, g(a)) + \sum_{i=1}^m (-1)^i (d_i \bar{x}, a) \right)$$
 where $g$ is the gluing map from $x_0$ to $x_1$, and $d_i \bar{x}$ denotes the $i$-th face of the simplex $\bar{x}$.
 
-Alternatively, we can take advantage of the product structure on $\cell(W)$ to realize the homotopy colimit via the cone-product polyhedra in $\cell(W)$. A cone-product polyhedra is obtained from a point by successively taking the cone or taking the product with another cone-product polyhedron. Just as simplices correspond to linear directed graphs, cone-product polyheda correspond to directed trees: taking cone adds a new root before the existing root, and taking product identifies the roots of several trees. The `local homotopy colimit' is then defined according to the same formula as above, but with $x$ a cone-product polyhedron in $\cell(W)$.
+Alternatively, we can take advantage of the product structure on $\cell(W)$ to realize the homotopy colimit via the cone-product polyhedra in $\cell(W)$. A cone-product polyhedra is obtained from a point by successively taking the cone or taking the product with another cone-product polyhedron. Just as simplices correspond to linear directed graphs, cone-product polyheda correspond to directed trees: taking cone adds a new root before the existing root, and taking product identifies the roots of several trees. The `local homotopy colimit' is then defined according to the same formula as above, but with $\bar{x}$ a cone-product polyhedron in $\cell(W)$. The differential acts on $(\bar{x},a)$ both on $a$ and on $\bar{x}$, applying the appropriate gluing map to $a$ when required.
 A Eilenberg-Zilber subdivision argument shows this is the same as the usual realization.
 
 %When $\cC$ is a topological $n$-category,
@@ -661,10 +664,7 @@ quasi-isomorphic to the Hochschild complex.
 \xymatrix{\bc_*(S^1;\cC) \ar[r]^(0.47){\iso}_(0.47){\text{qi}} & \HC_*(\cC).}
 \end{equation*}
 \end{thm}
-
-Theorem \ref{thm:skein-modules} is immediate from the definition, and
-Theorem \ref{thm:hochschild} is established by extending the statement to bimodules as well as categories, then verifying that the universal properties of Hochschild homology also hold for $\bc_*(S^1; -)$.
-
+This theorem is established by extending the statement to bimodules as well as categories, then verifying that the universal properties of Hochschild homology also hold for $\bc_*(S^1; -)$.
 
 \begin{thm}[Mapping spaces]
 \label{thm:map-recon}
@@ -676,9 +676,7 @@ $$\bc_*(X; \pi^\infty_{\le n}(T)) \simeq \CM{X}{T}.$$
 \end{thm}
 
 This says that we can recover (up to homotopy) the space of maps to $T$ via blob homology from local data. 
-Note that there is no restriction on the connectivity of $T$ as there is for the corresponding result in topological chiral homology \cite[Theorem 3.8.6]{0911.0018}.
-\todo{sketch proof}
-
+Note that there is no restriction on the connectivity of $T$ as there is for the corresponding result in topological chiral homology \cite[Theorem 3.8.6]{0911.0018}. The result was proved in \cite[\S 7.3]{1009.5025}.
 
 \subsection{Structure of the blob complex}
 \label{sec:structure}
@@ -867,10 +865,7 @@ Consider the special case where $n=1$ and all of the $M_i$'s and $N_i$'s are 1-b
 We have that $SC^1_{\overline{M}, \overline{N}}$ is homotopy equivalent to the little
 disks operad and $\hom(\bc_*(M_i), \bc_*(N_i))$ is homotopy equivalent to Hochschild cochains.
 This special case is just the usual Deligne conjecture
-(see \cite{hep-th/9403055, MR1805894, MR2064592, MR1805923} 
-\nn{should check that this is the optimal list of references; what about Gerstenhaber-Voronov?;
-if we revise this list, should propagate change back to main paper}
-).
+(see \cite{hep-th/9403055, MR1328534, MR1805894, MR1805923, MR2064592}).
 
 The general case when $n=1$ goes beyond the original Deligne conjecture, as the $M_i$'s and $N_i$'s
 could be disjoint unions of 1-balls and circles, and the surgery cylinders could be high genus surfaces.
