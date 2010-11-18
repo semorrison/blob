@@ -224,12 +224,11 @@ We then review some basic properties of the blob complex, and finish by showing 
 yields a higher categorical and higher dimensional generalization of Deligne's
 conjecture on Hochschild cochains and the little 2-disks operad.
 
-\nn{maybe this is not necessary?} \nn{let's move this to somewhere later, if we keep it}
-In an attempt to forestall any confusion that might arise from different definitions of 
-``$n$-category" and ``TQFT", we note that our $n$-categories are both more and less general
+Of course, there are currently many interesting alternative notions of $n$-category and of TQFT.
+We note that our $n$-categories are both more and less general
 than the ``fully dualizable" ones which play a prominent role in \cite{0905.0465}.
-More general in that we make no duality assumptions in the top dimension $n+1$.
-Less general in that we impose stronger duality requirements in dimensions 0 through $n$.
+They are more general in that we make no duality assumptions in the top dimension $n+1$.
+They are less general in that we impose stronger duality requirements in dimensions 0 through $n$.
 Thus our $n$-categories correspond to $(n{+}\epsilon)$-dimensional unoriented or oriented TQFTs, while
 Lurie's (fully dualizable) $n$-categories correspond to $(n{+}1)$-dimensional framed TQFTs.
 
@@ -282,7 +281,6 @@ We wish to imitate this strategy in higher categories.
 Because we are mainly interested in the case of strong duality, we replace the intervals $[0,r]$ not with
 a product of $k$ intervals (c.f. \cite{0909.2212}) but rather with any $k$-ball, that is, any $k$-manifold which is homeomorphic
 to the standard $k$-ball $B^k$.
-\nn{maybe add that in addition we want functoriality}
 
 By default our balls are unoriented,
 but it is useful at times to vary this,
@@ -304,7 +302,7 @@ The action of these homeomorphisms gives the ``strong duality" structure.
 As such, we don't subdivide the boundary of a morphism
 into domain and range --- the duality operations can convert between domain and range.
 
-Later \nn{make sure this actually happens, or reorganise} we inductively define an extension of the functors $\cC_k$ to functors $\cl{\cC}_k$ from arbitrary manifolds to sets. We need the restriction of these functors to $k$-spheres, for $k<n$, for the next axiom.
+Later we inductively define an extension of the functors $\cC_k$ to functors $\cl{\cC}_k$ from arbitrary manifolds to sets. We need the restriction of these functors to $k$-spheres, for $k<n$, for the next axiom.
 
 \begin{axiom}[Boundaries]\label{nca-boundary}
 For each $k$-ball $X$, we have a map of sets $\bd: \cC_k(X)\to \cl{\cC}_{k-1}(\bd X)$.
@@ -639,7 +637,7 @@ natural with respect to homeomorphisms, and associative with respect to iterated
 The blob complex on an $n$-ball is contractible in the sense 
 that it is homotopic to its $0$-th homology, and this is just the vector space associated to the ball by the $n$-category.
 \begin{equation*}
-\xymatrix{\bc_*(B^n;\cC) \ar[r]^(0.4){\iso}_(0.4){\text{qi}} & H_0(\bc_*(B^n;\cC)) \ar[r]^(0.6)\iso & \cC(B^n)}
+\xymatrix{\bc_*(B^n;\cC) \ar[r]^(0.4){\htpy} & H_0(\bc_*(B^n;\cC)) \ar[r]^(0.6)\iso & \cC(B^n)}
 \end{equation*}
 \end{property}
 %\nn{maybe should say something about the $A_\infty$ case}
@@ -651,7 +649,7 @@ For $k=0$ we choose a splitting $s: H_0(\bc_*(B^n)) \to \bc_0(B^n)$ and send
 $x\in \bc_0(B^n)$ to $x - s([x])$, where $[x]$ denotes the image of $x$ in $H_0(\bc_*(B^n))$.
 \end{proof}
 
-If $\cC$ is an $A-\infty$ $n$-category then $\bc_*(B^n;\cC)$ is still homotopy equivalent to $\cC(B^n)$,
+If $\cC$ is an $A_\infty$ $n$-category then $\bc_*(B^n;\cC)$ is still homotopy equivalent to $\cC(B^n)$,
 but this is no longer concentrated in degree zero.
 
 \subsection{Specializations}
@@ -661,12 +659,12 @@ The blob complex has several important special cases.
 
 \begin{thm}[Skein modules]
 \label{thm:skein-modules}
-\nn{linear n-categories only?}
+Suppose $\cC$ is a linear $n$-category
 The $0$-th blob homology of $X$ is the usual 
 (dual) TQFT Hilbert space (a.k.a.\ skein module) associated to $X$
 by $\cC$.
 \begin{equation*}
-H_0(\bc_*(X;\cC)) \iso A_{\cC}(X)
+H_0(\bc_*(X;\cC)) \iso \cl{\cC}(X)
 \end{equation*}
 \end{thm}
 This follows from the fact that the $0$-th homology of a homotopy colimit is the usual colimit, or directly from the explicit description of the blob complex.
