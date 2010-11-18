@@ -359,7 +359,7 @@ we require that $\gl_Y$ is injective.
 (For $k=n$ in the plain (non-$A_\infty$) case, see below.)
 \end{axiom}
 
-\begin{axiom}[Strict associativity] \label{nca-assoc}
+\begin{axiom}[Strict associativity] \label{nca-assoc}\label{axiom:associativity}
 The gluing maps above are strictly associative.
 Given any decomposition of a ball $B$ into smaller balls
 $$\bigsqcup B_i \to B,$$ 
@@ -497,7 +497,7 @@ There is an $A_\infty$ analogue enriched in topological spaces, where at the top
 \subsection{The blob complex}
 \subsubsection{Decompositions of manifolds}
 
-A \emph{ball decomposition} of $W$ is a 
+A \emph{ball decomposition} of a $k$-manifold $W$ is a 
 sequence of gluings $M_0\to M_1\to\cdots\to M_m = W$ such that $M_0$ is a disjoint union of balls
 $\du_a X_a$ and each $M_i$ is a manifold.
 If $X_a$ is some component of $M_0$, its image in $W$ need not be a ball; $\bd X_a$ may have been glued to itself.
@@ -536,7 +536,7 @@ For a decomposition $x = \bigsqcup_a X_a$ in $\cell(W)$, $\psi_{\cC;W}(x)$ is th
 	\psi_{\cC;W}(x) \subset \prod_a \cC(X_a)\spl
 \end{equation*}
 where the restrictions to the various pieces of shared boundaries amongst the cells
-$X_a$ all agree (this is a fibered product of all the labels of $n$-cells over the labels of $n-1$-cells). When $k=n$, the `subset' and `product' in the above formula should be interpreted in the appropriate enriching category.
+$X_a$ all agree (this is a fibered product of all the labels of $k$-cells over the labels of $k-1$-cells). When $k=n$, the `subset' and `product' in the above formula should be interpreted in the appropriate enriching category.
 If $x$ is a refinement of $y$, the map $\psi_{\cC;W}(x) \to \psi_{\cC;W}(y)$ is given by the composition maps of $\cC$.
 \end{defn}
 
@@ -545,9 +545,9 @@ that is, a permissible decomposition $x$ of $W$ together with an element of $\ps
 
 
 \subsubsection{Colimits}
-Our definition of an $n$-category is essentially a collection of functors defined on $k$-balls (and homeomorphisms) for $k \leq n$ satisfying certain axioms. It is natural to consider extending such functors to the larger categories of all $k$-manifolds (again, with homeomorphisms). In fact, the axioms stated above explictly require such an extension to $k$-spheres for $k<n$.
+Our definition of an $n$-category is essentially a collection of functors defined on $k$-balls (and homeomorphisms) for $k \leq n$ satisfying certain axioms. It is natural to consider extending such functors to the larger categories of all $k$-manifolds (again, with homeomorphisms). In fact, the axioms stated above explicitly require such an extension to $k$-spheres for $k<n$.
 
-The natural construction achieving this is the colimit.
+The natural construction achieving this is the colimit. For an $n$-category $\cC$, we denote the extension to all manifolds by $\cl{\cC}$. On a $k$-manifold $W$, with $k \leq n$, this is defined to be the colimit of the function $\psi_{\cC;W}$. Note that Axioms \ref{axiom:composition} and \ref{axiom:associativity} imply that $\cl{\cC}(X)  \iso \cC(X)$ when $X$ is a $k$-ball with $k<n$. Recall that given boundary conditions $c \in \cl{\cC}(\bdy X)$, for $X$ an $n$-ball, the set $\cC(X;c)$
 \nn{continue}
 
 \nn{Mention that the axioms for $n$-categories can be stated in terms of decompositions of balls?}
