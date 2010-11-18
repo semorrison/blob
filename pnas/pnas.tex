@@ -547,10 +547,7 @@ that is, a permissible decomposition $x$ of $W$ together with an element of $\ps
 \subsubsection{Colimits}
 Our definition of an $n$-category is essentially a collection of functors defined on $k$-balls (and homeomorphisms) for $k \leq n$ satisfying certain axioms. It is natural to consider extending such functors to the larger categories of all $k$-manifolds (again, with homeomorphisms). In fact, the axioms stated above explicitly require such an extension to $k$-spheres for $k<n$.
 
-The natural construction achieving this is the colimit. For an $n$-category $\cC$, we denote the extension to all manifolds by $\cl{\cC}$. On a $k$-manifold $W$, with $k \leq n$, this is defined to be the colimit of the function $\psi_{\cC;W}$. Note that Axioms \ref{axiom:composition} and \ref{axiom:associativity} imply that $\cl{\cC}(X)  \iso \cC(X)$ when $X$ is a $k$-ball with $k<n$. Recall that given boundary conditions $c \in \cl{\cC}(\bdy X)$, for $X$ an $n$-ball, the set $\cC(X;c)$
-\nn{continue}
-
-\nn{Mention that the axioms for $n$-categories can be stated in terms of decompositions of balls?}
+The natural construction achieving this is the colimit. For a linear $n$-category $\cC$, we denote the extension to all manifolds by $\cl{\cC}$. On a $k$-manifold $W$, with $k \leq n$, this is defined to be the colimit of the function $\psi_{\cC;W}$. Note that Axioms \ref{axiom:composition} and \ref{axiom:associativity} imply that $\cl{\cC}(X)  \iso \cC(X)$ when $X$ is a $k$-ball with $k<n$. Recall that given boundary conditions $c \in \cl{\cC}(\bdy X)$, for $X$ an $n$-ball, the set $\cC(X;c)$ is a vector space. Using this, we note that for $c \in \cl{\cC}(\bdy X)$, for $X$ an arbitrary $n$-manifold, the set $\cl{\cC}(X;c) = \bdy^{-1} (c)$ inherits the structure of a vector space. These are the usual TQFT skein module invariants on $n$-manifolds.
 
 We can now give a straightforward but rather abstract definition of the blob complex of an $n$-manifold $W$
 with coefficients in the $n$-category $\cC$ as the homotopy colimit along $\cell(W)$
