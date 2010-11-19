@@ -320,7 +320,7 @@ As such, we don't subdivide the boundary of a morphism
 into domain and range --- the duality operations can convert between domain and range.
 
 Later we inductively define an extension of the functors $\cC_k$ to functors $\cl{\cC}_k$ 
-from arbitrary manifolds to sets. We need the restriction of these functors to $k$-spheres, 
+from arbitrary manifolds to sets. We need  these functors for $k$-spheres, 
 for $k<n$, for the next axiom.
 
 \begin{axiom}[Boundaries]\label{nca-boundary}
@@ -383,6 +383,7 @@ Given any decomposition of a ball $B$ into smaller balls
 $$\bigsqcup B_i \to B,$$ 
 any sequence of gluings (where all the intermediate steps are also disjoint unions of balls) yields the same result.
 \end{axiom}
+This axiom is only reasonable because the definition assigns a set to every ball; any identifications would limit the extent to which we can demand associativity.
 For the next axiom, a \emph{pinched product} is a map locally modeled on a degeneracy map between simplices.
 \begin{axiom}[Product (identity) morphisms]
 \label{axiom:product}
@@ -477,8 +478,8 @@ For each $n$-ball $X$ and each $c\in \cl{\cC}(\bd X)$ we have a map of chain com
 \[
 	C_*(\Homeo_\bd(X))\tensor \cC(X; c) \to \cC(X; c) .
 \]
-These action maps are required to be associative up to homotopy,
-and also compatible with composition (gluing) in the sense that
+These action maps are required to restrict to the usual action of homeomorphisms on $C_0$, be associative up to homotopy,
+and also be compatible with composition (gluing) in the sense that
 a diagram like the one in Theorem \ref{thm:CH} commutes.
 \end{axiom}
 
@@ -512,7 +513,7 @@ For an $n$-ball $X$ define $\Bord^n(X)$ to be homeomorphism classes rel boundary
 
 There is an $A_\infty$ analogue enriched in topological spaces, where at the top level we take 
 all such submanifolds, rather than homeomorphism classes. 
-For each fixed $\bdy W \subset \bdy X \times \bbR^\infty$, we can 
+For each fixed $\bdy W \subset \bdy X \times \bbR^\infty$, we 
 topologize the set of submanifolds by ambient isotopy rel boundary.
 
 \subsection{The blob complex}
@@ -800,10 +801,10 @@ In $\cB\cT_*(X)$ we take this topology into account, treating the blob diagrams 
 analogous to a simplicial space (but with cone-product polyhedra replacing simplices).
 More specifically, a generator of $\cB\cT_k(X)$ is an $i$-parameter family of $j$-blob diagrams, with $i+j=k$. 
 An essential step in the proof of this equivalence is a result to the effect that a $k$-parameter 
-family of homeomorphism can be localized to at most $k$ small sets.
+family of homeomorphisms can be localized to at most $k$ small sets.
 
-With this alternate version in hand, it is straightforward to prove the theorem.
-The evaluation map $\Homeo(X)\times BD_j(X)\to BD_j(X)$
+With this alternate version in hand, the theorem is straightforward.
+By functoriality (Property \cite{property:functoriality}) $Homeo(X)$ acts on the set $BD_j(X)$ of $j$-blob diagrams, and this
 induces a chain map $\CH{X}\tensor C_*(BD_j(X))\to C_*(BD_j(X))$
 and hence a map $e_X: \CH{X} \tensor \cB\cT_*(X) \to \cB\cT_*(X)$.
 It is easy to check that $e_X$ thus defined has the desired properties.
@@ -831,7 +832,7 @@ Recall that for any $(n-1)$-manifold $Y$, the blob complex $\bc_*(Y)$ is natural
 
 \begin{thm}[Gluing formula]
 \label{thm:gluing}
-\mbox{}% <-- gets the indenting right
+\mbox{}\vspace{-0.2cm}% <-- gets the indenting right
 \begin{itemize}
 \item For any $n$-manifold $X$, with $Y$ a codimension $0$-submanifold of its boundary, 
 the blob complex of $X$ is naturally an
@@ -852,17 +853,17 @@ and the $C_*(\Homeo(-))$ action of Theorem \ref{thm:evaluation}.
 Let $T_*$ denote the self tensor product of $\bc_*(X)$, which is a homotopy colimit.
 There is a tautological map from the 0-simplices of $T_*$ to $\bc_*(X\bigcup_Y \selfarrow)$,
 and this map can be extended to a chain map on all of $T_*$ by sending the higher simplices to zero.
-Constructing a homotopy inverse to this natural map invloves making various choices, but one can show that the
-choices form contractible subcomplexes and apply the acyclic models theorem.
+Constructing a homotopy inverse to this natural map involves making various choices, but one can show that the
+choices form contractible subcomplexes and apply the theory of acyclic models.
 \end{proof}
 
-We next describe the blob complex for product manifolds, in terms of the $A_\infty$ 
-blob complex of the $A_\infty$ $n$-categories constructed as above.
+We next describe the blob complex for product manifolds, in terms of the 
+blob complexes for the $A_\infty$ $n$-categories constructed as above.
 
 \begin{thm}[Product formula]
 \label{thm:product}
-Let $W$ be a $k$-manifold and $Y$ be an $n-k$ manifold.
-Let $\cC$ be an $n$-category.
+Let $W$ be a $k$-manifold and $Y$ be an $n{-}k$ manifold.
+Let $\cC$ be a linear $n$-category.
 Let $\bc_*(Y;\cC)$ be the $A_\infty$ $k$-category associated to $Y$ as above.
 Then
 \[
@@ -881,7 +882,7 @@ This map can be extended to all of $\clh{\bc_*(Y;\cC)}(W)$ by sending higher sim
 
 To construct the homotopy inverse of the above map one first shows that
 $\bc_*(Y\times W; \cC)$ is homotopy equivalent to the subcomplex generated by blob diagrams which
-are small with respect any fixed open cover of $Y\times W$.
+are small with respect to any fixed open cover of $Y\times W$.
 For a sufficiently fine open cover the generators of this ``small" blob complex are in the image of the map
 of the previous paragraph, and furthermore the preimage in $\clh{\bc_*(Y;\cC)}(W)$ of such small diagrams
 lie in contractible subcomplexes.
@@ -898,7 +899,7 @@ Recall (Theorem \ref{thm:gluing}) that the $A_\infty$ category $A = \bc_*(E)$
 acts on $\bc_*(M)$ and $\bc_*(N)$.
 Let $\hom_A(\bc_*(M), \bc_*(N))$ denote the chain complex of $A_\infty$ module maps
 from $\bc_*(M)$ to $\bc_*(N)$.
-Let $R$ be another $n$-manifold with boundary $-E$.
+Let $R$ be another $n$-manifold with boundary $E^\text{op}$.
 There is a chain map
 \[
 	\hom_A(\bc_*(M), \bc_*(N)) \ot \bc_*(M) \ot_A \bc_*(R) \to \bc_*(N) \ot_A \bc_*(R) .
@@ -942,14 +943,14 @@ We only need to check that the relations of the $n$-SC operad are satisfied.
 This follows from the locality of the action of $\CH{-}$ (i.e., that it is compatible with gluing) and associativity.
 \end{proof} 
 
-Consider the special case where $n=1$ and all of the $M_i$'s and $N_i$'s are 1-balls.
+Consider the special case where $n=1$ and all of the $M_i$'s and $N_i$'s are intervals.
 We have that $SC^1_{\overline{M}, \overline{N}}$ is homotopy equivalent to the little
 disks operad and $\hom(\bc_*(M_i), \bc_*(N_i))$ is homotopy equivalent to Hochschild cochains.
 This special case is just the usual Deligne conjecture
 (see \cite{hep-th/9403055, MR1328534, MR1805894, MR1805923, MR2064592}).
 
 The general case when $n=1$ goes beyond the original Deligne conjecture, as the $M_i$'s and $N_i$'s
-could be disjoint unions of 1-balls and circles, and the surgery cylinders could be high genus surfaces.
+could be disjoint unions of intervals and circles, and the surgery cylinders could be high genus surfaces.
 
 If all of the $M_i$'s and $N_i$'s are $n$-balls, then $SC^n_{\overline{M}, \overline{N}}$
 contains a copy of the little $(n{+}1)$-balls operad.
