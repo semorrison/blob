@@ -96,7 +96,7 @@ of the National Academy of Sciences of the United States of America}
 %% For titles, only capitalize the first letter
 %% \title{Almost sharp fronts for the surface quasi-geostrophic equation}
 
-\title{Higher categories, colimits and the blob complex}
+\title{Higher categories, colimits, and the blob complex}
 
 
 %% Enter authors via the \author command.  
@@ -171,7 +171,7 @@ Deligne's conjecture on Hochschild cohomology and the little discs operad to hig
 \dropcap{T}he aim of this paper is to describe a derived category analogue of topological quantum field theories.
 
 For our purposes, an $n{+}1$-dimensional TQFT is a locally defined system of
-invariants of manifolds of dimensions 0 through $n+1$. In particular,
+invariants of manifolds of dimensions 0 through $n{+}1$. In particular,
 the TQFT invariant $A(Y)$ of a closed $k$-manifold $Y$ is a linear $(n{-}k)$-category.
 If $Y$ has boundary then $A(Y)$ is a collection of $(n{-}k)$-categories which afford
 a representation of the $(n{-}k{+}1)$-category $A(\bd Y)$.
@@ -239,7 +239,7 @@ conjecture on Hochschild cochains and the little 2-disks operad.
 Of course, there are currently many interesting alternative notions of $n$-category and of TQFT.
 We note that our $n$-categories are both more and less general
 than the ``fully dualizable" ones which play a prominent role in \cite{0905.0465}.
-They are more general in that we make no duality assumptions in the top dimension $n+1$.
+They are more general in that we make no duality assumptions in the top dimension $n{+}1$.
 They are less general in that we impose stronger duality requirements in dimensions 0 through $n$.
 Thus our $n$-categories correspond to $(n{+}\epsilon)$-dimensional unoriented or oriented TQFTs, while
 Lurie's (fully dualizable) $n$-categories correspond to $(n{+}1)$-dimensional framed TQFTs.
@@ -546,7 +546,7 @@ $W_1$ and $W_2$ to obtain a permissible decomposition of $W_1 \sqcup W_2$.
 An $n$-category $\cC$ determines 
 a functor $\psi_{\cC;W}$ from $\cell(W)$ to the category of sets 
 (possibly with additional structure if $k=n$).
-Each $k$-ball $X$ of a decomposition $y$ of $W$ has its boundary decomposed into $k{-}1$-balls,
+Each $k$-ball $X$ of a decomposition $y$ of $W$ has its boundary decomposed into $k{-}1$-manifolds,
 and there is a subset $\cC(X)\spl \subset \cC(X)$ of morphisms whose boundaries
 are splittable along this decomposition.
 
@@ -557,8 +557,8 @@ For a decomposition $x = \bigsqcup_a X_a$ in $\cell(W)$, $\psi_{\cC;W}(x)$ is th
 %\label{eq:psi-C}
 	\psi_{\cC;W}(x) \subset \prod_a \cC(X_a)\spl
 \end{equation*}
-where the restrictions to the various pieces of shared boundaries amongst the cells
-$X_a$ all agree (this is a fibered product of all the labels of $k$-cells over the labels of $k-1$-cells). 
+where the restrictions to the various pieces of shared boundaries amongst the balls
+$X_a$ all agree (this is a fibered product of all the labels of $k$-balls over the labels of $k-1$-manifolds). 
 When $k=n$, the `subset' and `product' in the above formula should be 
 interpreted in the appropriate enriching category.
 If $x$ is a refinement of $y$, the map $\psi_{\cC;W}(x) \to \psi_{\cC;W}(y)$ is given by the composition maps of $\cC$.
