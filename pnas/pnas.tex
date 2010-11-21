@@ -270,11 +270,13 @@ version of duality from the start.
 %We separate these two tasks, and address only the first, which becomes much easier when not burdened by the second.
 %More specifically, life is easier when working with maximal, rather than minimal, collections of axioms.}
 
-We will define two variations simultaneously,  as all but one of the axioms are identical
-in the two cases. These variations are `linear $n$-categories', where the sets associated to 
-$n$-balls with specified boundary conditions are in fact vector spaces, and `$A_\infty$ $n$-categories', 
-where these sets are chain complexes.
-
+We will define two variations simultaneously,  as all but one of the axioms are identical in the two cases.
+These variations are `isotopy $n$-categories', where homeomorphisms fixing the boundary
+act trivially on the sets associated to $n$-balls
+(and these sets are usually vector spaces or more generally modules over a commutative ring)
+and `$A_\infty$ $n$-categories',  where there is a homotopy action of
+$k$-parameter families of homeomorphisms on these sets
+(which are usually chain complexes or topological spaces).
 
 There are five basic ingredients 
 \cite{life-of-brian} of an $n$-category definition:
@@ -374,7 +376,7 @@ to the intersection of the boundaries of $B$ and $B_i$.
 If $k < n$,
 or if $k=n$ and we are in the $A_\infty$ case, 
 we require that $\gl_Y$ is injective.
-(For $k=n$ in the linear case, see below.)
+(For $k=n$ in the isotopy $n$-category case, see below.)
 \end{axiom}
 
 \begin{axiom}[Strict associativity] \label{nca-assoc}\label{axiom:associativity}
@@ -455,7 +457,7 @@ the second is induced by a homeomorphism from $X\cup_Y (Y\times_p J)$ to $X$ whi
 to the identity on the boundary.
 
 
-\begin{axiom}[\textup{\textbf{[linear  version]}} Extended isotopy invariance in dimension $n$.]
+\begin{axiom}[\textup{\textbf{[for isotopy  $n$-categories]}} Extended isotopy invariance in dimension $n$.]
 \label{axiom:extended-isotopies}
 Let $X$ be an $n$-ball and $f: X\to X$ be a homeomorphism which restricts
 to the identity on $\bd X$ and isotopic (rel boundary) to the identity.
@@ -472,7 +474,7 @@ Let $\Homeo_\bd(X)$ denote homeomorphisms of $X$ which fix $\bd X$ and
 $C_*(\Homeo_\bd(X))$ denote the singular chains on this space.
 
 
-\begin{axiom}[\textup{\textbf{[$A_\infty$ version]}} Families of homeomorphisms act in dimension $n$.]
+\begin{axiom}[\textup{\textbf{[for $A_\infty$ $n$-categories]}} Families of homeomorphisms act in dimension $n$.]
 \label{axiom:families}
 For each $n$-ball $X$ and each $c\in \cl{\cC}(\bd X)$ we have a map of chain complexes
 \[
@@ -570,15 +572,17 @@ that is, a permissible decomposition $x$ of $W$ together with an element of $\ps
 
 
 \subsubsection{Colimits}
-Our definition of an $n$-category is essentially a collection of functors defined on $k$-balls (and homeomorphisms) 
+Recall that our definition of an $n$-category is essentially a collection of functors
+defined on the categories of homeomorphisms $k$-balls
 for $k \leq n$ satisfying certain axioms. 
-It is natural to consider extending such functors to the 
+It is natural to hope to extend such functors to the 
 larger categories of all $k$-manifolds (again, with homeomorphisms). 
-In fact, the axioms stated above explicitly require such an extension to $k$-spheres for $k<n$.
+In fact, the axioms stated above already require such an extension to $k$-spheres for $k<n$.
 
-The natural construction achieving this is the colimit. For a linear $n$-category $\cC$, 
+The natural construction achieving this is a colimit along the poset of permissible decompositions.
+For an isotopy $n$-category $\cC$, 
 we denote the extension to all manifolds by $\cl{\cC}$. On a $k$-manifold $W$, with $k \leq n$, 
-this is defined to be the colimit of the function $\psi_{\cC;W}$. 
+this is defined to be the colimit of the functor $\psi_{\cC;W}$. 
 Note that Axioms \ref{axiom:composition} and \ref{axiom:associativity} 
 imply that $\cl{\cC}(X)  \iso \cC(X)$ when $X$ is a $k$-ball with $k<n$. 
 Recall that given boundary conditions $c \in \cl{\cC}(\bdy X)$, for $X$ an $n$-ball, 
@@ -719,7 +723,7 @@ The blob complex has several important special cases.
 
 \begin{thm}[Skein modules]
 \label{thm:skein-modules}
-Suppose $\cC$ is a linear $n$-category
+Suppose $\cC$ is an isotopy $n$-category
 The $0$-th blob homology of $X$ is the usual 
 (dual) TQFT Hilbert space (a.k.a.\ skein module) associated to $X$
 by $\cC$.
@@ -863,7 +867,7 @@ blob complexes for the $A_\infty$ $n$-categories constructed as above.
 \begin{thm}[Product formula]
 \label{thm:product}
 Let $W$ be a $k$-manifold and $Y$ be an $n{-}k$ manifold.
-Let $\cC$ be a linear $n$-category.
+Let $\cC$ be an isotopy $n$-category.
 Let $\bc_*(Y;\cC)$ be the $A_\infty$ $k$-category associated to $Y$ as above.
 Then
 \[
