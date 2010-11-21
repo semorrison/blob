@@ -374,9 +374,9 @@ We have a map
 which is natural with respect to the actions of homeomorphisms, and also compatible with restrictions
 to the intersection of the boundaries of $B$ and $B_i$.
 If $k < n$,
-or if $k=n$ and we are in the $A_\infty$ case, 
+or if $k=n$ and we are in the $A_\infty$ case \nn{Kevin: remind me why we ask this?}, 
 we require that $\gl_Y$ is injective.
-(For $k=n$ in the isotopy $n$-category case, see below.)
+(For $k=n$ in the isotopy $n$-category case, see below. \nn{where?})
 \end{axiom}
 
 \begin{axiom}[Strict associativity] \label{nca-assoc}\label{axiom:associativity}
@@ -581,13 +581,13 @@ In fact, the axioms stated above already require such an extension to $k$-sphere
 
 The natural construction achieving this is a colimit along the poset of permissible decompositions.
 For an isotopy $n$-category $\cC$, 
-we denote the extension to all manifolds by $\cl{\cC}$. On a $k$-manifold $W$, with $k \leq n$, 
-this is defined to be the colimit of the functor $\psi_{\cC;W}$. 
+we will denote the extension to all manifolds by $\cl{\cC}$. On a $k$-manifold $W$, with $k \leq n$, 
+this is defined to be the colimit along $\cell(W)$ of the functor $\psi_{\cC;W}$. 
 Note that Axioms \ref{axiom:composition} and \ref{axiom:associativity} 
 imply that $\cl{\cC}(X)  \iso \cC(X)$ when $X$ is a $k$-ball with $k<n$. 
 Recall that given boundary conditions $c \in \cl{\cC}(\bdy X)$, for $X$ an $n$-ball, 
-the set $\cC(X;c)$ is a vector space. Using this, we note that for $c \in \cl{\cC}(\bdy X)$, 
-for $X$ an arbitrary $n$-manifold, the set $\cl{\cC}(X;c) = \bdy^{-1} (c)$ inherits the structure of a vector space. 
+the set $\cC(X;c)$ is a vector space. Using this, we note that for $c \in \cl{\cC}(\bdy W)$, 
+for $W$ an arbitrary $n$-manifold, the set $\cl{\cC}(W;c) = \bdy^{-1} (c)$ inherits the structure of a vector space. 
 These are the usual TQFT skein module invariants on $n$-manifolds.
 
 We can now give a straightforward but rather abstract definition of the blob complex of an $n$-manifold $W$
@@ -609,13 +609,13 @@ cone-product polyheda correspond to directed trees: taking cone adds a new root 
 and taking product identifies the roots of several trees. 
 The `local homotopy colimit' is then defined according to the same formula as above, but with $\bar{x}$ a cone-product polyhedron in $\cell(W)$. 
 The differential acts on $(\bar{x},a)$ both on $a$ and on $\bar{x}$, applying the appropriate gluing map to $a$ when required.
-A Eilenberg-Zilber subdivision argument shows this is the same as the usual realization.
+A Eilenberg-Zilber subdivision argument shows this is the same as the usual realization. In the local homotopy colimit we can further require that any composition of morphisms in a directed tree is not expressible as a product.
 
 %When $\cC$ is a topological $n$-category,
 %the flexibility available in the construction of a homotopy colimit allows
 %us to give a much more explicit description of the blob complex which we'll write as $\bc_*(W; \cC)$.
 %\todo{either need to explain why this is the same, or significantly rewrite this section}
-When $\cC$ is the topological $n$-category based on string diagrams for a traditional
+When $\cC$ is the isotopy $n$-category based on string diagrams for a traditional
 $n$-category $C$,
 one can show \cite{1009.5025} that the above two constructions of the homotopy colimit
 are equivalent to the more concrete construction which we describe next, and which we denote $\bc_*(W; \cC)$.
