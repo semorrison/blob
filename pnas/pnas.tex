@@ -184,14 +184,14 @@ of a vector space is an element of the dual space.
 Thus a TQFT assigns to each closed $n$-manifold $Y$ a vector space $A(Y)$,
 and to each $(n{+}1)$-manifold $W$ an element of $A(\bd W)^*$.
 For the remainder of this paper we will in fact be interested in so-called $(n{+}\epsilon)$-dimensional
-TQFTs, which are slightly weaker structures and do not assign anything to general $(n{+}1)$-manifolds, 
-but only to mapping cylinders.
+TQFTs, which are slightly weaker structures in that they assign 
+invariants to mapping cylinders of homeomorphisms between $n$-manifolds, but not to general $(n{+}1)$-manifolds.
 
 When $k=n-1$ we have a linear 1-category $A(S)$ for each $(n{-}1)$-manifold $S$,
 and a representation of $A(\bd Y)$ for each $n$-manifold $Y$.
 The TQFT gluing rule in dimension $n$ states that
 $A(Y_1\cup_S Y_2) \cong A(Y_1) \ot_{A(S)} A(Y_2)$,
-where $Y_1$ and $Y_2$ and $n$-manifolds with common boundary $S$.
+where $Y_1$ and $Y_2$ are $n$-manifolds with common boundary $S$.
 
 When $k=0$ we have an $n$-category $A(pt)$.
 This can be thought of as the local part of the TQFT, and the full TQFT can be reconstructed from $A(pt)$
@@ -207,7 +207,7 @@ dependence on interiors in order to be
 extended all the way down to dimension 0.)
 
 For other non-semisimple TQFT-like invariants, however, the above framework seems to be inadequate.
-For example, the gluing rule for 3-manifolds in Ozsv\'{a}th-Szab\'{o}/Seiberg-Witten theory
+For example, the gluing rule for 3-manifolds in Ozsv\'ath-Szab\'o/Seiberg-Witten theory
 involves a tensor product over an $A_\infty$ 1-category associated to 2-manifolds \cite{1003.0598,1005.1248}.
 Long exact sequences are important computational tools in these theories,
 and also in Khovanov homology, but the colimit construction breaks exactness.
@@ -241,8 +241,8 @@ We note that our $n$-categories are both more and less general
 than the ``fully dualizable" ones which play a prominent role in \cite{0905.0465}.
 They are more general in that we make no duality assumptions in the top dimension $n{+}1$.
 They are less general in that we impose stronger duality requirements in dimensions 0 through $n$.
-Thus our $n$-categories correspond to $(n{+}\epsilon)$-dimensional unoriented or oriented TQFTs, while
-Lurie's (fully dualizable) $n$-categories correspond to $(n{+}1)$-dimensional framed TQFTs.
+Thus our $n$-categories correspond to $(n{+}\epsilon)$-dimensional {\it unoriented} or {\it oriented} TQFTs, while
+Lurie's (fully dualizable) $n$-categories correspond to $(n{+}1)$-dimensional {\it framed} TQFTs.
 
 At several points we only sketch an argument briefly; full details can be found in \cite{1009.5025}. 
 In this paper we attempt to give a clear view of the big picture without getting 
@@ -318,12 +318,12 @@ homeomorphisms to the category of sets and bijections.
 Note that the functoriality in the above axiom allows us to operate via
 homeomorphisms which are not the identity on the boundary of the $k$-ball.
 The action of these homeomorphisms gives the ``strong duality" structure.
-As such, we don't subdivide the boundary of a morphism
-into domain and range --- the duality operations can convert between domain and range.
+For this reason we don't subdivide the boundary of a morphism
+into domain and range in the next axiom --- the duality operations can convert between domain and range.
 
 Later we inductively define an extension of the functors $\cC_k$ to functors $\cl{\cC}_k$ 
-from arbitrary manifolds to sets. We need  these functors for $k$-spheres, 
-for $k<n$, for the next axiom.
+defined on arbitrary manifolds. 
+We need  these functors for $k$-spheres, for $k<n$, for the next axiom.
 
 \begin{axiom}[Boundaries]\label{nca-boundary}
 For each $k$-ball $X$, we have a map of sets $\bd: \cC_k(X)\to \cl{\cC}_{k-1}(\bd X)$.
@@ -374,9 +374,9 @@ We have a map
 which is natural with respect to the actions of homeomorphisms, and also compatible with restrictions
 to the intersection of the boundaries of $B$ and $B_i$.
 If $k < n$,
-or if $k=n$ and we are in the $A_\infty$ case \nn{Kevin: remind me why we ask this?}, 
+or if $k=n$ and we are in the $A_\infty$ case, 
 we require that $\gl_Y$ is injective.
-(For $k=n$ in the isotopy $n$-category case, see below. \nn{where?})
+(For $k=n$ in the isotopy $n$-category case, see Axiom \ref{axiom:extended-isotopies}.)
 \end{axiom}
 
 \begin{axiom}[Strict associativity] \label{nca-assoc}\label{axiom:associativity}
@@ -385,8 +385,12 @@ Given any decomposition of a ball $B$ into smaller balls
 $$\bigsqcup B_i \to B,$$ 
 any sequence of gluings (where all the intermediate steps are also disjoint unions of balls) yields the same result.
 \end{axiom}
-This axiom is only reasonable because the definition assigns a set to every ball; 
-any identifications would limit the extent to which we can demand associativity.
+%This axiom is only reasonable because the definition assigns a set to every ball; 
+%any identifications would limit the extent to which we can demand associativity.
+%%%% KW: It took me quite a while figure out what you [or I??] meant by the above, so I'm attempting a rewrite.
+Note that even though our $n$-categories are ``weak" in the traditional sense, we can require
+strict associativity because we have more morphisms (cf.\ discussion of Moore loops above).
+
 For the next axiom, a \emph{pinched product} is a map locally modeled on a degeneracy map between simplices.
 \begin{axiom}[Product (identity) morphisms]
 \label{axiom:product}
@@ -486,7 +490,7 @@ and also be compatible with composition (gluing) in the sense that
 a diagram like the one in Theorem \ref{thm:CH} commutes.
 \end{axiom}
 
-\subsection{Example (the fundamental $n$-groupoid)}
+\subsection{Example (the fundamental $n$-groupoid)} \mbox{}
 We will define $\pi_{\le n}(T)$, the fundamental $n$-groupoid of a topological space $T$.
 When $X$ is a $k$-ball with $k<n$, define $\pi_{\le n}(T)(X)$
 to be the set of continuous maps from $X$ to $T$.
@@ -500,7 +504,7 @@ For $X$ an $n$-ball define $\pi_{\le n}^\infty(T)(X)$ to be the space of all map
 (if we are enriching over spaces) or the singular chains on that space (if we are enriching over chain complexes).
 
 
-\subsection{Example (string diagrams)}
+\subsection{Example (string diagrams)} \mbox{}
 Fix a ``traditional" $n$-category $C$ with strong duality (e.g.\ a pivotal 2-category).
 Let $X$ be a $k$-ball and define $\cS_C(X)$ to be the set of $C$ string diagrams drawn on $X$;
 that is, certain cell complexes embedded in $X$, with the codimension-$j$ cells labeled by $j$-morphisms of $C$.
@@ -508,7 +512,7 @@ If $X$ is an $n$-ball, identify two such string diagrams if they evaluate to the
 Boundary restrictions and gluing are again straightforward to define.
 Define product morphisms via product cell decompositions.
 
-\subsection{Example (bordism)}
+\subsection{Example (bordism)} \mbox{}
 When $X$ is a $k$-ball with $k<n$, $\Bord^n(X)$ is the set of all $k$-dimensional
 submanifolds $W$ in $X\times \bbR^\infty$ which project to $X$ transversely
 to $\bd X$.
