@@ -187,7 +187,7 @@ For the remainder of this paper we will in fact be interested in so-called $(n{+
 TQFTs, which are slightly weaker structures in that they assign 
 invariants to mapping cylinders of homeomorphisms between $n$-manifolds, but not to general $(n{+}1)$-manifolds.
 
-When $k=n-1$ we have a linear 1-category $A(S)$ for each $(n{-}1)$-manifold $S$,
+When $k=n{-}1$ we have a linear 1-category $A(S)$ for each $(n{-}1)$-manifold $S$,
 and a representation of $A(\bd Y)$ for each $n$-manifold $Y$.
 The TQFT gluing rule in dimension $n$ states that
 $A(Y_1\cup_S Y_2) \cong A(Y_1) \ot_{A(S)} A(Y_2)$,
@@ -590,10 +590,10 @@ we will denote its extension to all manifolds by $\cl{\cC}$. On a $k$-manifold $
 this is defined to be the colimit along $\cell(W)$ of the functor $\psi_{\cC;W}$. 
 Note that Axioms \ref{axiom:composition} and \ref{axiom:associativity} 
 imply that $\cl{\cC}(X)  \iso \cC(X)$ when $X$ is a $k$-ball with $k<n$. 
-Recall that given boundary conditions $c \in \cl{\cC}(\bdy X)$, for $X$ an $n$-ball, 
-the set $\cC(X;c)$ is a vector space (we assume $\cC$ is enriched in vector spaces). 
-Using this, we note that for $c \in \cl{\cC}(\bdy W)$, 
-for $W$ an arbitrary $n$-manifold, the set $\cl{\cC}(W;c) = \bdy^{-1} (c)$ inherits the structure of a vector space. 
+Suppose that $\cC$ is enriched in vector spaces: this means that given boundary conditions $c \in \cl{\cC}(\bdy X)$, for $X$ an $n$-ball, 
+the set $\cC(X;c)$ is a vector space. 
+In this case, for $W$ an arbitrary $n$-manifold and $c \in \cl{\cC}(\bdy W)$,
+the set $\cl{\cC}(W;c) = \bdy^{-1} (c)$ inherits the structure of a vector space. 
 These are the usual TQFT skein module invariants on $n$-manifolds.
 
 We can now give a straightforward but rather abstract definition of the blob complex of an $n$-manifold $W$
