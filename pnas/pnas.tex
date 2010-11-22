@@ -578,25 +578,26 @@ that is, a permissible decomposition $x$ of $W$ together with an element of $\ps
 
 \subsubsection{Colimits}
 Recall that our definition of an $n$-category is essentially a collection of functors
-defined on the categories of homeomorphisms $k$-balls
+defined on the categories of homeomorphisms of $k$-balls
 for $k \leq n$ satisfying certain axioms. 
 It is natural to hope to extend such functors to the 
 larger categories of all $k$-manifolds (again, with homeomorphisms). 
 In fact, the axioms stated above already require such an extension to $k$-spheres for $k<n$.
 
 The natural construction achieving this is a colimit along the poset of permissible decompositions.
-For an isotopy $n$-category $\cC$, 
-we will denote the extension to all manifolds by $\cl{\cC}$. On a $k$-manifold $W$, with $k \leq n$, 
+Given an isotopy $n$-category $\cC$, 
+we will denote its extension to all manifolds by $\cl{\cC}$. On a $k$-manifold $W$, with $k \leq n$, 
 this is defined to be the colimit along $\cell(W)$ of the functor $\psi_{\cC;W}$. 
 Note that Axioms \ref{axiom:composition} and \ref{axiom:associativity} 
 imply that $\cl{\cC}(X)  \iso \cC(X)$ when $X$ is a $k$-ball with $k<n$. 
 Recall that given boundary conditions $c \in \cl{\cC}(\bdy X)$, for $X$ an $n$-ball, 
-the set $\cC(X;c)$ is a vector space. Using this, we note that for $c \in \cl{\cC}(\bdy W)$, 
+the set $\cC(X;c)$ is a vector space (we assume $\cC$ is enriched in vector spaces). 
+Using this, we note that for $c \in \cl{\cC}(\bdy W)$, 
 for $W$ an arbitrary $n$-manifold, the set $\cl{\cC}(W;c) = \bdy^{-1} (c)$ inherits the structure of a vector space. 
 These are the usual TQFT skein module invariants on $n$-manifolds.
 
 We can now give a straightforward but rather abstract definition of the blob complex of an $n$-manifold $W$
-with coefficients in the $n$-category $\cC$ as the homotopy colimit along $\cell(W)$
+with coefficients in the $n$-category $\cC$ as the {\it homotopy} colimit along $\cell(W)$
 of the functor $\psi_{\cC; W}$ described above. We write this as $\clh{\cC}(W)$.
 
 An explicit realization of the homotopy colimit is provided by the simplices of the 
@@ -613,9 +614,9 @@ product with another cone-product polyhedron. Just as simplices correspond to li
 cone-product polyheda correspond to directed trees: taking cone adds a new root before the existing root, 
 and taking product identifies the roots of several trees. 
 The ``local homotopy colimit" is then defined according to the same formula as above, but with $\bar{x}$ a cone-product polyhedron in $\cell(W)$. 
+We further require that any morphism in a directed tree is not expressible as a product.
 The differential acts on $(\bar{x},a)$ both on $a$ and on $\bar{x}$, applying the appropriate gluing map to $a$ when required.
 A Eilenberg-Zilber subdivision argument shows this is the same as the usual realization. 
-In the local homotopy colimit we can further require that any composition of morphisms in a directed tree is not expressible as a product.
 
 %When $\cC$ is a topological $n$-category,
 %the flexibility available in the construction of a homotopy colimit allows
@@ -634,7 +635,7 @@ The next few paragraphs describe this in more detail.
 We say a collection of balls $\{B_i\}$ in a manifold $W$ is \emph{permissible}
 if there exists a permissible decomposition $M_0\to\cdots\to M_m = W$ such that
 each $B_i$ appears as a connected component of one of the $M_j$. 
-Note that this allows the balls to be pairwise either disjoint or nested. 
+Note that this forces the balls to be pairwise either disjoint or nested. 
 Such a collection of balls cuts $W$ into pieces, the connected components of $W \setminus \bigcup \bdy B_i$. 
 These pieces need not be manifolds, but they do automatically have permissible decompositions.
 
@@ -729,7 +730,7 @@ The blob complex has several important special cases.
 
 \begin{thm}[Skein modules]
 \label{thm:skein-modules}
-Suppose $\cC$ is an isotopy $n$-category
+Suppose $\cC$ is an isotopy $n$-category.
 The $0$-th blob homology of $X$ is the usual 
 (dual) TQFT Hilbert space (a.k.a.\ skein module) associated to $X$
 by $\cC$.
@@ -763,7 +764,7 @@ $$\bc_*(X; \pi^\infty_{\le n}(T)) \simeq \CM{X}{T}.$$
 This says that we can recover (up to homotopy) the space of maps to $T$ via blob homology from local data. 
 Note that there is no restriction on the connectivity of $T$ as there is for 
 the corresponding result in topological chiral homology \cite[Theorem 3.8.6]{0911.0018}. 
-The result was proved in \cite[\S 7.3]{1009.5025}.
+The result is proved in \cite[\S 7.3]{1009.5025}.
 
 \subsection{Structure of the blob complex}
 \label{sec:structure}
@@ -838,7 +839,8 @@ which can be thought of as a free resolution.
 This result is described in more detail as Example 6.2.8 of \cite{1009.5025}.
 
 Fix a topological $n$-category $\cC$, which we'll now omit from notation.
-Recall that for any $(n-1)$-manifold $Y$, the blob complex $\bc_*(Y)$ is naturally an $A_\infty$ category.
+Recall (Theorem \ref{thm:blobs-ainfty}) that there is associated to
+any $(n{-}1)$-manifold $Y$ an $A_\infty$ category $\bc_*(Y)$.
 
 \begin{thm}[Gluing formula]
 \label{thm:gluing}
@@ -849,7 +851,7 @@ the blob complex of $X$ is naturally an
 $A_\infty$ module for $\bc_*(Y)$.
 
 \item The blob complex of a glued manifold $X\bigcup_Y \selfarrow$ is the $A_\infty$ self-tensor product of
-$\bc_*(X)$ as an $\bc_*(Y)$-bimodule:
+$\bc_*(X)$ as a $\bc_*(Y)$-bimodule:
 \begin{equation*}
 \bc_*(X\bigcup_Y \selfarrow) \simeq \bc_*(X) \Tensor^{A_\infty}_{\mathclap{\bc_*(Y)}} \selfarrow
 \end{equation*}
@@ -864,7 +866,7 @@ Let $T_*$ denote the self tensor product of $\bc_*(X)$, which is a homotopy coli
 There is a tautological map from the 0-simplices of $T_*$ to $\bc_*(X\bigcup_Y \selfarrow)$,
 and this map can be extended to a chain map on all of $T_*$ by sending the higher simplices to zero.
 Constructing a homotopy inverse to this natural map involves making various choices, but one can show that the
-choices form contractible subcomplexes and apply the theory of acyclic models.
+choices form contractible subcomplexes and apply the acyclic models theorem.
 \end{proof}
 
 We next describe the blob complex for product manifolds, in terms of the 
@@ -879,6 +881,8 @@ Then
 \[
 	\bc_*(Y\times W; \cC) \simeq \clh{\bc_*(Y;\cC)}(W).
 \]
+That is, the blob complex of $Y\times W$ with coefficients in $\cC$ is homotopy equivalent
+to the blob complex of $W$ with coefficients in $\bc_*(Y;\cC)$.
 \end{thm}
 The statement can be generalized to arbitrary fibre bundles, and indeed to arbitrary maps
 (see \cite[\S7.1]{1009.5025}).
@@ -925,7 +929,7 @@ blob complex.
 An $n$-dimensional surgery cylinder is 
 defined to be a sequence of mapping cylinders and surgeries (Figure \ref{delfig2}), 
 modulo changing the order of distant surgeries, and conjugating a submanifold not modified in a surgery by a homeomorphism. 
-One can associated to this data an $(n{+}1)$-manifold with a foliation by intervals,
+One can associate to this data an $(n{+}1)$-manifold with a foliation by intervals,
 and the relations we impose correspond to homeomorphisms of the $(n{+}1)$-manifolds
 which preserve the foliation.
 
