@@ -614,7 +614,7 @@ product with another cone-product polyhedron. Just as simplices correspond to li
 cone-product polyheda correspond to directed trees: taking cone adds a new root before the existing root, 
 and taking product identifies the roots of several trees. 
 The ``local homotopy colimit" is then defined according to the same formula as above, but with $\bar{x}$ a cone-product polyhedron in $\cell(W)$. 
-We further require that any morphism in a directed tree is not expressible as a product.
+We further require that all (compositions of) morphisms in a directed tree are not expressible as a product.
 The differential acts on $(\bar{x},a)$ both on $a$ and on $\bar{x}$, applying the appropriate gluing map to $a$ when required.
 A Eilenberg-Zilber subdivision argument shows this is the same as the usual realization. 
 
@@ -839,8 +839,7 @@ which can be thought of as a free resolution.
 This result is described in more detail as Example 6.2.8 of \cite{1009.5025}.
 
 Fix a topological $n$-category $\cC$, which we'll now omit from notation.
-Recall (Theorem \ref{thm:blobs-ainfty}) that there is associated to
-any $(n{-}1)$-manifold $Y$ an $A_\infty$ category $\bc_*(Y)$.
+From the above, associated to any $(n{-}1)$-manifold $Y$ is an $A_\infty$ category $\bc_*(Y)$.
 
 \begin{thm}[Gluing formula]
 \label{thm:gluing}
@@ -905,7 +904,7 @@ A standard acyclic models argument now constructs the homotopy inverse.
 
 %\nn{Theorem \ref{thm:product} is proved in \S \ref{ss:product-formula}, and Theorem \ref{thm:gluing} in \S \ref{sec:gluing}.}
 
-\section{Deligne conjecture for $n$-categories}
+\section{Deligne's conjecture for $n$-categories}
 \label{sec:applications}
 
 Let $M$ and $N$ be $n$-manifolds with common boundary $E$.
@@ -915,12 +914,12 @@ Let $\hom_A(\bc_*(M), \bc_*(N))$ denote the chain complex of $A_\infty$ module m
 from $\bc_*(M)$ to $\bc_*(N)$.
 Let $R$ be another $n$-manifold with boundary $E^\text{op}$.
 There is a chain map
-\[
+\begin{equation*}
 	\hom_A(\bc_*(M), \bc_*(N)) \ot \bc_*(M) \ot_A \bc_*(R) \to \bc_*(N) \ot_A \bc_*(R) .
-\]
+\end{equation*}
 We think of this map as being associated to a surgery which cuts $M$ out of $M\cup_E R$ and
 replaces it with $N$, yielding $N\cup_E R$.
-(This is a more general notion of surgery that usual --- $M$ and $N$ can be any manifolds
+(This is a more general notion of surgery that usual: $M$ and $N$ can be any manifolds
 which share a common boundary.)
 In analogy to Hochschild cochains, we will call elements of $\hom_A(\bc_*(M), \bc_*(N))$ ``blob cochains".
 
@@ -950,10 +949,10 @@ Then there is a collection of chain maps
 \end{multline*}
 which satisfy the operad compatibility conditions.
 
-\begin{proof}
+\begin{proof} (Sketch.)
 We have already defined the action of mapping cylinders, in Theorem \ref{thm:evaluation}, 
 and the action of surgeries is just composition of maps of $A_\infty$-modules. 
-We only need to check that the relations of the $n$-SC operad are satisfied. 
+We only need to check that the relations of the surgery cylinded operad are satisfied. 
 This follows from the locality of the action of $\CH{-}$ (i.e., that it is compatible with gluing) and associativity.
 \end{proof} 
 
