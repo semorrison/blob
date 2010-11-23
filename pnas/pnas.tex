@@ -136,6 +136,7 @@ of the United States of America}
 \begin{article}
 
 \begin{abstract}
+\nn{needs revision}
 We explain the need for new axioms for topological quantum field theories that include ideas from derived 
 categories and homotopy theory. We summarize our axioms for higher categories, and describe the ``blob complex". 
 Fixing an $n$-category $\cC$, the blob complex associates a chain complex $\bc_*(W;\cC)$ to any $n$-manifold $W$. 
@@ -236,6 +237,7 @@ We then review some basic properties of the blob complex, and finish by showing 
 yields a higher categorical and higher dimensional generalization of Deligne's
 conjecture on Hochschild cochains and the little 2-disks operad.
 
+\nn{needs revision}
 Of course, there are currently many interesting alternative notions of $n$-category and of TQFT.
 We note that our $n$-categories are both more and less general
 than the ``fully dualizable" ones which play a prominent role in \cite{0905.0465}.
@@ -271,7 +273,7 @@ version of duality from the start.
 %More specifically, life is easier when working with maximal, rather than minimal, collections of axioms.}
 
 We will define two variations simultaneously,  as all but one of the axioms are identical in the two cases.
-These variations are ``isotopy $n$-categories", where homeomorphisms fixing the boundary
+These variations are ``plain $n$-categories", where homeomorphisms fixing the boundary
 act trivially on the sets associated to $n$-balls
 (and these sets are usually vector spaces or more generally modules over a commutative ring)
 and ``$A_\infty$ $n$-categories",  where there is a homotopy action of
@@ -376,7 +378,7 @@ to the intersection of the boundaries of $B$ and $B_i$.
 If $k < n$,
 or if $k=n$ and we are in the $A_\infty$ case, 
 we require that $\gl_Y$ is injective.
-(For $k=n$ in the isotopy $n$-category case, see Axiom \ref{axiom:extended-isotopies}.)
+(For $k=n$ in the plain $n$-category case, see Axiom \ref{axiom:extended-isotopies}.)
 \end{axiom}
 
 \begin{axiom}[Strict associativity] \label{nca-assoc}\label{axiom:associativity}
@@ -462,7 +464,7 @@ the second is induced by a homeomorphism from $X\cup_Y (Y\times_p J)$ to $X$ whi
 to the identity on the boundary.
 
 
-\begin{axiom}[\textup{\textbf{[for isotopy  $n$-categories]}} Extended isotopy invariance in dimension $n$.]
+\begin{axiom}[\textup{\textbf{[for plain  $n$-categories]}} Extended isotopy invariance in dimension $n$.]
 \label{axiom:extended-isotopies}
 Let $X$ be an $n$-ball and $f: X\to X$ be a homeomorphism which restricts
 to the identity on $\bd X$ and isotopic (rel boundary) to the identity.
@@ -566,14 +568,14 @@ For a decomposition $x = \bigsqcup_a X_a$ in $\cell(W)$, $\psi_{\cC;W}(x)$ is th
 	\psi_{\cC;W}(x) \subset \prod_a \cC(X_a)\spl
 \end{equation*}
 where the restrictions to the various pieces of shared boundaries amongst the balls
-$X_a$ all agree (this is a fibered product of all the labels of $k$-balls over the labels of $k-1$-manifolds). 
+$X_a$ all agree (similar to a fibered product). 
 When $k=n$, the ``subset" and ``product" in the above formula should be 
 interpreted in the appropriate enriching category.
 If $x$ is a refinement of $y$, the map $\psi_{\cC;W}(x) \to \psi_{\cC;W}(y)$ is given by the composition maps of $\cC$.
 \end{defn}
 
-We will use the term ``field on $W$" to refer to a point of this functor,
-that is, a permissible decomposition $x$ of $W$ together with an element of $\psi_{\cC;W}(x)$.
+%We will use the term ``field on $W$" to refer to a point of this functor,
+%that is, a permissible decomposition $x$ of $W$ together with an element of $\psi_{\cC;W}(x)$.
 
 
 \subsubsection{Colimits}
@@ -585,7 +587,7 @@ larger categories of all $k$-manifolds (again, with homeomorphisms).
 In fact, the axioms stated above already require such an extension to $k$-spheres for $k<n$.
 
 The natural construction achieving this is a colimit along the poset of permissible decompositions.
-Given an isotopy $n$-category $\cC$, 
+Given a plain $n$-category $\cC$, 
 we will denote its extension to all manifolds by $\cl{\cC}$. On a $k$-manifold $W$, with $k \leq n$, 
 this is defined to be the colimit along $\cell(W)$ of the functor $\psi_{\cC;W}$. 
 Note that Axioms \ref{axiom:composition} and \ref{axiom:associativity} 
@@ -622,7 +624,7 @@ A Eilenberg-Zilber subdivision argument shows this is the same as the usual real
 %the flexibility available in the construction of a homotopy colimit allows
 %us to give a much more explicit description of the blob complex which we'll write as $\bc_*(W; \cC)$.
 %\todo{either need to explain why this is the same, or significantly rewrite this section}
-When $\cC$ is the isotopy $n$-category based on string diagrams for a traditional
+When $\cC$ is the plain $n$-category based on string diagrams for a traditional
 $n$-category $C$,
 one can show \cite{1009.5025} that the above two constructions of the homotopy colimit
 are equivalent to the more concrete construction which we describe next, and which we denote $\bc_*(W; \cC)$.
@@ -639,7 +641,8 @@ Note that this forces the balls to be pairwise either disjoint or nested.
 Such a collection of balls cuts $W$ into pieces, the connected components of $W \setminus \bigcup \bdy B_i$. 
 These pieces need not be manifolds, but they do automatically have permissible decompositions.
 
-The $k$-blob group $\bc_k(W; \cC)$ is generated by the $k$-blob diagrams. A $k$-blob diagram consists of
+The $k$-blob group $\bc_k(W; \cC)$ is generated by the $k$-blob diagrams. 
+A $k$-blob diagram consists of
 \begin{itemize}
 \item a permissible collection of $k$ embedded balls, and
 \item for each resulting piece of $W$, a field,
@@ -649,7 +652,8 @@ We call such a field a ``null field on $B$".
 
 The differential acts on a $k$-blob diagram by summing over ways to forget one of the $k$ blobs, with alternating signs.
 
-We now spell this out for some small values of $k$. For $k=0$, the $0$-blob group is simply fields on $W$. 
+We now spell this out for some small values of $k$. 
+For $k=0$, the $0$-blob group is simply fields on $W$. 
 For $k=1$, a generator consists of a field on $W$ and a ball, such that the restriction of the field to that ball is a null field. 
 The differential simply forgets the ball. 
 Thus we see that $H_0$ of the blob complex is the quotient of fields by fields which are null on some ball.
@@ -730,7 +734,7 @@ The blob complex has several important special cases.
 
 \begin{thm}[Skein modules]
 \label{thm:skein-modules}
-Suppose $\cC$ is an isotopy $n$-category.
+Suppose $\cC$ is a plain $n$-category.
 The $0$-th blob homology of $X$ is the usual 
 (dual) TQFT Hilbert space (a.k.a.\ skein module) associated to $X$
 by $\cC$.
@@ -874,7 +878,7 @@ blob complexes for the $A_\infty$ $n$-categories constructed as above.
 \begin{thm}[Product formula]
 \label{thm:product}
 Let $W$ be a $k$-manifold and $Y$ be an $n{-}k$ manifold.
-Let $\cC$ be an isotopy $n$-category.
+Let $\cC$ be a plain $n$-category.
 Let $\bc_*(Y;\cC)$ be the $A_\infty$ $k$-category associated to $Y$ as above.
 Then
 \[
@@ -904,7 +908,7 @@ A standard acyclic models argument now constructs the homotopy inverse.
 
 %\nn{Theorem \ref{thm:product} is proved in \S \ref{ss:product-formula}, and Theorem \ref{thm:gluing} in \S \ref{sec:gluing}.}
 
-\section{Deligne's conjecture for $n$-categories}
+\section{Extending Deligne's conjecture to $n$-categories}
 \label{sec:applications}
 
 Let $M$ and $N$ be $n$-manifolds with common boundary $E$.
@@ -952,7 +956,7 @@ which satisfy the operad compatibility conditions.
 \begin{proof} (Sketch.)
 We have already defined the action of mapping cylinders, in Theorem \ref{thm:evaluation}, 
 and the action of surgeries is just composition of maps of $A_\infty$-modules. 
-We only need to check that the relations of the surgery cylinded operad are satisfied. 
+We only need to check that the relations of the surgery cylinder operad are satisfied. 
 This follows from the locality of the action of $\CH{-}$ (i.e., that it is compatible with gluing) and associativity.
 \end{proof} 
 
