@@ -136,8 +136,9 @@ of the United States of America}
 \begin{article}
 
 \begin{abstract}
+\nn{needs revision}
 We explain the need for new axioms for topological quantum field theories that include ideas from derived 
-categories and homotopy theory. We summarize our axioms for higher categories, and describe the `blob complex'. 
+categories and homotopy theory. We summarize our axioms for higher categories, and describe the ``blob complex". 
 Fixing an $n$-category $\cC$, the blob complex associates a chain complex $\bc_*(W;\cC)$ to any $n$-manifold $W$. 
 The $0$-th homology of this chain complex recovers the usual TQFT invariants of $W$. 
 The higher homology groups should be viewed as generalizations of Hochschild homology. 
@@ -184,14 +185,14 @@ of a vector space is an element of the dual space.
 Thus a TQFT assigns to each closed $n$-manifold $Y$ a vector space $A(Y)$,
 and to each $(n{+}1)$-manifold $W$ an element of $A(\bd W)^*$.
 For the remainder of this paper we will in fact be interested in so-called $(n{+}\epsilon)$-dimensional
-TQFTs, which are slightly weaker structures and do not assign anything to general $(n{+}1)$-manifolds, 
-but only to mapping cylinders.
+TQFTs, which are slightly weaker structures in that they assign 
+invariants to mapping cylinders of homeomorphisms between $n$-manifolds, but not to general $(n{+}1)$-manifolds.
 
-When $k=n-1$ we have a linear 1-category $A(S)$ for each $(n{-}1)$-manifold $S$,
+When $k=n{-}1$ we have a linear 1-category $A(S)$ for each $(n{-}1)$-manifold $S$,
 and a representation of $A(\bd Y)$ for each $n$-manifold $Y$.
 The TQFT gluing rule in dimension $n$ states that
 $A(Y_1\cup_S Y_2) \cong A(Y_1) \ot_{A(S)} A(Y_2)$,
-where $Y_1$ and $Y_2$ and $n$-manifolds with common boundary $S$.
+where $Y_1$ and $Y_2$ are $n$-manifolds with common boundary $S$.
 
 When $k=0$ we have an $n$-category $A(pt)$.
 This can be thought of as the local part of the TQFT, and the full TQFT can be reconstructed from $A(pt)$
@@ -207,7 +208,7 @@ dependence on interiors in order to be
 extended all the way down to dimension 0.)
 
 For other non-semisimple TQFT-like invariants, however, the above framework seems to be inadequate.
-For example, the gluing rule for 3-manifolds in Ozsv\'{a}th-Szab\'{o}/Seiberg-Witten theory
+For example, the gluing rule for 3-manifolds in Ozsv\'ath-Szab\'o/Seiberg-Witten theory
 involves a tensor product over an $A_\infty$ 1-category associated to 2-manifolds \cite{1003.0598,1005.1248}.
 Long exact sequences are important computational tools in these theories,
 and also in Khovanov homology, but the colimit construction breaks exactness.
@@ -236,13 +237,14 @@ We then review some basic properties of the blob complex, and finish by showing 
 yields a higher categorical and higher dimensional generalization of Deligne's
 conjecture on Hochschild cochains and the little 2-disks operad.
 
+\nn{needs revision}
 Of course, there are currently many interesting alternative notions of $n$-category and of TQFT.
 We note that our $n$-categories are both more and less general
 than the ``fully dualizable" ones which play a prominent role in \cite{0905.0465}.
 They are more general in that we make no duality assumptions in the top dimension $n{+}1$.
 They are less general in that we impose stronger duality requirements in dimensions 0 through $n$.
-Thus our $n$-categories correspond to $(n{+}\epsilon)$-dimensional unoriented or oriented TQFTs, while
-Lurie's (fully dualizable) $n$-categories correspond to $(n{+}1)$-dimensional framed TQFTs.
+Thus our $n$-categories correspond to $(n{+}\epsilon)$-dimensional {\it unoriented} or {\it oriented} TQFTs, while
+Lurie's (fully dualizable) $n$-categories correspond to $(n{+}1)$-dimensional {\it framed} TQFTs.
 
 At several points we only sketch an argument briefly; full details can be found in \cite{1009.5025}. 
 In this paper we attempt to give a clear view of the big picture without getting 
@@ -271,10 +273,10 @@ version of duality from the start.
 %More specifically, life is easier when working with maximal, rather than minimal, collections of axioms.}
 
 We will define two variations simultaneously,  as all but one of the axioms are identical in the two cases.
-These variations are `isotopy $n$-categories', where homeomorphisms fixing the boundary
+These variations are ``plain $n$-categories", where homeomorphisms fixing the boundary
 act trivially on the sets associated to $n$-balls
 (and these sets are usually vector spaces or more generally modules over a commutative ring)
-and `$A_\infty$ $n$-categories',  where there is a homotopy action of
+and ``$A_\infty$ $n$-categories",  where there is a homotopy action of
 $k$-parameter families of homeomorphisms on these sets
 (which are usually chain complexes or topological spaces).
 
@@ -318,12 +320,12 @@ homeomorphisms to the category of sets and bijections.
 Note that the functoriality in the above axiom allows us to operate via
 homeomorphisms which are not the identity on the boundary of the $k$-ball.
 The action of these homeomorphisms gives the ``strong duality" structure.
-As such, we don't subdivide the boundary of a morphism
-into domain and range --- the duality operations can convert between domain and range.
+For this reason we don't subdivide the boundary of a morphism
+into domain and range in the next axiom --- the duality operations can convert between domain and range.
 
 Later we inductively define an extension of the functors $\cC_k$ to functors $\cl{\cC}_k$ 
-from arbitrary manifolds to sets. We need  these functors for $k$-spheres, 
-for $k<n$, for the next axiom.
+defined on arbitrary manifolds. 
+We need  these functors for $k$-spheres, for $k<n$, for the next axiom.
 
 \begin{axiom}[Boundaries]\label{nca-boundary}
 For each $k$-ball $X$, we have a map of sets $\bd: \cC_k(X)\to \cl{\cC}_{k-1}(\bd X)$.
@@ -339,7 +341,7 @@ of an object of $\cS$, and all of the structure maps of the category (above and 
 compatible with the $\cS$ structure on $\cC_n(X; c)$.
 
 
-Given two hemispheres (a `domain' and `range') that agree on the equator, we need to be able to 
+Given two hemispheres (a ``domain" and ``range") that agree on the equator, we need to be able to 
 assemble them into a boundary value of the entire sphere.
 
 \begin{lem}
@@ -374,9 +376,9 @@ We have a map
 which is natural with respect to the actions of homeomorphisms, and also compatible with restrictions
 to the intersection of the boundaries of $B$ and $B_i$.
 If $k < n$,
-or if $k=n$ and we are in the $A_\infty$ case \nn{Kevin: remind me why we ask this?}, 
+or if $k=n$ and we are in the $A_\infty$ case, 
 we require that $\gl_Y$ is injective.
-(For $k=n$ in the isotopy $n$-category case, see below. \nn{where?})
+(For $k=n$ in the plain $n$-category case, see Axiom \ref{axiom:extended-isotopies}.)
 \end{axiom}
 
 \begin{axiom}[Strict associativity] \label{nca-assoc}\label{axiom:associativity}
@@ -385,7 +387,12 @@ Given any decomposition of a ball $B$ into smaller balls
 $$\bigsqcup B_i \to B,$$ 
 any sequence of gluings (where all the intermediate steps are also disjoint unions of balls) yields the same result.
 \end{axiom}
-This axiom is only reasonable because the definition assigns a set to every ball; any identifications would limit the extent to which we can demand associativity.
+%This axiom is only reasonable because the definition assigns a set to every ball; 
+%any identifications would limit the extent to which we can demand associativity.
+%%%% KW: It took me quite a while figure out what you [or I??] meant by the above, so I'm attempting a rewrite.
+Note that even though our $n$-categories are ``weak" in the traditional sense, we can require
+strict associativity because we have more morphisms (cf.\ discussion of Moore loops above).
+
 For the next axiom, a \emph{pinched product} is a map locally modeled on a degeneracy map between simplices.
 \begin{axiom}[Product (identity) morphisms]
 \label{axiom:product}
@@ -457,7 +464,7 @@ the second is induced by a homeomorphism from $X\cup_Y (Y\times_p J)$ to $X$ whi
 to the identity on the boundary.
 
 
-\begin{axiom}[\textup{\textbf{[for isotopy  $n$-categories]}} Extended isotopy invariance in dimension $n$.]
+\begin{axiom}[\textup{\textbf{[for plain  $n$-categories]}} Extended isotopy invariance in dimension $n$.]
 \label{axiom:extended-isotopies}
 Let $X$ be an $n$-ball and $f: X\to X$ be a homeomorphism which restricts
 to the identity on $\bd X$ and isotopic (rel boundary) to the identity.
@@ -485,7 +492,7 @@ and also be compatible with composition (gluing) in the sense that
 a diagram like the one in Theorem \ref{thm:CH} commutes.
 \end{axiom}
 
-\subsection{Example (the fundamental $n$-groupoid)}
+\subsection{Example (the fundamental $n$-groupoid)} \mbox{}
 We will define $\pi_{\le n}(T)$, the fundamental $n$-groupoid of a topological space $T$.
 When $X$ is a $k$-ball with $k<n$, define $\pi_{\le n}(T)(X)$
 to be the set of continuous maps from $X$ to $T$.
@@ -499,15 +506,15 @@ For $X$ an $n$-ball define $\pi_{\le n}^\infty(T)(X)$ to be the space of all map
 (if we are enriching over spaces) or the singular chains on that space (if we are enriching over chain complexes).
 
 
-\subsection{Example (string diagrams)}
-Fix a `traditional' $n$-category $C$ with strong duality (e.g.\ a pivotal 2-category).
+\subsection{Example (string diagrams)} \mbox{}
+Fix a ``traditional" $n$-category $C$ with strong duality (e.g.\ a pivotal 2-category).
 Let $X$ be a $k$-ball and define $\cS_C(X)$ to be the set of $C$ string diagrams drawn on $X$;
 that is, certain cell complexes embedded in $X$, with the codimension-$j$ cells labeled by $j$-morphisms of $C$.
 If $X$ is an $n$-ball, identify two such string diagrams if they evaluate to the same $n$-morphism of $C$.
 Boundary restrictions and gluing are again straightforward to define.
 Define product morphisms via product cell decompositions.
 
-\subsection{Example (bordism)}
+\subsection{Example (bordism)} \mbox{}
 When $X$ is a $k$-ball with $k<n$, $\Bord^n(X)$ is the set of all $k$-dimensional
 submanifolds $W$ in $X\times \bbR^\infty$ which project to $X$ transversely
 to $\bd X$.
@@ -561,37 +568,38 @@ For a decomposition $x = \bigsqcup_a X_a$ in $\cell(W)$, $\psi_{\cC;W}(x)$ is th
 	\psi_{\cC;W}(x) \subset \prod_a \cC(X_a)\spl
 \end{equation*}
 where the restrictions to the various pieces of shared boundaries amongst the balls
-$X_a$ all agree (this is a fibered product of all the labels of $k$-balls over the labels of $k-1$-manifolds). 
-When $k=n$, the `subset' and `product' in the above formula should be 
+$X_a$ all agree (similar to a fibered product). 
+When $k=n$, the ``subset" and ``product" in the above formula should be 
 interpreted in the appropriate enriching category.
 If $x$ is a refinement of $y$, the map $\psi_{\cC;W}(x) \to \psi_{\cC;W}(y)$ is given by the composition maps of $\cC$.
 \end{defn}
 
-We will use the term `field on $W$' to refer to a point of this functor,
-that is, a permissible decomposition $x$ of $W$ together with an element of $\psi_{\cC;W}(x)$.
+%We will use the term ``field on $W$" to refer to a point of this functor,
+%that is, a permissible decomposition $x$ of $W$ together with an element of $\psi_{\cC;W}(x)$.
 
 
 \subsubsection{Colimits}
 Recall that our definition of an $n$-category is essentially a collection of functors
-defined on the categories of homeomorphisms $k$-balls
+defined on the categories of homeomorphisms of $k$-balls
 for $k \leq n$ satisfying certain axioms. 
 It is natural to hope to extend such functors to the 
 larger categories of all $k$-manifolds (again, with homeomorphisms). 
 In fact, the axioms stated above already require such an extension to $k$-spheres for $k<n$.
 
 The natural construction achieving this is a colimit along the poset of permissible decompositions.
-For an isotopy $n$-category $\cC$, 
-we will denote the extension to all manifolds by $\cl{\cC}$. On a $k$-manifold $W$, with $k \leq n$, 
+Given a plain $n$-category $\cC$, 
+we will denote its extension to all manifolds by $\cl{\cC}$. On a $k$-manifold $W$, with $k \leq n$, 
 this is defined to be the colimit along $\cell(W)$ of the functor $\psi_{\cC;W}$. 
 Note that Axioms \ref{axiom:composition} and \ref{axiom:associativity} 
 imply that $\cl{\cC}(X)  \iso \cC(X)$ when $X$ is a $k$-ball with $k<n$. 
-Recall that given boundary conditions $c \in \cl{\cC}(\bdy X)$, for $X$ an $n$-ball, 
-the set $\cC(X;c)$ is a vector space. Using this, we note that for $c \in \cl{\cC}(\bdy W)$, 
-for $W$ an arbitrary $n$-manifold, the set $\cl{\cC}(W;c) = \bdy^{-1} (c)$ inherits the structure of a vector space. 
+Suppose that $\cC$ is enriched in vector spaces: this means that given boundary conditions $c \in \cl{\cC}(\bdy X)$, for $X$ an $n$-ball, 
+the set $\cC(X;c)$ is a vector space. 
+In this case, for $W$ an arbitrary $n$-manifold and $c \in \cl{\cC}(\bdy W)$,
+the set $\cl{\cC}(W;c) = \bdy^{-1} (c)$ inherits the structure of a vector space. 
 These are the usual TQFT skein module invariants on $n$-manifolds.
 
 We can now give a straightforward but rather abstract definition of the blob complex of an $n$-manifold $W$
-with coefficients in the $n$-category $\cC$ as the homotopy colimit along $\cell(W)$
+with coefficients in the $n$-category $\cC$ as the {\it homotopy} colimit along $\cell(W)$
 of the functor $\psi_{\cC; W}$ described above. We write this as $\clh{\cC}(W)$.
 
 An explicit realization of the homotopy colimit is provided by the simplices of the 
@@ -607,15 +615,16 @@ A cone-product polyhedra is obtained from a point by successively taking the con
 product with another cone-product polyhedron. Just as simplices correspond to linear directed graphs, 
 cone-product polyheda correspond to directed trees: taking cone adds a new root before the existing root, 
 and taking product identifies the roots of several trees. 
-The `local homotopy colimit' is then defined according to the same formula as above, but with $\bar{x}$ a cone-product polyhedron in $\cell(W)$. 
+The ``local homotopy colimit" is then defined according to the same formula as above, but with $\bar{x}$ a cone-product polyhedron in $\cell(W)$. 
+We further require that all (compositions of) morphisms in a directed tree are not expressible as a product.
 The differential acts on $(\bar{x},a)$ both on $a$ and on $\bar{x}$, applying the appropriate gluing map to $a$ when required.
-A Eilenberg-Zilber subdivision argument shows this is the same as the usual realization. In the local homotopy colimit we can further require that any composition of morphisms in a directed tree is not expressible as a product.
+A Eilenberg-Zilber subdivision argument shows this is the same as the usual realization. 
 
 %When $\cC$ is a topological $n$-category,
 %the flexibility available in the construction of a homotopy colimit allows
 %us to give a much more explicit description of the blob complex which we'll write as $\bc_*(W; \cC)$.
 %\todo{either need to explain why this is the same, or significantly rewrite this section}
-When $\cC$ is the isotopy $n$-category based on string diagrams for a traditional
+When $\cC$ is the plain $n$-category based on string diagrams for a traditional
 $n$-category $C$,
 one can show \cite{1009.5025} that the above two constructions of the homotopy colimit
 are equivalent to the more concrete construction which we describe next, and which we denote $\bc_*(W; \cC)$.
@@ -628,21 +637,36 @@ The next few paragraphs describe this in more detail.
 We say a collection of balls $\{B_i\}$ in a manifold $W$ is \emph{permissible}
 if there exists a permissible decomposition $M_0\to\cdots\to M_m = W$ such that
 each $B_i$ appears as a connected component of one of the $M_j$. 
-Note that this allows the balls to be pairwise either disjoint or nested. 
+Note that this forces the balls to be pairwise either disjoint or nested. 
 Such a collection of balls cuts $W$ into pieces, the connected components of $W \setminus \bigcup \bdy B_i$. 
-These pieces need not be manifolds, but they do automatically have permissible decompositions.
+These pieces need not be manifolds, 
+but they can be further subdivided into pieces which are manifolds
+and which fit into a permissible decomposition of $W$.
 
-The $k$-blob group $\bc_k(W; \cC)$ is generated by the $k$-blob diagrams. A $k$-blob diagram consists of
+The $k$-blob group $\bc_k(W; \cC)$ is generated by the $k$-blob diagrams. 
+A $k$-blob diagram consists of
 \begin{itemize}
-\item a permissible collection of $k$ embedded balls, and
-\item for each resulting piece of $W$, a field,
+	\item a permissible collection of $k$ embedded balls, and
+	\item a linear combination $s$ of string diagrams on $W$,
 \end{itemize}
-such that for any innermost blob $B$, the field on $B$ goes to zero under the gluing map from $\cC$. 
-We call such a field a `null field on $B$'.
+such that
+\begin{itemize}
+	\item there is a permissible decomposition of $W$, compatible with the $k$ blobs, such that
+	$s$ is the product of linear combinations of string diagrams $s_i$ on the initial pieces $X_i$ of the decomposition
+	(for fixed restrictions to the boundaries of the pieces),
+	\item the $s_i$'s corresponding to innermost blobs evaluate to zero in $\cC$, and
+	\item the $s_i$'s corresponding to the other pieces are single string diagrams (linear combinations with only one term).
+\end{itemize}
+%that for any innermost blob $B$, the field on $B$ goes to zero under the gluing map from $\cC$. 
+\nn{yech}
+We call such linear combinations which evaluate to zero on a blob $B$ a ``null field on $B$".
 
 The differential acts on a $k$-blob diagram by summing over ways to forget one of the $k$ blobs, with alternating signs.
 
-We now spell this out for some small values of $k$. For $k=0$, the $0$-blob group is simply fields on $W$. 
+\nn{KW: I have not finished changng terminology from ``field" to ``string diagram"}
+
+We now spell this out for some small values of $k$. 
+For $k=0$, the $0$-blob group is simply linear combinations of string diagrams on $W$. 
 For $k=1$, a generator consists of a field on $W$ and a ball, such that the restriction of the field to that ball is a null field. 
 The differential simply forgets the ball. 
 Thus we see that $H_0$ of the blob complex is the quotient of fields by fields which are null on some ball.
@@ -723,7 +747,7 @@ The blob complex has several important special cases.
 
 \begin{thm}[Skein modules]
 \label{thm:skein-modules}
-Suppose $\cC$ is an isotopy $n$-category
+Suppose $\cC$ is a plain $n$-category.
 The $0$-th blob homology of $X$ is the usual 
 (dual) TQFT Hilbert space (a.k.a.\ skein module) associated to $X$
 by $\cC$.
@@ -757,7 +781,7 @@ $$\bc_*(X; \pi^\infty_{\le n}(T)) \simeq \CM{X}{T}.$$
 This says that we can recover (up to homotopy) the space of maps to $T$ via blob homology from local data. 
 Note that there is no restriction on the connectivity of $T$ as there is for 
 the corresponding result in topological chiral homology \cite[Theorem 3.8.6]{0911.0018}. 
-The result was proved in \cite[\S 7.3]{1009.5025}.
+The result is proved in \cite[\S 7.3]{1009.5025}.
 
 \subsection{Structure of the blob complex}
 \label{sec:structure}
@@ -808,7 +832,7 @@ An essential step in the proof of this equivalence is a result to the effect tha
 family of homeomorphisms can be localized to at most $k$ small sets.
 
 With this alternate version in hand, the theorem is straightforward.
-By functoriality (Property \cite{property:functoriality}) $Homeo(X)$ acts on the set $BD_j(X)$ of $j$-blob diagrams, and this
+By functoriality (Property \ref{property:functoriality}) $\Homeo(X)$ acts on the set $BD_j(X)$ of $j$-blob diagrams, and this
 induces a chain map $\CH{X}\tensor C_*(BD_j(X))\to C_*(BD_j(X))$
 and hence a map $e_X: \CH{X} \tensor \cB\cT_*(X) \to \cB\cT_*(X)$.
 It is easy to check that $e_X$ thus defined has the desired properties.
@@ -832,7 +856,7 @@ which can be thought of as a free resolution.
 This result is described in more detail as Example 6.2.8 of \cite{1009.5025}.
 
 Fix a topological $n$-category $\cC$, which we'll now omit from notation.
-Recall that for any $(n-1)$-manifold $Y$, the blob complex $\bc_*(Y)$ is naturally an $A_\infty$ category.
+From the above, associated to any $(n{-}1)$-manifold $Y$ is an $A_\infty$ category $\bc_*(Y)$.
 
 \begin{thm}[Gluing formula]
 \label{thm:gluing}
@@ -843,7 +867,7 @@ the blob complex of $X$ is naturally an
 $A_\infty$ module for $\bc_*(Y)$.
 
 \item The blob complex of a glued manifold $X\bigcup_Y \selfarrow$ is the $A_\infty$ self-tensor product of
-$\bc_*(X)$ as an $\bc_*(Y)$-bimodule:
+$\bc_*(X)$ as a $\bc_*(Y)$-bimodule:
 \begin{equation*}
 \bc_*(X\bigcup_Y \selfarrow) \simeq \bc_*(X) \Tensor^{A_\infty}_{\mathclap{\bc_*(Y)}} \selfarrow
 \end{equation*}
@@ -858,7 +882,7 @@ Let $T_*$ denote the self tensor product of $\bc_*(X)$, which is a homotopy coli
 There is a tautological map from the 0-simplices of $T_*$ to $\bc_*(X\bigcup_Y \selfarrow)$,
 and this map can be extended to a chain map on all of $T_*$ by sending the higher simplices to zero.
 Constructing a homotopy inverse to this natural map involves making various choices, but one can show that the
-choices form contractible subcomplexes and apply the theory of acyclic models.
+choices form contractible subcomplexes and apply the acyclic models theorem.
 \end{proof}
 
 We next describe the blob complex for product manifolds, in terms of the 
@@ -867,12 +891,14 @@ blob complexes for the $A_\infty$ $n$-categories constructed as above.
 \begin{thm}[Product formula]
 \label{thm:product}
 Let $W$ be a $k$-manifold and $Y$ be an $n{-}k$ manifold.
-Let $\cC$ be an isotopy $n$-category.
+Let $\cC$ be a plain $n$-category.
 Let $\bc_*(Y;\cC)$ be the $A_\infty$ $k$-category associated to $Y$ as above.
 Then
 \[
 	\bc_*(Y\times W; \cC) \simeq \clh{\bc_*(Y;\cC)}(W).
 \]
+That is, the blob complex of $Y\times W$ with coefficients in $\cC$ is homotopy equivalent
+to the blob complex of $W$ with coefficients in $\bc_*(Y;\cC)$.
 \end{thm}
 The statement can be generalized to arbitrary fibre bundles, and indeed to arbitrary maps
 (see \cite[\S7.1]{1009.5025}).
@@ -895,7 +921,7 @@ A standard acyclic models argument now constructs the homotopy inverse.
 
 %\nn{Theorem \ref{thm:product} is proved in \S \ref{ss:product-formula}, and Theorem \ref{thm:gluing} in \S \ref{sec:gluing}.}
 
-\section{Deligne conjecture for $n$-categories}
+\section{Extending Deligne's conjecture to $n$-categories}
 \label{sec:applications}
 
 Let $M$ and $N$ be $n$-manifolds with common boundary $E$.
@@ -905,12 +931,12 @@ Let $\hom_A(\bc_*(M), \bc_*(N))$ denote the chain complex of $A_\infty$ module m
 from $\bc_*(M)$ to $\bc_*(N)$.
 Let $R$ be another $n$-manifold with boundary $E^\text{op}$.
 There is a chain map
-\[
+\begin{equation*}
 	\hom_A(\bc_*(M), \bc_*(N)) \ot \bc_*(M) \ot_A \bc_*(R) \to \bc_*(N) \ot_A \bc_*(R) .
-\]
+\end{equation*}
 We think of this map as being associated to a surgery which cuts $M$ out of $M\cup_E R$ and
 replaces it with $N$, yielding $N\cup_E R$.
-(This is a more general notion of surgery that usual --- $M$ and $N$ can be any manifolds
+(This is a more general notion of surgery that usual: $M$ and $N$ can be any manifolds
 which share a common boundary.)
 In analogy to Hochschild cochains, we will call elements of $\hom_A(\bc_*(M), \bc_*(N))$ ``blob cochains".
 
@@ -919,7 +945,7 @@ blob complex.
 An $n$-dimensional surgery cylinder is 
 defined to be a sequence of mapping cylinders and surgeries (Figure \ref{delfig2}), 
 modulo changing the order of distant surgeries, and conjugating a submanifold not modified in a surgery by a homeomorphism. 
-One can associated to this data an $(n{+}1)$-manifold with a foliation by intervals,
+One can associate to this data an $(n{+}1)$-manifold with a foliation by intervals,
 and the relations we impose correspond to homeomorphisms of the $(n{+}1)$-manifolds
 which preserve the foliation.
 
@@ -940,10 +966,10 @@ Then there is a collection of chain maps
 \end{multline*}
 which satisfy the operad compatibility conditions.
 
-\begin{proof}
+\begin{proof} (Sketch.)
 We have already defined the action of mapping cylinders, in Theorem \ref{thm:evaluation}, 
 and the action of surgeries is just composition of maps of $A_\infty$-modules. 
-We only need to check that the relations of the $n$-SC operad are satisfied. 
+We only need to check that the relations of the surgery cylinder operad are satisfied. 
 This follows from the locality of the action of $\CH{-}$ (i.e., that it is compatible with gluing) and associativity.
 \end{proof} 
 
