@@ -633,6 +633,9 @@ The restriction of the string diagram to innermost blobs is required to be ``nul
 it evaluates to a zero $n$-morphism of $C$.
 The next few paragraphs describe this in more detail.
 
+We will call a string diagram on a manifold a ``field".
+(See \cite{1009.5025} for a more general notion of field.)
+
 We say a collection of balls $\{B_i\}$ in a manifold $W$ is \emph{permissible}
 if there exists a permissible decomposition $M_0\to\cdots\to M_m = W$ such that
 each $B_i$ appears as a connected component of one of the $M_j$. 
@@ -651,10 +654,10 @@ A $k$-blob diagram consists of
 such that
 \begin{itemize}
 	\item there is a permissible decomposition of $W$, compatible with the $k$ blobs, such that
-	$s$ is the product of linear combinations of string diagrams $s_i$ on the initial pieces $X_i$ of the decomposition
+	$s$ is the product of linear combinations of fields $s_i$ on the initial pieces $X_i$ of the decomposition
 	(for fixed restrictions to the boundaries of the pieces),
 	\item the $s_i$'s corresponding to innermost blobs evaluate to zero in $\cC$, and
-	\item the $s_i$'s corresponding to the other pieces are single string diagrams (linear combinations with only one term).
+	\item the $s_i$'s corresponding to the other pieces are single fields (linear combinations with only one term).
 \end{itemize}
 %that for any innermost blob $B$, the field on $B$ goes to zero under the gluing map from $\cC$. 
 \nn{yech}
@@ -662,10 +665,8 @@ We call such linear combinations which evaluate to zero on a blob $B$ a ``null f
 
 The differential acts on a $k$-blob diagram by summing over ways to forget one of the $k$ blobs, with alternating signs.
 
-\nn{KW: I have not finished changng terminology from ``field" to ``string diagram"}
-
 We now spell this out for some small values of $k$. 
-For $k=0$, the $0$-blob group is simply linear combinations of string diagrams on $W$. 
+For $k=0$, the $0$-blob group is simply linear combinations of fields (string diagrams) on $W$. 
 For $k=1$, a generator consists of a field on $W$ and a ball, such that the restriction of the field to that ball is a null field. 
 The differential simply forgets the ball. 
 Thus we see that $H_0$ of the blob complex is the quotient of fields by fields which are null on some ball.
