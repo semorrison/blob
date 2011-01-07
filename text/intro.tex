@@ -492,6 +492,53 @@ but haven't investigated the details.
 Most importantly, however, \nn{applications!} \nn{cyclic homology, $n=2$ cases, contact, Kh} \nn{stabilization} \nn{stable categories, generalized cohomology theories}
 } %%% end \noop %%%%%%%%%%%%%%%%%%%%%
 
+\subsection{\texorpdfstring{$n$}{n}-category terminology}
+\label{n-cat-names}
+
+Section \S \ref{sec:ncats} adds to the zoo of $n$-category definitions, and the new creatures need names.
+Unfortunately, we have found it difficult to come up with terminology which satisfies all
+of the colleagues whom we have consulted, or even satisfies just ourselves.
+
+One distinction we need to make is between $n$-categories which are associative in dimension $n$ and those
+that are associative only up to higher homotopies.
+The latter are closely related to $(\infty, n)$-categories (i.e.\ $\infty$-categories where all morphisms
+of dimension greater than $n$ are invertible), but we don't want to use that name
+since we think of the higher homotopies not as morphisms of the $n$-category but
+rather as belonging to some auxiliary category (like chain complexes)
+that we are enriching in.
+We have decided to call them ``$A_\infty$ $n$-categories", since they are a natural generalization 
+of the familiar $A_\infty$ 1-categories.
+Other possible names include ``homotopy $n$-categories" and ``infinity $n$-categories".
+When we need to emphasize that we are talking about an $n$-category which is not $A_\infty$
+we will say ``ordinary $n$-category".
+% small problem: our n-cats are of course strictly associative, since we have more morphisms.
+% when we say ``associative only up to homotopy" above we are thinking about
+% what would happen we we tried to convert to a more traditional n-cat with fewer morphisms
+
+Another distinction we need to make is between our style of definition of $n$-categories and
+more traditional and combinatorial definitions.
+We will call instances of our definition ``disk-like $n$-categories", since $n$-dimensional disks
+play a prominent role in the definition.
+(In general we prefer to ``$k$-ball" to ``$k$-disk", but ``ball-like" doesn't roll off 
+the tongue as well as "disk-like".)
+
+Another thing we need a name for is the ability to rotate morphisms around in various ways.
+For 2-categories, ``pivotal" is a standard term for what we mean.
+A more general term is ``duality", but duality comes in various flavors and degrees.
+We are mainly interested in a very strong version of duality, where the available ways of
+rotating $k$-morphisms correspond to all the ways of rotating $k$-balls.
+We sometimes refer to this as ``strong duality", and sometimes we consider it to be implied
+by ``disk-like".
+(But beware: disks can come in various flavors, and some of them (such as framed disks)
+don't actually imply much duality.)
+Another possibility here is ``pivotal $n$-category".
+
+Finally, we need a general name for isomorphisms between balls, where the balls could be
+piecewise linear or smooth or topological or Spin or framed or etc., or some combination thereof.
+We have chosen to use ``homeomorphism" for the appropriate sort of isomorphism, so the reader should
+keep in mind that ``homeomorphism" could mean PL homeomorphism or diffeomorphism (and so on)
+depending on context.
+
 \subsection{Thanks and acknowledgements}
 % attempting to make this chronological rather than alphabetical
 We'd like to thank 
@@ -508,6 +555,5 @@ and
 Alexander Kirillov
 for many interesting and useful conversations. 
 During this work, Kevin Walker has been at Microsoft Station Q, and Scott Morrison has been at Microsoft Station Q and the Miller Institute for Basic Research at UC Berkeley. We'd like to thank the Aspen Center for Physics for the pleasant and productive 
-% "conducive" needs an object; "conducive to blah"
 environment provided there during the final preparation of this manuscript.
 
