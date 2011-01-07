@@ -23,6 +23,8 @@ satisfy our axioms.
 For examples of a more purely algebraic origin, one would typically need the combinatorial
 results that we have avoided here.
 
+See \S\ref{n-cat-names} for a discussion of $n$-category terminology.
+
 %\nn{Say something explicit about Lurie's work here? 
 %It seems like this was something that Dan Freed wanted explaining when we talked to him in Aspen}
 
@@ -378,7 +380,7 @@ $$
 \caption{Examples of pinched products}\label{pinched_prods}
 \end{figure}
 (The need for a strengthened version will become apparent in Appendix \ref{sec:comparing-defs}
-where we construct a traditional category from a topological category.)
+where we construct a traditional category from a disk-like category.)
 Define a {\it pinched product} to be a map
 \[
 	\pi: E\to X
@@ -668,7 +670,7 @@ balls and, at level $n$, quotienting out by the local relations:
 \cC_{\cF,U}(B^k) & = \begin{cases}\cF(B) & \text{when $k<n$,} \\ \cF(B) / U(B) & \text{when $k=n$.}\end{cases}
 \end{align*}
 This $n$-category can be thought of as the local part of the fields.
-Conversely, given a topological $n$-category we can construct a system of fields via 
+Conversely, given a disk-like $n$-category we can construct a system of fields via 
 a colimit construction; see \S \ref{ss:ncat_fields} below.
 
 In the $n$-category axioms above we have intermingled data and properties for expository reasons.
@@ -855,16 +857,16 @@ where $\bc^\cE_*$ denotes the blob complex based on $\cE$.
 \end{example}
 
 This example will be used in Theorem \ref{thm:product} below, which allows us to compute the blob complex of a product.
-Notice that with $F$ a point, the above example is a construction turning a topological 
+Notice that with $F$ a point, the above example is a construction turning an ordinary 
 $n$-category $\cC$ into an $A_\infty$ $n$-category.
 We think of this as providing a ``free resolution" 
-of the topological $n$-category. 
+of the ordinary $n$-category. 
 %\nn{say something about cofibrant replacements?}
 In fact, there is also a trivial, but mostly uninteresting, way to do this: 
 we can think of each vector space associated to an $n$-ball as a chain complex concentrated in degree $0$, 
 and take $\CD{B}$ to act trivially. 
 
-Beware that the ``free resolution" of the topological $n$-category $\pi_{\leq n}(T)$ 
+Beware that the ``free resolution" of the ordinary $n$-category $\pi_{\leq n}(T)$ 
 is not the $A_\infty$ $n$-category $\pi^\infty_{\leq n}(T)$.
 It's easy to see that with $n=0$, the corresponding system of fields is just 
 linear combinations of connected components of $T$, and the local relations are trivial.
@@ -927,7 +929,7 @@ The remaining data for the $A_\infty$ $n$-category
 also comes from the $\cE\cB_n$ action on $A$.
 %\nn{should we spell this out?}
 
-Conversely, one can show that a topological $A_\infty$ $n$-category $\cC$, where the $k$-morphisms
+Conversely, one can show that a disk-like $A_\infty$ $n$-category $\cC$, where the $k$-morphisms
 $\cC(X)$ are trivial (single point) for $k<n$, gives rise to 
 an $\cE\cB_n$-algebra.
 %\nn{The paper is already long; is it worth giving details here?}
@@ -1195,7 +1197,7 @@ Such a $W$ gives rise to a module for the $n$-category associated to $\bd W$.
 This will be explained in more detail as we present the axioms.
 
 Throughout, we fix an $n$-category $\cC$.
-For all but one axiom, it doesn't matter whether $\cC$ is a topological $n$-category or an $A_\infty$ $n$-category.
+For all but one axiom, it doesn't matter whether $\cC$ is an ordinary $n$-category or an $A_\infty$ $n$-category.
 We state the final axiom, regarding actions of homeomorphisms, differently in the two cases.
 
 Define a {\it marked $k$-ball} to be a pair $(B, N)$ homeomorphic to the pair
@@ -1509,7 +1511,7 @@ there is no left/right module distinction.
 
 \medskip
 
-We now give some examples of modules over topological and $A_\infty$ $n$-categories.
+We now give some examples of modules over ordinary and $A_\infty$ $n$-categories.
 
 \begin{example}[Examples from TQFTs]
 \rm
@@ -1552,7 +1554,7 @@ Example \ref{ex:chains-of-maps-to-a-space} given by taking singular chains.
 \subsection{Modules as boundary labels (colimits for decorated manifolds)}
 \label{moddecss}
 
-Fix a topological $n$-category or $A_\infty$ $n$-category  $\cC$.
+Fix an ordinary $n$-category or $A_\infty$ $n$-category  $\cC$.
 Let $W$ be a $k$-manifold ($k\le n$),
 let $\{Y_i\}$ be a collection of disjoint codimension 0 submanifolds of $\bd W$,
 and let $\cN = (\cN_i)$ be an assignment of a $\cC$ module $\cN_i$ to $Y_i$.
@@ -1720,7 +1722,7 @@ so we prefer the term ``sphere module" for the general case.
 
 %The results of this subsection are not needed for the rest of the paper,
 %so we will skimp on details in a couple of places. We have included this mostly 
-%for the sake of comparing our notion of a topological $n$-category to other definitions.
+%for the sake of comparing our notion of a disk-like $n$-category to other definitions.
 
 For simplicity, we will assume that $n$-categories are enriched over $\c$-vector spaces.
 

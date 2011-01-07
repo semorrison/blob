@@ -7,13 +7,13 @@ In \S\ref{sec:example:traditional-n-categories(fields)} we showed how to constru
 a topological $n$-category from a traditional $n$-category; the morphisms of the 
 topological $n$-category are string diagrams labeled by the traditional $n$-category.
 In this appendix we sketch how to go the other direction, for $n=1$ and 2.
-The basic recipe, given a topological $n$-category $\cC$, is to define the $k$-morphisms
+The basic recipe, given a disk-like $n$-category $\cC$, is to define the $k$-morphisms
 of the corresponding traditional $n$-category to be $\cC(B^k)$, where
 $B^k$ is the {\it standard} $k$-ball.
 One must then show that the axioms of \S\ref{ss:n-cat-def} imply the traditional $n$-category axioms.
-One should also show that composing the two arrows (between traditional and topological $n$-categories)
+One should also show that composing the two arrows (between traditional and disk-like $n$-categories)
 yields the appropriate sort of equivalence on each side.
-Since we haven't given a definition for functors between topological $n$-categories
+Since we haven't given a definition for functors between disk-like $n$-categories
 (the paper is already too long!), we do not pursue this here.
 
 We emphasize that we are just sketching some of the main ideas in this appendix ---
@@ -24,7 +24,7 @@ it falls well short of proving the definitions are equivalent.
 
 \subsection{1-categories over \texorpdfstring{$\Set$ or $\Vect$}{Set or Vect}}
 \label{ssec:1-cats}
-Given a topological $1$-category $\cX$ we construct a $1$-category in the conventional sense, $c(\cX)$.
+Given a disk-like $1$-category $\cX$ we construct a $1$-category in the conventional sense, $c(\cX)$.
 This construction is quite straightforward, but we include the details for the sake of completeness, 
 because it illustrates the role of structures (e.g. orientations, spin structures, etc) 
 on the underlying manifolds, and 
@@ -70,7 +70,7 @@ and these two maps commute with each other.
 \medskip
 
 In the other direction, given a $1$-category $C$
-(with objects $C^0$ and morphisms $C^1$) we will construct a topological
+(with objects $C^0$ and morphisms $C^1$) we will construct a disk-like
 $1$-category $t(C)$.
 
 If $X$ is a 0-ball (point), let $t(C)(X) \deq C^0$.
@@ -79,7 +79,7 @@ If $X$ is a 1-ball, let $t(C)(X) \deq C^1$.
 Homeomorphisms isotopic to the identity act trivially.
 If $C$ has extra structure (e.g.\ it's a *-1-category), we use this structure
 to define the action of homeomorphisms not isotopic to the identity
-(and get, e.g., an unoriented topological 1-category).
+(and get, e.g., an unoriented disk-like 1-category).
 
 The domain and range maps of $C$ determine the boundary and restriction maps of $t(C)$.
 
@@ -100,13 +100,13 @@ As we will see below, for $n>1$ the compositions yield a weaker sort of equivale
 
 \medskip
 
-Similar arguments show that modules for topological 1-categories are essentially
+Similar arguments show that modules for disk-like 1-categories are essentially
 the same thing as traditional modules for traditional 1-categories.
 
 
 \subsection{Pivotal 2-categories}
 \label{ssec:2-cats}
-Let $\cC$ be a topological 2-category.
+Let $\cC$ be a disk-like 2-category.
 We will construct from $\cC$ a traditional pivotal 2-category.
 (The ``pivotal" corresponds to our assumption of strong duality for $\cC$.)
 
@@ -559,11 +559,11 @@ choice made in the definition, and that it is associative.
 \subsection{\texorpdfstring{$A_\infty$}{A-infinity} 1-categories}
 \label{sec:comparing-A-infty}
 In this section, we make contact between the usual definition of an $A_\infty$ category 
-and our definition of a topological $A_\infty$ $1$-category, from \S \ref{ss:n-cat-def}.
+and our definition of a disk-like $A_\infty$ $1$-category, from \S \ref{ss:n-cat-def}.
 
 \medskip
 
-Given a topological $A_\infty$ $1$-category $\cC$, we define an ``$m_k$-style" 
+Given a disk-like $A_\infty$ $1$-category $\cC$, we define an ``$m_k$-style" 
 $A_\infty$ $1$-category $A$ as follows.
 The objects of $A$ are $\cC(pt)$.
 The morphisms of $A$, from $x$ to $y$, are $\cC(I; x, y)$
@@ -605,7 +605,7 @@ Define the gluing map to send $(f_1, a_1)\ot (f_2, a_2)$ to $(g, \mu(a_1\ot a_2)
 Operad associativity for $A$ implies that this gluing map is independent of the choice of
 $g$ and the choice of representative $(f_i, a_i)$.
 
-It is straightforward to verify the remaining axioms for a topological $A_\infty$ 1-category.
+It is straightforward to verify the remaining axioms for a disk-like $A_\infty$ 1-category.
 
 
 
