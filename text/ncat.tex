@@ -671,6 +671,31 @@ This $n$-category can be thought of as the local part of the fields.
 Conversely, given a topological $n$-category we can construct a system of fields via 
 a colimit construction; see \S \ref{ss:ncat_fields} below.
 
+In the $n$-category axioms above we have intermingled data and properties for expository reasons.
+Here's a summary of the definition which segregates the data from the properties.
+
+An $n$-category consists of the following data:
+\begin{itemize}
+\item Functors $\cC_k$ from $k$-balls to sets, $0\le k\le n$ (Axiom \ref{axiom:morphisms})
+\item Boundary natural transformations $\cC_k \to \cl{\cC}_{k-1} \circ \bd$ (Axiom \ref{nca-boundary})
+\item Composition/gluing maps $\gl_Y : \cC(B_1)_E \times_{\cC(Y)} \cC(B_2)_E \to \cC(B_1\cup_Y B_2)_E$ (Axiom \ref{axiom:composition})
+\item Product/identity maps $\pi^*:\cC(X)\to \cC(E)$ for each pinched product $\pi:E\to X$ (Axiom \ref{axiom:product})
+\item If enriching in an auxiliary category, additional structure on $\cC_n(X; c)$
+\item In the $A_\infty$ case, an action of $C_*(\Homeo_\bd(X))$, and similarly for families of collar maps (Axiom \ref{axiom:families})
+\end{itemize}
+The above data must satisfy the following conditions:
+\begin{itemize}
+\item The gluing maps are compatible with actions of homeomorphisms and boundary 
+restrictions (Axiom \ref{axiom:composition}).
+\item For $k<n$ the gluing maps are injective (Axiom \ref{axiom:composition}).
+\item The gluing maps are strictly associative (Axiom \ref{nca-assoc}).
+\item The product maps are associative and also compatible with homeomorphism actions, gluing and restriction (Axiom \ref{axiom:product}).
+\item If enriching in an auxiliary category, all of the data should be compatible 
+with the auxiliary category structure on $\cC_n(X; c)$.
+\item For ordinary categories, invariance of $n$-morphisms under extended isotopies (Axiom \ref{axiom:extended-isotopies}).
+\end{itemize}
+
+
 \subsection{Examples of \texorpdfstring{$n$}{n}-categories}
 \label{ss:ncat-examples}
 
