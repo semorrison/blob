@@ -238,7 +238,7 @@ to the intersection of the boundaries of $B$ and $B_i$.
 If $k < n$,
 or if $k=n$ and we are in the $A_\infty$ case, 
 we require that $\gl_Y$ is injective.
-(For $k=n$ in the plain (non-$A_\infty$) case, see below.)
+(For $k=n$ in the ordinary (non-$A_\infty$) case, see below.)
 \end{axiom}
 
 \begin{figure}[!ht] \centering
@@ -524,7 +524,7 @@ All of the axioms listed above hold for both ordinary $n$-categories and $A_\inf
 The last axiom (below), concerning actions of 
 homeomorphisms in the top dimension $n$, distinguishes the two cases.
 
-We start with the plain $n$-category case.
+We start with the ordinary $n$-category case.
 
 \begin{axiom}[\textup{\textbf{[preliminary]}} Isotopy invariance in dimension $n$]
 Let $X$ be an $n$-ball and $f: X\to X$ be a homeomorphism which restricts
@@ -599,7 +599,7 @@ isotopic (rel boundary) to the identity {\it extended isotopy}.
 The revised axiom is
 
 %\addtocounter{axiom}{-1}
-\begin{axiom}[\textup{\textbf{[plain  version]}} Extended isotopy invariance in dimension $n$.]
+\begin{axiom}[\textup{\textbf{[ordinary  version]}} Extended isotopy invariance in dimension $n$.]
 \label{axiom:extended-isotopies}
 Let $X$ be an $n$-ball and $f: X\to X$ be a homeomorphism which restricts
 to the identity on $\bd X$ and isotopic (rel boundary) to the identity.
@@ -644,7 +644,7 @@ We will not pursue this in detail here.
 A variant on the above axiom would be to drop the ``up to homotopy" and require a strictly associative action.
 
 Note that if we take homology of chain complexes, we turn an $A_\infty$ $n$-category
-into a plain $n$-category (enriched over graded groups).
+into a ordinary $n$-category (enriched over graded groups).
 In a different direction, if we enrich over topological spaces instead of chain complexes,
 we get a space version of an $A_\infty$ $n$-category, with $\Homeo_\bd(X)$ acting 
 instead of  $C_*(\Homeo_\bd(X))$.
@@ -653,7 +653,7 @@ type $A_\infty$ $n$-category.
 
 \medskip
 
-The alert reader will have already noticed that our definition of a (plain) $n$-category
+The alert reader will have already noticed that our definition of a (ordinary) $n$-category
 is extremely similar to our definition of a system of fields.
 There are two differences.
 First, for the $n$-category definition we restrict our attention to balls
@@ -775,7 +775,7 @@ but (string diagrams)/(relations) is isomorphic to
 }
 
 
-\begin{example}[The bordism $n$-category, plain version]
+\begin{example}[The bordism $n$-category, ordinary version]
 \label{ex:bord-cat}
 \rm
 \label{ex:bordism-category}
@@ -915,14 +915,14 @@ we get an instance of Lurie's topological chiral homology construction.
 \subsection{From balls to manifolds}
 \label{ss:ncat_fields} \label{ss:ncat-coend}
 In this section we show how to extend an $n$-category $\cC$ as described above 
-(of either the plain or $A_\infty$ variety) to an invariant of manifolds, which we denote by $\cl{\cC}$.
+(of either the ordinary or $A_\infty$ variety) to an invariant of manifolds, which we denote by $\cl{\cC}$.
 This extension is a certain colimit, and the arrow in the notation is intended as a reminder of this.
 
-In the case of plain $n$-categories, this construction factors into a construction of a 
+In the case of ordinary $n$-categories, this construction factors into a construction of a 
 system of fields and local relations, followed by the usual TQFT definition of a 
 vector space invariant of manifolds given as Definition \ref{defn:TQFT-invariant}.
 For an $A_\infty$ $n$-category, $\cl{\cC}$ is defined using a homotopy colimit instead.
-Recall that we can take a plain $n$-category $\cC$ and pass to the ``free resolution", 
+Recall that we can take a ordinary $n$-category $\cC$ and pass to the ``free resolution", 
 an $A_\infty$ $n$-category $\bc_*(\cC)$, by computing the blob complex of balls 
 (recall Example \ref{ex:blob-complexes-of-balls} above).
 We will show in Corollary \ref{cor:new-old} below that the homotopy colimit invariant 
@@ -1160,7 +1160,7 @@ But this implies that $a = a_0 = a_k = \hat{a}$, contrary to our assumption that
 
 \subsection{Modules}
 
-Next we define plain and $A_\infty$ $n$-category modules.
+Next we define ordinary and $A_\infty$ $n$-category modules.
 The definition will be very similar to that of $n$-categories,
 but with $k$-balls replaced by {\it marked $k$-balls,} defined below.
 
@@ -1290,7 +1290,7 @@ to the intersection of the boundaries of $M$ and $M_i$.
 If $k < n$,
 or if $k=n$ and we are in the $A_\infty$ case, 
 we require that $\gl_Y$ is injective.
-(For $k=n$ in the plain (non-$A_\infty$) case, see below.)}
+(For $k=n$ in the ordinary (non-$A_\infty$) case, see below.)}
 \end{module-axiom}
 
 
@@ -1314,7 +1314,7 @@ to the intersection of the boundaries of $X$ and $M'$.
 If $k < n$,
 or if $k=n$ and we are in the $A_\infty$ case, 
 we require that $\gl_Y$ is injective.
-(For $k=n$ in the plain (non-$A_\infty$) case, see below.)}
+(For $k=n$ in the ordinary (non-$A_\infty$) case, see below.)}
 \end{module-axiom}
 
 \begin{module-axiom}[Strict associativity]
@@ -1432,10 +1432,10 @@ $a$ along a map associated to $\pi$.
 \medskip
 
 There are two alternatives for the next axiom, according whether we are defining
-modules for plain $n$-categories or $A_\infty$ $n$-categories.
-In the plain case we require
+modules for ordinary $n$-categories or $A_\infty$ $n$-categories.
+In the ordinary case we require
 
-\begin{module-axiom}[\textup{\textbf{[plain version]}} Extended isotopy invariance in dimension $n$]
+\begin{module-axiom}[\textup{\textbf{[ordinary version]}} Extended isotopy invariance in dimension $n$]
 {Let $M$ be a marked $n$-ball and $f: M\to M$ be a homeomorphism which restricts
 to the identity on $\bd M$ and is isotopic (rel boundary) to the identity.
 Then $f$ acts trivially on $\cM(M)$.}
