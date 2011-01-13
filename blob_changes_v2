@@ -1,0 +1,14 @@
+Summary of changes to "The Blob Complex" for version 2
+--------------------------------
+
+All changes are relatively minor.
+
+- terminology change: "topological n-cat" --> "disk-like n-cat"
+- terminology change: "plain n-cat" --> "ordinary n-cat"
+- add two citations (U. Tillman, R. Brown for n-fold categories)
+- added that action in last n-category axiom should be compatible with action in first axiom
+- added summary of n-cat data and properties
+- added mention of (n+1)-cat of sphere modules to the intro
+- added discussion of n-cat nomenclature to the intro
+
+
