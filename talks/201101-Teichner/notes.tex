@@ -1,0 +1,84 @@
+\documentclass[11pt]{amsart}
+
+\usepackage{amsthm}
+\theoremstyle{plain}
+\newtheorem{prop}{Proposition}[section]
+\newtheorem{conj}[prop]{Conjecture}
+\newtheorem{thm}[prop]{Theorem}
+\newtheorem{lem}[prop]{Lemma}
+
+\usepackage{graphicx}
+\newcommand{\mathfig}[2]{{\hspace{-3pt}\begin{array}{c}%
+  \raisebox{-2.5pt}{\includegraphics[width=#1\textwidth]{#2}}%
+\end{array}\hspace{-3pt}}}
+
+
+\usepackage{tikz}
+\usetikzlibrary{shapes}
+
+\newcommand{\selfarrow}{\ensuremath{\smash{\tikz[baseline]{\clip (0,0.36) rectangle (0.48,-0.16); \draw[->] (0,0.2) .. controls (0.6,0.8) and (0.6,-0.6) .. (0,0);}}}}
+
+\usepackage{hyperref}
+\newcommand{\arxiv}[1]{\href{http://arxiv.org/abs/#1}{\tt arXiv:\nolinkurl{#1}}}
+
+\newcommand{\bdy}{\partial}
+\newcommand{\iso}{\cong}
+
+\newcommand{\restrict}[2]{#1{}_{\mid #2}{}}
+\newcommand{\set}[1]{\left\{#1\right\}}
+\newcommand{\setc}[2]{\setcl{#1}{#2}}
+
+% tricky way to iterate macros over a list
+\def\semicolon{;}
+\def\applytolist#1{
+    \expandafter\def\csname multi#1\endcsname##1{
+        \def\multiack{##1}\ifx\multiack\semicolon
+            \def\next{\relax}
+        \else
+            \csname #1\endcsname{##1}
+            \def\next{\csname multi#1\endcsname}
+        \fi
+        \next}
+    \csname multi#1\endcsname}
+
+% \def\cA{{\cal A}} for A..Z
+\def\calc#1{\expandafter\def\csname c#1\endcsname{{\mathcal #1}}}
+\applytolist{calc}QWERTYUIOPLKJHGFDSAZXCVBNM;
+\newcommand{\cl}[1]{\underrightarrow{#1}}
+
+% \DeclareMathOperator{\pr}{pr} etc.
+\def\declaremathop#1{\expandafter\DeclareMathOperator\csname #1\endcsname{#1}}
+\applytolist{declaremathop}{Maps}{Diff}{Homeo};
+
+\title{Fields and local relations}
+\author{Scott Morrison}
+\date{January 25 2011}
+
+\begin{document}
+\maketitle
+
+This talk is essentially a `warm-up' for the main ideas of the blob complex paper. For the most part, it's intended as a summary of how to think about topological quantum field theories via `fields and local relations'. We'll look at some examples of fields, and then use these to motivate the axiomatics. This will get us ready for reading \S 3, the first definition of the blob complex. As we go, I'll also sketch the relationship between fields and local relations and higher categories. For the most part I'll be a little vague about the definitions of higher categories, and instead try to talk about fields and local relations in a way that conveys the intuitions for our later definition of a `disklike $n$-category', in \S 6.
+
+\section{Examples of fields}
+The barebones data of an `$n$-dimensional system of fields' $\cF$ is a collection of functors $\cF_k$, for $0 \leq k \leq n$, from the groupoid of $k$-manifolds and homeomorphisms to the category of sets. That is, we have to specify the `set of fields on $M$', for any manifold $M$ of dimension at most $n$, along with a prescription for how these sets transform under homeomorphisms of $M$.
+
+Whenever we have a system of fields, we also need the `local relations'. This is a functor $\cU$ from the groupoid of $n$-balls and homeomorphisms to the category of sets, such that $\cU \subset \cF$ and homeomorphisms act compatibly. Note that the local relations are only defined on balls, not arbitrary $n$-manifolds (hence `local'), and they only live at the top dimension.
+
+There are two main examples which will motivate the precise definitions, so we'll go and understand these in some detail first.
+
+\subsection{Maps to a target space}
+Fixing a target space $T$, we can define a system of fields $\Maps(- \to T)$. Actually, it's best to modify this a bit, just in the top dimension, where we'll linearize in the following way: define $\Maps(X^n \to T)$ on an $n$-manifold $X$ to be \emph{formal linear combinations} of maps to $T$, extending a \emph{fixed} linear map on $\bdy X$. (That is, arbitrary boundary conditions are allowed, but we can only take linear combinations of maps with the same boundary conditions.) This will be a common feature for all `linear' systems of fields: at the top dimension the set associated to an $n$-manifold will break up into a vector space for each possibly boundary condition.
+
+What then are the local relations? We define $U(B)$, the local relations on an $n$-ball $B$, to be the subspace of $\Maps(B \to T)$ spanned by differences $f-g$ of maps which are homotopic rel boundary.
+
+Let's identify some useful features of this system of fields and local relations; momentarily these will inspire the axioms.
+
+\begin{description}
+\item[Boundaries] We can restrict $f: X \to T$ to a map $\bdy f: \bdy X \to T$.
+\item[Gluing] Given maps $f: X \to T$ and $g: Y \to T$, and homeomorphic copies of $S$ in the boundaries of $X$ and $Y$, such that $\restrict{f}{S} = \restrict{g}{S}$, we can glue the maps together to obtain $f \bullet_S g : X \cup_S Y \to T$.
+\item[Relations form an ideal]
+Suppose $X$ and $Y$ are $n$-balls, and we can glue them together to form another $n$-ball $X \cup_S Y$.
+If $f, g: X \to T$ are homotopic maps, and $h: Y \to T$ is an arbitrary map, and all agree on the $(n-1)$-ball $S$, then $f \bullet_S h$ and $g \bullet_S h$ are again homotopic to each other. Said otherwise, $f-g$ was a local relation on $X$, and $(f-g) \bullet_S h$ is a local relation on $X \cup_S Y$.
+\end{description}
+
+\end{document}
