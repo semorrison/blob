@@ -1,6 +1,14 @@
 \documentclass[11pt]{amsart}
 
-\usepackage{amsthm}
+% margin stuff
+\setlength{\textwidth}{6.25in}
+\setlength{\oddsidemargin}{0in}
+\setlength{\evensidemargin}{0in}
+\setlength{\textheight}{8.5in}
+\setlength{\topmargin}{-.25in}
+
+
+\usepackage{amsthm,amsmath}
 \theoremstyle{plain}
 \newtheorem{prop}{Proposition}[section]
 \newtheorem{conj}[prop]{Conjecture}
@@ -23,6 +31,7 @@
 
 \newcommand{\bdy}{\partial}
 \newcommand{\iso}{\cong}
+\newcommand{\tensor}{\otimes}
 
 \newcommand{\restrict}[2]{#1{}_{\mid #2}{}}
 \newcommand{\set}[1]{\left\{#1\right\}}
@@ -48,7 +57,7 @@
 
 % \DeclareMathOperator{\pr}{pr} etc.
 \def\declaremathop#1{\expandafter\DeclareMathOperator\csname #1\endcsname{#1}}
-\applytolist{declaremathop}{Maps}{Diff}{Homeo};
+\applytolist{declaremathop}{Maps}{Diff}{Homeo}{Hom};
 
 \title{Fields and local relations}
 \author{Scott Morrison}
@@ -67,11 +76,11 @@ Whenever we have a system of fields, we also need the `local relations'. This is
 There are two main examples which will motivate the precise definitions, so we'll go and understand these in some detail first.
 
 \subsection{Maps to a target space}
-Fixing a target space $T$, we can define a system of fields $\Maps(- \to T)$. Actually, it's best to modify this a bit, just in the top dimension, where we'll linearize in the following way: define $\Maps(X^n \to T)$ on an $n$-manifold $X$ to be \emph{formal linear combinations} of maps to $T$, extending a \emph{fixed} linear map on $\bdy X$. (That is, arbitrary boundary conditions are allowed, but we can only take linear combinations of maps with the same boundary conditions.) This will be a common feature for all `linear' systems of fields: at the top dimension the set associated to an $n$-manifold will break up into a vector space for each possibly boundary condition.
+Fixing a target space $T$, we can define a system of fields $\Maps(- \to T)$. Actually, it's best to modify this a bit, just in the top dimension, where we'll linearize in the following way: define $\Maps(X^n \to T)$ on an $n$-manifold $X$ to be \emph{formal linear combinations} of maps to $T$, extending a \emph{fixed} linear map on $\bdy X$. (That is, arbitrary boundary conditions are allowed, but we can only take linear combinations of maps with the same boundary conditions.) This will be a common feature for all `linear' systems of fields: at the top dimension the set associated to an $n$-manifold will break up into a vector space for each possible boundary condition.
 
 What then are the local relations? We define $U(B)$, the local relations on an $n$-ball $B$, to be the subspace of $\Maps(B \to T)$ spanned by differences $f-g$ of maps which are homotopic rel boundary.
 
-Let's identify some useful features of this system of fields and local relations; momentarily these will inspire the axioms.
+Let's identify some useful features of this system of fields and local relations; later these will inspire the axioms.
 
 \begin{description}
 \item[Boundaries] We can restrict $f: X \to T$ to a map $\bdy f: \bdy X \to T$.
@@ -81,4 +90,85 @@ Suppose $X$ and $Y$ are $n$-balls, and we can glue them together to form another
 If $f, g: X \to T$ are homotopic maps, and $h: Y \to T$ is an arbitrary map, and all agree on the $(n-1)$-ball $S$, then $f \bullet_S h$ and $g \bullet_S h$ are again homotopic to each other. Said otherwise, $f-g$ was a local relation on $X$, and $(f-g) \bullet_S h$ is a local relation on $X \cup_S Y$.
 \end{description}
 
+\subsection{String diagrams}
+This will be a more complicated example, and also a very important one. Essentially, it's a recipe for constructing a system of fields and local relations from a suitable $n$-category. As we haven't yet talked about a definition of an $n$-category, I'll be somewhat vague about what we actually require from one. I'll spell out the construction precisely in the cases $n=1$ and $n=2$, where there are familiar concrete definitions to work with. Later, in \S 6, when we introduce our notion of a `disklike $n$-category', you should think of the definition as being optimized to make the transition back and forth between $n$-categories and systems of fields as straightforward as possible.
+
+The core idea is to fix a diagrammatic calculus which represents the algebraic operations in an $n$-category. The diagrams are drawn in $n$-balls. Each diagram is a recipe for composing some collection of morphisms. Modifying the diagram by an isotopy should not change the result of the corresponding composition (perhaps for some types of $n$-categories not all isotopies should be allowed, but we'll generally work in `most invariant' situation, which roughly corresponds to the $n$-categories have lots of nice duality properties). Moreover, the allowed diagrams should be specified by some `local rule': e.g. the diagrams are locally modeled on a certain collection of subdiagrams. Because the diagrams are specified in this way, we can then allow ourselves to draw the same diagrams on arbitrary manifolds, and these become our fields. When we restrict our attention to balls, the `local relations' are precisely those diagrams are a recipe for a composition which is zero in the $n$-category.
+
+There are several alternative schemes for realizing this idea. Two that may be familiar are `string diagrams' (which we'll discuss in detail below, beloved of quantum topologists) and `pasting diagrams' (familiar to category theorists). In fact, these are geometrically dual to each other (and one could look at them as limiting cases of diagrams based on handle decompositions, as the core or co-core diameter goes to zero). The use of string diagrams significantly predates the term (or indeed `quantum topology', and perhaps also `higher category'): Penrose was using them by the late '60s.
+
+Fix an $n$-category $\cC$, according to your favorite definition. Suppose that it has `the right sort of duality'. Let's state the general definition, but then to preserve sanity unwind it in dimensions $1$ and $2$.
+A string diagram on a $k$-manifold $X$ consists of
+\begin{itemize}
+\item a cell decomposition of X;
+\item a general position homeomorphism from the link of each $j$-cell to the boundary of the standard $(k-j)$-dimensional bihedron; and
+\item a labelling of each $j$-cell by a $(k-j)$-dimensional morphism of $\cC$, with domain and range determined by the labelings of the link of the $j$-cell.
+\end{itemize}
+Actually, this data is just a representative of a string diagram, and we consider this data up to a certain equivalence; we can modify the homeomorphism parametrizing the link of a $j$-cell, at the expense of replacing the corresponding $(k-j)$-morphism labelling that $j$-cell by the `appropriate dual'.
+
+When $X$ has boundary, we ask that each cell meets the boundary transversely (so cells meeting the boundary are only half-cells). Note that this means that a string diagram on $X$ restricts to a string diagram on $\bdy X$.
+
+\subsubsection{$n=1$}
+Now suppose $n=1$; here the right sort of duality means that we want $\cC$ to be a $*$-$1$-category.
+
+A string diagram on a $0$-manifold consists just of a labeling of each point with an object of $\cC$.
+
+A string diagram on a $1$-manifold $S$ consists of
+\begin{itemize}
+\item a cell decomposition of $S$: the $0$-cells form a finite collection of points in the interior of $S$, the $1$-cells are the complementary intervals;
+\item a labeling of each $1$-cell by an object of $\cC$;
+\item a transverse orientation of each $0$-cell;
+\item a labeling of each $0$-cell by a morphism of $\cC$, with source and target given by the labels on the $1$-cells on the `incoming' and `outgoing' sides of the $0$-cell.
+\end{itemize}
+As above, we allow ourselves to switch the transverse orientation of  $0$-cell, as long as we replace the label on that $0$-cell by its $*$.
+
+Note that if $S$ is an interval, we can interpret the string diagram as a recipe for a morphism in $\cC$, at least after we fix one boundary point as `incoming' and the other `outgoing'. There's a (half-)$1$-cell adjacent to the incoming boundary point, and another adjacent to the outgoing boundary point. These will be the source and target of the morphism we build. Flip all the transverse orientations of the $0$-cells so they are compatible with the overall orientation of the interval. Now we simply compose all the morphisms living on the $0$-cells.
+
+If $\cC$ were a $*$-algebra (i.e., it has only one $0$-morphism) we could forget the labels on the $1$-cells, and a string diagram would just consist of a finite collection of oriented points in the interior, labelled by elements of the algebra, up to flipping an orientation and taking $*$ of the corresponding element.
+
+\subsubsection{$n=2$}
+Now suppose $\cC$ is a pivotal $2$-category. (The usual definition in the literature is for a pivotal monoidal category; by a pivotal $2$-category we mean to take the axioms for a pivotal monoidal category, think of a monoidal category as a $2$-category with only one object, then forget that restriction. There is an unfortunate other use of the phrase `pivotal $2$-category' in the literature, which actually refers to a $3$-category, but that's their fault.)
+
+A string diagram on a $0$-manifold is a labeling of each point by an object (a.k.a. a $0$-morphism) of $\cC$. A string diagram on a $1$-manifold is exactly as in the $n=1$ case, with labels taken from the $0$- and $1$-morphisms of $\cC$.
+
+A string diagram on a $2$-manifold $Y$ consists of
+\begin{itemize}
+\item a cell decomposition of $Y$: the $1$-skeleton is a graph embedded in $Y$, and the $2$-cells ensure that each component of the complement of this graph is a disk);
+\item a $0$-morphism of $\cC$ on each $2$-cell;
+\item a transverse orientation of each $1$-cell;
+\item a $1$-morphism of $\cC$ on each $1$-cell, with source and target given by the labels on the $2$-cells on the incoming and outgoing sides;
+\item for each $0$-cell, a homeomorphism of its link to $S^1$ (this is `the boundary of the standard $2$-bihedron') such that none of the intersections of $1$-cells with the link are sent to $\pm 1$ (this is the `general position' requirement; the points $\pm 1$ are special, as part of the structure of a standard bihedron);
+\item a $2$-morphism of $\cC$ for each $0$-cell, with source and target given by the labels of the $1$-cells crossing the incoming and outgoing faces of the bihedron.
+\end{itemize}
+
+Let's spell out this stuff about bihedra. Suppose the neighborhood of a $0$-cell looks like the following.
+$$
+\begin{tikzpicture}
+\draw[fill] (0,0) circle (0.5mm) node[anchor=north west] (x) {$x$};
+\draw (0,0) to[out=135,in=-90] node[above=10] {$b$} (-1,2);
+\draw (0,0) to[out=10,in=-150] node[right=15] {$c$} (3,1);
+\draw (0,0) -- node[below right] {$a$} (0,-2);
+\draw[red,->] (0,-1.5) -- +(0.2,0);
+\draw[red,->] (-0.85,1.2) -- +(0.2,0);
+\draw[red,->] (2.5,0.7) -- +(0.2,0);
+\draw[dashed] (-2,0) arc (135:45:2.81) node[anchor=west] {\tiny $+1$} arc (-45:-135:2.81) node[anchor=east] {\tiny $-1$};
+\end{tikzpicture}
+$$
+(Here the small arrows indicate the transverse orientation of the $1$-cells, and the dashes indicate a parametrization of the link as the boundary of a bihedron.)
+Which $2$-morphism space of $\cC$ should the label $x$ belong to? It should be an element of $\Hom(a, b \tensor c)$. But now what if we modify the parametrization as follows:
+$$
+\begin{tikzpicture}
+\draw[fill] (0,0) circle (0.5mm) node[anchor=north west] (x) {$x'$};
+\draw (0,0) to[out=135,in=-90] node[above=10] {$b$} (-1,2);
+\draw (0,0) to[out=10,in=-150] node[right=15] {$c$} (3,1);
+\draw (0,0) -- node[below right] {$a$} (0,-2);
+\draw[red,->] (0,-1.5) -- +(0.2,0);
+\draw[red,->] (-0.85,1.2) -- +(0.2,0);
+\draw[red,->] (2.5,0.7) -- +(0.2,0);
+\draw[dashed] (225:2) arc (180:90:2.81) node[anchor=west] {\tiny $+1$} arc (0:-90:2.81) node[anchor=east] {\tiny $-1$};
+\end{tikzpicture}
+$$
+What is the element $x'$? It should be an element of $\Hom(a \tensor c^*, b)$, and in a pivotal $2$-category this space is naturally isomorphic to $\Hom(a, b \tensor c)$, so we just choose $x'$ to be the image of $x$ under this isomorphism.
+
+Finally, when $Y$ is a ball, how do we interpret a string diagram on $Y$ as a $2$-morphism in $\cC$? First choose a parametrization of $Y$ as a standard bihedron; now `sweep out' the interior of $Y$. We'll build a $2$-morphism from the tensor product of the $1$-morphisms labeling the $1$-cells meeting the lower boundary to the tensor product of the $1$-morphisms labelling the upper boundary. As we pass critical points in the $1$-cells, apply a pairing or copairing map from the category. As we pass $0$-cells, modify the parametrization to match the direction we're sweeping out, and compose with the label of the $0$-cell, acting on the appropriate tensor factors.
 \end{document}
