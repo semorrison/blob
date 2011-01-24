@@ -24,7 +24,7 @@
 \usepackage{tikz}
 \usetikzlibrary{shapes}
 
-\newcommand{\selfarrow}{\ensuremath{\smash{\tikz[baseline]{\clip (0,0.36) rectangle (0.48,-0.16); \draw[->] (0,0.2) .. controls (0.6,0.8) and (0.6,-0.6) .. (0,0);}}}}
+\newcommand{\selfarrow}{\ensuremath{\smash{\tikz[baseline]{\clip (0,0.36) rectangle (0.48,-0.16); \draw[->] (0,0.175) .. controls (0.6,0.65) and (0.6,-0.45) .. (0,0.025);}}}}
 
 \usepackage{hyperref}
 \newcommand{\arxiv}[1]{\href{http://arxiv.org/abs/#1}{\tt arXiv:\nolinkurl{#1}}}
@@ -32,6 +32,7 @@
 \newcommand{\bdy}{\partial}
 \newcommand{\iso}{\cong}
 \newcommand{\tensor}{\otimes}
+\newcommand{\Tensor}{\bigotimes}
 
 \newcommand{\restrict}[2]{#1{}_{\mid #2}{}}
 \newcommand{\set}[1]{\left\{#1\right\}}
@@ -60,7 +61,7 @@
 \applytolist{declaremathop}{Maps}{Diff}{Homeo}{Hom};
 
 \title{Fields and local relations}
-\author{Scott Morrison}
+\author{Scott Morrison \\ Notes for Teichner's hot topics course}
 \date{January 25 2011}
 
 \begin{document}
@@ -171,4 +172,187 @@ $$
 What is the element $x'$? It should be an element of $\Hom(a \tensor c^*, b)$, and in a pivotal $2$-category this space is naturally isomorphic to $\Hom(a, b \tensor c)$, so we just choose $x'$ to be the image of $x$ under this isomorphism.
 
 Finally, when $Y$ is a ball, how do we interpret a string diagram on $Y$ as a $2$-morphism in $\cC$? First choose a parametrization of $Y$ as a standard bihedron; now `sweep out' the interior of $Y$. We'll build a $2$-morphism from the tensor product of the $1$-morphisms labeling the $1$-cells meeting the lower boundary to the tensor product of the $1$-morphisms labelling the upper boundary. As we pass critical points in the $1$-cells, apply a pairing or copairing map from the category. As we pass $0$-cells, modify the parametrization to match the direction we're sweeping out, and compose with the label of the $0$-cell, acting on the appropriate tensor factors.
+
+As usual for fields based on string diagrams, the corresponding local relations are exactly the kernel of this `evaluation' map.
+
+\section{Axioms for fields}
+
+\section{TQFT from fields}
+Given a system of fields and local relations $\cF, \cU$, we define the corresponding vector space valued invariant of $n$-manifolds $A$ as follows. For $X$ an $n$-manifold, write $\cU(X)$ for the subspace of $\cF(X)$ consisting of the span of the images of a gluing map $\cU(B; c) \tensor \cF(X \setminus B; c)$ for any embedded $n$-ball $B \subset X$, and boundary field $c \in \cF(\bdy B)$. We then define
+$$A(X) = \cF(X) / \cU(X).$$
+It's clear that homeomorphisms of $X$ act on this space. Actually, this collapses to an action of the mapping class group:
+\begin{lem}
+Homeomorphisms isotopic to the identity act trivially on $A(X)$.
+\end{lem}
+\begin{proof}
+Any $1$-parameter family of homeomorphisms is homotopic (rel boundary) to a family for which during any sufficiently short interval of time, the homeomorphism is only being modified inside a ball. The difference between a field at the beginning of such an interval and the field at the end is in $\cU(X)$, and hence zero in $A(X)$.
+\end{proof}
+
+
+If $X$ has boundary, we can choose $c \in \cF(\bdy X)$ and similarly define a vector space $A(X; c) = \cF(X; c) / \cU(X; c)$.
+
+This invariant also extends to manifolds of other dimensions, associating to a codimension $k$ manifold $Y$ a linear $k$-category $A(Y)$. We'll spell this out below for small values of $k$, and postpone the full story until we have our own notion of $k$-category. Thus the TQFT we obtain from fields and local relations is `fully extended'. On the other hand, often a TQFT invariant that associates vector spaces to $n$-manifolds will also associate numbers to $(n+1)$-manifolds.  Such a TQFT is called `$(n+1)$-dimensional', while one that doesn't is called alternatively `$(n+\epsilon)$-dimensional', `decapitated' or `topless'. In general the TQFTs from fields and local relations are just $(n+\epsilon)$-dimensional, although with some extra conditions on the input we can produce $(n+1)$-dimensional TQFTs. This discussion is almost entirely orthogonal to the content of the blob complex paper (although c.f. \S 6.7 on the $(n+1)$-category of $n$-categories), so we won't pursue it here.
+
+To an $(n-1)$-dimensional manifold $Y$, we associate a $1$-category $A(Y)$. Its objects are simply $\cF(Y)$. The morphism spaces are given by $$\Hom(a,b) = A(Y \times [0,1]; a \bullet b).$$
+Composition of morphisms is via gluing then reparametrization:
+$$A(Y \times [0,1]; a \bullet b) \tensor A(Y \times [0,1]; b \bullet c) \to A(Y \times [0,2]; a \bullet c) \to A(Y \times [0,1]; a \bullet c).$$
+The gluing maps themselves are strictly associative, and by the lemma above we don't have worry about the reparametrization step here breaking associativity.
+
+
+If $Y$ itself has boundary, we have some alternatives here. One is to interpret $Y \times [0,1]$ as the `pinched product', where we collapse the copy of $[0,1]$ over each point of $\bdy Y$. The other is to fix $c \in \cF(\bdy Y)$, and to define $A(Y; c)$, with objects $\cF(Y; c)$ and in which $\Hom(a,b) = A(Y \times [0,1]; a \bullet b \bullet (c \times [0,1]))$.
+
+Going deeper, we associate a $2$-category $A(P)$ to an $(n-2)$-dimensional manifold $P$. The $0$-morphisms are $\cF(P)$, the $1$-morphisms are $\cF(P \times I)$, and they compose by gluing intervals together. (Note that this composition is not associative on the nose, but will be associative up to a $2$-morphism shortly.) Finally the $2$-morphisms from $a$ to $b$, each $1$-morphisms from $x$ to $y$ are given by the vector space
+$$A(P \times I \times I; \tikz[baseline=11.5]{\draw (0,0) -- node[below] {$a$} (1,0) -- node[below, sloped] {$y \times I$} (1,1) -- node[above] {$b$} (0,1) (0,0) -- node[above,sloped] {$x \times I$} (0,1);})$$ 
+
+\subsection{Gluing formulas}
+Even though the definition of these TQFTs is via an abstract looking (not to mention scarily infinite-dimensional) quotient, we can prove various `gluing formulas' that allow us to compute the invariants algebraically.
+
+\subsubsection{Codimension 1 gluing}
+
+Suppose an $n$-manifold $X$ contains a copy of $Y$, an $n-1$ manifold, as a codimension $0$ submanifold of its boundary. Fix a boundary condition $c \in \cF(\bdy X \setminus Y)$. Then the collection $A(X; c \bullet d)$, as $d$ varies over $\cF(Y)$, forms a module over the $1$-category $A(Y)$. The action is via gluing a collar onto $Y$, then applying a `collaring homeomorphism' $X \cup_Y Y \times I \to X$.
+
+If $X$ contains two copies of $Y$, $A(X)$ is then a bimodule over $A(Y)$. Below, we'll compute the invariant of the `glued up' manifold $X \bigcup_Y \selfarrow$ as the self-tensor product of this bimodule.
+
+\begin{lem}
+Any isotopy of $X \bigcup_Y \selfarrow$ is homotopic to a composition of `collar shift' isotopies and isotopies that are constant on $Y$ (i.e. the image of an isotopy of $X$ itself).
+\end{lem}
+\begin{proof}
+First make the isotopy act locally. When it's acting in a small ball overlapping $Y$, conjugate by a collar shift to move it off.
+\end{proof}
+
+\begin{thm}
+$$A(X \bigcup_Y \selfarrow) \iso A(X) \Tensor_{A(Y)} \selfarrow$$
+\end{thm}
+\begin{proof}
+Certainly there is a map $A(X) \selfarrow \to A(X \bigcup_Y \selfarrow)$. We send an element of $A(X)$ to the corresponding `glued up' element of $A(X \bigcup_Y \selfarrow)$. This is well-defined since $\cU(X)$ maps into $\cU(X \bigcup_Y \selfarrow)$. This map descends down to a map
+$$A(X) \Tensor_{A(Y)} \selfarrow \to A(X \bigcup_Y \selfarrow)$$
+since the fields $ev$  and $ve$ (here $e \in A(Y), v \in A(X)$) are isotopic on $X \bigcup_Y \selfarrow$ (see Figure \ref{fig:ev-ve}).
+
+\begin{figure}[!ht]
+$$
+\begin{tikzpicture}[x=4cm,y=4cm]
+\node (a) at (0,2) {
+\begin{tikzpicture}[x=0.5cm,y=0.5cm]
+\node (a1) at (-2,1.2) {};
+\node (a2) at (-2,0) {};
+\node (b1) at (2,1.2) {};
+\node (b2) at (2,0) {};
+\draw (a1) arc (270:90:1) -- +(4,0) arc (90:-90:1);
+\draw (a2) arc (270:90:2.5) -- +(4,0) arc (90:-90:2.5);
+
+% end caps
+\draw (a1) arc (90:450:0.3 and 0.6);
+\draw (b1) arc (90:270:0.3 and 0.6);
+\draw[dashed] (b1) arc (90:-90:0.3 and 0.6);
+
+% the cylinder
+\draw (-1.2,1.2) arc (90:270:0.3 and 0.6);
+\draw[dashed] (-1.2,0) arc (-90:90: 0.3 and 0.6);
+\draw (-1.2,1.2) -- (1.2,1.2) (-1.2,0) -- (1.2,0);
+\draw (1.2,0) arc (-90:270:0.3 and 0.6);
+% the donut hole
+\draw (-2.5,4.2) arc (-135:-45:2);
+\draw (-2,3.9) arc (135:45:1.3);
+
+% labels
+\node at (1.8,4) {\Large $v$};
+\node at (0,0.5) {\Large $e$};
+\end{tikzpicture}
+};
+\node (ev) at (-1,1) {
+\begin{tikzpicture}[x=0.5cm,y=0.5cm]
+\node[coordinate] (a1) at (-2,1.2) {};
+\node[coordinate] (a2) at (-2,0) {};
+\node[coordinate] (b1) at (2,1.2) {};
+\node[coordinate] (b2) at (2,0) {};
+\draw (0.5,1.2) -- (a1) arc (270:90:1) -- +(4,0) arc (90:-90:1);
+\draw (0.5,0) -- (a2) arc (270:90:2.5) -- +(4,0) arc (90:-90:2.5);
+
+% end caps
+\draw (0.5,1.2) arc (90:450:0.3 and 0.6);
+\draw (b1) arc (90:270:0.3 and 0.6);
+\draw[dashed] (b1) arc (90:-90:0.3 and 0.6);
+
+% the donut hole
+\draw (-2.5,4.2) arc (-135:-45:2);
+\draw (-2,3.9) arc (135:45:1.3);
+
+% dots
+\draw[dotted] (-2,0.6) ellipse (0.3 and 0.6);
+
+% labels
+\node at (1.8,4) {\Large $ev$};
+\end{tikzpicture}
+};
+\node (ve) at (1,1) {
+\begin{tikzpicture}[x=0.5cm,y=0.5cm]
+\node[coordinate] (a1) at (-2,1.2) {};
+\node[coordinate] (a2) at (-2,0) {};
+\node[coordinate] (b1) at (2,1.2) {};
+\node[coordinate] (b2) at (2,0) {};
+\draw (a1) arc (270:90:1) -- +(4,0) arc (90:-90:1) -- (-0.5,1.2);
+\draw (a2) arc (270:90:2.5) -- +(4,0) arc (90:-90:2.5) -- (-0.5,0);
+
+% end caps
+\draw (a1) arc (90:450:0.3 and 0.6);
+\draw (-0.5,1.2) arc (90:270:0.3 and 0.6);
+\draw[dashed] (-0.5,1.2) arc (90:-90:0.3 and 0.6);
+
+% dots
+\draw[dotted] (2,0.6) ellipse (0.3 and 0.6);
+
+% the donut hole
+\draw (-2.5,4.2) arc (-135:-45:2);
+\draw (-2,3.9) arc (135:45:1.3);
+
+% labels
+\node at (1.8,4) {\Large $ve$};
+\end{tikzpicture}
+};
+\node (b) at (0,0) {
+\begin{tikzpicture}[x=0.5cm,y=0.5cm]
+\node[coordinate] (a1) at (-2,1.2) {};
+\node[coordinate] (a2) at (-2,0) {};
+\node[coordinate] (b1) at (2,1.2) {};
+\node[coordinate] (b2) at (2,0) {};
+\draw (a1) arc (270:90:1) -- +(4,0) arc (90:-90:1) -- (-2,1.2);
+\draw (a2) arc (270:90:2.5) -- +(4,0) arc (90:-90:2.5) -- (-2,0);
+
+% the donut hole
+\draw (-2.5,4.2) arc (-135:-45:2);
+\draw (-2,3.9) arc (135:45:1.3);
+
+% dots
+\draw[dotted] (-2,0.6) ellipse (0.3 and 0.6);
+\draw[dotted] (2,0.6) ellipse (0.3 and 0.6);
+
+% labels
+\node at (1.8,4) {$ve = ev$};
+\end{tikzpicture}
+};
+\draw[->] (a) -- (ev);
+\draw[->] (a) -- (ve);
+\draw[->] (ev) -- (b);
+\draw[->] (ve) -- (b);
+\end{tikzpicture}
+$$
+\caption{Isotopic fields on the glued manifold}
+\label{fig:ev-ve}
+\end{figure}
+
+There is a map the other way, too. There isn't quite a map $\cF(X \bigcup_Y \selfarrow) \to \cF(X)$, since a field on $X \bigcup_Y \selfarrow$ need not be splittable along $Y$. Nevertheless, every field is isotopic to one that is splittable along $Y$, and combining this with the lemma above we obtain a map $\cF(X \bigcup_Y \selfarrow) / (\text{isotopy}) \to A(X)  \Tensor_{A(Y)} \selfarrow$. We now need to show that this descends to a map from $A(X \bigcup_Y \selfarrow)$. Consider an field of the form $u \bullet f$, for some ball $B$ embedded in $X \bigcup_Y \selfarrow$ and $u \in \cU(B), f \in \cF(X \bigcup_Y \selfarrow \setminus B)$. Now $B$ might cross $Y$, but we can choose an isotopy of $X \bigcup_Y \selfarrow$ so that it doesn't. Thus $u \bullet f$ is sent to a field in $\cU(X)$, and is zero in $A(X)  \Tensor_{A(Y)} \selfarrow$.
+
+It's not too hard to see that these maps are mutual inverses.
+\end{proof}
+
+\subsubsection{Codimension 2 gluing}
+
+\section{$n$-categories and fields}
+Roughly, the data of a system of fields and local relations and the data of a disklike $n$-category (from \S 6) are intended to be equivalent.
+
+You essentially recover the axioms for a disklike $n$-category by just remembering everything about $\cF(X) / \cU(X)$ for $X$ a ball. 
+Almost equivalently, $A(\bullet)$ gives a disklike $n$-category.
+
+Going the other direction, we've already sketch one method of producing a system of fields from an $n$-category (string diagrams). In \S 6.3 we give another (although not explicitly), based on ball decompositions, which are roughly generalized pasting diagrams.
+
 \end{document}
