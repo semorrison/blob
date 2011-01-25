@@ -34,12 +34,17 @@
 \newcommand{\iso}{\cong}
 \newcommand{\tensor}{\otimes}
 \newcommand{\Tensor}{\bigotimes}
+\newcommand{\directSum}{\oplus}
+\newcommand{\DirectSum}{\bigoplus}
 
 \newcommand{\into}{\hookrightarrow}
 
 \newcommand{\restrict}[2]{#1{}_{\mid #2}{}}
 \newcommand{\set}[1]{\left\{#1\right\}}
 \newcommand{\setc}[2]{\setcl{#1}{#2}}
+\newcommand{\setcl}[2]{\left\{ \left. #1 \;\right| \; #2 \right\}}
+\newcommand{\setcr}[2]{\left\{ #1 \;\left| \; #2 \right\}\right.}
+
 
 % tricky way to iterate macros over a list
 \def\semicolon{;}
@@ -250,6 +255,12 @@ Suppose an $n$-manifold $X$ contains a copy of $Y$, an $n-1$ manifold, as a codi
 
 If $X$ contains two copies of $Y$, $A(X)$ is then a bimodule over $A(Y)$. Below, we'll compute the invariant of the `glued up' manifold $X \bigcup_Y \selfarrow$ as the self-tensor product of this bimodule.
 
+What is the self-tensor product of a bimodule over a category? First, what is the tensor product of a left-module and a right-module? Recall a module $\cM$ over a category $\cC$ is a collection of vector spaces $\cM_c$ indexed by an object $c \in \cC$, along with a linear map $f: \cM_a \to \cM_b$ for each morphism $f:a \mapsto b$ of $\cC$. The tensor product of a left- and a right-module is defined to be the vector space
+$$\cM \Tensor_\cC \cN = \left(\DirectSum_{c \in \cC} \cM_c \tensor {}_c\cN\right) \Big/ \setc{mf \tensor n - m \tensor fn}{f: c \mapsto c'}$$
+just as you'd expect. The self-tensor product of a bimodule ${}_{\cC}\cX_{\cC}$ is then
+$$\cX \Tensor_{\cC} \selfarrow = \DirectSum_{c \in \cC} {}_c \cX_c / (xf - fx).$$ 
+
+
 \begin{lem}
 Any isotopy of $X \bigcup_Y \selfarrow$ is homotopic to a composition of `collar shift' isotopies and isotopies that are constant on $Y$ (i.e. the image of an isotopy of $X$ itself).
 \end{lem}
@@ -261,7 +272,7 @@ First make the isotopy act locally. When it's acting in a small ball overlapping
 $$A(X \bigcup_Y \selfarrow) \iso A(X) \Tensor_{A(Y)} \selfarrow$$
 \end{thm}
 \begin{proof}
-Certainly there is a map $A(X) \to A(X \bigcup_Y \selfarrow)$. We send an element of $A(X)$ to the corresponding `glued up' element of $A(X \bigcup_Y \selfarrow)$. This is well-defined since $\cU(X)$ maps into $\cU(X \bigcup_Y \selfarrow)$. This map descends down to a map
+Certainly there is a map $\DirectSum_{y \in \cF(Y)} A(X; y \bullet y) \to A(X \bigcup_Y \selfarrow)$. We send an element of $A(X)$ to the corresponding `glued up' element of $A(X \bigcup_Y \selfarrow)$. This is well-defined since $\cU(X)$ maps into $\cU(X \bigcup_Y \selfarrow)$. This map descends down to a map
 $$A(X) \Tensor_{A(Y)} \selfarrow \to A(X \bigcup_Y \selfarrow)$$
 since the fields $ev$  and $ve$ (here $e \in A(Y), v \in A(X)$) are isotopic on $X \bigcup_Y \selfarrow$ (see Figure \ref{fig:ev-ve}).
 
