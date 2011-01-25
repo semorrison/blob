@@ -145,19 +145,21 @@ Note that if $S$ is an interval, we can interpret the string diagram as a recipe
 If $\cC$ were a $*$-algebra (i.e., it has only one $0$-morphism) we could forget the labels on the $1$-cells, and a string diagram would just consist of a finite collection of oriented points in the interior, labelled by elements of the algebra, up to flipping an orientation and taking $*$ of the corresponding element.
 
 \subsubsection{$n=2$}
-Now suppose $\cC$ is a pivotal $2$-category. (The usual definition in the literature is for a pivotal monoidal category; by a pivotal $2$-category we mean to take the axioms for a pivotal monoidal category, think of a monoidal category as a $2$-category with only one object, then forget that restriction. There is an unfortunate other use of the phrase `pivotal $2$-category' in the literature, which actually refers to a $3$-category, but that's their fault.)
+Now suppose $\cC$ is a (strict) pivotal $*$-$2$-category. (The usual definition in the literature is for a pivotal monoidal category; by a pivotal $2$-category we mean to take the axioms for a pivotal monoidal category, think of a monoidal category as a $2$-category with only one object, then forget that restriction. There is an unfortunate other use of the phrase `pivotal $2$-category' in the literature, which actually refers to a $3$-category, but that's their fault.) The $*$ here means that in addition to being able to rotate $2$-morphisms via the pivotal structure, we can also reflect them.
 
 A string diagram on a $0$-manifold is a labeling of each point by an object (a.k.a. a $0$-morphism) of $\cC$. A string diagram on a $1$-manifold is exactly as in the $n=1$ case, with labels taken from the $0$- and $1$-morphisms of $\cC$.
 
 A string diagram on a $2$-manifold $Y$ consists of
 \begin{itemize}
-\item a cell decomposition of $Y$: the $1$-skeleton is a graph embedded in $Y$, but the $2$-cells don't need to be balls.
+\item a `generalized cell decomposition' of $Y$: the $1$-skeleton is a graph embedded in $Y$, but the $2$-cells don't need to be balls.
 \item a $0$-morphism of $\cC$ on each $2$-cell;
 \item a transverse orientation of each $1$-cell;
 \item a $1$-morphism of $\cC$ on each $1$-cell, with source and target given by the labels on the $2$-cells on the incoming and outgoing sides;
 \item for each $0$-cell, a homeomorphism of its link to $S^1$ (this is `the boundary of the standard $2$-bihedron') such that none of the intersections of $1$-cells with the link are sent to $\pm 1$ (this is the `general position' requirement; the points $\pm 1$ are special, as part of the structure of a standard bihedron);
 \item a $2$-morphism of $\cC$ for each $0$-cell, with source and target given by the labels of the $1$-cells crossing the incoming and outgoing faces of the bihedron.
 \end{itemize}
+
+You can see here why we can't insist on an actual cell decomposition: asking that the $2$-cells are balls is a non-local condition, so we wouldn't be able to glue fields together.
 
 Let's spell out this stuff about bihedra. Suppose the neighborhood of a $0$-cell looks like the following.
 $$
@@ -193,10 +195,11 @@ Finally, when $Y$ is a ball, how do we interpret a string diagram on $Y$ as a $2
 As usual for fields based on string diagrams, the corresponding local relations are exactly the kernel of this `evaluation' map.
 
 \subsection{Conic stratifications}
-Ugh. Here's my attempt to make ``looks locally like a cell decomposition'' sensible. A conic stratification of $M$ is a stratification $$M_0 \subset M_1 \subset \cdots \subset M_n = M$$
+Here's my attempt to make ``looks locally like a cell decomposition'' sensible. A conic stratification of $M$ is a stratification $$M_0 \subset M_1 \subset \cdots \subset M_n = M$$
 (so $M_k \setminus M_{k-1}$ is a $k$-manifold, the connected components of which we'll still call $k$-cells, even though they need not be balls), which has a certain local model.
 
 Any point on $k$-cell has a neighborhood $U$ which is homeomorphic to $B^k \times \Cone(X)$, where $X$ is some conic stratification of $S^{n-k-1}$, and this homeomorphism preserves strata. (In $B^k \times \Cone(X)$, there are no strata below level $k$, the cone points are the $k$-strata, and the points over the $i$-strata of $X$ form the $i+k+1$ strata.)
+
 
 \section{Axioms for fields}
 A $n$-dimensional system of fields and local relations $(\cF, \cU)$ enriched in a symmetric monoidal category $\cS$ consists of the following data:
@@ -206,18 +209,20 @@ A $n$-dimensional system of fields and local relations $(\cF, \cU)$ enriched in 
 \item[structure] the structure of an object of $\cS$ on each set $\cF_n(X; c)$, and below, appropriate compatibility at the level of morphisms;
 \item[gluing] when $\bdy X = (Y \sqcup Y) \cup Z$, there is an injective map $$\cF_k(X; y \bullet y \bullet z) \into \cF_k(X \bigcup_Y \selfarrow; z)$$ for each $y \in \cF_{k-1}(Y), z \in \cF_{k-1}(Z)$;
 \item[identities] natural transformations $\times I: \cF_k \to (\cF_{k+1} \circ \times I)$;
-\item[local relations] a functor $\cU$ from $n$-balls (and homeomorphisms) to sets, so $\cU \subset \cF$;
+\item[local relations] a functor $\cU$ from $n$-balls (and homeomorphisms) to sets, so $\cU \subset \cF$.
 \end{description}
 and these data satisfy the following properties:
 \begin{itemize}
 \item everything respects the symmetric monoidal structures on $k$-manifolds (disjoint union), sets, and $\cS$ $$\cF_k(A \sqcup B) = \cF_k(A) \times \cF_k(B);$$
 \item gluing is compatible with action of homeomorphisms;
 \item the local relations form an ideal under gluing;
-\item ... gluing is surjective up to isotopy (collaring?) ...
-\item identities are compatible on the nose with everything in sight...
+\item gluing is surjective up to isotopy;
+\item identities are compatible on the nose with everything in sight.
 \end{itemize}
 
 Actually in the `gluing' axiom above, the field $z$ on the right hand side actually needs to be interpreted as the image of $z$ under a gluing map one dimensional down, because it's now meant to be a field on $Z \bigcup_{\bdy Y} \selfarrow$.
+
+It's admittedly a little peculiar looking that we insist that gluing is surjective up to isotopy, but it's a feature of the examples and turns out to be useful (see the proof of the gluing formula below). We may actually want to relax this axiom even further: we didn't talk about this, but for systems of fields based on pasting diagrams (as opposed to string diagrams) for $n$-categories, we need to be able to `insert identities', as well as isotope, before gluing becomes surjective. `Inserting an identity' means cutting open a field somewhere that it is splittable, gluing on an identity morphism, then using a collaring morphism before gluing the field up again. Essentially the difference is that string diagrams `have identities everywhere', so they are always splittable after a small isotopy.
 
 \section{TQFT from fields}
 Given a system of fields and local relations $\cF, \cU$, we define the corresponding vector space valued invariant of $n$-manifolds $A$ as follows. For $X$ an $n$-manifold, write $\cU(X)$ for the subspace of $\cF(X)$ consisting of the span of the images of a gluing map $\cU(B; c) \tensor \cF(X \setminus B; c)$ for any embedded $n$-ball $B \subset X$, and boundary field $c \in \cF(\bdy B)$. We then define
