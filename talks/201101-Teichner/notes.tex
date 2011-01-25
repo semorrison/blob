@@ -224,7 +224,7 @@ First make the isotopy act locally. When it's acting in a small ball overlapping
 $$A(X \bigcup_Y \selfarrow) \iso A(X) \Tensor_{A(Y)} \selfarrow$$
 \end{thm}
 \begin{proof}
-Certainly there is a map $A(X) \selfarrow \to A(X \bigcup_Y \selfarrow)$. We send an element of $A(X)$ to the corresponding `glued up' element of $A(X \bigcup_Y \selfarrow)$. This is well-defined since $\cU(X)$ maps into $\cU(X \bigcup_Y \selfarrow)$. This map descends down to a map
+Certainly there is a map $A(X) \to A(X \bigcup_Y \selfarrow)$. We send an element of $A(X)$ to the corresponding `glued up' element of $A(X \bigcup_Y \selfarrow)$. This is well-defined since $\cU(X)$ maps into $\cU(X \bigcup_Y \selfarrow)$. This map descends down to a map
 $$A(X) \Tensor_{A(Y)} \selfarrow \to A(X \bigcup_Y \selfarrow)$$
 since the fields $ev$  and $ve$ (here $e \in A(Y), v \in A(X)$) are isotopic on $X \bigcup_Y \selfarrow$ (see Figure \ref{fig:ev-ve}).
 
@@ -265,11 +265,11 @@ $$
 \node[coordinate] (a2) at (-2,0) {};
 \node[coordinate] (b1) at (2,1.2) {};
 \node[coordinate] (b2) at (2,0) {};
-\draw (0.5,1.2) -- (a1) arc (270:90:1) -- +(4,0) arc (90:-90:1);
-\draw (0.5,0) -- (a2) arc (270:90:2.5) -- +(4,0) arc (90:-90:2.5);
+\draw (a1) arc (270:90:1) -- +(4,0) arc (90:-90:1);
+\draw (a2) arc (270:90:2.5) -- +(4,0) arc (90:-90:2.5);
 
 % end caps
-\draw (0.5,1.2) arc (90:450:0.3 and 0.6);
+\draw (a1) arc (90:450:0.3 and 0.6);
 \draw (b1) arc (90:270:0.3 and 0.6);
 \draw[dashed] (b1) arc (90:-90:0.3 and 0.6);
 
@@ -278,10 +278,11 @@ $$
 \draw (-2,3.9) arc (135:45:1.3);
 
 % dots
-\draw[dotted] (-2,0.6) ellipse (0.3 and 0.6);
+\draw[dotted] (-3.7,2.4) ellipse (0.7 and 0.4);
 
 % labels
-\node at (1.8,4) {\Large $ev$};
+\node at (1.8,4) {\Large $v$};
+\node at (-3.5,1.4) {\Large $e$};
 \end{tikzpicture}
 };
 \node (ve) at (1,1) {
@@ -290,23 +291,24 @@ $$
 \node[coordinate] (a2) at (-2,0) {};
 \node[coordinate] (b1) at (2,1.2) {};
 \node[coordinate] (b2) at (2,0) {};
-\draw (a1) arc (270:90:1) -- +(4,0) arc (90:-90:1) -- (-0.5,1.2);
-\draw (a2) arc (270:90:2.5) -- +(4,0) arc (90:-90:2.5) -- (-0.5,0);
+\draw (a1) arc (270:90:1) -- +(4,0) arc (90:-90:1);
+\draw (a2) arc (270:90:2.5) -- +(4,0) arc (90:-90:2.5);
 
 % end caps
 \draw (a1) arc (90:450:0.3 and 0.6);
-\draw (-0.5,1.2) arc (90:270:0.3 and 0.6);
-\draw[dashed] (-0.5,1.2) arc (90:-90:0.3 and 0.6);
+\draw (b1) arc (90:270:0.3 and 0.6);
+\draw[dashed] (b1) arc (90:-90:0.3 and 0.6);
 
 % dots
-\draw[dotted] (2,0.6) ellipse (0.3 and 0.6);
+\draw[dotted] (3.7,2.4) ellipse (0.7 and 0.4);
 
 % the donut hole
 \draw (-2.5,4.2) arc (-135:-45:2);
 \draw (-2,3.9) arc (135:45:1.3);
 
 % labels
-\node at (1.8,4) {\Large $ve$};
+\node at (1.8,4) {\Large $v$};
+\node at (3.5,1.4) {\Large $e$};
 \end{tikzpicture}
 };
 \node (b) at (0,0) {
@@ -323,11 +325,12 @@ $$
 \draw (-2,3.9) arc (135:45:1.3);
 
 % dots
-\draw[dotted] (-2,0.6) ellipse (0.3 and 0.6);
-\draw[dotted] (2,0.6) ellipse (0.3 and 0.6);
+\draw[dotted] (-3.7,2.4) ellipse (0.7 and 0.4);
+\draw[dotted] (3.7,2.4) ellipse (0.7 and 0.4);
+\draw[dotted] (0,0.6) ellipse (0.3 and 0.6);
 
 % labels
-\node at (1.8,4) {$ve = ev$};
+\node at (1.8,4) {$ve \sim ev$};
 \end{tikzpicture}
 };
 \draw[->] (a) -- (ev);
@@ -336,7 +339,7 @@ $$
 \draw[->] (ve) -- (b);
 \end{tikzpicture}
 $$
-\caption{Isotopic fields on the glued manifold}
+\caption{$ve$ and $ev$ differ by a collar shift on the glued manifold}
 \label{fig:ev-ve}
 \end{figure}
 
