@@ -11,6 +11,7 @@
 \usepackage{amsthm,amsmath}
 \theoremstyle{plain}
 \newtheorem{prop}{Proposition}[section]
+\newtheorem{puzzle}[prop]{Puzzle}
 \newtheorem{conj}[prop]{Conjecture}
 \newtheorem{thm}[prop]{Theorem}
 \newtheorem{lem}[prop]{Lemma}
@@ -33,6 +34,8 @@
 \newcommand{\iso}{\cong}
 \newcommand{\tensor}{\otimes}
 \newcommand{\Tensor}{\bigotimes}
+
+\newcommand{\into}{\hookrightarrow}
 
 \newcommand{\restrict}[2]{#1{}_{\mid #2}{}}
 \newcommand{\set}[1]{\left\{#1\right\}}
@@ -58,7 +61,7 @@
 
 % \DeclareMathOperator{\pr}{pr} etc.
 \def\declaremathop#1{\expandafter\DeclareMathOperator\csname #1\endcsname{#1}}
-\applytolist{declaremathop}{Maps}{Diff}{Homeo}{Hom};
+\applytolist{declaremathop}{Maps}{Diff}{Homeo}{Hom}{Cone};
 
 \title{Fields and local relations}
 \author{Scott Morrison \\ Notes for Teichner's hot topics course}
@@ -79,7 +82,7 @@ There are two main examples which will motivate the precise definitions, so we'l
 \subsection{Maps to a target space}
 Fixing a target space $T$, we can define a system of fields $\Maps(- \to T)$. Actually, it's best to modify this a bit, just in the top dimension, where we'll linearize in the following way: define $\Maps(X^n \to T)$ on an $n$-manifold $X$ to be \emph{formal linear combinations} of maps to $T$, extending a \emph{fixed} linear map on $\bdy X$. (That is, arbitrary boundary conditions are allowed, but we can only take linear combinations of maps with the same boundary conditions.) This will be a common feature for all `linear' systems of fields: at the top dimension the set associated to an $n$-manifold will break up into a vector space for each possible boundary condition.
 
-What then are the local relations? We define $U(B)$, the local relations on an $n$-ball $B$, to be the subspace of $\Maps(B \to T)$ spanned by differences $f-g$ of maps which are homotopic rel boundary.
+What then are the local relations? We define $\cU(B)$, the local relations on an $n$-ball $B$, to be the subspace of $\Maps(B \to T)$ spanned by differences $f-g$ of maps which are homotopic rel boundary.
 
 Let's identify some useful features of this system of fields and local relations; later these will inspire the axioms.
 
@@ -91,6 +94,13 @@ Suppose $X$ and $Y$ are $n$-balls, and we can glue them together to form another
 If $f, g: X \to T$ are homotopic maps, and $h: Y \to T$ is an arbitrary map, and all agree on the $(n-1)$-ball $S$, then $f \bullet_S h$ and $g \bullet_S h$ are again homotopic to each other. Said otherwise, $f-g$ was a local relation on $X$, and $(f-g) \bullet_S h$ is a local relation on $X \cup_S Y$.
 \end{description}
 
+Finally, a puzzle for you to think about if the next example gets bogged down in nitty-gritty:
+\begin{puzzle}
+Let $\cU(X)$ denote fields of the form $u \bullet f$, where $u \in \cU(B)$ for some ball $B$ in $X$, and $f$ is a map from $X \setminus B$ to $T$. Then $$\Maps(X \to T) / \cU(X) \iso \mathbb{C}[X \to T]$$ Why?
+\end{puzzle}
+(The difficulty is meant to be that we only mod out by `local' homotopies, not all homotopies.)
+
+
 \subsection{String diagrams}
 This will be a more complicated example, and also a very important one. Essentially, it's a recipe for constructing a system of fields and local relations from a suitable $n$-category. As we haven't yet talked about a definition of an $n$-category, I'll be somewhat vague about what we actually require from one. I'll spell out the construction precisely in the cases $n=1$ and $n=2$, where there are familiar concrete definitions to work with. Later, in \S 6, when we introduce our notion of a `disklike $n$-category', you should think of the definition as being optimized to make the transition back and forth between $n$-categories and systems of fields as straightforward as possible.
 
@@ -101,11 +111,13 @@ There are several alternative schemes for realizing this idea. Two that may be f
 Fix an $n$-category $\cC$, according to your favorite definition. Suppose that it has `the right sort of duality'. Let's state the general definition, but then to preserve sanity unwind it in dimensions $1$ and $2$.
 A string diagram on a $k$-manifold $X$ consists of
 \begin{itemize}
-\item a cell decomposition of X;
+\item a `conic stratification' (see below, think ``looks locally like a cell decomposition'') of X;
 \item a general position homeomorphism from the link of each $j$-cell to the boundary of the standard $(k-j)$-dimensional bihedron; and
 \item a labelling of each $j$-cell by a $(k-j)$-dimensional morphism of $\cC$, with domain and range determined by the labelings of the link of the $j$-cell.
 \end{itemize}
 Actually, this data is just a representative of a string diagram, and we consider this data up to a certain equivalence; we can modify the homeomorphism parametrizing the link of a $j$-cell, at the expense of replacing the corresponding $(k-j)$-morphism labelling that $j$-cell by the `appropriate dual'.
+
+What is a conic stratification? Actually, I just made up that name. In the blob complex paper we just say ``cell decomposition'' but this is wrong (and we'll fix it)! Really we want something that looks locally like a cell decomposition. Let's postpone this, as it's just a distraction for now.
 
 When $X$ has boundary, we ask that each cell meets the boundary transversely (so cells meeting the boundary are only half-cells). Note that this means that a string diagram on $X$ restricts to a string diagram on $\bdy X$.
 
@@ -134,7 +146,7 @@ A string diagram on a $0$-manifold is a labeling of each point by an object (a.k
 
 A string diagram on a $2$-manifold $Y$ consists of
 \begin{itemize}
-\item a cell decomposition of $Y$: the $1$-skeleton is a graph embedded in $Y$, and the $2$-cells ensure that each component of the complement of this graph is a disk);
+\item a cell decomposition of $Y$: the $1$-skeleton is a graph embedded in $Y$, but the $2$-cells don't need to be balls.
 \item a $0$-morphism of $\cC$ on each $2$-cell;
 \item a transverse orientation of each $1$-cell;
 \item a $1$-morphism of $\cC$ on each $1$-cell, with source and target given by the labels on the $2$-cells on the incoming and outgoing sides;
@@ -175,7 +187,32 @@ Finally, when $Y$ is a ball, how do we interpret a string diagram on $Y$ as a $2
 
 As usual for fields based on string diagrams, the corresponding local relations are exactly the kernel of this `evaluation' map.
 
+\subsection{Conic stratifications}
+Ugh. Here's my attempt to make ``looks locally like a cell decomposition'' sensible. A conic stratification of $M$ is a stratification $$M_0 \subset M_1 \subset \cdots \subset M_n = M$$
+(so $M_k \setminus M_{k-1}$ is a $k$-manifold, the connected components of which we'll still call $k$-cells, even though they need not be balls), which has a certain local model.
+
+Any point on $k$-cell has a neighborhood $U$ which is homeomorphic to $B^k \times \Cone(X)$, where $X$ is some conic stratification of $S^{n-k-1}$, and this homeomorphism preserves strata. (In $B^k \times \Cone(X)$, there are no strata below level $k$, the cone points are the $k$-strata, and the points over the $i$-strata of $X$ form the $i+k+1$ strata.)
+
 \section{Axioms for fields}
+A $n$-dimensional system of fields and local relations $(\cF, \cU)$ enriched in a symmetric monoidal category $\cS$ consists of the following data:
+\begin{description}
+\item[fields] functors $\cF_k$ from $k$-manifolds (and homeomorphisms) to sets;
+\item[boundaries] natural transformations $\bdy : \cF_k \to (\cF_{k-1} \circ \bdy)$;
+\item[structure] the structure of an object of $\cS$ on each set $\cF_n(X; c)$, and below, appropriate compatibility at the level of morphisms;
+\item[gluing] when $\bdy X = (Y \sqcup Y) \cup Z$, there is an injective map $$\cF_k(X; y \bullet y \bullet z) \into \cF_k(X \bigcup_Y \selfarrow; z)$$ for each $y \in \cF_{k-1}(Y), z \in \cF_{k-1}(Z)$;
+\item[identities] natural transformations $\times I: \cF_k \to (\cF_{k+1} \circ \times I)$;
+\item[local relations] a functor $\cU$ from $n$-balls (and homeomorphisms) to sets, so $\cU \subset \cF$;
+\end{description}
+and these data satisfy the following properties:
+\begin{itemize}
+\item everything respects the symmetric monoidal structures on $k$-manifolds (disjoint union), sets, and $\cS$ $$\cF_k(A \sqcup B) = \cF_k(A) \times \cF_k(B);$$
+\item gluing is compatible with action of homeomorphisms;
+\item the local relations form an ideal under gluing;
+\item ... gluing is surjective up to isotopy (collaring?) ...
+\item identities are compatible on the nose with everything in sight...
+\end{itemize}
+
+Actually in the `gluing' axiom above, the field $z$ on the right hand side actually needs to be interpreted as the image of $z$ under a gluing map one dimensional down, because it's now meant to be a field on $Z \bigcup_{\bdy Y} \selfarrow$.
 
 \section{TQFT from fields}
 Given a system of fields and local relations $\cF, \cU$, we define the corresponding vector space valued invariant of $n$-manifolds $A$ as follows. For $X$ an $n$-manifold, write $\cU(X)$ for the subspace of $\cF(X)$ consisting of the span of the images of a gluing map $\cU(B; c) \tensor \cF(X \setminus B; c)$ for any embedded $n$-ball $B \subset X$, and boundary field $c \in \cF(\bdy B)$. We then define
