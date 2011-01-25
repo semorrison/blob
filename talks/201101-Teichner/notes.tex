@@ -145,7 +145,7 @@ Note that if $S$ is an interval, we can interpret the string diagram as a recipe
 If $\cC$ were a $*$-algebra (i.e., it has only one $0$-morphism) we could forget the labels on the $1$-cells, and a string diagram would just consist of a finite collection of oriented points in the interior, labelled by elements of the algebra, up to flipping an orientation and taking $*$ of the corresponding element.
 
 \subsubsection{$n=2$}
-Now suppose $\cC$ is a (strict) pivotal $*$-$2$-category. (The usual definition in the literature is for a pivotal monoidal category; by a pivotal $2$-category we mean to take the axioms for a pivotal monoidal category, think of a monoidal category as a $2$-category with only one object, then forget that restriction. There is an unfortunate other use of the phrase `pivotal $2$-category' in the literature, which actually refers to a $3$-category, but that's their fault.) The $*$ here means that in addition to being able to rotate $2$-morphisms via the pivotal structure, we can also reflect them.
+Now suppose $\cC$ is a (strict) pivotal $*$-$2$-category. (The usual definition in the literature is for a pivotal tensor category; by a pivotal $2$-category we mean to take the axioms for a pivotal tensor category, think of a tensor category as a $2$-category with only one object, then forget that restriction. There is an unfortunate other use of the phrase `pivotal $2$-category' in the literature, which actually refers to a $3$-category, but that's their fault.) The $*$ here means that in addition to being able to rotate $2$-morphisms via the pivotal structure, we can also reflect them.
 
 A string diagram on a $0$-manifold is a labeling of each point by an object (a.k.a. a $0$-morphism) of $\cC$. A string diagram on a $1$-manifold is exactly as in the $n=1$ case, with labels taken from the $0$- and $1$-morphisms of $\cC$.
 
@@ -200,6 +200,7 @@ Here's my attempt to make ``looks locally like a cell decomposition'' sensible. 
 
 Any point on $k$-cell has a neighborhood $U$ which is homeomorphic to $B^k \times \Cone(X)$, where $X$ is some conic stratification of $S^{n-k-1}$, and this homeomorphism preserves strata. (In $B^k \times \Cone(X)$, there are no strata below level $k$, the cone points are the $k$-strata, and the points over the $i$-strata of $X$ form the $i+k+1$ strata.)
 
+It's interesting to think about the details of this definition in dimensions $3$ and maybe even $4$, but in practice we have so few examples of such higher categories that particular axiomatizations of `string diagrams' are not deeply important.
 
 \section{Axioms for fields}
 A $n$-dimensional system of fields and local relations $(\cF, \cU)$ enriched in a symmetric monoidal category $\cS$ consists of the following data:
@@ -213,7 +214,7 @@ A $n$-dimensional system of fields and local relations $(\cF, \cU)$ enriched in 
 \end{description}
 and these data satisfy the following properties:
 \begin{itemize}
-\item everything respects the symmetric monoidal structures on $k$-manifolds (disjoint union), sets, and $\cS$ $$\cF_k(A \sqcup B) = \cF_k(A) \times \cF_k(B);$$
+\item everything respects the symmetric monoidal structures on $k$-manifolds (disjoint union), sets, and $\cS$: in particular, $$\cF_k(A \sqcup B) = \cF_k(A) \times \cF_k(B);$$
 \item gluing is compatible with action of homeomorphisms;
 \item the local relations form an ideal under gluing;
 \item gluing is surjective up to isotopy;
@@ -401,7 +402,7 @@ There is a map the other way, too. There isn't quite a map $\cF(X \bigcup_Y \sel
 It's not too hard to see that these maps are mutual inverses.
 \end{proof}
 
-\subsubsection{Codimension 2 gluing}
+We can also state a codimension $2$ gluing formula, but even just defining what modules and tensor products over $2$-categories mean is painful. (Maybe I'll expand these notes in the unlikely event that I still have time in the second talk.) Our eventual notion of $n$-category will significantly alleviate this problem, but we still shy away from stating a nice gluing formula in all codimensions simply because the blob complex paper never defines a notion of equivalence of $k$-categories. We're pretty sure we're on the right track with this, however, and the statements are all relatively easy.
 
 \section{$n$-categories and fields}
 Roughly, the data of a system of fields and local relations and the data of a disklike $n$-category (from \S 6) are intended to be equivalent.
