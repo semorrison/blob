@@ -31,16 +31,16 @@ For the next proposition we will temporarily restore $n$-manifold boundary
 conditions to the notation.
 
 Suppose that for all $c \in \cC(\bd B^n)$
-we have a splitting $s: H_0(\bc_*(B^n, c)) \to \bc_0(B^n; c)$
+we have a splitting $s: H_0(\bc_*(B^n; c)) \to \bc_0(B^n; c)$
 of the quotient map
-$p: \bc_0(B^n; c) \to H_0(\bc_*(B^n, c))$.
+$p: \bc_0(B^n; c) \to H_0(\bc_*(B^n; c))$.
 For example, this is always the case if the coefficient ring is a field.
 Then
 \begin{prop} \label{bcontract}
-For all $c \in \cC(\bd B^n)$ the natural map $p: \bc_*(B^n, c) \to H_0(\bc_*(B^n, c))$
+For all $c \in \cC(\bd B^n)$ the natural map $p: \bc_*(B^n; c) \to H_0(\bc_*(B^n; c))$
 is a chain homotopy equivalence
-with inverse $s: H_0(\bc_*(B^n, c)) \to \bc_*(B^n; c)$.
-Here we think of $H_0(\bc_*(B^n, c))$ as a 1-step complex concentrated in degree 0.
+with inverse $s: H_0(\bc_*(B^n; c)) \to \bc_*(B^n; c)$.
+Here we think of $H_0(\bc_*(B^n; c))$ as a 1-step complex concentrated in degree 0.
 \end{prop}
 \begin{proof}
 By assumption $p\circ s = \id$, so all that remains is to find a degree 1 map
@@ -67,8 +67,13 @@ If $X$ is a disjoint union of $n$-balls, then $\bc_*(X; c)$ is contractible.
 This follows from Properties \ref{property:disjoint-union} and \ref{property:contractibility}.
 \end{proof}
 
-Recall the definition of the support of a blob diagram as the union of all the 
-blobs of the diagram.
+%Recall the definition of the support of a blob diagram as the union of all the 
+%blobs of the diagram.
+We define the {\it support} of a blob diagram $b$, $\supp(b) \sub X$, 
+to be the union of the blobs of $b$.
+For $y \in \bc_*(X)$ with $y = \sum c_i b_i$ ($c_i$ a non-zero number, $b_i$ a blob diagram),
+we define $\supp(y) \deq \bigcup_i \supp(b_i)$.
+
 For future use we prove the following lemma.
 
 \begin{lemma} \label{support-shrink}
