@@ -180,8 +180,12 @@ $M_0 \to M_1 \to \cdots \to M_m = X$ such that each $M_k$ is obtained from $M_{k
 by gluing together some disjoint pair of homeomorphic $n{-}1$-manifolds in the boundary of $M_{k-1}$.
 If, in addition, $M_0$ is a disjoint union of balls, we call it a \emph{ball decomposition}.
 \end{defn}
-Given a gluing decomposition $M_0 \to M_1 \to \cdots \to M_m = X$, we say that a field is 
-splittable along it if it is the image of a field on $M_0$.
+
+Let $M_0 \to M_1 \to \cdots \to M_m = X$ be a gluing decomposition of $X$, 
+and let $M_0^0,\ldots,M_0^k$ be the connected components of $M_0$.
+We say that a field 
+$a\in \cF(X)$ is splittable along the decomposition if $a$ is the image 
+under gluing and disjoint union of a fields $a_i \in \cF(M_0^i)$, $0\le i\le k$.
 
 In the example above, note that
 \[
@@ -200,8 +204,8 @@ We'll now slightly restrict the possible configurations of blobs.
 \label{defn:configuration}
 A configuration of $k$ blobs in $X$ is an ordered collection of $k$ subsets $\{B_1, \ldots B_k\}$ 
 of $X$ such that there exists a gluing decomposition $M_0  \to \cdots \to M_m = X$ of $X$ and 
-for each subset $B_i$ there is some $0 \leq r \leq m$ and some connected component $M_r'$ of 
-$M_r$ which is a ball, so $B_i$ is the image of $M_r'$ in $X$. 
+for each subset $B_i$ there is some $0 \leq l \leq m$ and some connected component $M_l'$ of 
+$M_l$ which is a ball, so $B_i$ is the image of $M_l'$ in $X$. 
 We say that such a gluing decomposition 
 is \emph{compatible} with the configuration. 
 A blob $B_i$ is a twig blob if no other blob $B_j$ is a strict subset of it. 
@@ -213,7 +217,7 @@ We describe these as disjoint blobs and nested blobs.
 Note that nested blobs may have boundaries that overlap, or indeed coincide. 
 Blobs may meet the boundary of $X$.
 Further, note that blobs need not actually be embedded balls in $X$, since parts of the 
-boundary of the ball $M_r'$ may have been glued together.
+boundary of the ball $M_l'$ may have been glued together.
 
 Note that often the gluing decomposition for a configuration of blobs may just be the trivial one: 
 if the boundaries of all the blobs cut $X$ into pieces which are all manifolds, 
@@ -235,8 +239,8 @@ such that
 the restriction $u_i$ of $r$ to each twig blob $B_i$ lies in the subspace 
 $U(B_i) \subset \cF(B_i)$. 
 (See Figure \ref{blobkdiagram}.) 
-More precisely, each twig blob $B_i$ is the image of some ball $M_r'$ as above, 
-and it is really the restriction to $M_r'$ that must lie in the subspace $U(M_r')$.
+More precisely, each twig blob $B_i$ is the image of some ball $M_l'$ as above, 
+and it is really the restriction to $M_l'$ that must lie in the subspace $U(M_l')$.
 \end{defn}
 \begin{figure}[t]\begin{equation*}
 \mathfig{.7}{definition/k-blobs}
