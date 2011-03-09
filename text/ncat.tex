@@ -197,20 +197,20 @@ Note that we insist on injectivity above.
 The lemma follows from Definition \ref{def:colim-fields} and Lemma \ref{lem:colim-injective}.
 %\nn{we might want a more official looking proof...}
 
-Let $\cl{\cC}(S)_E$ denote the image of $\gl_E$.
-We will refer to elements of $\cl{\cC}(S)_E$ as ``splittable along $E$" or ``transverse to $E$". 
+Let $\cl{\cC}(S)\trans E$ denote the image of $\gl_E$.
+We will refer to elements of $\cl{\cC}(S)\trans E$ as ``splittable along $E$" or ``transverse to $E$". 
 
 If $X$ is a $k$-ball and $E \sub \bd X$ splits $\bd X$ into two $k{-}1$-balls $B_1$ and $B_2$
-as above, then we define $\cC(X)_E = \bd^{-1}(\cl{\cC}(\bd X)_E)$.
+as above, then we define $\cC(X)\trans E = \bd^{-1}(\cl{\cC}(\bd X)\trans E)$.
 
-We will call the projection $\cl{\cC}(S)_E \to \cC(B_i)$
+We will call the projection $\cl{\cC}(S)\trans E \to \cC(B_i)$
 a {\it restriction} map and write $\res_{B_i}(a)$
-(or simply $\res(a)$ when there is no ambiguity), for $a\in \cl{\cC}(S)_E$.
+(or simply $\res(a)$ when there is no ambiguity), for $a\in \cl{\cC}(S)\trans E$.
 More generally, we also include under the rubric ``restriction map"
 the boundary maps of Axiom \ref{nca-boundary} above,
 another class of maps introduced after Axiom \ref{nca-assoc} below, as well as any composition
 of restriction maps.
-In particular, we have restriction maps $\cC(X)_E \to \cC(B_i)$
+In particular, we have restriction maps $\cC(X)\trans E \to \cC(B_i)$
 ($i = 1, 2$, notation from previous paragraph).
 These restriction maps can be thought of as 
 domain and range maps, relative to the choice of splitting $\bd X = B_1 \cup_E B_2$.
@@ -229,11 +229,11 @@ Let $B = B_1 \cup_Y B_2$, where $B$, $B_1$ and $B_2$ are $k$-balls ($0\le k\le n
 and $Y = B_1\cap B_2$ is a $k{-}1$-ball (Figure \ref{blah5}).
 Let $E = \bd Y$, which is a $k{-}2$-sphere.
 Note that each of $B$, $B_1$ and $B_2$ has its boundary split into two $k{-}1$-balls by $E$.
-We have restriction (domain or range) maps $\cC(B_i)_E \to \cC(Y)$.
-Let $\cC(B_1)_E \times_{\cC(Y)} \cC(B_2)_E$ denote the fibered product of these two maps. 
+We have restriction (domain or range) maps $\cC(B_i)\trans E \to \cC(Y)$.
+Let $\cC(B_1)\trans E \times_{\cC(Y)} \cC(B_2)\trans E$ denote the fibered product of these two maps. 
 We have a map
 \[
-	\gl_Y : \cC(B_1)_E \times_{\cC(Y)} \cC(B_2)_E \to \cC(B)_E
+	\gl_Y : \cC(B_1)\trans E \times_{\cC(Y)} \cC(B_2)\trans E \to \cC(B)_E
 \]
 which is natural with respect to the actions of homeomorphisms, and also compatible with restrictions
 to the intersection of the boundaries of $B$ and $B_i$.
@@ -269,16 +269,16 @@ $$\mathfig{.65}{ncat/strict-associativity}$$
 \caption{An example of strict associativity.}\label{blah6}\end{figure}
 
 We'll use the notation  $a\bullet b$ for the glued together field $\gl_Y(a, b)$.
-In the other direction, we will call the projection from $\cC(B)_E$ to $\cC(B_i)_E$ 
-a restriction map (one of many types of map so called) and write $\res_{B_i}(a)$ for $a\in \cC(B)_E$.
+In the other direction, we will call the projection from $\cC(B)\trans E$ to $\cC(B_i)\trans E$ 
+a restriction map (one of many types of map so called) and write $\res_{B_i}(a)$ for $a\in \cC(B)\trans E$.
 %Compositions of boundary and restriction maps will also be called restriction maps.
 %For example, if $B$ is a $k$-ball and $Y\sub \bd B$ is a $k{-}1$-ball, there is a
 %restriction map from $\cC(B)_{\bd Y}$ to $\cC(Y)$.
 
-We will write $\cC(B)_Y$ for the image of $\gl_Y$ in $\cC(B)$.
-We will call elements of $\cC(B)_Y$ morphisms which are 
+We will write $\cC(B)\trans Y$ for the image of $\gl_Y$ in $\cC(B)$.
+We will call elements of $\cC(B)\trans Y$ morphisms which are 
 ``splittable along $Y$'' or ``transverse to $Y$''.
-We have $\cC(B)_Y \sub \cC(B)_E \sub \cC(B)$.
+We have $\cC(B)\trans Y \sub \cC(B)\trans E \sub \cC(B)$.
 
 More generally, let $\alpha$ be a splitting of $X$ into smaller balls.
 Let $\cC(X)_\alpha \sub \cC(X)$ denote the image of the iterated gluing maps from 
@@ -680,7 +680,7 @@ An $n$-category consists of the following data:
 \begin{itemize}
 \item functors $\cC_k$ from $k$-balls to sets, $0\le k\le n$ (Axiom \ref{axiom:morphisms});
 \item boundary natural transformations $\cC_k \to \cl{\cC}_{k-1} \circ \bd$ (Axiom \ref{nca-boundary});
-\item ``composition'' or ``gluing'' maps $\gl_Y : \cC(B_1)_E \times_{\cC(Y)} \cC(B_2)_E \to \cC(B_1\cup_Y B_2)_E$ (Axiom \ref{axiom:composition});
+\item ``composition'' or ``gluing'' maps $\gl_Y : \cC(B_1)\trans E \times_{\cC(Y)} \cC(B_2)\trans E \to \cC(B_1\cup_Y B_2)_E$ (Axiom \ref{axiom:composition});
 \item ``product'' or ``identity'' maps $\pi^*:\cC(X)\to \cC(E)$ for each pinched product $\pi:E\to X$ (Axiom \ref{axiom:product});
 \item if enriching in an auxiliary category, additional structure on $\cC_n(X; c)$;
 \item in the $A_\infty$ case, an action of $C_*(\Homeo_\bd(X))$, and similarly for families of collar maps (Axiom \ref{axiom:families}).
@@ -1266,8 +1266,8 @@ which is natural with respect to the actions of homeomorphisms.}
 \end{lem}
 Again, this is in exact analogy with Lemma \ref{lem:domain-and-range}.
 
-Let $\cl\cM(H)_E$ denote the image of $\gl_E$.
-We will refer to elements of $\cl\cM(H)_E$ as ``splittable along $E$" or ``transverse to $E$". 
+Let $\cl\cM(H)\trans E$ denote the image of $\gl_E$.
+We will refer to elements of $\cl\cM(H)\trans E$ as ``splittable along $E$" or ``transverse to $E$". 
 
 \begin{lem}[Module to category restrictions]
 {For each marked $k$-hemisphere $H$ there is a restriction map
@@ -1331,10 +1331,10 @@ $X$ is a plain $k$-ball,
 and $Y = X\cap M'$ is a $k{-}1$-ball.
 Let $E = \bd Y$, which is a $k{-}2$-sphere.
 We have restriction maps $\cM(M')_E \to \cC(Y)$ and $\cC(X)_E\to \cC(Y)$.
-Let $\cC(X)_E \times_{\cC(Y)} \cM(M')_E$ denote the fibered product of these two maps. 
+Let $\cC(X)\trans E \times_{\cC(Y)} \cM(M')_E$ denote the fibered product of these two maps. 
 Then (axiom) we have a map
 \[
-	\gl_Y :\cC(X)_E \times_{\cC(Y)} \cM(M')_E \to \cM(M)_E
+	\gl_Y :\cC(X)\trans E \times_{\cC(Y)} \cM(M')_E \to \cM(M)_E
 \]
 which is natural with respect to the actions of homeomorphisms, and also compatible with restrictions
 to the intersection of the boundaries of $X$ and $M'$.
