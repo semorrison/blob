@@ -14,19 +14,30 @@ $A_\infty$ $n$-categories, as well as modules for these, and tensor products of 
 (As is the case throughout this paper, by ``$n$-category" we mean some notion of
 a ``weak" $n$-category with ``strong duality".)
 
-The definitions presented below tie the categories more closely to the topology
-and avoid combinatorial questions about, for example, the minimal sufficient
-collections of generalized associativity axioms; we prefer maximal sets of axioms to minimal sets.
+Compared to other definitions in the literature,
+the definitions presented below tie the categories more closely to the topology
+and avoid combinatorial questions about, for example, finding a minimal sufficient
+collection of generalized associativity axioms; we prefer maximal sets of axioms to minimal sets.
 It is easy to show that examples of topological origin
-(e.g.\ categories whose morphisms are maps into spaces or decorated balls), 
+(e.g.\ categories whose morphisms are maps into spaces or decorated balls, or bordism categories), 
 satisfy our axioms.
-For examples of a more purely algebraic origin, one would typically need the combinatorial
+To show that examples of a more purely algebraic origin satisfy our axioms, 
+one would typically need the combinatorial
 results that we have avoided here.
 
 See \S\ref{n-cat-names} for a discussion of $n$-category terminology.
 
 %\nn{Say something explicit about Lurie's work here? 
 %It seems like this was something that Dan Freed wanted explaining when we talked to him in Aspen}
+
+\medskip
+
+The axioms for an $n$-category are spread throughout this section.
+Collecting these together, an $n$-category is a gadget satisfying Axioms \ref{axiom:morphisms}, \ref{nca-boundary}, \ref{axiom:composition},  \ref{nca-assoc}, \ref{axiom:product} and \ref{axiom:extended-isotopies}; for an $A_\infty$ $n$-category, we replace Axiom \ref{axiom:extended-isotopies} with Axiom \ref{axiom:families}.
+
+Strictly speaking, before we can state the axioms for $k$-morphisms we need all the axioms 
+for $k{-}1$-morphisms.
+So readers who prefer things to be presented in a strictly logical order should read this subsection $n$ times, first imagining that $k=0$, then that $k=1$, and so on until they reach $k=n$.
 
 \medskip
 
@@ -49,13 +60,9 @@ standard $k$-ball.
 We {\it do not} assume that it is equipped with a 
 preferred homeomorphism to the standard $k$-ball, and the same applies to ``a $k$-sphere" below.
 
-The axioms for an $n$-category are spread throughout this section.
-Collecting these together, an $n$-category is a gadget satisfying Axioms \ref{axiom:morphisms}, \ref{nca-boundary}, \ref{axiom:composition},  \ref{nca-assoc}, \ref{axiom:product} and \ref{axiom:extended-isotopies}; for an $A_\infty$ $n$-category, we replace Axiom \ref{axiom:extended-isotopies} with Axiom \ref{axiom:families}.
-
-
 Given a homeomorphism $f:X\to Y$ between $k$-balls (not necessarily fixed on 
 the boundary), we want a corresponding
-bijection of sets $f:\cC(X)\to \cC(Y)$.
+bijection of sets $f:\cC_k(X)\to \cC_k(Y)$.
 (This will imply ``strong duality", among other things.) Putting these together, we have
 
 \begin{axiom}[Morphisms]
@@ -103,7 +110,8 @@ boundary of a morphism.
 Morphisms are modeled on balls, so their boundaries are modeled on spheres.
 In other words, we need to extend the functors $\cC_{k-1}$ from balls to spheres, for 
 $1\le k \le n$.
-At first it might seem that we need another axiom for this, but in fact once we have
+At first it might seem that we need another axiom 
+(more specifically, additional data) for this, but in fact once we have
 all the axioms in this subsection for $0$ through $k-1$ we can use a colimit
 construction, as described in \S\ref{ss:ncat-coend} below, to extend $\cC_{k-1}$
 to spheres (and any other manifolds):
@@ -196,6 +204,10 @@ becomes a normal product.)
 Note that we insist on injectivity above. 
 The lemma follows from Definition \ref{def:colim-fields} and Lemma \ref{lem:colim-injective}.
 %\nn{we might want a more official looking proof...}
+
+If $S$ is a 0-sphere (the case $k=1$ above), then $S$ can be identified with the {\it disjoint} union
+of two 0-balls $B_1$ and $B_2$ and the colimit construction $\cl{\cC}(S)$ can be identified
+with the (ordinary, not fibered) product $\cC(B_1) \times \cC(B_2)$.
 
 Let $\cl{\cC}(S)\trans E$ denote the image of $\gl_E$.
 We will refer to elements of $\cl{\cC}(S)\trans E$ as ``splittable along $E$" or ``transverse to $E$". 
