@@ -821,15 +821,18 @@ but (string diagrams)/(relations) is isomorphic to
 }
 
 
-\begin{example}[The bordism $n$-category, ordinary version]
+\begin{example}[The bordism $n$-category of $d$-manifolds, ordinary version]
 \label{ex:bord-cat}
 \rm
 \label{ex:bordism-category}
-For a $k$-ball $X$, $k<n$, define $\Bord^n(X)$ to be the set of all $k$-dimensional PL
+For a $k$-ball $X$, $k<n$, define $\Bord^{n,d}(X)$ to be the set of all $(d{-}n{+}k)$-dimensional PL
 submanifolds $W$ of $X\times \Real^\infty$ such that $\bd W = W \cap \bd X \times \Real^\infty$.
-For an $n$-ball $X$ define $\Bord^n(X)$ to be homeomorphism classes (rel boundary) of such $n$-dimensional submanifolds;
+For an $n$-ball $X$ define $\Bord^{n,d}(X)$ to be homeomorphism classes (rel boundary) of such $d$-dimensional submanifolds;
 we identify $W$ and $W'$ if $\bd W = \bd W'$ and there is a homeomorphism
 $W \to W'$ which restricts to the identity on the boundary.
+For $n=1$ we have the familiar bordism 1-category of $d$-manifolds.
+The case $n=d$ captures the $n$-categorical nature of bordisms.
+The case $n > 2d$ captures the full symmetric monoidal $n$-category structure.
 \end{example}
 
 %\nn{the next example might be an unnecessary distraction.  consider deleting it.}
@@ -890,15 +893,14 @@ It's easy to see that with $n=0$, the corresponding system of fields is just
 linear combinations of connected components of $T$, and the local relations are trivial.
 There's no way for the blob complex to magically recover all the data of $\pi^\infty_{\leq 0}(T) \iso C_* T$.
 
-\begin{example}[The bordism $n$-category, $A_\infty$ version]
+\begin{example}[The bordism $n$-category of $d$-manifolds, $A_\infty$ version]
 \rm
 \label{ex:bordism-category-ainf}
-As in Example \ref{ex:bord-cat}, for $X$ a $k$-ball, $k<n$, we define $\Bord^{n,\infty}(X)$
-to be the set of all $k$-dimensional
-submanifolds $W$ of $X\times \Real^\infty$ such that $\bd W$ is 
-contained in $\bd X \times \Real^\infty$.
+As in Example \ref{ex:bord-cat}, for $X$ a $k$-ball, $k<n$, we define $\Bord^{n,d}_\infty(X)$
+to be the set of all $(d{-}n{+}k)$-dimensional
+submanifolds $W$ of $X\times \Real^\infty$ such that $\bd W = W \cap \bd X \times \Real^\infty$.
 For an $n$-ball $X$ with boundary condition $c$ 
-define $\Bord^{n,\infty}(X; c)$ to be the space of all $k$-dimensional
+define $\Bord^{n,d}_\infty(X; c)$ to be the space of all $d$-dimensional
 submanifolds $W$ of $X\times \Real^\infty$ such that 
 $W$ coincides with $c$ at $\bd X \times \Real^\infty$.
 (The topology on this space is induced by ambient isotopy rel boundary.
