@@ -65,6 +65,19 @@
 
 \usepackage{amssymb,amsfonts,amsmath,amsthm}
 
+% fiddle with fonts
+
+\usepackage{microtype}
+
+\usepackage{ifxetex} 
+\ifxetex
+\usepackage{xunicode,fontspec,xltxtra}
+\setmainfont[Ligatures={}]{Linux Libertine O}
+\usepackage{unicode-math}
+\setmathfont{Asana Math}
+\fi
+
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% OPTIONAL MACRO FILES
 %% Insert self-defined macros here.
@@ -157,6 +170,8 @@
 \def\BD{BD}
 
 \def\spl{_\pitchfork}
+
+
 
 
 % equations
@@ -337,6 +352,7 @@ of the United States of America}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{article}
 
+
 \begin{abstract}
 We summarize our axioms for higher categories, and describe the ``blob complex". 
 Fixing an $n$-category $\cC$, the blob complex associates a chain complex $\bc_*(W;\cC)$ to any $n$-manifold $W$. 
@@ -494,7 +510,7 @@ of higher associativity relations.
 While this proliferation is manageable for 1-categories (and indeed leads to an elegant theory
 of Stasheff polyhedra and $A_\infty$ categories), it becomes undesirably complex for higher categories.
 In a Moore loop space, we have a separate space $\Omega_r$ for each interval $[0,r]$, and a 
-{\it strictly associative} composition $\Omega_r\times \Omega_s\to \Omega_{r+s}$.
+{\it strictly associative} composition $\Omega_r \times \Omega_s \to \Omega_{r+s}$.
 Thus we can have the simplicity of strict associativity in exchange for more morphisms.
 We wish to imitate this strategy in higher categories.
 Because we are mainly interested in the case of pivotal $n$-categories, we replace the intervals $[0,r]$ not with
@@ -906,6 +922,7 @@ The blob complex of a disjoint union is naturally isomorphic to the tensor produ
 \end{equation*}
 \end{property}
 
+
 If an $n$-manifold $X$ contains $Y \sqcup Y^\text{op}$ (we allow $Y = \eset$) as a codimension $0$ submanifold of its boundary, 
 write $X \bigcup_{Y}\selfarrow$ for the manifold obtained by gluing together $Y$ and $Y^\text{op}$.
 \begin{property}[Gluing map]
@@ -916,9 +933,9 @@ write $X \bigcup_{Y}\selfarrow$ for the manifold obtained by gluing together $Y$
 %\end{equation*}
 Given a gluing $X \to X \bigcup_{Y}\selfarrow$, there is
 a map
-\[
-	\bc_*(X) \to \bc_*(X \bigcup_{Y}\selfarrow),
-\]
+$
+	\bc_*(X) \to \bc_*\left(X \bigcup_{Y} \selfarrow\right),
+$
 natural with respect to homeomorphisms, and associative with respect to iterated gluings.
 \end{property}
 
