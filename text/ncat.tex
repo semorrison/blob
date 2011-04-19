@@ -1277,8 +1277,7 @@ These maps, for various $M$, comprise a natural transformation of functors.}
 Given $c\in\cl\cM(\bd M)$, let $\cM(M; c) \deq \bd^{-1}(c)$.
 
 If the $n$-category $\cC$ is enriched over some other category (e.g.\ vector spaces),
-then $\cM(M; c)$ should be an object in that category for each marked $n$-ball $M$
-and $c\in \cC(\bd M)$.
+then for each marked $n$-ball $M=(B,N)$ and $c\in \cC(\bd B \setminus N)$, the set $\cM(M; c)$ should be an object in that category.
 
 \begin{lem}[Boundary from domain and range]
 {Let $H = M_1 \cup_E M_2$, where $H$ is a marked $k{-}1$-hemisphere ($1\le k\le n$),
@@ -1307,7 +1306,7 @@ Note that combining the various boundary and restriction maps above
 (for both modules and $n$-categories)
 we have for each marked $k$-ball $(B, N)$ and each $k{-}1$-ball $Y\sub \bd B \setmin N$
 a natural map from a subset of $\cM(B, N)$ to $\cC(Y)$.
-The subset is the subset of morphisms which are appropriately splittable (transverse to the
+This subset $\cM(B,N)\trans{\bdy Y}$ is the subset of morphisms which are appropriately splittable (transverse to the
 cutting submanifolds).
 This fact will be used below.
 
@@ -1333,11 +1332,11 @@ First, we can compose two module morphisms to get another module morphism.
 and $Y = M_1\cap M_2$ is a marked $k{-}1$-ball.
 Let $E = \bd Y$, which is a marked $k{-}2$-hemisphere.
 Note that each of $M$, $M_1$ and $M_2$ has its boundary split into two marked $k{-}1$-balls by $E$.
-We have restriction (domain or range) maps $\cM(M_i)_E \to \cM(Y)$.
-Let $\cM(M_1)_E \times_{\cM(Y)} \cM(M_2)_E$ denote the fibered product of these two maps. 
+We have restriction (domain or range) maps $\cM(M_i)\trans E \to \cM(Y)$.
+Let $\cM(M_1) \trans E \times_{\cM(Y)} \cM(M_2) \trans E$ denote the fibered product of these two maps. 
 Then (axiom) we have a map
 \[
-	\gl_Y : \cM(M_1)_E \times_{\cM(Y)} \cM(M_2)_E \to \cM(M)_E
+	\gl_Y : \cM(M_1) \trans E \times_{\cM(Y)} \cM(M_2) \trans E \to \cM(M) \trans E
 \]
 which is natural with respect to the actions of homeomorphisms, and also compatible with restrictions
 to the intersection of the boundaries of $M$ and $M_i$.
@@ -1357,11 +1356,11 @@ We'll call this the action map to distinguish it from the other kind of composit
 $X$ is a plain $k$-ball,
 and $Y = X\cap M'$ is a $k{-}1$-ball.
 Let $E = \bd Y$, which is a $k{-}2$-sphere.
-We have restriction maps $\cM(M')_E \to \cC(Y)$ and $\cC(X)_E\to \cC(Y)$.
-Let $\cC(X)\trans E \times_{\cC(Y)} \cM(M')_E$ denote the fibered product of these two maps. 
+We have restriction maps $\cM(M') \trans E \to \cC(Y)$ and $\cC(X) \trans E\to \cC(Y)$.
+Let $\cC(X)\trans E \times_{\cC(Y)} \cM(M') \trans E$ denote the fibered product of these two maps. 
 Then (axiom) we have a map
 \[
-	\gl_Y :\cC(X)\trans E \times_{\cC(Y)} \cM(M')_E \to \cM(M)_E
+	\gl_Y :\cC(X)\trans E \times_{\cC(Y)} \cM(M')\trans E \to \cM(M) \trans E
 \]
 which is natural with respect to the actions of homeomorphisms, and also compatible with restrictions
 to the intersection of the boundaries of $X$ and $M'$.
