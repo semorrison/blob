@@ -124,10 +124,13 @@ homeomorphisms to the category of sets and bijections.
 \end{lem}
 
 We postpone the proof of this result until after we've actually given all the axioms.
-Note that defining this functor for some $k$ only requires the data described in Axiom \ref{axiom:morphisms} at level $k$, 
-along with the data described in the other axioms at lower levels. 
+Note that defining this functor for fixed $k$ only requires the data described in Axiom \ref{axiom:morphisms} at level $k$, 
+along with the data described in the other axioms for smaller values of $k$. 
 
-%In fact, the functors for spheres are entirely determined by the functors for balls and the subsequent axioms. (In particular, $\cC(S^k)$ is the colimit of $\cC$ applied to decompositions of $S^k$ into balls.) However, it is easiest to think of it as additional data at this point.
+Of course, Lemma \ref{lem:spheres}, as stated, is satisfied by the trivial functor.
+What we really mean is that there is exists a functor which interacts with other data of $\cC$ as specified 
+in the other axioms below.
+
 
 \begin{axiom}[Boundaries]\label{nca-boundary}
 For each $k$-ball $X$, we have a map of sets $\bd: \cC_k(X)\to \cl{\cC}_{k-1}(\bd X)$.
@@ -397,8 +400,12 @@ $$
 $$
 \caption{Examples of pinched products}\label{pinched_prods}
 \end{figure}
-(The need for a strengthened version will become apparent in Appendix \ref{sec:comparing-defs}
-where we construct a traditional category from a disk-like category.)
+The need for a strengthened version will become apparent in Appendix \ref{sec:comparing-defs}
+where we construct a traditional category from a disk-like category.
+For example, ``half-pinched" products of 1-balls are used to construct weak identities for 1-morphisms
+in 2-categories.
+We also need fully-pinched products to define collar maps below (see Figure \ref{glue-collar}).
+
 Define a {\it pinched product} to be a map
 \[
 	\pi: E\to X
@@ -476,6 +483,17 @@ $$
 }
 \end{scope}
 \end{tikzpicture}
+\qquad
+\begin{tikzpicture}[baseline=0]
+\begin{scope}
+\path[clip] (0,0) arc (135:45:4) arc (-45:-135:4);
+\draw[blue,line width=2pt] (0,0) arc (135:45:4) arc (-45:-135:4);
+\draw[blue] (2.82,-5) -- (2.83,5);
+\foreach \x in {0, 0.5, ..., 6} {
+	\draw[green!50!brown] (\x,-2) -- (\x,2);
+}
+\end{scope}
+\end{tikzpicture}
 $$
 \caption{Five examples of unions of pinched products}\label{pinched_prod_unions}
 \end{figure}
@@ -512,7 +530,13 @@ commutes, then we have
 Product morphisms are compatible with gluing (composition).
 Let $\pi:E\to X$, $\pi_1:E_1\to X_1$, and $\pi_2:E_2\to X_2$ 
 be pinched products with $E = E_1\cup E_2$.
+(See Figure \ref{pinched_prod_unions}.)  
+Note that $X_1$ and $X_2$ can be identified with subsets of $X$, 
+but $X_1 \cap X_2$ might not be codimension 1, and indeed we might have $X_1 = X_2 = X$.
+We assume that there is a decomposition of $X$ into balls which is compatible with
+$X_1$ and $X_2$.
 Let $a\in \cC(X)$, and let $a_i$ denote the restriction of $a$ to $X_i\sub X$.
+(We assume that $a$ is splittable with respect to the above decomposition of $X$ into balls.)
 Then 
 \[
 	\pi^*(a) = \pi_1^*(a_1)\bullet \pi_2^*(a_2) .
@@ -674,6 +698,12 @@ type $A_\infty$ $n$-category.
 
 \medskip
 
+We define a $j$ times monoidal $n$-category to be an $(n{+}j)$-category $\cC$ where
+$\cC(X)$ is a trivial 1-element set if $X$ is a $k$-ball with $k<j$.
+See Example \ref{ex:bord-cat}.
+
+\medskip
+
 The alert reader will have already noticed that our definition of a (ordinary) $n$-category
 is extremely similar to our definition of a system of fields.
 There are two differences.
@@ -805,20 +835,6 @@ Define $\cC(X; c)$, for $X$ an $n$-ball,
 to be the dual Hilbert space $A(X\times F; c)$.
 (See \S\ref{sec:constructing-a-tqft}.)
 \end{example}
-
-\noop{
-\nn{shouldn't this go elsewhere?  we haven't yet discussed constructing a system of fields from
-an n-cat}
-Recall we described a system of fields and local relations based on a ``traditional $n$-category" 
-$C$ in Example \ref{ex:traditional-n-categories(fields)} above.
-\nn{KW: We already refer to \S \ref{sec:fields} above}
-Constructing a system of fields from $\cC$ recovers that example. 
-\todo{Except that it doesn't: pasting diagrams v.s. string diagrams.}
-\nn{KW: but the above example is all about string diagrams.  the only difference is at the top level,
-where the quotient is built in.
-but (string diagrams)/(relations) is isomorphic to 
-(pasting diagrams composed of smaller string diagrams)/(relations)}
-}
 
 
 \begin{example}[The bordism $n$-category of $d$-manifolds, ordinary version]
