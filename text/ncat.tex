@@ -476,6 +476,17 @@ $$
 }
 \end{scope}
 \end{tikzpicture}
+\qquad
+\begin{tikzpicture}[baseline=0]
+\begin{scope}
+\path[clip] (0,0) arc (135:45:4) arc (-45:-135:4);
+\draw[blue,line width=2pt] (0,0) arc (135:45:4) arc (-45:-135:4);
+\draw[blue] (2.82,-5) -- (2.83,5);
+\foreach \x in {0, 0.5, ..., 6} {
+	\draw[green!50!brown] (\x,-2) -- (\x,2);
+}
+\end{scope}
+\end{tikzpicture}
 $$
 \caption{Five examples of unions of pinched products}\label{pinched_prod_unions}
 \end{figure}
