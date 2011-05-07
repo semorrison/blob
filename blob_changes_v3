@@ -16,4 +16,6 @@ The most significant changes are:
 - added brief definition of monoidal n-categories
 - fixed statement of compatibility of product morphisms with gluing
 - added remark about manifolds which do not admit ball decompositions; restricted product theorem (7.1.1) to apply only to these manifolds
+- added remarks about categories of defects
 - 
+
