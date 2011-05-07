@@ -1,0 +1,68 @@
+
+* We need to be clearer about which types of homeomorphisms the
+"localization" theorem in the appendix works for, in the body of the
+paper. Options here include:
+a) having a better theorem in a separate paper, so we don't actually
+need to worry 
+[** currently working on this option]
+b) changing the statements in the paper, for example writing PL-Homeo
+everywhere instead of Homeo
+c) explicitly saying "Homeo means PL-Homeo" everywhere
+c') if we succumb to Peter's suggestion of say "Iso" everywhere,
+perhaps we could adopt the notation that "Iso^*" or similar means one
+of a restricted set of categories, where the appendix works, and using
+this notation in section 5.
+
+* Consider moving A_\infty stuff to a subsection
+
+* dimension n+1, explain the statement and refer to KW's notes
+
+* framings and duality -- work out what's going on!
+
+* consider proving the gluing formula for higher codimension manifolds with
+morita equivalence
+
+
+* Peter's suggestion for A_inf definition
+
+* enriching in other \infty categories, explaining how "D" should
+interact with coproducts in "S" (break out A_\infty stuff into a
+subsection)
+
+
+* SCOTT will go through appendix C.2 and make it better
+
+* In the appendix on n=1, explain more about orientations. Also say
+what happens on objects for spin manifolds: the unique point has an
+automorphism, which translates into a involution on objects. Mention
+super-stuff.
+
+* make remarks about defect interpretation of sphere modules
+
+
+colimit subsection: 
+
+* Labeling of the k-1 skeleton agreeing on the k-2 skeleton is awfully vague. 
+
+* Category of permissible decompositions must be a small category in order to take the colimit. 
+
+* Boundary of \cl; not so easy to see!
+
+
+modules:
+
+* Marked hemispheres, need better language.
+
+* Lemma 6.4.5 needs to actually construct this map! Needs more input! Do
+we actually need this as written?
+
+
+
+* add remark about relation of SC operad to Ryan Budney thing
+
+* SCOTT: typo in delfig3a -- upper g should be g^{-1}
+
+* finalize acknowledge list
+
+* fix "cell decomposition" (\nn remark) in string-diagram-fields def
+
