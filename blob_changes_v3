@@ -1,0 +1,18 @@
+Changes between arXiv version 2 and arXiv version 3
+---------------------------------------------------
+
+Many small clarifications of text.  
+
+Also many typos corrected.
+
+The most significant changes are:
+
+- added to acknowledgements
+- clarified definition of splittable
+- change to pitchfork notation for splittable subsets of fields
+- added definition of collaring homeomorphism
+- improved definition of bordism n-category
+- fixed definition of a refinement of a ball decomposition (intermediate manifolds should also be disjoiunt unions of balls)
+- added brief defintion of monoidal n-categories
+- fixed statement of compatibility of product morphisms with gluing
+- 
