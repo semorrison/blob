@@ -1755,20 +1755,27 @@ This does not depend on the choice of splitting $D = D'\bullet D''$ because $g$ 
 \subsection{The \texorpdfstring{$n{+}1$}{n+1}-category of sphere modules}
 \label{ssec:spherecat}
 
-In this subsection we define $n{+}1$-categories $\cS$ of ``sphere modules" 
-whose objects are $n$-categories.
+In this subsection we define $n{+}1$-categories $\cS$ of ``sphere modules".
+The objects are $n$-categories, the $k$-morphisms are $k{-}1$-sphere modules for $1\le k \le n$,
+and the $n{+}1$-morphisms are intertwinors.
 With future applications in mind, we treat simultaneously the big category
 of all $n$-categories and all sphere modules and also subcategories thereof.
 When $n=1$ this is closely related to familiar $2$-categories consisting of 
 algebras, bimodules and intertwiners (or a subcategory of that).
+The sphere module $n{+}1$-category is a natural generalization of the 
+algebra-bimodule-intertwinor 2-category to higher dimensions.
+
+Another possible name for this $n{+}1$-category is $n{+}1$-category of defects.
+The $n$-categories are thought of as representing field theories, and the 
+$0$-sphere modules are codimension 1 defects between adjacent theories.
+In general, $m$-sphere modules are codimension $m{+}1$ defects;
+the link of such a defect is an $m$-sphere decorated with defects of smaller codimension.
+
+\medskip
 
 While it is appropriate to call an $S^0$ module a bimodule,
 this is much less true for higher dimensional spheres, 
 so we prefer the term ``sphere module" for the general case.
-
-%The results of this subsection are not needed for the rest of the paper,
-%so we will skimp on details in a couple of places. We have included this mostly 
-%for the sake of comparing our notion of a disk-like $n$-category to other definitions.
 
 For simplicity, we will assume that $n$-categories are enriched over $\c$-vector spaces.
 
@@ -1783,7 +1790,7 @@ that our $n$-categories and modules have non-degenerate inner products.
 
 \medskip
 
-Our first task is to define an $n$-category $m$-sphere module, for $0\le m \le n-1$.
+Our first task is to define an $n$-category $m$-sphere modules, for $0\le m \le n-1$.
 These will be defined in terms of certain classes of marked balls, very similarly
 to the definition of $n$-category modules above.
 (This, in turn, is very similar to our definition of $n$-category.)
@@ -1814,7 +1821,8 @@ We can also take the boundary of a $0$-marked ball, which is $0$-marked sphere.
 Fix $n$-categories $\cA$ and $\cB$.
 These will label the two halves of a $0$-marked $k$-ball.
 
-An $n$-category $0$-sphere module $\cM$ over the $n$-categories $\cA$ and $\cB$ is a collection of functors $\cM_k$ from the category
+An $n$-category $0$-sphere module $\cM$ over the $n$-categories $\cA$ and $\cB$ is 
+a collection of functors $\cM_k$ from the category
 of $0$-marked $k$-balls, $1\le k \le n$,
 (with the two halves labeled by $\cA$ and $\cB$) to the category of sets.
 If $k=n$ these sets should be enriched to the extent $\cA$ and $\cB$ are.
@@ -2024,7 +2032,10 @@ $n{+}1$-category.
 Next we define the $n{+}1$-morphisms of $\cS$.
 The construction of the 0- through $n$-morphisms was easy and tautological, but the 
 $n{+}1$-morphisms will require some effort and combinatorial topology, as well as additional
-duality assumptions on the lower morphisms. These are required because we define the spaces of $n{+}1$-morphisms by making arbitrary choices of incoming and outgoing boundaries for each $n$-ball. The additional duality assumptions are needed to prove independence of our definition form these choices.
+duality assumptions on the lower morphisms. 
+These are required because we define the spaces of $n{+}1$-morphisms by 
+making arbitrary choices of incoming and outgoing boundaries for each $n$-ball. 
+The additional duality assumptions are needed to prove independence of our definition form these choices.
 
 Let $X$ be an $n{+}1$-ball, and let $c$ be a decoration of its boundary
 by a cell complex labeled by 0- through $n$-morphisms, as above.
