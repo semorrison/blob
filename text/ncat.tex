@@ -124,10 +124,13 @@ homeomorphisms to the category of sets and bijections.
 \end{lem}
 
 We postpone the proof of this result until after we've actually given all the axioms.
-Note that defining this functor for some $k$ only requires the data described in Axiom \ref{axiom:morphisms} at level $k$, 
-along with the data described in the other axioms at lower levels. 
+Note that defining this functor for fixed $k$ only requires the data described in Axiom \ref{axiom:morphisms} at level $k$, 
+along with the data described in the other axioms for smaller values of $k$. 
 
-%In fact, the functors for spheres are entirely determined by the functors for balls and the subsequent axioms. (In particular, $\cC(S^k)$ is the colimit of $\cC$ applied to decompositions of $S^k$ into balls.) However, it is easiest to think of it as additional data at this point.
+Of course, Lemma \ref{lem:spheres}, as stated, is satisfied by the trivial functor.
+What we really mean is that there exists a functor which interacts with the other data of $\cC$ as specified 
+in the axioms below.
+
 
 \begin{axiom}[Boundaries]\label{nca-boundary}
 For each $k$-ball $X$, we have a map of sets $\bd: \cC_k(X)\to \cl{\cC}_{k-1}(\bd X)$.
@@ -397,8 +400,12 @@ $$
 $$
 \caption{Examples of pinched products}\label{pinched_prods}
 \end{figure}
-(The need for a strengthened version will become apparent in Appendix \ref{sec:comparing-defs}
-where we construct a traditional category from a disk-like category.)
+The need for a strengthened version will become apparent in Appendix \ref{sec:comparing-defs}
+where we construct a traditional category from a disk-like category.
+For example, ``half-pinched" products of 1-balls are used to construct weak identities for 1-morphisms
+in 2-categories.
+We also need fully-pinched products to define collar maps below (see Figure \ref{glue-collar}).
+
 Define a {\it pinched product} to be a map
 \[
 	\pi: E\to X
