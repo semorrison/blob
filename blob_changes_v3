@@ -18,5 +18,6 @@ The most significant changes are:
 - added remark about manifolds which do not admit ball decompositions; restricted product theorem (7.1.1) to apply only to these manifolds
 - added remarks about categories of defects
 - clarified that the "cell complexes" in string diagrams are actually a bit more general
-- 
+- added remark to insure that the poset of decompositions is a small category
+
 
