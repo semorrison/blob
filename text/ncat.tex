@@ -1026,8 +1026,13 @@ Roughly, a permissible decomposition is like a ball decomposition where we don't
 are glued up to yield $W$, so long as there is some (non-pathological) way to glue them.
 
 (Every smooth or PL manifold has a ball decomposition, but certain topological manifolds (e.g.\ non-smoothable
-topological 4-manifolds) do nat have ball decompositions.
-For such manifolds we have only the empty colimit.) 
+topological 4-manifolds) do not have ball decompositions.
+For such manifolds we have only the empty colimit.)
+
+We want the category (poset) of decompositions of $W$ to be small, so when we say decomposition we really
+mean isomorphism class of decomposition.
+Isomorphisms are defined in the obvious way: a collection of homeomorphisms $M_i\to M_i'$ which commute
+with the gluing maps $M_i\to M_{i+1}$ and $M'_i\to M'_{i+1}$.
 
 Given permissible decompositions $x = \{X_a\}$ and $y = \{Y_b\}$ of $W$, we say that $x$ is a refinement
 of $y$, or write $x \le y$, if there is a ball decomposition $\du_a X_a = M_0\to\cdots\to M_m = W$
@@ -1189,7 +1194,7 @@ $\cl{\cC}(W)$ is a colimit of a diagram of sets, and each of the arrows in the d
 injective.
 Concretely, the colimit is the disjoint union of the sets (one for each decomposition of $W$),
 modulo the relation which identifies the domain of each of the injective maps
-with it's image.
+with its image.
 
 To save ink and electrons we will simplify notation and write $\psi(x)$ for $\psi_{\cC;W}(x)$.
 

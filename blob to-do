@@ -42,8 +42,6 @@ colimit subsection:
 
 * Labeling of the k-1 skeleton agreeing on the k-2 skeleton is awfully vague. 
 
-* Category of permissible decompositions must be a small category in order to take the colimit. 
-
 * Boundary of \cl; not so easy to see!
 
 
@@ -62,3 +60,9 @@ we actually need this as written?
 
 * SCOTT: make sure acknowledge list doesn't omit anyone from blob seminar (I think I have all the speakers)
 
+
+* review colors in figures
+
+* ? define Morita equivalence?
+
+* maybe put most figures at top of page
