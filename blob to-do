@@ -16,8 +16,9 @@ this notation in section 5.
 * Consider moving A_\infty stuff to a subsection
 
 * (?) dimension n+1, explain the statement and refer to KW's notes. [this was PT's suggestion, but it's sort of already in there.  do we need to do more?]
+	- add one more sentence: ~"finite dimensional and pos. def"
 
-* framings and duality -- work out what's going on!
+* framings and duality -- work out what's going on! (alternatively, vague-ify current statement)
 
 * consider proving the gluing formula for higher codimension manifolds with
 morita equivalence
@@ -48,13 +49,13 @@ colimit subsection:
 modules:
 
 * Marked hemispheres, need better language.
+	- add something like "The is just a ball (\bd N \ N) with its entire boundary (\nd N) marked.  We use the term hemisphere because these balls are half the boundary of a larger ball.
 
 * Lemma 6.4.5 needs to actually construct this map! Needs more input! Do
 we actually need this as written?
+	- KW will look at it; probably needs to be weakened
 
 
-
-* (?) add remark about relation of SC operad to Ryan Budney thing
 
 * SCOTT: typo in delfig3a -- upper g should be g^{-1}
 
@@ -65,7 +66,7 @@ we actually need this as written?
 
 * ? define Morita equivalence?
 
-* number equations in same sequence as everything else
-
 * make sure we are clear that boundary = germ
+
+* lemma [inject  6.3.5?] assumes more splittablity than the axioms imply (?)
 
