@@ -5,11 +5,12 @@ Many small clarifications of text.
 
 Also many typos corrected.
 
+
 The most significant changes are:
 
 - added to acknowledgements
 - clarified definition of splittable
-- change to pitchfork notation for splittable subsets of fields
+- changed to pitchfork notation for splittable subsets of fields
 - added definition of collaring homeomorphism
 - improved definition of bordism n-category
 - fixed definition of a refinement of a ball decomposition (intermediate manifolds should also be disjoiunt unions of balls)
