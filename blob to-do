@@ -48,9 +48,6 @@ colimit subsection:
 
 modules:
 
-* Marked hemispheres, need better language.
-	- add something like "The is just a ball (\bd N \ N) with its entire boundary (\nd N) marked.  We use the term hemisphere because these balls are half the boundary of a larger ball.
-
 * Lemma 6.4.5 needs to actually construct this map! Needs more input! Do
 we actually need this as written?
 	- KW will look at it; probably needs to be weakened
@@ -69,4 +66,6 @@ we actually need this as written?
 * make sure we are clear that boundary = germ
 
 * lemma [inject  6.3.5?] assumes more splittablity than the axioms imply (?)
+
+* figure for example 3.1.2 (sin 1/z)
 
