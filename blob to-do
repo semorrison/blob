@@ -38,9 +38,9 @@ super-stuff.
 
 colimit subsection: 
 
-* Labeling of the k-1 skeleton agreeing on the k-2 skeleton is awfully vague. 
-
 * Boundary of \cl; not so easy to see!
+
+* new material in colimit section needs a proof-read
 
 
 modules:
@@ -53,7 +53,7 @@ we actually need this as written?
 
 * SCOTT: typo in delfig3a -- upper g should be g^{-1}
 
-* SCOTT: make sure acknowledge list doesn't omit anyone from blob seminar who should be included (I think I have all the speakers; does anyone other that the speakers rate a mention?)
+* SCOTT: make sure acknowledge list doesn't omit anyone from blob seminar who should be included (I think I have all the speakers; does anyone other than the speakers rate a mention?)
 
 
 * review colors in figures
