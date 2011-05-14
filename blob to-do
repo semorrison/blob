@@ -30,6 +30,8 @@ subsection)
 
 * SCOTT will go through appendix C.2 and make it better
 
+* make sure we are clear that boundary = germ
+
 * In the appendix on n=1, explain more about orientations. Also say
 what happens on objects for spin manifolds: the unique point has an
 automorphism, which translates into a involution on objects. Mention
@@ -50,7 +52,6 @@ we actually need this as written?
 	- KW will look at it; probably needs to be weakened
 
 
-
 * SCOTT: typo in delfig3a -- upper g should be g^{-1}
 
 * SCOTT: make sure acknowledge list doesn't omit anyone from blob seminar who should be included (I think I have all the speakers; does anyone other than the speakers rate a mention?)
@@ -59,8 +60,6 @@ we actually need this as written?
 * review colors in figures
 
 * ? define Morita equivalence?
-
-* make sure we are clear that boundary = germ
 
 * lemma [inject  6.3.5?] assumes more splittablity than the axioms imply (?)
 
