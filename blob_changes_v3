@@ -12,12 +12,16 @@ The most significant changes are:
 - change to pitchfork notation for splittable subsets of fields
 - added definition of collaring homeomorphism
 - improved definition of bordism n-category
-- fixed definition of a refinement of a ball decomposition (intermediate manifolds should also be disjoiunt unions of balls)
+- fixed definition of a refinement of a ball decomposition (intermediate manifolds should also be disjoint unions of balls)
 - added brief definition of monoidal n-categories
 - fixed statement of compatibility of product morphisms with gluing
 - added remark about manifolds which do not admit ball decompositions; restricted product theorem (7.1.1) to apply only to these manifolds
 - added remarks about categories of defects
 - clarified that the "cell complexes" in string diagrams are actually a bit more general
 - added remark to insure that the poset of decompositions is a small category
+- rewrote definition of colimit (in "From Balls to Manifolds" subsection) to allow for more general decompositions; also added more details
+- 
+
+
 
 
