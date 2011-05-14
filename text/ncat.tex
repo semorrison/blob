@@ -936,7 +936,7 @@ boundaries are allowed to meet.
 Note in particular that the space for $k=1$ contains a copy of $\Diff(B^n)$, namely
 the embeddings of a ``little" ball with image all of the big ball $B^n$.
 (But note also that this inclusion is not
-necessarily a homotopy equivalence.)
+necessarily a homotopy equivalence.))
 The operad $\cE\cB_n$ is homotopy equivalent to the standard framed little $n$-ball operad:
 by shrinking the little balls (precomposing them with dilations), 
 we see that both operads are homotopic to the space of $k$ framed points
@@ -1001,7 +1001,7 @@ so that we can state the boundary axiom for $\cC$ on $k+1$-balls.
 
 \medskip
 
-We will first define the ``decomposition" poset $\cell(W)$ for any $k$-manifold $W$, for $1 \leq k \leq n$. 
+We will first define the {\it decomposition poset} $\cell(W)$ for any $k$-manifold $W$, for $1 \leq k \leq n$. 
 An $n$-category $\cC$ provides a functor from this poset to the category of sets, 
 and we  will define $\cl{\cC}(W)$ as a suitable colimit 
 (or homotopy colimit in the $A_\infty$ case) of this functor. 
@@ -1037,12 +1037,12 @@ with the gluing maps $M_i\to M_{i+1}$ and $M'_i\to M'_{i+1}$.
 Given permissible decompositions $x = \{X_a\}$ and $y = \{Y_b\}$ of $W$, we say that $x$ is a refinement
 of $y$, or write $x \le y$, if there is a ball decomposition $\du_a X_a = M_0\to\cdots\to M_m = W$
 with $\du_b Y_b = M_i$ for some $i$,
-and with $M_0,\ldots, M_i$ each being a disjoint union of balls.
+and with $M_0, M_1, \ldots, M_i$ each being a disjoint union of balls.
 
 \begin{defn}
 The poset $\cell(W)$ has objects the permissible decompositions of $W$, 
 and a unique morphism from $x$ to $y$ if and only if $x$ is a refinement of $y$.
-See Figure \ref{partofJfig} for an example.
+See Figure \ref{partofJfig}.
 \end{defn}
 
 \begin{figure}[t]
@@ -1056,25 +1056,86 @@ See Figure \ref{partofJfig} for an example.
 An $n$-category $\cC$ determines 
 a functor $\psi_{\cC;W}$ from $\cell(W)$ to the category of sets 
 (possibly with additional structure if $k=n$).
-Each $k$-ball $X$ of a decomposition $y$ of $W$ has its boundary decomposed into $k{-}1$-balls,
+Let $x = \{X_a\}$ be a permissible decomposition of $W$ (i.e.\ object of $\cD(W)$).
+We will define $\psi_{\cC;W}(x)$ to be a certain subset of $\prod_a \cC(X_a)$.
+Roughly speaking, $\psi_{\cC;W}(x)$ is the subset where the restriction maps from
+$\cC(X_a)$ and $\cC(X_b)$ agree whenever some part of $\bd X_a$ is glued to some part of $\bd X_b$.
+(Keep in mind that perhaps $a=b$.)
+Since we allow decompositions in which the intersection of $X_a$ and $X_b$ might be messy 
+(see Example \ref{sin1x-example}), we must define $\psi_{\cC;W}(x)$ in a more roundabout way.
+
+Inductively, we may assume that we have already defined the colimit $\cl\cC(M)$ for $k{-}1$-manifolds $M$.
+(To start the induction, we define $\cl\cC(M)$, where $M = \du_a P_a$ is a 0-manifold and each $P_a$ is
+a 0-ball, to be $\prod_a \cC(P_a)$.)
+
+Let $\du_a X_a = M_0\to\cdots\to M_m = W$ be a ball decomposition compatible with $x$.
+Let $\bd M_i = N_i \cup Y_i \cup Y'_i$, where $Y_i$ and $Y'_i$ are glued together to produce $M_{i+1}$.
+We will define $\psi_{\cC;W}(x)$ be be the subset of $\prod_a \cC(X_a)$ which satisfies a series of conditions
+related to the gluings $M_{i-1} \to M_i$, $1\le i \le m$.
+By Axiom \ref{nca-boundary}, we have a map
+\[
+	\prod_a \cC(X_a) \to \cl\cC(\bd M_0) .
+\]
+The first condition is that the image of $\psi_{\cC;W}(x)$ in $\cl\cC(\bd M_0)$ is splittable
+along $\bd Y_0$ and $\bd Y'_0$, and that the restrictions to $\cl\cC(Y_0)$ and $\cl\cC(Y'_0)$ agree
+(with respect to the identification of $Y_0$ and $Y'_0$ provided by the gluing map). 
+
+On the subset of $\prod_a \cC(X_a)$ which satisfies the first condition above, we have a restriction
+map to $\cl\cC(N_0)$ which we can compose with the gluing map 
+$\cl\cC(N_0) \to \cl\cC(\bd M_1)$.
+The second condition is that the image of $\psi_{\cC;W}(x)$ in $\cl\cC(\bd M_1)$ is splittable
+along $\bd Y_1$ and $\bd Y'_1$, and that the restrictions to $\cl\cC(Y_1)$ and $\cl\cC(Y'_1)$ agree
+(with respect to the identification of $Y_1$ and $Y'_1$ provided by the gluing map). 
+The $i$-th condition is defined similarly.
+
+We define $\psi_{\cC;W}(x)$ to be the subset of $\prod_a \cC(X_a)$ which satisfies the 
+above conditions for all $i$ and also all 
+ball decompositions compatible with $x$.
+(If $x$ is a nice, non-pathological cell decomposition, then it is easy to see that gluing
+compatibility for one ball decomposition implies gluing compatibility for all other ball decompositions.
+Rather than try to prove a similar result for arbitrary
+permissible decompositions, we instead require compatibility with all ways of gluing up the decomposition.)
+
+If $x$ is a refinement of $y$, the map $\psi_{\cC;W}(x) \to \psi_{\cC;W}(y)$ is given by the composition maps of $\cC$.
+
+
+\nn{...}
+
+\nn{to do: define splittability and restrictions for colimits}
+
+\noop{ %%%%%%%%%%%%%%%%%%%%%%%
+For pedagogical reasons, let us first consider the case of a decomposition $y$ of $W$ 
+which is a nice, non-pathological cell decomposition.
+Then each $k$-ball $X$ of $y$ has its boundary decomposed into $k{-}1$-balls,
 and, as described above, we have a subset $\cC(X)\spl \sub \cC(X)$ of morphisms whose boundaries
 are splittable along this decomposition.
 
-\begin{defn}
-Define the functor $\psi_{\cC;W} : \cell(W) \to \Set$ as follows.
+We can now
+define the functor $\psi_{\cC;W} : \cell(W) \to \Set$ as follows.
 For a decomposition $x = \bigsqcup_a X_a$ in $\cell(W)$, $\psi_{\cC;W}(x)$ is the subset
 \begin{equation}
-\label{eq:psi-C}
+%\label{eq:psi-C}
 	\psi_{\cC;W}(x) \sub \prod_a \cC(X_a)\spl
 \end{equation}
 where the restrictions to the various pieces of shared boundaries amongst the cells
 $X_a$ all agree (this is a fibered product of all the labels of $n$-cells over the labels of $n{-}1$-cells).
 If $x$ is a refinement of $y$, the map $\psi_{\cC;W}(x) \to \psi_{\cC;W}(y)$ is given by the composition maps of $\cC$.
+
+In general, $y$ might be more general than a cell decomposition
+(see Example \ref{sin1x-example}), so we must define $\psi_{\cC;W}$ in a more roundabout way.
+\nn{...}
+
+\begin{defn}
+Define the functor $\psi_{\cC;W} : \cell(W) \to \Set$ as follows.
+\nn{...}
+If $x$ is a refinement of $y$, the map $\psi_{\cC;W}(x) \to \psi_{\cC;W}(y)$ is given by the composition maps of $\cC$.
 \end{defn}
+} % end \noop %%%%%%%%%%%%%%%%%%%%%%%
+
 
 If $k=n$ in the above definition and we are enriching in some auxiliary category, 
 we need to say a bit more.
-We can rewrite Equation \ref{eq:psi-C} as
+We can rewrite the colimit as
 \begin{equation} \label{eq:psi-CC}
 	\psi_{\cC;W}(x) \deq \coprod_\beta \prod_a \cC(X_a; \beta) ,
 \end{equation}
