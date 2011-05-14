@@ -1068,6 +1068,7 @@ Inductively, we may assume that we have already defined the colimit $\cl\cC(M)$ 
 (To start the induction, we define $\cl\cC(M)$, where $M = \du_a P_a$ is a 0-manifold and each $P_a$ is
 a 0-ball, to be $\prod_a \cC(P_a)$.)
 We also assume, inductively, that we have gluing and restriction maps for colimits of $k{-}1$-manifolds.
+Gluing and restriction maps for colimits of $k$-manifolds will be defined later in this subsection.
 
 Let $\du_a X_a = M_0\to\cdots\to M_m = W$ be a ball decomposition compatible with $x$.
 Let $\bd M_i = N_i \cup Y_i \cup Y'_i$, where $Y_i$ and $Y'_i$ are glued together to produce $M_{i+1}$.
@@ -1088,6 +1089,7 @@ The second condition is that the image of $\psi_{\cC;W}(x)$ in $\cl\cC(\bd M_1)$
 along $\bd Y_1$ and $\bd Y'_1$, and that the restrictions to $\cl\cC(Y_1)$ and $\cl\cC(Y'_1)$ agree
 (with respect to the identification of $Y_1$ and $Y'_1$ provided by the gluing map). 
 The $i$-th condition is defined similarly.
+Note that these conditions depend on on the boundaries of elements of $\prod_a \cC(X_a)$.
 
 We define $\psi_{\cC;W}(x)$ to be the subset of $\prod_a \cC(X_a)$ which satisfies the 
 above conditions for all $i$ and also all 
@@ -1097,52 +1099,26 @@ compatibility for one ball decomposition implies gluing compatibility for all ot
 Rather than try to prove a similar result for arbitrary
 permissible decompositions, we instead require compatibility with all ways of gluing up the decomposition.)
 
-If $x$ is a refinement of $y$, the map $\psi_{\cC;W}(x) \to \psi_{\cC;W}(y)$ is given by the composition maps of $\cC$.
+If $x$ is a refinement of $y$, the map $\psi_{\cC;W}(x) \to \psi_{\cC;W}(y)$ 
+is given by the composition maps of $\cC$.
+This completes the definition of the functor $\psi_{\cC;W}$.
 
-
-\nn{to do: define splittability and restrictions for colimits}
-
-\noop{ %%%%%%%%%%%%%%%%%%%%%%%
-For pedagogical reasons, let us first consider the case of a decomposition $y$ of $W$ 
-which is a nice, non-pathological cell decomposition.
-Then each $k$-ball $X$ of $y$ has its boundary decomposed into $k{-}1$-balls,
-and, as described above, we have a subset $\cC(X)\spl \sub \cC(X)$ of morphisms whose boundaries
-are splittable along this decomposition.
-
-We can now
-define the functor $\psi_{\cC;W} : \cell(W) \to \Set$ as follows.
-For a decomposition $x = \bigsqcup_a X_a$ in $\cell(W)$, $\psi_{\cC;W}(x)$ is the subset
-\begin{equation}
-%\label{eq:psi-C}
-	\psi_{\cC;W}(x) \sub \prod_a \cC(X_a)\spl
-\end{equation}
-where the restrictions to the various pieces of shared boundaries amongst the cells
-$X_a$ all agree (this is a fibered product of all the labels of $n$-cells over the labels of $n{-}1$-cells).
-If $x$ is a refinement of $y$, the map $\psi_{\cC;W}(x) \to \psi_{\cC;W}(y)$ is given by the composition maps of $\cC$.
-
-In general, $y$ might be more general than a cell decomposition
-(see Example \ref{sin1x-example}), so we must define $\psi_{\cC;W}$ in a more roundabout way.
-\nn{...}
-
-\begin{defn}
-Define the functor $\psi_{\cC;W} : \cell(W) \to \Set$ as follows.
-\nn{...}
-If $x$ is a refinement of $y$, the map $\psi_{\cC;W}(x) \to \psi_{\cC;W}(y)$ is given by the composition maps of $\cC$.
-\end{defn}
-} % end \noop %%%%%%%%%%%%%%%%%%%%%%%
+Note that we have constructed, at the last stage of the above procedure, 
+a map from $\psi_{\cC;W}(x)$ to $\cl\cC(\bd M_m) = \cl\cC(\bd W)$.
 
 
 If $k=n$ in the above definition and we are enriching in some auxiliary category, 
 we need to say a bit more.
 We can rewrite the colimit as
-\begin{equation} \label{eq:psi-CC}
+\[  % \begin{equation} \label{eq:psi-CC}
 	\psi_{\cC;W}(x) \deq \coprod_\beta \prod_a \cC(X_a; \beta) ,
-\end{equation}
-where $\beta$ runs through labelings of the $k{-}1$-skeleton of the decomposition
-(which are compatible when restricted to the $k{-}2$-skeleton), and $\cC(X_a; \beta)$
-means the subset of $\cC(X_a)$ whose restriction to $\bd X_a$ agress with $\beta$.
+\]  % \end{equation}
+where $\beta$ runs through 
+boundary conditions on $\du_a X_a$ which are compatible with gluing as specified above
+and $\cC(X_a; \beta)$
+means the subset of $\cC(X_a)$ whose restriction to $\bd X_a$ agrees with $\beta$.
 If we are enriching over $\cS$ and $k=n$, then $\cC(X_a; \beta)$ is an object in 
-$\cS$ and the coproduct and product in Equation \ref{eq:psi-CC} should be replaced by the approriate
+$\cS$ and the coproduct and product in the above expression should be replaced by the appropriate
 operations in $\cS$ (e.g. direct sum and tensor product if $\cS$ is Vect).
 
 Finally, we construct $\cl{\cC}(W)$ as the appropriate colimit of $\psi_{\cC;W}$:
@@ -1243,6 +1219,12 @@ Restricting the $k$-spheres, we have now proved Lemma \ref{lem:spheres}.
 It is easy to see that
 there are well-defined maps $\cl{\cC}(W)\to\cl{\cC}(\bd W)$, and that these maps
 comprise a natural transformation of functors.
+
+
+
+\nn{to do: define splittability and restrictions for colimits}
+
+
 
 \begin{lem}
 \label{lem:colim-injective}
