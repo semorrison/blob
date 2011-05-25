@@ -1365,13 +1365,23 @@ Again, this is in exact analogy with Lemma \ref{lem:domain-and-range}.
 Let $\cl\cM(H)\trans E$ denote the image of $\gl_E$.
 We will refer to elements of $\cl\cM(H)\trans E$ as ``splittable along $E$" or ``transverse to $E$". 
 
+\noop{ %%%%%%%
 \begin{lem}[Module to category restrictions]
 {For each marked $k$-hemisphere $H$ there is a restriction map
-$\cl\cM(H)\to \cC(H)$.  
+$\cl\cM(H)\to \cC(H)$.
 ($\cC(H)$ means apply $\cC$ to the underlying $k$-ball of $H$.)
 These maps comprise a natural transformation of functors.}
 \end{lem}
+}	%%%%%%% end \noop
 
+It follows from the definition of the colimit $\cl\cM(H)$ that
+given any (unmarked) $k{-}1$-ball $Y$ in the interior of $H$ there is a restriction map
+from a subset $\cl\cM(H)_{\trans{\bdy Y}}$ of $\cl\cM(H)$ to $\cC(Y)$.
+Combining this with the boundary map $\cM(B,N) \to \cl\cM(\bd(B,N))$, we also have a restriction
+map from a subset $\cM(B,N)_{\trans{\bdy Y}}$ of $\cM(B,N)$ to $\cC(Y)$ whenever $Y$ is in the interior of $\bd B \setmin N$.
+This fact will be used below.
+
+\noop{ %%%%
 Note that combining the various boundary and restriction maps above
 (for both modules and $n$-categories)
 we have for each marked $k$-ball $(B, N)$ and each $k{-}1$-ball $Y\sub \bd B \setmin N$
@@ -1379,6 +1389,7 @@ a natural map from a subset of $\cM(B, N)$ to $\cC(Y)$.
 This subset $\cM(B,N)\trans{\bdy Y}$ is the subset of morphisms which are appropriately splittable (transverse to the
 cutting submanifolds).
 This fact will be used below.
+} %%%%% end \noop
 
 In our example, the various restriction and gluing maps above come from
 restricting and gluing maps into $T$.

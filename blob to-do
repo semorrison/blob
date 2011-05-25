@@ -47,11 +47,6 @@ colimit subsection:
 
 modules:
 
-* Lemma 6.4.5 needs to actually construct this map! Needs more input! Do
-we actually need this as written?
-	- KW will look at it; probably needs to be weakened
-
-
 * SCOTT: typo in delfig3a -- upper g should be g^{-1}
 
 * SCOTT: make sure acknowledge list doesn't omit anyone from blob seminar who should be included (I think I have all the speakers; does anyone other than the speakers rate a mention?)
