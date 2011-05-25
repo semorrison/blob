@@ -20,9 +20,10 @@ The most significant changes are:
 - added remarks about categories of defects
 - clarified that the "cell complexes" in string diagrams are actually a bit more general
 - added remark to insure that the poset of decompositions is a small category
+- corrected statement of module to category restrictions
+
+
+
+
+INCOMPLETE:
 - rewrote definition of colimit (in "From Balls to Manifolds" subsection) to allow for more general decompositions; also added more details
-- 
-
-
-
-
