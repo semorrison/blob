@@ -33,11 +33,16 @@ See \S\ref{n-cat-names} for a discussion of $n$-category terminology.
 \medskip
 
 The axioms for an $n$-category are spread throughout this section.
-Collecting these together, an $n$-category is a gadget satisfying Axioms \ref{axiom:morphisms}, \ref{nca-boundary}, \ref{axiom:composition},  \ref{nca-assoc}, \ref{axiom:product} and \ref{axiom:extended-isotopies}; for an $A_\infty$ $n$-category, we replace Axiom \ref{axiom:extended-isotopies} with Axiom \ref{axiom:families}.
+Collecting these together, an $n$-category is a gadget satisfying Axioms \ref{axiom:morphisms}, 
+\ref{nca-boundary}, \ref{axiom:composition},  \ref{nca-assoc}, \ref{axiom:product} and 
+\ref{axiom:extended-isotopies}; for an $A_\infty$ $n$-category, we replace 
+Axiom \ref{axiom:extended-isotopies} with Axiom \ref{axiom:families}.
+\nn{need to revise this after we're done rearranging the a-inf and enriched stuff}
 
 Strictly speaking, before we can state the axioms for $k$-morphisms we need all the axioms 
 for $k{-}1$-morphisms.
-Readers who prefer things to be presented in a strictly logical order should read this subsection $n+1$ times, first setting $k=0$, then $k=1$, and so on until they reach $k=n$.
+Readers who prefer things to be presented in a strictly logical order should read this 
+subsection $n+1$ times, first setting $k=0$, then $k=1$, and so on until they reach $k=n$.
 
 \medskip
 
@@ -52,7 +57,8 @@ and so on.
 Still other definitions (see, for example, \cite{MR2094071})
 model the $k$-morphisms on more complicated combinatorial polyhedra.
 
-For our definition, we will allow our $k$-morphisms to have any shape, so long as it is homeomorphic to the standard $k$-ball.
+For our definition, we will allow our $k$-morphisms to have any shape, so long as it is 
+homeomorphic to the standard $k$-ball.
 Thus we associate a set of $k$-morphisms $\cC_k(X)$ to any $k$-manifold $X$ homeomorphic 
 to the standard $k$-ball.
 By ``a $k$-ball" we mean any $k$-manifold which is homeomorphic to the 
@@ -141,17 +147,6 @@ Note that the first ``$\bd$" above is part of the data for the category,
 while the second is the ordinary boundary of manifolds.
 Given $c\in\cl{\cC}(\bd(X))$, we will write $\cC(X; c)$ for $\bd^{-1}(c)$, those morphisms with specified boundary $c$.
 
-Most of the examples of $n$-categories we are interested in are enriched in the following sense.
-The various sets of $n$-morphisms $\cC(X; c)$, for all $n$-balls $X$ and
-all $c\in \cl{\cC}(\bd X)$, have the structure of an object in some auxiliary symmetric monoidal category
-with sufficient limits and colimits
-(e.g.\ vector spaces, or modules over some ring, or chain complexes),
-%\nn{actually, need both disj-union/sum and product/tensor-product; what's the name for this sort of cat?}
-and all the structure maps of the $n$-category should be compatible with the auxiliary
-category structure.
-Note that this auxiliary structure is only in dimension $n$; if $\dim(Y) < n$ then 
-$\cC(Y; c)$ is just a plain set.
-
 \medskip
 
 In order to simplify the exposition we have concentrated on the case of 
@@ -239,10 +234,10 @@ domain and range maps, relative to the choice of splitting $\bd X = B_1 \cup_E B
 
 Next we consider composition of morphisms.
 For $n$-categories which lack strong duality, one usually considers
-$k$ different types of composition of $k$-morphisms, each associated to a different direction.
+$k$ different types of composition of $k$-morphisms, each associated to a different ``direction".
 (For example, vertical and horizontal composition of 2-morphisms.)
 In the presence of strong duality, these $k$ distinct compositions are subsumed into 
-one general type of composition which can be in any ``direction".
+one general type of composition which can be in any direction.
 
 \begin{axiom}[Composition]
 \label{axiom:composition}
@@ -258,10 +253,9 @@ We have a map
 \]
 which is natural with respect to the actions of homeomorphisms, and also compatible with restrictions
 to the intersection of the boundaries of $B$ and $B_i$.
-If $k < n$,
-or if $k=n$ and we are in the $A_\infty$ case, 
+If $k < n$
 we require that $\gl_Y$ is injective.
-(For $k=n$ in the ordinary (non-$A_\infty$) case, see below.)
+%(For $k=n$ see below.)
 \end{axiom}
 
 \begin{figure}[t] \centering
@@ -401,7 +395,7 @@ $$
 \caption{Examples of pinched products}\label{pinched_prods}
 \end{figure}
 The need for a strengthened version will become apparent in Appendix \ref{sec:comparing-defs}
-where we construct a traditional category from a disk-like category.
+where we construct a traditional 2-category from a disk-like 2-category.
 For example, ``half-pinched" products of 1-balls are used to construct weak identities for 1-morphisms
 in 2-categories.
 We also need fully-pinched products to define collar maps below (see Figure \ref{glue-collar}).
@@ -660,6 +654,24 @@ For the moment, assume that our $n$-morphisms are enriched over chain complexes.
 Let $\Homeo_\bd(X)$ denote homeomorphisms of $X$ which fix $\bd X$ and
 $C_*(\Homeo_\bd(X))$ denote the singular chains on this space.
 
+\nn{begin temp relocation}
+
+Most of the examples of $n$-categories we are interested in are enriched in the following sense.
+The various sets of $n$-morphisms $\cC(X; c)$, for all $n$-balls $X$ and
+all $c\in \cl{\cC}(\bd X)$, have the structure of an object in some auxiliary symmetric monoidal category
+with sufficient limits and colimits
+(e.g.\ vector spaces, or modules over some ring, or chain complexes),
+%\nn{actually, need both disj-union/sum and product/tensor-product; what's the name for this sort of cat?}
+and all the structure maps of the $n$-category should be compatible with the auxiliary
+category structure.
+Note that this auxiliary structure is only in dimension $n$; if $\dim(Y) < n$ then 
+$\cC(Y; c)$ is just a plain set.
+
+\nn{$k=n$ injectivity for a-inf (necessary?)}
+or if $k=n$ and we are in the $A_\infty$ case, 
+
+
+\nn{end temp relocation}
 
 %\addtocounter{axiom}{-1}
 \begin{axiom}[\textup{\textbf{[$A_\infty$ version]}} Families of homeomorphisms act in dimension $n$.]
