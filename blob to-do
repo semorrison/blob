@@ -63,3 +63,9 @@ modules:
 * SCOTT: figure for example 3.1.2 (sin 1/z)
 
 * SCOTT: add vertical arrow to middle of figure 19 (decomp poset)
+
+* maybe say something in colimit section about restriction to submanifolds and submanifolds of boundary
+
+* SCOTT: review/proof-read recent KW changes
+
+* should probably allow product things \pi^*(b) to be defined only when b is appropriately splittable
