@@ -558,16 +558,27 @@ such that $\rho$ and $\pi$ are pinched products, then
 
 \medskip
 
-All of the axioms listed above hold for both ordinary $n$-categories and $A_\infty$ $n$-categories.
-The last axiom (below), concerning actions of 
-homeomorphisms in the top dimension $n$, distinguishes the two cases.
 
-We start with the ordinary $n$-category case.
+
+
+%All of the axioms listed above hold for both ordinary $n$-categories and $A_\infty$ $n$-categories.
+%The last axiom (below), concerning actions of 
+%homeomorphisms in the top dimension $n$, distinguishes the two cases.
+
+%We start with the ordinary $n$-category case.
+
+The next axiom says, roughly, that we have strict associativity in dimension $n$, 
+even we we reparameterize our $n$-balls.
 
 \begin{axiom}[\textup{\textbf{[preliminary]}} Isotopy invariance in dimension $n$]
-Let $X$ be an $n$-ball and $f: X\to X$ be a homeomorphism which restricts
-to the identity on $\bd X$ and is isotopic (rel boundary) to the identity.
-Then $f$ acts trivially on $\cC(X)$; that is $f(a) = a$ for all $a\in \cC(X)$.
+Let $X$ be an $n$-ball, $b \in \cC(X)$, and $f: X\to X$ be a homeomorphism which 
+acts trivially on the restriction $\bd b$ of $b$ to $\bd X$.
+(Keep in mind the important special case where $f$ restricted to $\bd X$ is the identity.)
+Suppose furthermore that $f$ is isotopic to the identity through homeomorphisms which
+trivially on $\bd b$.
+Then $f(b) = b$.
+In particular, homeomorphisms which are isotopic to the identity rel boundary act trivially on 
+all of $\cC(X)$.
 \end{axiom}
 
 This axiom needs to be strengthened to force product morphisms to act as the identity.
@@ -640,19 +651,18 @@ The revised axiom is
 %\addtocounter{axiom}{-1}
 \begin{axiom}[\textup{\textbf{[ordinary  version]}} Extended isotopy invariance in dimension $n$.]
 \label{axiom:extended-isotopies}
-Let $X$ be an $n$-ball and $f: X\to X$ be a homeomorphism which restricts
-to the identity on $\bd X$ and isotopic (rel boundary) to the identity.
-Then $f$ acts trivially on $\cC(X)$.
+Let $X$ be an $n$-ball, $b \in \cC(X)$, and $f: X\to X$ be a homeomorphism which 
+acts trivially on the restriction $\bd b$ of $b$ to $\bd X$.
+Suppose furthermore that $f$ is isotopic to the identity through homeomorphisms which
+trivially on $\bd b$.
+Then $f(b) = b$.
 In addition, collar maps act trivially on $\cC(X)$.
 \end{axiom}
 
-\smallskip
+\medskip
 
-For $A_\infty$ $n$-categories, we replace
-isotopy invariance with the requirement that families of homeomorphisms act.
-For the moment, assume that our $n$-morphisms are enriched over chain complexes.
-Let $\Homeo_\bd(X)$ denote homeomorphisms of $X$ which fix $\bd X$ and
-$C_*(\Homeo_\bd(X))$ denote the singular chains on this space.
+
+
 
 \nn{begin temp relocation}
 
@@ -672,6 +682,17 @@ or if $k=n$ and we are in the $A_\infty$ case,
 
 
 \nn{end temp relocation}
+
+
+\smallskip
+
+For $A_\infty$ $n$-categories, we replace
+isotopy invariance with the requirement that families of homeomorphisms act.
+For the moment, assume that our $n$-morphisms are enriched over chain complexes.
+Let $\Homeo_\bd(X)$ denote homeomorphisms of $X$ which fix $\bd X$ and
+$C_*(\Homeo_\bd(X))$ denote the singular chains on this space.
+
+
 
 %\addtocounter{axiom}{-1}
 \begin{axiom}[\textup{\textbf{[$A_\infty$ version]}} Families of homeomorphisms act in dimension $n$.]

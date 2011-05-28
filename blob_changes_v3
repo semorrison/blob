@@ -21,6 +21,8 @@ The most significant changes are:
 - clarified that the "cell complexes" in string diagrams are actually a bit more general
 - added remark to insure that the poset of decompositions is a small category
 - corrected statement of module to category restrictions
+- reduced intermingling for the various n-cat definitions (plain, enriched, A-infinity)
+- 
 
 
 
