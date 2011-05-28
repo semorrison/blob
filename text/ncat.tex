@@ -661,27 +661,73 @@ In addition, collar maps act trivially on $\cC(X)$.
 
 \medskip
 
+This completes the definition of an $n$-category.
+Next we define enriched $n$-categories.
 
+\medskip
 
-
-\nn{begin temp relocation}
 
 Most of the examples of $n$-categories we are interested in are enriched in the following sense.
 The various sets of $n$-morphisms $\cC(X; c)$, for all $n$-balls $X$ and
-all $c\in \cl{\cC}(\bd X)$, have the structure of an object in some auxiliary symmetric monoidal category
-with sufficient limits and colimits
+all $c\in \cl{\cC}(\bd X)$, have the structure of an object in some appropriate auxiliary category
 (e.g.\ vector spaces, or modules over some ring, or chain complexes),
-%\nn{actually, need both disj-union/sum and product/tensor-product; what's the name for this sort of cat?}
-and all the structure maps of the $n$-category should be compatible with the auxiliary
+and all the structure maps of the $n$-category are compatible with the auxiliary
 category structure.
 Note that this auxiliary structure is only in dimension $n$; if $\dim(Y) < n$ then 
 $\cC(Y; c)$ is just a plain set.
+
+We will aim for a little bit more generality than we need and not assume that the objects
+of our auxiliary category are sets with extra structure.
+First we must specify requirements for the auxiliary category.
+It should have a {\it distributive monoidal structure} in the sense of 
+\nn{Stolz and Teichner, Traces in monoidal categories, 1010.4527}.
+This means that there is a monoidal structure $\otimes$ and also coproduct $\oplus$,
+and these two structures interact in the appropriate way.
+Examples include 
+\begin{itemize}
+\item vector spaces (or $R$-modules or chain complexes) with tensor product and direct sum; and
+\item topological spaces with product and disjoint union.
+\end{itemize}
+Before stating the revised axioms for an $n$-category enriched in a distributive monoidal category,
+we need a preliminary definition.
+Once we have the above $n$-category axioms for $n{-}1$-morphisms, we can define the 
+category $\bbc$ of {\it $n$-balls with boundary conditions}.
+Its objects are pairs $(X, c)$, where $X$ is an $n$-ball and $c \in \cl\cC(\bd X)$ is the ``boundary condition".
+Its morphisms are homeomorphisms $f:X\to X$ such that $f|_{\bd X}(c) = c$.
+ 
+\begin{axiom}[Enriched $n$-categories]
+\label{axiom:enriched}
+Let $\cS$ be a distributive symmetric monoidal category.
+An $n$-category enriched in $\cS$ satisfies the above $n$-category axioms for $k=0,\ldots,n-1$,
+and modifies the axioms for $k=n$ as follows:
+\begin{itemize}
+\item Morphisms. We have a functor $\cC_n$ from $\bbc$ ($n$-balls with boundary conditions) to $\cS$.
+\item Composition. Let $B = B_1\cup_Y B_2$ as in Axiom \ref{axiom:composition}.
+Let $Y_i = \bd B_i \setmin Y$.  
+Note that $\bd B = Y_1\cup Y_2$.
+Let $c_i \in \cC(Y_i)$ with $\bd c_1 = \bd c_2 = d \in \cl\cC(E)$.
+Then we have a map
+\[
+	\gl_Y : \bigoplus_c \cC(B_1; c_1 \bullet c) \otimes \cC(B_2; c_2\bullet c) \to \cC(B; c_1\bullet c_2),
+\]
+where the sum is over $c\in\cC(Y)$ such that $\bd c = d$.
+This map is natural with respect to the action of homeomorphisms and with respect to restrictions.
+\item Product morphisms. \nn{Hmm... not sure what to say here. maybe we need sets with structure after all.}
+\end{itemize}
+\end{axiom}
+
+
+
+
+\nn{a-inf starts by enriching over inf-cat; maybe simple version first, then peter's version (attrib to peter)}
+
+\nn{blarg}
 
 \nn{$k=n$ injectivity for a-inf (necessary?)}
 or if $k=n$ and we are in the $A_\infty$ case, 
 
 
-\nn{end temp relocation}
+\nn{resume revising here}
 
 
 \smallskip
@@ -737,7 +783,7 @@ See Example \ref{ex:bord-cat}.
 
 \medskip
 
-The alert reader will have already noticed that our definition of a (ordinary) $n$-category
+The alert reader will have already noticed that our definition of an (ordinary) $n$-category
 is extremely similar to our definition of a system of fields.
 There are two differences.
 First, for the $n$-category definition we restrict our attention to balls
