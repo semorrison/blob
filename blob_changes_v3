@@ -22,6 +22,8 @@ The most significant changes are:
 - added remark to insure that the poset of decompositions is a small category
 - corrected statement of module to category restrictions
 - reduced intermingling for the various n-cat definitions (plain, enriched, A-infinity)
+- strengthened n-cat isotopy invariance axiom to allow for homeomorphisms which act trivially elements on the restriction of an n-morphism to the boundary of the ball
+- more details on axioms for enriched n-cats
 - 
 
 
