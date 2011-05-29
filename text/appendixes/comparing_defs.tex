@@ -43,28 +43,40 @@ Also by isotopy invariance, composition is strictly associative.
 Given $a\in c(\cX)^0$, define $\id_a \deq a\times B^1$.
 By extended isotopy invariance in $\cX$, this has the expected properties of an identity morphism.
 
+We have now defined the basic ingredients for the 1-category $c(\cX)$.
+As we explain below, $c(\cX)$ might have additional structure corresponding to the
+unoriented, oriented, Spin, $\text{Pin}_+$ or $\text{Pin}_-$ structure on the 1-balls used to define $\cX$.
 
-If the underlying manifolds for $\cX$ have further geometric structure, then we obtain certain functors.
-The base case is for oriented manifolds, where we obtain no extra algebraic data.
-
-For 1-categories based on unoriented manifolds, 
+For 1-categories based on unoriented balls, 
 there is a map $\dagger:c(\cX)^1\to c(\cX)^1$
 coming from $\cX$ applied to an orientation-reversing homeomorphism (unique up to isotopy) 
 from $B^1$ to itself.
+(Of course our $B^1$ is unoriented, i.e.\ not equipped with an orientation.
+We mean the homeomorphism which would reverse the orientation if there were one;
+$B^1$ is not oriented, but it is orientable.)
 Topological properties of this homeomorphism imply that 
 $a^{\dagger\dagger} = a$ ($\dagger$ is order 2), $\dagger$ reverses domain and range, and $(ab)^\dagger = b^\dagger a^\dagger$
 ($\dagger$ is an anti-automorphism).
+Recall that in this context 0-balls should be thought of as equipped with a germ of a 1-dimensional neighborhood.
+There is a unique such 0-ball, up to homeomorphism, but it has a non-identity automorphism corresponding to reversing the
+orientation of the germ.
+Consequently, the objects of $c(\cX)$ are equipped with an involution, also denoted $\dagger$.
+If $a:x\to y$ is a morphism of $c(\cX)$ then $a^\dagger: y^\dagger\to x^\dagger$.
 
-For 1-categories based on Spin manifolds,
+For 1-categories based on oriented balls, there are no non-trivial homeomorphisms of 0- or 1-balls, and thus no 
+additional structure on $c(\cX)$.
+
+For 1-categories based on Spin balls,
 the the nontrivial spin homeomorphism from $B^1$ to itself which covers the identity
 gives an order 2 automorphism of $c(\cX)^1$.
 
-For 1-categories based on $\text{Pin}_-$ manifolds,
+For 1-categories based on $\text{Pin}_-$ balls,
 we have an order 4 antiautomorphism of $c(\cX)^1$.
-For 1-categories based on $\text{Pin}_+$ manifolds,
+For 1-categories based on $\text{Pin}_+$ balls,
 we have an order 2 antiautomorphism and also an order 2 automorphism of $c(\cX)^1$,
 and these two maps commute with each other.
-%\nn{need to also consider automorphisms of $B^0$ / objects}
+
+
 
 \noop{
 \medskip
