@@ -1,6 +1,4 @@
 
-* extend localization lemma to (topological) homeos
-
 * lemma [inject  6.3.5?] assumes more splittablity than the axioms imply (?)
 
 
@@ -20,6 +18,8 @@
 * framings and duality -- work out what's going on! (alternatively, vague-ify current statement)
 
 * make sure we are clear that boundary = germ
+
+* go through text and remove any disclaimers about continuous (as oppsed to PL) homeos
 
 * review colors in figures
 
