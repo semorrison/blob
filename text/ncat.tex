@@ -719,39 +719,33 @@ This map is natural with respect to the action of homeomorphisms and with respec
 \end{itemize}
 \end{axiom}
 
+\medskip
 
+When the enriching category $\cS$ is chain complexes or topological spaces,
+or more generally an appropriate sort of $\infty$-category,
+we can modify the extended isotopy axiom \ref{axiom:extended-isotopies}
+to require that families of homeomorphisms act
+and obtain an $A_\infty$ $n$-category.
 
+We believe that abstract definitions should be guided by diverse collections
+of concrete examples, and a lack of diversity in our present collection of examples of $A_\infty$ $n$-categories
+makes us reluctant to commit to an all-encompassing general definition.
+Instead, we will give a relatively narrow definition which covers the examples we consider in this paper.
+After stating it, we will briefly discuss ways in which it can be made more general.
 
-\nn{a-inf starts by enriching over inf-cat; maybe simple version first, then peter's version (attrib to peter)}
-
-\nn{blarg}
-
-\nn{$k=n$ injectivity for a-inf (necessary?)}
-or if $k=n$ and we are in the $A_\infty$ case, 
-
-
-\nn{resume revising here}
-
-
-\smallskip
-
-For $A_\infty$ $n$-categories, we replace
-isotopy invariance with the requirement that families of homeomorphisms act.
-For the moment, assume that our $n$-morphisms are enriched over chain complexes.
+Assume that our $n$-morphisms are enriched over chain complexes.
 Let $\Homeo_\bd(X)$ denote homeomorphisms of $X$ which fix $\bd X$ and
 $C_*(\Homeo_\bd(X))$ denote the singular chains on this space.
 
+\nn{need to loosen for bbc reasons}
 
-
-%\addtocounter{axiom}{-1}
 \begin{axiom}[\textup{\textbf{[$A_\infty$ version]}} Families of homeomorphisms act in dimension $n$.]
 \label{axiom:families}
 For each $n$-ball $X$ and each $c\in \cl{\cC}(\bd X)$ we have a map of chain complexes
 \[
 	C_*(\Homeo_\bd(X))\ot \cC(X; c) \to \cC(X; c) .
 \]
-These action maps are required to be associative up to homotopy,
-%\nn{iterated homotopy?}
+These action maps are required to be associative up to coherent homotopy,
 and also compatible with composition (gluing) in the sense that
 a diagram like the one in Theorem \ref{thm:CH} commutes.
 %\nn{repeat diagram here?}
@@ -768,7 +762,10 @@ Having chains on the space of collar maps act gives rise to coherence maps invol
 weak identities.
 We will not pursue this in detail here.
 
-A potential variant on the above axiom would be to drop the ``up to homotopy" and require a strictly associative action. (In fact, the alternative construction of the blob complex described in \S \ref{ss:alt-def} gives $n$-categories as in Example \ref{ex:blob-complexes-of-balls} which satisfy this stronger axiom; since that construction is only homotopy equivalent to the usual one, only the weaker axiom carries across.)
+One potential variant of the above axiom would be to drop the ``up to homotopy" and require a strictly associative action. 
+(In fact, the alternative construction of the blob complex described in \S \ref{ss:alt-def} 
+gives $n$-categories as in Example \ref{ex:blob-complexes-of-balls} which satisfy this stronger axiom; 
+since that construction is only homotopy equivalent to the usual one, only the weaker axiom carries across.)
 
 Note that if we take homology of chain complexes, we turn an $A_\infty$ $n$-category
 into a ordinary $n$-category (enriched over graded groups).
@@ -777,6 +774,16 @@ we get a space version of an $A_\infty$ $n$-category, with $\Homeo_\bd(X)$ actin
 instead of  $C_*(\Homeo_\bd(X))$.
 Taking singular chains converts such a space type $A_\infty$ $n$-category into a chain complex
 type $A_\infty$ $n$-category.
+
+One possibility for generalizing the above axiom to encompass a wider variety of examples goes as follows.
+(Credit for these ideas goes to Peter Teichner, but of course the blame for any flaws goes to us.)
+Let $\cS$ be an $A_\infty$ 1-category.
+(We assume some prior notion of $A_\infty$ 1-category.)
+Note that the category $\cB\cB\cC$ of balls with boundary conditions, defined above, is enriched in the category
+of topological spaces, and hence can also be regarded as an $A_\infty$ 1-category.
+\nn{...}
+
+
 
 \medskip
 
