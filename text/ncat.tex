@@ -676,8 +676,8 @@ category structure.
 Note that this auxiliary structure is only in dimension $n$; if $\dim(Y) < n$ then 
 $\cC(Y; c)$ is just a plain set.
 
-We will aim for a little bit more generality than we need and not assume that the objects
-of our auxiliary category are sets with extra structure.
+%We will aim for a little bit more generality than we need and not assume that the objects
+%of our auxiliary category are sets with extra structure.
 First we must specify requirements for the auxiliary category.
 It should have a {\it distributive monoidal structure} in the sense of 
 \nn{Stolz and Teichner, Traces in monoidal categories, 1010.4527}.
@@ -688,6 +688,9 @@ Examples include
 \item vector spaces (or $R$-modules or chain complexes) with tensor product and direct sum; and
 \item topological spaces with product and disjoint union.
 \end{itemize}
+For convenience, we will also assume that the objects of our auxiliary category are sets with extra structure.
+(Otherwise, stating the axioms for identity morphisms becomes more cumbersome.)
+
 Before stating the revised axioms for an $n$-category enriched in a distributive monoidal category,
 we need a preliminary definition.
 Once we have the above $n$-category axioms for $n{-}1$-morphisms, we can define the 
@@ -712,7 +715,7 @@ Then we have a map
 \]
 where the sum is over $c\in\cC(Y)$ such that $\bd c = d$.
 This map is natural with respect to the action of homeomorphisms and with respect to restrictions.
-\item Product morphisms. \nn{Hmm... not sure what to say here. maybe we need sets with structure after all.}
+%\item Product morphisms. \nn{Hmm... not sure what to say here. maybe we need sets with structure after all.}
 \end{itemize}
 \end{axiom}
 
