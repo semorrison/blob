@@ -31,6 +31,8 @@
 * consider proving the gluing formula for higher codimension manifolds with
 morita equivalence
 
+* leftover: we used to require that composition of A-infinity n-morphisms was injective (just like lower morphisms).  Should we stick this back in?  I don't think we use it anywhere.
+
 
 
 * SCOTT will go through appendix C.2 and make it better
