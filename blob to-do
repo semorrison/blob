@@ -4,8 +4,6 @@
 
 * Consider moving A_\infty stuff to a subsection
 
-* consider putting conditions for enriched n-cat all in one place
-
 * Peter's suggestion for A_inf definition
 
 * Boundary of colimit -- not so easy to see!
@@ -32,6 +30,8 @@
 morita equivalence
 
 * leftover: we used to require that composition of A-infinity n-morphisms was injective (just like lower morphisms).  Should we stick this back in?  I don't think we use it anywhere.
+
+* should we require, for A-inf n-cats, that families which preserve product morphisms act trivially?
 
 
 

@@ -590,7 +590,7 @@ Here we use $Y\times J$ with boundary entirely pinched.
 We define a map
 \begin{eqnarray*}
 	\psi_{Y,J}: \cC(X) &\to& \cC(X) \\
-	a & \mapsto & s_{Y,J}(a \cup ((a|_Y)\times J)) .
+	a & \mapsto & s_{Y,J}(a \bullet ((a|_Y)\times J)) .
 \end{eqnarray*}
 (See Figure \ref{glue-collar}.)
 \begin{figure}[t]
@@ -654,7 +654,7 @@ The revised axiom is
 Let $X$ be an $n$-ball, $b \in \cC(X)$, and $f: X\to X$ be a homeomorphism which 
 acts trivially on the restriction $\bd b$ of $b$ to $\bd X$.
 Suppose furthermore that $f$ is isotopic to the identity through homeomorphisms which
-trivially on $\bd b$.
+act trivially on $\bd b$.
 Then $f(b) = b$.
 In addition, collar maps act trivially on $\cC(X)$.
 \end{axiom}
@@ -696,7 +696,9 @@ we need a preliminary definition.
 Once we have the above $n$-category axioms for $n{-}1$-morphisms, we can define the 
 category $\bbc$ of {\it $n$-balls with boundary conditions}.
 Its objects are pairs $(X, c)$, where $X$ is an $n$-ball and $c \in \cl\cC(\bd X)$ is the ``boundary condition".
-Its morphisms are homeomorphisms $f:X\to X$ such that $f|_{\bd X}(c) = c$.
+The morphisms from $(X, c)$ to $(X', c')$, denoted $\Homeo(X,c; X', c')$, are
+homeomorphisms $f:X\to X'$ such that $f|_{\bd X}(c) = c'$.
+%Let $\pi_0(\bbc)$ denote
  
 \begin{axiom}[Enriched $n$-categories]
 \label{axiom:enriched}
@@ -705,6 +707,8 @@ An $n$-category enriched in $\cS$ satisfies the above $n$-category axioms for $k
 and modifies the axioms for $k=n$ as follows:
 \begin{itemize}
 \item Morphisms. We have a functor $\cC_n$ from $\bbc$ ($n$-balls with boundary conditions) to $\cS$.
+%[already said this above.  ack]  Furthermore, $\cC_n(f)$ depends only on the path component of a homeomorphism $f: (X, c) \to (X', c')$.
+%In particular, homeomorphisms which are isotopic to the identity rel boundary act trivially
 \item Composition. Let $B = B_1\cup_Y B_2$ as in Axiom \ref{axiom:composition}.
 Let $Y_i = \bd B_i \setmin Y$.  
 Note that $\bd B = Y_1\cup Y_2$.
@@ -727,46 +731,74 @@ we can modify the extended isotopy axiom \ref{axiom:extended-isotopies}
 to require that families of homeomorphisms act
 and obtain an $A_\infty$ $n$-category.
 
+\noop{
 We believe that abstract definitions should be guided by diverse collections
 of concrete examples, and a lack of diversity in our present collection of examples of $A_\infty$ $n$-categories
 makes us reluctant to commit to an all-encompassing general definition.
 Instead, we will give a relatively narrow definition which covers the examples we consider in this paper.
 After stating it, we will briefly discuss ways in which it can be made more general.
+}
 
-Assume that our $n$-morphisms are enriched over chain complexes.
-Let $\Homeo_\bd(X)$ denote homeomorphisms of $X$ which fix $\bd X$ and
-$C_*(\Homeo_\bd(X))$ denote the singular chains on this space.
-
-\nn{need to loosen for bbc reasons}
+Recall the category $\bbc$ of balls with boundary conditions.
+Note that the morphisms $\Homeo(X,c; X', c')$ from $(X, c)$ to $(X', c')$ form a topological space.
+Let $\cS$ be an appropriate $\infty$-category (e.g.\ chain complexes)
+and let $\cJ$ be an $\infty$-functor from topological spaces to $\cS$
+(e.g.\ the singular chain functor $C_*$).
 
 \begin{axiom}[\textup{\textbf{[$A_\infty$ version]}} Families of homeomorphisms act in dimension $n$.]
 \label{axiom:families}
-For each $n$-ball $X$ and each $c\in \cl{\cC}(\bd X)$ we have a map of chain complexes
+For each pair of $n$-balls $X$ and $X'$ and each pair $c\in \cl{\cC}(\bd X)$ and $c'\in \cl{\cC}(\bd X')$ we have an $\cS$-morphism
 \[
-	C_*(\Homeo_\bd(X))\ot \cC(X; c) \to \cC(X; c) .
+	\cJ(\Homeo(X,c; X', c')) \ot \cC(X; c) \to \cC(X'; c') .
 \]
+Similarly, we have an $\cS$-morphism
+\[
+	\cJ(\Coll(X,c)) \ot \cC(X; c) \to \cC(X; c),
+\]
+where $\Coll(X,c)$ denotes the space of collar maps.
+(See below for further discussion.)
 These action maps are required to be associative up to coherent homotopy,
 and also compatible with composition (gluing) in the sense that
 a diagram like the one in Theorem \ref{thm:CH} commutes.
-%\nn{repeat diagram here?}
-%\nn{restate this with $\Homeo(X\to X')$?  what about boundary fixing property?}
-On $C_0(\Homeo_\bd(X))\ot \cC(X; c)$ the action should coincide 
-with the one coming from Axiom \ref{axiom:morphisms}.
+% say something about compatibility with product morphisms?
 \end{axiom}
 
-We should strengthen the above $A_\infty$ axiom to apply to families of collar maps.
-To do this we need to explain how collar maps form a topological space.
-Roughly, the set of collared $n{-}1$-balls in the boundary of an $n$-ball has a natural topology,
-and we can replace the class of all intervals $J$ with intervals contained in $\r$.
-Having chains on the space of collar maps act gives rise to coherence maps involving
-weak identities.
-We will not pursue this in detail here.
+We now describe the topology on $\Coll(X; c)$.
+We retain notation from the above definition of collar map.
+Each collaring homeomorphism $X \cup (Y\times J) \to X$ determines a map from points $p$ of $\bd X$ to
+(possibly zero-width) embedded intervals in $X$ terminating at $p$.
+If $p \in Y$ this interval is the image of $\{p\}\times J$.
+If $p \notin Y$ then $p$ is assigned the zero-width interval $\{p\}$.
+Such collections of intervals have a natural topology, and $\Coll(X; c)$ inherits its topology from this.
+Note in particular that parts of the collar are allowed to shrink continuously to zero width.
+(This is the real content; if nothing shrinks to zero width then the action of families of collar
+maps follows from the action of families of homeomorphisms and compatibility with gluing.)
 
-One potential variant of the above axiom would be to drop the ``up to homotopy" and require a strictly associative action. 
-(In fact, the alternative construction of the blob complex described in \S \ref{ss:alt-def} 
+The $k=n$ case of Axiom \ref{axiom:morphisms} posits a {\it strictly} associative action of {\it sets}
+$\Homeo(X,c; X', c') \times \cC(X; c) \to \cC(X'; c')$, and at first it might seem that this would force the above
+action of $\cJ(\Homeo(X,c; X', c'))$ to be strictly associative as well (assuming the two actions are compatible).
+In fact, compatibility implies less than this.
+For simplicity, assume that $\cJ$ is $C_*$, the singular chains functor.
+(This is the example most relevant to this paper.)
+Then compatibility implies that the action of $C_*(\Homeo(X,c; X', c'))$ agrees with the action
+of $C_0(\Homeo(X,c; X', c'))$ coming from Axiom \ref{axiom:morphisms}, so we only require associativity in degree zero.
+And indeed, this is true for our main example of an $A_\infty$ $n$-category based on the blob construction.
+Stating this sort of compatibility for general $\cS$ and $\cJ$ requires further assumptions, 
+such as the forgetful functor from $\cS$ to sets having a left adjoint, and $\cS$ having an internal Hom.
+An alternative (due to Peter Teichner) is to say that Axiom \ref{axiom:families} 
+supersedes the $k=n$ case of Axiom \ref{axiom:morphisms}; in dimension $n$ we just have a
+functor $\bbc \to \cS$ of $A_\infty$ 1-categories.
+(This assumes some prior notion of $A_\infty$ 1-category.)
+We are not currently aware of any examples which require this sort of greater generality, so we think it best
+to refrain from settling on a preferred version of the axiom until
+we have a greater variety of examples to guide the choice.
+
+Another variant of the above axiom would be to drop the ``up to homotopy" and require a strictly associative action. 
+In fact, the alternative construction of the blob complex described in \S \ref{ss:alt-def} 
 gives $n$-categories as in Example \ref{ex:blob-complexes-of-balls} which satisfy this stronger axiom; 
-since that construction is only homotopy equivalent to the usual one, only the weaker axiom carries across.)
+since that construction is only homotopy equivalent to the usual one, only the weaker axiom carries across.
 
+\noop{
 Note that if we take homology of chain complexes, we turn an $A_\infty$ $n$-category
 into a ordinary $n$-category (enriched over graded groups).
 In a different direction, if we enrich over topological spaces instead of chain complexes,
@@ -774,15 +806,7 @@ we get a space version of an $A_\infty$ $n$-category, with $\Homeo_\bd(X)$ actin
 instead of  $C_*(\Homeo_\bd(X))$.
 Taking singular chains converts such a space type $A_\infty$ $n$-category into a chain complex
 type $A_\infty$ $n$-category.
-
-One possibility for generalizing the above axiom to encompass a wider variety of examples goes as follows.
-(Credit for these ideas goes to Peter Teichner, but of course the blame for any flaws goes to us.)
-Let $\cS$ be an $A_\infty$ 1-category.
-(We assume some prior notion of $A_\infty$ 1-category.)
-Note that the category $\cB\cB\cC$ of balls with boundary conditions, defined above, is enriched in the category
-of topological spaces, and hence can also be regarded as an $A_\infty$ 1-category.
-\nn{...}
-
+}
 
 
 \medskip
