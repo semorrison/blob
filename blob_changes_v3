@@ -26,6 +26,7 @@ The most significant changes are:
 - more details on axioms for enriched n-cats
 - added details to the construction of traditional 1-categories from disklike 1-categories (Appendix C.1)
 - extended the lemmas of Appendix B (about adapting families of homeomorphisms to open covers) to the topological category
+- modified families-of-homeomorphisms-action axiom for A-infinity n-categories, and added discussion of alternatives
 
 
 
