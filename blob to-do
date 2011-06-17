@@ -1,10 +1,8 @@
 
 * lemma [inject  6.3.5?] assumes more splittablity than the axioms imply (?)
 
+* need to change module axioms to follow changes in n-cat axioms; search for and destroy all the "Homeo_\bd"'s
 
-* Consider moving A_\infty stuff to a subsection
-
-* Peter's suggestion for A_inf definition
 
 * Boundary of colimit -- not so easy to see!
 
@@ -31,7 +29,7 @@ morita equivalence
 
 * leftover: we used to require that composition of A-infinity n-morphisms was injective (just like lower morphisms).  Should we stick this back in?  I don't think we use it anywhere.
 
-* should we require, for A-inf n-cats, that families which preserve product morphisms act trivially?
+* should we require, for A-inf n-cats, that families which preserve product morphisms act trivially?  as now defined, this is only true up to homotopy for the blob complex, so maybe best not to open that can of worms
 
 
 
