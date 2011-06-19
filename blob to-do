@@ -1,7 +1,5 @@
 
-* lemma [inject  6.3.5?] assumes more splittablity than the axioms imply (?)
-
-* need to change module axioms to follow changes in n-cat axioms; search for and destroy all the "Homeo_\bd"'s
+* need to change module axioms to follow changes in n-cat axioms; search for and destroy all the "Homeo_\bd"'s, add a v-cone axiom
 
 
 * Boundary of colimit -- not so easy to see!
