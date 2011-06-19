@@ -492,7 +492,11 @@ $$
 \caption{Five examples of unions of pinched products}\label{pinched_prod_unions}
 \end{figure}
 
-The product axiom will give a map $\pi^*:\cC(X)\to \cC(E)$ for each pinched product
+Note that $\bd X$ has a (possibly trivial) subdivision according to 
+the dimension of $\pi\inv(x)$, $x\in \bd X$.
+Let $\cC(X)\trans{}$ denote the morphisms which are splittable along this subdivision.
+
+The product axiom will give a map $\pi^*:\cC(X)\trans{}\to \cC(E)$ for each pinched product
 $\pi:E\to X$.
 Morphisms in the image of $\pi^*$ will be called product morphisms.
 Before stating the axiom, we illustrate it in our two motivating examples of $n$-categories.
@@ -506,7 +510,7 @@ same (traditional) $i$-morphism as the corresponding codimension $i$ cell $c$.
 \begin{axiom}[Product (identity) morphisms]
 \label{axiom:product}
 For each pinched product $\pi:E\to X$, with $X$ a $k$-ball and $E$ a $k{+}m$-ball ($m\ge 1$),
-there is a map $\pi^*:\cC(X)\to \cC(E)$.
+there is a map $\pi^*:\cC(X)\trans{}\to \cC(E)$.
 These maps must satisfy the following conditions.
 \begin{enumerate}
 \item
@@ -529,7 +533,7 @@ Note that $X_1$ and $X_2$ can be identified with subsets of $X$,
 but $X_1 \cap X_2$ might not be codimension 1, and indeed we might have $X_1 = X_2 = X$.
 We assume that there is a decomposition of $X$ into balls which is compatible with
 $X_1$ and $X_2$.
-Let $a\in \cC(X)$, and let $a_i$ denote the restriction of $a$ to $X_i\sub X$.
+Let $a\in \cC(X)\trans{}$, and let $a_i$ denote the restriction of $a$ to $X_i\sub X$.
 (We assume that $a$ is splittable with respect to the above decomposition of $X$ into balls.)
 Then 
 \[
