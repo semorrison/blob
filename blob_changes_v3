@@ -28,6 +28,7 @@ The most significant changes are:
 - extended the lemmas of Appendix B (about adapting families of homeomorphisms to open covers) to the topological category
 - modified families-of-homeomorphisms-action axiom for A-infinity n-categories, and added discussion of alternatives
 - added n-cat axiom for existence of splittings
+- added transversality requirement to product morphism axiom
 
 
 

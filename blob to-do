@@ -7,8 +7,6 @@
 * ** new material in colimit section needs a proof-read
 
 
-* should probably allow product things \pi^*(b) to be defined only when b is appropriately splittable
-
 * framings and duality -- work out what's going on! (alternatively, vague-ify current statement)
 
 * make sure we are clear that boundary = germ
