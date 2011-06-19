@@ -30,6 +30,9 @@ morita equivalence
 * leftover: we used to require that composition of A-infinity n-morphisms was injective (just like lower morphisms).  Should we stick this back in?  I don't think we use it anywhere.
 
 * should we require, for A-inf n-cats, that families which preserve product morphisms act trivially?  as now defined, this is only true up to homotopy for the blob complex, so maybe best not to open that can of worms
+(but since the strict version of this is true for BT_*, maybe we're OK)
+
+* probably should go through and refer to new splitting axiom when we need to choose refinements etc.
 
 
 
