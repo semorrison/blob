@@ -568,7 +568,7 @@ such that $\rho$ and $\pi$ are pinched products, then
 %We start with the ordinary $n$-category case.
 
 The next axiom says, roughly, that we have strict associativity in dimension $n$, 
-even we we reparameterize our $n$-balls.
+even when we reparametrize our $n$-balls.
 
 \begin{axiom}[\textup{\textbf{[preliminary]}} Isotopy invariance in dimension $n$]
 Let $X$ be an $n$-ball, $b \in \cC(X)$, and $f: X\to X$ be a homeomorphism which 
@@ -649,7 +649,7 @@ isotopic (rel boundary) to the identity {\it extended isotopy}.
 The revised axiom is
 
 %\addtocounter{axiom}{-1}
-\begin{axiom}[\textup{\textbf{[ordinary  version]}} Extended isotopy invariance in dimension $n$.]
+\begin{axiom}[\textup{\textbf{[ordinary  version]}} Extended isotopy invariance in dimension $n$]
 \label{axiom:extended-isotopies}
 Let $X$ be an $n$-ball, $b \in \cC(X)$, and $f: X\to X$ be a homeomorphism which 
 acts trivially on the restriction $\bd b$ of $b$ to $\bd X$.
@@ -658,6 +658,45 @@ act trivially on $\bd b$.
 Then $f(b) = b$.
 In addition, collar maps act trivially on $\cC(X)$.
 \end{axiom}
+
+\medskip
+
+We need one additional axiom, in order to constrain the poset of decompositions of a given morphism.
+We will soon want to take colimits (and homotopy colimits) indexed by such posets, and we want to require
+that these colimits are in some sense locally acyclic.
+Before stating the axiom we need a few preliminary definitions.
+If $P$ is a poset let $P\times I$ denote the product poset, where $I = \{0, 1\}$ with ordering $0\le 1$.
+Let $\Cone(P)$ denote $P$ adjoined an additional object $v$ (the vertex of the cone) with $p\le v$ for all objects $p$ of $P$.
+Finally, let $\vcone(P)$ denote $P\times I \cup \Cone(P)$, where we identify $P\times \{0\}$ with the base of the cone.
+We call $P\times \{1\}$ the base of $\vcone(P)$.
+(See Figure \nn{need figure}.)
+
+\nn{maybe call this ``splittings" instead of ``V-cones"?}
+
+\begin{axiom}[V-cones]
+\label{axiom:vcones}
+Let $c\in \cC_k(X)$ and
+let $P$ be a finite poset of splittings of $c$.
+Then we can embed $\vcone(P)$ into the splittings of $c$, with $P$ corresponding to the base of $\vcone(P)$.
+Furthermore, if $q$ is any decomposition of $X$, then we can take the vertex of $\vcone(P)$ to be $q$ up to a small perturbation.
+\end{axiom}
+
+It is easy to see that this axiom holds in our two motivating examples, 
+using standard facts about transversality and general position.
+One starts with $q$, perturbs it so that it is in general position with respect to $c$ (in the case of string diagrams)
+and also with respect to each of the decompositions of $P$, then chooses common refinements of each decomposition of $P$
+and the perturbed $q$.
+These common refinements form the middle ($P\times \{0\}$ above) part of $\vcone(P)$.
+
+We note two simple special cases of axiom \ref{axiom:vcones}.
+If $P$ is the empty poset, then $\vcone(P)$ consists of only the vertex, and the axiom says that any morphism $c$
+can be split along any decomposition of $X$, after a small perturbation.
+If $P$ is the disjoint union of two points, then $\vcone(P)$ looks like a letter W, and the axiom implies that the
+poset of splittings of $c$ is connected.
+Note that we do not require that any two splittings of $c$ have a common refinement (i.e.\ replace the letter W with the letter V).
+Two decompositions of $X$ might intersect in a very messy way, but one can always find a third
+decomposition which has common refinements with each of the original two decompositions.
+
 
 \medskip
 
