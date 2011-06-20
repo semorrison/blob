@@ -2587,3 +2587,29 @@ We define product $n{+}1$-morphisms to be identity maps of modules.
 To define (binary) composition of $n{+}1$-morphisms, choose the obvious common equator
 then compose the module maps.
 The proof that this composition rule is associative is similar to the proof of Lemma \ref{equator-lemma}.
+
+\medskip
+
+We end this subsection with some remarks about Morita equivalence of disklike $n$-categories.
+Recall that two 1-categories $C$ and $D$ are Morita equivalent if and only if they are equivalent
+objects in the 2-category of (linear) 1-categories, bimodules, and intertwinors.
+Similarly, we define two disklike $n$-categories to be Morita equivalent if they are equivalent objects in the
+$n{+}1$-category of sphere modules.
+
+Because of the strong duality enjoyed by disklike $n$-categories, the data for such an equivalence lives only in 
+dimensions 1 and $n+1$ (the middle dimensions come along for free), and this data must satisfy
+identities corresponding to Morse cancellations in $n{+}1$-manifolds.
+\noop{ % the following doesn't work; need 2^(k+1) different N's, not 2*(k+1)
+More specifically, the 1-dimensional part of the data is a 0-sphere module $M = {}_CM_D$ 
+(categorified bimodule) connecting $C$ and $D$.
+From $M$ we can construct various $k$-sphere modules $N^k_{j,E}$ for $0 \le k \le n$, $0\le j \le k$, and $E = C$ or $D$.
+$N^k_{j,E}$ can be thought of as the graph of an index $j$ Morse function on the $k$-ball $B^k$
+(so the graph lives in $B^k\times I = B^{k+1}$).
+The positive side of the graph is labeled by $E$, the negative side by $E'$
+(where $C' = D$ and $D' = C$), and the codimension-1 
+submanifold separating the positive and negative regions is labeled by $M$.
+We think of $N^k_{j,E}$ as a $k{+}1$-morphism connecting 
+}
+We plan on treating this in more detail in a future paper.
+\nn{should add a few more details}
+
