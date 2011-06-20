@@ -1,22 +1,22 @@
 
+====== big ======
+
 * need to change module axioms to follow changes in n-cat axioms; search for and destroy all the "Homeo_\bd"'s, add a v-cone axiom
 
+* probably should go through and refer to new splitting axiom when we need to choose refinements etc.
 
 * Boundary of colimit -- not so easy to see!
-
-* ** new material in colimit section needs a proof-read
 
 
 * framings and duality -- work out what's going on! (alternatively, vague-ify current statement)
 
-* make sure we are clear that boundary = germ
-
-* go through text and remove any disclaimers about continuous (as oppsed to PL) homeos
-
-* review colors in figures
+* make sure we are clear that boundary = germ (perhaps we are already clear enough)
 
 * maybe say something in colimit section about restriction to submanifolds and submanifolds of boundary (we use this in n-cat axioms)
 
+
+
+====== minor/optional ======
 
 * ? define Morita equivalence?
 
@@ -28,9 +28,10 @@ morita equivalence
 * should we require, for A-inf n-cats, that families which preserve product morphisms act trivially?  as now defined, this is only true up to homotopy for the blob complex, so maybe best not to open that can of worms
 (but since the strict version of this is true for BT_*, maybe we're OK)
 
-* probably should go through and refer to new splitting axiom when we need to choose refinements etc.
+* review colors in figures
 
 
+====== Scott ======
 
 * SCOTT will go through appendix C.2 and make it better
 
@@ -42,4 +43,4 @@ morita equivalence
 
 * SCOTT: add vertical arrow to middle of figure 19 (decomp poset)
 
-* SCOTT: review/proof-read recent KW changes
+* SCOTT: review/proof-read recent KW changes, especially colimit section and n-cat axioms
