@@ -2599,6 +2599,48 @@ $n{+}1$-category of sphere modules.
 Because of the strong duality enjoyed by disklike $n$-categories, the data for such an equivalence lives only in 
 dimensions 1 and $n+1$ (the middle dimensions come along for free), and this data must satisfy
 identities corresponding to Morse cancellations in $n{+}1$-manifolds.
+We will treat this in detail for the $n=2$ case; the case for general $n$ is very similar.
+
+Let $C$ and $D$ be (unoriented) disklike 2-categories.
+Let $\cS$ denote the 3-category of 2-category sphere modules.
+The 1-dimensional part of the data for a Morita equivalence between $C$ and $D$ is a 0-sphere module $M = {}_CM_D$ 
+(categorified bimodule) connecting $C$ and $D$.
+Because of the full unoriented symmetry, this can also be thought of as a 
+0-sphere module ${}_DM_C$ connecting $D$ and $C$.
+
+We want $M$ to be an equivalence, so we need 2-morphisms in $\cS$ 
+between ${}_CM_D \otimes_D {}_DM_C$ and the identity 0-sphere module ${}_CC_C$, and similarly
+with the roles of $C$ and $D$ reversed.
+These 2-morphisms come for free, in the sense of not requiring additional data, since we can take them to be the labeled 
+cell complexes (cups and caps) in $B^2$ shown in Figure \nn{need figure}.
+
+We want the 2-morphisms from the previous paragraph to be equivalences, so we need 3-morphisms
+between various compositions of these 2-morphisms and various identity 2-morphisms.
+Recall that the 3-morphisms of $\cS$ are intertwinors between representations of 1-categories associated
+to decorated circles.
+Figure \nn{need Figure} shows the intertwinors we need.
+Each decorated 2-ball in that figure determines a representation of the 1-category associated to the decorated circle
+on the boundary.
+This is the 3-dimensional part of the data for the Morita equivalence.
+\nn{?? note that, by symmetry, the x and y arrows of Fig xxxx are the same (up to rotation), as are the z and w arrows}
+
+In order for these 3-morphisms to be equivalences, they must satisfy identities corresponding to Morse cancellations
+on 3-manifolds.
+These are illustrated in Figure \nn{need figure}.
+Each line shows a composition of two intertwinors which we require to be equal to the identity intertwinor.
+
+For general $n$, we start with an $n$-category 0-sphere module $M$ which is the data for the 1-dimensional
+part of the Morita equivalence.
+For $2\le k \le n$, the $k$-dimensional parts of the Morita equivalence are various decorated $k$-balls with submanifolds
+labeled by $C$, $D$ and $M$; no additional data is needed for these parts.
+The $n{+}1$-dimensional part of the equivalence is given by certain intertwinors, and these intertwinors must satisfy
+identities corresponding to Morse cancellations in $n{+}1$-manifolds. 
+
+
+
+
+
+
 \noop{ % the following doesn't work; need 2^(k+1) different N's, not 2*(k+1)
 More specifically, the 1-dimensional part of the data is a 0-sphere module $M = {}_CM_D$ 
 (categorified bimodule) connecting $C$ and $D$.
@@ -2609,7 +2651,7 @@ The positive side of the graph is labeled by $E$, the negative side by $E'$
 (where $C' = D$ and $D' = C$), and the codimension-1 
 submanifold separating the positive and negative regions is labeled by $M$.
 We think of $N^k_{j,E}$ as a $k{+}1$-morphism connecting 
-}
 We plan on treating this in more detail in a future paper.
 \nn{should add a few more details}
+}
 
