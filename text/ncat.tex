@@ -2618,6 +2618,38 @@ These 2-morphisms come for free, in the sense of not requiring additional data, 
 cell complexes (cups and caps) in $B^2$ shown in Figure \ref{morita-fig-1}.
 \begin{figure}[t]
 $$\mathfig{.65}{tempkw/morita1}$$
+
+
+$$
+\begin{tikzpicture}
+\node(L) at (0,0) {\tikz{
+	\draw[orange] (0,0) -- node[below] {$\cC$} (1,0);
+	\draw[blue] (1,0) -- node[below] {$\cD$} (2,0);
+	\draw[orange] (2,0) -- node[below] {$\cC$} (3,0);
+	\node[purple, fill, circle, inner sep=2pt, label=$\cM$] at (1,0) {};
+	\node[purple, fill, circle, inner sep=2pt, label=$\cM$] at (2,0) {};
+}};
+
+\node(R) at (6,0) {\tikz{
+	\draw[orange] (0,0) -- node[below] {$\cC$} (3,0);
+	\node[label={\phantom{$\cM$}}] at (1.5,0) {};
+}};
+
+\node at (-1,-1.5) { $\leftidx{_\cC}{(\cM \tensor_\cD \cM)}{_\cC}$ };
+\node at (7,-1.5) { $\leftidx{_\cC}{\cC}{_\cC}$ };
+
+\draw[->] (L) to[out=35, in=145] node[below] {$w$} node[above] { \tikz{
+	\draw (0,0) circle (16pt);
+}}(R);
+
+\draw[->] (R) to[out=-145, in=-35] node[above] {$x$} node[below] { \tikz{
+	\draw (0,0) circle (16pt);
+}}(L);
+
+
+\end{tikzpicture}
+$$
+
 \caption{Cups and caps for free}\label{morita-fig-1}
 \end{figure}
 
