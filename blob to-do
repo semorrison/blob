@@ -1,6 +1,8 @@
 
 ====== big ======
 
+* need to fix fam-o-homeo argument per discussion with Rob
+
 * need to change module axioms to follow changes in n-cat axioms; search for and destroy all the "Homeo_\bd"'s, add a v-cone axiom
 
 * probably should go through and refer to new splitting axiom when we need to choose refinements etc.
