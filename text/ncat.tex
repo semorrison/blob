@@ -778,17 +778,15 @@ We call $P\times \{1\}$ the base of $\vcone(P)$.
 \label{vcone-fig}
 \end{figure}
 
-\nn{maybe call this ``splittings" instead of ``V-cones"?}
 
-\begin{axiom}[V-cones]
+\begin{axiom}[Splittings]
 \label{axiom:vcones}
 Let $c\in \cC_k(X)$ and
 let $P$ be a finite poset of splittings of $c$.
 Then we can embed $\vcone(P)$ into the splittings of $c$, with $P$ corresponding to the base of $\vcone(P)$.
 Furthermore, if $q$ is any decomposition of $X$, then we can take the vertex of $\vcone(P)$ to be $q$ up to a small perturbation.
+Also, any splitting of $\bd c$ can be extended to a splitting of $c$.
 \end{axiom}
-
-\nn{maybe also say that any splitting of $\bd c$ can be extended to a splitting of $c$}
 
 It is easy to see that this axiom holds in our two motivating examples, 
 using standard facts about transversality and general position.
@@ -1256,7 +1254,7 @@ We will show in Corollary \ref{cor:new-old} below that the homotopy colimit inva
 for a manifold $M$ associated to this $A_\infty$ $n$-category is actually the 
 same as the original blob complex for $M$ with coefficients in $\cC$.
 
-Recall that we've already anticipated this construction in the previous section, 
+Recall that we've already anticipated this construction Subsection \ref{ss:n-cat-def}, 
 inductively defining $\cl{\cC}$ on $k$-spheres in terms of $\cC$ on $k$-balls, 
 so that we can state the boundary axiom for $\cC$ on $k+1$-balls.
 
@@ -1283,6 +1281,10 @@ Define a {\it permissible decomposition} of $W$ to be a map
 	\coprod_a X_a \to W,
 \]
 which can be completed to a ball decomposition $\du_a X_a = M_0\to\cdots\to M_m = W$.
+We further require that $\du_a (X_a \cap \bd W) \to \bd W$ 
+can be completed to a (not necessarily ball) decomposition of $\bd W$.
+(So, for example, in Example \ref{sin1x-example} if we take $W = B\cup C\cup D$ then $B\du C\du D \to W$
+is not allowed since $D\cap \bd W$ is not a submanifold.)
 Roughly, a permissible decomposition is like a ball decomposition where we don't care in which order the balls
 are glued up to yield $W$, so long as there is some (non-pathological) way to glue them.
 
@@ -1364,10 +1366,6 @@ If $x$ is a refinement of $y$, the map $\psi_{\cC;W}(x) \to \psi_{\cC;W}(y)$
 is given by the composition maps of $\cC$.
 This completes the definition of the functor $\psi_{\cC;W}$.
 
-Note that we have constructed, at the last stage of the above procedure, 
-a map from $\psi_{\cC;W}(x)$ to $\cl\cC(\bd M_m) = \cl\cC(\bd W)$.
-\nn{need to show at somepoint that this does not depend on choice of ball decomp}
-
 If $k=n$ in the above definition and we are enriching in some auxiliary category, 
 we need to say a bit more.
 We can rewrite the colimit as
@@ -1398,8 +1396,45 @@ is defined as above, as the colimit of $\psi_{\cC;W}$.
 When $W$ is an $n$-manifold, the chain complex $\cl{\cC}(W)$ is the homotopy colimit of the functor $\psi_{\cC;W}$.
 \end{defn}
 
-We can specify boundary data $c \in \cl{\cC}(\bdy W)$, and define functors $\psi_{\cC;W,c}$ 
-with values the subsets of those of $\psi_{\cC;W}$ which agree with $c$ on the boundary of $W$.
+%We can specify boundary data $c \in \cl{\cC}(\bdy W)$, and define functors $\psi_{\cC;W,c}$ 
+%with values the subsets of those of $\psi_{\cC;W}$ which agree with $c$ on the boundary of $W$.
+
+\medskip
+
+We must now define restriction maps $\bd : \cl{\cC}(W) \to \cl{\cC}(\bd W)$ and gluing maps.
+
+Let $y\in \cl{\cC}(W)$.
+Choose a representative of $y$ in the colimit: a permissible decomposition $\du_a X_a \to W$ and elements
+$y_a \in \cC(X_a)$.
+By assumption, $\du_a (X_a \cap \bd W) \to \bd W$ can be completed to a decomposition of $\bd W$.
+Let $r(y_a) \in \cl\cC(X_a \cap \bd W)$ be the restriction.
+Choose a representative of $r(y_a)$ in the colimit $\cl\cC(X_a \cap \bd W)$: a permissible decomposition
+$\du_b Q_{ab} \to X_a \cap \bd W$ and elements $z_{ab} \in \cC(Q_{ab})$.
+Then $\du_{ab} Q_{ab} \to \bd W$ is a permissible decomposition of $\bd W$ and $\{z_{ab}\}$ represents
+an element of $\cl{\cC}(\bd W)$.  Define $\bd y$ to be this element.
+It is not hard to see that it is independent of the various choices involved.
+
+Note that since we have already (inductively) defined gluing maps for colimits of $k{-}1$-manifolds,
+we can also define restriction maps from $\cl{\cC}(W)\trans{}$ to $\cl{\cC}(Y)$ where $Y$ is a codimension 0 
+submanifold of $\bd W$.
+
+Next we define gluing maps for colimits of $k$-manifolds.
+Let $W = W_1 \cup_Y W_2$.
+Let $y_i \in \cl\cC(W_i)$ and assume that the restrictions of $y_1$ and $y_2$ to $\cl\cC(Y)$ agree.
+We want to define $y_1\bullet y_2 \in \cl\cC(W)$.
+Choose a permissible decomposition $\du_a X_{ia} \to W_i$ and elements 
+$y_{ia} \in \cC(X_{ia})$ representing $y_i$.
+It might not be the case that $\du_{ia} X_{ia} \to W$ is a permissible decomposition of $W$,
+since intersections of the pieces with $\bd W$ might not be well-behaved.
+However, using the fact that $\bd y_i$ splits along $\bd Y$ and applying Axiom \ref{axiom:vcones},
+we can choose the decomposition $\du_{a} X_{ia}$ so that its restriction to $\bd W_i$ is a refinement
+of the splitting along $\bd Y$, and this implies that the combined decomposition $\du_{ia} X_{ia}$
+is permissible.
+We can now define the gluing $y_1\bullet y_2$ in the obvious way, and a further application of Axiom \ref{axiom:vcones}
+shows that this is independebt of the choices of representatives of $y_i$.
+
+
+\medskip
 
 We now give more concrete descriptions of the above colimits.
 
@@ -1408,7 +1443,7 @@ the colimit is
 \[
 	\cl{\cC}(W,c) = \left( \coprod_x \coprod_\beta \prod_a \cC(X_a; \beta) \right) \Bigg/ \sim ,
 \]
-where $x$ runs through decomposition of $W$, and $\sim$ is the obvious equivalence relation 
+where $x$ runs through decompositions of $W$, and $\sim$ is the obvious equivalence relation 
 induced by refinement and gluing.
 If $\cC$ is enriched over vector spaces and $W$ is an $n$-manifold, 
 we can take
@@ -1480,10 +1515,6 @@ Restricting the $k$-spheres, we have now proved Lemma \ref{lem:spheres}.
 It is easy to see that
 there are well-defined maps $\cl{\cC}(W)\to\cl{\cC}(\bd W)$, and that these maps
 comprise a natural transformation of functors.
-
-
-
-\nn{to do: define splittability and restrictions for colimits}
 
 
 
