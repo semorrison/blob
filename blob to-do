@@ -5,14 +5,10 @@
 
 * probably should go through and refer to new splitting axiom when we need to choose refinements etc.
 
-* Boundary of colimit -- not so easy to see!
-
 
 * framings and duality -- work out what's going on! (alternatively, vague-ify current statement)
 
 * make sure we are clear that boundary = germ (perhaps we are already clear enough)
-
-* maybe say something in colimit section about restriction to submanifolds and submanifolds of boundary (we use this in n-cat axioms)
 
 
 
