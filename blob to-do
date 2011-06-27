@@ -1,6 +1,10 @@
 
 ====== big ======
 
+* reconcile splittability with A-inf/familaies of maps examples
+
+* better iscussion of systems of fields from disk-like n-cats
+
 * need to fix fam-o-homeo argument per discussion with Rob
 
 * need to change module axioms to follow changes in n-cat axioms; search for and destroy all the "Homeo_\bd"'s, add a v-cone axiom
