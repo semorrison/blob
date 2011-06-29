@@ -34,9 +34,8 @@ See \S\ref{n-cat-names} for a discussion of $n$-category terminology.
 
 The axioms for an $n$-category are spread throughout this section.
 Collecting these together, an $n$-category is a gadget satisfying Axioms \ref{axiom:morphisms}, 
-\ref{nca-boundary}, \ref{axiom:composition},  \ref{nca-assoc}, \ref{axiom:product}, \ref{axiom:vcones} and 
-\ref{axiom:extended-isotopies}.
-For an enriched $n$-category we add \ref{axiom:enriched}.
+\ref{nca-boundary}, \ref{axiom:composition},  \ref{nca-assoc}, \ref{axiom:product}, \ref{axiom:extended-isotopies} and  \ref{axiom:vcones}.
+For an enriched $n$-category we add Axiom \ref{axiom:enriched}.
 For an $A_\infty$ $n$-category, we replace 
 Axiom \ref{axiom:extended-isotopies} with Axiom \ref{axiom:families}.
 
@@ -579,7 +578,7 @@ even when we reparametrize our $n$-balls.
 Let $X$ be an $n$-ball, $b \in \cC(X)$, and $f: X\to X$ be a homeomorphism which 
 acts trivially on the restriction $\bd b$ of $b$ to $\bd X$.
 (Keep in mind the important special case where $f$ restricted to $\bd X$ is the identity.)
-Suppose furthermore that $f$ is isotopic to the identity through homeomorphisms which
+Suppose furthermore that $f$ is isotopic to the identity through homeomorphisms which act
 trivially on $\bd b$.
 Then $f(b) = b$.
 In particular, homeomorphisms which are isotopic to the identity rel boundary act trivially on 
@@ -654,7 +653,7 @@ isotopic (rel boundary) to the identity {\it extended isotopy}.
 The revised axiom is
 
 %\addtocounter{axiom}{-1}
-\begin{axiom}[\textup{\textbf{[ordinary  version]}} Extended isotopy invariance in dimension $n$]
+\begin{axiom}[Extended isotopy invariance in dimension $n$]
 \label{axiom:extended-isotopies}
 Let $X$ be an $n$-ball, $b \in \cC(X)$, and $f: X\to X$ be a homeomorphism which 
 acts trivially on the restriction $\bd b$ of $b$ to $\bd X$.
@@ -876,7 +875,7 @@ When the enriching category $\cS$ is chain complexes or topological spaces,
 or more generally an appropriate sort of $\infty$-category,
 we can modify the extended isotopy axiom \ref{axiom:extended-isotopies}
 to require that families of homeomorphisms act
-and obtain an $A_\infty$ $n$-category.
+and obtain what we shall call an $A_\infty$ $n$-category.
 
 \noop{
 We believe that abstract definitions should be guided by diverse collections
@@ -892,7 +891,7 @@ Let $\cS$ be an appropriate $\infty$-category (e.g.\ chain complexes)
 and let $\cJ$ be an $\infty$-functor from topological spaces to $\cS$
 (e.g.\ the singular chain functor $C_*$).
 
-\begin{axiom}[\textup{\textbf{[$A_\infty$ version]}} Families of homeomorphisms act in dimension $n$.]
+\begin{axiom}[\textup{\textbf{[$A_\infty$ replacement for Axiom \ref{axiom:extended-isotopies}]}} Families of homeomorphisms act in dimension $n$.]
 \label{axiom:families}
 For each pair of $n$-balls $X$ and $X'$ and each pair $c\in \cl{\cC}(\bd X)$ and $c'\in \cl{\cC}(\bd X')$ we have an $\cS$-morphism
 \[
@@ -913,12 +912,12 @@ a diagram like the one in Theorem \ref{thm:CH} commutes.
 We now describe the topology on $\Coll(X; c)$.
 We retain notation from the above definition of collar map.
 Each collaring homeomorphism $X \cup (Y\times J) \to X$ determines a map from points $p$ of $\bd X$ to
-(possibly zero-width) embedded intervals in $X$ terminating at $p$.
+(possibly length zero) embedded intervals in $X$ terminating at $p$.
 If $p \in Y$ this interval is the image of $\{p\}\times J$.
-If $p \notin Y$ then $p$ is assigned the zero-width interval $\{p\}$.
+If $p \notin Y$ then $p$ is assigned the length zero interval $\{p\}$.
 Such collections of intervals have a natural topology, and $\Coll(X; c)$ inherits its topology from this.
-Note in particular that parts of the collar are allowed to shrink continuously to zero width.
-(This is the real content; if nothing shrinks to zero width then the action of families of collar
+Note in particular that parts of the collar are allowed to shrink continuously to zero length.
+(This is the real content; if nothing shrinks to zero length then the action of families of collar
 maps follows from the action of families of homeomorphisms and compatibility with gluing.)
 
 The $k=n$ case of Axiom \ref{axiom:morphisms} posits a {\it strictly} associative action of {\it sets}
@@ -1118,9 +1117,9 @@ For $n=1$ we have the familiar bordism 1-category of $d$-manifolds.
 The case $n=d$ captures the $n$-categorical nature of bordisms.
 The case $n > 2d$ captures the full symmetric monoidal $n$-category structure.
 \end{example}
-\begin{remark}
+\begin{rem}
 Working with the smooth bordism category would require careful attention to either collars, corners or halos.
-\end{remark}
+\end{rem}
 
 %\nn{the next example might be an unnecessary distraction.  consider deleting it.}
 
@@ -1344,7 +1343,7 @@ Gluing and restriction maps for colimits of $k$-manifolds will be defined later 
 
 Let $\du_a X_a = M_0\to\cdots\to M_m = W$ be a ball decomposition compatible with $x$.
 Let $\bd M_i = N_i \cup Y_i \cup Y'_i$, where $Y_i$ and $Y'_i$ are glued together to produce $M_{i+1}$.
-We will define $\psi_{\cC;W}(x)$ be be the subset of $\prod_a \cC(X_a)$ which satisfies a series of conditions
+We will define $\psi_{\cC;W}(x)$ to be the subset of $\prod_a \cC(X_a)$ which satisfies a series of conditions
 related to the gluings $M_{i-1} \to M_i$, $1\le i \le m$.
 By Axiom \ref{nca-boundary}, we have a map
 \[
@@ -1361,7 +1360,7 @@ The second condition is that the image of $\psi_{\cC;W}(x)$ in $\cl\cC(\bd M_1)$
 along $\bd Y_1$ and $\bd Y'_1$, and that the restrictions to $\cl\cC(Y_1)$ and $\cl\cC(Y'_1)$ agree
 (with respect to the identification of $Y_1$ and $Y'_1$ provided by the gluing map). 
 The $i$-th condition is defined similarly.
-Note that these conditions depend on on the boundaries of elements of $\prod_a \cC(X_a)$.
+Note that these conditions depend on the boundaries of elements of $\prod_a \cC(X_a)$.
 
 We define $\psi_{\cC;W}(x)$ to be the subset of $\prod_a \cC(X_a)$ which satisfies the 
 above conditions for all $i$ and also all 
@@ -1440,7 +1439,7 @@ we can choose the decomposition $\du_{a} X_{ia}$ so that its restriction to $\bd
 of the splitting along $\bd Y$, and this implies that the combined decomposition $\du_{ia} X_{ia}$
 is permissible.
 We can now define the gluing $y_1\bullet y_2$ in the obvious way, and a further application of Axiom \ref{axiom:vcones}
-shows that this is independebt of the choices of representatives of $y_i$.
+shows that this is independent of the choices of representatives of $y_i$.
 
 
 \medskip
@@ -1454,7 +1453,7 @@ the colimit is
 \]
 where $x$ runs through decompositions of $W$, and $\sim$ is the obvious equivalence relation 
 induced by refinement and gluing.
-If $\cC$ is enriched over vector spaces and $W$ is an $n$-manifold, 
+If $\cC$ is enriched over, for example, vector spaces and $W$ is an $n$-manifold, 
 we can take
 \begin{equation*}
 	\cl{\cC}(W,c) = \left( \bigoplus_x \bigoplus_\beta \bigotimes_a \cC(X_a; \beta) \right) \Bigg/ K,
