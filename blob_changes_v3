@@ -31,3 +31,5 @@ The most significant changes are:
 - added transversality requirement to product morphism axiom
 - added remarks on Morita equivalence for n-categories
 - rewrote definition of colimit (in "From Balls to Manifolds" subsection) to allow for more general decompositions; also added more details
+- added remark about families of collar maps acting on the blob complex
+

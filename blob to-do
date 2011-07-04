@@ -4,8 +4,6 @@
 * reconcile splittability with A-inf/families of maps examples
 
 * better discussion of systems of fields from disk-like n-cats
-** splittability axiom for fields
-** topology on fields, topology on morphisms (used in construction of BT)
 
 * need to fix fam-o-homeo argument per discussion with Rob
 
@@ -14,7 +12,6 @@
 * probably should go through and refer to new splitting axiom when we need to choose refinements etc.
 ** in the proof that gluing in dimension < n is injective
 ** in the proof that D(a) is acyclic
-** in the small blobs lemma
 
 * framings and duality -- work out what's going on! (alternatively, vague-ify current statement)
 
