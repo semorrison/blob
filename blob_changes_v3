@@ -27,7 +27,7 @@ The most significant changes are:
 - added details to the construction of traditional 1-categories from disklike 1-categories (Appendix C.1)
 - extended the lemmas of Appendix B (about adapting families of homeomorphisms to open covers) to the topological category
 - modified families-of-homeomorphisms-action axiom for A-infinity n-categories, and added discussion of alternatives
-- added n-cat axiom for existence of splittings
+- added n-cat axiom for existence of splittings, and added similar axiom for fields
 - added transversality requirement to product morphism axiom
 - added remarks on Morita equivalence for n-categories
 - rewrote definition of colimit (in "From Balls to Manifolds" subsection) to allow for more general decompositions; also added more details
