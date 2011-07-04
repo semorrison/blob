@@ -94,11 +94,9 @@ and
 \]
 for all $x\in C_*$.
 
-For simplicity we will assume that all fields are splittable into small pieces, so that
-$\sbc_0(X) = \bc_0(X)$.
-(This is true for all of the examples presented in this paper.)
+By the splittings axiom for fields, any field is splittable into small pieces.
+It follows that $\sbc_0(X) = \bc_0(X)$.
 Accordingly, we define $h_0 = 0$.
-\nn{Since we now have an axiom providing this, we should use it. (At present, the axiom is only for morphisms, not fields.)}
 
 Next we define $h_1$.
 Let $b\in C_1$ be a 1-blob diagram.
@@ -223,12 +221,14 @@ We give $\BD_k$ the finest topology such that
 \item The gluing maps $\BD_k(M)\to \BD_k(M\sgl)$ are continuous.
 \item For balls $B$, the map $U(B) \to \BD_1(B)$, $u\mapsto (B, u, \emptyset)$, is continuous,
 where $U(B) \sub \bc_0(B)$ inherits its topology from $\bc_0(B)$ and the topology on
-$\bc_0(B)$ comes from the generating set $\BD_0(B)$. \nn{This topology is implicitly part of the data of a system of fields, but never mentioned. It should be!}
+$\bc_0(B)$ comes from the generating set $\BD_0(B)$.
 \end{itemize}
 
 We can summarize the above by saying that in the typical continuous family
 $P\to \BD_k(X)$, $p\mapsto \left(B_i(p), u_i(p), r(p)\right)$, $B_i(p)$ and $r(p)$ are induced by a map
-$P\to \Homeo(X)$, with the twig blob labels $u_i(p)$ varying independently. \nn{``varying independently'' means that \emph{after} you pull back via the family of homeomorphisms to the original twig blob, you see a continuous family of labels, right? We should say this. --- Scott}
+$P\to \Homeo(X)$, with the twig blob labels $u_i(p)$ varying independently. 
+(``Varying independently'' means that after pulling back via the family of homeomorphisms to the original twig blob, 
+one sees a continuous family of labels.)
 We note that while we've decided not to allow the blobs $B_i(p)$ to vary independently of the field $r(p)$,
 if we did allow this it would not affect the truth of the claims we make below.
 In particular, such a definition of $\btc_*(X)$ would result in a homotopy equivalent complex.
@@ -473,9 +473,11 @@ The corresponding diagram for $\btc_*$ commutes on the nose.
 \end{proof}
 
 
-
-
-
+\begin{remark} \label{collar-map-action-remark} \rm
+Like $\Homeo(X)$, collar maps also have a natural topology (see discussion following Axiom \ref{axiom:families}),
+and by adjusting the topology on blob diagrams we can arrange that families of collar maps
+act naturally on $\btc_*(X)$.
+\end{remark}
 
 
 \noop{
