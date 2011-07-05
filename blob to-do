@@ -11,7 +11,6 @@
 
 * probably should go through and refer to new splitting axiom when we need to choose refinements etc.
 ** in the proof that gluing in dimension < n is injective
-** in the proof that D(a) is acyclic
 
 * framings and duality -- work out what's going on! (alternatively, vague-ify current statement)
 
