@@ -8,9 +8,9 @@ to an action of {\it families} of homeomorphisms.
 That is, for each pair of homeomorphic manifolds $X$ and $Y$
 we define a chain map
 \[
-    e_{XY} : CH_*(X, Y) \otimes \bc_*(X) \to \bc_*(Y) ,
+    e_{XY} : \CH{X, Y} \otimes \bc_*(X) \to \bc_*(Y) ,
 \]
-where $CH_*(X, Y) = C_*(\Homeo(X, Y))$, the singular chains on the space
+where $C_*(\Homeo(X, Y))$ is the singular chains on the space
 of homeomorphisms from $X$ to $Y$.
 (If $X$ and $Y$ have non-empty boundary, these families of homeomorphisms
 are required to restrict to a fixed homeomorphism on the boundaries.)
@@ -406,32 +406,32 @@ choices of disjoint unions of balls in the above proofs, but we will not pursue 
 \subsection{Action of \texorpdfstring{$\CH{X}$}{C*(Homeo(M))}}
 \label{ss:emap-def}
 
-Let $CH_*(X, Y)$ denote $C_*(\Homeo(X \to Y))$, the singular chain complex of
+Let  $C_*(\Homeo(X \to Y))$ denote the singular chain complex of
 the space of homeomorphisms
 between the $n$-manifolds $X$ and $Y$ 
 (any given singular chain extends a fixed homeomorphism $\bd X \to \bd Y$).
-We also will use the abbreviated notation $CH_*(X) \deq CH_*(X, X)$.
-(For convenience, we will permit the singular cells generating $CH_*(X, Y)$ to be more general
+We also will use the abbreviated notation $\CH{X} \deq \CH{X \to X}$.
+(For convenience, we will permit the singular cells generating $\CH{X \to Y}$ to be more general
 than simplices --- they can be based on any cone-product polyhedron (see Remark \ref{blobsset-remark}).)
 
 \begin{thm}  \label{thm:CH} \label{thm:evaluation}%
 For $n$-manifolds $X$ and $Y$ there is a chain map
 \eq{
-    e_{XY} : CH_*(X, Y) \otimes \bc_*(X) \to \bc_*(Y) ,
+    e_{XY} : \CH{X \to Y} \otimes \bc_*(X) \to \bc_*(Y) ,
 }
 well-defined up to homotopy,
 such that
 \begin{enumerate}
-\item on $CH_0(X, Y) \otimes \bc_*(X)$ it agrees with the obvious action of 
+\item on $C_0(\Homeo(X \to Y)) \otimes \bc_*(X)$ it agrees with the obvious action of 
 $\Homeo(X, Y)$ on $\bc_*(X)$  described in Property \ref{property:functoriality}, and
 \item for any compatible splittings $X\to X\sgl$ and $Y\to Y\sgl$, 
 the following diagram commutes up to homotopy
 \begin{equation*}
 \xymatrix@C+2cm{
-      CH_*(X, Y) \otimes \bc_*(X)
+      \CH{X \to Y} \otimes \bc_*(X)
         \ar[r]_(.6){e_{XY}}  \ar[d]^{\gl \otimes \gl}   &
             \bc_*(Y)\ar[d]^{\gl} \\
-     CH_*(X\sgl, Y\sgl) \otimes \bc_*(X\sgl) \ar[r]_(.6){e_{X\sgl Y\sgl}}   & 	\bc_*(Y\sgl)  
+     \CH{X\sgl, Y\sgl} \otimes \bc_*(X\sgl) \ar[r]_(.6){e_{X\sgl Y\sgl}}   & 	\bc_*(Y\sgl)  
 }
 \end{equation*}
 \end{enumerate}
@@ -443,14 +443,14 @@ $\bc_*$ replaced by $\btc_*$.
 In fact, for $\btc_*$ we get a sharper result: we can omit
 the ``up to homotopy" qualifiers.
 
-Let $f\in CH_k(X, Y)$, $f:P^k\to \Homeo(X \to Y)$ and $a\in \btc_{ij}(X)$, 
+Let $f\in C_k(\Homeo(X \to Y))$, $f:P^k\to \Homeo(X \to Y)$ and $a\in \btc_{ij}(X)$, 
 $a:Q^j \to \BD_i(X)$.
 Define $e_{XY}(f\ot a)\in \btc_{i,j+k}(Y)$ by
 \begin{align*}
 	e_{XY}(f\ot a) : P\times Q &\to \BD_i(Y) \\
 	(p,q) &\mapsto f(p)(a(q))  .
 \end{align*}
-It is clear that this agrees with the previously defined $CH_0(X, Y)$ action on $\btc_*$,
+It is clear that this agrees with the previously defined $C_0(\Homeo(X \to Y))$ action on $\btc_*$,
 and it is also easy to see that the diagram in item 2 of the statement of the theorem
 commutes on the nose.
 \end{proof}
@@ -458,14 +458,14 @@ commutes on the nose.
 
 \begin{thm}
 \label{thm:CH-associativity}
-The $CH_*(X, Y)$ actions defined above are associative.
+The $\CH{X \to Y}$ actions defined above are associative.
 That is, the following diagram commutes up to homotopy:
 \[ \xymatrix{
-& CH_*(Y, Z) \ot \bc_*(Y) \ar[dr]^{e_{YZ}} & \\
-CH_*(X, Y) \ot CH_*(Y, Z) \ot \bc_*(X) \ar[ur]^{e_{XY}\ot\id} \ar[dr]_{\mu\ot\id} & & \bc_*(Z) \\
-& CH_*(X, Z) \ot \bc_*(X) \ar[ur]_{e_{XZ}} &
+& \CH{Y\to Z} \ot \bc_*(Y) \ar[dr]^{e_{YZ}} & \\
+\CH{X \to Y} \ot \CH{Y \to Z} \ot \bc_*(X) \ar[ur]^{e_{XY}\ot\id} \ar[dr]_{\mu\ot\id} & & \bc_*(Z) \\
+& \CH{X \to Z} \ot \bc_*(X) \ar[ur]_{e_{XZ}} &
 } \]
-Here $\mu:CH_*(X, Y) \ot CH_*(Y, Z)\to CH_*(X, Z)$ is the map induced by composition
+Here $\mu:\CH{X\to Y} \ot \CH{Y \to Z}\to \CH{X \to Z}$ is the map induced by composition
 of homeomorphisms.
 \end{thm}
 \begin{proof}
