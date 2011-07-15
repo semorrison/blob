@@ -944,7 +944,7 @@ Note that if we think of an ordinary 1-category as an $A_\infty$ 1-category wher
 then Axiom \ref{axiom:families} implies Axiom \ref{axiom:extended-isotopies}.
 
 Another variant of the above axiom would be to drop the ``up to homotopy" and require a strictly associative action. 
-In fact, the alternative construction of the blob complex described in \S \ref{ss:alt-def} 
+In fact, the alternative construction $\btc_*(X)$ of the blob complex described in \S \ref{ss:alt-def} 
 gives $n$-categories as in Example \ref{ex:blob-complexes-of-balls} which satisfy this stronger axiom; 
 since that construction is only homotopy equivalent to the usual one, only the weaker axiom carries across.
 
@@ -1143,11 +1143,11 @@ We can modify Example \ref{ex:maps-to-a-space} above to define the fundamental $
 For a $k$-ball $X$, with $k < n$, the set $\pi^\infty_{\leq n}(T)(X)$ is just $\Maps(X \to T)$.
 Define $\pi^\infty_{\leq n}(T)(X; c)$ for an $n$-ball $X$ and $c \in \pi^\infty_{\leq n}(T)(\bdy X)$ to be the chain complex
 \[
-	C_*(\Maps_c(X\times F \to T)),
+	C_*(\Maps_c(X \to T)),
 \]
 where $\Maps_c$ denotes continuous maps restricting to $c$ on the boundary,
 and $C_*$ denotes singular chains.
-Alternatively, if we take the $n$-morphisms to be simply $\Maps_c(X\times F \to T)$, 
+Alternatively, if we take the $n$-morphisms to be simply $\Maps_c(X \to T)$, 
 we get an $A_\infty$ $n$-category enriched over spaces.
 \end{example}
 
