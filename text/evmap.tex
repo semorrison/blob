@@ -460,10 +460,10 @@ commutes on the nose.
 \label{thm:CH-associativity}
 The $\CH{X \to Y}$ actions defined above are associative.
 That is, the following diagram commutes up to homotopy:
-\[ \xymatrix{
-& \CH{Y\to Z} \ot \bc_*(Y) \ar[dr]^{e_{YZ}} & \\
-\CH{X \to Y} \ot \CH{Y \to Z} \ot \bc_*(X) \ar[ur]^{e_{XY}\ot\id} \ar[dr]_{\mu\ot\id} & & \bc_*(Z) \\
-& \CH{X \to Z} \ot \bc_*(X) \ar[ur]_{e_{XZ}} &
+\[ \xymatrix@C=5pt{
+& \CH{Y\to Z} \ot \bc_*(Y) \ar[drr]^{e_{YZ}} & &\\
+\CH{X \to Y} \ot \CH{Y \to Z} \ot \bc_*(X) \ar[ur]^{e_{XY}\ot\id} \ar[dr]_{\mu\ot\id} & & & \bc_*(Z) \\
+& \CH{X \to Z} \ot \bc_*(X) \ar[urr]_{e_{XZ}} & &
 } \]
 Here $\mu:\CH{X\to Y} \ot \CH{Y \to Z}\to \CH{X \to Z}$ is the map induced by composition
 of homeomorphisms.
