@@ -236,14 +236,13 @@ The proof is similar to the proof of Corollary 1.3 of \cite{MR0283802}.
 Since $X$ is compact, we may assume without loss of generality that the cover $\cU$ is finite.
 Let $\cU = \{U_\alpha\}$, $1\le \alpha\le N$.
 
-We will need some wiggle room, so for each $\alpha$ choose a large finite number of open sets
+We will need some wiggle room, so for each $\alpha$ choose $2N$ additional open sets
 \[
-	U_\alpha = U_\alpha^0 \supset U_\alpha^1 \supset U_\alpha^2 \supset \cdots
+	U_\alpha = U_\alpha^0 \supset U_\alpha^\frac12 \supset U_\alpha^1 \supset U_\alpha^\frac32 \supset \cdots \supset U_\alpha^N
 \]
-so that for each fixed $i$ the sets $\{U_\alpha^i\}$ are an open cover of $X$, and also so that
-the closure $\ol{U_\alpha^i}$ is compact and $U_\alpha^{i-1} \supset \ol{U_\alpha^i}$.
-\nn{say specifically how many we need?}
-
+so that for each fixed $i$ the set $\cU^i = \{U_\alpha^i\}$ is an open cover of $X$, and also so that
+the closure $\ol{U_\alpha^i}$ is compact and $U_\alpha^{i-\frac12} \supset \ol{U_\alpha^i}$.
+%\nn{say specifically how many we need?}
 
 Let $P$ be some $k$-dimensional polyhedron and $f:P\to \Homeo(X)$.
 After subdividing $P$, we may assume that there exists $g\in \Homeo(X)$
@@ -252,8 +251,35 @@ identity in $\Homeo(X)$.
 The sense of ``small" we mean will be explained below.
 It depends only on $\cU$ and the choice of $U_\alpha^i$'s.
 
-We may assume, inductively, that the restriction of $f$ to $\bd P$ is adapted to $\cU$.
+We may assume, inductively, that the restriction of $f$ to $\bd P$ is adapted to $\cU^N$.
+So $\bd P = \sum Q_\beta$, and the support of $f$ restricted to $Q_\beta$ is $V_\beta^N$, the union of $k-1$ of
+the $U_\alpha^N$'s.  Define $V_\beta^i \sup V_\beta^N$ to be the corresponding union of $k-1$
+of the $U_\alpha^i$'s.
 
+Define
+\[
+	W_j^i = U_1^i \cup U_2^i \cup \cdots \cup U_j^i .
+\]
+
+We will construct a sequence of maps $f_i : P\to \Homeo(X)$, for $i = 0, 1, \ldots, N$, with the following properties:
+\begin{itemize}
+\item[(A)] $f_0 = f$;
+\item[(B)] $f_i = g$ on $W_i^i$;
+\item[(C)] $f_i$ restricted to $Q_\beta$ has support contained in $V_\beta^{N-i}$; and
+\item[(D)] there is a homotopy $F_i : P\times I \to \Homeo(X)$ from $f_{i-1}$ to $f_i$ such that the 
+support of $F_i$ restricted to $Q_\beta\times I$ is contained in $U_i^i\cup V_\beta^{N-i}$.
+\nn{check this when done writing}
+\end{itemize}
+
+Once we have the $F_i$'s as in (D), we can finish the argument as follows.
+Assemble the $F_i$'s into a map $F: P\times [0,N] \to \Homeo(X)$.
+View $F$ as a homotopy rel boundary from $F$ restricted to $P\times\{0\}$ (which is just $f$ by (A))
+to $F$ restricted to $\bd P \times [0,N] \cup P\times\{N\}$.
+$F$ restricted to $\bd P \times [0,N]$ is adapted to $\cU$ by (D).
+$F$ restricted to $P\times\{N\}$ is constant on $W_N^N = X$ by (B), and therefore is, {\it a fortiori}, also adapted
+to $\cU$.
+
+\nn{resume revising here}
 
 Theorem 5.1 of \cite{MR0283802}, applied $N$ times, allows us
 to choose a homotopy $h:P\times [0,N] \to \Homeo(X)$ with the following properties:
