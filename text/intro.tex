@@ -113,7 +113,7 @@ The relationship between all these ideas is sketched in Figure \ref{fig:outline}
 
 \node[box] at (-4,\yyb) (tC) {$C$ \\ a `traditional' \\ weak $n$-category};
 \node[box] at (\xxa,\yya) (C) {$\cC$ \\ a disk-like \\ $n$-category};
-\node[box] at (\xxb,\yya) (A) {$\underrightarrow{\cC}(M)$ \\ the (dual) TQFT \\ Hilbert space};
+\node[box] at (\xxb,\yya) (A) {$A(M)$ \\ the (dual) TQFT \\ Hilbert space};
 \node[box] at (\xxa,\yyb) (FU) {$(\cF, U)$ \\ fields and\\ local relations};
 \node[box] at (\xxb,\yyb) (BC) {$\bc_*(M; \cF)$ \\ the blob complex};
 \node[box] at (\xxa,\yyc) (Cs) {$\cC_*$ \\ an $A_\infty$ \\$n$-category};
@@ -122,22 +122,25 @@ The relationship between all these ideas is sketched in Figure \ref{fig:outline}
 
 
 \draw[->] (C) -- node[above] {$\displaystyle \colim_{\cell(M)} \cC$} node[below] {\S\S \ref{sec:constructing-a-tqft} \& \ref{ss:ncat_fields}} (A);
-\draw[->] (FU) -- node[below] {blob complex \\ for $M$} (BC);
+
+\draw[->] (FU) -- node[above] {blob complex \\ for $M$} node[below]{\S \ref{sec:blob-definition}} (BC);
 \draw[->] (Cs) -- node[above] {$\displaystyle \hocolim_{\cell(M)} \cC_*$} node[below] {\S \ref{ss:ncat_fields}} (BCs);
 
-\draw[->] (FU) -- node[right=10pt] {$\cF(M)/U$} (A);
+\draw[->] (FU) -- node[right=10pt] {$\cF(M)/U$ \\ Defn \ref{defn:TQFT-invariant}} (A);
 
-\draw[->] (tC) -- node[above] {Example \ref{ex:traditional-n-categories(fields)}} (FU);
+\draw[->] (tC) -- node[below] {Example \ref{ex:traditional-n-categories(fields)}\\ and \S \ref{sec:example:traditional-n-categories(fields)}} (FU);
+
 
 \draw[->] (C.-100) -- node[left] {
 	\S \ref{ss:ncat_fields}
 	%$\displaystyle \cF(M) = \DirectSum_{c \in\cell(M)} \cC(c)$ \\ $\displaystyle U(B) = \DirectSum_{c \in \cell(B)} \ker \ev: \cC(c) \to \cC(B)$
    } (FU.100);
-\draw[->] (C) -- node[above left=3pt] {restrict to \\ standard balls} (tC);
+\draw[->] (C.210) -- node[above left=3pt] {restrict to \\ standard balls} (tC.42);
+\draw[->] (tC) -- node[below=4.5pt] {c.f. \S \ref{sec:comparing-defs}} (C.220);
 \draw[->] (FU.80) -- node[right] {restrict \\ to balls} (C.-80);
 \draw[->] (BC) -- node[right] {$H_0$ \\ c.f. Proposition \ref{thm:skein-modules}} (A);
 
-\draw[->] (FU) -- node[left] {blob complex \\ for balls} (Cs);
+\draw[->] (FU) -- node[left] {blob complex \\ for balls \\ Example \ref{ex:blob-complexes-of-balls}} (Cs);
 \draw[<->] (BC) -- node[right] {$\iso$ by \\ Corollary \ref{cor:new-old}} (BCs);
 \end{tikzpicture}
 \endpgfgraphicnamed%
