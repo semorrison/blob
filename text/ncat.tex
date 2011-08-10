@@ -214,12 +214,14 @@ of two 0-balls $B_1$ and $B_2$ and the colimit construction $\cl{\cC}(S)$ can be
 with the (ordinary, not fibered) product $\cC(B_1) \times \cC(B_2)$.
 
 Let $\cl{\cC}(S)\trans E$ denote the image of $\gl_E$.
-We will refer to elements of $\cl{\cC}(S)\trans E$ as ``splittable along $E$" or ``transverse to $E$".  When the gluing map is surjective every such element is splittable.
+We will refer to elements of $\cl{\cC}(S)\trans E$ as ``splittable along $E$" or ``transverse to $E$". 
+When the gluing map is surjective every such element is splittable.
 
 If $X$ is a $k$-ball and $E \sub \bd X$ splits $\bd X$ into two $k{-}1$-balls $B_1$ and $B_2$
 as above, then we define $\cC(X)\trans E = \bd^{-1}(\cl{\cC}(\bd X)\trans E)$.
 
-We will call the projection $\cl{\cC}(S)\trans E \to \cC(B_i)$
+We will call the projection $\cl{\cC}(S)\trans E \to \cC(B_i)$ given by the composition
+$$\cl{\cC}(S)\trans E \xrightarrow{\gl^{-1}} \cC(B_1) \times \cC(B_2) \xrightarrow{\pr_i} \cC(B_i)$$
 a {\it restriction} map and write $\res_{B_i}(a)$
 (or simply $\res(a)$ when there is no ambiguity), for $a\in \cl{\cC}(S)\trans E$.
 More generally, we also include under the rubric ``restriction map"
@@ -227,9 +229,14 @@ the boundary maps of Axiom \ref{nca-boundary} above,
 another class of maps introduced after Axiom \ref{nca-assoc} below, as well as any composition
 of restriction maps.
 In particular, we have restriction maps $\cC(X)\trans E \to \cC(B_i)$
-($i = 1, 2$, notation from previous paragraph).
+defined as the composition of the boundary with the first restriction map described above:
+$$
+\cC(X) \trans E \xrightarrow{\bdy} \cl{\cC}(\bdy X)\trans E \xrightarrow{\res} \cC(B_i)
+.$$
 These restriction maps can be thought of as 
 domain and range maps, relative to the choice of splitting $\bd X = B_1 \cup_E B_2$.
+These restriction maps in fact have their image in the subset $\cC(B_i)\trans E$,
+and so to emphasize this we will sometimes write the restriction map as $\cC(X)\trans E \to \cC(B_i)\trans E$.
 
 
 Next we consider composition of morphisms.
