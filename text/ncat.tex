@@ -1226,6 +1226,7 @@ Let $A$ be an $\cE\cB_n$-algebra.
 Note that this implies a $\Diff(B^n)$ action on $A$, 
 since $\cE\cB_n$ contains a copy of $\Diff(B^n)$.
 We will define a strict $A_\infty$ $n$-category $\cC^A$.
+(We enrich in topological spaces, though this could easily be adapted to, say, chain complexes.)
 If $X$ is a ball of dimension $k<n$, define $\cC^A(X)$ to be a point.
 In other words, the $k$-morphisms are trivial for $k<n$.
 If $X$ is an $n$-ball, we define $\cC^A(X)$ via a colimit construction.
@@ -1248,7 +1249,12 @@ an $\cE\cB_n$-algebra.
 %\nn{The paper is already long; is it worth giving details here?}
 % According to the referee, yes it is...
 Let $A = \cC(B^n)$, where $B^n$ is the standard $n$-ball.
-\nn{need to finish this}
+We must define maps
+\[
+	\cE\cB_n^k \times A \times \cdots \times A \to A ,
+\]
+where $\cE\cB_n^k$ is the $k$-th space of the $\cE\cB_n$ operad.
+
 
 If we apply the homotopy colimit construction of the next subsection to this example, 
 we get an instance of Lurie's topological chiral homology construction.
