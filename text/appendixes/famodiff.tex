@@ -231,26 +231,29 @@ in item 4.
 \end{lemma}
 
 \begin{proof}
-We will imitate the proof of Corollary 1.3 of \cite{MR0283802}.
-
-Let $P$ be some $k$-dimensional polyhedron and $f:P\to \Homeo(X)$.
-After subdividing $P$, we may assume that there exists $g\in \Homeo(X)$
-such that $g^{-1}\circ f(P)$ is a small neighborhood of the 
-identity in $\Homeo(X)$.
-The sense of ``small" we mean will be explained below.
-It depends only on $\cU$ and some auxiliary covers.
-
-We may assume, inductively, that the restriction of $f$ to $\bd P$ is adapted to $\cU$.
+The proof is similar to the proof of Corollary 1.3 of \cite{MR0283802}.
 
 Since $X$ is compact, we may assume without loss of generality that the cover $\cU$ is finite.
 Let $\cU = \{U_\alpha\}$, $1\le \alpha\le N$.
 
-We will need some wiggle room, so for each $\alpha$ choose open sets
+We will need some wiggle room, so for each $\alpha$ choose a large finite number of open sets
 \[
-	U_\alpha = U_\alpha^0 \supset U_\alpha^1 \supset \cdots \supset U_\alpha^N
+	U_\alpha = U_\alpha^0 \supset U_\alpha^1 \supset U_\alpha^2 \supset \cdots
 \]
 so that for each fixed $i$ the sets $\{U_\alpha^i\}$ are an open cover of $X$, and also so that
 the closure $\ol{U_\alpha^i}$ is compact and $U_\alpha^{i-1} \supset \ol{U_\alpha^i}$.
+\nn{say specifically how many we need?}
+
+
+Let $P$ be some $k$-dimensional polyhedron and $f:P\to \Homeo(X)$.
+After subdividing $P$, we may assume that there exists $g\in \Homeo(X)$
+such that $g^{-1}\circ f(P)$ is contained in a small neighborhood of the 
+identity in $\Homeo(X)$.
+The sense of ``small" we mean will be explained below.
+It depends only on $\cU$ and the choice of $U_\alpha^i$'s.
+
+We may assume, inductively, that the restriction of $f$ to $\bd P$ is adapted to $\cU$.
+
 
 Theorem 5.1 of \cite{MR0283802}, applied $N$ times, allows us
 to choose a homotopy $h:P\times [0,N] \to \Homeo(X)$ with the following properties:
