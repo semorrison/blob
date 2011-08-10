@@ -64,34 +64,34 @@ Thus, in the second part of the paper (\S\S \ref{sec:ncats}-\ref{sec:ainfblob}) 
 definition of an $n$-category, or rather a definition of an $n$-category with strong duality.
 (Removing the duality conditions from our definition would make it more complicated rather than less.) 
 We call these ``disk-like $n$-categories'', to differentiate them from previous versions.
-Moreover, we find that we need analogous $A_\infty$ $n$-categories, and we define these as well following very similar axioms.
+Moreover, we find that we need analogous $A_\infty$ disk-like $n$-categories, and we define these as well following very similar axioms.
 (See \S \ref{n-cat-names} below for a discussion of $n$-category terminology.)
 
 The basic idea is that each potential definition of an $n$-category makes a choice about the ``shape" of morphisms.
 We try to be as lax as possible: a disk-like $n$-category associates a 
 vector space to every $B$ homeomorphic to the $n$-ball.
 These vector spaces glue together associatively, and we require that there is an action of the homeomorphism groupoid.
-For an $A_\infty$ $n$-category, we associate a chain complex instead of a vector space to 
+For an $A_\infty$ disk-like $n$-category, we associate a chain complex instead of a vector space to 
 each such $B$ and ask that the action of 
 homeomorphisms extends to a suitably defined action of the complex of singular chains of homeomorphisms.
-The axioms for an $A_\infty$ $n$-category are designed to capture two main examples: 
+The axioms for an $A_\infty$ disk-like $n$-category are designed to capture two main examples: 
 the blob complexes of $n$-balls labelled by a 
 disk-like $n$-category, and the complex $\CM{-}{T}$ of maps to a fixed target space $T$.
 
-In \S \ref{ssec:spherecat} we explain how $n$-categories can be viewed as objects in an $n{+}1$-category 
+In \S \ref{ssec:spherecat} we explain how disk-like $n$-categories can be viewed as objects in a disk-like $n{+}1$-category 
 of sphere modules.
 When $n=1$ this just the familiar 2-category of 1-categories, bimodules and intertwiners.
 
 In \S \ref{ss:ncat_fields}  we explain how to construct a system of fields from a disk-like $n$-category 
 (using a colimit along certain decompositions of a manifold into balls). 
 With this in hand, we write $\bc_*(M; \cC)$ to indicate the blob complex of a manifold $M$ 
-with the system of fields constructed from the $n$-category $\cC$. 
+with the system of fields constructed from the disk-like $n$-category $\cC$. 
 %\nn{KW: I don't think we use this notational convention any more, right?}
 In \S \ref{sec:ainfblob} we give an alternative definition 
-of the blob complex for an $A_\infty$ $n$-category on an $n$-manifold (analogously, using a homotopy colimit).
-Using these definitions, we show how to use the blob complex to ``resolve" any ordinary $n$-category as an 
-$A_\infty$ $n$-category, and relate the first and second definitions of the blob complex.
-We use the blob complex for $A_\infty$ $n$-categories to establish important properties of the blob complex (in both variants), 
+of the blob complex for an $A_\infty$ disk-like $n$-category on an $n$-manifold (analogously, using a homotopy colimit).
+Using these definitions, we show how to use the blob complex to ``resolve" any ordinary disk-like $n$-category as an 
+$A_\infty$ disk-like $n$-category, and relate the first and second definitions of the blob complex.
+We use the blob complex for $A_\infty$ disk-like $n$-categories to establish important properties of the blob complex (in both variants), 
 in particular the ``gluing formula" of Theorem \ref{thm:gluing} below.
 
 The relationship between all these ideas is sketched in Figure \ref{fig:outline}.
@@ -113,7 +113,7 @@ The relationship between all these ideas is sketched in Figure \ref{fig:outline}
 
 \node[box] at (-4,\yyb) (tC) {$C$ \\ a `traditional' \\ weak $n$-category};
 \node[box] at (\xxa,\yya) (C) {$\cC$ \\ a disk-like \\ $n$-category};
-\node[box] at (\xxb,\yya) (A) {$\underrightarrow{\cC}(M)$ \\ the (dual) TQFT \\ Hilbert space};
+\node[box] at (\xxb,\yya) (A) {$A(M)$ \\ the (dual) TQFT \\ Hilbert space};
 \node[box] at (\xxa,\yyb) (FU) {$(\cF, U)$ \\ fields and\\ local relations};
 \node[box] at (\xxb,\yyb) (BC) {$\bc_*(M; \cF)$ \\ the blob complex};
 \node[box] at (\xxa,\yyc) (Cs) {$\cC_*$ \\ an $A_\infty$ \\$n$-category};
@@ -122,22 +122,25 @@ The relationship between all these ideas is sketched in Figure \ref{fig:outline}
 
 
 \draw[->] (C) -- node[above] {$\displaystyle \colim_{\cell(M)} \cC$} node[below] {\S\S \ref{sec:constructing-a-tqft} \& \ref{ss:ncat_fields}} (A);
-\draw[->] (FU) -- node[below] {blob complex \\ for $M$} (BC);
+
+\draw[->] (FU) -- node[above] {blob complex \\ for $M$} node[below]{\S \ref{sec:blob-definition}} (BC);
 \draw[->] (Cs) -- node[above] {$\displaystyle \hocolim_{\cell(M)} \cC_*$} node[below] {\S \ref{ss:ncat_fields}} (BCs);
 
-\draw[->] (FU) -- node[right=10pt] {$\cF(M)/U$} (A);
+\draw[->] (FU) -- node[right=10pt] {$\cF(M)/U$ \\ Defn \ref{defn:TQFT-invariant}} (A);
 
-\draw[->] (tC) -- node[above] {Example \ref{ex:traditional-n-categories(fields)}} (FU);
+\draw[->] (tC) -- node[below] {Example \ref{ex:traditional-n-categories(fields)}\\ and \S \ref{sec:example:traditional-n-categories(fields)}} (FU);
+
 
 \draw[->] (C.-100) -- node[left] {
 	\S \ref{ss:ncat_fields}
 	%$\displaystyle \cF(M) = \DirectSum_{c \in\cell(M)} \cC(c)$ \\ $\displaystyle U(B) = \DirectSum_{c \in \cell(B)} \ker \ev: \cC(c) \to \cC(B)$
    } (FU.100);
-\draw[->] (C) -- node[above left=3pt] {restrict to \\ standard balls} (tC);
+\draw[->] (C.210) -- node[above left=3pt] {restrict to \\ standard balls} (tC.42);
+\draw[->] (tC) -- node[below=4.5pt] {c.f. \S \ref{sec:comparing-defs}} (C.220);
 \draw[->] (FU.80) -- node[right] {restrict \\ to balls} (C.-80);
 \draw[->] (BC) -- node[right] {$H_0$ \\ c.f. Proposition \ref{thm:skein-modules}} (A);
 
-\draw[->] (FU) -- node[left] {blob complex \\ for balls} (Cs);
+\draw[->] (FU) -- node[left] {blob complex \\ for balls \\ Example \ref{ex:blob-complexes-of-balls}} (Cs);
 \draw[<->] (BC) -- node[right] {$\iso$ by \\ Corollary \ref{cor:new-old}} (BCs);
 \end{tikzpicture}
 \endpgfgraphicnamed%
@@ -152,8 +155,8 @@ Section \S \ref{sec:deligne} gives
 a higher dimensional generalization of the Deligne conjecture 
 (that the little discs operad acts on Hochschild cochains) in terms of the blob complex.
 The appendices prove technical results about $\CH{M}$ and
-make connections between our definitions of $n$-categories and familiar definitions for $n=1$ and $n=2$, 
-as well as relating the $n=1$ case of our $A_\infty$ $n$-categories with usual $A_\infty$ algebras. 
+make connections between our definitions of disk-like $n$-categories and familiar definitions for $n=1$ and $n=2$, 
+as well as relating the $n=1$ case of our $A_\infty$ disk-like $n$-categories with usual $A_\infty$ algebras. 
 %Appendix \ref{sec:comm_alg} describes the blob complex when $\cC$ is a commutative algebra, 
 %thought of as a disk-like $n$-category, in terms of the topology of $M$.
 
@@ -370,42 +373,42 @@ In \S \ref{sec:ncats} we introduce the notion of disk-like $n$-categories,
 from which we can construct systems of fields.
 Below, when we talk about the blob complex for a disk-like $n$-category, 
 we are implicitly passing first to this associated system of fields.
-Further, in \S \ref{sec:ncats} we also have the notion of an $A_\infty$ $n$-category. 
+Further, in \S \ref{sec:ncats} we also have the notion of an $A_\infty$ disk-like $n$-category. 
 In that section we describe how to use the blob complex to 
-construct $A_\infty$ $n$-categories from ordinary $n$-categories:
+construct $A_\infty$ disk-like $n$-categories from ordinary disk-like $n$-categories:
 
 \newtheorem*{ex:blob-complexes-of-balls}{Example \ref{ex:blob-complexes-of-balls}}
 
-\begin{ex:blob-complexes-of-balls}[Blob complexes of products with balls form an $A_\infty$ $n$-category]
+\begin{ex:blob-complexes-of-balls}[Blob complexes of products with balls form an $A_\infty$ disk-like $n$-category]
 %\label{thm:blobs-ainfty}
-Let $\cC$ be  an ordinary $n$-category.
+Let $\cC$ be  an ordinary disk-like $n$-category.
 Let $Y$ be an $n{-}k$-manifold. 
-There is an $A_\infty$ $k$-category $\bc_*(Y;\cC)$, defined on each $m$-ball $D$, for $0 \leq m < k$, 
+There is an $A_\infty$ disk-like $k$-category $\bc_*(Y;\cC)$, defined on each $m$-ball $D$, for $0 \leq m < k$, 
 to be the set $$\bc_*(Y;\cC)(D) = \cC(Y \times D)$$ and on $k$-balls $D$ to be the set 
 $$\bc_*(Y;\cC)(D) = \bc_*(Y \times D; \cC).$$ 
 (When $m=k$ the subsets with fixed boundary conditions form a chain complex.) 
-These sets have the structure of an $A_\infty$ $k$-category, with compositions coming from the gluing map in 
+These sets have the structure of an $A_\infty$ disk-like $k$-category, with compositions coming from the gluing map in 
 Property \ref{property:gluing-map} and with the action of families of homeomorphisms given in Theorem \ref{thm:evaluation}.
 \end{ex:blob-complexes-of-balls}
 \begin{rem}
 Perhaps the most interesting case is when $Y$ is just a point; 
-then we have a way of building an $A_\infty$ $n$-category from an ordinary $n$-category.
-We think of this $A_\infty$ $n$-category as a free resolution.
+then we have a way of building an $A_\infty$ disk-like $n$-category from an ordinary disk-like $n$-category.
+We think of this $A_\infty$ disk-like $n$-category as a free resolution.
 \end{rem}
 
-There is a version of the blob complex for $\cC$ an $A_\infty$ $n$-category
-instead of an ordinary $n$-category; this is described in \S \ref{sec:ainfblob}.
+There is a version of the blob complex for $\cC$ an $A_\infty$ disk-like $n$-category
+instead of an ordinary disk-like $n$-category; this is described in \S \ref{sec:ainfblob}.
 The definition is in fact simpler, almost tautological, and we use a different notation, $\cl{\cC}(M)$. 
 The next theorem describes the blob complex for product manifolds, 
-in terms of the $A_\infty$ blob complex of the $A_\infty$ $n$-categories constructed as in the previous example.
+in terms of the $A_\infty$ blob complex of the $A_\infty$ disk-like $n$-categories constructed as in the previous example.
 %The notation is intended to reflect the close parallel with the definition of the TQFT skein module via a colimit.
 
 \newtheorem*{thm:product}{Theorem \ref{thm:product}}
 
 \begin{thm:product}[Product formula]
 Let $W$ be a $k$-manifold and $Y$ be an $n-k$ manifold.
-Let $\cC$ be an $n$-category.
-Let $\bc_*(Y;\cC)$ be the $A_\infty$ $k$-category associated to $Y$ via blob homology 
+Let $\cC$ be a disk-like $n$-category.
+Let $\bc_*(Y;\cC)$ be the $A_\infty$ disk-like $k$-category associated to $Y$ via blob homology 
 (see Example \ref{ex:blob-complexes-of-balls}).
 Then
 \[
@@ -417,7 +420,7 @@ The statement can be generalized to arbitrary fibre bundles, and indeed to arbit
 
 Fix a disk-like $n$-category $\cC$, which we'll omit from the notation.
 Recall that for any $(n-1)$-manifold $Y$, the blob complex $\bc_*(Y)$ is naturally an $A_\infty$ category.
-(See Appendix \ref{sec:comparing-A-infty} for the translation between disk-like $A_\infty$ $1$-categories and the usual algebraic notion of an $A_\infty$ category.)
+(See Appendix \ref{sec:comparing-A-infty} for the translation between $A_\infty$ disk-like $1$-categories and the usual algebraic notion of an $A_\infty$ category.)
 
 \newtheorem*{thm:gluing}{Theorem \ref{thm:gluing}}
 
@@ -444,7 +447,7 @@ Finally, we give two applications of the above machinery.
 \newtheorem*{thm:map-recon}{Theorem \ref{thm:map-recon}}
 
 \begin{thm:map-recon}[Mapping spaces]
-Let $\pi^\infty_{\le n}(T)$ denote the $A_\infty$ $n$-category based on maps 
+Let $\pi^\infty_{\le n}(T)$ denote the $A_\infty$ disk-like $n$-category based on maps 
 $B^n \to T$.
 (The case $n=1$ is the usual $A_\infty$-category of paths in $T$.)
 Then 
@@ -509,11 +512,11 @@ of dimension greater than $n$ are invertible), but we don't want to use that nam
 since we think of the higher homotopies not as morphisms of the $n$-category but
 rather as belonging to some auxiliary category (like chain complexes)
 that we are enriching in.
-We have decided to call them ``$A_\infty$ $n$-categories", since they are a natural generalization 
+We have decided to call them ``$A_\infty$ disk-like $n$-categories", since they are a natural generalization 
 of the familiar $A_\infty$ 1-categories.
 We also considered the names ``homotopy $n$-categories" and ``infinity $n$-categories".
 When we need to emphasize that we are talking about an $n$-category which is not $A_\infty$ in this sense
-we will say ``ordinary $n$-category".
+we will say ``ordinary disk-like $n$-category".
 % small problem: our n-cats are of course strictly associative, since we have more morphisms.
 % when we say ``associative only up to homotopy" above we are thinking about
 % what would happen we we tried to convert to a more traditional n-cat with fewer morphisms

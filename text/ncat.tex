@@ -3,10 +3,10 @@
 \def\xxpar#1#2{\smallskip\noindent{\bf #1} {\it #2} \smallskip}
 \def\mmpar#1#2#3{\smallskip\noindent{\bf #1} (#2). {\it #3} \smallskip}
 
-\section{\texorpdfstring{$n$}{n}-categories and their modules}
+\section{Disk-like \texorpdfstring{$n$}{n}-categories and their modules}
 \label{sec:ncats}
 
-\subsection{Definition of \texorpdfstring{$n$}{n}-categories}
+\subsection{Definition of disk-like \texorpdfstring{$n$}{n}-categories}
 \label{ss:n-cat-def}
 
 Before proceeding, we need more appropriate definitions of $n$-categories, 
@@ -32,11 +32,11 @@ See \S\ref{n-cat-names} for a discussion of $n$-category terminology.
 
 \medskip
 
-The axioms for an $n$-category are spread throughout this section.
-Collecting these together, an $n$-category is a gadget satisfying Axioms \ref{axiom:morphisms}, 
+The axioms for a disk-like $n$-category are spread throughout this section.
+Collecting these together, a disk-like $n$-category is a gadget satisfying Axioms \ref{axiom:morphisms}, 
 \ref{nca-boundary}, \ref{axiom:composition},  \ref{nca-assoc}, \ref{axiom:product}, \ref{axiom:extended-isotopies} and  \ref{axiom:vcones}.
-For an enriched $n$-category we add Axiom \ref{axiom:enriched}.
-For an $A_\infty$ $n$-category, we replace 
+For an enriched disk-like $n$-category we add Axiom \ref{axiom:enriched}.
+For an $A_\infty$ disk-like $n$-category, we replace 
 Axiom \ref{axiom:extended-isotopies} with Axiom \ref{axiom:families}.
 
 Strictly speaking, before we can state the axioms for $k$-morphisms we need all the axioms 
@@ -88,7 +88,7 @@ They could be topological or PL or smooth.
 %\nn{need to check whether this makes much difference}
 (If smooth, ``homeomorphism" should be read ``diffeomorphism", and we would need
 to be fussier about corners and boundaries.)
-For each flavor of manifold there is a corresponding flavor of $n$-category.
+For each flavor of manifold there is a corresponding flavor of disk-like $n$-category.
 For simplicity, we will concentrate on the case of PL unoriented manifolds.
 
 An ambitious reader may want to keep in mind two other classes of balls.
@@ -807,8 +807,8 @@ decomposition which has common refinements with each of the original two decompo
 
 \medskip
 
-This completes the definition of an $n$-category.
-Next we define enriched $n$-categories.
+This completes the definition of a disk-like $n$-category.
+Next we define enriched disk-like $n$-categories.
 
 \medskip
 
@@ -837,7 +837,7 @@ Examples include
 For convenience, we will also assume that the objects of our auxiliary category are sets with extra structure.
 (Otherwise, stating the axioms for identity morphisms becomes more cumbersome.)
 
-Before stating the revised axioms for an $n$-category enriched in a distributive monoidal category,
+Before stating the revised axioms for a disk-like $n$-category enriched in a distributive monoidal category,
 we need a preliminary definition.
 Once we have the above $n$-category axioms for $n{-}1$-morphisms, we can define the 
 category $\bbc$ of {\it $n$-balls with boundary conditions}.
@@ -846,10 +846,10 @@ The morphisms from $(X, c)$ to $(X', c')$, denoted $\Homeo(X,c; X', c')$, are
 homeomorphisms $f:X\to X'$ such that $f|_{\bd X}(c) = c'$.
 %Let $\pi_0(\bbc)$ denote
  
-\begin{axiom}[Enriched $n$-categories]
+\begin{axiom}[Enriched disk-like $n$-categories]
 \label{axiom:enriched}
 Let $\cS$ be a distributive symmetric monoidal category.
-An $n$-category enriched in $\cS$ satisfies the above $n$-category axioms for $k=0,\ldots,n-1$,
+A disk-like $n$-category enriched in $\cS$ satisfies the above $n$-category axioms for $k=0,\ldots,n-1$,
 and modifies the axioms for $k=n$ as follows:
 \begin{itemize}
 \item Morphisms. We have a functor $\cC_n$ from $\bbc$ ($n$-balls with boundary conditions) to $\cS$.
@@ -875,7 +875,7 @@ When the enriching category $\cS$ is chain complexes or topological spaces,
 or more generally an appropriate sort of $\infty$-category,
 we can modify the extended isotopy axiom \ref{axiom:extended-isotopies}
 to require that families of homeomorphisms act
-and obtain what we shall call an $A_\infty$ $n$-category.
+and obtain what we shall call an $A_\infty$ disk-like $n$-category.
 
 \noop{
 We believe that abstract definitions should be guided by diverse collections
@@ -928,7 +928,7 @@ For simplicity, assume that $\cJ$ is $C_*$, the singular chains functor.
 (This is the example most relevant to this paper.)
 Then compatibility implies that the action of $C_*(\Homeo(X,c; X', c'))$ agrees with the action
 of $C_0(\Homeo(X,c; X', c'))$ coming from Axiom \ref{axiom:morphisms}, so we only require associativity in degree zero.
-And indeed, this is true for our main example of an $A_\infty$ $n$-category based on the blob construction.
+And indeed, this is true for our main example of an $A_\infty$ disk-like $n$-category based on the blob construction.
 Stating this sort of compatibility for general $\cS$ and $\cJ$ requires further assumptions, 
 such as the forgetful functor from $\cS$ to sets having a left adjoint, and $\cS$ having an internal Hom.
 
@@ -950,7 +950,7 @@ gives $n$-categories as in Example \ref{ex:blob-complexes-of-balls} which satisf
 For future reference we make the following definition.
 
 \begin{defn}
-A {\em strict $A_\infty$ $n$-category} is one in which the actions of Axiom \ref{axiom:families} are strictly associative.
+A {\em strict $A_\infty$ disk-like $n$-category} is one in which the actions of Axiom \ref{axiom:families} are strictly associative.
 \end{defn}
 
 \noop{
@@ -966,13 +966,13 @@ type $A_\infty$ $n$-category.
 
 \medskip
 
-We define a $j$ times monoidal $n$-category to be an $(n{+}j)$-category $\cC$ where
+We define a $j$ times monoidal disk-like $n$-category to be a disk-like $(n{+}j)$-category $\cC$ where
 $\cC(X)$ is a trivial 1-element set if $X$ is a $k$-ball with $k<j$.
 See Example \ref{ex:bord-cat}.
 
 \medskip
 
-The alert reader will have already noticed that our definition of an (ordinary) $n$-category
+The alert reader will have already noticed that our definition of an (ordinary) disk-like $n$-category
 is extremely similar to our definition of a system of fields.
 There are two differences.
 First, for the $n$-category definition we restrict our attention to balls
@@ -981,7 +981,7 @@ Second,  in category definition we directly impose isotopy
 invariance in dimension $n$, while in the fields definition we 
 instead remember a subspace of local relations which contain differences of isotopic fields. 
 (Recall that the compensation for this complication is that we can demand that the gluing map for fields is injective.)
-Thus a system of fields and local relations $(\cF,U)$ determines an $n$-category $\cC_ {\cF,U}$ simply by restricting our attention to
+Thus a system of fields and local relations $(\cF,U)$ determines a disk-like $n$-category $\cC_ {\cF,U}$ simply by restricting our attention to
 balls and, at level $n$, quotienting out by the local relations:
 \begin{align*}
 \cC_{\cF,U}(B^k) & = \begin{cases}\cF(B) & \text{when $k<n$,} \\ \cF(B) / U(B) & \text{when $k=n$.}\end{cases}
@@ -995,7 +995,7 @@ a colimit construction; see \S \ref{ss:ncat_fields} below.
 In the $n$-category axioms above we have intermingled data and properties for expository reasons.
 Here's a summary of the definition which segregates the data from the properties.
 
-An $n$-category consists of the following data:
+A disk-like $n$-category consists of the following data:
 \begin{itemize}
 \item functors $\cC_k$ from $k$-balls to sets, $0\le k\le n$ (Axiom \ref{axiom:morphisms});
 \item boundary natural transformations $\cC_k \to \cl{\cC}_{k-1} \circ \bd$ (Axiom \ref{nca-boundary});
@@ -1021,7 +1021,7 @@ and collar maps (Axiom \ref{axiom:extended-isotopies}).
 \end{itemize}
 
 
-\subsection{Examples of \texorpdfstring{$n$}{n}-categories}
+\subsection{Examples of disk-like \texorpdfstring{$n$}{n}-categories}
 \label{ss:ncat-examples}
 
 
@@ -1153,7 +1153,7 @@ Define $\pi^\infty_{\leq n}(T)(X; c)$ for an $n$-ball $X$ and $c \in \pi^\infty_
 where $\Maps_c$ denotes continuous maps restricting to $c$ on the boundary,
 and $C_*$ denotes singular chains.
 Alternatively, if we take the $n$-morphisms to be simply $\Maps_c(X \to T)$, 
-we get an $A_\infty$ $n$-category enriched over spaces.
+we get an $A_\infty$ disk-like $n$-category enriched over spaces.
 \end{example}
 
 See also Theorem \ref{thm:map-recon} below, recovering $C_*(\Maps(M \to T))$ up to 
@@ -1163,7 +1163,7 @@ homotopy as the blob complex of $M$ with coefficients in $\pi^\infty_{\le n}(T)$
 \rm
 \label{ex:blob-complexes-of-balls}
 Fix an $n{-}k$-dimensional manifold $F$ and an $n$-dimensional system of fields $\cE$.
-We will define an $A_\infty$ $k$-category $\cC$.
+We will define an $A_\infty$ disk-like $k$-category $\cC$.
 When $X$ is a $m$-ball, with $m<k$, define $\cC(X) = \cE(X\times F)$.
 When $X$ is an $k$-ball,
 define $\cC(X; c) = \bc^\cE_*(X\times F; c)$
@@ -1171,17 +1171,17 @@ where $\bc^\cE_*$ denotes the blob complex based on $\cE$.
 \end{example}
 
 This example will be used in Theorem \ref{thm:product} below, which allows us to compute the blob complex of a product.
-Notice that with $F$ a point, the above example is a construction turning an ordinary 
-$n$-category $\cC$ into an $A_\infty$ $n$-category.
+Notice that with $F$ a point, the above example is a construction turning an ordinary disk-like
+$n$-category $\cC$ into an $A_\infty$ disk-like $n$-category.
 We think of this as providing a ``free resolution" 
-of the ordinary $n$-category. 
+of the ordinary disk-like $n$-category. 
 %\nn{say something about cofibrant replacements?}
 In fact, there is also a trivial, but mostly uninteresting, way to do this: 
 we can think of each vector space associated to an $n$-ball as a chain complex concentrated in degree $0$, 
 and take $\CD{B}$ to act trivially. 
 
-Beware that the ``free resolution" of the ordinary $n$-category $\pi_{\leq n}(T)$ 
-is not the $A_\infty$ $n$-category $\pi^\infty_{\leq n}(T)$.
+Beware that the ``free resolution" of the ordinary disk-like $n$-category $\pi_{\leq n}(T)$ 
+is not the $A_\infty$ disk-like $n$-category $\pi^\infty_{\leq n}(T)$.
 It's easy to see that with $n=0$, the corresponding system of fields is just 
 linear combinations of connected components of $T$, and the local relations are trivial.
 There's no way for the blob complex to magically recover all the data of $\pi^\infty_{\leq 0}(T) \iso C_* T$.
@@ -1225,7 +1225,7 @@ an action of $\cE\cB_n$.
 Let $A$ be an $\cE\cB_n$-algebra.
 Note that this implies a $\Diff(B^n)$ action on $A$, 
 since $\cE\cB_n$ contains a copy of $\Diff(B^n)$.
-We will define a strict $A_\infty$ $n$-category $\cC^A$.
+We will define a strict $A_\infty$ disk-like $n$-category $\cC^A$.
 (We enrich in topological spaces, though this could easily be adapted to, say, chain complexes.)
 If $X$ is a ball of dimension $k<n$, define $\cC^A(X)$ to be a point.
 In other words, the $k$-morphisms are trivial for $k<n$.
@@ -1238,12 +1238,12 @@ To each object of $J$ we associate $A^{\times m}$ (where $m$ is the number of ba
 to each morphism of $J$ we associate a morphism coming from the $\cE\cB_n$ action on $A$.
 Alternatively and more simply, we could define $\cC^A(X)$ to be 
 $\Diff(B^n\to X)\times A$ modulo the diagonal action of $\Diff(B^n)$.
-The remaining data for the $A_\infty$ $n$-category 
+The remaining data for the $A_\infty$ disk-like $n$-category 
 --- composition and $\Diff(X\to X')$ action ---
 also comes from the $\cE\cB_n$ action on $A$.
 %\nn{should we spell this out?}
 
-Conversely, one can show that a disk-like strict $A_\infty$ $n$-category $\cC$, where the $k$-morphisms
+Conversely, one can show that a strict $A_\infty$  disk-like $n$-category $\cC$, where the $k$-morphisms
 $\cC(X)$ are trivial (single point) for $k<n$, gives rise to 
 an $\cE\cB_n$-algebra.
 %\nn{The paper is already long; is it worth giving details here?}
@@ -1254,7 +1254,7 @@ We must define maps
 	\cE\cB_n^k \times A \times \cdots \times A \to A ,
 \]
 where $\cE\cB_n^k$ is the $k$-th space of the $\cE\cB_n$ operad.
-
+\nn{need to finish this}
 
 If we apply the homotopy colimit construction of the next subsection to this example, 
 we get an instance of Lurie's topological chiral homology construction.
@@ -1263,19 +1263,19 @@ we get an instance of Lurie's topological chiral homology construction.
 
 \subsection{From balls to manifolds}
 \label{ss:ncat_fields} \label{ss:ncat-coend}
-In this section we show how to extend an $n$-category $\cC$ as described above 
+In this section we show how to extend a disk-like $n$-category $\cC$ as described above 
 (of either the ordinary or $A_\infty$ variety) to an invariant of manifolds, which we denote by $\cl{\cC}$.
 This extension is a certain colimit, and the arrow in the notation is intended as a reminder of this.
 
-In the case of ordinary $n$-categories, this construction factors into a construction of a 
+In the case of ordinary disk-like $n$-categories, this construction factors into a construction of a 
 system of fields and local relations, followed by the usual TQFT definition of a 
 vector space invariant of manifolds given as Definition \ref{defn:TQFT-invariant}.
-For an $A_\infty$ $n$-category, $\cl{\cC}$ is defined using a homotopy colimit instead.
-Recall that we can take a ordinary $n$-category $\cC$ and pass to the ``free resolution", 
-an $A_\infty$ $n$-category $\bc_*(\cC)$, by computing the blob complex of balls 
+For an $A_\infty$ disk-like $n$-category, $\cl{\cC}$ is defined using a homotopy colimit instead.
+Recall that we can take a ordinary disk-like $n$-category $\cC$ and pass to the ``free resolution", 
+an $A_\infty$ disk-like $n$-category $\bc_*(\cC)$, by computing the blob complex of balls 
 (recall Example \ref{ex:blob-complexes-of-balls} above).
 We will show in Corollary \ref{cor:new-old} below that the homotopy colimit invariant 
-for a manifold $M$ associated to this $A_\infty$ $n$-category is actually the 
+for a manifold $M$ associated to this $A_\infty$ disk-like $n$-category is actually the 
 same as the original blob complex for $M$ with coefficients in $\cC$.
 
 Recall that we've already anticipated this construction Subsection \ref{ss:n-cat-def}, 
@@ -1285,11 +1285,11 @@ so that we can state the boundary axiom for $\cC$ on $k+1$-balls.
 \medskip
 
 We will first define the {\it decomposition poset} $\cell(W)$ for any $k$-manifold $W$, for $1 \leq k \leq n$. 
-An $n$-category $\cC$ provides a functor from this poset to the category of sets, 
+A disk-like $n$-category $\cC$ provides a functor from this poset to the category of sets, 
 and we  will define $\cl{\cC}(W)$ as a suitable colimit 
 (or homotopy colimit in the $A_\infty$ case) of this functor. 
 We'll later give a more explicit description of this colimit.
-In the case that the $n$-category $\cC$ is enriched (e.g. associates vector spaces or chain 
+In the case that the disk-like $n$-category $\cC$ is enriched (e.g. associates vector spaces or chain 
 complexes to $n$-balls with boundary data), 
 then the resulting colimit is also enriched, that is, the set associated to $W$ splits into 
 subsets according to boundary data, and each of these subsets has the appropriate structure 
@@ -1340,7 +1340,7 @@ See Figure \ref{partofJfig}.
 \label{partofJfig}
 \end{figure}
 
-An $n$-category $\cC$ determines 
+A disk-like $n$-category $\cC$ determines 
 a functor $\psi_{\cC;W}$ from $\cell(W)$ to the category of sets 
 (possibly with additional structure if $k=n$).
 Let $x = \{X_a\}$ be a permissible decomposition of $W$ (i.e.\ object of $\cD(W)$).
@@ -1408,14 +1408,14 @@ Finally, we construct $\cl{\cC}(W)$ as the appropriate colimit of $\psi_{\cC;W}$
 
 \begin{defn}[System of fields functor]
 \label{def:colim-fields}
-If $\cC$ is an $n$-category enriched in sets or vector spaces, $\cl{\cC}(W)$ is the usual colimit of the functor $\psi_{\cC;W}$.
+If $\cC$ is a disk-like $n$-category enriched in sets or vector spaces, $\cl{\cC}(W)$ is the usual colimit of the functor $\psi_{\cC;W}$.
 That is, for each decomposition $x$ there is a map
 $\psi_{\cC;W}(x)\to \cl{\cC}(W)$, these maps are compatible with the refinement maps
 above, and $\cl{\cC}(W)$ is universal with respect to these properties.
 \end{defn}
 
 \begin{defn}[System of fields functor, $A_\infty$ case]
-When $\cC$ is an $A_\infty$ $n$-category, $\cl{\cC}(W)$ for $W$ a $k$-manifold with $k < n$ 
+When $\cC$ is an $A_\infty$ disk-like $n$-category, $\cl{\cC}(W)$ for $W$ a $k$-manifold with $k < n$ 
 is defined as above, as the colimit of $\psi_{\cC;W}$.
 When $W$ is an $n$-manifold, the chain complex $\cl{\cC}(W)$ is the homotopy colimit of the functor $\psi_{\cC;W}$.
 \end{defn}
@@ -1590,17 +1590,17 @@ But this implies that $a = a_0 = a_k = \hat{a}$, contrary to our assumption that
 %define $k$-cat $\cC(\cdot\times W)$}
 
 \subsection{Modules}
-
-Next we define ordinary and $A_\infty$ $n$-category modules.
-The definition will be very similar to that of $n$-categories,
+\label{sec:modules}
+Next we define ordinary and $A_\infty$ disk-like $n$-category modules.
+The definition will be very similar to that of disk-like $n$-categories,
 but with $k$-balls replaced by {\it marked $k$-balls,} defined below.
 
 Our motivating example comes from an $(m{-}n{+}1)$-dimensional manifold $W$ with boundary
 in the context of an $m{+}1$-dimensional TQFT.
-Such a $W$ gives rise to a module for the $n$-category associated to $\bd W$.
+Such a $W$ gives rise to a module for the disk-like $n$-category associated to $\bd W$.
 This will be explained in more detail as we present the axioms.
 
-Throughout, we fix an $n$-category $\cC$.
+Throughout, we fix a disk-like $n$-category $\cC$.
 For all but one axiom, it doesn't matter whether $\cC$ is an ordinary $n$-category or an $A_\infty$ $n$-category.
 We state the final axiom, regarding actions of homeomorphisms, differently in the two cases.
 
@@ -1656,7 +1656,7 @@ These maps, for various $M$, comprise a natural transformation of functors.}
 
 Given $c\in\cl\cM(\bd M)$, let $\cM(M; c) \deq \bd^{-1}(c)$.
 
-If the $n$-category $\cC$ is enriched over some other category (e.g.\ vector spaces),
+If the disk-like $n$-category $\cC$ is enriched over some other category (e.g.\ vector spaces),
 then for each marked $n$-ball $M=(B,N)$ and $c\in \cC(\bd B \setminus N)$, the set $\cM(M; c)$ should be an object in that category.
 
 \begin{lem}[Boundary from domain and range]
@@ -1863,7 +1863,7 @@ such that $\rho$ and $\pi$ are pinched products, then
 \end{enumerate}
 \end{module-axiom}
 
-As in the $n$-category definition, once we have product morphisms we can define
+As in the disk-like $n$-category definition, once we have product morphisms we can define
 collar maps $\cM(M)\to \cM(M)$.
 Note that there are two cases:
 the collar could intersect the marking of the marked ball $M$, in which case
@@ -1876,7 +1876,7 @@ $a$ along a map associated to $\pi$.
 \medskip
 
 There are two alternatives for the next axiom, according whether we are defining
-modules for ordinary $n$-categories or $A_\infty$ $n$-categories.
+modules for ordinary or $A_\infty$ disk-like $n$-categories.
 In the ordinary case we require
 
 \begin{module-axiom}[\textup{\textbf{[ordinary version]}} Extended isotopy invariance in dimension $n$]
@@ -1909,14 +1909,14 @@ As with the $n$-category version of the above axiom, we should also have familie
 
 \medskip
 
-Note that the above axioms imply that an $n$-category module has the structure
-of an $n{-}1$-category.
+Note that the above axioms imply that a disk-like $n$-category module has the structure
+of a disk-like $n{-}1$-category.
 More specifically, let $J$ be a marked 1-ball, and define $\cE(X)\deq \cM(X\times J)$,
 where $X$ is a $k$-ball and in the product $X\times J$ we pinch 
 above the non-marked boundary component of $J$.
 (More specifically, we collapse $X\times P$ to a single point, where
 $P$ is the non-marked boundary component of $J$.)
-Then $\cE$ has the structure of an $n{-}1$-category.
+Then $\cE$ has the structure of a disk-like $n{-}1$-category.
 
 All marked $k$-balls are homeomorphic, unless $k = 1$ and our manifolds
 are oriented or Spin (but not unoriented or $\text{Pin}_\pm$).
@@ -1928,12 +1928,12 @@ there is no left/right module distinction.
 
 \medskip
 
-We now give some examples of modules over ordinary and $A_\infty$ $n$-categories.
+We now give some examples of modules over ordinary and $A_\infty$ disk-like $n$-categories.
 
 \begin{example}[Examples from TQFTs]
 \rm
 Continuing Example \ref{ex:ncats-from-tqfts}, with $\cF$ a TQFT, $W$ an $n{-}j$-manifold,
-and $\cF(W)$ the $j$-category associated to $W$.
+and $\cF(W)$ the disk-like $j$-category associated to $W$.
 Let $Y$ be an $(n{-}j{+}1)$-manifold with $\bd Y = W$.
 Define a $\cF(W)$ module $\cF(Y)$ as follows.
 If $M = (B, N)$ is a marked $k$-ball with $k<j$ let 
@@ -1946,7 +1946,7 @@ $\cF(Y)(M)\deq A_\cF((B\times W) \cup (N\times Y); c)$.
 \rm
 In the previous example, we can instead define
 $\cF(Y)(M)\deq \bc_*((B\times W) \cup (N\times Y), c; \cF)$ (when $\dim(M) = n$)
-and get a module for the $A_\infty$ $n$-category associated to $\cF$ as in 
+and get a module for the $A_\infty$ disk-like $n$-category associated to $\cF$ as in 
 Example \ref{ex:blob-complexes-of-balls}.
 \end{example}
 
@@ -1971,7 +1971,7 @@ Example \ref{ex:chains-of-maps-to-a-space} given by taking singular chains.
 \subsection{Modules as boundary labels (colimits for decorated manifolds)}
 \label{moddecss}
 
-Fix an ordinary $n$-category or $A_\infty$ $n$-category  $\cC$.
+Fix an ordinary or $A_\infty$ disk-like $n$-category  $\cC$.
 Let $W$ be a $k$-manifold ($k\le n$),
 let $\{Y_i\}$ be a collection of disjoint codimension 0 submanifolds of $\bd W$,
 and let $\cN = (\cN_i)$ be an assignment of a $\cC$ module $\cN_i$ to $Y_i$.
@@ -2027,19 +2027,19 @@ If $D$ is an $m$-ball, $0\le m \le n-k$, then we can similarly define
 $\cC(D\times W, \cN)$, where in this case $\cN_i$ labels the submanifold 
 $D\times Y_i \sub \bd(D\times W)$.
 It is not hard to see that the assignment $D \mapsto \cC(D\times W, \cN)$
-has the structure of an $n{-}k$-category.
+has the structure of a disk-like $n{-}k$-category.
 
 \medskip
 
 We will use a simple special case of the above 
 construction to define tensor products 
 of modules.
-Let $\cM_1$ and $\cM_2$ be modules for an $n$-category $\cC$.
+Let $\cM_1$ and $\cM_2$ be modules for a disk-like $n$-category $\cC$.
 (If $k=1$ and our manifolds are oriented, then one should be 
 a left module and the other a right module.)
 Choose a 1-ball $J$, and label the two boundary points of $J$ by $\cM_1$ and $\cM_2$.
 Define the tensor product $\cM_1 \tensor \cM_2$ to be the 
-$n{-}1$-category associated as above to $J$ with its boundary labeled by $\cM_1$ and $\cM_2$.
+disk-like $n{-}1$-category associated as above to $J$ with its boundary labeled by $\cM_1$ and $\cM_2$.
 This of course depends (functorially)
 on the choice of 1-ball $J$.
 
@@ -2136,7 +2136,7 @@ algebras, bimodules and intertwiners (or a subcategory of that).
 The sphere module $n{+}1$-category is a natural generalization of the 
 algebra-bimodule-intertwiner 2-category to higher dimensions.
 
-Another possible name for this $n{+}1$-category is $n{+}1$-category of defects.
+Another possible name for this $n{+}1$-category is the $n{+}1$-category of defects.
 The $n$-categories are thought of as representing field theories, and the 
 $0$-sphere modules are codimension 1 defects between adjacent theories.
 In general, $m$-sphere modules are codimension $m{+}1$ defects;
@@ -2744,19 +2744,19 @@ The proof that this composition rule is associative is similar to the proof of L
 
 \medskip
 
-We end this subsection with some remarks about Morita equivalence of disklike $n$-categories.
+We end this subsection with some remarks about Morita equivalence of disk-like $n$-categories.
 Recall that two 1-categories $\cC$ and $\cD$ are Morita equivalent if and only if they are equivalent
 objects in the 2-category of (linear) 1-categories, bimodules, and intertwiners.
-Similarly, we define two disklike $n$-categories to be Morita equivalent if they are equivalent objects in the
+Similarly, we define two disk-like $n$-categories to be Morita equivalent if they are equivalent objects in the
 $n{+}1$-category of sphere modules.
 
-Because of the strong duality enjoyed by disklike $n$-categories, the data for such an equivalence lives only in 
+Because of the strong duality enjoyed by disk-like $n$-categories, the data for such an equivalence lives only in 
 dimensions 1 and $n+1$ (the middle dimensions come along for free).
 The $n{+}1$-dimensional part of the data must be invertible and satisfy
 identities corresponding to Morse cancellations in $n$-manifolds.
 We will treat this in detail for the $n=2$ case; the case for general $n$ is very similar.
 
-Let $\cC$ and $\cD$ be (unoriented) disklike 2-categories.
+Let $\cC$ and $\cD$ be (unoriented) disk-like 2-categories.
 Let $\cS$ denote the 3-category of 2-category sphere modules.
 The 1-dimensional part of the data for a Morita equivalence between $\cC$ and $\cD$ is a 0-sphere module $\cM = {}_\cC\cM_\cD$ 
 (categorified bimodule) connecting $\cC$ and $\cD$.
