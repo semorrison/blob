@@ -251,6 +251,10 @@ identity in $\Homeo(X)$.
 The sense of ``small" we mean will be explained below.
 It depends only on $\cU$ and the choice of $U_\alpha^i$'s.
 
+Our goal is to homotope $P$, rel boundary, so that it is adapted to $\cU$.
+By the local contractibility of $\Homeo(X)$ (Corollary 1.1 of \cite{MR0283802}), 
+it suffices to find $f':P\to \Homeo(X)$ such that $f' = f$ on $\bd P$ and $f'$ is adapted to $\cU$.
+
 We may assume, inductively, that the restriction of $f$ to $\bd P$ is adapted to $\cU^N$.
 So $\bd P = \sum Q_\beta$, and the support of $f$ restricted to $Q_\beta$ is $V_\beta^N$, the union of $k-1$ of
 the $U_\alpha^N$'s.  Define $V_\beta^i \sup V_\beta^N$ to be the corresponding union of $k-1$
@@ -261,51 +265,67 @@ Define
 	W_j^i = U_1^i \cup U_2^i \cup \cdots \cup U_j^i .
 \]
 
-We will construct a sequence of maps $f_i : P\to \Homeo(X)$, for $i = 0, 1, \ldots, N$, with the following properties:
+By the local contractibility of $\Homeo(X)$ (Corollary 1.1 of \cite{MR0283802}), 
+
+We will construct a sequence of maps $f_i : \bd P\to \Homeo(X)$, for $i = 0, 1, \ldots, N$, with the following properties:
 \begin{itemize}
-\item[(A)] $f_0 = f$;
+\item[(A)] $f_0 = f|_{\bd P}$;
 \item[(B)] $f_i = g$ on $W_i^i$;
 \item[(C)] $f_i$ restricted to $Q_\beta$ has support contained in $V_\beta^{N-i}$; and
-\item[(D)] there is a homotopy $F_i : P\times I \to \Homeo(X)$ from $f_{i-1}$ to $f_i$ such that the 
+\item[(D)] there is a homotopy $F_i : \bd P\times I \to \Homeo(X)$ from $f_{i-1}$ to $f_i$ such that the 
 support of $F_i$ restricted to $Q_\beta\times I$ is contained in $U_i^i\cup V_\beta^{N-i}$.
 \nn{check this when done writing}
 \end{itemize}
 
 Once we have the $F_i$'s as in (D), we can finish the argument as follows.
-Assemble the $F_i$'s into a map $F: P\times [0,N] \to \Homeo(X)$.
-View $F$ as a homotopy rel boundary from $F$ restricted to $P\times\{0\}$ (which is just $f$ by (A))
-to $F$ restricted to $\bd P \times [0,N] \cup P\times\{N\}$.
-$F$ restricted to $\bd P \times [0,N]$ is adapted to $\cU$ by (D).
-$F$ restricted to $P\times\{N\}$ is constant on $W_N^N = X$ by (B), and therefore is, {\it a fortiori}, also adapted
-to $\cU$.
+Assemble the $F_i$'s into a map $F: \bd P\times [0,N] \to \Homeo(X)$.
+$F$ is adapted to $\cU$ by (D).
+$F$ restricted to $\bd P\times\{N\}$ is constant on $W_N^N = X$ by (B).
+We can therefore view $F$ as a map $f'$ from $\Cone(\bd P) \cong P$ to $\Homeo(X)$
+which is adapted to $\cU$.
+
+The homotopies $F_i$ will be composed of three types of pieces, $A_\beta$, $B_\beta$ and $C$, % NOT C_\beta
+as illustrated in Figure \nn{xxxx}.
+($A_\beta$, $B_\beta$ and $C$ also depend on $i$, but we are suppressing that from the notation.)
+The homotopy $A_\beta : Q_\beta \times I \to \Homeo(X)$ will arrange that $f_i$ agrees with $g$
+on $U_i^i \setmin V_\beta^{N-i+1}$.
+The homotopy $B_\beta : Q_\beta \times I \to \Homeo(X)$ will extend the agreement with $g$ to all of $U_i^i$.
+The homotopies $C$ match things up between $\bd Q_\beta \times I$ and $\bd Q_{\beta'} \times I$ when
+$Q_\beta$ and $Q_{\beta'}$ are adjacent.
+
+Assume inductively that we have defined $f_{i-1}$.
+
+Now we define $A_\beta$.
+Choose $q_0\in Q_\beta$.
+Theorem 5.1 of \cite{MR0283802} implies that we can choose a homotopy $h:I \to \Homeo(X)$ such that
+\begin{itemize}
+\item[(E)] the support of $h$ is contained in $U_i^{i-1} \setmin W_{i-1}^{i-\frac12}$; and
+\item[(F)] $h(1) \circ f_{i-1}(q_0) = g$ on $U_i^i$.
+\end{itemize}
+Define $A_\beta$ by
+\[
+	A_\beta(q, t) = h(t) \circ f_{i-1}(q) .
+\]
+It follows that
+\begin{itemize}
+\item[(G)] $A_\beta(q,1) = A(q',1)$, for all $q,q' \in Q_\beta$, on $X \setmin V_\beta^{N-i+1}$;
+\item[(H)] $A_\beta(q, 1) = g$ on $(U_i^i \cup W_{i-1}^{i-\frac12})\setmin V_\beta^{N-i+1}$; and
+\item[(I)] the support of $A_\beta$ is contained in $U_i^{i-1} \cup V_\beta^{N-i+1}$.
+\end{itemize}
+
+
+
 
 \nn{resume revising here}
 
-Theorem 5.1 of \cite{MR0283802}, applied $N$ times, allows us
-to choose a homotopy $h:P\times [0,N] \to \Homeo(X)$ with the following properties:
-\begin{itemize}
-\item $h(p, 0) = f(p)$ for all $p\in P$.
-\item The restriction of $h(p, i)$ to $U_0^i \cup \cdots \cup U_i^i$ is equal to the homeomorphism $g$,
-for all $p\in P$.
-\item For each fixed $p\in P$, the family of homeomorphisms $h(p, [i-1, i])$ is supported on 
-$U_i^{i-1} \setmin (U_0^i \cup \cdots \cup U_{i-1}^i)$
-(and hence supported on $U_i$).
-\end{itemize}
+
+\nn{scraps:}
+
+Theorem 5.1 of \cite{MR0283802}, 
+
 To apply Theorem 5.1 of \cite{MR0283802}, the family $f(P)$ must be sufficiently small,
 and the subdivision mentioned above is chosen fine enough to insure this.
 
-By reparametrizing, we can view $h$ as a homotopy (rel boundary) from $h(\cdot,0) = f: P\to\Homeo(X)$
-to the family
-\[
-	h(\bd(P\times [0,N]) \setmin P\times \{0\}) = h(\bd P \times [0,N]) \cup h(P \times \{N\}) .
-\]
-We claim that the latter family of homeomorphisms is adapted to $\cU$.
-By the second bullet above, $h(P\times \{N\})$ is the constant family $g$, and is therefore supported on the empty set.
-Via an inductive assumption and a preliminary homotopy, we have arranged above that $f(\bd P)$ is
-adapted to $\cU$, which means that $\bd P = \cup_j Q_j$ with $f(Q_j)$ supported on the union of $k-1$
-of the $U_\alpha$'s for each $j$.
-It follows (using the third bullet above) that $h(Q_j \times [i-1,i])$ is supported on the union of $k$ 
-of the $U_\alpha$'s, specifically, the support of $f(Q_j)$ union $U_i$.
 \end{proof}
 
 
