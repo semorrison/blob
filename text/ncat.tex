@@ -1667,6 +1667,7 @@ If the disk-like $n$-category $\cC$ is enriched over some other category (e.g.\ 
 then for each marked $n$-ball $M=(B,N)$ and $c\in \cC(\bd B \setminus N)$, the set $\cM(M; c)$ should be an object in that category.
 
 \begin{lem}[Boundary from domain and range]
+\label{lem:module-boundary}
 {Let $H = M_1 \cup_E M_2$, where $H$ is a marked $k{-}1$-hemisphere ($1\le k\le n$),
 $M_i$ is a marked $k{-}1$-ball, and $E = M_1\cap M_2$ is a marked $k{-}2$-hemisphere.
 Let $\cM(M_1) \times_{\cM(E)} \cM(M_2)$ denote the fibered product of the 
@@ -1677,7 +1678,32 @@ Then we have an injective map
 \]
 which is natural with respect to the actions of homeomorphisms.}
 \end{lem}
-Again, this is in exact analogy with Lemma \ref{lem:domain-and-range}.
+Again, this is in exact analogy with Lemma \ref{lem:domain-and-range}, and illustrated in Figure \ref{fig:module-boundary}.
+\begin{figure}[t]
+\tikzset{marked/.style={line width=5pt}}
+
+\begin{equation*}
+\begin{tikzpicture}[baseline=0]
+\coordinate (a) at (0,1);
+\coordinate (b) at (4,1);
+\draw[marked] (a) arc (180:0:2);
+\draw (b) -- (a);
+\node at (2,2) {$M_1$};
+
+\draw (0,0) node[fill, circle] {} -- (4,0) node[fill,circle] {};
+\node at (-0.6,0) {$E$};
+
+\draw[marked] (0,-1) arc(-180:0:2);
+\draw (4,-1) -- (0,-1);
+\node at (2,-2) {$M_2$};
+\end{tikzpicture}
+\qquad \qquad \qquad
+\begin{tikzpicture}[baseline=0]
+\draw[marked] (0,0) node {$H$} circle (2);
+\end{tikzpicture}
+\end{equation*}\caption{The marked hemispheres and marked balls from Lemma \ref{lem:module-boundary}.}
+\label{fig:module-boundary}
+\end{figure}
 
 Let $\cl\cM(H)\trans E$ denote the image of $\gl_E$.
 We will refer to elements of $\cl\cM(H)\trans E$ as ``splittable along $E$" or ``transverse to $E$". 
