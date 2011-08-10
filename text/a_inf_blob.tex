@@ -1,8 +1,8 @@
 %!TEX root = ../blob1.tex
 
-\section{The blob complex for \texorpdfstring{$A_\infty$}{A-infinity} \texorpdfstring{$n$}{n}-categories}
+\section{The blob complex for \texorpdfstring{$A_\infty$}{A-infinity} disk-like \texorpdfstring{$n$}{n}-categories}
 \label{sec:ainfblob}
-Given an $A_\infty$ $n$-category $\cC$ and an $n$-manifold $M$, we make the 
+Given an $A_\infty$ disk-like $n$-category $\cC$ and an $n$-manifold $M$, we make the 
 anticlimactically tautological definition of the blob
 complex $\bc_*(M;\cC)$ to be the homotopy colimit $\cl{\cC}(M)$ of \S\ref{ss:ncat_fields}.
 
@@ -32,7 +32,7 @@ our original definition of the blob complex $\bc_*(M;\cE)$.
 
 
 Given an $n$-dimensional system of fields $\cE$ and a $n{-}k$-manifold $F$, recall from 
-Example \ref{ex:blob-complexes-of-balls} that there is an  $A_\infty$ $k$-category $\cC_F$ 
+Example \ref{ex:blob-complexes-of-balls} that there is an  $A_\infty$ disk-like $k$-category $\cC_F$ 
 defined by $\cC_F(X) = \cE(X\times F)$ if $\dim(X) < k$ and
 $\cC_F(X) = \bc_*(X\times F;\cE)$ if $\dim(X) = k$.
 
@@ -119,7 +119,7 @@ We might hope that $K$ and $K'$ have a common refinement, but this is not necess
 the case.
 (Consider the $x$-axis and the graph of $y = e^{-1/x^2} \sin(1/x)$ in $\r^2$.)
 However, we {\it can} find another decomposition $L$ such that $L$ shares common
-refinements with both $K$ and $K'$. (For instance, in the example above, $L$ can be the graph of $y=x^2+1$.)
+refinements with both $K$ and $K'$. (For instance, in the example above, $L$ can be the graph of $y=x^2-1$.)
 This follows from Axiom \ref{axiom:vcones}, which in turn follows from the
 splitting axiom for the system of fields $\cE$.
 Let $KL$ and $K'L$ denote these two refinements.
@@ -219,11 +219,11 @@ This concludes the proof of Theorem \ref{thm:product}.
 
 %\nn{need to prove a version where $E$ above has dimension $m<n$; result is an $n{-}m$-category}
 
-If $Y$ has dimension $k-m$, then we have an $m$-category $\cC_{Y\times F}$ whose value at
+If $Y$ has dimension $k-m$, then we have a disk-like $m$-category $\cC_{Y\times F}$ whose value at
 a $j$-ball $X$ is either $\cE(X\times Y\times F)$ (if $j<m$) or $\bc_*(X\times Y\times F)$
 (if $j=m$).
 (See Example \ref{ex:blob-complexes-of-balls}.)
-Similarly we have an $m$-category whose value at $X$ is $\cl{\cC_F}(X\times Y)$.
+Similarly we have a disk-like  $m$-category whose value at $X$ is $\cl{\cC_F}(X\times Y)$.
 These two categories are equivalent, but since we do not define functors between
 disk-like $n$-categories in this paper we are unable to say precisely
 what ``equivalent" means in this context.
@@ -235,7 +235,7 @@ Taking $F$ in Theorem \ref{thm:product} to be a point, we obtain the following c
 
 \begin{cor}
 \label{cor:new-old}
-Let $\cE$ be a system of fields (with local relations) and let $\cC_\cE$ be the $A_\infty$
+Let $\cE$ be a system of fields (with local relations) and let $\cC_\cE$ be the $A_\infty$ disk-like 
 $n$-category obtained from $\cE$ by taking the blob complex of balls.
 Then for all $n$-manifolds $Y$ the old-fashioned and new-fangled blob complexes are
 homotopy equivalent:
@@ -261,18 +261,18 @@ calculation.
 We can generalize the definition of a $k$-category by replacing the categories
 of $j$-balls ($j\le k$) with categories of $j$-balls $D$ equipped with a map $p:D\to Y$
 (c.f. \cite{MR2079378}).
-Call this a $k$-category over $Y$.
-A fiber bundle $F\to E\to Y$ gives an example of a $k$-category over $Y$:
+Call this a disk-like $k$-category over $Y$.
+A fiber bundle $F\to E\to Y$ gives an example of a disk-like $k$-category over $Y$:
 assign to $p:D\to Y$ the blob complex $\bc_*(p^*(E))$, if $\dim(D) = k$,
 or the fields $\cE(p^*(E))$, if $\dim(D) < k$.
 (Here $p^*(E)$ denotes the pull-back bundle over $D$.)
-Let $\cF_E$ denote this $k$-category over $Y$.
+Let $\cF_E$ denote this disk-like $k$-category over $Y$.
 We can adapt the homotopy colimit construction (based decompositions of $Y$ into balls) to
 get a chain complex $\cl{\cF_E}(Y)$.
 The proof of Theorem \ref{thm:product} goes through essentially unchanged 
 to show the following result.
 \begin{thm}
-Let $F \to E \to Y$ be a fiber bundle and let $\cF_E$ be the $k$-category over $Y$ defined above.
+Let $F \to E \to Y$ be a fiber bundle and let $\cF_E$ be the disk-like $k$-category over $Y$ defined above.
 Then
 \[
 	\bc_*(E) \simeq \cl{\cF_E}(Y) .
@@ -287,13 +287,13 @@ Call a map $D^j\to Y$ ``good" with respect to $M$ if the fibered product
 $D\widetilde{\times} M$ is a manifold of dimension $n-k+j$ with a collar structure along the boundary of $D$.
 (If $D\to Y$ is an embedding then $D\widetilde{\times} M$ is just the part of $M$
 lying above $D$.)
-We can define a $k$-category $\cF_M$ based on maps of balls into $Y$ which are good with respect to $M$.
+We can define a disk-like $k$-category $\cF_M$ based on maps of balls into $Y$ which are good with respect to $M$.
 We can again adapt the homotopy colimit construction to
 get a chain complex $\cl{\cF_M}(Y)$.
 The proof of Theorem \ref{thm:product} again goes through essentially unchanged 
 to show that
 \begin{thm}
-Let $M \to Y$ be a map of manifolds and let $\cF_M$ be the $k$-category over $Y$ defined above.
+Let $M \to Y$ be a map of manifolds and let $\cF_M$ be the disk-like $k$-category over $Y$ defined above.
 Then
 \[
 	\bc_*(M) \simeq \cl{\cF_M}(Y) .
@@ -315,7 +315,7 @@ Choose a decomposition $Y = \cup X_i$
 such that the restriction of $E$ to $X_i$ is homeomorphic to a product $F\times X_i$,
 and choose trivializations of these products as well.
 
-Let $\cF$ be the $k$-category associated to $F$.
+Let $\cF$ be the disk-like $k$-category associated to $F$.
 To each codimension-1 face $X_i\cap X_j$ we have a bimodule ($S^0$-module) for $\cF$.
 More generally, to each codimension-$m$ face we have an $S^{m-1}$-module for a $(k{-}m{+}1)$-category
 associated to the (decorated) link of that face.
@@ -341,22 +341,22 @@ We will need an explicit collar on $Y$, so rewrite this as
 $X = X_1\cup (Y\times J) \cup X_2$.
 Given this data we have:
 \begin{itemize}
-\item An $A_\infty$ $n{-}k$-category $\bc(X)$, which assigns to an $m$-ball
+\item An $A_\infty$ disk-like $n{-}k$-category $\bc(X)$, which assigns to an $m$-ball
 $D$ fields on $D\times X$ (for $m+k < n$) or the blob complex $\bc_*(D\times X; c)$
 (for $m+k = n$).
 (See Example \ref{ex:blob-complexes-of-balls}.)
 %\nn{need to explain $c$}.
-\item An $A_\infty$ $n{-}k{+}1$-category $\bc(Y)$, defined similarly.
+\item An $A_\infty$ disk-like $n{-}k{+}1$-category $\bc(Y)$, defined similarly.
 \item Two $\bc(Y)$ modules $\bc(X_1)$ and $\bc(X_2)$, which assign to a marked
 $m$-ball $(D, H)$ either fields on $(D\times Y) \cup (H\times X_i)$ (if $m+k < n$)
 or the blob complex $\bc_*((D\times Y) \cup (H\times X_i))$ (if $m+k = n$).
 (See Example \ref{bc-module-example}.)
 \item The tensor product $\bc(X_1) \otimes_{\bc(Y), J} \bc(X_2)$, which is
-an $A_\infty$ $n{-}k$-category.
+an $A_\infty$ disk-like $n{-}k$-category.
 (See \S \ref{moddecss}.)
 \end{itemize}
 
-It is the case that the $n{-}k$-categories $\bc(X)$ and $\bc(X_1) \otimes_{\bc(Y), J} \bc(X_2)$
+It is the case that the disk-like $n{-}k$-categories $\bc(X)$ and $\bc(X_1) \otimes_{\bc(Y), J} \bc(X_2)$
 are equivalent for all $k$, but since we do not develop a definition of functor between $n$-categories
 in this paper, we cannot state this precisely.
 (It will appear in a future paper.)
@@ -403,7 +403,7 @@ Theorem \ref{thm:product}.
 
 The next theorem shows how to reconstruct a mapping space from local data.
 Let $T$ be a topological space, let $M$ be an $n$-manifold, 
-and recall the $A_\infty$ $n$-category $\pi^\infty_{\leq n}(T)$ 
+and recall the $A_\infty$ disk-like $n$-category $\pi^\infty_{\leq n}(T)$ 
 of Example \ref{ex:chains-of-maps-to-a-space}.
 Think of $\pi^\infty_{\leq n}(T)$ as encoding everything you would ever
 want to know about spaces of maps of $k$-balls into $T$ ($k\le n$).
