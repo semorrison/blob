@@ -3,8 +3,10 @@
 
 * better discussion of systems of fields from disk-like n-cats
     (Is this done by now?)
+    
+* ?? say clearly that certain lemmas don't work for TOP; we're only claiming DIFF and PL (requires small changes in many places)
 
-* need to fix fam-o-homeo argument per discussion with Rob
+* need to fix fam-o-homeo argument per discussion with Rob (or just remove it)
 
 * need to change module axioms to follow changes in n-cat axioms; search for and destroy all the "Homeo_\bd"'s, add a v-cone axiom
 
