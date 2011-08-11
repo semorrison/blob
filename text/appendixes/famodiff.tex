@@ -297,7 +297,7 @@ Assume inductively that we have defined $f_{i-1}$.
 
 Now we define $A_\beta$.
 Choose $q_0\in Q_\beta$.
-Theorem 5.1 of \cite{MR0283802} implies that we can choose a homotopy $h:I \to \Homeo(X)$ such that
+Theorem 5.1 of \cite{MR0283802} implies that we can choose a homotopy $h:I \to \Homeo(X)$, with $h(0)$ the identity, such that
 \begin{itemize}
 \item[(E)] the support of $h$ is contained in $U_i^{i-1} \setmin W_{i-1}^{i-\frac12}$; and
 \item[(F)] $h(1) \circ f_{i-1}(q_0) = g$ on $U_i^i$.
@@ -323,8 +323,14 @@ such that
 \item[(M)] the support of $B_\beta$ is contained in $U_i^i \cup V_\beta^{N-i}$.
 \end{itemize}
 
-All that remains is to define the ``glue" $C$ which interpolates between adjacent $\beta$ and $\beta'$.
+All that remains is to define the ``glue" $C$ which interpolates between adjacent $Q_\beta$ and $Q_{\beta'}$.
 First consider the $k=2$ case.
+(In this case Figure \nn{xxxx} is literal rather than merely schematic.)
+Let $q = Q_\beta \cap Q_{\beta'}$ be a point on the boundaries of both $Q_\beta$ and $Q_{\beta'}$.
+We have an arc of Homeomorphisms, composed of $B_\beta(q, \cdot)$, $A_\beta(q, \cdot)$, 
+$A_{\beta'}(q, \cdot)$ and $B_{\beta'}(q, \cdot)$, which connects $B_\beta(q, 1)$ to $B_{\beta'}(q, 1)$.
+
+\nn{Hmmmm..... I think there's a problem here}
 
 
 
@@ -332,8 +338,6 @@ First consider the $k=2$ case.
 
 
 \nn{scraps:}
-
-Theorem 5.1 of \cite{MR0283802}, 
 
 To apply Theorem 5.1 of \cite{MR0283802}, the family $f(P)$ must be sufficiently small,
 and the subdivision mentioned above is chosen fine enough to insure this.
