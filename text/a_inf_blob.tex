@@ -418,14 +418,31 @@ $$\cB^\cT(M) \simeq C_*(\Maps(M\to T)).$$
 \begin{rem}
 Lurie has shown in \cite[Theorem 3.8.6]{0911.0018} that the topological chiral homology 
 of an $n$-manifold $M$ with coefficients in a certain $E_n$ algebra constructed from $T$ recovers 
-the same space of singular chains on maps from $M$ to $T$, with the additional hypothesis that $T$ is $n-1$-connected.
+the same space of singular chains on maps from $M$ to $T$, with the additional hypothesis that $T$ is $n{-}1$-connected.
 This extra hypothesis is not surprising, in view of the idea described in Example \ref{ex:e-n-alg} 
 that an $E_n$ algebra is roughly equivalent data to an $A_\infty$ $n$-category which 
 is trivial at levels 0 through $n-1$.
 Ricardo Andrade also told us about a similar result.
+
+Specializing still further, Theorem \ref{thm:map-recon} is related to the classical result that for connected spaces $T$
+we have $HH_*(C_*(\Omega T)) \cong H_*(LT)$, that is, the Hochschild homology of based loops in $T$ is isomorphic
+to the homology of the free loop space of $T$ (see \cite{MR793184} and \cite{MR842427}).
+Theorem \ref{thm:map-recon} says that for any space $T$ (connected or not) we have
+$\bc_*(S^1; C_*(\pi^\infty_{\le 1}(T))) \simeq C_*(LT)$.
+Here $C_*(\pi^\infty_{\le 1}(T))$ denotes the singular chain version of the fundamental infinity-groupoid of $T$, 
+whose objects are points in $T$ and morphism chain complexes are $C_*(\paths(t_1 \to t_2))$ for $t_1, t_2 \in T$.
+If $T$ is connected then the $A_\infty$ 1-category $C_*(\pi^\infty_{\le 1}(T))$ is Morita equivalent to the
+$A_\infty$ algebra $C_*(\Omega T)$; 
+the bimodule for the equivalence is the singular chains of the space of paths which start at the base point of $T$.
+Theorem \ref{thm:hochschild} holds for $A_\infty$ 1-categories (though we do not prove that in this paper),
+which then implies that
+\[
+	Hoch_*(C_*(\Omega T)) \simeq Hoch_*(C_*(\pi^\infty_{\le 1}(T)))
+			\simeq \bc_*(S^1; C_*(\pi^\infty_{\le 1}(T))) \simeq C_*(LT) .
+\]
 \end{rem}
 
-\begin{proof}
+\begin{proof}[Proof of Theorem \ref{thm:map-recon}]
 The proof is again similar to that of Theorem \ref{thm:product}.
 
 We begin by constructing a chain map $\psi: \cB^\cT(M) \to C_*(\Maps(M\to T))$.
