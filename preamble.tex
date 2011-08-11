@@ -50,6 +50,9 @@
 \theoremstyle{plain}
 %\newtheorem*{fact}{Fact}
 \newtheorem{prop}{Proposition}[subsection]
+\makeatletter
+\@addtoreset{prop}{section}
+\makeatother
 \newtheorem{conj}[prop]{Conjecture}
 \newtheorem{thm}[prop]{Theorem}
 \newtheorem{lem}[prop]{Lemma}
