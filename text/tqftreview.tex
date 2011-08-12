@@ -85,7 +85,7 @@ In this context, we will call $c$ a boundary condition.
 \item The subset $\cC_n(X;c)$ of top-dimensional fields 
 with a given boundary condition is an object in our symmetric monoidal category $\cS$.
 (This condition is of course trivial when $\cS = \Set$.) 
-If the objects are sets with extra structure (e.g. $\cS = \Vect$ or $\Kom$), 
+If the objects are sets with extra structure (e.g. $\cS = \Vect$ or $\Kom$ (chain complexes)), 
 then this extra structure is considered part of the definition of $\cC_n$.
 Any maps mentioned below between fields on $n$-manifolds must be morphisms in $\cS$.
 \item $\cC_k$ is compatible with the symmetric monoidal
@@ -299,7 +299,7 @@ by an object (0-morphism) of $C$;
 domain and range determined by the transverse orientation and the labelings of the 1-cells.
 \end{itemize}
 
-We want fields on 1-manifolds to be enriched over Vect, so we also allow formal linear combinations
+We want fields on 1-manifolds to be enriched over $\Vect$, so we also allow formal linear combinations
 of the above fields on a 1-manifold $X$ so long as these fields restrict to the same field on $\bd X$.
 
 In addition, we mod out by the relation which replaces
@@ -371,7 +371,7 @@ refined to a genuine cell complex.
 \subsection{Local relations}
 \label{sec:local-relations}
 
-For convenience we assume that fields are enriched over Vect.
+For convenience we assume that fields are enriched over $\Vect$.
 
 Local relations are subspaces $U(B; c)\sub \cC(B; c)$ of the fields on balls which form an ideal under gluing.
 Again, we give the examples first.
@@ -400,7 +400,7 @@ satisfying the following properties.
 \begin{enumerate}
 \item Functoriality: 
 $f(U(B; c)) = U(B', f(c))$ for all homeomorphisms $f: B \to B'$
-\item Local relations imply extended isotopy: 
+\item Local relations imply extended isotopy invariance: 
 if $x, y \in \cC(B; c)$ and $x$ is extended isotopic 
 to $y$, then $x-y \in U(B; c)$.
 \item Ideal with respect to gluing:
