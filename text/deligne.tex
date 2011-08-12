@@ -178,7 +178,8 @@ We define a map
 	p(\ol{f}): \hom(\bc_*(M_1), \bc_*(N_1))\ot\cdots\ot\hom(\bc_*(M_k), \bc_*(N_k))
 				\to \hom(\bc_*(M_0), \bc_*(N_0)) .
 \]
-Given $\alpha_i\in\hom(\bc_*(M_i), \bc_*(N_i))$, we define $p(\ol{f}$) to be the composition
+Given $\alpha_i\in\hom(\bc_*(M_i), \bc_*(N_i))$, we define 
+$p(\ol{f})(\alpha_1\ot\cdots\ot\alpha_k)$ to be the composition
 \[
 	\bc_*(M_0)  \stackrel{f_0}{\to} \bc_*(R_1\cup M_1)
 				 \stackrel{\id\ot\alpha_1}{\to} \bc_*(R_1\cup N_1)
@@ -201,7 +202,7 @@ chain complex $C_*(SC^n_{\ol{M}\ol{N}})$.
 \label{thm:deligne}
 There is a collection of chain maps
 \[
-	C_*(SC^n_{\overline{M}, \overline{N}})\otimes \hom(\bc_*(M_1), \bc_*(N_1))\otimes\cdots\otimes 
+	C_*(SC^n_{\ol{M}\ol{N}})\otimes \hom(\bc_*(M_1), \bc_*(N_1))\otimes\cdots\otimes 
 \hom(\bc_*(M_{k}), \bc_*(N_{k})) \to  \hom(\bc_*(M_0), \bc_*(N_0))
 \]
 which satisfy the operad compatibility conditions.
@@ -216,7 +217,7 @@ As noted above, the $n$-SC operad contains the little $n{+}1$-balls operad, so t
 a higher dimensional version of the Deligne conjecture for Hochschild cochains and the little 2-disks operad.
 
 \begin{proof}
-As described above, $SC^n_{\overline{M}, \overline{N}}$ is equal to the disjoint
+As described above, $SC^n_{\ol{M}\ol{N}}$ is equal to the disjoint
 union of products of homeomorphism spaces, modulo some relations.
 By Theorem \ref{thm:CH} and the Eilenberg-Zilber theorem, we have for each such product $P$
 a chain map
@@ -225,7 +226,7 @@ a chain map
 \hom(\bc_*(M_{k}), \bc_*(N_{k})) \to  \hom(\bc_*(M_0), \bc_*(N_0)) .
 \]
 It suffices to show that the above maps are compatible with the relations whereby
-$SC^n_{\overline{M}, \overline{N}}$ is constructed from the various $P$'s.
+$SC^n_{\ol{M}\ol{N}}$ is constructed from the various $P$'s.
 This in turn follows easily from the fact that
 the actions of $C_*(\Homeo(\cdot\to\cdot))$ are local (compatible with gluing) and associative.
 %\nn{should add some detail to above}
