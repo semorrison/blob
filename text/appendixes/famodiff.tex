@@ -49,9 +49,9 @@ then $F(t, p, \cdot)$ is also in $\cX$ for all $t\in I$ and $p\in P$.
 \end{enumerate}
 \end{lemma}
 
-Note: We will prove a version of item 4 of Lemma \ref{basic_adaptation_lemma} for topological
-homeomorphisms in Lemma \ref{basic_adaptation_lemma_2} below.
-Since the proof is rather different we segregate it to a separate lemma.
+%Note: We will prove a version of item 4 of Lemma \ref{basic_adaptation_lemma} for topological
+%homeomorphisms in Lemma \ref{basic_adaptation_lemma_2} below.
+%Since the proof is rather different we segregate it to a separate lemma.
 
 \begin{proof}
 Our homotopy will have the form
@@ -221,6 +221,8 @@ Since PL homeomorphisms are bi-Lipschitz, we have established this last remainin
 
 % Edwards-Kirby: MR0283802
 
+\noop { %%%%%% begin \noop %%%%%%%%%%%%%%%%%%%%%%%
+
 The above proof doesn't work for homeomorphisms which are merely continuous.
 The $k=1$ case for plain, continuous homeomorphisms 
 is more or less equivalent to Corollary 1.3 of \cite{MR0283802}.
@@ -346,12 +348,12 @@ and the subdivision mentioned above is chosen fine enough to insure this.
 
 \end{proof}
 
-
+} %%%%%% end \noop %%%%%%%%%%%%%%%%%%%
 
 \begin{lemma} \label{extension_lemma_c}
 Let $\cX_*$ be any of $C_*(\Maps(X \to T))$ or singular chains on the 
 subspace of $\Maps(X\to T)$ consisting of immersions, diffeomorphisms, 
-bi-Lipschitz homeomorphisms, PL homeomorphisms or plain old continuous homeomorphisms.
+bi-Lipschitz homeomorphisms, or PL homeomorphisms.
 Let $G_* \subset \cX_*$ denote the chains adapted to an open cover $\cU$
 of $X$.
 Then $G_*$ is a strong deformation retract of $\cX_*$.
@@ -359,7 +361,7 @@ Then $G_*$ is a strong deformation retract of $\cX_*$.
 \begin{proof}
 It suffices to show that given a generator $f:P\times X\to T$ of $\cX_k$ with
 $\bd f \in G_{k-1}$ there exists $h\in \cX_{k+1}$ with $\bd h = f + g$ and $g \in G_k$.
-This is exactly what Lemma \ref{basic_adaptation_lemma} (or \ref{basic_adaptation_lemma_2})
+This is exactly what Lemma \ref{basic_adaptation_lemma}
 gives us.
 More specifically, let $\bd P = \sum Q_i$, with each $Q_i\in G_{k-1}$.
 Let $F: I\times P\times X\to T$ be the homotopy constructed in Lemma \ref{basic_adaptation_lemma}.
