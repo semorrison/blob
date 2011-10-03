@@ -34,7 +34,7 @@ See \S\ref{n-cat-names} for a discussion of $n$-category terminology.
 
 The axioms for an $n$-category are spread throughout this section.
 Collecting these together, an $n$-category is a gadget satisfying Axioms \ref{axiom:morphisms}, 
-\ref{nca-boundary}, \ref{axiom:composition},  \ref{nca-assoc}, \ref{axiom:product}, \ref{axiom:extended-isotopies} and  \ref{axiom:vcones}.
+\ref{nca-boundary}, \ref{axiom:composition},  \ref{nca-assoc}, \ref{axiom:product}, \ref{axiom:extended-isotopies} and  \ref{axiom:splittings}.
 For an enriched $n$-category we add Axiom \ref{axiom:enriched}.
 For an $A_\infty$ $n$-category, we replace 
 Axiom \ref{axiom:extended-isotopies} with Axiom \ref{axiom:families}.
@@ -672,6 +672,159 @@ In addition, collar maps act trivially on $\cC(X)$.
 
 \medskip
 
+We need one additional axiom.
+It says, roughly, that given a $k$-ball $X$, $k<n$, and $c\in \cC(X)$, there exist sufficiently many splittings of $c$.
+We use this axiom in the proofs of \ref{lem:d-a-acyclic}, \ref{lem:colim-injective} \nn{...}.
+All of the examples of (disk-like) $n$-categories we consider in this paper satisfy the axiom, but
+nevertheless we feel that it is too strong.
+In the future we would like to see this provisional version of the axiom replaced by something less restrictive.
+
+We give two alternate versions of he axiom, one better suited for smooth examples, and one better suited to PL examples.
+
+\begin{axiom}[Splittings]
+\label{axiom:splittings}
+Let $c\in \cC_k(X)$, with $0\le k < n$.
+Let $X = \cup_i X_i$ be a splitting of $X$.
+\begin{itemize}
+\item (Version 1) Then there exists an embedded cell complex $S_c \sub X$, called the string locus of $c$,
+such that if the splitting $\{X_i\}$ is transverse to $S_c$ then $c$ splits along $\{X_i\}$.
+\item (Version 2) Consider the set of homeomorphisms $g:X\to X$ such that $c$ splits along $\{g(X_i)\}$.
+Then this subset of $\Homeo(X)$ is open and dense.
+\end{itemize}
+\nn{same something about extension from boundary}
+\end{axiom}
+
+We note some consequences of Axiom \ref{axiom:splittings}.
+
+First, some preliminary definitions.
+If $P$ is a poset let $P\times I$ denote the product poset, where $I = \{0, 1\}$ with ordering $0\le 1$.
+Let $\Cone(P)$ denote $P$ adjoined an additional object $v$ (the vertex of the cone) with $p\le v$ for all objects $p$ of $P$.
+Finally, let $\vcone(P)$ denote $P\times I \cup \Cone(P)$, where we identify $P\times \{0\}$ with the base of the cone.
+We call $P\times \{1\}$ the base of $\vcone(P)$.
+(See Figure \ref{vcone-fig}.)
+\begin{figure}[t]
+\centering
+\begin{tikzpicture}
+	[kw node/.style={circle,fill=orange!70},
+	kw arrow/.style={-latex, very thick, blue!70, shorten >=.06cm, shorten <=.06cm},
+	kw label/.style={cca},
+	]
+
+	\definecolor{cca}{rgb}{.1,.4,.3};
+
+	\node at (0,0) {
+		\begin{tikzpicture}	
+			\draw 
+				(0,0) node[kw node](p1){}
+				(1,.5) node[kw node](p2){}
+				(2,0) node[kw node](p3){};
+			
+			\draw[kw arrow] (p1) -- (p3);
+			\draw[kw arrow] (p2) -- (p3);
+			\draw[kw arrow] (p1) -- (p2);
+			
+			\draw[kw label] (1,-.6) node{(a)};
+		\end{tikzpicture}
+	};
+	
+	\node at (7,0) {
+		\begin{tikzpicture}	
+			\draw 
+				(0,0) node[kw node](p1){}
+				++(0,2.5) node[kw node](q1){}
+				(1,.5) node[kw node](p2){}
+				++(0,2.5) node[kw node](q2){}
+				(2,0)  node[kw node](p3){}
+				++(0,2.5) node[kw node](q3){}
+				;
+			
+			\draw[kw arrow] (p1) -- (p3);
+			\draw[kw arrow] (p2) -- (p3);
+			\draw[kw arrow] (p1) -- (p2);
+			\draw[kw arrow] (q1) -- (q3);
+			\draw[kw arrow] (q2) -- (q3);
+			\draw[kw arrow] (q1) -- (q2);
+			\draw[kw arrow] (p1) -- (q1);
+			\draw[kw arrow] (p2) -- (q2);
+			\draw[kw arrow] (p3) -- (q3);
+
+			\draw[kw label] (1,-.6) node{(b)};
+		\end{tikzpicture}
+	};
+	
+	\node at (0,-5) {
+		\begin{tikzpicture}	
+			\draw 
+				(0,0) node[kw node](p1){}
+				(1,.5) node[kw node](p2){}
+				++(0,2.5) node[kw node](v){}
+				(2,0)  node[kw node](p3){}
+				;
+			
+			\draw[kw arrow] (p1) -- (p3);
+			\draw[kw arrow] (p2) -- (p3);
+			\draw[kw arrow] (p1) -- (p2);
+			\draw[kw arrow] (p1) -- (v);
+			\draw[kw arrow] (p2) -- (v);
+			\draw[kw arrow] (p3) -- (v);
+
+			\draw[kw label] (1,-.6) node{(c)};
+		\end{tikzpicture}
+	};
+	
+	\node at (7,-5) {
+		\begin{tikzpicture}	
+			\draw 
+				(0,0) node[kw node](p1){}
+				++(-2,2.5) node[kw node](q1){}
+				(1,.5) node[kw node](p2){}
+				++(-2,2.5) node[kw node](q2){}
+				++(4,0) node[kw node](v){}
+				(2,0)  node[kw node](p3){}
+				++(-2,2.5) node[kw node](q3){}
+				;
+			
+			\draw[kw arrow] (p1) -- (p3);
+			\draw[kw arrow] (p2) -- (p3);
+			\draw[kw arrow] (p1) -- (p2);
+			\draw[kw arrow] (p1) -- (v);
+			\draw[kw arrow] (p2) -- (v);
+			\draw[kw arrow] (p3) -- (v);
+			\draw[kw arrow] (q1) -- (q3);
+			\draw[kw arrow] (q2) -- (q3);
+			\draw[kw arrow] (q1) -- (q2);
+			\draw[kw arrow] (p1) -- (q1);
+			\draw[kw arrow] (p2) -- (q2);
+			\draw[kw arrow] (p3) -- (q3);
+
+			\draw[kw label] (1,-.6) node{(d)};
+		\end{tikzpicture}
+	};
+	
+\end{tikzpicture}
+\caption{(a) $P$, (b) $P\times I$, (c) $\Cone(P)$, (d) $\vcone(P)$}
+\label{vcone-fig}
+\end{figure}
+
+
+\begin{lem}
+\label{lemma:vcones}
+Let $c\in \cC_k(X)$, with $0\le k < n$, and
+let $P$ be a finite poset of splittings of $c$.
+Then we can embed $\vcone(P)$ into the splittings of $c$, with $P$ corresponding to the base of $\vcone(P)$.
+Furthermore, if $q$ is any decomposition of $X$, then we can take the vertex of $\vcone(P)$ to be $q$ up to a small perturbation.
+\end{lem}
+
+\begin{proof}
+After a small perturbation, we may assume that $q$ is simultaneously transverse to all the splittings in $P$, and
+(by Axiom \ref{axiom:splittings}) that $c$ splits along $q$.
+We can now choose, for each splitting $p$ in $P$, a common refinement $p'$ of $p$ and $q$.
+This constitutes the middle part of $\vcone(P)$.
+\end{proof}
+
+
+\noop{ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 We need one additional axiom, in order to constrain the poset of decompositions of a given morphism.
 We will soon want to take colimits (and homotopy colimits) indexed by such posets, and we want to require
 that these colimits are in some sense locally acyclic.
@@ -811,6 +964,7 @@ Note that we do not require that any two splittings of $c$ have a common refinem
 Two decompositions of $X$ might intersect in a very messy way, but one can always find a third
 decomposition which has common refinements with each of the original two decompositions.
 
+} %%%%%% end \noop %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \medskip
 
@@ -1024,7 +1178,7 @@ restrictions (Axiom \ref{axiom:composition}).
 \item The product maps are associative and also compatible with homeomorphism actions, gluing and restriction (Axiom \ref{axiom:product}).
 \item If enriching in an auxiliary category, all of the data should be compatible 
 with the auxiliary category structure on $\cC_n(X; c)$ (Axiom \ref{axiom:enriched}).
-\item The possible splittings of a morphism satisfy various conditions (Axiom \ref{axiom:vcones}).
+\item The possible splittings of a morphism satisfy various conditions (Axiom \ref{axiom:splittings}).
 \item For ordinary categories, invariance of $n$-morphisms under extended isotopies 
 and collar maps (Axiom \ref{axiom:extended-isotopies}).
 \end{itemize}
@@ -1464,11 +1618,11 @@ Choose a permissible decomposition $\du_a X_{ia} \to W_i$ and elements
 $y_{ia} \in \cC(X_{ia})$ representing $y_i$.
 It might not be the case that $\du_{ia} X_{ia} \to W$ is a permissible decomposition of $W$,
 since intersections of the pieces with $\bd W$ might not be well-behaved.
-However, using the fact that $\bd y_i$ splits along $\bd Y$ and applying Axiom \ref{axiom:vcones},
+However, using the fact that $\bd y_i$ splits along $\bd Y$ and applying Axiom \ref{axiom:splittings},
 we can choose the decomposition $\du_{a} X_{ia}$ so that its restriction to $\bd W_i$ is a refinement
 of the splitting along $\bd Y$, and this implies that the combined decomposition $\du_{ia} X_{ia}$
 is permissible.
-We can now define the gluing $y_1\bullet y_2$ in the obvious way, and a further application of Axiom \ref{axiom:vcones}
+We can now define the gluing $y_1\bullet y_2$ in the obvious way, and a further application of Axiom \ref{axiom:splittings}
 shows that this is independent of the choices of representatives of $y_i$.
 
 
