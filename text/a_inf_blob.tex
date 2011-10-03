@@ -120,14 +120,14 @@ the case.
 (Consider the $x$-axis and the graph of $y = e^{-1/x^2} \sin(1/x)$ in $\r^2$.)
 However, we {\it can} find another decomposition $L$ such that $L$ shares common
 refinements with both $K$ and $K'$. (For instance, in the example above, $L$ can be the graph of $y=x^2-1$.)
-This follows from Axiom \ref{axiom:vcones}, which in turn follows from the
+This follows from Axiom \ref{axiom:splittings}, which in turn follows from the
 splitting axiom for the system of fields $\cE$.
 Let $KL$ and $K'L$ denote these two refinements.
 Then 1-simplices associated to the four anti-refinements
 $KL\to K$, $KL\to L$, $K'L\to L$ and $K'L\to K'$
 give the desired chain connecting $(a, K)$ and $(a, K')$
 (see Figure \ref{zzz4}).
-(In the language of Axiom \ref{axiom:vcones}, this is $\vcone(K \du K')$.)
+(In the language of Lemma \ref{lemma:vcones}, this is $\vcone(K \du K')$.)
 
 \begin{figure}[t] \centering
 \begin{tikzpicture}
@@ -147,7 +147,7 @@ give the desired chain connecting $(a, K)$ and $(a, K')$
 Consider next a 1-cycle in $E(b, b')$, such as one arising from
 a different choice of decomposition $L'$ in place of $L$ above.
 %We want to find 2-simplices which fill in this cycle.
-By Axiom \ref{axiom:vcones} we can fill in this 1-cycle with 2-simplices.
+By Lemma \ref{lemma:vcones} we can fill in this 1-cycle with 2-simplices.
 Choose a decomposition $M$ which has common refinements with each of 
 $K$, $KL$, $L$, $K'L$, $K'$, $K'L'$, $L'$ and $KL'$.
 (We also require that $KLM$ antirefines to $KM$, etc.)
@@ -190,7 +190,7 @@ Then we have 2-simplices, as shown in Figure \ref{zzz5}, which do the trick.
 \end{figure}
 
 Continuing in this way we see that $D(a)$ is acyclic.
-By Axiom \ref{axiom:vcones} we can fill in any cycle with a V-Cone.
+By Lemma \ref{lemma:vcones} we can fill in any cycle with a V-Cone.
 \end{proof}
 
 We are now in a position to apply the method of acyclic models to get a map
