@@ -582,6 +582,7 @@ The next axiom says, roughly, that we have strict associativity in dimension $n$
 even when we reparametrize our $n$-balls.
 
 \begin{axiom}[\textup{\textbf{[preliminary]}} Isotopy invariance in dimension $n$]
+\label{axiom:isotopy-preliminary}
 Let $X$ be an $n$-ball, $b \in \cC(X)$, and $f: X\to X$ be a homeomorphism which 
 acts trivially on the restriction $\bd b$ of $b$ to $\bd X$.
 (Keep in mind the important special case where $f$ restricted to $\bd X$ is the identity.)
@@ -679,7 +680,7 @@ All of the examples of (disk-like) $n$-categories we consider in this paper sati
 nevertheless we feel that it is too strong.
 In the future we would like to see this provisional version of the axiom replaced by something less restrictive.
 
-We give two alternate versions of he axiom, one better suited for smooth examples, and one better suited to PL examples.
+We give two alternate versions of the axiom, one better suited for smooth examples, and one better suited to PL examples.
 
 \begin{axiom}[Splittings]
 \label{axiom:splittings}
@@ -1003,7 +1004,7 @@ we need a preliminary definition.
 Once we have the above $n$-category axioms for $n{-}1$-morphisms, we can define the 
 category $\bbc$ of {\it $n$-balls with boundary conditions}.
 Its objects are pairs $(X, c)$, where $X$ is an $n$-ball and $c \in \cl\cC(\bd X)$ is the ``boundary condition".
-The morphisms from $(X, c)$ to $(X', c')$, denoted $\Homeo(X,c; X', c')$, are
+The morphisms from $(X, c)$ to $(X', c')$, denoted $\Homeo(X; c \to X'; c')$, are
 homeomorphisms $f:X\to X'$ such that $f|_{\bd X}(c) = c'$.
 %Let $\pi_0(\bbc)$ denote
  
@@ -1047,7 +1048,7 @@ After stating it, we will briefly discuss ways in which it can be made more gene
 }
 
 Recall the category $\bbc$ of balls with boundary conditions.
-Note that the morphisms $\Homeo(X,c; X', c')$ from $(X, c)$ to $(X', c')$ form a topological space.
+Note that the morphisms $\Homeo(X;c \to X'; c')$ from $(X, c)$ to $(X', c')$ form a topological space.
 Let $\cS$ be an appropriate $\infty$-category (e.g.\ chain complexes)
 and let $\cJ$ be an $\infty$-functor from topological spaces to $\cS$
 (e.g.\ the singular chain functor $C_*$).
@@ -1056,7 +1057,7 @@ and let $\cJ$ be an $\infty$-functor from topological spaces to $\cS$
 \label{axiom:families}
 For each pair of $n$-balls $X$ and $X'$ and each pair $c\in \cl{\cC}(\bd X)$ and $c'\in \cl{\cC}(\bd X')$ we have an $\cS$-morphism
 \[
-	\cJ(\Homeo(X,c; X', c')) \ot \cC(X; c) \to \cC(X'; c') .
+	\cJ(\Homeo(X;c \to X'; c')) \ot \cC(X; c) \to \cC(X'; c') .
 \]
 Similarly, we have an $\cS$-morphism
 \[
@@ -1071,7 +1072,7 @@ a diagram like the one in Theorem \ref{thm:CH} commutes.
 \end{axiom}
 
 We now describe the topology on $\Coll(X; c)$.
-We retain notation from the above definition of collar map.
+We retain notation from the above definition of collar map (after Axiom \ref{axiom:isotopy-preliminary}).
 Each collaring homeomorphism $X \cup (Y\times J) \to X$ determines a map from points $p$ of $\bd X$ to
 (possibly length zero) embedded intervals in $X$ terminating at $p$.
 If $p \in Y$ this interval is the image of $\{p\}\times J$.
@@ -1082,14 +1083,14 @@ Note in particular that parts of the collar are allowed to shrink continuously t
 maps follows from the action of families of homeomorphisms and compatibility with gluing.)
 
 The $k=n$ case of Axiom \ref{axiom:morphisms} posits a {\it strictly} associative action of {\it sets}
-$\Homeo(X,c; X', c') \times \cC(X; c) \to \cC(X'; c')$, and at first it might seem that this would force the above
-action of $\cJ(\Homeo(X,c; X', c'))$ to be strictly associative as well (assuming the two actions are compatible).
+$\Homeo(X;c\to X'; c') \times \cC(X; c) \to \cC(X'; c')$, and at first it might seem that this would force the above
+action of $\cJ(\Homeo(X;c\to X'; c'))$ to be strictly associative as well (assuming the two actions are compatible).
 In fact, compatibility implies less than this.
 For simplicity, assume that $\cJ$ is $C_*$, the singular chains functor.
 (This is the example most relevant to this paper.)
-Then compatibility implies that the action of $C_*(\Homeo(X,c; X', c'))$ agrees with the action
-of $C_0(\Homeo(X,c; X', c'))$ coming from Axiom \ref{axiom:morphisms}, so we only require associativity in degree zero.
-And indeed, this is true for our main example of an $A_\infty$ $n$-category based on the blob construction.
+Then compatibility implies that the action of $C_*(\Homeo(X;c\to X'; c'))$ agrees with the action
+of $C_0(\Homeo(X;c\to X'; c'))$ coming from Axiom \ref{axiom:morphisms}, so we only require associativity in degree zero.
+And indeed, this is true for our main example of an $A_\infty$ $n$-category based on the blob construction (see Example \ref{ex:blob-complexes-of-balls} below).
 Stating this sort of compatibility for general $\cS$ and $\cJ$ requires further assumptions, 
 such as the forgetful functor from $\cS$ to sets having a left adjoint, and $\cS$ having an internal Hom.
 
@@ -1142,7 +1143,7 @@ Second,  in the category definition we directly impose isotopy
 invariance in dimension $n$, while in the fields definition we 
 instead remember a subspace of local relations which contain differences of isotopic fields. 
 (Recall that the compensation for this complication is that we can demand that the gluing map for fields is injective.)
-Thus a system of fields and local relations $(\cF,U)$ determines an $n$-category $\cC_ {\cF,U}$ simply by restricting our attention to
+Thus a \nn{lemma-ize} system of fields and local relations $(\cF,U)$ determines an $n$-category $\cC_ {\cF,U}$ simply by restricting our attention to
 balls and, at level $n$, quotienting out by the local relations:
 \begin{align*}
 \cC_{\cF,U}(B^k) & = \begin{cases}\cF(B) & \text{when $k<n$,} \\ \cF(B) / U(B) & \text{when $k=n$.}\end{cases}
@@ -1245,7 +1246,7 @@ system of fields (also denoted $\cF$) and local relations.
 Let $W$ be an $n{-}j$-manifold.
 Define the $j$-category $\cF(W)$ as follows.
 If $X$ is a $k$-ball with $k<j$, let $\cF(W)(X) \deq \cF(W\times X)$.
-If $X$ is a $j$-ball and $c\in \cl{\cF(W)}(\bd X)$, 
+If $X$ is a $j$-ball and $c\in \cl{\cF(W)}(\bd X)$,
 let $\cF(W)(X; c) \deq A_\cF(W\times X; c)$.
 \end{example}
 
@@ -1998,11 +1999,12 @@ The above operad-like structure is analogous to the swiss cheese operad
 
 \medskip
 
-We can define marked pinched products $\pi:E\to M$ of marked balls analogously to the 
-plain ball case.
+We can define marked pinched products $\pi:E\to M$ of marked balls similarly to the 
+plain ball case. A marked pinched product $\pi: E \to M$ is a pinched product (that is, locally modeled on degeneracy maps) which restricts to a map between the markings which is also a pinched product, and in a neighborhood of the markings is the product of the map between the markings with an interval. 
+\nn{figure, 2 examples}
 Note that a marked pinched product can be decomposed into either
 two marked pinched products or a plain pinched product and a marked pinched product.
-%\nn{should maybe give figure}
+\nn{should  give figure}
 
 \begin{module-axiom}[Product (identity) morphisms]
 For each pinched product $\pi:E\to M$, with $M$ a marked $k$-ball and $E$ a marked
