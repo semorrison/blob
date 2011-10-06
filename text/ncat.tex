@@ -1143,11 +1143,15 @@ Second,  in the category definition we directly impose isotopy
 invariance in dimension $n$, while in the fields definition we 
 instead remember a subspace of local relations which contain differences of isotopic fields. 
 (Recall that the compensation for this complication is that we can demand that the gluing map for fields is injective.)
-Thus a \nn{lemma-ize} system of fields and local relations $(\cF,U)$ determines an $n$-category $\cC_ {\cF,U}$ simply by restricting our attention to
+Thus
+\begin{lem}
+\label{lem:ncat-from-fields}
+A system of fields and local relations $(\cF,U)$ determines an $n$-category $\cC_ {\cF,U}$ simply by restricting our attention to
 balls and, at level $n$, quotienting out by the local relations:
 \begin{align*}
 \cC_{\cF,U}(B^k) & = \begin{cases}\cF(B) & \text{when $k<n$,} \\ \cF(B) / U(B) & \text{when $k=n$.}\end{cases}
 \end{align*}
+\end{lem}
 This $n$-category can be thought of as the local part of the fields.
 Conversely, given a disk-like $n$-category we can construct a system of fields via 
 a colimit construction; see \S \ref{ss:ncat_fields} below.
@@ -1250,6 +1254,8 @@ If $X$ is a $j$-ball and $c\in \cl{\cF(W)}(\bd X)$,
 let $\cF(W)(X; c) \deq A_\cF(W\times X; c)$.
 \end{example}
 
+This last example generalizes Lemma \ref{lem:ncat-from-fields} above which produced an $n$-category from an $n$-dimensional system of fields and local relations. Taking $W$ to be the point recovers that statement.
+
 The next example is only intended to be illustrative, as we don't specify 
 which definition of a ``traditional $n$-category" we intend.
 Further, most of these definitions don't even have an agreed-upon notion of 
@@ -1322,6 +1328,8 @@ we get an $A_\infty$ $n$-category enriched over spaces.
 
 See also Theorem \ref{thm:map-recon} below, recovering $C_*(\Maps(M \to T))$ up to 
 homotopy as the blob complex of $M$ with coefficients in $\pi^\infty_{\le n}(T)$.
+
+Instead of using the TQFT invariant $\cA$ as in Example \ref{ex:ncats-from-tqfts} above, we can turn an $n$-dimensional system of fields and local relations into an $A_\infty$ $n$-category using the blob complex. With a codimension $k$ fiber, we obtain an $A_\infty$ $k$-category:
 
 \begin{example}[Blob complexes of balls (with a fiber)]
 \rm
