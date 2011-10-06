@@ -2,9 +2,13 @@
 
 \section{The blob complex for \texorpdfstring{$A_\infty$}{A-infinity} \texorpdfstring{$n$}{n}-categories}
 \label{sec:ainfblob}
-Given an $A_\infty$ $n$-category $\cC$ and an $n$-manifold $M$, we make the 
+Given an $A_\infty$ $n$-category $\cC$ and an $n$-manifold $M$, we make the following 
 anticlimactically tautological definition of the blob
-complex $\bc_*(M;\cC)$ to be the homotopy colimit $\cl{\cC}(M)$ of \S\ref{ss:ncat_fields}.
+complex.
+\begin{defn}
+The blob complex
+ $\bc_*(M;\cC)$ of an $n$-manifold $n$ with coefficients in an $A_\infty$ $n$-category is the homotopy colimit $\cl{\cC}(M)$ of \S\ref{ss:ncat_fields}.
+\end{defn}
 
 We will show below 
 in Corollary \ref{cor:new-old}
@@ -335,7 +339,7 @@ There is a similar construction for general maps $M\to Y$.
 \subsection{A gluing theorem}
 \label{sec:gluing}
 
-Next we prove a gluing theorem.
+Next we prove a gluing theorem. Throughout this section fix a particular $n$-dimensional system of fields $\cE$ and local relations. Each blob complex below is  with respect to this $\cE$.
 Let $X$ be a closed $k$-manifold with a splitting $X = X'_1\cup_Y X'_2$.
 We will need an explicit collar on $Y$, so rewrite this as
 $X = X_1\cup (Y\times J) \cup X_2$.
@@ -364,7 +368,7 @@ So we content ourselves with
 
 \begin{thm}
 \label{thm:gluing}
-When $k=n$ above, $\bc(X)$ is homotopy equivalent to $\bc(X_1) \otimes_{\bc(Y), J} \bc(X_2)$.
+Suppose $X$ is an $n$-manifold, and $X = X_1\cup (Y\times J) \cup X_2$ (i.e. just as with  $k=n$ above). Then $\bc(X)$ is homotopy equivalent to the $A_\infty$ tensor product $\bc(X_1) \otimes_{\bc(Y), J} \bc(X_2)$.
 \end{thm}
 
 \begin{proof}
