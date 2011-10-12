@@ -391,14 +391,21 @@ By Lemmas \ref{bt-contract} and \ref{btc-prod}, we can now find
 $h_2(b) \in \btc_3(X)$, also supported on $V$, such that $\bd(h_2(b)) = s(b) - b - h_1(\bd b)$
 
 The general case, $h_k$, is similar.
+
+Note that it is possible to make the various choices above so that the homotopies we construct
+are fixed on $\bc_* \sub \btc_*$.
+It follows that we may assume that
+the homotopy inverse to the inclusion constructed above is the identity on $\bc_*$.
+Note that the complex of all homotopy inverses with this property is contractible, 
+so the homotopy inverse is well-defined up to a contractible set of choices.
 \end{proof}
 
-The proof of Lemma \ref{lem:bc-btc} constructs a homotopy inverse to the inclusion
-$\bc_*(X)\sub \btc_*(X)$.
-One might ask for more: a contractible set of possible homotopy inverses, or at least an
-$m$-connected set for arbitrarily large $m$.
-The latter can be achieved with finer control over the various
-choices of disjoint unions of balls in the above proofs, but we will not pursue this here.
+%The proof of Lemma \ref{lem:bc-btc} constructs a homotopy inverse to the inclusion
+%$\bc_*(X)\sub \btc_*(X)$.
+%One might ask for more: a contractible set of possible homotopy inverses, or at least an
+%$m$-connected set for arbitrarily large $m$.
+%The latter can be achieved with finer control over the various
+%choices of disjoint unions of balls in the above proofs, but we will not pursue this here.
 
 
 
@@ -419,7 +426,7 @@ For $n$-manifolds $X$ and $Y$ there is a chain map
 \eq{
     e_{XY} : \CH{X \to Y} \otimes \bc_*(X) \to \bc_*(Y) ,
 }
-well-defined up to homotopy,
+well-defined up to (coherent) homotopy,
 such that
 \begin{enumerate}
 \item on $C_0(\Homeo(X \to Y)) \otimes \bc_*(X)$ it agrees with the obvious action of 
@@ -459,7 +466,7 @@ commutes on the nose.
 \begin{thm}
 \label{thm:CH-associativity}
 The $\CH{X \to Y}$ actions defined above are associative.
-That is, the following diagram commutes up to homotopy:
+That is, the following diagram commutes up to coherent homotopy:
 \[ \xymatrix@C=5pt{
 & \CH{Y\to Z} \ot \bc_*(Y) \ar[drr]^{e_{YZ}} & &\\
 \CH{X \to Y} \ot \CH{Y \to Z} \ot \bc_*(X) \ar[ur]^{e_{XY}\ot\id} \ar[dr]_{\mu\ot\id} & & & \bc_*(Z) \\

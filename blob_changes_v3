@@ -33,4 +33,5 @@ The most significant changes are:
 - rewrote definition of colimit (in "From Balls to Manifolds" subsection) to allow for more general decompositions; also added more details
 - added remark about families of collar maps acting on the blob complex
 - small corrections to proof of product theorem (7.1.1)
-- 
+- added remarks that various homotopy equivalences we construct are well-defined up to a contractible set of choices
+
