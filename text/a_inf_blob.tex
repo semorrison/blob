@@ -265,16 +265,15 @@ calculation.
 We can generalize the definition of a $k$-category by replacing the categories
 of $j$-balls ($j\le k$) with categories of $j$-balls $D$ equipped with a map $p:D\to Y$
 (c.f. \cite{MR2079378}).
-Call this a $k$-category over $Y$.
+Call this a {\it $k$-category over $Y$}.
 A fiber bundle $F\to E\to Y$ gives an example of a $k$-category over $Y$:
-assign to $p:D\to Y$ the blob complex $\bc_*(p^*(E))$, if $\dim(D) = k$,
-or the fields $\cE(p^*(E))$, if $\dim(D) < k$.
+assign to $p:D\to Y$ the blob complex $\bc_*(p^*(E))$, when $\dim(D) = k$,
+or the fields $\cE(p^*(E))$, when $\dim(D) < k$.
 (Here $p^*(E)$ denotes the pull-back bundle over $D$.)
 Let $\cF_E$ denote this $k$-category over $Y$.
 We can adapt the homotopy colimit construction (based decompositions of $Y$ into balls) to
 get a chain complex $\cl{\cF_E}(Y)$.
-The proof of Theorem \ref{thm:product} goes through essentially unchanged 
-to show the following result.
+
 \begin{thm}
 Let $F \to E \to Y$ be a fiber bundle and let $\cF_E$ be the $k$-category over $Y$ defined above.
 Then
@@ -283,6 +282,26 @@ Then
 \]
 \qed
 \end{thm}
+
+\begin{proof}
+The proof is nearly identical to the proof of Theorem \ref{thm:product}, so we will only give a sketch which 
+emphasizes the few minor changes that need to be made.
+
+As before, we define a map
+\[
+	\psi: \cl{\cF_E}(Y) \to \bc_*(E) .
+\]
+0-simplices of the homotopy colimit $\cl{\cF_E}(Y)$ are glued up to give an element of $\bc_*(E)$.
+Simplices of positive degree are sent to zero.
+
+Let $G_* \sub \bc_*(E)$ be the image of $\psi$.
+By Lemma \ref{thm:small-blobs}, $\bc_*(Y\times F; \cE)$ 
+is homotopic to a subcomplex of $G_*$.
+We will define a homotopy inverse of $\psi$ on $G_*$, using acyclic models.
+To each generator $a$ of $G_*$ we assign an acyclic subcomplex $D(a) \sub \cl{\cF_E}(Y)$ which consists of
+0-simplices which map via $\psi$ to $a$, plus higher simplices (as described in the proof of Theorem \ref{thm:product})
+which insure that $D(a)$ is acyclic.
+\end{proof}
 
 We can generalize this result still further by noting that it is not really necessary
 for the definition of $\cF_E$ that $E\to Y$ be a fiber bundle.
