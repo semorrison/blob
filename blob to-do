@@ -1,9 +1,6 @@
 
 ====== big ======
 
-* better discussion of systems of fields from disk-like n-cats
-    (Is this done by now?)
-    
 * double-check for mentions of TOP
 
 * (maybe) say somewhere what's missing for TOP
@@ -17,14 +14,13 @@
 
 * framings and duality -- work out what's going on! (alternatively, vague-ify current statement)
 
-* make sure we are clear that boundary = germ (perhaps we are already clear enough)
 
-
-* places splitting axiom is used:
-** in the proof that gluing in dimension < n is injective
-** in the proof that D(a) is acyclic
-** in the small blobs lemma
-
+(for reference:
+	* places splitting axiom is used:
+	** in the proof that gluing in dimension < n is injective
+	** in the proof that D(a) is acyclic
+	** in the small blobs lemma
+)
 
 
 ====== minor/optional ======
@@ -39,6 +35,11 @@ morita equivalence
 
 * review colors in figures
 
+* better discussion of systems of fields from disk-like n-cats
+    (Is this done by now?)
+ 
+* make sure we are clear that boundary = germ (perhaps we are already clear enough)
+   
 
 ====== Scott ======
 
