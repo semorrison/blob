@@ -34,4 +34,5 @@ The most significant changes are:
 - added remark about families of collar maps acting on the blob complex
 - small corrections to proof of product theorem (7.1.1)
 - added remarks that various homotopy equivalences we construct are well-defined up to a contractible set of choices
+- clarified that the surgery cylinder operad action is only up to coherent homotopy
 
