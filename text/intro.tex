@@ -46,7 +46,9 @@ We could also replace many of our chain complexes with topological spaces (or in
 
 \subsection{Structure of the paper}
 The subsections of the introduction explain our motivations in defining the blob complex (see \S \ref{sec:motivations}), 
-summarize the formal properties of the blob complex (see \S \ref{sec:properties}), describe known specializations (see \S \ref{sec:specializations}), and outline the major results of the paper (see \S \ref{sec:structure} and \S \ref{sec:applications}).
+summarize the formal properties of the blob complex (see \S \ref{sec:properties}), 
+describe known specializations (see \S \ref{sec:specializations}), 
+and outline the major results of the paper (see \S \ref{sec:structure} and \S \ref{sec:applications}).
 %and outline anticipated future directions (see \S \ref{sec:future}).
 %\nn{recheck this list after done editing intro}
 
@@ -223,7 +225,9 @@ with an appropriately free resolution (the blob complex)
 Here $\bc_0$ is linear combinations of fields on $W$,
 $\bc_1$ is linear combinations of local relations on $W$,
 $\bc_2$ is linear combinations of relations amongst relations on $W$,
-and so on. We now have a short exact sequence of chain complexes relating resolutions of the link $L$ (c.f. Lemma \ref{lem:hochschild-exact} which shows exactness with respect to boundary conditions in the context of Hochschild homology).
+and so on. We now have a short exact sequence of chain complexes relating resolutions of the link $L$ 
+(c.f. Lemma \ref{lem:hochschild-exact} which shows exactness 
+with respect to boundary conditions in the context of Hochschild homology).
 
 
 \subsection{Formal properties}
@@ -370,36 +374,39 @@ satisfying corresponding conditions.
 
 In \S \ref{sec:ncats} we introduce the notion of disk-like $n$-categories, 
 from which we can construct systems of fields.
+Traditional $n$-categories can be converted to disk-like $n$-categories by taking string diagrams
+(see \S\ref{sec:example:traditional-n-categories(fields)}).
 Below, when we talk about the blob complex for a disk-like $n$-category, 
 we are implicitly passing first to this associated system of fields.
-Further, in \S \ref{sec:ncats} we also have the notion of an $A_\infty$ $n$-category. 
+Further, in \S \ref{sec:ncats} we also have the notion of a disk-like $A_\infty$ $n$-category. 
 In that section we describe how to use the blob complex to 
-construct $A_\infty$ $n$-categories from ordinary $n$-categories:
+construct disk-like $A_\infty$ $n$-categories from ordinary disk-like $n$-categories:
 
 \newtheorem*{ex:blob-complexes-of-balls}{Example \ref{ex:blob-complexes-of-balls}}
 
-\begin{ex:blob-complexes-of-balls}[Blob complexes of products with balls form an $A_\infty$ $n$-category]
+\begin{ex:blob-complexes-of-balls}[Blob complexes of products with balls form a disk-like $A_\infty$ $n$-category]
 %\label{thm:blobs-ainfty}
-Let $\cC$ be  an ordinary $n$-category.
+Let $\cC$ be  an ordinary disk-like $n$-category.
 Let $Y$ be an $n{-}k$-manifold. 
-There is an $A_\infty$ $k$-category $\bc_*(Y;\cC)$, defined on each $m$-ball $D$, for $0 \leq m < k$, 
+There is a disk-like $A_\infty$ $k$-category $\bc_*(Y;\cC)$, defined on each $m$-ball $D$, for $0 \leq m < k$, 
 to be the set $$\bc_*(Y;\cC)(D) = \cC(Y \times D)$$ and on $k$-balls $D$ to be the set 
 $$\bc_*(Y;\cC)(D) = \bc_*(Y \times D; \cC).$$ 
 (When $m=k$ the subsets with fixed boundary conditions form a chain complex.) 
-These sets have the structure of an $A_\infty$ $k$-category, with compositions coming from the gluing map in 
+These sets have the structure of a disk-like $A_\infty$ $k$-category, with compositions coming from the gluing map in 
 Property \ref{property:gluing-map} and with the action of families of homeomorphisms given in Theorem \ref{thm:evaluation}.
 \end{ex:blob-complexes-of-balls}
+
 \begin{rem}
 Perhaps the most interesting case is when $Y$ is just a point; 
-then we have a way of building an $A_\infty$ $n$-category from an ordinary $n$-category.
-We think of this $A_\infty$ $n$-category as a free resolution.
+then we have a way of building a disk-like $A_\infty$ $n$-category from an ordinary $n$-category. % disk-like or not
+We think of this disk-like $A_\infty$ $n$-category as a free resolution of the ordinary $n$-category.
 \end{rem}
 
-There is a version of the blob complex for $\cC$ an $A_\infty$ $n$-category
+There is a version of the blob complex for $\cC$ a disk-like $A_\infty$ $n$-category
 instead of an ordinary $n$-category; this is described in \S \ref{sec:ainfblob}.
 The definition is in fact simpler, almost tautological, and we use a different notation, $\cl{\cC}(M)$. 
-The next theorem describes the blob complex for product manifolds, 
-in terms of the $A_\infty$ blob complex of the $A_\infty$ $n$-categories constructed as in the previous example.
+The next theorem describes the blob complex for product manifolds
+in terms of the $A_\infty$ blob complex of the disk-like $A_\infty$ $n$-categories constructed as in the previous example.
 %The notation is intended to reflect the close parallel with the definition of the TQFT skein module via a colimit.
 
 \newtheorem*{thm:product}{Theorem \ref{thm:product}}
@@ -407,7 +414,7 @@ in terms of the $A_\infty$ blob complex of the $A_\infty$ $n$-categories constru
 \begin{thm:product}[Product formula]
 Let $W$ be a $k$-manifold and $Y$ be an $n-k$ manifold.
 Let $\cC$ be an $n$-category.
-Let $\bc_*(Y;\cC)$ be the $A_\infty$ $k$-category associated to $Y$ via blob homology 
+Let $\bc_*(Y;\cC)$ be the disk-like $A_\infty$ $k$-category associated to $Y$ via blob homology 
 (see Example \ref{ex:blob-complexes-of-balls}).
 Then
 \[
@@ -418,8 +425,9 @@ The statement can be generalized to arbitrary fibre bundles, and indeed to arbit
 (see \S \ref{ss:product-formula}).
 
 Fix a disk-like $n$-category $\cC$, which we'll omit from the notation.
-Recall that for any $(n-1)$-manifold $Y$, the blob complex $\bc_*(Y)$ is naturally an $A_\infty$ category.
-(See Appendix \ref{sec:comparing-A-infty} for the translation between disk-like $A_\infty$ $1$-categories and the usual algebraic notion of an $A_\infty$ category.)
+Recall that for any $(n-1)$-manifold $Y$, the blob complex $\bc_*(Y)$ is naturally an $A_\infty$ 1-category.
+(See Appendix \ref{sec:comparing-A-infty} for the translation between disk-like $A_\infty$ $1$-categories 
+and the usual algebraic notion of an $A_\infty$ category.)
 
 \newtheorem*{thm:gluing}{Theorem \ref{thm:gluing}}
 
@@ -429,7 +437,8 @@ Recall that for any $(n-1)$-manifold $Y$, the blob complex $\bc_*(Y)$ is natural
 \item For any $n$-manifold $X$, with $Y$ a codimension $0$-submanifold of its boundary, the blob complex of $X$ is naturally an
 $A_\infty$ module for $\bc_*(Y)$.
 
-\item For any $n$-manifold $X_\text{gl} = X\bigcup_Y \selfarrow$, the blob complex $\bc_*(X_\text{gl})$ is the $A_\infty$ self-tensor product of
+\item For any $n$-manifold $X_\text{gl} = X\bigcup_Y \selfarrow$, the blob complex $\bc_*(X_\text{gl})$ 
+is the $A_\infty$ self-tensor product of
 $\bc_*(X)$ as an $\bc_*(Y)$-bimodule:
 \begin{equation*}
 \bc_*(X_\text{gl}) \simeq \bc_*(X) \Tensor^{A_\infty}_{\mathclap{\bc_*(Y)}} \selfarrow
@@ -446,11 +455,14 @@ Finally, we give two applications of the above machinery.
 \newtheorem*{thm:map-recon}{Theorem \ref{thm:map-recon}}
 
 \begin{thm:map-recon}[Mapping spaces]
-Let $\pi^\infty_{\le n}(T)$ denote the $A_\infty$ $n$-category based on maps 
+Let $\pi^\infty_{\le n}(T)$ denote the disk-like $A_\infty$ $n$-category based on singular chains on maps 
 $B^n \to T$.
 (The case $n=1$ is the usual $A_\infty$-category of paths in $T$.)
 Then 
-$$\bc_*(X; \pi^\infty_{\le n}(T)) \simeq \CM{X}{T}.$$
+\[
+	\bc_*(X; \pi^\infty_{\le n}(T)) \simeq \CM{X}{T},
+\]
+where $C_*$ denotes singular chains.
 \end{thm:map-recon}
 
 This says that we can recover (up to homotopy) the space of maps to $T$ via blob homology from local data. 
@@ -495,7 +507,8 @@ For example, we expect that the shuffle product on the Hochschild homology of a 
 (see \cite[\S 4.2]{MR1600246}) simply corresponds to the gluing operation on $\bc_*(S^1 \times [0,1]; A)$, 
 but haven't investigated the details.
 
-Most importantly, however, \nn{applications!} \nn{cyclic homology, $n=2$ cases, contact, Kh} \nn{stabilization} \nn{stable categories, generalized cohomology theories}
+Most importantly, however, \nn{applications!} \nn{cyclic homology, $n=2$ cases, contact, Kh} \nn{stabilization} 
+\nn{stable categories, generalized cohomology theories}
 } %%% end \noop %%%%%%%%%%%%%%%%%%%%%
 
 \subsection{\texorpdfstring{$n$}{n}-category terminology}
@@ -529,7 +542,7 @@ play a prominent role in the definition.
 the tongue as well as ``disk-like''.)
 
 Another thing we need a name for is the ability to rotate morphisms around in various ways.
-For 2-categories, ``pivotal" is a standard term for what we mean.
+For 2-categories, ``strict pivotal" is a standard term for what we mean.
 A more general term is ``duality", but duality comes in various flavors and degrees.
 We are mainly interested in a very strong version of duality, where the available ways of
 rotating $k$-morphisms correspond to all the ways of rotating $k$-balls.
