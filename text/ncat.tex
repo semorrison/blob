@@ -19,7 +19,7 @@ the definitions presented below tie the categories more closely to the topology
 and avoid combinatorial questions about, for example, finding a minimal sufficient
 collection of generalized associativity axioms; we prefer maximal sets of axioms to minimal sets.
 It is easy to show that examples of topological origin
-(e.g.\ categories whose morphisms are maps into spaces or decorated balls, or bordism categories), 
+(e.g.\ categories whose morphisms are maps into spaces or decorated balls, or bordism categories)
 satisfy our axioms.
 To show that examples of a more purely algebraic origin satisfy our axioms, 
 one would typically need the combinatorial
@@ -42,7 +42,7 @@ Axiom \ref{axiom:extended-isotopies} with Axiom \ref{axiom:families}.
 Strictly speaking, before we can state the axioms for $k$-morphisms we need all the axioms 
 for $k{-}1$-morphisms.
 Readers who prefer things to be presented in a strictly logical order should read this 
-subsection $n+1$ times, first setting $k=0$, then $k=1$, and so on until they reach $k=n$.
+subsection $n{+}1$ times, first setting $k=0$, then $k=1$, and so on until they reach $k=n$.
 
 \medskip
 
@@ -90,6 +90,11 @@ They could be PL or smooth.
 to be fussier about corners and boundaries.)
 For each flavor of manifold there is a corresponding flavor of $n$-category.
 For simplicity, we will concentrate on the case of PL unoriented manifolds.
+
+(An interesting open question is whether the techniques of this paper can be adapted to topological
+manifolds and plain, merely continuous homeomorphisms.
+The main obstacles are proving a version of Lemma \ref{basic_adaptation_lemma} and adapting the
+transversality arguments used in Lemma \ref{lem:colim-injective}.)
 
 An ambitious reader may want to keep in mind two other classes of balls.
 The first is balls equipped with a map to some other space $Y$ (c.f. \cite{MR2079378}). 
@@ -660,7 +665,6 @@ isotopic (rel boundary) to the identity {\it extended isotopy}.
 
 The revised axiom is
 
-%\addtocounter{axiom}{-1}
 \begin{axiom}[Extended isotopy invariance in dimension $n$]
 \label{axiom:extended-isotopies}
 Let $X$ be an $n$-ball, $b \in \cC(X)$, and $f: X\to X$ be a homeomorphism which 
@@ -675,7 +679,7 @@ In addition, collar maps act trivially on $\cC(X)$.
 
 We need one additional axiom.
 It says, roughly, that given a $k$-ball $X$, $k<n$, and $c\in \cC(X)$, there exist sufficiently many splittings of $c$.
-We use this axiom in the proofs of \ref{lem:d-a-acyclic}, \ref{lem:colim-injective} \nn{...}.
+We use this axiom in the proofs of \ref{lem:d-a-acyclic} and \ref{lem:colim-injective}.
 All of the examples of (disk-like) $n$-categories we consider in this paper satisfy the axiom, but
 nevertheless we feel that it is too strong.
 In the future we would like to see this provisional version of the axiom replaced by something less restrictive.
