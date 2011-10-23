@@ -2093,10 +2093,12 @@ There are two alternatives for the next axiom, according whether we are defining
 modules for ordinary $n$-categories or $A_\infty$ $n$-categories.
 In the ordinary case we require
 
-\begin{module-axiom}[\textup{\textbf{[ordinary version]}} Extended isotopy invariance in dimension $n$]
-{Let $M$ be a marked $n$-ball and $f: M\to M$ be a homeomorphism which restricts
-to the identity on $\bd M$ and is isotopic (rel boundary) to the identity.
-Then $f$ acts trivially on $\cM(M)$.}
+\begin{module-axiom}[Extended isotopy invariance in dimension $n$]
+Let $M$ be a marked $n$-ball, $b \in \cM(M)$, and $f: M\to M$ be a homeomorphism which 
+acts trivially on the restriction $\bd b$ of $b$ to $\bd M$.
+Suppose furthermore that $f$ is isotopic to the identity through homeomorphisms which
+act trivially on $\bd b$.
+Then $f(b) = b$.
 In addition, collar maps act trivially on $\cM(M)$.
 \end{module-axiom}
 
