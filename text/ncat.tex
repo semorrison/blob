@@ -2089,9 +2089,11 @@ $a$ along a map associated to $\pi$.
 
 \medskip
 
-There are two alternatives for the next axiom, according whether we are defining
-modules for ordinary $n$-categories or $A_\infty$ $n$-categories.
-In the ordinary case we require
+%There are two alternatives for the next axiom, according to whether we are defining
+%modules for ordinary $n$-categories or $A_\infty$ $n$-categories.
+%In the ordinary case we require
+
+The remaining module axioms are very similar to their counterparts in \S\ref{ss:n-cat-def}.
 
 \begin{module-axiom}[Extended isotopy invariance in dimension $n$]
 Let $M$ be a marked $n$-ball, $b \in \cM(M)$, and $f: M\to M$ be a homeomorphism which 
@@ -2105,6 +2107,30 @@ In addition, collar maps act trivially on $\cM(M)$.
 We emphasize that the $\bd M$ above means boundary in the marked $k$-ball sense.
 In other words, if $M = (B, N)$ then we require only that isotopies are fixed 
 on $\bd B \setmin N$.
+
+\begin{module-axiom}[Splittings]
+Let $c\in \cM_k(M)$, with $1\le k < n$.
+Let $s = \{X_i\}$ be a splitting of M (so $M = \cup_i X_i$, and each $X_i$ is either a marked ball or a plain ball).
+Let $\Homeo_\bd(M)$ denote homeomorphisms of $M$ which restrict to the identity on $\bd M$.
+\begin{itemize}
+\item (Alternative 1) Consider the set of homeomorphisms $g:M\to M$ such that $c$ splits along $g(s)$.
+Then this subset of $\Homeo(M)$ is open and dense.
+Furthermore, if $s$ restricts to a splitting $\bd s$ of $\bd M$, and if $\bd c$ splits along $\bd s$, then the
+intersection of the set of such homeomorphisms $g$ with $\Homeo_\bd(M)$ is open and dense in $\Homeo_\bd(M)$.
+\item (Alternative 2) Then there exists an embedded cell complex $S_c \sub M$, called the string locus of $c$,
+such that if the splitting $s$ is transverse to $S_c$ then $c$ splits along $s$.
+\end{itemize}
+\end{module-axiom}
+
+We define the 
+category $\mbc$ of {\it marked $n$-balls with boundary conditions} as follows.
+Its objects are pairs $(M, c)$, where $M$ is a marked $n$-ball and $c \in \cl\cM(\bd M)$ is the ``boundary condition".
+The morphisms from $(M, c)$ to $(M', c')$, denoted $\Homeo(M; c \to M'; c')$, are
+homeomorphisms $f:M\to M'$ such that $f|_{\bd M}(c) = c'$.
+
+
+
+\nn{resume revising here}
 
 For $A_\infty$ modules we require
 
