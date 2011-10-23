@@ -2096,6 +2096,7 @@ $a$ along a map associated to $\pi$.
 The remaining module axioms are very similar to their counterparts in \S\ref{ss:n-cat-def}.
 
 \begin{module-axiom}[Extended isotopy invariance in dimension $n$]
+\label{ei-module-axiom}
 Let $M$ be a marked $n$-ball, $b \in \cM(M)$, and $f: M\to M$ be a homeomorphism which 
 acts trivially on the restriction $\bd b$ of $b$ to $\bd M$.
 Suppose furthermore that $f$ is isotopic to the identity through homeomorphisms which
@@ -2104,7 +2105,7 @@ Then $f(b) = b$.
 In addition, collar maps act trivially on $\cM(M)$.
 \end{module-axiom}
 
-We emphasize that the $\bd M$ above means boundary in the marked $k$-ball sense.
+We emphasize that the $\bd M$ above (and below) means boundary in the marked $k$-ball sense.
 In other words, if $M = (B, N)$ then we require only that isotopies are fixed 
 on $\bd B \setmin N$.
 
@@ -2128,26 +2129,32 @@ Its objects are pairs $(M, c)$, where $M$ is a marked $n$-ball and $c \in \cl\cM
 The morphisms from $(M, c)$ to $(M', c')$, denoted $\Homeo(M; c \to M'; c')$, are
 homeomorphisms $f:M\to M'$ such that $f|_{\bd M}(c) = c'$.
 
+Let $\cS$ be a distributive symmetric monoidal category, and assume that $\cC$ is enriched in $\cS$.
+A $\cC$-module enriched in $\cS$ is defined analogously to \ref{axiom:enriched}.
+The top-dimensional part of the module $\cM_n$ is required to be a functor from $\mbc$ to $\cS$.
+The top-dimensional gluing maps (module composition and $n$-category action) are $\cS$-maps whose
+domain is a direct sub of tensor products, as in \ref{axiom:enriched}.
 
+If $\cC$ is an $A_\infty$ $n$-category (see \ref{axiom:families}), we replace module axiom \ref{ei-module-axiom}
+with the following axiom.
+Retain notation from \ref{axiom:families}.
 
-\nn{resume revising here}
-
-For $A_\infty$ modules we require
-
-%\addtocounter{module-axiom}{-1}
-\begin{module-axiom}[\textup{\textbf{[$A_\infty$ version]}} Families of homeomorphisms act]
-For each marked $n$-ball $M$ and each $c\in \cM(\bd M)$ we have a map of chain complexes
+\begin{module-axiom}[Families of homeomorphisms act in dimension $n$.]
+For each pair of marked $n$-balls $M$ and $M'$ and each pair $c\in \cl{\cM}(\bd M)$ and $c'\in \cl{\cM}(\bd M')$ 
+we have an $\cS$-morphism
 \[
-	C_*(\Homeo_\bd(M))\ot \cM(M; c) \to \cM(M; c) .
+	\cJ(\Homeo(M;c \to M'; c')) \ot \cM(M; c) \to \cM(M'; c') .
 \]
-Here $C_*$ means singular chains and $\Homeo_\bd(M)$ is the space of homeomorphisms of $M$
-which fix $\bd M$.
-These action maps are required to be associative up to homotopy, as in Theorem \ref{thm:CH-associativity}, 
+Similarly, we have an $\cS$-morphism
+\[
+	\cJ(\Coll(M,c)) \ot \cM(M; c) \to \cM(M; c),
+\]
+where $\Coll(M,c)$ denotes the space of collar maps.
+These action maps are required to be associative up to coherent homotopy,
 and also compatible with composition (gluing) in the sense that
 a diagram like the one in Theorem \ref{thm:CH} commutes.
 \end{module-axiom}
 
-As with the $n$-category version of the above axiom, we should also have families of collar maps act.
 
 \medskip
 
