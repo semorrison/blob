@@ -680,6 +680,7 @@ In addition, collar maps act trivially on $\cC(X)$.
 We need one additional axiom.
 It says, roughly, that given a $k$-ball $X$, $k<n$, and $c\in \cC(X)$, there exist sufficiently many splittings of $c$.
 We use this axiom in the proofs of \ref{lem:d-a-acyclic} and \ref{lem:colim-injective}.
+The analogous axiom for systems of fields is used in the proof of \ref{small-blobs-b}.
 All of the examples of (disk-like) $n$-categories we consider in this paper satisfy the axiom, but
 nevertheless we feel that it is too strong.
 In the future we would like to see this provisional version of the axiom replaced by something less restrictive.
@@ -689,14 +690,16 @@ We give two alternate versions of the axiom, one better suited for smooth exampl
 \begin{axiom}[Splittings]
 \label{axiom:splittings}
 Let $c\in \cC_k(X)$, with $0\le k < n$.
-Let $X = \cup_i X_i$ be a splitting of $X$.
+Let $s = \{X_i\}$ be a splitting of X (so $X = \cup_i X_i$).
+Let $\Homeo_\bd(X)$ denote homeomorphisms of $X$ which restrict to the identity on $\bd X$.
 \begin{itemize}
-\item (Version 1) Then there exists an embedded cell complex $S_c \sub X$, called the string locus of $c$,
-such that if the splitting $\{X_i\}$ is transverse to $S_c$ then $c$ splits along $\{X_i\}$.
-\item (Version 2) Consider the set of homeomorphisms $g:X\to X$ such that $c$ splits along $\{g(X_i)\}$.
+\item (Alternative 1) Consider the set of homeomorphisms $g:X\to X$ such that $c$ splits along $g(s)$.
 Then this subset of $\Homeo(X)$ is open and dense.
+Furthermore, if $s$ restricts to a splitting $\bd s$ of $\bd X$, and if $\bd c$ splits along $\bd s$, then the
+intersection of the set of such homeomorphisms $g$ with $\Homeo_\bd(X)$ is open and dense in $\Homeo_\bd(X)$.
+\item (Alternative 2) Then there exists an embedded cell complex $S_c \sub X$, called the string locus of $c$,
+such that if the splitting $s$ is transverse to $S_c$ then $c$ splits along $s$.
 \end{itemize}
-\nn{same something about extension from boundary}
 \end{axiom}
 
 We note some consequences of Axiom \ref{axiom:splittings}.
@@ -825,6 +828,14 @@ After a small perturbation, we may assume that $q$ is simultaneously transverse 
 (by Axiom \ref{axiom:splittings}) that $c$ splits along $q$.
 We can now choose, for each splitting $p$ in $P$, a common refinement $p'$ of $p$ and $q$.
 This constitutes the middle part ($P\times \{0\}$ above) of $\vcone(P)$.
+\end{proof}
+
+\begin{cor}
+For any $c\in \cC_k(X)$, the geometric realization of the poset of splittings of $c$ is contractible.
+\end{cor}
+
+\begin{proof}
+In the geometric realization, V-Cones become actual cones, allowing us to contract any cycle.
 \end{proof}
 
 
@@ -1753,6 +1764,7 @@ There exist decompositions $x'_i$ and $v'_i$ (for all $i$) such that
 \item $a_i$ is the image of some $a'_i\in \psi(x'_i)$, which in turn is the image
 of $b'_i$ and $b'_{i+1}$.
 \end{itemize}
+(This is possible by Axiom \ref{axiom:splittings}.)
 Now consider the diagrams
 \[ \xymatrix{
 	& \psi(x'_{i-1}) \ar[rd] & \\
