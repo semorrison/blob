@@ -3,20 +3,7 @@
 
 * need to change module axioms to follow changes in n-cat axioms; search for and destroy all the "Homeo_\bd"'s, add a v-cone axiom
 
-* probably should go through and refer to new splitting axiom when we need to choose refinements etc.
-**** in the proof that gluing in dimension < n is injective
-
-* revisit splitting axiom for system of fields; check use of it in small blobs lemma
-
 * framings and duality -- work out what's going on! (alternatively, vague-ify current statement)
-
-
-(for reference:
-	* places splitting axiom is used:
-	** in the proof that gluing in dimension < n is injective
-	** in the proof that D(a) is acyclic
-	** in the small blobs lemma
-)
 
 
 ====== minor/optional ======
@@ -42,3 +29,16 @@ morita equivalence
 * SCOTT will go through appendix C.2 and make it better (Schulman's example?)
 
 * SCOTT: review/proof-read recent KW changes, especially colimit section and n-cat axioms
+
+
+
+
+
+
+(for reference:
+	* places splitting axiom is used:
+	** in the proof that gluing in dimension < n is injective
+	** in the proof that D(a) is acyclic
+	** in the small blobs lemma
+)
+
