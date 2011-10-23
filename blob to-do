@@ -1,15 +1,12 @@
 
 ====== big ======
 
-* framings and duality -- work out what's going on! (alternatively, vague-ify current statement)
-
-
 ====== minor/optional ======
 
-* consider proving the gluing formula for higher codimension manifolds with
+[probably NO] * consider proving the gluing formula for higher codimension manifolds with
 morita equivalence
 
-* leftover: we used to require that composition of A-infinity n-morphisms was injective (just like lower morphisms).  Should we stick this back in?  I don't think we use it anywhere.
+[probably NO] * leftover: we used to require that composition of A-infinity n-morphisms was injective (just like lower morphisms).  Should we stick this back in?  I don't think we use it anywhere.
 
 * should we require, for A-inf n-cats, that families which preserve product morphisms act trivially?  as now defined, this is only true up to homotopy for the blob complex, so maybe best not to open that can of worms
 (but since the strict version of this is true for BT_*, maybe we're OK)
@@ -17,10 +14,14 @@ morita equivalence
 * review colors in figures
 
 * better discussion of systems of fields from disk-like n-cats
-    (Is this done by now?)
+*** Is this done by now?
  
-* make sure we are clear that boundary = germ (perhaps we are already clear enough)
+* make sure we are clear that boundary = germ
+*** perhaps we are already clear enough
    
+* framings and duality -- work out what's going on! (alternatively, vague-ify current statement)
+*** is the new version sufficiently vague?
+
 
 ====== Scott ======
 
