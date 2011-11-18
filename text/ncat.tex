@@ -2018,11 +2018,56 @@ The above operad-like structure is analogous to the swiss cheese operad
 \medskip
 
 We can define marked pinched products $\pi:E\to M$ of marked balls similarly to the 
-plain ball case. A marked pinched product $\pi: E \to M$ is a pinched product (that is, locally modeled on degeneracy maps) which restricts to a map between the markings which is also a pinched product, and in a neighborhood of the markings is the product of the map between the markings with an interval. 
-\nn{figure, 2 examples}
+plain ball case. A marked pinched product $\pi: E \to M$ is a pinched product (that is, locally modeled on degeneracy maps) which restricts to a map between the markings which is also a pinched product, and in a neighborhood of the markings is the product of the map between the markings with an interval.  (See Figure \ref{fig:marked-pinched-products}.)
+
+\begin{figure}[ht]
+\begin{equation*}
+\begin{tikzpicture}
+\draw (0,2) -- (2,2.5);
+\draw (0,2) -- (2,1.5);
+\draw[line width=2pt] (2,1.5) -- (2,2.5);
+\draw (0,0) -- (2,0) node[circle,fill,inner sep=2pt] {};
+\draw[->] (1,1.5) -- (1,0.25);
+\end{tikzpicture}
+\qquad \qquad \qquad
+\begin{tikzpicture}
+\draw (2,2.5) -- (0,2.5) -- (0,1.5) -- (2,1.5);
+\draw[line width=2pt] (2,1.5) -- (2,2.5);
+\draw (0,0) -- (2,0) node[circle,fill,inner sep=2pt] {};
+\draw[->] (1,1.2) -- (1,0.25);
+\end{tikzpicture}
+\end{equation*}
+\caption{Two examples of marked pinched products.}
+\label{fig:marked-pinched-products}
+\end{figure}
+
 Note that a marked pinched product can be decomposed into either
 two marked pinched products or a plain pinched product and a marked pinched product.
-\nn{should  give figure}
+ (See Figure \ref{fig:decomposing-marked-pinched-products}.)
+\begin{figure}[ht]
+\begin{equation*}
+\begin{tikzpicture}
+\draw (0,2) -- (2,2.5);
+\draw (0,2) -- (2,1.5);
+\draw[dashed] (1.333,2.333) -- (1.333,1.666);
+\draw[line width=2pt] (2,1.5) -- (2,2.5);
+\draw (0,0) -- (2,0) node[circle,fill,inner sep=2pt] {};
+\draw[->] (1,1.5) -- (1,0.25);
+\end{tikzpicture}
+\qquad \qquad \qquad
+\begin{tikzpicture}
+\draw (0,2) -- (2,2.5);
+\draw (0,2) -- (2,1.5);
+\draw[dashed] (0.666,2.166) -- (2,1.833);
+\draw[line width=2pt] (2,1.5) -- (2,2.5);
+\draw (0,0) -- (2,0) node[circle,fill,inner sep=2pt] {};
+\draw[->] (1,1.5) -- (1,0.25);
+\end{tikzpicture}
+\end{equation*}
+\caption{Two examples of decompositions of marked pinched products.}
+\label{fig:decomposing-marked-pinched-products}
+\end{figure}
+
 
 \begin{module-axiom}[Product (identity) morphisms]
 For each pinched product $\pi:E\to M$, with $M$ a marked $k$-ball and $E$ a marked
