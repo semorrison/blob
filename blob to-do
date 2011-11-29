@@ -11,7 +11,15 @@ morita equivalence
 * should we require, for A-inf n-cats, that families which preserve product morphisms act trivially?  as now defined, this is only true up to homotopy for the blob complex, so maybe best not to open that can of worms
 (but since the strict version of this is true for BT_*, maybe we're OK)
 
-* review colors in figures
+* figures
+** 13 "combining two balls" is lame
+** colors in pinched products --K
+** markings should be red 23/24/25/26/27 --S
+** markings should be uniform thickness 24/25 --S
+** pinched products need vertical lines 26/27 --S
+** k-marked balls are currently an ugly blue 29/30/31/32/33 --K
+** 38/39/40, pictures for Morita equivalence are handwritten
+** figures for email thread with Mike Schulman??
 
 * better discussion of systems of fields from disk-like n-cats
 *** Is this done by now?
