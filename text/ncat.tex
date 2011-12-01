@@ -1784,6 +1784,9 @@ But this implies that $a = a_0 = a_k = \hat{a}$, contrary to our assumption that
 
 \subsection{Modules}
 \label{sec:modules}
+
+\tikzset{marked/.style={line width=3pt,red}}
+
 Next we define ordinary and $A_\infty$ $n$-category modules.
 The definition will be very similar to that of $n$-categories,
 but with $k$-balls replaced by {\it marked $k$-balls,} defined below.
@@ -1866,8 +1869,6 @@ which is natural with respect to the actions of homeomorphisms.}
 \end{lem}
 Again, this is in exact analogy with Lemma \ref{lem:domain-and-range}, and illustrated in Figure \ref{fig:module-boundary}.
 \begin{figure}[t]
-\tikzset{marked/.style={line width=3pt}}
-
 \begin{equation*}
 \begin{tikzpicture}[baseline=0]
 \coordinate (a) at (0,1);
@@ -1876,7 +1877,7 @@ Again, this is in exact analogy with Lemma \ref{lem:domain-and-range}, and illus
 \draw (b) -- (a);
 \node at (2,2) {$M_1$};
 
-\draw (0,0) node[fill, circle] {} -- (4,0) node[fill,circle] {};
+\draw (0,0) node[fill, circle, red] {} -- (4,0) node[fill,circle,red] {};
 \node at (-0.6,0) {$E$};
 
 \draw[marked] (0,-1) arc(-180:0:2);
@@ -1885,7 +1886,7 @@ Again, this is in exact analogy with Lemma \ref{lem:domain-and-range}, and illus
 \end{tikzpicture}
 \qquad \qquad \qquad
 \begin{tikzpicture}[baseline=0]
-\draw[marked] (0,0) node {$H$} circle (2);
+\draw[marked] (0,0) node[black] {$H$} circle (2);
 \end{tikzpicture}
 \end{equation*}\caption{The marked hemispheres and marked balls from Lemma \ref{lem:module-boundary}.}
 \label{fig:module-boundary}
@@ -2025,16 +2026,26 @@ plain ball case. A marked pinched product $\pi: E \to M$ is a pinched product (t
 \begin{tikzpicture}
 \draw (0,2) -- (2,2.5);
 \draw (0,2) -- (2,1.5);
-\draw[line width=2pt] (2,1.5) -- (2,2.5);
-\draw (0,0) -- (2,0) node[circle,fill,inner sep=2pt] {};
+\draw[marked] (2,1.5) -- (2,2.5);
+\draw (0,0) -- (2,0) node[red,circle,fill,inner sep=2pt] {};
 \draw[->] (1,1.5) -- (1,0.25);
+% fibres
+\path[clip] (0,2) -- (2,2.5) -- (2,1.5) -- cycle;
+\foreach \x in {0, 0.25, ..., 1.75} {
+	\draw[green!50!brown] (\x,1) -- (\x,3);
+}
 \end{tikzpicture}
 \qquad \qquad \qquad
 \begin{tikzpicture}
 \draw (2,2.5) -- (0,2.5) -- (0,1.5) -- (2,1.5);
-\draw[line width=2pt] (2,1.5) -- (2,2.5);
-\draw (0,0) -- (2,0) node[circle,fill,inner sep=2pt] {};
+\draw[marked] (2,1.5) -- (2,2.5);
+\draw (0,0) -- (2,0) node[red,circle,fill,inner sep=2pt] {};
 \draw[->] (1,1.2) -- (1,0.25);
+% fibres
+\path[clip] (2,2.5) -- (0,2.5) -- (0,1.5) -- (2,1.5);
+\foreach \x in {0, 0.25, ..., 1.75} {
+	\draw[green!50!brown] (\x,1) -- (\x,3);
+}
 \end{tikzpicture}
 \end{equation*}
 \caption{Two examples of marked pinched products.}
@@ -2049,19 +2060,29 @@ two marked pinched products or a plain pinched product and a marked pinched prod
 \begin{tikzpicture}
 \draw (0,2) -- (2,2.5);
 \draw (0,2) -- (2,1.5);
-\draw[dashed] (1.333,2.333) -- (1.333,1.666);
-\draw[line width=2pt] (2,1.5) -- (2,2.5);
-\draw (0,0) -- (2,0) node[circle,fill,inner sep=2pt] {};
+\draw[marked] (2,1.5) -- (2,2.5);
+\draw (0,0) -- (2,0) node[red,circle,fill,inner sep=2pt] {};
 \draw[->] (1,1.5) -- (1,0.25);
+% fibres
+\path[clip] (0,2) -- (2,2.5) -- (2,1.5) -- cycle;
+\draw[dashed] (1.4,2.5) -- (1.4,1.5);
+\foreach \x in {0, 0.25, ..., 1.75} {
+	\draw[green!50!brown] (\x,1) -- (\x,3);
+}
 \end{tikzpicture}
 \qquad \qquad \qquad
 \begin{tikzpicture}
 \draw (0,2) -- (2,2.5);
 \draw (0,2) -- (2,1.5);
 \draw[dashed] (0.666,2.166) -- (2,1.833);
-\draw[line width=2pt] (2,1.5) -- (2,2.5);
-\draw (0,0) -- (2,0) node[circle,fill,inner sep=2pt] {};
+\draw[marked] (2,1.5) -- (2,2.5);
+\draw (0,0) -- (2,0) node[red,circle,fill,inner sep=2pt] {};
 \draw[->] (1,1.5) -- (1,0.25);
+% fibres
+\path[clip] (0,2) -- (2,2.5) -- (2,1.5) -- cycle;
+\foreach \x in {0, 0.25, ..., 1.75} {
+	\draw[green!50!brown] (\x,1) -- (\x,3);
+}
 \end{tikzpicture}
 \end{equation*}
 \caption{Two examples of decompositions of marked pinched products.}
