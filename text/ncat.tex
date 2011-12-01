@@ -3082,22 +3082,28 @@ between ${}_\cC\cM_\cD \otimes_\cD {}_\cD\cM_\cC$ and the identity 0-sphere modu
 with the roles of $\cC$ and $\cD$ reversed.
 These 2-morphisms come for free, in the sense of not requiring additional data, since we can take them to be the labeled 
 cell complexes (cups and caps) in $B^2$ shown in Figure \ref{morita-fig-1}.
-\begin{figure}[t]
-$$\mathfig{.65}{tempkw/morita1}$$
 
+\definecolor{C}{named}{orange}
+\definecolor{D}{named}{blue}
+\definecolor{M}{named}{purple}
+
+
+\begin{figure}[t]
+\todo{Verify that the tikz figure is correct, remove the hand-drawn one.}
+$$\mathfig{.65}{tempkw/morita1}$$
 
 $$
 \begin{tikzpicture}
 \node(L) at (0,0) {\tikz{
-	\draw[orange] (0,0) -- node[below] {$\cC$} (1,0);
-	\draw[blue] (1,0) -- node[below] {$\cD$} (2,0);
-	\draw[orange] (2,0) -- node[below] {$\cC$} (3,0);
-	\node[purple, fill, circle, inner sep=2pt, label=$\cM$] at (1,0) {};
-	\node[purple, fill, circle, inner sep=2pt, label=$\cM$] at (2,0) {};
+	\draw[C] (0,0) -- node[below] {$\cC$} (1,0);
+	\draw[D] (1,0) -- node[below] {$\cD$} (2,0);
+	\draw[C] (2,0) -- node[below] {$\cC$} (3,0);
+	\node[M, fill, circle, inner sep=2pt, label=$\cM$] at (1,0) {};
+	\node[M, fill, circle, inner sep=2pt, label=$\cM$] at (2,0) {};
 }};
 
 \node(R) at (6,0) {\tikz{
-	\draw[orange] (0,0) -- node[below] {$\cC$} (3,0);
+	\draw[C] (0,0) -- node[below] {$\cC$} (3,0);
 	\node[label={\phantom{$\cM$}}] at (1.5,0) {};
 }};
 
@@ -3106,16 +3112,56 @@ $$
 
 \draw[->] (L) to[out=35, in=145] node[below] {$w$} node[above] { \tikz{
 	\draw (0,0) circle (16pt);
+	\path[clip] (0,0) circle (16pt);
+	\draw[fill=C!20] (0,0) circle (16pt);
+	\draw[M,fill=D!20,line width=2pt] (0,-0.5) circle (16pt);
 }}(R);
 
 \draw[->] (R) to[out=-145, in=-35] node[above] {$x$} node[below] { \tikz{
 	\draw (0,0) circle (16pt);
+	\path[clip] (0,0) circle (16pt);
+	\draw[fill=C!20] (0,0) circle (16pt);
+	\draw[M,fill=D!20,line width=2pt] (0,0.5) circle (16pt);
 }}(L);
 
 
 \end{tikzpicture}
 $$
+$$
+\begin{tikzpicture}
+\node(L) at (0,0) {\tikz{
+	\draw[D] (0,0) -- node[below] {$\cD$} (1,0);
+	\draw[C] (1,0) -- node[below] {$\cC$} (2,0);
+	\draw[D] (2,0) -- node[below] {$\cD$} (3,0);
+	\node[M, fill, circle, inner sep=2pt, label=$\cM$] at (1,0) {};
+	\node[M, fill, circle, inner sep=2pt, label=$\cM$] at (2,0) {};
+}};
 
+\node(R) at (6,0) {\tikz{
+	\draw[D] (0,0) -- node[below] {$\cD$} (3,0);
+	\node[label={\phantom{$\cM$}}] at (1.5,0) {};
+}};
+
+\node at (-1,-1.5) { $\leftidx{_\cD}{(\cM \tensor_\cC \cM)}{_\cD}$ };
+\node at (7,-1.5) { $\leftidx{_\cD}{\cD}{_\cD}$ };
+
+\draw[->] (L) to[out=35, in=145] node[below] {$y$} node[above] { \tikz{
+	\draw (0,0) circle (16pt);
+	\path[clip] (0,0) circle (16pt);
+	\draw[fill=D!20] (0,0) circle (16pt);
+	\draw[M,fill=C!20,line width=2pt] (0,-0.5) circle (16pt);
+}}(R);
+
+\draw[->] (R) to[out=-145, in=-35] node[above] {$z$} node[below] { \tikz{
+	\draw (0,0) circle (16pt);
+	\path[clip] (0,0) circle (16pt);
+	\draw[fill=D!20] (0,0) circle (16pt);
+	\draw[M,fill=C!20,line width=2pt] (0,0.5) circle (16pt);
+}}(L);
+
+
+\end{tikzpicture}
+$$
 \caption{Cups and caps for free}\label{morita-fig-1}
 \end{figure}
 
@@ -3127,6 +3173,77 @@ to decorated circles.
 Figure \ref{morita-fig-2} 
 \begin{figure}[t]
 $$\mathfig{.55}{tempkw/morita2}$$
+$$
+\begin{tikzpicture}
+\node(L) at (0,0) {\tikz{
+	\draw[fill=C!20] (0,0) circle (32pt);
+	\draw[M,fill=D!20,line width=2pt] (0,0) circle (16pt);
+}};
+\node(R) at (4,0) {\tikz{
+	\draw[fill=C!20] (0,0) circle (32pt);
+}};
+\draw[->] (L) to[out=35, in=145] node[below] {$a$} (R);
+\draw[->] (R) to[out=-145, in=-35] node[above] {$b$} (L);
+\node at (-2,0) {$w \atop x$};
+\node at (6,0) {$1$};
+\end{tikzpicture}
+$$
+$$
+\begin{tikzpicture}
+\node(L) at (0,0) {\tikz{
+	\draw[fill=C!20] (0,0) circle (32pt);
+	\path[clip] (0,0) circle (32pt);
+	\draw[M,fill=D!20,line width=2pt] (0,1) circle (16pt);
+	\draw[M,fill=D!20,line width=2pt] (0,-1) circle (16pt);
+}};
+\node(R) at (4,0) {\tikz{
+	\draw[fill=D!20] (0,0) circle (32pt);
+	\path[clip] (0,0) circle (32pt);
+	\draw[M,fill=C!20,line width=2pt] (5,0) circle (130pt);
+	\draw[M,fill=C!20,line width=2pt] (-5,0) circle (130pt);
+}};
+\draw[->] (L) to[out=35, in=145] node[below] {$c$} (R);
+\draw[->] (R) to[out=-145, in=-35] node[above] {$d$} (L);
+\node at (-2,0) {$x \atop w$};
+\node at (6,0) {$1$};
+\end{tikzpicture}
+$$
+$$
+\begin{tikzpicture}
+\node(L) at (0,0) {\tikz{
+	\draw[fill=D!20] (0,0) circle (32pt);
+	\draw[M,fill=C!20,line width=2pt] (0,0) circle (16pt);
+}};
+\node(R) at (4,0) {\tikz{
+	\draw[fill=D!20] (0,0) circle (32pt);
+}};
+\draw[->] (L) to[out=35, in=145] node[below] {$e$} (R);
+\draw[->] (R) to[out=-145, in=-35] node[above] {$f$} (L);
+\node at (-2,0) {$y \atop z$};
+\node at (6,0) {$1$};
+\end{tikzpicture}
+$$
+$$
+\begin{tikzpicture}
+\node(L) at (0,0) {\tikz{
+	\draw[fill=D!20] (0,0) circle (32pt);
+	\path[clip] (0,0) circle (32pt);
+	\draw[M,fill=C!20,line width=2pt] (0,1) circle (16pt);
+	\draw[M,fill=C!20,line width=2pt] (0,-1) circle (16pt);
+}};
+\node(R) at (4,0) {\tikz{
+	\draw[fill=C!20] (0,0) circle (32pt);
+	\path[clip] (0,0) circle (32pt);
+	\draw[M,fill=D!20,line width=2pt] (5,0) circle (130pt);
+	\draw[M,fill=D!20,line width=2pt] (-5,0) circle (130pt);
+}};
+\draw[->] (L) to[out=35, in=145] node[below] {$g$} (R);
+\draw[->] (R) to[out=-145, in=-35] node[above] {$h$} (L);
+\node at (-2,0) {$z \atop y$};
+\node at (6,0) {$1$};
+\end{tikzpicture}
+$$
+
 \caption{intertwiners for a Morita equivalence}\label{morita-fig-2}
 \end{figure}
 shows the intertwiners we need.
@@ -3142,6 +3259,58 @@ they must satisfy identities corresponding to Morse cancellations on 2-manifolds
 These are illustrated in Figure \ref{morita-fig-3}.
 \begin{figure}[t]
 $$\mathfig{.65}{tempkw/morita3}$$
+$$
+\begin{tikzpicture}
+\node(L) at (0,0) {\tikz{
+\draw[fill=C!20] (0,0) circle (32pt);
+\path[clip] (0,0) circle (32pt);
+\draw[M,fill=D!20,line width=2pt] (-5,0) circle (130pt);
+}};
+\node(C) at (4,0) {\tikz{
+\draw[fill=C!20] (0,0) circle (32pt);
+\path[clip] (0,0) circle (32pt);
+\draw[M,fill=D!20,line width=2pt] (-5,0) circle (130pt);
+\draw[M,fill=D!20,line width=2pt] (0.25,0) circle (6pt);
+}};
+\node(R) at (8,0) {\tikz{
+\draw[fill=C!20] (0,0) circle (32pt);
+\path[clip] (0,0) circle (32pt);
+\draw[M,line width=4pt] (-0.75,2) .. controls +(0,-2) and +(0,0.5) .. (0.2,0) .. controls +(0,-0.5) and +(0,2) .. (-0.75,-2) -- (-5,-2) -- (-5,2) -- cycle;
+\path[clip] (-0.75,2) .. controls +(0,-2) and +(0,0.5) .. (0.2,0) .. controls +(0,-0.5) and +(0,2) .. (-0.75,-2) -- (-5,-2) -- (-5,2)  -- cycle;
+\path[fill=D!20] (-5,-2) rectangle (5,2); 
+}};
+\draw[<-] (L) to[out=35, in=145] node[above] {$a$} (C);
+\draw[<-] (C) to[out=35, in=145] node[above] {$d$} (R);
+\draw[<-] (R) to[out=-145, in=-35] node[below] {$c$} (C);
+\draw[<-] (C) to[out=-145, in=-35] node[below] {$b$} (L);
+\end{tikzpicture}
+$$
+$$
+\begin{tikzpicture}
+\node(L) at (0,0) {\tikz{
+\draw[fill=D!20] (0,0) circle (32pt);
+\path[clip] (0,0) circle (32pt);
+\draw[M,fill=C!20,line width=2pt] (-5,0) circle (130pt);
+}};
+\node(C) at (4,0) {\tikz{
+\draw[fill=D!20] (0,0) circle (32pt);
+\path[clip] (0,0) circle (32pt);
+\draw[M,fill=C!20,line width=2pt] (-5,0) circle (130pt);
+\draw[M,fill=C!20,line width=2pt] (0.25,0) circle (6pt);
+}};
+\node(R) at (8,0) {\tikz{
+\draw[fill=D!20] (0,0) circle (32pt);
+\path[clip] (0,0) circle (32pt);
+\draw[M,line width=4pt] (-0.75,2) .. controls +(0,-2) and +(0,0.5) .. (0.2,0) .. controls +(0,-0.5) and +(0,2) .. (-0.75,-2) -- (-5,-2) -- (-5,2) -- cycle;
+\path[clip] (-0.75,2) .. controls +(0,-2) and +(0,0.5) .. (0.2,0) .. controls +(0,-0.5) and +(0,2) .. (-0.75,-2) -- (-5,-2) -- (-5,2)  -- cycle;
+\path[fill=C!20] (-5,-2) rectangle (5,2); 
+}};
+\draw[<-] (L) to[out=35, in=145] node[above] {$e$} (C);
+\draw[<-] (C) to[out=35, in=145] node[above] {$c$} (R);
+\draw[<-] (R) to[out=-145, in=-35] node[below] {$d$} (C);
+\draw[<-] (C) to[out=-145, in=-35] node[below] {$f$} (L);
+\end{tikzpicture}
+$$
 \caption{Identities for intertwiners}\label{morita-fig-3}
 \end{figure}
 Each line shows a composition of two intertwiners which we require to be equal to the identity intertwiner.
