@@ -383,24 +383,24 @@ $$
 \begin{tikzpicture}[baseline=0]
 \begin{scope}
 \path[clip] (0,0) arc (135:45:4) arc (-45:-135:4);
-\draw[blue,line width=2pt] (0,0) arc (135:45:4) arc (-45:-135:4);
+\draw[kw-blue-a,line width=2pt] (0,0) arc (135:45:4) arc (-45:-135:4);
 \foreach \x in {0, 0.5, ..., 6} {
 	\draw[green!50!brown] (\x,-2) -- (\x,2);
 }
 \end{scope}
-\draw[blue,line width=1.5pt] (0,-3) -- (5.66,-3);
+\draw[kw-blue-a,line width=1.5pt] (0,-3) -- (5.66,-3);
 \draw[->,red,line width=2pt] (2.83,-1.5) -- (2.83,-2.5);
 \end{tikzpicture}
 \qquad \qquad
 \begin{tikzpicture}[baseline=-0.15cm]
 \begin{scope}
 \path[clip] (0,1) arc (90:135:8 and 4)  arc (-135:-90:8 and 4) -- cycle;
-\draw[blue,line width=2pt] (0,1) arc (90:135:8 and 4)  arc (-135:-90:8 and 4) -- cycle;
+\draw[kw-blue-a,line width=2pt] (0,1) arc (90:135:8 and 4)  arc (-135:-90:8 and 4) -- cycle;
 \foreach \x in {-6, -5.5, ..., 0} {
 	\draw[green!50!brown] (\x,-2) -- (\x,2);
 }
 \end{scope}
-\draw[blue,line width=1.5pt] (-5.66,-3.15) -- (0,-3.15);
+\draw[kw-blue-a,line width=1.5pt] (-5.66,-3.15) -- (0,-3.15);
 \draw[->,red,line width=2pt] (-2.83,-1.5) -- (-2.83,-2.5);
 \end{tikzpicture}
 $$
@@ -437,8 +437,8 @@ $$
 \begin{tikzpicture}[baseline=0]
 \begin{scope}
 \path[clip] (0,0) arc (135:45:4) arc (-45:-135:4);
-\draw[blue,line width=2pt] (0,0) arc (135:45:4) arc (-45:-135:4);
-\draw[blue] (0,0) -- (5.66,0);
+\draw[kw-blue-a,line width=2pt] (0,0) arc (135:45:4) arc (-45:-135:4);
+\draw[kw-blue-a] (0,0) -- (5.66,0);
 \foreach \x in {0, 0.5, ..., 6} {
 	\draw[green!50!brown] (\x,-2) -- (\x,2);
 }
@@ -448,8 +448,8 @@ $$
 \begin{tikzpicture}[baseline=0]
 \begin{scope}
 \path[clip] (0,-1) rectangle (4,1);
-\draw[blue,line width=2pt] (0,-1) rectangle (4,1);
-\draw[blue] (0,0) -- (5,0);
+\draw[kw-blue-a,line width=2pt] (0,-1) rectangle (4,1);
+\draw[kw-blue-a] (0,0) -- (5,0);
 \foreach \x in {0, 0.5, ..., 6} {
 	\draw[green!50!brown] (\x,-2) -- (\x,2);
 }
@@ -459,8 +459,8 @@ $$
 \begin{tikzpicture}[baseline=0]
 \begin{scope}
 \path[clip] (0,0) arc (135:45:4) arc (-45:-135:4);
-\draw[blue,line width=2pt] (0,0) arc (135:45:4) arc (-45:-135:4);
-\draw[blue] (2.83,3) circle (3);
+\draw[kw-blue-a,line width=2pt] (0,0) arc (135:45:4) arc (-45:-135:4);
+\draw[kw-blue-a] (2.83,3) circle (3);
 \foreach \x in {0, 0.5, ..., 6} {
 	\draw[green!50!brown] (\x,-2) -- (\x,2);
 }
@@ -471,8 +471,8 @@ $$
 \begin{tikzpicture}[baseline=0]
 \begin{scope}
 \path[clip] (0,-1) rectangle (4,1);
-\draw[blue,line width=2pt] (0,-1) rectangle (4,1);
-\draw[blue] (0,-1) -- (4,1);
+\draw[kw-blue-a,line width=2pt] (0,-1) rectangle (4,1);
+\draw[kw-blue-a] (0,-1) -- (4,1);
 \foreach \x in {0, 0.5, ..., 6} {
 	\draw[green!50!brown] (\x,-2) -- (\x,2);
 }
@@ -482,8 +482,8 @@ $$
 \begin{tikzpicture}[baseline=0]
 \begin{scope}
 \path[clip] (0,-1) rectangle (5,1);
-\draw[blue,line width=2pt] (0,-1) rectangle (5,1);
-\draw[blue] (1,-1) .. controls  (2,-1) and (3,1) .. (4,1);
+\draw[kw-blue-a,line width=2pt] (0,-1) rectangle (5,1);
+\draw[kw-blue-a] (1,-1) .. controls  (2,-1) and (3,1) .. (4,1);
 \foreach \x in {0, 0.5, ..., 6} {
 	\draw[green!50!brown] (\x,-2) -- (\x,2);
 }
@@ -493,8 +493,8 @@ $$
 \begin{tikzpicture}[baseline=0]
 \begin{scope}
 \path[clip] (0,0) arc (135:45:4) arc (-45:-135:4);
-\draw[blue,line width=2pt] (0,0) arc (135:45:4) arc (-45:-135:4);
-\draw[blue] (2.82,-5) -- (2.83,5);
+\draw[kw-blue-a,line width=2pt] (0,0) arc (135:45:4) arc (-45:-135:4);
+\draw[kw-blue-a] (2.82,-5) -- (2.83,5);
 \foreach \x in {0, 0.5, ..., 6} {
 	\draw[green!50!brown] (\x,-2) -- (\x,2);
 }
@@ -632,7 +632,7 @@ We define a map
 
 \draw (1-small)  circle (\srad);
 \foreach \theta in {90, 72, ..., -90} {
-	\draw[blue] (1) -- ($(1)+(\rad,0)+(\theta:\srad)$);
+	\draw[kw-blue-a] (1) -- ($(1)+(\rad,0)+(\theta:\srad)$);
 }
 \filldraw[fill=white] (1) circle (\rad);
 \foreach \n in {1,2} {
@@ -645,7 +645,7 @@ We define a map
 \path[clip] (2) circle (\rad);
 \draw[clip] (2.east) circle (\srad);
 \foreach \y in {1, 0.86, ..., -1} {
-	\draw[blue] ($(2)+(-1,\y) $)-- ($(2)+(1,\y)$);
+	\draw[kw-blue-a] ($(2)+(-1,\y) $)-- ($(2)+(1,\y)$);
 }
 \end{scope}
 \end{tikzpicture}
@@ -2493,7 +2493,7 @@ See Figure \ref{feb21a}.
 Another way to say this is that $(X, M)$ is homeomorphic to $B^{k-1}\times([-1,1], \{0\})$.
 
 \begin{figure}[t]
-$$\tikz[baseline,line width=2pt]{\draw[blue] (-2,0)--(2,0); \fill[red] (0,0) circle (0.1);} \qquad \qquad \tikz[baseline,line width=2pt]{\draw[blue][fill=blue!30!white] (0,0) circle (2 and 1); \draw[red] (0,1)--(0,-1);}$$
+$$\tikz[baseline,line width=2pt]{\draw[kw-blue-a] (-2,0)--(2,0); \fill[red] (0,0) circle (0.1);} \qquad \qquad \tikz[baseline,line width=2pt]{\draw[kw-blue-a][fill=kw-blue-a!30!white] (0,0) circle (2 and 1); \draw[red] (0,1)--(0,-1);}$$
 \caption{0-marked 1-ball and 0-marked 2-ball}
 \label{feb21a}
 \end{figure}
@@ -2535,13 +2535,13 @@ The set $\cD$ breaks into ``blocks" according to the restrictions to the pinched
 These restrictions are 0-morphisms $(a, b)$ of $\cA$ and $\cB$.
 
 \begin{figure}[t] \centering
-\begin{tikzpicture}[blue,line width=2pt]
+\begin{tikzpicture}[kw-blue-a,line width=2pt]
 \draw (0,1) -- (0,-1) node[below] {$X$};
 
 \draw (2,0) -- (4,0) node[below] {$J$};
 \fill[red] (3,0) circle (0.1);
 
-\draw[fill=blue!30!white] (6,0) node(a) {} arc (135:90:4) node(top) {} arc (90:45:4) node(b) {} arc (-45:-90:4) node(bottom) {} arc(-90:-135:4);
+\draw[fill=kw-blue-a!30!white] (6,0) node(a) {} arc (135:90:4) node(top) {} arc (90:45:4) node(b) {} arc (-45:-90:4) node(bottom) {} arc(-90:-135:4);
 \draw[red] (top.center) -- (bottom.center);
 \fill (a) circle (0.1) node[left] {\color{green!50!brown} $a$};
 \fill (b) circle (0.1) node[right] {\color{green!50!brown} $b$};
@@ -2563,7 +2563,7 @@ This amounts to a definition of taking tensor products of $0$-sphere modules ove
 
 \begin{figure}[t] \centering
 \begin{tikzpicture}[baseline,line width = 2pt]
-\draw[blue] (0,0) -- (6,0);
+\draw[kw-blue-a] (0,0) -- (6,0);
 \foreach \x/\n in {0.5/0,1.5/1,3/2,4.5/3,5.5/4} {
 	\path (\x,0)  node[below] {\color{green!50!brown}$\cA_{\n}$};
 }
@@ -2574,7 +2574,7 @@ This amounts to a definition of taking tensor products of $0$-sphere modules ove
 \qquad
 \qquad
 \begin{tikzpicture}[baseline,line width = 2pt]
-\draw[blue] (0,0) circle (2);
+\draw[kw-blue-a] (0,0) circle (2);
 \foreach \q/\n in {-45/0,90/1,180/2} {
 	\path (\q:2.4)  node {\color{green!50!brown}$\cA_{\n}$};
 }
@@ -2613,7 +2613,7 @@ We now proceed as in the above module definitions.
 
 \begin{figure}[t] \centering
 \begin{tikzpicture}[baseline,line width = 2pt]
-\draw[blue][fill=blue!15!white] (0,0) circle (2);
+\draw[kw-blue-a][fill=kw-blue-a!15!white] (0,0) circle (2);
 \fill[red] (0,0) circle (0.1);
 \foreach \qm/\qa/\n in {70/-30/0, 120/95/1, -120/180/2} {
 	\draw[red] (0,0) -- (\qm:2);
@@ -2628,7 +2628,7 @@ We now proceed as in the above module definitions.
 
 \begin{figure}[t] \centering
 \begin{tikzpicture}[baseline,line width = 2pt]
-\draw[blue][fill=blue!15!white] (0,0) circle (2);
+\draw[kw-blue-a][fill=kw-blue-a!15!white] (0,0) circle (2);
 \fill[red] (0,0) circle (0.1);
 \foreach \qm/\qa/\n in {70/-30/0, 120/95/1, -120/180/2} {
 	\draw[red] (0,0) -- (\qm:2);
@@ -3089,8 +3089,7 @@ cell complexes (cups and caps) in $B^2$ shown in Figure \ref{morita-fig-1}.
 
 
 \begin{figure}[t]
-\todo{Verify that the tikz figure is correct, remove the hand-drawn one.}
-$$\mathfig{.65}{tempkw/morita1}$$
+%$$\mathfig{.65}{tempkw/morita1}$$
 
 $$
 \begin{tikzpicture}
@@ -3172,7 +3171,7 @@ Recall that the 3-morphisms of $\cS$ are intertwiners between representations of
 to decorated circles.
 Figure \ref{morita-fig-2} 
 \begin{figure}[t]
-$$\mathfig{.55}{tempkw/morita2}$$
+%$$\mathfig{.55}{tempkw/morita2}$$
 $$
 \begin{tikzpicture}
 \node(L) at (0,0) {\tikz{
@@ -3258,7 +3257,7 @@ they must be invertible (i.e.\ $a=b\inv$, $c=d\inv$, $e=f\inv$) and in addition
 they must satisfy identities corresponding to Morse cancellations on 2-manifolds.
 These are illustrated in Figure \ref{morita-fig-3}.
 \begin{figure}[t]
-$$\mathfig{.65}{tempkw/morita3}$$
+%$$\mathfig{.65}{tempkw/morita3}$$
 $$
 \begin{tikzpicture}
 \node(L) at (0,0) {\tikz{
