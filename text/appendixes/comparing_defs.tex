@@ -213,7 +213,11 @@ This would be easier if our 2-morphisms were shaped like rectangles rather than 
 
 In showing that identity 1-morphisms have the desired properties, we will
 rely heavily on the extended isotopy invariance of 2-morphisms in $\cC$.
-This means we are free to add or delete product regions from 2-morphisms.
+Extended isotopy invariance implies that adding a product collar to a 2-morphism of $\cC$ has no effect,
+and by cutting and regluing we can insert (or delete) product regions in the interior of 2-morphisms as well.
+Figure \nn{triangle.pdf 2.a through 2.d} shows some examples.
+
+
 
 Let $a: y\to x$ be a 1-morphism.
 Define 2-morphsims $a \to a\bullet \id_x$ and $a\bullet \id_x \to a$
@@ -293,7 +297,8 @@ as shown in Figure \ref{fzo2}.
 \label{fzo2}
 \end{figure}
 As suggested by the figure, these are two different reparameterizations
-of a half-pinched version of $a\times I$.
+of a half-pinched version of $a\times I$
+(i.e.\ two different homeomorphisms from the half-pinched $I\times I$ to the standard bigon).
 We must show that the two compositions of these two maps give the identity 2-morphisms
 on $a$ and $a\bullet \id_x$, as defined above.
 Figure \ref{fzo3} shows one case.
@@ -518,11 +523,13 @@ Figure \ref{fzo4} shows the other case.
 \caption{Composition of weak identities, 2}
 \label{fzo4}
 \end{figure}
-We identify a product region and remove it.
+We notice that a certain subset of the disk is a product region and remove it.
 
-We define horizontal composition $f *_h g$ of 2-morphisms $f$ and $g$ as shown in Figure \ref{fzo5}.
-It is not hard to show that this is independent of the arbitrary (left/right) 
-choice made in the definition, and that it is associative.
+Given 2-morphisms $f$ and $g$, we define the horizontal composition $f *_h g$ to be any of the four
+equal 2-morphisms in Figure \ref{fzo5}.
+\nn{add three remaining cases of triangle.pdf 3.b to fzo5}
+Figure \nn{triangle 3.c, but not necessarily crooked} illustrates part of the proof that these four 2-morphisms are equal.
+Similar arguments show that horizontal composition is associative.
 \begin{figure}[t]
 \begin{equation*}
 \raisebox{-.9cm}{
@@ -568,6 +575,12 @@ choice made in the definition, and that it is associative.
 \caption{Horizontal composition of 2-morphisms}
 \label{fzo5}
 \end{figure}
+
+Given 1-morphisms $a$, $b$ and $c$ of $D$, we define the associator from $(a\bullet b)\bullet c$ to $a\bullet(b\bullet c)$
+as in Figure \nn{like triangle 4.a, but more general; use three colors as in that fig}.
+This is just a reparameterization of the pinched product $(a\bullet b\bullet c)\times I$ of $\cC$.
+
+
 
 %\nn{need to find a list of axioms for pivotal 2-cats to check}
 
