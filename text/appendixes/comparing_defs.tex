@@ -580,9 +580,37 @@ Given 1-morphisms $a$, $b$ and $c$ of $D$, we define the associator from $(a\bul
 as in Figure \nn{like triangle 4.a, but more general; use three colors as in that fig}.
 This is just a reparameterization of the pinched product $(a\bullet b\bullet c)\times I$ of $\cC$.
 
+Let $x,y,z$ be objects of $D$ and let $a:x\to y$ and $b:y\to z$ be 1-morphisms of $D$.
+We have already defined above 
+structure maps $u:a\bullet \id_y\to a$ and $v:\id_y\bullet b\to b$, as well as an associator
+$\alpha: (a\bullet \id_y)\bullet b\to a\bullet(\id_y\bullet b)$, as shown in
+Figure \nn{triangle 4.b, 4.c and 4.a; note change from ``assoc" to ``$\alpha$"}.
+(See also Figures \ref{fzo2} and \nn{previous associator fig}.)
+We now show that $D$ satisfies the triangle axiom, which states that $u\bullet\id_b$ 
+is equal to the composition of $\alpha$ and $\id_a\bullet v$.
+(Both are 2-morphisms from $(a\bullet \id_y)\bullet b$ to $a\bullet b$.)
+
+The horizontal compositions $u\bullet\id_b$ and $\id_a\bullet v$ are shown in Figure \nn{triangle 4.d and 4.e}
+(see also Figure \ref{fzo5}).
+The vertical composition of $\alpha$ and $\id_a\bullet v$ is shown in Figure \nn{triangle 4.f}.
+Figure \nn{triangle 5} shows that we can add a collar to $u\bullet\id_b$ so that the result differs from
+Figure \nn{ref to 4.f above} by an isotopy rel boundary.
+Note that here we have used in an essential way the associativity of product morphisms (Axiom \ref{axiom:product}.3) 
+as well as compatibility of product morphisms with fiber-preserving maps (Axiom \ref{axiom:product}.1).
+
+
+
+
 
 
 %\nn{need to find a list of axioms for pivotal 2-cats to check}
+
+
+
+
+
+
+
 
 
 \subsection{\texorpdfstring{$A_\infty$}{A-infinity} 1-categories}
