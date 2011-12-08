@@ -527,8 +527,7 @@ We notice that a certain subset of the disk is a product region and remove it.
 
 Given 2-morphisms $f$ and $g$, we define the horizontal composition $f *_h g$ to be any of the four
 equal 2-morphisms in Figure \ref{fzo5}.
-\nn{add three remaining cases of triangle.pdf 3.b to fzo5}
-Figure \nn{triangle 3.c, but not necessarily crooked} illustrates part of the proof that these four 2-morphisms are equal.
+Figure \ref{fig:horizontal-compositions-equal}illustrates part of the proof that these four 2-morphisms are equal.
 Similar arguments show that horizontal composition is associative.
 \begin{figure}[t]
 \begin{equation*}
@@ -572,44 +571,81 @@ Similar arguments show that horizontal composition is associative.
 	\draw[->, thick, blue!75!yellow] (1.5,.78) node[black, above] {$(b\cdot c)\times I$} -- (2.5,0);
 \end{tikzpicture}}
 \end{equation*}
+\begin{equation*}
+\mathfig{0.6}{triangle/triangle3b}
+\end{equation*}
 \caption{Horizontal composition of 2-morphisms}
 \label{fzo5}
+\end{figure}
+\begin{figure}[t]
+$$
+\mathfig{0.6}{triangle/triangle3c}
+$$
+\caption{Part of the proof that the four different horizontal compositions of 2-morphisms are equal.}
+\label{fig:horizontal-compositions-equal}
 \end{figure}
 
 Given 1-morphisms $a$, $b$ and $c$ of $D$, we define the associator from $(a\bullet b)\bullet c$ to $a\bullet(b\bullet c)$
 as in Figure \nn{like triangle 4.a, but more general; use three colors as in that fig}.
 This is just a reparameterization of the pinched product $(a\bullet b\bullet c)\times I$ of $\cC$.
+\begin{figure}[t]
+$$
+\mathfig{0.4}{triangle/triangle4a}
+$$
+\nn{remember to change the labels}
+\caption{An associator.}
+\label{fig:associator}
+\end{figure}
 
 Let $x,y,z$ be objects of $D$ and let $a:x\to y$ and $b:y\to z$ be 1-morphisms of $D$.
 We have already defined above 
 structure maps $u:a\bullet \id_y\to a$ and $v:\id_y\bullet b\to b$, as well as an associator
 $\alpha: (a\bullet \id_y)\bullet b\to a\bullet(\id_y\bullet b)$, as shown in
-Figure \nn{triangle 4.b, 4.c and 4.a; note change from ``assoc" to ``$\alpha$"}.
-(See also Figures \ref{fzo2} and \nn{previous associator fig}.)
+Figure \ref{fig:ingredients-triangle-axiom}.
+(See also Figures \ref{fzo2} and \ref{fig:associator}.)
 We now show that $D$ satisfies the triangle axiom, which states that $u\bullet\id_b$ 
 is equal to the composition of $\alpha$ and $\id_a\bullet v$.
 (Both are 2-morphisms from $(a\bullet \id_y)\bullet b$ to $a\bullet b$.)
+\begin{figure}[t]
+\begin{align*}
+\mathfig{0.4}{triangle/triangle4a} \\
+\mathfig{0.4}{triangle/triangle4b} \\
+\mathfig{0.4}{triangle/triangle4c} 
+\end{align*}
+\nn{remember to change `assoc' to $\alpha$}
+\caption{Ingredients for the triangle axiom.}
+\label{fig:ingredients-triangle-axiom}
+\end{figure}
 
-The horizontal compositions $u\bullet\id_b$ and $\id_a\bullet v$ are shown in Figure \nn{triangle 4.d and 4.e}
+The horizontal compositions $u\bullet\id_b$ and $\id_a\bullet v$ are shown in Figure \ref{fig:horizontal-composition}
 (see also Figure \ref{fzo5}).
-The vertical composition of $\alpha$ and $\id_a\bullet v$ is shown in Figure \nn{triangle 4.f}.
-Figure \nn{triangle 5} shows that we can add a collar to $u\bullet\id_b$ so that the result differs from
-Figure \nn{ref to 4.f above} by an isotopy rel boundary.
+The vertical composition of $\alpha$ and $\id_a\bullet v$ is shown in Figure \ref{fig:vertical-composition}.
+Figure \ref{fig:adding-a-collar} shows that we can add a collar to $u\bullet\id_b$ so that the result differs from
+Figure  \ref{fig:vertical-composition} by an isotopy rel boundary.
 Note that here we have used in an essential way the associativity of product morphisms (Axiom \ref{axiom:product}.3) 
 as well as compatibility of product morphisms with fiber-preserving maps (Axiom \ref{axiom:product}.1).
-
-
-
-
-
-
-%\nn{need to find a list of axioms for pivotal 2-cats to check}
-
-
-
-
-
-
+\begin{figure}[t]
+\begin{align*}
+\mathfig{0.4}{triangle/triangle4d}
+\mathfig{0.4}{triangle/triangle4e}
+\end{align*}
+\caption{Horizontal compositions in the triangle axiom.}
+\label{fig:horizontal-composition}
+\end{figure}
+\begin{figure}[t]
+\begin{align*}
+\mathfig{0.4}{triangle/triangle4f}
+\end{align*}
+\caption{Vertical composition in the triangle axiom.}
+\label{fig:vertical-composition}
+\end{figure}
+\begin{figure}[t]
+\begin{align*}
+\mathfig{0.4}{triangle/triangle5}
+\end{align*}
+\caption{Adding a collar in the proof of the triangle axiom.}
+\label{fig:adding-a-collar}
+\end{figure}
 
 
 
