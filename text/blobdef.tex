@@ -80,7 +80,7 @@ half of Property \ref{property:contractibility}.
 Next, we want the vector space $\bc_2(X)$ to capture ``the space of all relations 
 (redundancies, syzygies) among the 
 local relations encoded in $\bc_1(X)$''.
-A $2$-blob diagram, comes in one of two types, disjoint and nested.
+A $2$-blob diagram comes in one of two types, disjoint and nested.
 A disjoint 2-blob diagram consists of
 \begin{itemize}
 \item A pair of closed balls (blobs) $B_1, B_2 \sub X$ with disjoint interiors.
@@ -190,7 +190,7 @@ and let $M_0^0,\ldots,M_0^k$ be the connected components of $M_0$.
 We say that a field 
 $a\in \cF(X)$ is splittable along the decomposition if $a$ is the image 
 under gluing and disjoint union of fields $a_i \in \cF(M_0^i)$, $0\le i\le k$.
-Note that if $a$ is splittable in the sense then it makes sense to talk about the restriction of $a$ of any
+Note that if $a$ is splittable in this sense then it makes sense to talk about the restriction of $a$ to any
 component $M'_j$ of any $M_j$ of the decomposition.
 
 In the example above, note that
@@ -209,9 +209,10 @@ We'll now slightly restrict the possible configurations of blobs.
 \begin{defn}
 \label{defn:configuration}
 A configuration of $k$ blobs in $X$ is an ordered collection of $k$ subsets $\{B_1, \ldots, B_k\}$ 
-of $X$ such that there exists a gluing decomposition $M_0  \to \cdots \to M_m = X$ of $X$ and 
+of $X$ such that there exists a gluing decomposition $M_0  \to \cdots \to M_m = X$ of $X$ 
+with the property that 
 for each subset $B_i$ there is some $0 \leq l \leq m$ and some connected component $M_l'$ of 
-$M_l$ which is a ball, so $B_i$ is the image of $M_l'$ in $X$. 
+$M_l$ which is a ball, such that $B_i$ is the image of $M_l'$ in $X$. 
 We say that such a gluing decomposition 
 is \emph{compatible} with the configuration. 
 A blob $B_i$ is a twig blob if no other blob $B_j$ is a strict subset of it. 
@@ -229,10 +230,10 @@ Note that often the gluing decomposition for a configuration of blobs may just b
 if the boundaries of all the blobs cut $X$ into pieces which are all manifolds, 
 we can just take $M_0$ to be these pieces, and $M_1 = X$.
 
-In the informal description above, in the definition of a $k$-blob diagram we asked for any 
+In the initial informal definition of a $k$-blob diagram above, we allowed any 
 collection of $k$ balls which were pairwise disjoint or nested. 
-We now further insist that the balls are a configuration in the sense of Definition \ref{defn:configuration}. 
-Also, we asked for a local relation on each twig blob, and a field on the complement of the twig blobs; 
+We now further require that the balls are a configuration in the sense of Definition \ref{defn:configuration}. 
+We also specified a local relation on each twig blob, and a field on the complement of the twig blobs; 
 this is unsatisfactory because that complement need not be a manifold. Thus, the official definitions are
 \begin{defn}
 \label{defn:blob-diagram}
@@ -251,7 +252,7 @@ and it is really the restriction to $M_l'$ that must lie in the subspace $U(M_l'
 \begin{figure}[t]\begin{equation*}
 \mathfig{.7}{definition/k-blobs}
 \end{equation*}\caption{A $k$-blob diagram.}\label{blobkdiagram}\end{figure}
-and
+
 \begin{defn}
 \label{defn:blobs}
 The $k$-th vector space $\bc_k(X)$ of the \emph{blob complex} of $X$ is the direct sum over all 
@@ -287,7 +288,8 @@ We can associate an element $p(b)$ of $P$ to each blob diagram $b$
 \item $p(a \du b) = p(a) \times p(b)$, where $a \du b$ denotes the distant (non-overlapping) union 
 of two blob diagrams (equivalently, join two trees at the roots); and
 \item $p(\bar{b}) = \kone(p(b))$, where $\bar{b}$ is obtained from $b$ by adding an outer blob which 
-encloses all the others (equivalently, add a new edge to the root, with the new vertex becoming the root).
+encloses all the others (equivalently, add a new edge to the root, with the new vertex becoming the root
+of the new tree).
 \end{itemize}
 For example, a diagram of $k$ strictly nested blobs corresponds to a $k$-simplex, while
 a diagram of $k$ disjoint blobs corresponds to a $k$-cube.

@@ -1,6 +1,10 @@
 
 ====== big ======
 
+* add "homeomorphism" spiel befure the first use of "homeomorphism in the intro
+* maybe also additional homeo warnings in other sections
+
+
 ====== minor/optional ======
 
 [probably NO] * consider proving the gluing formula for higher codimension manifolds with
@@ -13,7 +17,6 @@ morita equivalence
 
 * figures
 (** 13 "combining two balls" is lame) (but maybe leave it as is -- KW)
-** figures for email thread with Mike Schulman??
 
 
 * better discussion of systems of fields from disk-like n-cats
