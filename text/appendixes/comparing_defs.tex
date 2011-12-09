@@ -530,7 +530,7 @@ equal 2-morphisms in Figure \ref{fzo5}.
 Figure \ref{fig:horizontal-compositions-equal}illustrates part of the proof that these four 2-morphisms are equal.
 Similar arguments show that horizontal composition is associative.
 \begin{figure}[t]
-\begin{equation*}
+\begin{align*}
 \raisebox{-.9cm}{
 \begin{tikzpicture}
 	\draw (0,0) .. controls +(1,.8) and +(-1,.8) .. node[above] {$b$} (2.9,0)
@@ -544,7 +544,7 @@ Similar arguments show that horizontal composition is associative.
 				.. controls +(-1,-.8) and +(1,-.8) .. node[below] {$c$} (0,0);
 	\draw[->, thick, orange!50!brown] (1.45,-.4)--  node[left, black] {$g$} +(0,.8);
 \end{tikzpicture}}
-\;=\;
+\;&=\;
 \raisebox{-1.9cm}{
 \begin{tikzpicture}
 	\draw (0,0) coordinate (p1);
@@ -569,11 +569,86 @@ Similar arguments show that horizontal composition is associative.
 	\draw[->, thick, orange!50!brown] (1.45,-1.1)--  node[left, black] {$f$} +(0,.7);
 	\draw[->, thick, orange!50!brown] (4.35,.4)--  node[left, black] {$g$} +(0,.7);
 	\draw[->, thick, blue!75!yellow] (1.5,.78) node[black, above] {$(b\cdot c)\times I$} -- (2.5,0);
-\end{tikzpicture}}
-\end{equation*}
-\begin{equation*}
-\mathfig{0.6}{triangle/triangle3b}
-\end{equation*}
+\end{tikzpicture}} \\
+\;&=\;
+\raisebox{-2.1cm}{
+\begin{tikzpicture}
+	\draw (0,0) coordinate (p1);
+	\draw (5.8,0) coordinate (p2);
+	\draw (2.9,0) coordinate (pu);
+	\draw (2.9,-.9) coordinate (pd);
+	\begin{scope}
+		\clip (p1) .. controls +(.6,-.3) and +(-.5,-.3) .. (pu)
+					.. controls +(.5,-.3) and +(-.6,-.3) .. (p2)
+					.. controls +(-.6,-.9) and +(.5,0) .. (pd)
+					.. controls +(-.5,0) and +(.6,-.9) .. (p1);
+		\foreach \t in {0,.03,...,1} {
+			\draw[green!50!brown] ($(p1)!\t!(p2) + (0,2)$) -- +(0,-4);
+		}
+	\end{scope}
+	\draw  (p1) .. controls +(.6,-.3) and +(-.5,-.3) .. (pu)
+					.. controls +(.5,-.3) and +(-.6,-.3) .. (p2)
+					.. controls +(-.6,-.9) and +(.5,0) .. (pd)
+					.. controls +(-.5,0) and +(.6,-.9) .. (p1);
+	\draw (p1) .. controls +(1,1) and +(-1,1) .. (pu);
+	\draw (p2) .. controls +(-1,1) and +(1,1) .. (pu);
+	\draw[->, thick, orange!50!brown] (1.45,-0.1)--  node[left, black] {$f$} +(0,.7);
+	\draw[->, thick, orange!50!brown] (4.35,-0.1)--  node[left, black] {$g$} +(0,.7);
+	\draw[->, thick, blue!75!yellow] (4.3,-1.5) node[black, below] {$(a\cdot c)\times I$} -- (3.3,-0.5);
+\end{tikzpicture}} \\
+\;&=\;
+\raisebox{-1.9cm}{
+\begin{tikzpicture}[y=-1cm]
+	\draw (0,0) coordinate (p1);
+	\draw (5.8,0) coordinate (p2);
+	\draw (2.9,.3) coordinate (pu);
+	\draw (2.9,-.3) coordinate (pd);
+	\begin{scope}
+		\clip (p1) .. controls +(.6,.3) and +(-.5,0) .. (pu)
+					.. controls +(.5,0) and +(-.6,.3) .. (p2)
+					.. controls +(-.6,-.3) and +(.5,0) .. (pd)
+					.. controls +(-.5,0) and +(.6,-.3) .. (p1);
+		\foreach \t in {0,.03,...,1} {
+			\draw[green!50!brown] ($(p1)!\t!(p2) + (0,2)$) -- +(0,-4);
+		}
+	\end{scope}
+	\draw (p1) .. controls +(.6,.3) and +(-.5,0) .. (pu)
+				.. controls +(.5,0) and +(-.6,.3) .. (p2)
+				.. controls +(-.6,-.3) and +(.5,0) .. (pd)
+				.. controls +(-.5,0) and +(.6,-.3) .. (p1);
+	\draw (p1) .. controls +(1,-2) and +(-1,-1) .. (pd);
+	\draw (p2) .. controls +(-1,2) and +(1,1) .. (pu);
+	\draw[<-, thick, orange!50!brown] (1.45,-1.1)--  node[left, black] {$f$} +(0,.7);
+	\draw[<-, thick, orange!50!brown] (4.35,.4)--  node[left, black] {$g$} +(0,.7);
+	\draw[->, thick, blue!75!yellow] (1.5,.78) node[black, below] {$(a\cdot d)\times I$} -- (2.5,0);
+\end{tikzpicture}} \\
+\;&=\;
+\raisebox{-1.0cm}{
+\begin{tikzpicture}[y=-1cm]
+	\draw (0,0) coordinate (p1);
+	\draw (5.8,0) coordinate (p2);
+	\draw (2.9,0) coordinate (pu);
+	\draw (2.9,-.9) coordinate (pd);
+	\begin{scope}
+		\clip (p1) .. controls +(.6,-.3) and +(-.5,-.3) .. (pu)
+					.. controls +(.5,-.3) and +(-.6,-.3) .. (p2)
+					.. controls +(-.6,-.9) and +(.5,0) .. (pd)
+					.. controls +(-.5,0) and +(.6,-.9) .. (p1);
+		\foreach \t in {0,.03,...,1} {
+			\draw[green!50!brown] ($(p1)!\t!(p2) + (0,2)$) -- +(0,-4);
+		}
+	\end{scope}
+	\draw  (p1) .. controls +(.6,-.3) and +(-.5,-.3) .. (pu)
+					.. controls +(.5,-.3) and +(-.6,-.3) .. (p2)
+					.. controls +(-.6,-.9) and +(.5,0) .. (pd)
+					.. controls +(-.5,0) and +(.6,-.9) .. (p1);
+	\draw (p1) .. controls +(1,1) and +(-1,1) .. (pu);
+	\draw (p2) .. controls +(-1,1) and +(1,1) .. (pu);
+	\draw[<-, thick, orange!50!brown] (1.45,-0.1)--  node[left, black] {$f$} +(0,.7);
+	\draw[<-, thick, orange!50!brown] (4.35,-0.1)--  node[left, black] {$g$} +(0,.7);
+	\draw[->, thick, blue!75!yellow] (4.3,-1.5) node[black, above] {$(b\cdot d)\times I$} -- (3.3,-0.5);
+\end{tikzpicture}} 
+\end{align*}
 \caption{Horizontal composition of 2-morphisms}
 \label{fzo5}
 \end{figure}
