@@ -424,11 +424,13 @@ Figure \ref{fzo3} shows one case.
 \end{figure}
 In the first step we have inserted a copy of $(x\times I)\times I$.
 Figure \ref{fzo4} shows the other case.
+
+\newcommand{\vertex}{node[circle,fill=black,inner sep=1pt] {}}
+
 \begin{figure}[t]
 \centering
 \begin{tikzpicture}
 
-\newcommand{\vertex}{node[circle,fill=black,inner sep=1pt] {}}
 \newcommand{\nsep}{1.8}
 
 \clip (-4,-1.25)--(12,-1.25)--(16,1.25)--(-1,1.25)--cycle;
@@ -667,7 +669,52 @@ This is just a reparameterization of the pinched product $(a\bullet b\bullet c)\
 $$
 \mathfig{0.4}{triangle/triangle4a}
 $$
-\nn{remember to change the labels}
+$$
+\begin{tikzpicture}
+\node[circle,fill=black,inner sep=1pt] at (1.73,0) {};
+\node[circle,fill=black,inner sep=1pt] at (-1.73,0) {};
+\begin{scope}[yshift=-1cm]
+\path[clip] (0,0) circle (2);
+\begin{scope}[yshift=2cm]
+\draw (0,0) circle (2);
+\node[circle,fill=black,inner sep=1pt] (L2) at (-90:2) {};
+\node[circle,fill=black,inner sep=1pt] (L1) at (-120:2) {};
+\node at (-60:2.25) {$c$};
+\node at (-105:2.25) {$b$};
+\node at (-135:2.25) {$a$};
+\end{scope}
+\end{scope}
+\begin{scope}[yshift=1cm]
+\path[clip] (0,0) circle (2);
+\begin{scope}[yshift=-2cm]
+\node at (120:2.25) {$a$};
+\node at (75:2.25) {$b$};
+\node at (45:2.25) {$c$};
+\draw (0,0) circle (2);
+\node[circle,fill=black,inner sep=1pt] (U1) at (90:2) {};
+\node[circle,fill=black,inner sep=1pt] (U2) at (60:2) {};
+\end{scope}
+\end{scope}
+\draw[dashed] (L1) -- (U1);
+\draw[dashed] (L2) -- (U2);
+\begin{scope}
+\path[clip] (0,1) circle (2);
+\path[clip] (0,-1) circle (2);
+		\foreach \t in {-2.5,-2.4,...,-1.2} {
+			\draw[green!50!brown] (\t,-1) -- +(1.19,2);
+		}
+		\foreach \t in {-1.1,-1.0,...,0} {
+			\draw[blue!50!brown] (\t,-1) -- +(1.19,2);
+		}
+		\foreach \t in {0.1,0.2,...,2.5} {
+			\draw[red!50!brown] (\t,-1) -- +(1.19,2);
+		}
+\end{scope}
+\draw[->, thick, blue!75!yellow] (-2,0.5) node[black, left] {$a\times I$} -- (-1,0.5);
+\draw[->, thick, blue!75!yellow] (-0.25,-1.5) node[black, below] {$b\times I$} -- (-0.25,-0.5);
+\draw[->, thick, blue!75!yellow] (2,-0.5) node[black, right] {$c\times I$} -- (1,-0.5);
+\end{tikzpicture}
+$$
 \caption{An associator.}
 \label{fig:associator}
 \end{figure}
