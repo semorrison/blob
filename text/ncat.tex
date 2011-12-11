@@ -256,7 +256,7 @@ one general type of composition which can be in any direction.
 
 \begin{axiom}[Composition]
 \label{axiom:composition}
-Let $B = B_1 \cup_Y B_2$, where $B$, $B_1$ and $B_2$ are $k$-balls ($0\le k\le n$)
+Let $B = B_1 \cup_Y B_2$, where $B$, $B_1$ and $B_2$ are $k$-balls ($1\le k\le n$)
 and $Y = B_1\cap B_2$ is a $k{-}1$-ball (Figure \ref{blah5}).
 Let $E = \bd Y$, which is a $k{-}2$-sphere.
 Note that each of $B$, $B_1$ and $B_2$ has its boundary split into two $k{-}1$-balls by $E$.
@@ -1571,7 +1571,7 @@ The second condition is that the image of $\psi_{\cC;W}(x)$ in $\cl\cC(\bd M_1)$
 along $\bd Y_1$ and $\bd Y'_1$, and that the restrictions to $\cl\cC(Y_1)$ and $\cl\cC(Y'_1)$ agree
 (with respect to the identification of $Y_1$ and $Y'_1$ provided by the gluing map). 
 The $i$-th condition is defined similarly.
-Note that these conditions depend on the boundaries of elements of $\prod_a \cC(X_a)$.
+Note that these conditions depend only on the boundaries of elements of $\prod_a \cC(X_a)$.
 
 We define $\psi_{\cC;W}(x)$ to be the subset of $\prod_a \cC(X_a)$ which satisfies the 
 above conditions for all $i$ and also all 
@@ -1729,11 +1729,11 @@ Eilenberg-Zilber type subdivision argument.
 \medskip
 
 $\cl{\cC}(W)$ is functorial with respect to homeomorphisms of $k$-manifolds. 
-Restricting the $k$-spheres, we have now proved Lemma \ref{lem:spheres}.
+Restricting to $k$-spheres, we have now proved Lemma \ref{lem:spheres}.
 
 \begin{lem}
 \label{lem:colim-injective}
-Let $W$ be a manifold of dimension less than $n$.  Then for each
+Let $W$ be a manifold of dimension $j<n$.  Then for each
 decomposition $x$ of $W$ the natural map $\psi_{\cC;W}(x)\to \cl{\cC}(W)$ is injective.
 \end{lem}
 \begin{proof}
@@ -1796,7 +1796,7 @@ but with $k$-balls replaced by {\it marked $k$-balls,} defined below.
 
 Our motivating example comes from an $(m{-}n{+}1)$-dimensional manifold $W$ with boundary
 in the context of an $m{+}1$-dimensional TQFT.
-Such a $W$ gives rise to a module for the $n$-category associated to $\bd W$.
+Such a $W$ gives rise to a module for the $n$-category associated to $\bd W$ (see Example \ref{ex:ncats-from-tqfts}).
 This will be explained in more detail as we present the axioms.
 
 Throughout, we fix an $n$-category $\cC$.
@@ -1818,12 +1818,13 @@ homeomorphisms to the category of sets and bijections.}
 (As with $n$-categories, we will usually omit the subscript $k$.)
 
 For example, let $\cD$ be the TQFT which assigns to a $k$-manifold $N$ the set 
-of maps from $N$ to $T$ (for $k\le m$), modulo homotopy (and possibly linearized) if $k=m$.
+of maps from $N$ to $T$ (for $k\le m$), modulo homotopy (and possibly linearized) if $k=m$
+(see Example \ref{ex:maps-with-fiber}).
 Let $W$ be an $(m{-}n{+}1)$-dimensional manifold with boundary.
 Let $\cC$ be the $n$-category with $\cC(X) \deq \cD(X\times \bd W)$.
-Let $\cM(B, N) \deq \cD((B\times \bd W)\cup (N\times W))$
-(see Example \ref{ex:maps-with-fiber}).
+Let $\cM(B, N) \deq \cD((B\times \bd W)\cup (N\times W))$.
 (The union is along $N\times \bd W$.)
+See Figure \ref{blah15}.
 %(If $\cD$ were a general TQFT, we would define $\cM(B, N)$ to be
 %the subset of $\cD((B\times \bd W)\cup (N\times W))$ which is splittable along $N\times \bd W$.)
 
@@ -1839,7 +1840,7 @@ to the $k{-}1$-spheres in the $n$-category definition.)
 
 \begin{lem}
 \label{lem:hemispheres}
-{For each $0 \le k \le n-1$, we have a functor $\cl\cM_k$ from 
+{For each $1 \le k \le n$, we have a functor $\cl\cM_{k-1}$ from 
 the category of marked $k$-hemispheres and 
 homeomorphisms to the category of sets and bijections.}
 \end{lem}
@@ -1870,7 +1871,7 @@ Then we have an injective map
 \]
 which is natural with respect to the actions of homeomorphisms.}
 \end{lem}
-Again, this is in exact analogy with Lemma \ref{lem:domain-and-range}, and illustrated in Figure \ref{fig:module-boundary}.
+This is in exact analogy with Lemma \ref{lem:domain-and-range}, and illustrated in Figure \ref{fig:module-boundary}.
 \begin{figure}[t]
 \begin{equation*}
 \begin{tikzpicture}[baseline=0]
@@ -1942,7 +1943,7 @@ of splitting a marked $k$-ball into two (marked or plain) $k$-balls.
 First, we can compose two module morphisms to get another module morphism.
 
 \begin{module-axiom}[Module composition]
-{Let $M = M_1 \cup_Y M_2$, where $M$, $M_1$ and $M_2$ are marked $k$-balls (with $0\le k\le n$)
+{Let $M = M_1 \cup_Y M_2$, where $M$, $M_1$ and $M_2$ are marked $k$-balls (with $2\le k\le n$)
 and $Y = M_1\cap M_2$ is a marked $k{-}1$-ball.
 Let $E = \bd Y$, which is a marked $k{-}2$-hemisphere.
 Note that each of $M$, $M_1$ and $M_2$ has its boundary split into two marked $k{-}1$-balls by $E$.
@@ -1963,7 +1964,7 @@ module morphism.
 We'll call this the action map to distinguish it from the other kind of composition.
 
 \begin{module-axiom}[$n$-category action]
-{Let $M = X \cup_Y M'$, where $M$ and $M'$ are marked $k$-balls ($0\le k\le n$),
+{Let $M = X \cup_Y M'$, where $M$ and $M'$ are marked $k$-balls ($1\le k\le n$),
 $X$ is a plain $k$-ball,
 and $Y = X\cap M'$ is a $k{-}1$-ball.
 Let $E = \bd Y$, which is a $k{-}2$-sphere.
@@ -2153,8 +2154,8 @@ the collar could intersect the marking of the marked ball $M$, in which case
 we use a product on a morphism of $\cM$; or the collar could be disjoint from the marking,
 in which case we use a product on a morphism of $\cC$.
 
-In our example, elements $a$ of $\cM(M)$ maps to $T$, and $\pi^*(a)$ is the pullback of
-$a$ along a map associated to $\pi$.
+In our example, elements $a$ of $\cM(M)$ are maps to $T$, and $\pi^*(a)$ is the pullback of
+$a$ along the map associated to $\pi$.
 
 \medskip
 
