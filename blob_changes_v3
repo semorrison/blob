@@ -37,4 +37,5 @@ The most significant changes are:
 - small corrections to proof of product theorem (7.1.1)
 - added remarks that various homotopy equivalences we construct are well-defined up to a contractible set of choices
 - clarified that the surgery cylinder operad action is only up to coherent homotopy
+- added some details to the construction of a traditional 2-category from a disk-like 2-category
 

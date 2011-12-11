@@ -4,6 +4,9 @@
 * add "homeomorphism" spiel befure the first use of "homeomorphism in the intro
 * maybe also additional homeo warnings in other sections
 
+* Lemma 3.2.3 (\ref{support-shrink}) implicitly assumes embedded (non-self-intersecting) blobs. this can be fixed, of course, but it makes the arument more difficult to understand
+
+
 
 ====== minor/optional ======
 
@@ -30,8 +33,6 @@ morita equivalence
 
 
 ====== Scott ======
-
-* SCOTT will go through appendix C.2 and make it better (Schulman's example?)
 
 * SCOTT: review/proof-read recent KW changes, especially colimit section and n-cat axioms
 
