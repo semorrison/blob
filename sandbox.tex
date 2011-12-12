@@ -10,4 +10,33 @@
 \begin{document}
 
 
+
+
+\begin{tikzpicture}
+\node[circle,fill=black,inner sep=1pt] (A) at (1.73,0) {};
+\node[circle,fill=black,inner sep=1pt] (B) at (-1.73,0) {};
+\draw[dashed] (A) -- (B);
+\node[circle,fill=black,inner sep=1pt] (C) at (0,0) {};
+\node[circle,fill=black,inner sep=1pt] (D) at (0.8,0) {};
+\begin{scope}[yshift=-1cm]
+\path[clip] (0,0) circle (2);
+\begin{scope}[yshift=2cm]
+\draw (0,0) circle (2);
+\node[circle,fill=black,inner sep=1pt] (L2) at (-90:2) {};
+\node[circle,fill=black,inner sep=1pt] (L1) at (-120:2) {};
+\end{scope}
+\end{scope}
+\begin{scope}[yshift=1cm]
+\path[clip] (0,0) circle (2);
+\begin{scope}[yshift=-2cm]
+\draw (0,0) circle (2);
+\node[circle,fill=black,inner sep=1pt] (U) at (90:2) {};
+\end{scope}
+\end{scope}
+\begin{scope}
+\path[clip] (0,1) circle (2);
+\path[clip] (0,-1) circle (2);
+
+\end{scope}
+\end{tikzpicture}
 \end{document}
