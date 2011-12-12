@@ -6,8 +6,8 @@ Given an $A_\infty$ $n$-category $\cC$ and an $n$-manifold $M$, we make the foll
 anticlimactically tautological definition of the blob
 complex.
 \begin{defn}
-The blob complex
- $\bc_*(M;\cC)$ of an $n$-manifold $n$ with coefficients in an $A_\infty$ $n$-category is the homotopy colimit $\cl{\cC}(M)$ of \S\ref{ss:ncat_fields}.
+The blob complex $\bc_*(M;\cC)$ of an $n$-manifold $M$ with coefficients in 
+an $A_\infty$ $n$-category $\cC$ is the homotopy colimit $\cl{\cC}(M)$ of \S\ref{ss:ncat_fields}.
 \end{defn}
 
 We will show below 
@@ -387,7 +387,8 @@ So we content ourselves with
 
 \begin{thm}
 \label{thm:gluing}
-Suppose $X$ is an $n$-manifold, and $X = X_1\cup (Y\times J) \cup X_2$ (i.e. just as with  $k=n$ above). Then $\bc(X)$ is homotopy equivalent to the $A_\infty$ tensor product $\bc(X_1) \otimes_{\bc(Y), J} \bc(X_2)$.
+Suppose $X$ is an $n$-manifold, and $X = X_1\cup (Y\times J) \cup X_2$ (i.e. take $k=n$ in the above discussion). 
+Then $\bc(X)$ is homotopy equivalent to the $A_\infty$ tensor product $\bc(X_1) \otimes_{\bc(Y), J} \bc(X_2)$.
 \end{thm}
 
 \begin{proof}
@@ -415,7 +416,7 @@ an acyclic subcomplex which is (roughly) $\psi\inv(a)$.
 The proof of acyclicity is easier in this case since any pair of decompositions of $J$ have
 a common refinement.
 
-The proof that these two maps are inverse to each other is the same as in
+The proof that these two maps are homotopy inverse to each other is the same as in
 Theorem \ref{thm:product}.
 \end{proof}
 
