@@ -288,9 +288,40 @@ $$
 \foreach \y in {1,0.86,...,-1} {
 	\draw[green!50!brown] (-1,\y)--(1,\y);
 }
-\end{tikzpicture} 
+\end{tikzpicture} \\
+\begin{tikzpicture}[baseline]
+\begin{scope}
+\clip (-1.3,-2) rectangle (0,2);
+\node[draw] (c) at (0,0) [ellipse, minimum height=2cm,minimum width=2.5cm] {};
+\end{scope}
+\begin{scope}
+\clip (1,-2) rectangle (0,2);
+\node[draw] (d) at (0,-0.4) [ellipse, minimum height=1.2cm, minimum width=1.5cm] {};
+\end{scope}
+\draw (c.north) -- (d.north);
+\draw[dashed] (d.north) -- (d.south);
+\node[right=8,below=4] at (c) {$g$};
+\node[left=10] at (c) {$f$};
+\end{tikzpicture} & =
+\begin{tikzpicture}[baseline]
+\begin{scope}
+	\clip (-1.3,-2) rectangle (0,2);
+	\node[draw] (c) at (0,0) [ellipse, minimum height=2cm,minimum width=2.5cm] {};
+\end{scope}
+\draw[dashed] (c.north) to[out=-120,in=120] (c.south);
+\draw[dashed] (c.south) to[out=60,in=-90] (0.35,0) node (m) {};
+\draw (m.center) to[out=90,in=-60] (c.north);
+\begin{scope}
+	\clip (c.north) to[out=-120,in=120] (c.south) to[out=60,in=-90] (m) to[out=90,in=-60] (c.north);
+	\foreach \y in {1,0.86,...,-1} {
+		\draw[green!50!brown] (-1,\y)--(1,\y);
+	}
+\end{scope}
+\draw (m.center) .. controls +(1,0) and +(1,0) .. (c.south);
+\node[right=15,below=8] at (c) {$g$};
+\node[left=12] at (c) {$f$};
+\end{tikzpicture}
 \end{align*}
-\todo{fourth case}
 \caption{Examples of inserting or deleting product regions.}
 \label{fig:product-regions}
 \end{figure}
