@@ -1,10 +1,8 @@
 
 ====== big ======
 
-* add "homeomorphism" spiel befure the first use of "homeomorphism in the intro
+* add "homeomorphism" spiel before the first use of "homeomorphism" in the intro
 * maybe also additional homeo warnings in other sections
-
-* Lemma 3.2.3 (\ref{support-shrink}) implicitly assumes embedded (non-self-intersecting) blobs. this can be fixed, of course, but it makes the argument more difficult to understand
 
 * Maybe give more details in 6.7.2
 

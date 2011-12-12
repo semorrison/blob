@@ -74,6 +74,9 @@ to be the union of the blobs of $b$.
 For $y \in \bc_*(X)$ with $y = \sum c_i b_i$ ($c_i$ a non-zero number, $b_i$ a blob diagram),
 we define $\supp(y) \deq \bigcup_i \supp(b_i)$.
 
+%%%%% the following is true in spirit, but technically incorrect if blobs are not embedded; 
+%%%%% we only use this once, so move lemma and proof to Hochschild section
+\noop{ %%%%%%%%%% begin \noop
 For future use we prove the following lemma.
 
 \begin{lemma} \label{support-shrink}
@@ -94,6 +97,7 @@ Note that if a diagram $b'$ is part of $\bd b$ then $T(b') \sub T(b)$.
 Both $f$ and the identity are compatible with $T$ (in the sense of acyclic models, \S\ref{sec:moam}), 
 so $f$ and the identity map are homotopic.
 \end{proof}
+} %%%%%%%%%%%%% end \noop
 
 For the next proposition we will temporarily restore $n$-manifold boundary
 conditions to the notation. Let $X$ be an $n$-manifold, with $\bd X = Y \cup Y \cup Z$.
