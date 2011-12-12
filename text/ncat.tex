@@ -2293,7 +2293,7 @@ Example \ref{ex:chains-of-maps-to-a-space} given by taking singular chains.
 Fix an ordinary $n$-category or $A_\infty$ $n$-category  $\cC$.
 Let $W$ be a $k$-manifold ($k\le n$),
 let $\{Y_i\}$ be a collection of disjoint codimension 0 submanifolds of $\bd W$,
-and let $\cN = (\cN_i)$ be an assignment of a $\cC$ module $\cN_i$ to $Y_i$.
+and let $\cN = (\cN_i)$ be an assignment of a $\cC$ module $\cN_i$ to each $Y_i$.
 
 We will define a set $\cC(W, \cN)$ using a colimit construction very similar to 
 the one appearing in \S \ref{ss:ncat_fields} above.
@@ -2331,7 +2331,7 @@ For a decomposition $x = (X_a, M_{ib})$ in $\cell(W)$, define $\psi_\cN(x)$ to b
 \]
 such that the restrictions to the various pieces of shared boundaries amongst the
 $X_a$ and $M_{ib}$ all agree.
-(That is, the fibered product over the boundary restriction maps.)
+%(That is, the fibered product over the boundary restriction maps.)
 If $x$ is a refinement of $y$, define a map $\psi_\cN(x)\to\psi_\cN(y)$
 via the gluing (composition or action) maps from $\cC$ and the $\cN_i$.
 
@@ -2375,7 +2375,7 @@ of modules to be collections of natural transformations which are compatible wit
 additional data.
 
 More specifically, let $\cX$ and $\cY$ be $\cC$ modules, i.e.\ collections of functors
-$\{\cX_k\}$ and $\{\cY_k\}$, for $0\le k\le n$, from marked $k$-balls to sets 
+$\{\cX_k\}$ and $\{\cY_k\}$, for $1\le k\le n$, from marked $k$-balls to sets 
 as in Module Axiom \ref{module-axiom-funct}.
 A morphism $g:\cX\to\cY$ is a collection of natural transformations $g_k:\cX_k\to\cY_k$
 satisfying:
@@ -2448,10 +2448,12 @@ This does not depend on the choice of splitting $D = D'\bullet D''$ because $g$ 
 In this subsection we define $n{+}1$-categories $\cS$ of ``sphere modules".
 The objects are $n$-categories, the $k$-morphisms are $k{-}1$-sphere modules for $1\le k \le n$,
 and the $n{+}1$-morphisms are intertwiners.
-With future applications in mind, we treat simultaneously the big category
+With future applications in mind, we treat simultaneously the big $n{+}1$-category
 of all $n$-categories and all sphere modules and also subcategories thereof.
-When $n=1$ this is closely related to familiar $2$-categories consisting of 
-algebras, bimodules and intertwiners (or a subcategory of that).
+When $n=1$ this is closely related to the familiar $2$-category consisting of 
+algebras, bimodules and intertwiners, or a subcategory of that.
+(More generally, we can replace algebras with linear 1-categories.)
+The ``bi" in ``bimodule" corresponds to the fact that a 0-sphere consists of two points.
 The sphere module $n{+}1$-category is a natural generalization of the 
 algebra-bimodule-intertwiner 2-category to higher dimensions.
 
@@ -2463,13 +2465,13 @@ the link of such a defect is an $m$-sphere decorated with defects of smaller cod
 
 \medskip
 
-While it is appropriate to call an $S^0$ module a bimodule,
-this is much less true for higher dimensional spheres, 
-so we prefer the term ``sphere module" for the general case.
+%While it is appropriate to call an $S^0$ module a bimodule,
+%this is much less true for higher dimensional spheres, 
+%so we prefer the term ``sphere module" for the general case.
 
 For simplicity, we will assume that $n$-categories are enriched over $\c$-vector spaces.
 
-The $0$- through $n$-dimensional parts of $\cS$ are various sorts of modules, and we describe
+The $1$- through $n$-dimensional parts of $\cS$ are various sorts of modules, and we describe
 these first.
 The $n{+}1$-dimensional part of $\cS$ consists of intertwiners
 of  $1$-category modules associated to decorated $n$-balls.
@@ -2704,9 +2706,10 @@ it could contain several.
 The only requirement is that each $k$-sphere module be a module for a $k$-sphere $n{-}k$-category
 constructed out of labels taken from $L_j$ for $j<k$.
 
-We remind the reader again that $\cS = \cS_{\{L_i\}, \{z_Y\}}$ depends on 
+%We remind the reader again that $\cS = \cS_{\{L_i\}, \{z_Y\}}$ depends on 
+We remind the reader again that $\cS$ depends on 
 the choice of $L_i$ above as well as the choice of 
-families of inner products below.
+families of inner products described below.
 
 We now define $\cS(X)$, for $X$ a ball of dimension at most $n$, to be the set of all 
 cell-complexes $K$ embedded in $X$, with the codimension-$j$ parts of $(X, K)$ labeled
@@ -2728,7 +2731,7 @@ The construction of the 0- through $n$-morphisms was easy and tautological, but 
 $n{+}1$-morphisms will require some effort and combinatorial topology, as well as additional
 duality assumptions on the lower morphisms. 
 These are required because we define the spaces of $n{+}1$-morphisms by 
-making arbitrary choices of incoming and outgoing boundaries for each $n$-ball. 
+making arbitrary choices of incoming and outgoing boundaries for each $n{+}1$-ball. 
 The additional duality assumptions are needed to prove independence of our definition from these choices.
 
 Let $X$ be an $n{+}1$-ball, and let $c$ be a decoration of its boundary
@@ -3247,7 +3250,7 @@ $$
 \end{tikzpicture}
 $$
 
-\caption{intertwiners for a Morita equivalence}\label{morita-fig-2}
+\caption{Intertwiners for a Morita equivalence}\label{morita-fig-2}
 \end{figure}
 shows the intertwiners we need.
 Each decorated 2-ball in that figure determines a representation of the 1-category associated to the decorated circle
@@ -3317,7 +3320,7 @@ $$
 \caption{Identities for intertwiners}\label{morita-fig-3}
 \end{figure}
 Each line shows a composition of two intertwiners which we require to be equal to the identity intertwiner.
-The modules corresponding leftmost and rightmost disks in the figure can be identified via the obvious isotopy.
+The modules corresponding to the leftmost and rightmost disks in the figure can be identified via the obvious isotopy.
 
 For general $n$, we start with an $n$-category 0-sphere module $\cM$ which is the data for the 1-dimensional
 part of the Morita equivalence.
