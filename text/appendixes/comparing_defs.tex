@@ -215,8 +215,14 @@ In showing that identity 1-morphisms have the desired properties, we will
 rely heavily on the extended isotopy invariance of 2-morphisms in $\cC$.
 Extended isotopy invariance implies that adding a product collar to a 2-morphism of $\cC$ has no effect,
 and by cutting and regluing we can insert (or delete) product regions in the interior of 2-morphisms as well.
-Figure \nn{triangle.pdf 2.a through 2.d} shows some examples.
-
+Figure \ref{fig:product-regions} shows some examples.
+\begin{figure}[t]
+$$
+\mathfig{0.5}{triangle/triangle2}
+$$
+\caption{Examples of inserting or deleting product regions.}
+\label{fig:product-regions}
+\end{figure}
 
 
 Let $a: y\to x$ be a 1-morphism.
@@ -658,6 +664,98 @@ Similar arguments show that horizontal composition is associative.
 $$
 \mathfig{0.6}{triangle/triangle3c}
 $$
+$$
+\begin{tikzpicture}
+\node (fg1) at (0,0) {
+\begin{tikzpicture}[baseline=-0.6cm]
+\path (0,0) coordinate (f1);
+\path (3,0) coordinate (f2);
+\path (3,-0.5) coordinate (g1);
+\path (6,-0.5) coordinate (g2);
+\node at (1.5,0.125) {$f$};
+\node at (4.5,-0.625) {$g$};
+\draw (f1) .. controls +(1,.8) and +(-1,.8) .. (f2);
+\draw[dashed] (f1) .. controls +(1,-.4) and +(-1,-.4) .. (f2);
+\draw (f1) .. controls +(1,-1) and +(-1,-.4) .. (g1);
+\draw (g1) .. controls +(1,-.8) and +(-1,-.8) .. (g2);
+\draw[dashed] (g1) .. controls +(1,.4) and +(-1,.4) .. (g2);
+\draw (f2) .. controls +(1,.4) and +(-1,1) .. (g2);
+%
+\draw[blue,->] (-0.8,-1.2) node[below] {$(a \circ d) \times I$} -- (1,-0.5) ;
+\path[clip] (f1) .. controls +(1,-.4) and +(-1,-.4) .. (f2)
+                    .. controls +(1,.4) and +(-1,1) .. (g2)
+                    .. controls +(-1,.4) and +(1,.4) .. (g1)
+                    .. controls +(-1,-.4) and +(1,-1) .. (f1);
+\foreach \x in {0,0.1, ..., 6} {
+	\draw[green!50!brown] (\x,-2) -- + (0,4);
+}
+\end{tikzpicture}
+};
+\node (fg2) at (4,-4) {
+\begin{tikzpicture}[baseline=-0.1cm]
+\path (0,0) coordinate (f1);
+\path (3,0) coordinate (f2);
+\path (3,-0.5) coordinate (g1);
+\path (6,-0.5) coordinate (g2);
+\node at (1.5,0.125) {$f$};
+\node at (4.5,-0.625) {$g$};
+\draw[dashed] (f1) .. controls +(1,.8) and +(-1,.8) .. (f2);
+\draw[dashed] (f1) .. controls +(1,-.4) and +(-1,-.4) .. (f2);
+\draw (f1) .. controls +(1,-1) and +(-1,-.4) .. (g1);
+\draw (g1) .. controls +(1,-.8) and +(-1,-.8) .. (g2);
+\draw[dashed] (g1) .. controls +(1,.4) and +(-1,.4) .. (g2);
+\draw[dashed] (f2) .. controls +(1,.4) and +(-1,1) .. (g2);
+\draw (f1) .. controls +(1,1.5) and +(-1,2)..(g2);
+%
+\begin{scope}
+\path[clip] (f1) .. controls +(1,-.4) and +(-1,-.4) .. (f2)
+                    .. controls +(1,.4) and +(-1,1) .. (g2)
+                    .. controls +(-1,.4) and +(1,.4) .. (g1)
+                    .. controls +(-1,-.4) and +(1,-1) .. (f1);
+\foreach \x in {0,0.1, ..., 6} {
+	\draw[green!50!brown] (\x,-2) -- + (0,4);
+}
+\end{scope}
+\begin{scope}
+\path[clip] (f1) ..  controls +(1,1.5) and +(-1,2).. (g2)
+		      .. controls +(-1,1) and +(1,.4) .. (f2)
+		      .. controls +(-1,.8) and + (1,.8) .. (f1);
+\foreach \x in {0,0.1, ..., 6} {
+	\draw[green!50!brown] (\x,-2) -- + (0,4);
+}
+\end{scope}
+\end{tikzpicture}
+};
+\node (fg3) at (8,0) {
+\begin{tikzpicture}[baseline=-2.45cm]
+\path (0,0) coordinate (f1);
+\path (3,0) coordinate (f2);
+\path (3,0) coordinate (g1);
+\path (6,0) coordinate (g2);
+\node at (1.5,0) {$f$};
+\node at (4.5,0) {$g$};
+\draw[dashed] (f1) .. controls +(1,.8) and +(-1,.8) .. (f2);
+\draw (f1) .. controls +(1,-.8) and +(-1,-.8) .. (f2);
+\draw (g1) .. controls +(1,-.8) and +(-1,-.8) .. (g2);
+\draw[dashed] (g1) .. controls +(1,.8) and +(-1,.8) .. (g2);
+\draw (f1) .. controls +(1,1.5) and +(-1,1.5)..(g2);
+%
+\draw[blue,->] (4,1.75) node[above] {$(b \circ d) \times I$}-- + (0,-1);
+\begin{scope}
+\path[clip] (f1) ..  controls +(1,1.5) and +(-1,1.5).. (g2)
+		      .. controls +(-1,.8) and +(1,.8) .. (f2)
+		      .. controls +(-1,.8) and + (1,.8) .. (f1);
+\foreach \x in {0,0.1, ..., 6} {
+	\draw[green!50!brown] (\x,-2) -- + (0,4);
+}
+\end{scope}
+\end{tikzpicture}
+};
+\draw[->] ($(fg1.south)+(0,0.5)$) -- node[left=0.5cm] {add $(b \circ d) \times I$} (fg2);
+\draw[->] (fg2) -- node[right=0.5cm] {remove $(a \circ d) \times I$} ($(fg3.south)+(0,1.75)$);
+\path (fg1) -- node {$=$} (fg3);
+\end{tikzpicture}
+$$
 \caption{Part of the proof that the four different horizontal compositions of 2-morphisms are equal.}
 \label{fig:horizontal-compositions-equal}
 \end{figure}
@@ -756,7 +854,8 @@ as well as compatibility of product morphisms with fiber-preserving maps (Axiom 
 \end{figure}
 \begin{figure}[t]
 \begin{align*}
-\mathfig{0.4}{triangle/triangle4f}
+\mathfig{0.4}{triangle/triangle4f} \\
+\mathfig{0.4}{triangle/triangle4f_i}
 \end{align*}
 \caption{Vertical composition in the triangle axiom.}
 \label{fig:vertical-composition}
