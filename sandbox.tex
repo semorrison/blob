@@ -9,76 +9,7 @@
 \title{Sandbox}
 \begin{document}
 
-\begin{align*}
-\begin{tikzpicture}[baseline]
-\node[draw] (c) at (0,0) [circle through = {(1,0)}] {$f$};
-\node (d) at (c.east) [circle through = {(0.25,0)}] {};
-\foreach \n in {1,2} {
-	\node (p\n) at (intersection \n of c and d) {};
-	\fill (p\n) circle (2pt);
-}
-\begin{scope}[decoration={brace,amplitude=10,aspect=0.5}]
-	\draw[decorate] (p2.east) -- node[right=2ex] {$a$} (p1.east);
-\end{scope}
-\end{tikzpicture} & = 
-\begin{tikzpicture}[baseline]
-\node[draw] (c) at (0,0) [circle through = {(1,0)}] {};
-\begin{scope}
-\path[clip] (c) circle (1);
-\node[draw,dashed] (d) at (c.east) [circle through = {(0.25,0)}] {};
-\foreach \n in {1,2} {
-	\node (p\n) at (intersection \n of c and d) {};
-}
-\node[left] at (c) {$f$};
-\path[clip] (d) circle (0.75);
-\foreach \y in {1,0.86,...,-1} {
-	\draw[green!50!brown] (0,\y)--(1,\y);
-}
-\end{scope}
-\draw[->,blue] (1.5,-1) node[below] {$a \times I$} -- (0.75,0);
-\end{tikzpicture} \\
-\begin{tikzpicture}[baseline]
-\node[draw] (c) at (0,0) [ellipse, minimum height=2cm,minimum width=2.5cm] {};
-\draw[dashed] (c.north) -- (c.south);
-\node[right=6] at (c) {$g$};
-\node[left=6] at (c) {$f$};
-\end{tikzpicture} & =
-\begin{tikzpicture}[baseline]
-\node[draw] (c) at (0,0) [ellipse, minimum height=2cm,minimum width=2.5cm] {};
-\node[right=9] at (c) {$g$};
-\node[left=9] at (c) {$f$};
-\draw[dashed] (c.north) to[out=-115,in=115] (c.south) to[out=65,in=-65] (c.north);
-\begin{scope}
-\path[clip] (c.north) to[out=-115,in=115] (c.south) to[out=65,in=-65] (c.north);
-\foreach \y in {1,0.86,...,-1} {
-	\draw[green!50!brown] (-1,\y)--(1,\y);
-}
-\end{scope}
-\draw[->,blue] (.75,-1.25) node[below] {$a \times I$} -- (0,-0.25);
-\end{tikzpicture} \\
-\begin{tikzpicture}[baseline]
-\node[draw] (c) at (0,0) [ellipse, minimum height=2cm,minimum width=2.5cm] {};
-\draw[dashed] (c.north) -- (c.south);
-\node[right=18] at (c) {$g$};
-\node[left=10] at (c) {$f$};
-\fill (0,0.4) node (p1) {} circle (2pt);
-\fill (0,-0.4) node (p2) {} circle (2pt);
-\begin{scope}[decoration={brace,amplitude=5,aspect=0.5}]
-	\draw[decorate] (p1.east) -- node[right=0.5ex] {\scriptsize $a$} (p2.east);
-\end{scope}
-\end{tikzpicture} & =
-\begin{tikzpicture}[baseline]
-\node[draw] (c) at (0,0) [ellipse, minimum height=2cm,minimum width=2.5cm] {};
-\node[draw,dashed] (d) at (0,0) [circle, minimum height=1cm,minimum width=1cm] {};
-\draw[dashed] (c.north) -- (d.north) (d.south) -- (c.south);
-\node[right=18] at (c) {$g$};
-\node[left=18] at (c) {$f$};
-\clip (0,0) circle (0.5cm);
-\foreach \y in {1,0.86,...,-1} {
-	\draw[green!50!brown] (-1,\y)--(1,\y);
-}
-\end{tikzpicture} \\
-\end{align*}
+
 
 \begin{tikzpicture}
 \node[circle,fill=black,inner sep=1pt] (A) at (1.73,0) {};
