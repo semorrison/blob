@@ -900,13 +900,13 @@ $$
 \begin{scope}
 \path[clip] (0,1) circle (2);
 \path[clip] (0,-1) circle (2);
-		\foreach \t in {-2.5,-2.4,...,-1.2} {
+		\foreach \t in {-2.5,-2.3,...,-1.2} {
 			\draw[green!50!brown] (\t,-1) -- +(1.19,2);
 		}
-		\foreach \t in {-1.1,-1.0,...,0} {
+		\foreach \t in {-1.1,-0.9,...,0} {
 			\draw[blue!50!brown] (\t,-1) -- +(1.19,2);
 		}
-		\foreach \t in {0.1,0.2,...,2.5} {
+		\foreach \t in {0.1,0.3,...,2.5} {
 			\draw[red!50!brown] (\t,-1) -- +(1.19,2);
 		}
 \end{scope}
@@ -932,8 +932,83 @@ is equal to the composition of $\alpha$ and $\id_a\bullet v$.
 \begin{align*}
 \mathfig{0.4}{triangle/triangle4a} \\
 \mathfig{0.4}{triangle/triangle4b} \\
+\mathfig{0.4}{triangle/triangle4c} \\
+\alpha & = 
+\begin{tikzpicture}[baseline]
+\node[circle,fill=black,inner sep=1pt] at (1.73,0) {};
+\node[circle,fill=black,inner sep=1pt] at (-1.73,0) {};
+\begin{scope}[yshift=-1cm]
+\path[clip] (0,0) circle (2);
+\begin{scope}[yshift=2cm]
+\draw (0,0) circle (2);
+\node[circle,fill=black,inner sep=1pt] (L2) at (-90:2) {};
+\node[circle,fill=black,inner sep=1pt] (L1) at (-120:2) {};
+\node at (-60:2.25) {$b$};
+\node at (-105:2.25) {\scriptsize $y \times I$};
+\node at (-135:2.25) {$a$};
+\end{scope}
+\end{scope}
+\begin{scope}[yshift=1cm]
+\path[clip] (0,0) circle (2);
+\begin{scope}[yshift=-2cm]
+\node at (120:2.25) {$a$};
+\node at (75:2.25) {\scriptsize $y \times I$};
+\node at (45:2.25) {$b$};
+\draw (0,0) circle (2);
+\node[circle,fill=black,inner sep=1pt] (U1) at (90:2) {};
+\node[circle,fill=black,inner sep=1pt] (U2) at (60:2) {};
+\end{scope}
+\end{scope}
+\draw[dashed] (L1) -- (U1);
+\draw[dashed] (L2) -- (U2);
+\begin{scope}
+\path[clip] (0,1) circle (2);
+\path[clip] (0,-1) circle (2);
+		\foreach \t in {-2.5,-2.3,...,-1.2} {
+			\draw[green!50!brown] (\t,-1) -- +(1.19,2);
+		}
+		\foreach \t in {-1.1,-0.9,...,0} {
+			\draw[blue!50!brown] (\t,-1) -- +(1.19,2);
+		}
+		\foreach \t in {0.1,0.3,...,2.5} {
+			\draw[red!50!brown] (\t,-1) -- +(1.19,2);
+		}
+	\foreach \x in {0,1,...,10} {
+		\path (L1) to[out=60,in=-120] node[pos=\x/10] (p1\x) {}(U1);
+		\path (L2) to[out=60,in=-120] node[pos=\x/10] (p2\x) {} (U2);
+		\draw[blue!50!brown] (p1\x.center) -- (p2\x.center);
+	}
+\end{scope}
+\draw[->, thick, blue!75!yellow] (-2,0.5) node[black, left] {$a\times I$} -- (-1,0.5);
+\draw[->, thick, blue!75!yellow] (-0.1,-1.5) node[black, below] {$y\times I \times I$} -- (-0.25,-0.5);
+\draw[->, thick, blue!75!yellow] (2,-0.5) node[black, right] {$b\times I$} -- (1,-0.5);
+\end{tikzpicture} \\
 u & =
-\mathfig{0.4}{triangle/triangle4c} 
+\begin{tikzpicture}[baseline]
+\coordinate (P) at (0,0);
+\coordinate (Q) at (3,0);
+\coordinate (R) at (1.5,-0.5);
+\draw (P) \vertex to[out=40,in=140] node[above] {$a$} (Q) \vertex -- node[below] {\scriptsize $y \times I$} (R) \vertex to[out=-180,in=-40] node[below] {$a$} (P);
+\clip (P) to[out=40,in=140] (Q) -- (R) to[out=-180,in=-40] (P);
+\foreach \x in {1,...,9} {
+	\path (P) to[out=40,in=140] node[pos=\x/10] (PQ\x) {} (Q);
+	\path (P) to[out=-40,in=-180] node[pos=\x/10] (PR\x) {} (R);
+	\draw[green!50!brown] (PQ\x.center) -- (PR\x.center);
+}
+\end{tikzpicture} \\
+v & = 
+\begin{tikzpicture}[baseline]
+\coordinate (P) at (0,0);
+\coordinate (Q) at (3,0);
+\coordinate (R) at (1.5,-0.5);
+\draw (P) \vertex to[out=40,in=140] node[above] {$b$} (Q) \vertex to[out=-140,in=0] node[below] {$b$} (R) -- node[below] {\scriptsize $y \times I$}  (P);
+\clip (P) to[out=40,in=140] (Q) to[out=-140,in=0] (R) -- (P);
+\foreach \x in {1,...,9} {
+	\path (P) to[out=40,in=140] node[pos=\x/10] (PQ\x) {} (Q);
+	\path (R) to[out=0,in=-140] node[pos=\x/10] (RQ\x) {} (Q);
+	\draw[brown] (PQ\x.center) -- (RQ\x.center);
+}
+\end{tikzpicture} \\
 \end{align*}
 \nn{remember to change `assoc' to $\alpha$}
 \caption{Ingredients for the triangle axiom.}
