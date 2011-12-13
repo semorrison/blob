@@ -679,7 +679,7 @@ Similar arguments show that horizontal composition is associative.
 	\draw[->, thick, orange!50!brown] (1.45,-1.1)--  node[left, black] {$f$} +(0,.7);
 	\draw[->, thick, orange!50!brown] (4.35,.4)--  node[left, black] {$g$} +(0,.7);
 	\draw[->, thick, blue!75!yellow] (1.5,.78) node[black, above] {$(b\cdot c)\times I$} -- (2.5,0);
-\end{tikzpicture}} \\
+\end{tikzpicture}} \displaybreak[1] \\
 \;&=\;
 \raisebox{-2.1cm}{
 \begin{tikzpicture}
@@ -705,7 +705,7 @@ Similar arguments show that horizontal composition is associative.
 	\draw[->, thick, orange!50!brown] (1.45,-0.1)--  node[left, black] {$f$} +(0,.7);
 	\draw[->, thick, orange!50!brown] (4.35,-0.1)--  node[left, black] {$g$} +(0,.7);
 	\draw[->, thick, blue!75!yellow] (4.3,-1.5) node[black, below] {$(a\cdot c)\times I$} -- (3.3,-0.5);
-\end{tikzpicture}} \\
+\end{tikzpicture}} \displaybreak[1] \\
 \;&=\;
 \raisebox{-1.9cm}{
 \begin{tikzpicture}[y=-1cm]
@@ -731,7 +731,7 @@ Similar arguments show that horizontal composition is associative.
 	\draw[<-, thick, orange!50!brown] (1.45,-1.1)--  node[left, black] {$f$} +(0,.7);
 	\draw[<-, thick, orange!50!brown] (4.35,.4)--  node[left, black] {$g$} +(0,.7);
 	\draw[->, thick, blue!75!yellow] (1.5,.78) node[black, below] {$(a\cdot d)\times I$} -- (2.5,0);
-\end{tikzpicture}} \\
+\end{tikzpicture}} \displaybreak[1] \\
 \;&=\;
 \raisebox{-1.0cm}{
 \begin{tikzpicture}[y=-1cm]
@@ -932,7 +932,9 @@ is equal to the composition of $\alpha$ and $\id_a\bullet v$.
 \begin{align*}
 \mathfig{0.4}{triangle/triangle4a} \\
 \mathfig{0.4}{triangle/triangle4b} \\
-\mathfig{0.4}{triangle/triangle4c} \\
+\mathfig{0.4}{triangle/triangle4c}
+\end{align*}
+\begin{align*}
 \alpha & = 
 \begin{tikzpicture}[baseline]
 \node[circle,fill=black,inner sep=1pt] at (1.73,0) {};
@@ -1025,7 +1027,65 @@ as well as compatibility of product morphisms with fiber-preserving maps (Axiom 
 \begin{figure}[t]
 \begin{align*}
 \mathfig{0.4}{triangle/triangle4d}
-\mathfig{0.4}{triangle/triangle4e}
+\mathfig{0.4}{triangle/triangle4e} \\
+\end{align*}
+\begin{align*}
+u \bullet (b \times I) & = 
+\begin{tikzpicture}[baseline]
+\coordinate (L) at (0,0);
+\coordinate (R) at (3,0);
+\coordinate (T) at (1.5,0.8);
+\coordinate (M) at (1.5,-0.4);
+\coordinate (B) at (0.75,-0.8);
+\path (L) \vertex (T) \vertex (R) \vertex (M) \vertex (B) \vertex;
+\draw (L)  to[out=40,in=180] node[above] {$a$} (T) 
+		to[out=0,in=140] node[above] {$b$} (R) 
+		to[out=-150,in=-20] node[below] {$b$} (M) 
+		-- node[below] {\tiny $y \times I$} (B) 
+		to[out=150,in=-45] node[below] {$a$} (L);
+\draw[dashed] (L) to[out=0,in=150] (M)
+			     to[out=30,in=150] (R);
+\draw[dashed] (T) -- (M);
+\foreach \n in {0,...,7} {
+	\path (L) to[out=-45,in=150] node[coordinate,pos=\n/8] (LB\n) {} (B);
+	\path (L) to[out=0,in=150] node[coordinate,pos=\n/8] (LM\n) {} (M);
+	\path (L) to[out=40,in=180] node[coordinate,pos=\n/8] (LT\n) {} (T);
+	\draw[green!50!brown] (LB\n) -- (LM\n) -- (LT\n);
+}
+\foreach \n in {1,...,7} {
+	\path (M) to[out=-20,in=-150] node[coordinate,pos=\n/8] (MR\n) {} (R);
+	\path (T) to[out=0,in=140] node[coordinate,pos=\n/8] (TR\n) {} (R);
+	\draw[brown] (MR\n) -- (TR\n);
+}
+\end{tikzpicture} \\
+(a \times I) \bullet v & = 
+\begin{tikzpicture}[baseline]
+\coordinate (L) at (0,0);
+\coordinate (R) at (3,0);
+\coordinate (T) at (1.5,0.8);
+\coordinate (M) at (1.5,-0.4);
+\coordinate (B) at (2.25,-0.8);
+\path (L) \vertex (T) \vertex (R) \vertex (M) \vertex (B) \vertex;
+\draw (L)  to[out=40,in=180] node[above] {$a$} (T) 
+		to[out=0,in=140] node[above] {$b$} (R)
+		to[out=-150,in=45] node[below] {$b$} (B) 
+		-- node[below=2] {\tiny $y \times I$} (M) 
+		to[out=-160,in=-30] node[below] {$a$} (L);
+\draw[dashed] (L) to[out=30,in=150] (M)
+			     to[out=30,in=180] (R);
+\draw[dashed] (T) -- (M);
+\foreach \n in {1,...,7} {
+	\path (B) to[out=45,in=-150] node[coordinate,pos=\n/8] (BR\n) {} (R);
+	\path (M) to[out=30,in=180] node[coordinate,pos=\n/8] (MR\n) {} (R);
+	\path (T) to[out=0,in=140] node[coordinate,pos=\n/8] (TR\n) {} (R);
+	\draw[brown] (BR\n) -- (MR\n) -- (TR\n);
+}
+\foreach \n in {1,...,7} {
+	\path (L) to[out=-20,in=-150] node[coordinate,pos=\n/8] (LM\n) {} (M);
+	\path (L) to[out=40,in=180] node[coordinate,pos=\n/8] (LT\n) {} (T);
+	\draw[green!50!brown] (LM\n) -- (LT\n);
+}
+\end{tikzpicture} 
 \end{align*}
 \caption{Horizontal compositions in the triangle axiom.}
 \label{fig:horizontal-composition}
@@ -1089,6 +1149,96 @@ as well as compatibility of product morphisms with fiber-preserving maps (Axiom 
 \begin{figure}[t]
 \begin{align*}
 \mathfig{0.4}{triangle/triangle5}
+\end{align*}
+\begin{align*}
+\begin{tikzpicture}[baseline]
+\coordinate (L) at (0,0);
+\coordinate (R) at (3,0);
+\coordinate (T) at (1.5,0.8);
+\coordinate (M) at (1.5,-0.4);
+\coordinate (B) at (0.75,-0.8);
+\path (L) \vertex (T) \vertex (R) \vertex (M) \vertex (B) \vertex;
+\draw (L)  to[out=40,in=180]  (T) 
+		to[out=0,in=140]  (R) 
+		to[out=-150,in=-20]  (M) 
+		-- (B) 
+		to[out=150,in=-45]  (L);
+\draw[dashed] (T) -- (M);
+\foreach \n in {0,...,7} {
+	\path (L) to[out=-45,in=150] node[coordinate,pos=\n/8] (LB\n) {} (B);
+	\path (L) to[out=0,in=150] node[coordinate,pos=\n/8] (LM\n) {} (M);
+	\path (L) to[out=40,in=180] node[coordinate,pos=\n/8] (LT\n) {} (T);
+	\draw[green!50!brown] (LB\n) -- (LM\n) -- (LT\n);
+}
+\foreach \n in {1,...,7} {
+	\path (M) to[out=-20,in=-150] node[coordinate,pos=\n/8] (MR\n) {} (R);
+	\path (T) to[out=0,in=140] node[coordinate,pos=\n/8] (TR\n) {} (R);
+	\draw[brown] (MR\n) -- (TR\n);
+}
+\coordinate (B') at ($(B)+(0.125,-0.25)$);
+\coordinate (M') at ($(M)+(0.125,-0.25)$);
+\coordinate (R') at ($(R)+(0.125,-0.25)$);
+\coordinate (X) at ($(M')+(0,-0.6)$);
+\path (X) \vertex;
+\draw[dashed] (M') -- (X);
+\draw[clip] (B') to[out=-30,in=180] (X) to[out=0,in=-135] (R') to[out=-150,in=-20] (M') -- cycle;
+\foreach \n in {1,...,7} {
+	\path (M') to[out=-20,in=-150] node[coordinate,pos=\n/8] (M'R'\n) {} (R');
+	\draw[brown] (M'R'\n) -- +(0,-1);
+}
+\foreach \n in {1,...,5} {
+	\path (B') to[out=-30,in=180] node[coordinate,pos=\n/6] (B'X\n) {} (X);
+	\path (M') to[out=-90,in=90] node[coordinate,pos=\n/6] (M'X\n) {} (X);
+	\path (B') to[out=30,in=-150] node[coordinate,pos=\n/6] (B'M'\n) {} (M');
+	\draw[blue] (B'X\n) -- (M'X\n);
+	\draw[blue] (B'M'\n) -- (B'X\n);
+}
+\end{tikzpicture} 
+\xrightarrow{\text{collar}}
+\begin{tikzpicture}[baseline]
+\coordinate (L) at (0,0);
+\coordinate (R) at (3,0);
+\coordinate (T) at (1.5,0.8);
+\coordinate (M) at (1.5,-0.4);
+\coordinate (B) at (0.75,-0.8);
+\path (L) \vertex (T) \vertex (R) \vertex (M) \vertex (B) \vertex;
+\draw (L)  to[out=40,in=180]  (T) 
+		to[out=0,in=140]  (R);
+\draw[dashed] (R) to[out=-150,in=-20]  (M) 
+		-- (B); 
+\draw	(B)	to[out=150,in=-45]  (L);
+\draw[dashed] (T) -- (M);
+\foreach \n in {0,...,7} {
+	\path (L) to[out=-45,in=150] node[coordinate,pos=\n/8] (LB\n) {} (B);
+	\path (L) to[out=0,in=150] node[coordinate,pos=\n/8] (LM\n) {} (M);
+	\path (L) to[out=40,in=180] node[coordinate,pos=\n/8] (LT\n) {} (T);
+	\draw[green!50!brown] (LB\n) -- (LM\n) -- (LT\n);
+}
+\foreach \n in {1,...,7} {
+	\path (M) to[out=-20,in=-150] node[coordinate,pos=\n/8] (MR\n) {} (R);
+	\path (T) to[out=0,in=140] node[coordinate,pos=\n/8] (TR\n) {} (R);
+	\draw[brown] (MR\n) -- (TR\n);
+}
+\coordinate (B') at (B);
+\coordinate (M') at (M);
+\coordinate (R') at (R);
+\coordinate (X) at ($(M')+(0,-0.6)$);
+\path (X) \vertex;
+\draw[dashed] (M') -- (X);
+\draw (B') to[out=-30,in=180] (X) to[out=0,in=-135] (R');
+\path[clip] (B') to[out=-30,in=180] (X) to[out=0,in=-135] (R') to[out=-150,in=-20] (M') -- cycle;
+\foreach \n in {1,...,7} {
+	\path (M') to[out=-20,in=-150] node[coordinate,pos=\n/8] (M'R'\n) {} (R');
+	\draw[brown] (M'R'\n) -- +(0,-1);
+}
+\foreach \n in {1,...,5} {
+	\path (B') to[out=-30,in=180] node[coordinate,pos=\n/6] (B'X\n) {} (X);
+	\path (M') to[out=-90,in=90] node[coordinate,pos=\n/6] (M'X\n) {} (X);
+	\path (B') to[out=30,in=-150] node[coordinate,pos=\n/6] (B'M'\n) {} (M');
+	\draw[blue] (B'X\n) -- (M'X\n);
+	\draw[blue] (B'M'\n) -- (B'X\n);
+}
+\end{tikzpicture} 
 \end{align*}
 \caption{Adding a collar in the proof of the triangle axiom.}
 \label{fig:adding-a-collar}
