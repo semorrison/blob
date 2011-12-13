@@ -247,7 +247,7 @@ Figure \ref{fig:product-regions} shows some examples.
 }
 \end{scope}
 \draw[->,blue] (1.5,-1) node[below] {$a \times I$} -- (0.75,0);
-\end{tikzpicture} \\
+\end{tikzpicture} &
 \begin{tikzpicture}[baseline]
 \node[draw] (c) at (0,0) [ellipse, minimum height=2cm,minimum width=2.5cm] {};
 \draw[dashed] (c.north) -- (c.south);
@@ -284,11 +284,12 @@ Figure \ref{fig:product-regions} shows some examples.
 \draw[dashed] (c.north) -- (d.north) (d.south) -- (c.south);
 \node[right=18] at (c) {$g$};
 \node[left=18] at (c) {$f$};
+\draw[->,blue] (.75,-1.25) node[below] {$a \times I$} -- (0,-0.25);
 \clip (0,0) circle (0.5cm);
 \foreach \y in {1,0.86,...,-1} {
 	\draw[green!50!brown] (-1,\y)--(1,\y);
 }
-\end{tikzpicture} \\
+\end{tikzpicture} &
 \begin{tikzpicture}[baseline]
 \begin{scope}
 \clip (-1.3,-2) rectangle (0,2);
@@ -320,6 +321,7 @@ Figure \ref{fig:product-regions} shows some examples.
 \draw (m.center) .. controls +(1,0) and +(1,0) .. (c.south);
 \node[right=15,below=8] at (c) {$g$};
 \node[left=12] at (c) {$f$};
+\draw[->,blue] (.65,-1.25) node[below] {$a \times I$} -- (0,-0.25);
 \end{tikzpicture}
 \end{align*}
 \caption{Examples of inserting or deleting product regions.}
@@ -788,7 +790,7 @@ $$
                     .. controls +(1,.4) and +(-1,1) .. (g2)
                     .. controls +(-1,.4) and +(1,.4) .. (g1)
                     .. controls +(-1,-.4) and +(1,-1) .. (f1);
-\foreach \x in {0,0.1, ..., 6} {
+\foreach \x in {0,0.2, ..., 6} {
 	\draw[green!50!brown] (\x,-2) -- + (0,4);
 }
 \end{tikzpicture}
@@ -814,7 +816,7 @@ $$
                     .. controls +(1,.4) and +(-1,1) .. (g2)
                     .. controls +(-1,.4) and +(1,.4) .. (g1)
                     .. controls +(-1,-.4) and +(1,-1) .. (f1);
-\foreach \x in {0,0.1, ..., 6} {
+\foreach \x in {0,0.2, ..., 6} {
 	\draw[green!50!brown] (\x,-2) -- + (0,4);
 }
 \end{scope}
@@ -822,7 +824,7 @@ $$
 \path[clip] (f1) ..  controls +(1,1.5) and +(-1,2).. (g2)
 		      .. controls +(-1,1) and +(1,.4) .. (f2)
 		      .. controls +(-1,.8) and + (1,.8) .. (f1);
-\foreach \x in {0,0.1, ..., 6} {
+\foreach \x in {0,0.2, ..., 6} {
 	\draw[green!50!brown] (\x,-2) -- + (0,4);
 }
 \end{scope}
@@ -847,7 +849,7 @@ $$
 \path[clip] (f1) ..  controls +(1,1.5) and +(-1,1.5).. (g2)
 		      .. controls +(-1,.8) and +(1,.8) .. (f2)
 		      .. controls +(-1,.8) and + (1,.8) .. (f1);
-\foreach \x in {0,0.1, ..., 6} {
+\foreach \x in {0,0.2, ..., 6} {
 	\draw[green!50!brown] (\x,-2) -- + (0,4);
 }
 \end{scope}
@@ -935,6 +937,35 @@ is equal to the vertical composition of $\alpha$ and $\id_a\bullet v$.
 %\mathfig{0.4}{triangle/triangle4c}
 %\end{align*}
 \begin{align*}
+u & =
+\begin{tikzpicture}[baseline]
+\coordinate (P) at (0,0);
+\coordinate (Q) at (3,0);
+\coordinate (R) at (1.5,-0.5);
+\draw (P) \vertex to[out=40,in=140] node[above] {$a$} (Q) \vertex -- node[below] {\scriptsize $y \times I$} (R) \vertex to[out=-180,in=-40] node[below] {$a$} (P);
+\clip (P) to[out=40,in=140] (Q) -- (R) to[out=-180,in=-40] (P);
+\foreach \x in {1,...,9} {
+	\path (P) to[out=40,in=140] node[pos=\x/10] (PQ\x) {} (Q);
+	\path (P) to[out=-40,in=-180] node[pos=\x/10] (PR\x) {} (R);
+	\draw[green!50!brown] (PQ\x.center) -- (PR\x.center);
+}
+\end{tikzpicture} &
+v & = 
+\begin{tikzpicture}[baseline]
+\coordinate (P) at (0,0);
+\coordinate (Q) at (3,0);
+\coordinate (R) at (1.5,-0.5);
+\draw (P) \vertex to[out=40,in=140] node[above] {$b$} (Q) \vertex to[out=-140,in=0] node[below] {$b$} (R) -- node[below] {\scriptsize $y \times I$}  (P);
+\clip (P) to[out=40,in=140] (Q) to[out=-140,in=0] (R) -- (P);
+\foreach \x in {1,...,9} {
+	\path (P) to[out=40,in=140] node[pos=\x/10] (PQ\x) {} (Q);
+	\path (R) to[out=0,in=-140] node[pos=\x/10] (RQ\x) {} (Q);
+	\draw[brown] (PQ\x.center) -- (RQ\x.center);
+}
+\end{tikzpicture}
+\end{align*}
+\vspace{-2cm}
+\begin{align*}
 \alpha & = 
 \begin{tikzpicture}[baseline]
 \node[circle,fill=black,inner sep=1pt] at (1.73,0) {};
@@ -973,7 +1004,7 @@ is equal to the vertical composition of $\alpha$ and $\id_a\bullet v$.
 			\draw[blue!50!brown] (\t,-1) -- +(1.19,2);
 		}
 		\foreach \t in {0.1,0.3,...,2.5} {
-			\draw[red!50!brown] (\t,-1) -- +(1.19,2);
+			\draw[brown] (\t,-1) -- +(1.19,2);
 		}
 	\foreach \x in {0,1,...,10} {
 		\path (L1) to[out=60,in=-120] node[pos=\x/10] (p1\x) {}(U1);
@@ -984,34 +1015,9 @@ is equal to the vertical composition of $\alpha$ and $\id_a\bullet v$.
 \draw[->, thick, blue!75!yellow] (-2,0.5) node[black, left] {$a\times I$} -- (-1,0.5);
 \draw[->, thick, blue!75!yellow] (-0.1,-1.5) node[black, below] {$y\times I \times I$} -- (-0.25,-0.5);
 \draw[->, thick, blue!75!yellow] (2,-0.5) node[black, right] {$b\times I$} -- (1,-0.5);
-\end{tikzpicture} \\
-u & =
-\begin{tikzpicture}[baseline]
-\coordinate (P) at (0,0);
-\coordinate (Q) at (3,0);
-\coordinate (R) at (1.5,-0.5);
-\draw (P) \vertex to[out=40,in=140] node[above] {$a$} (Q) \vertex -- node[below] {\scriptsize $y \times I$} (R) \vertex to[out=-180,in=-40] node[below] {$a$} (P);
-\clip (P) to[out=40,in=140] (Q) -- (R) to[out=-180,in=-40] (P);
-\foreach \x in {1,...,9} {
-	\path (P) to[out=40,in=140] node[pos=\x/10] (PQ\x) {} (Q);
-	\path (P) to[out=-40,in=-180] node[pos=\x/10] (PR\x) {} (R);
-	\draw[green!50!brown] (PQ\x.center) -- (PR\x.center);
-}
-\end{tikzpicture} \\
-v & = 
-\begin{tikzpicture}[baseline]
-\coordinate (P) at (0,0);
-\coordinate (Q) at (3,0);
-\coordinate (R) at (1.5,-0.5);
-\draw (P) \vertex to[out=40,in=140] node[above] {$b$} (Q) \vertex to[out=-140,in=0] node[below] {$b$} (R) -- node[below] {\scriptsize $y \times I$}  (P);
-\clip (P) to[out=40,in=140] (Q) to[out=-140,in=0] (R) -- (P);
-\foreach \x in {1,...,9} {
-	\path (P) to[out=40,in=140] node[pos=\x/10] (PQ\x) {} (Q);
-	\path (R) to[out=0,in=-140] node[pos=\x/10] (RQ\x) {} (Q);
-	\draw[brown] (PQ\x.center) -- (RQ\x.center);
-}
-\end{tikzpicture} \\
+\end{tikzpicture}
 \end{align*}
+\vspace{-1cm}
 \caption{Ingredients for the triangle axiom.}
 \label{fig:ingredients-triangle-axiom}
 \end{figure}
@@ -1056,7 +1062,7 @@ u *_h (b \times I) & =
 	\path (T) to[out=0,in=140] node[coordinate,pos=\n/8] (TR\n) {} (R);
 	\draw[brown] (MR\n) -- (TR\n);
 }
-\end{tikzpicture} \\
+\end{tikzpicture} &
 (a \times I) *_h v & = 
 \begin{tikzpicture}[baseline]
 \coordinate (L) at (0,0);
@@ -1090,6 +1096,7 @@ u *_h (b \times I) & =
 \label{fig:horizontal-composition}
 \end{figure}
 \begin{figure}[t]
+\vspace{-1.5cm}
 \begin{align*}
 %\mathfig{0.4}{triangle/triangle4f} \\
 \begin{tikzpicture}
@@ -1124,12 +1131,12 @@ u *_h (b \times I) & =
 \foreach \n in {0,...,5} {
 	\path (C) to[out=0,in=-180] node[coordinate,pos=\n/5] (CD\n) {} (D);
 	\path (L1) to[out=-30,in=-180] node[coordinate,pos=\n/5] (L1L2\n) {} (L2);
-	\draw[blue] (CD\n) -- (L1L2\n);
+	\draw[blue!50!brown] (CD\n) -- (L1L2\n);
 }
 \foreach \n in {0,...,5} {
 	\path (L1) to[out=40,in=-140] node[coordinate,pos=\n/5] (L1C\n) {} (C);
 	\path (L2) to[out=50,in=-130] node[coordinate,pos=\n/5] (L2D\n) {} (D);
-	\draw[blue] (L1C\n) -- (L2D\n);
+	\draw[blue!50!brown] (L1C\n) -- (L2D\n);
 }
 \foreach \n in {1,3,...,9} {
 	\path(C) to[out=30,in=150] node[coordinate,pos=\n/10] (CA\n) {} (A);
@@ -1142,6 +1149,7 @@ u *_h (b \times I) & =
 \end{scope}
 \end{tikzpicture}
 \end{align*}
+\vspace{-2.5cm}
 \caption{Vertical composition in the triangle axiom.}
 \label{fig:vertical-composition}
 \end{figure}
@@ -1189,8 +1197,8 @@ u *_h (b \times I) & =
 	\path (B') to[out=-30,in=180] node[coordinate,pos=\n/6] (B'X\n) {} (X);
 	\path (M') to[out=-90,in=90] node[coordinate,pos=\n/6] (M'X\n) {} (X);
 	\path (B') to[out=30,in=-150] node[coordinate,pos=\n/6] (B'M'\n) {} (M');
-	\draw[blue] (B'X\n) -- (M'X\n);
-	\draw[blue] (B'M'\n) -- (B'X\n);
+	\draw[blue!50!brown] (B'X\n) -- (M'X\n);
+	\draw[blue!50!brown] (B'M'\n) -- (B'X\n);
 }
 \end{tikzpicture} 
 \xrightarrow{\text{collar}}
@@ -1234,8 +1242,8 @@ u *_h (b \times I) & =
 	\path (B') to[out=-30,in=180] node[coordinate,pos=\n/6] (B'X\n) {} (X);
 	\path (M') to[out=-90,in=90] node[coordinate,pos=\n/6] (M'X\n) {} (X);
 	\path (B') to[out=30,in=-150] node[coordinate,pos=\n/6] (B'M'\n) {} (M');
-	\draw[blue] (B'X\n) -- (M'X\n);
-	\draw[blue] (B'M'\n) -- (B'X\n);
+	\draw[blue!50!brown] (B'X\n) -- (M'X\n);
+	\draw[blue!50!brown] (B'M'\n) -- (B'X\n);
 }
 \end{tikzpicture} 
 \end{align*}
