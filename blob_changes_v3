@@ -27,7 +27,6 @@ The most significant changes are:
 - strengthened n-cat isotopy invariance axiom to allow for homeomorphisms which act trivially elements on the restriction of an n-morphism to the boundary of the ball
 - more details on axioms for enriched n-cats
 - added details to the construction of traditional 1-categories from disklike 1-categories (Appendix C.1)
-- extended the lemmas of Appendix B (about adapting families of homeomorphisms to open covers) to the topological category
 - modified families-of-homeomorphisms-action axiom for A-infinity n-categories, and added discussion of alternatives
 - added n-cat axiom for existence of splittings, and added similar axiom for fields
 - added transversality requirement to product morphism axiom
