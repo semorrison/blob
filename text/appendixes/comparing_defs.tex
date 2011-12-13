@@ -217,9 +217,9 @@ Extended isotopy invariance implies that adding a product collar to a 2-morphism
 and by cutting and regluing we can insert (or delete) product regions in the interior of 2-morphisms as well.
 Figure \ref{fig:product-regions} shows some examples.
 \begin{figure}[t]
-$$
-\mathfig{0.5}{triangle/triangle2}
-$$
+%$$
+%\mathfig{0.5}{triangle/triangle2}
+%$$
 \begin{align*}
 \begin{tikzpicture}[baseline]
 \node[draw] (c) at (0,0) [circle through = {(1,0)}] {$f$};
@@ -763,9 +763,9 @@ Similar arguments show that horizontal composition is associative.
 \label{fzo5}
 \end{figure}
 \begin{figure}[t]
-$$
-\mathfig{0.6}{triangle/triangle3c}
-$$
+%$$
+%\mathfig{0.6}{triangle/triangle3c}
+%$$
 $$
 \begin{tikzpicture}
 \node (fg1) at (0,0) {
@@ -783,7 +783,7 @@ $$
 \draw[dashed] (g1) .. controls +(1,.4) and +(-1,.4) .. (g2);
 \draw (f2) .. controls +(1,.4) and +(-1,1) .. (g2);
 %
-\draw[blue,->] (-0.8,-1.2) node[below] {$(a \circ d) \times I$} -- (1,-0.5) ;
+\draw[blue,->] (-0.8,-1.2) node[below] {$(a \bullet d) \times I$} -- (1,-0.5) ;
 \path[clip] (f1) .. controls +(1,-.4) and +(-1,-.4) .. (f2)
                     .. controls +(1,.4) and +(-1,1) .. (g2)
                     .. controls +(-1,.4) and +(1,.4) .. (g1)
@@ -842,7 +842,7 @@ $$
 \draw[dashed] (g1) .. controls +(1,.8) and +(-1,.8) .. (g2);
 \draw (f1) .. controls +(1,1.5) and +(-1,1.5)..(g2);
 %
-\draw[blue,->] (4,1.75) node[above] {$(b \circ d) \times I$}-- + (0,-1);
+\draw[blue,->] (4,1.75) node[above] {$(b \bullet d) \times I$}-- + (0,-1);
 \begin{scope}
 \path[clip] (f1) ..  controls +(1,1.5) and +(-1,1.5).. (g2)
 		      .. controls +(-1,.8) and +(1,.8) .. (f2)
@@ -853,8 +853,8 @@ $$
 \end{scope}
 \end{tikzpicture}
 };
-\draw[->] ($(fg1.south)+(0,0.5)$) -- node[left=0.5cm] {add $(b \circ d) \times I$} (fg2);
-\draw[->] (fg2) -- node[right=0.5cm] {remove $(a \circ d) \times I$} ($(fg3.south)+(0,1.75)$);
+\draw[->] ($(fg1.south)+(0,0.5)$) -- node[left=0.5cm] {add $(b \bullet d) \times I$} (fg2);
+\draw[->] (fg2) -- node[right=0.5cm] {remove $(a \bullet d) \times I$} ($(fg3.south)+(0,1.75)$);
 \path (fg1) -- node {$=$} (fg3);
 \end{tikzpicture}
 $$
@@ -866,9 +866,9 @@ Given 1-morphisms $a$, $b$ and $c$ of $D$, we define the associator from $(a\bul
 as in Figure \ref{fig:associator}.
 This is just a reparameterization of the pinched product $(a\bullet b\bullet c)\times I$ of $\cC$.
 \begin{figure}[t]
-$$
-\mathfig{0.4}{triangle/triangle4a}
-$$
+%$$
+%\mathfig{0.4}{triangle/triangle4a}
+%$$
 $$
 \begin{tikzpicture}
 \node[circle,fill=black,inner sep=1pt] at (1.73,0) {};
@@ -929,11 +929,11 @@ We now show that $D$ satisfies the triangle axiom, which states that $u\bullet\i
 is equal to the composition of $\alpha$ and $\id_a\bullet v$.
 (Both are 2-morphisms from $(a\bullet \id_y)\bullet b$ to $a\bullet b$.)
 \begin{figure}[t]
-\begin{align*}
-\mathfig{0.4}{triangle/triangle4a} \\
-\mathfig{0.4}{triangle/triangle4b} \\
-\mathfig{0.4}{triangle/triangle4c}
-\end{align*}
+%\begin{align*}
+%\mathfig{0.4}{triangle/triangle4a} \\
+%\mathfig{0.4}{triangle/triangle4b} \\
+%\mathfig{0.4}{triangle/triangle4c}
+%\end{align*}
 \begin{align*}
 \alpha & = 
 \begin{tikzpicture}[baseline]
@@ -1012,7 +1012,6 @@ v & =
 }
 \end{tikzpicture} \\
 \end{align*}
-\nn{remember to change `assoc' to $\alpha$}
 \caption{Ingredients for the triangle axiom.}
 \label{fig:ingredients-triangle-axiom}
 \end{figure}
@@ -1025,12 +1024,12 @@ Figure  \ref{fig:vertical-composition} by an isotopy rel boundary.
 Note that here we have used in an essential way the associativity of product morphisms (Axiom \ref{axiom:product}.3) 
 as well as compatibility of product morphisms with fiber-preserving maps (Axiom \ref{axiom:product}.1).
 \begin{figure}[t]
+%\begin{align*}
+%\mathfig{0.4}{triangle/triangle4d}
+%\mathfig{0.4}{triangle/triangle4e} \\
+%\end{align*}
 \begin{align*}
-\mathfig{0.4}{triangle/triangle4d}
-\mathfig{0.4}{triangle/triangle4e} \\
-\end{align*}
-\begin{align*}
-u \bullet (b \times I) & = 
+u *_h (b \times I) & = 
 \begin{tikzpicture}[baseline]
 \coordinate (L) at (0,0);
 \coordinate (R) at (3,0);
@@ -1058,7 +1057,7 @@ u \bullet (b \times I) & =
 	\draw[brown] (MR\n) -- (TR\n);
 }
 \end{tikzpicture} \\
-(a \times I) \bullet v & = 
+(a \times I) *_h v & = 
 \begin{tikzpicture}[baseline]
 \coordinate (L) at (0,0);
 \coordinate (R) at (3,0);
@@ -1092,7 +1091,7 @@ u \bullet (b \times I) & =
 \end{figure}
 \begin{figure}[t]
 \begin{align*}
-\mathfig{0.4}{triangle/triangle4f} \\
+%\mathfig{0.4}{triangle/triangle4f} \\
 \begin{tikzpicture}
 \node[circle,fill=black,inner sep=1pt] (A) at (1.73,0) {};
 \node[circle,fill=black,inner sep=1pt] (B) at (-1.73,0) {};
@@ -1147,9 +1146,9 @@ u \bullet (b \times I) & =
 \label{fig:vertical-composition}
 \end{figure}
 \begin{figure}[t]
-\begin{align*}
-\mathfig{0.4}{triangle/triangle5}
-\end{align*}
+%\begin{align*}
+%\mathfig{0.4}{triangle/triangle5}
+%\end{align*}
 \begin{align*}
 \begin{tikzpicture}[baseline]
 \coordinate (L) at (0,0);
