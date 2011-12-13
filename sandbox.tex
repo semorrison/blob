@@ -9,6 +9,20 @@
 \title{Sandbox}
 \begin{document}
 
+\newcommand{\vertex}{node[circle,fill=black,inner sep=1pt] {}}
+
+\begin{tikzpicture}
+\coordinate (P) at (0,0);
+\coordinate (Q) at (3,0);
+\coordinate (R) at (1.5,-0.5);
+\draw (P) \vertex to[out=40,in=140] node[above] {$a$} (Q) \vertex -- node[below] {\scriptsize $y \times I$} (R) \vertex to[out=-180,in=-40] node[below] {$a$} (P);
+\clip (P) to[out=40,in=140] (Q) -- (R) to[out=-180,in=-40] (P);
+\foreach \x in {1,...,9} {
+	\path (P) to[out=40,in=140] node[pos=\x/10] (PQ\x) {} (Q);
+	\path (P) to[out=-40,in=-180] node[pos=\x/10] (PR\x) {} (R);
+	\draw[green!50!brown] (PQ\x.center) -- (PR\x.center);
+}
+\end{tikzpicture}
 
 \begin{tikzpicture}
 \node[circle,fill=black,inner sep=1pt] (A) at (1.73,0) {};
