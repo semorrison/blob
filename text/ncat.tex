@@ -131,7 +131,7 @@ to spheres (and any other manifolds):
 
 \begin{lem}
 \label{lem:spheres}
-For each $1 \le k \le n$, we have a functor $\cl{\cC}_{k-1}$ from 
+For each $1 \le k \le n$, we have a functor $\colimit{\cC}_{k-1}$ from 
 the category of $k{-}1$-spheres and 
 homeomorphisms to the category of sets and bijections.
 \end{lem}
@@ -146,13 +146,13 @@ in the axioms below.
 
 
 \begin{axiom}[Boundaries]\label{nca-boundary}
-For each $k$-ball $X$, we have a map of sets $\bd: \cC_k(X)\to \cl{\cC}_{k-1}(\bd X)$.
+For each $k$-ball $X$, we have a map of sets $\bd: \cC_k(X)\to \colimit{\cC}_{k-1}(\bd X)$.
 These maps, for various $X$, comprise a natural transformation of functors.
 \end{axiom}
 
 Note that the first ``$\bd$" above is part of the data for the category, 
 while the second is the ordinary boundary of manifolds.
-Given $c\in\cl{\cC}(\bd(X))$, we will write $\cC(X; c)$ for $\bd^{-1}(c)$, those morphisms with specified boundary $c$.
+Given $c\in\colimit{\cC}(\bd(X))$, we will write $\cC(X; c)$ for $\bd^{-1}(c)$, those morphisms with specified boundary $c$.
 
 \medskip
 
@@ -176,21 +176,21 @@ We have just argued that the boundary of a morphism has no preferred splitting i
 domain and range, but the converse meets with our approval.
 That is, given compatible domain and range, we should be able to combine them into
 the full boundary of a morphism.
-The following lemma will follow from the colimit construction used to define $\cl{\cC}_{k-1}$
+The following lemma will follow from the colimit construction used to define $\colimit{\cC}_{k-1}$
 on spheres.
 
 \begin{lem}[Boundary from domain and range]
 \label{lem:domain-and-range}
 Let $S = B_1 \cup_E B_2$, where $S$ is a $k{-}1$-sphere $(1\le k\le n)$,
 $B_i$ is a $k{-}1$-ball, and $E = B_1\cap B_2$ is a $k{-}2$-sphere (Figure \ref{blah3}).
-Let $\cC(B_1) \times_{\cl{\cC}(E)} \cC(B_2)$ denote the fibered product of the 
-two maps $\bd: \cC(B_i)\to \cl{\cC}(E)$.
+Let $\cC(B_1) \times_{\colimit{\cC}(E)} \cC(B_2)$ denote the fibered product of the 
+two maps $\bd: \cC(B_i)\to \colimit{\cC}(E)$.
 Then we have an injective map
 \[
-	\gl_E : \cC(B_1) \times_{\cl{\cC}(E)} \cC(B_2) \into \cl{\cC}(S)
+	\gl_E : \cC(B_1) \times_{\colimit{\cC}(E)} \cC(B_2) \into \colimit{\cC}(S)
 \]
 which is natural with respect to the actions of homeomorphisms.
-(When $k=1$ we stipulate that $\cl{\cC}(E)$ is a point, so that the above fibered product
+(When $k=1$ we stipulate that $\colimit{\cC}(E)$ is a point, so that the above fibered product
 becomes a normal product.)
 \end{lem}
 
@@ -217,20 +217,20 @@ in the image of the gluing map precisely when the cell complex is in general pos
 with respect to $E$. On the other hand, in categories based on maps to a target space (c.f. Example \ref{ex:maps-to-a-space} below) the gluing map is always surjective.
 
 If $S$ is a 0-sphere (the case $k=1$ above), then $S$ can be identified with the {\it disjoint} union
-of two 0-balls $B_1$ and $B_2$ and the colimit construction $\cl{\cC}(S)$ can be identified
+of two 0-balls $B_1$ and $B_2$ and the colimit construction $\colimit{\cC}(S)$ can be identified
 with the (ordinary, not fibered) product $\cC(B_1) \times \cC(B_2)$.
 
-Let $\cl{\cC}(S)\trans E$ denote the image of $\gl_E$.
-We will refer to elements of $\cl{\cC}(S)\trans E$ as ``splittable along $E$" or ``transverse to $E$". 
+Let $\colimit{\cC}(S)\trans E$ denote the image of $\gl_E$.
+We will refer to elements of $\colimit{\cC}(S)\trans E$ as ``splittable along $E$" or ``transverse to $E$". 
 When the gluing map is surjective every such element is splittable.
 
 If $X$ is a $k$-ball and $E \sub \bd X$ splits $\bd X$ into two $k{-}1$-balls $B_1$ and $B_2$
-as above, then we define $\cC(X)\trans E = \bd^{-1}(\cl{\cC}(\bd X)\trans E)$.
+as above, then we define $\cC(X)\trans E = \bd^{-1}(\colimit{\cC}(\bd X)\trans E)$.
 
-We will call the projection $\cl{\cC}(S)\trans E \to \cC(B_i)$ given by the composition
-$$\cl{\cC}(S)\trans E \xrightarrow{\gl^{-1}} \cC(B_1) \times \cC(B_2) \xrightarrow{\pr_i} \cC(B_i)$$
+We will call the projection $\colimit{\cC}(S)\trans E \to \cC(B_i)$ given by the composition
+$$\colimit{\cC}(S)\trans E \xrightarrow{\gl^{-1}} \cC(B_1) \times \cC(B_2) \xrightarrow{\pr_i} \cC(B_i)$$
 a {\it restriction} map and write $\res_{B_i}(a)$
-(or simply $\res(a)$ when there is no ambiguity), for $a\in \cl{\cC}(S)\trans E$.
+(or simply $\res(a)$ when there is no ambiguity), for $a\in  \colimit{\cC}(S)\trans E$.
 More generally, we also include under the rubric ``restriction map"
 the boundary maps of Axiom \ref{nca-boundary} above,
 another class of maps introduced after Axiom \ref{nca-assoc} below, as well as any composition
@@ -238,7 +238,7 @@ of restriction maps.
 In particular, we have restriction maps $\cC(X)\trans E \to \cC(B_i)$
 defined as the composition of the boundary with the first restriction map described above:
 $$
-\cC(X) \trans E \xrightarrow{\bdy} \cl{\cC}(\bdy X)\trans E \xrightarrow{\res} \cC(B_i)
+\cC(X) \trans E \xrightarrow{\bdy} \colimit{\cC}(\bdy X)\trans E \xrightarrow{\res} \cC(B_i)
 .$$
 These restriction maps can be thought of as 
 domain and range maps, relative to the choice of splitting $\bd X = B_1 \cup_E B_2$.
@@ -317,7 +317,7 @@ We  say that elements of $\cC(X)_\alpha$ are morphisms which are ``splittable al
 In situations where the splitting is notationally anonymous, we will write
 $\cC(X)\spl$ for the morphisms which are splittable along (a.k.a.\ transverse to)
 the unnamed splitting.
-If $\beta$ is a ball decomposition of $\bd X$, we define $\cC(X)_\beta \deq \bd\inv(\cl{\cC}(\bd X)_\beta)$;
+If $\beta$ is a ball decomposition of $\bd X$, we define $\cC(X)_\beta \deq \bd\inv(\colimit{\cC}(\bd X)_\beta)$;
 this can also be denoted $\cC(X)\spl$ if the context contains an anonymous
 decomposition of $\bd X$ and no competing splitting of $X$.
 
@@ -995,7 +995,7 @@ Next we define enriched $n$-categories.
 
 Most of the examples of $n$-categories we are interested in are enriched in the following sense.
 The various sets of $n$-morphisms $\cC(X; c)$, for all $n$-balls $X$ and
-all $c\in \cl{\cC}(\bd X)$, have the structure of an object in some appropriate auxiliary category
+all $c\in \colimit{\cC}(\bd X)$, have the structure of an object in some appropriate auxiliary category
 (e.g.\ vector spaces, or modules over some ring, or chain complexes),
 and all the structure maps of the $n$-category are compatible with the auxiliary
 category structure.
@@ -1021,7 +1021,7 @@ Before stating the revised axioms for an $n$-category enriched in a distributive
 we need a preliminary definition.
 Once we have the above $n$-category axioms for $n{-}1$-morphisms, we can define the 
 category $\bbc$ of {\it $n$-balls with boundary conditions}.
-Its objects are pairs $(X, c)$, where $X$ is an $n$-ball and $c \in \cl\cC(\bd X)$ is the ``boundary condition".
+Its objects are pairs $(X, c)$, where $X$ is an $n$-ball and $c \in \colimit{\cC}(\bd X)$ is the ``boundary condition".
 The morphisms from $(X, c)$ to $(X', c')$, denoted $\Homeo(X; c \to X'; c')$, are
 homeomorphisms $f:X\to X'$ such that $f|_{\bd X}(c) = c'$.
 %Let $\pi_0(\bbc)$ denote
@@ -1038,7 +1038,7 @@ and modifies the axioms for $k=n$ as follows:
 \item Composition. Let $B = B_1\cup_Y B_2$ as in Axiom \ref{axiom:composition}.
 Let $Y_i = \bd B_i \setmin Y$.  
 Note that $\bd B = Y_1\cup Y_2$.
-Let $c_i \in \cC(Y_i)$ with $\bd c_1 = \bd c_2 = d \in \cl\cC(E)$.
+Let $c_i \in \cC(Y_i)$ with $\bd c_1 = \bd c_2 = d \in \colimit{\cC}(E)$.
 Then we have a map
 \[
 	\gl_Y : \bigoplus_c \cC(B_1; c_1 \bullet c) \otimes \cC(B_2; c_2\bullet c) \to \cC(B; c_1\bullet c_2),
@@ -1073,7 +1073,7 @@ and let $\cJ$ be an $\infty$-functor from topological spaces to $\cS$
 
 \begin{axiom}[\textup{\textbf{[$A_\infty$ replacement for Axiom \ref{axiom:extended-isotopies}]}} Families of homeomorphisms act in dimension $n$.]
 \label{axiom:families}
-For each pair of $n$-balls $X$ and $X'$ and each pair $c\in \cl{\cC}(\bd X)$ and $c'\in \cl{\cC}(\bd X')$ we have an $\cS$-morphism
+For each pair of $n$-balls $X$ and $X'$ and each pair $c\in \colimit{\cC}(\bd X)$ and $c'\in \colimit{\cC}(\bd X')$ we have an $\cS$-morphism
 \[
 	\cJ(\Homeo(X;c \to X'; c')) \ot \cC(X; c) \to \cC(X'; c') .
 \]
@@ -1184,7 +1184,7 @@ before we can describe the data for $k$-morphisms.
 An $n$-category consists of the following data:
 \begin{itemize}
 \item functors $\cC_k$ from $k$-balls to sets, $0\le k\le n$ (Axiom \ref{axiom:morphisms});
-\item boundary natural transformations $\cC_k \to \cl{\cC}_{k-1} \circ \bd$ (Axiom \ref{nca-boundary});
+\item boundary natural transformations $\cC_k \to \colimit{\cC}_{k-1} \circ \bd$ (Axiom \ref{nca-boundary});
 \item ``composition'' or ``gluing'' maps $\gl_Y : \cC(B_1)\trans E \times_{\cC(Y)} \cC(B_2)\trans E \to \cC(B_1\cup_Y B_2)\trans E$ (Axiom \ref{axiom:composition});
 \item ``product'' or ``identity'' maps $\pi^*:\cC(X)\to \cC(E)$ for each pinched product $\pi:E\to X$ (Axiom \ref{axiom:product});
 \item if enriching in an auxiliary category, additional structure on $\cC_n(X; c)$ (Axiom \ref{axiom:enriched});
@@ -1268,7 +1268,7 @@ system of fields (also denoted $\cF$) and local relations.
 Let $W$ be an $n{-}j$-manifold.
 Define the $j$-category $\cF(W)$ as follows.
 If $X$ is a $k$-ball with $k<j$, let $\cF(W)(X) \deq \cF(W\times X)$.
-If $X$ is a $j$-ball and $c\in \cl{\cF(W)}(\bd X)$,
+If $X$ is a $j$-ball and $c\in \colimit{\cF(W)}(\bd X)$,
 let $\cF(W)(X; c) \deq A_\cF(W\times X; c)$.
 \end{example}
 
@@ -1284,7 +1284,7 @@ which definition of a ``traditional $n$-category with strong duality" we intend.
 Given a ``traditional $n$-category with strong duality" $C$
 define $\cC(X)$, for $X$ a $k$-ball with $k < n$,
 to be the set of all $C$-labeled embedded cell complexes of $X$ (c.f. \S \ref{sec:fields}).
-For $X$ an $n$-ball and $c\in \cl{\cC}(\bd X)$, define $\cC(X; c)$ to be finite linear
+For $X$ an $n$-ball and $c\in \colimit{\cC}(\bd X)$, define $\cC(X; c)$ to be finite linear
 combinations of $C$-labeled embedded cell complexes of $X$
 modulo the kernel of the evaluation map.
 Define a product morphism $a\times D$, for $D$ an $m$-ball, to be the product of the cell complex of $a$ with $D$,
@@ -1459,13 +1459,13 @@ we get an instance of Lurie's topological chiral homology construction or Andrad
 \subsection{From balls to manifolds}
 \label{ss:ncat_fields} \label{ss:ncat-coend}
 In this section we show how to extend an $n$-category $\cC$ as described above 
-(of either the ordinary or $A_\infty$ variety) to an invariant of manifolds, which we denote by $\cl{\cC}$.
+(of either the ordinary or $A_\infty$ variety) to an invariant of manifolds, which we denote by $\colimit{\cC}$.
 This extension is a certain colimit, and the arrow in the notation is intended as a reminder of this.
 
 In the case of ordinary $n$-categories, this construction factors into a construction of a 
 system of fields and local relations, followed by the usual TQFT definition of a 
 vector space invariant of manifolds given as Definition \ref{defn:TQFT-invariant}.
-For an $A_\infty$ $n$-category, $\cl{\cC}$ is defined using a homotopy colimit instead.
+For an $A_\infty$ $n$-category, $\colimit{\cC}$ is defined using a homotopy colimit instead.
 Recall that we can take an ordinary $n$-category $\cC$ and pass to the ``free resolution", 
 an $A_\infty$ $n$-category $\bc_*(\cC)$, by computing the blob complex of balls 
 (recall Example \ref{ex:blob-complexes-of-balls} above).
@@ -1474,14 +1474,14 @@ for a manifold $M$ associated to this $A_\infty$ $n$-category is actually the
 same as the original blob complex for $M$ with coefficients in $\cC$.
 
 Recall that we've already anticipated this construction Subsection \ref{ss:n-cat-def}, 
-inductively defining $\cl{\cC}$ on $k$-spheres in terms of $\cC$ on $k$-balls, 
+inductively defining $\colimit{\cC}$ on $k$-spheres in terms of $\cC$ on $k$-balls, 
 so that we can state the boundary axiom for $\cC$ on $k+1$-balls.
 
 \medskip
 
 We will first define the {\it decomposition poset} $\cell(W)$ for any $k$-manifold $W$, for $1 \leq k \leq n$. 
 An $n$-category $\cC$ provides a functor from this poset to the category of sets, 
-and we  will define $\cl{\cC}(W)$ as a suitable colimit 
+and we  will define $\colimit{\cC}(W)$ as a suitable colimit 
 (or homotopy colimit in the $A_\infty$ case) of this functor. 
 We'll later give a more explicit description of this colimit.
 In the case that the $n$-category $\cC$ is enriched (e.g. associates vector spaces or chain 
@@ -1546,8 +1546,8 @@ $\cC(X_a)$ and $\cC(X_b)$ agree whenever some part of $\bd X_a$ is glued to some
 Since we allow decompositions in which the intersection of $X_a$ and $X_b$ might be messy 
 (see Example \ref{sin1x-example}), we must define $\psi_{\cC;W}(x)$ in a more roundabout way.
 
-Inductively, we may assume that we have already defined the colimit $\cl\cC(M)$ for $k{-}1$-manifolds $M$.
-(To start the induction, we define $\cl\cC(M)$, where $M = \du_a P_a$ is a 0-manifold and each $P_a$ is
+Inductively, we may assume that we have already defined the colimit $\colimit\cC(M)$ for $k{-}1$-manifolds $M$.
+(To start the induction, we define $\colimit\cC(M)$, where $M = \du_a P_a$ is a 0-manifold and each $P_a$ is
 a 0-ball, to be $\prod_a \cC(P_a)$.)
 We also assume, inductively, that we have gluing and restriction maps for colimits of $k{-}1$-manifolds.
 Gluing and restriction maps for colimits of $k$-manifolds will be defined later in this subsection.
@@ -1558,17 +1558,17 @@ We will define $\psi_{\cC;W}(x)$ to be the subset of $\prod_a \cC(X_a)$ which sa
 related to the gluings $M_{i-1} \to M_i$, $1\le i \le m$.
 By Axiom \ref{nca-boundary}, we have a map
 \[
-	\prod_a \cC(X_a) \to \cl\cC(\bd M_0) .
+	\prod_a \cC(X_a) \to \colimit\cC(\bd M_0) .
 \]
-The first condition is that the image of $\psi_{\cC;W}(x)$ in $\cl\cC(\bd M_0)$ is splittable
-along $\bd Y_0$ and $\bd Y'_0$, and that the restrictions to $\cl\cC(Y_0)$ and $\cl\cC(Y'_0)$ agree
+The first condition is that the image of $\psi_{\cC;W}(x)$ in $\colimit\cC(\bd M_0)$ is splittable
+along $\bd Y_0$ and $\bd Y'_0$, and that the restrictions to $\colimit\cC(Y_0)$ and $\colimit\cC(Y'_0)$ agree
 (with respect to the identification of $Y_0$ and $Y'_0$ provided by the gluing map). 
 
 On the subset of $\prod_a \cC(X_a)$ which satisfies the first condition above, we have a restriction
-map to $\cl\cC(N_0)$ which we can compose with the gluing map 
-$\cl\cC(N_0) \to \cl\cC(\bd M_1)$.
-The second condition is that the image of $\psi_{\cC;W}(x)$ in $\cl\cC(\bd M_1)$ is splittable
-along $\bd Y_1$ and $\bd Y'_1$, and that the restrictions to $\cl\cC(Y_1)$ and $\cl\cC(Y'_1)$ agree
+map to $\colimit\cC(N_0)$ which we can compose with the gluing map 
+$\colimit\cC(N_0) \to \colimit\cC(\bd M_1)$.
+The second condition is that the image of $\psi_{\cC;W}(x)$ in $\colimit\cC(\bd M_1)$ is splittable
+along $\bd Y_1$ and $\bd Y'_1$, and that the restrictions to $\colimit\cC(Y_1)$ and $\colimit\cC(Y'_1)$ agree
 (with respect to the identification of $Y_1$ and $Y'_1$ provided by the gluing map). 
 The $i$-th condition is defined similarly.
 Note that these conditions depend only on the boundaries of elements of $\prod_a \cC(X_a)$.
@@ -1599,48 +1599,48 @@ If we are enriching over $\cS$ and $k=n$, then $\cC(X_a; \beta)$ is an object in
 $\cS$ and the coproduct and product in the above expression should be replaced by the appropriate
 operations in $\cS$ (e.g. direct sum and tensor product if $\cS$ is Vect).
 
-Finally, we construct $\cl{\cC}(W)$ as the appropriate colimit of $\psi_{\cC;W}$:
+Finally, we construct $\colimit{\cC}(W)$ as the appropriate colimit of $\psi_{\cC;W}$:
 
 \begin{defn}[System of fields functor]
 \label{def:colim-fields}
-If $\cC$ is an $n$-category enriched in sets or vector spaces, $\cl{\cC}(W)$ is the usual colimit of the functor $\psi_{\cC;W}$.
+If $\cC$ is an $n$-category enriched in sets or vector spaces, $\colimit{\cC}(W)$ is the usual colimit of the functor $\psi_{\cC;W}$.
 That is, for each decomposition $x$ there is a map
-$\psi_{\cC;W}(x)\to \cl{\cC}(W)$, these maps are compatible with the refinement maps
-above, and $\cl{\cC}(W)$ is universal with respect to these properties.
+$\psi_{\cC;W}(x)\to \colimit{\cC}(W)$, these maps are compatible with the refinement maps
+above, and $\colimit{\cC}(W)$ is universal with respect to these properties.
 \end{defn}
 
 \begin{defn}[System of fields functor, $A_\infty$ case]
-When $\cC$ is an $A_\infty$ $n$-category, $\cl{\cC}(W)$ for $W$ a $k$-manifold with $k < n$ 
+When $\cC$ is an $A_\infty$ $n$-category, $\colimit{\cC}(W)$ for $W$ a $k$-manifold with $k < n$ 
 is defined as above, as the colimit of $\psi_{\cC;W}$.
-When $W$ is an $n$-manifold, the chain complex $\cl{\cC}(W)$ is the homotopy colimit of the functor $\psi_{\cC;W}$.
+When $W$ is an $n$-manifold, the chain complex $\colimit{\cC}(W)$ is the homotopy colimit of the functor $\psi_{\cC;W}$.
 \end{defn}
 
-%We can specify boundary data $c \in \cl{\cC}(\bdy W)$, and define functors $\psi_{\cC;W,c}$ 
+%We can specify boundary data $c \in \colimit{\cC}(\bdy W)$, and define functors $\psi_{\cC;W,c}$ 
 %with values the subsets of those of $\psi_{\cC;W}$ which agree with $c$ on the boundary of $W$.
 
 \medskip
 
-We must now define restriction maps $\bd : \cl{\cC}(W) \to \cl{\cC}(\bd W)$ and gluing maps.
+We must now define restriction maps $\bd : \colimit{\cC}(W) \to \colimit{\cC}(\bd W)$ and gluing maps.
 
-Let $y\in \cl{\cC}(W)$.
+Let $y\in \colimit{\cC}(W)$.
 Choose a representative of $y$ in the colimit: a permissible decomposition $\du_a X_a \to W$ and elements
 $y_a \in \cC(X_a)$.
 By assumption, $\du_a (X_a \cap \bd W) \to \bd W$ can be completed to a decomposition of $\bd W$.
-Let $r(y_a) \in \cl\cC(X_a \cap \bd W)$ be the restriction.
-Choose a representative of $r(y_a)$ in the colimit $\cl\cC(X_a \cap \bd W)$: a permissible decomposition
+Let $r(y_a) \in \colimit\cC(X_a \cap \bd W)$ be the restriction.
+Choose a representative of $r(y_a)$ in the colimit $\colimit\cC(X_a \cap \bd W)$: a permissible decomposition
 $\du_b Q_{ab} \to X_a \cap \bd W$ and elements $z_{ab} \in \cC(Q_{ab})$.
 Then $\du_{ab} Q_{ab} \to \bd W$ is a permissible decomposition of $\bd W$ and $\{z_{ab}\}$ represents
-an element of $\cl{\cC}(\bd W)$.  Define $\bd y$ to be this element.
+an element of $\colimit{\cC}(\bd W)$.  Define $\bd y$ to be this element.
 It is not hard to see that it is independent of the various choices involved.
 
 Note that since we have already (inductively) defined gluing maps for colimits of $k{-}1$-manifolds,
-we can also define restriction maps from $\cl{\cC}(W)\trans{}$ to $\cl{\cC}(Y)$ where $Y$ is a codimension 0 
+we can also define restriction maps from $\colimit{\cC}(W)\trans{}$ to $\colimit{\cC}(Y)$ where $Y$ is a codimension 0 
 submanifold of $\bd W$.
 
 Next we define gluing maps for colimits of $k$-manifolds.
 Let $W = W_1 \cup_Y W_2$.
-Let $y_i \in \cl\cC(W_i)$ and assume that the restrictions of $y_1$ and $y_2$ to $\cl\cC(Y)$ agree.
-We want to define $y_1\bullet y_2 \in \cl\cC(W)$.
+Let $y_i \in \colimit\cC(W_i)$ and assume that the restrictions of $y_1$ and $y_2$ to $\colimit\cC(Y)$ agree.
+We want to define $y_1\bullet y_2 \in \colimit\cC(W)$.
 Choose a permissible decomposition $\du_a X_{ia} \to W_i$ and elements 
 $y_{ia} \in \cC(X_{ia})$ representing $y_i$.
 It might not be the case that $\du_{ia} X_{ia} \to W$ is a permissible decomposition of $W$,
@@ -1660,14 +1660,14 @@ We now give more concrete descriptions of the above colimits.
 In the non-enriched case (e.g.\ $k<n$), where each $\cC(X_a; \beta)$ is just a set,
 the colimit is
 \[
-	\cl{\cC}(W,c) = \left( \coprod_x \coprod_\beta \prod_a \cC(X_a; \beta) \right) \Bigg/ \sim ,
+	\colimit{\cC}(W,c) = \left( \coprod_x \coprod_\beta \prod_a \cC(X_a; \beta) \right) \Bigg/ \sim ,
 \]
 where $x$ runs through decompositions of $W$, and $\sim$ is the obvious equivalence relation 
 induced by refinement and gluing.
 If $\cC$ is enriched over, for example, vector spaces and $W$ is an $n$-manifold, 
 we can take
 \begin{equation*}
-	\cl{\cC}(W,c) = \left( \bigoplus_x \bigoplus_\beta \bigotimes_a \cC(X_a; \beta) \right) \Bigg/ K,
+	\colimit{\cC}(W,c) = \left( \bigoplus_x \bigoplus_\beta \bigotimes_a \cC(X_a; \beta) \right) \Bigg/ K,
 \end{equation*}
 where $K$ is the vector space spanned by elements $a - g(a)$, with
 $a\in \psi_{\cC;W,c}(x)$ for some decomposition $x$, and $g: \psi_{\cC;W,c}(x)
@@ -1684,16 +1684,16 @@ of the indexing category $\cell(W)$.
 
 Define an $m$-sequence in $W$ to be a sequence $x_0 \le x_1 \le \dots \le x_m$ of permissible decompositions of $W$.
 Such sequences (for all $m$) form a simplicial set in $\cell(W)$.
-Define $\cl{\cC}(W)$ as a vector space via
+Define $\colimit{\cC}(W)$ as a vector space via
 \[
-	\cl{\cC}(W) = \bigoplus_{(x_i)} \psi_{\cC;W}(x_0)[m] ,
+	\colimit{\cC}(W) = \bigoplus_{(x_i)} \psi_{\cC;W}(x_0)[m] ,
 \]
 where the sum is over all $m$ and all $m$-sequences $(x_i)$, and each summand is degree shifted by $m$. 
 Elements of a summand indexed by an $m$-sequence will be call $m$-simplices.
-We endow $\cl{\cC}(W)$ with a differential which is the sum of the differential of the $\psi_{\cC;W}(x_0)$
+We endow $\colimit{\cC}(W)$ with a differential which is the sum of the differential of the $\psi_{\cC;W}(x_0)$
 summands plus another term using the differential of the simplicial set of $m$-sequences.
 More specifically, if $(a, \bar{x})$ denotes an element in the $\bar{x}$
-summand of $\cl{\cC}(W)$ (with $\bar{x} = (x_0,\dots,x_k)$), define
+summand of $\colimit{\cC}(W)$ (with $\bar{x} = (x_0,\dots,x_k)$), define
 \[
 	\bd (a, \bar{x}) = (\bd a, \bar{x}) + (-1)^{\deg{a}} (g(a), d_0(\bar{x})) + (-1)^{\deg{a}} \sum_{j=1}^k (-1)^{j} (a, d_j(\bar{x})) ,
 \]
@@ -1728,16 +1728,16 @@ Eilenberg-Zilber type subdivision argument.
 
 \medskip
 
-$\cl{\cC}(W)$ is functorial with respect to homeomorphisms of $k$-manifolds. 
+$\colimit{\cC}(W)$ is functorial with respect to homeomorphisms of $k$-manifolds. 
 Restricting to $k$-spheres, we have now proved Lemma \ref{lem:spheres}.
 
 \begin{lem}
 \label{lem:colim-injective}
 Let $W$ be a manifold of dimension $j<n$.  Then for each
-decomposition $x$ of $W$ the natural map $\psi_{\cC;W}(x)\to \cl{\cC}(W)$ is injective.
+decomposition $x$ of $W$ the natural map $\psi_{\cC;W}(x)\to \colimit{\cC}(W)$ is injective.
 \end{lem}
 \begin{proof}
-$\cl{\cC}(W)$ is a colimit of a diagram of sets, and each of the arrows in the diagram is
+$\colimit{\cC}(W)$ is a colimit of a diagram of sets, and each of the arrows in the diagram is
 injective.
 Concretely, the colimit is the disjoint union of the sets (one for each decomposition of $W$),
 modulo the relation which identifies the domain of each of the injective maps
@@ -1745,7 +1745,7 @@ with its image.
 
 To save ink and electrons we will simplify notation and write $\psi(x)$ for $\psi_{\cC;W}(x)$.
 
-Suppose $a, \hat{a}\in \psi(x)$ have the same image in $\cl{\cC}(W)$ but $a\ne \hat{a}$.
+Suppose $a, \hat{a}\in \psi(x)$ have the same image in $\colimit{\cC}(W)$ but $a\ne \hat{a}$.
 Then there exist
 \begin{itemize}
 \item decompositions $x = x_0, x_1, \ldots , x_{k-1}, x_k = x$ and $v_1,\ldots, v_k$ of $W$;
@@ -1840,21 +1840,21 @@ to the $k{-}1$-spheres in the $n$-category definition.)
 
 \begin{lem}
 \label{lem:hemispheres}
-{For each $1 \le k \le n$, we have a functor $\cl\cM_{k-1}$ from 
+{For each $1 \le k \le n$, we have a functor $\colimit\cM_{k-1}$ from 
 the category of marked $k$-hemispheres and 
 homeomorphisms to the category of sets and bijections.}
 \end{lem}
 The proof is exactly analogous to that of Lemma \ref{lem:spheres}, and we omit the details.
 We use the same type of colimit construction.
 
-In our example, $\cl\cM(H) = \cD(H\times\bd W \cup \bd H\times W)$.
+In our example, $\colimit\cM(H) = \cD(H\times\bd W \cup \bd H\times W)$.
 
 \begin{module-axiom}[Module boundaries]
-{For each marked $k$-ball $M$ we have a map of sets $\bd: \cM(M)\to \cl\cM(\bd M)$.
+{For each marked $k$-ball $M$ we have a map of sets $\bd: \cM(M)\to \colimit\cM(\bd M)$.
 These maps, for various $M$, comprise a natural transformation of functors.}
 \end{module-axiom}
 
-Given $c\in\cl\cM(\bd M)$, let $\cM(M; c) \deq \bd^{-1}(c)$.
+Given $c\in\colimit\cM(\bd M)$, let $\cM(M; c) \deq \bd^{-1}(c)$.
 
 If the $n$-category $\cC$ is enriched over some other category (e.g.\ vector spaces),
 then for each marked $n$-ball $M=(B,N)$ and $c\in \cC(\bd B \setminus N)$, the set $\cM(M; c)$ should be an object in that category.
@@ -1864,10 +1864,10 @@ then for each marked $n$-ball $M=(B,N)$ and $c\in \cC(\bd B \setminus N)$, the s
 {Let $H = M_1 \cup_E M_2$, where $H$ is a marked $k{-}1$-hemisphere ($1\le k\le n$),
 $M_i$ is a marked $k{-}1$-ball, and $E = M_1\cap M_2$ is a marked $k{-}2$-hemisphere.
 Let $\cM(M_1) \times_{\cM(E)} \cM(M_2)$ denote the fibered product of the 
-two maps $\bd: \cM(M_i)\to \cl\cM(E)$.
+two maps $\bd: \cM(M_i)\to \colimit\cM(E)$.
 Then we have an injective map
 \[
-	\gl_E : \cM(M_1) \times_{\cl\cM(E)} \cM(M_2) \hookrightarrow \cl\cM(H)
+	\gl_E : \cM(M_1) \times_{\colimit\cM(E)} \cM(M_2) \hookrightarrow \colimit\cM(H)
 \]
 which is natural with respect to the actions of homeomorphisms.}
 \end{lem}
@@ -1896,22 +1896,22 @@ This is in exact analogy with Lemma \ref{lem:domain-and-range}, and illustrated 
 \label{fig:module-boundary}
 \end{figure}
 
-Let $\cl\cM(H)\trans E$ denote the image of $\gl_E$.
-We will refer to elements of $\cl\cM(H)\trans E$ as ``splittable along $E$" or ``transverse to $E$". 
+Let $\colimit\cM(H)\trans E$ denote the image of $\gl_E$.
+We will refer to elements of $\colimit\cM(H)\trans E$ as ``splittable along $E$" or ``transverse to $E$". 
 
 \noop{ %%%%%%%
 \begin{lem}[Module to category restrictions]
 {For each marked $k$-hemisphere $H$ there is a restriction map
-$\cl\cM(H)\to \cC(H)$.
+$\colimit\cM(H)\to \cC(H)$.
 ($\cC(H)$ means apply $\cC$ to the underlying $k$-ball of $H$.)
 These maps comprise a natural transformation of functors.}
 \end{lem}
 }	%%%%%%% end \noop
 
-It follows from the definition of the colimit $\cl\cM(H)$ that
+It follows from the definition of the colimit $\colimit\cM(H)$ that
 given any (unmarked) $k{-}1$-ball $Y$ in the interior of $H$ there is a restriction map
-from a subset $\cl\cM(H)_{\trans{\bdy Y}}$ of $\cl\cM(H)$ to $\cC(Y)$.
-Combining this with the boundary map $\cM(B,N) \to \cl\cM(\bd(B,N))$, we also have a restriction
+from a subset $\colimit\cM(H)_{\trans{\bdy Y}}$ of $\colimit\cM(H)$ to $\cC(Y)$.
+Combining this with the boundary map $\cM(B,N) \to \colimit\cM(\bd(B,N))$, we also have a restriction
 map from a subset $\cM(B,N)_{\trans{\bdy Y}}$ of $\cM(B,N)$ to $\cC(Y)$ whenever $Y$ is in the interior of $\bd B \setmin N$.
 This fact will be used below.
 
@@ -2195,7 +2195,7 @@ such that if the splitting $s$ is transverse to $S_c$ then $c$ splits along $s$.
 
 We define the 
 category $\mbc$ of {\it marked $n$-balls with boundary conditions} as follows.
-Its objects are pairs $(M, c)$, where $M$ is a marked $n$-ball and $c \in \cl\cM(\bd M)$ is the ``boundary condition".
+Its objects are pairs $(M, c)$, where $M$ is a marked $n$-ball and $c \in \colimit\cM(\bd M)$ is the ``boundary condition".
 The morphisms from $(M, c)$ to $(M', c')$, denoted $\Homeo(M; c \to M'; c')$, are
 homeomorphisms $f:M\to M'$ such that $f|_{\bd M}(c) = c'$.
 
@@ -2210,7 +2210,7 @@ with the following axiom.
 Retain notation from \ref{axiom:families}.
 
 \begin{module-axiom}[Families of homeomorphisms act in dimension $n$.]
-For each pair of marked $n$-balls $M$ and $M'$ and each pair $c\in \cl{\cM}(\bd M)$ and $c'\in \cl{\cM}(\bd M')$ 
+For each pair of marked $n$-balls $M$ and $M'$ and each pair $c\in \colimit{\cM}(\bd M)$ and $c'\in \colimit{\cM}(\bd M')$ 
 we have an $\cS$-morphism
 \[
 	\cJ(\Homeo(M;c \to M'; c')) \ot \cM(M; c) \to \cM(M'; c') .
@@ -2257,7 +2257,7 @@ Let $Y$ be an $(n{-}j{+}1)$-manifold with $\bd Y = W$.
 Define a $\cF(W)$ module $\cF(Y)$ as follows.
 If $M = (B, N)$ is a marked $k$-ball with $k<j$ let 
 $\cF(Y)(M)\deq \cF((B\times W) \cup (N\times Y))$.
-If $M = (B, N)$ is a marked $j$-ball and $c\in \cl{\cF(Y)}(\bd M)$ let
+If $M = (B, N)$ is a marked $j$-ball and $c\in \colimit{\cF(Y)}(\bd M)$ let
 $\cF(Y)(M)\deq A_\cF((B\times W) \cup (N\times Y); c)$.
 \end{example}
 
@@ -2394,24 +2394,24 @@ since this is the case that's relevant to the generalized Deligne conjecture of 
 So we treat this case in more detail.
 
 First we explain the remark about derived hom above.
-Let $L$ be a marked 1-ball and let $\cl{\cX}(L)$ denote the local homotopy colimit construction
+Let $L$ be a marked 1-ball and let $\colimit{\cX}(L)$ denote the local homotopy colimit construction
 associated to $L$ by $\cX$ and $\cC$.
 (See \S \ref{ss:ncat_fields} and \S \ref{moddecss}.)
-Define $\cl{\cY}(L)$ similarly.
-For $K$ an unmarked 1-ball let $\cl{\cC}(K)$ denote the local homotopy colimit
+Define $\colimit{\cY}(L)$ similarly.
+For $K$ an unmarked 1-ball let $\colimit{\cC}(K)$ denote the local homotopy colimit
 construction associated to $K$ by $\cC$.
 Then we have an injective gluing map
 \[
-	\gl: \cl{\cX}(L) \ot \cl{\cC}(K) \to \cl{\cX}(L\cup K) 
+	\gl: \colimit{\cX}(L) \ot \colimit{\cC}(K) \to \colimit{\cX}(L\cup K) 
 \]
 which is also a chain map.
 (For simplicity we are suppressing mention of boundary conditions on the unmarked 
 boundary components of the 1-balls.)
 We define $\hom_\cC(\cX \to \cY)$ to be a collection of (graded linear) natural transformations
-$g: \cl{\cX}(L)\to \cl{\cY}(L)$ such that the following diagram commutes for all $L$ and $K$:
+$g: \colimit{\cX}(L)\to \colimit{\cY}(L)$ such that the following diagram commutes for all $L$ and $K$:
 \[ \xymatrix{
-	\cl{\cX}(L) \ot \cl{\cC}(K) \ar[r]^{\gl} \ar[d]_{g\ot \id} & \cl{\cX}(L\cup K) \ar[d]^{g}\\
-	\cl{\cY}(L) \ot \cl{\cC}(K) \ar[r]^{\gl} & \cl{\cY}(L\cup K)
+	\colimit{\cX}(L) \ot \colimit{\cC}(K) \ar[r]^{\gl} \ar[d]_{g\ot \id} & \colimit{\cX}(L\cup K) \ar[d]^{g}\\
+	\colimit{\cY}(L) \ot \colimit{\cC}(K) \ar[r]^{\gl} & \colimit{\cY}(L\cup K)
 } \]
 
 The usual differential on graded linear maps between chain complexes induces a differential
@@ -2428,8 +2428,8 @@ by $\cX$ on one boundary component and $\cZ$ on the other.
 Because we are using the {\it local} homotopy colimit, any generator
 $D\ot x\ot \bar{c}\ot z$ of $\cX \ot_\cC \cZ$ can be written (perhaps non-uniquely) as a gluing
 $(D'\ot x \ot \bar{c}') \bullet (D''\ot \bar{c}''\ot z)$, for some decomposition $J = L'\cup L''$
-and with $D'\ot x \ot \bar{c}'$ a generator of $\cl{\cX}(L')$ and 
-$D''\ot \bar{c}''\ot z$ a generator of $\cl{\cZ}(L'')$.
+and with $D'\ot x \ot \bar{c}'$ a generator of $\colimit{\cX}(L')$ and 
+$D''\ot \bar{c}''\ot z$ a generator of $\colimit{\cZ}(L'')$.
 (Such a splitting exists because the blob diagram $D$ can be split into left and right halves, 
 since no blob can include both the leftmost and rightmost intervals in the underlying decomposition.
 This step would fail if we were using the usual hocolimit instead of the local hocolimit.)

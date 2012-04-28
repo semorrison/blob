@@ -1,4 +1,4 @@
-\documentclass[11pt,leqno]{article}
+\documentclass[11pt,leqno]{gtart}
 
 \newcommand{\pathtotrunk}{./}
 \input{preamble}
@@ -15,8 +15,6 @@
 \gdef\theequation{\thesection.\arabic{equation}}
 \makeatother
 
-\maketitle
-
 \begin{abstract}
 Given an $n$-manifold $M$ and an $n$-category $\cC$, we define a chain complex
 (the ``blob complex") $\bc_*(M; \cC)$.
@@ -27,6 +25,10 @@ generalization of Deligne's conjecture about the action of the little disks oper
 Along the way, we give a definition of a weak $n$-category with strong duality which
 is particularly well suited for work with TQFTs. This is the published version of \href{http://arxiv.org/abs/1009.5025}{arXiv:1009.5025}.
 \end{abstract}
+
+
+\maketitle
+
 
 \hypersetup{
     colorlinks, linkcolor={black},
@@ -71,8 +73,8 @@ is particularly well suited for work with TQFTs. This is the published version o
 %\input{text/comm_alg}
 
 % ----------------------------------------------------------------
-%\newcommand{\urlprefix}{}
-\bibliographystyle{alpha}
+\newcommand{\urlprefix}{}
+\bibliographystyle{gtart}
 \bibliography{bibliography/bibliography}
 % ----------------------------------------------------------------
 
